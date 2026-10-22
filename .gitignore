@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-*
+*.local
+.DS_Store
+
+.types/
+.cache/
+test-results/
+
+# local-only material: never commit
+.env.local
+sources/
+dist-demo/
+playwright-report/
+knowledge-local/
+*.tsbuildinfo

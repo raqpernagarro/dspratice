@@ -1,0 +1,58 @@
+/* Layout of the preview document itself (not the library). */
+.pv {
+  padding: 16px;
+}
+.pv--gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.pv__cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.pv__label {
+  font: 500 11px/1.4 'Equip', system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.pv__stage {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+}
+.pv__stage--block {
+  display: block;
+}
+.pv__error {
+  font: 12px/1.4 system-ui, sans-serif;
+  color: #b42318;
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+html[data-highlight] .pv__cell[data-entry] {
+  transition: opacity 240ms ease;
+}
+html[data-highlight] .pv__cell[data-entry]:not(.is-highlighted) {
+  opacity: 0.35;
+}
+.pv__cell.is-highlighted {
+  outline: 2px solid #46d6ac;
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+html[data-motion='paused'] * {
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+html[data-reduced-motion='1'] * {
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+}

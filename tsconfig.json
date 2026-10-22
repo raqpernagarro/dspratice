@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.lib-dsn.json" },
+    { "path": "./tsconfig.lib-starter.json" },
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

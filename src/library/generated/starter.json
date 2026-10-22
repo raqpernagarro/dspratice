@@ -1,0 +1,4556 @@
+[
+  {
+    "id": "starter:button",
+    "source": "starter",
+    "sourceName": "Button",
+    "sourceId": "button",
+    "importPath": "stories/base-ui/components/button/Button.tsx",
+    "exportName": "Button",
+    "barrelExport": true,
+    "category": "Button & Actions",
+    "tier": null,
+    "variants": {
+      "type": [
+        "primary",
+        "secondary",
+        "ghost",
+        "outline"
+      ],
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "pressed",
+        "disabled"
+      ],
+      "destructive": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [
+      {
+        "name": "variant",
+        "type": "'primary' | 'secondary' | 'ghost' | 'outline'",
+        "values": [
+          "primary",
+          "secondary",
+          "ghost",
+          "outline"
+        ],
+        "required": false
+      },
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      },
+      {
+        "name": "destructive",
+        "type": "'false' | 'true'",
+        "values": [
+          "false",
+          "true"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "hover",
+      "pressed"
+    ],
+    "a11y": "Renders a native <button>; Enter and Space activate it.\nKeep the label: an icon-only action should use Icon Button, which requires an accessible label.\nDisabled buttons are skipped by keyboard focus. Use focusableWhenDisabled for buttons that become disabled while focused (e.g. while submitting).",
+    "tokensUsed": [
+      "button/label/space-x/lg",
+      "button/label/space-x/md",
+      "button/label/space-x/sm",
+      "color/background/interactive/danger-subtle/default",
+      "color/background/interactive/danger-subtle/hover",
+      "color/background/interactive/danger-subtle/pressed",
+      "color/background/interactive/danger/default",
+      "color/background/interactive/danger/hover",
+      "color/background/interactive/danger/pressed",
+      "color/background/interactive/disabled",
+      "color/background/interactive/primary/default",
+      "color/background/interactive/primary/hover",
+      "color/background/interactive/primary/pressed",
+      "color/background/interactive/secondary/default",
+      "color/background/interactive/secondary/hover",
+      "color/background/interactive/secondary/pressed",
+      "color/background/interactive/subtle/default",
+      "color/background/interactive/subtle/hover",
+      "color/background/interactive/subtle/pressed",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/pressed",
+      "color/foreground/interactive/danger/default",
+      "color/foreground/interactive/danger/hover",
+      "color/foreground/interactive/danger/pressed",
+      "color/foreground/interactive/default",
+      "color/foreground/interactive/disabled",
+      "color/foreground/interactive/hover",
+      "color/foreground/interactive/pressed",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/tertiary",
+      "color/foreground/on-danger/primary",
+      "color/foreground/on-interactive/primary",
+      "colors/transparent",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/strong",
+      "shape/radius/sm",
+      "size/2xs",
+      "size/border/regular",
+      "size/lg",
+      "size/sm",
+      "size/xl",
+      "size/xs",
+      "space/2xl",
+      "space/2xs",
+      "space/md",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/button/button.spec.ts",
+    "storyPath": "stories/base-ui/Button.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use one Primary button per view for the main action.\nUse Secondary or Outline for alternatives next to it, Ghost for low-emphasis actions in toolbars and lists.\nUse Destructive (Primary or Ghost) only for actions that delete data or can’t be undone.",
+      "whenNotToUse": "Don’t use a button for navigation; use a link.\nDon’t put more than one Primary button side by side.",
+      "antiPatterns": [
+        "Don’t use a button for navigation; use a link.",
+        "Don’t put more than one Primary button side by side."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "221:2",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/button/button.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/button",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:icon-button",
+    "source": "starter",
+    "sourceName": "Icon Button",
+    "sourceId": "icon-button",
+    "importPath": "stories/base-ui/components/icon-button/IconButton.tsx",
+    "exportName": "IconButton",
+    "barrelExport": true,
+    "category": "Button & Actions",
+    "tier": null,
+    "variants": {
+      "type": [
+        "primary",
+        "secondary",
+        "ghost",
+        "outline"
+      ],
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "pressed",
+        "disabled"
+      ],
+      "destructive": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [
+      {
+        "name": "variant",
+        "type": "'primary' | 'secondary' | 'ghost' | 'outline'",
+        "values": [
+          "primary",
+          "secondary",
+          "ghost",
+          "outline"
+        ],
+        "required": false
+      },
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      },
+      {
+        "name": "destructive",
+        "type": "'false' | 'true'",
+        "values": [
+          "false",
+          "true"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "hover",
+      "pressed"
+    ],
+    "a11y": "`label` is required: it becomes the aria-label, the only name screen readers announce.",
+    "tokensUsed": [
+      "color/background/interactive/danger-subtle/default",
+      "color/background/interactive/danger-subtle/hover",
+      "color/background/interactive/danger-subtle/pressed",
+      "color/background/interactive/danger/default",
+      "color/background/interactive/danger/hover",
+      "color/background/interactive/danger/pressed",
+      "color/background/interactive/disabled",
+      "color/background/interactive/primary/default",
+      "color/background/interactive/primary/hover",
+      "color/background/interactive/primary/pressed",
+      "color/background/interactive/secondary/default",
+      "color/background/interactive/secondary/hover",
+      "color/background/interactive/secondary/pressed",
+      "color/background/interactive/subtle/default",
+      "color/background/interactive/subtle/hover",
+      "color/background/interactive/subtle/pressed",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/pressed",
+      "color/foreground/interactive/danger/default",
+      "color/foreground/interactive/danger/hover",
+      "color/foreground/interactive/danger/pressed",
+      "color/foreground/interactive/default",
+      "color/foreground/interactive/disabled",
+      "color/foreground/interactive/hover",
+      "color/foreground/interactive/pressed",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/tertiary",
+      "color/foreground/on-danger/primary",
+      "color/foreground/on-interactive/primary",
+      "colors/transparent",
+      "shape/radius/sm",
+      "size/2xs",
+      "size/border/regular",
+      "size/lg",
+      "size/sm",
+      "size/xl",
+      "size/xs",
+      "space/2xl"
+    ],
+    "specPath": "stories/base-ui/components/icon-button/icon-button.spec.ts",
+    "storyPath": "stories/base-ui/IconButton.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use for compact, well-known actions (close, more, add) in toolbars, headers and table rows.",
+      "whenNotToUse": "Don’t use an icon whose meaning isn’t obvious; use Button with a label instead.",
+      "antiPatterns": [
+        "Don’t use an icon whose meaning isn’t obvious; use Button with a label instead."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "261:1993",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/icon-button/icon-button.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/button",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:checkbox",
+    "source": "starter",
+    "sourceName": "Checkbox",
+    "sourceId": "checkbox",
+    "importPath": "stories/base-ui/components/checkbox/Checkbox.tsx",
+    "exportName": "Checkbox",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {
+      "checked": [
+        "unchecked",
+        "checked",
+        "indeterminate"
+      ],
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "pressed",
+        "disabled"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "checked",
+      "default",
+      "disabled",
+      "hover",
+      "indeterminate",
+      "pressed",
+      "unchecked"
+    ],
+    "a11y": "The wrapping <label> names the checkbox; without a visible label, pass aria-label.\nSpace toggles it. Base UI renders a hidden native input so forms and autofill work.\nIndeterminate is announced as “mixed”.",
+    "tokensUsed": [
+      "color/background/accent/default",
+      "color/background/accent/hover",
+      "color/background/accent/pressed",
+      "color/background/interactive/disabled",
+      "color/background/neutral/primary",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/pressed",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/tertiary",
+      "color/foreground/on-accent/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "shape/radius/sm",
+      "size/2xs",
+      "size/border/regular",
+      "size/sm",
+      "size/xs",
+      "space/md",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/checkbox/checkbox.spec.ts",
+    "storyPath": "stories/base-ui/Checkbox.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use for independent options, and for choosing several items from a list (with Checkbox Group).\nUse Indeterminate on a “select all” checkbox when only some of its items are selected.\nMatch the size to the controls next to it: Small with Small buttons and inputs, and so on.",
+      "whenNotToUse": "Don’t use a checkbox for an action that takes effect immediately; use a Switch.\nDon’t use it for mutually exclusive choices; use Radio Group.",
+      "antiPatterns": [
+        "Don’t use a checkbox for an action that takes effect immediately; use a Switch.",
+        "Don’t use it for mutually exclusive choices; use Radio Group."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2056:1742",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/checkbox/checkbox.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/checkbox",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:input",
+    "source": "starter",
+    "sourceName": "Input",
+    "sourceId": "input",
+    "importPath": "stories/base-ui/components/input/Input.tsx",
+    "exportName": "Input",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "focused",
+        "disabled"
+      ],
+      "filled": [
+        "false",
+        "true"
+      ],
+      "invalid": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "filled",
+      "focused",
+      "hover",
+      "invalid"
+    ],
+    "a11y": "Inside Field, the label, description and error are linked to the input automatically.\nThe icon is decorative (aria-hidden); the label must say what the field is for.\nInvalid sets aria-invalid; the error text is announced with the field.",
+    "tokensUsed": [
+      "color/background/interactive/disabled",
+      "color/background/neutral/primary",
+      "color/border/error",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/selected",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "effect/shadow/focus-ring/error",
+      "effect/shadow/focus-ring/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "shape/radius/md",
+      "size/2xs",
+      "size/border/regular",
+      "size/lg",
+      "size/sm",
+      "size/xl",
+      "size/xs",
+      "space/2xl",
+      "space/lg",
+      "space/md",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/input/input.spec.ts",
+    "storyPath": "stories/base-ui/Input.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Wrap it in Field whenever it has a visible label (almost always).\nUse the leading icon for what the field is for (search, email, amount); leave it out when it adds nothing.\nMatch the size to the buttons next to it; heights are the same as Button’s.\nUse the placeholder for an example value, never as the label.",
+      "whenNotToUse": "Don’t disable a field to show it’s read-only; use readOnly.\nDon’t make the icon the only clue to what the field is for.",
+      "antiPatterns": [
+        "Don’t disable a field to show it’s read-only; use readOnly.",
+        "Don’t make the icon the only clue to what the field is for."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2056:1470",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/input/input.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/input",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:field",
+    "source": "starter",
+    "sourceName": "Field",
+    "sourceId": "field",
+    "importPath": "stories/base-ui/components/field/Field.tsx",
+    "exportName": "Field",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "invalid": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [
+      "invalid"
+    ],
+    "a11y": "Field.Label, Field.Description and Field.Error are linked to the control (aria-labelledby / aria-describedby).\nErrors come from the browser’s constraint validation or the validate prop; invalid sets aria-invalid on the control.",
+    "tokensUsed": [
+      "color/foreground/error",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/field/field.spec.ts",
+    "storyPath": "stories/base-ui/Field.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Give every input a Field with a visible label.\nUse the description for format hints (“At least 8 characters”), the error for what went wrong and how to fix it. While invalid, the error replaces the description, so the field keeps its height.\nThe size applies to the label, the messages and the control inside.",
+      "whenNotToUse": "Don’t repeat the label in the placeholder.\nDon’t show an error before the person has had a chance to fill the field in.",
+      "antiPatterns": [
+        "Don’t repeat the label in the placeholder.",
+        "Don’t show an error before the person has had a chance to fill the field in."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6330",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/field/field.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/field",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:menu-item",
+    "source": "starter",
+    "sourceName": "Menu Item",
+    "sourceId": "menu-item",
+    "importPath": "stories/base-ui/components/menu/Menu.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Menus",
+    "tier": "part",
+    "variants": {
+      "type": [
+        "default",
+        "checkbox",
+        "radio",
+        "submenu"
+      ],
+      "state": [
+        "default",
+        "highlighted",
+        "disabled"
+      ],
+      "checked": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [
+      {
+        "name": "type",
+        "type": "'default' | 'checkbox' | 'radio' | 'submenu'",
+        "values": [
+          "default",
+          "checkbox",
+          "radio",
+          "submenu"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "checked",
+      "default",
+      "disabled",
+      "highlighted"
+    ],
+    "a11y": "Arrow keys move the highlight; Enter or Space activates; typing jumps to the matching label.\nCheckbox and radio items announce their checked state (menuitemcheckbox / menuitemradio).",
+    "tokensUsed": [
+      "color/background/interactive/subtle/default",
+      "color/background/interactive/subtle/hover",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/sm",
+      "size/xs",
+      "space/md",
+      "space/sm"
+    ],
+    "specPath": "stories/base-ui/components/menu/menu-item.spec.ts",
+    "storyPath": "stories/base-ui/Menu.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use Checkbox items for independent toggles, Radio items (in a Menu.RadioGroup) for one choice of several.\nUse a Submenu item to group related actions; keep nesting to one level.",
+      "whenNotToUse": "Don’t mix checkbox / radio items with plain actions without a separator or group label between them.",
+      "antiPatterns": [
+        "Don’t mix checkbox / radio items with plain actions without a separator or group label between them."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2056:1906",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/menu/menu-item.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/menu",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "Menu.Root"
+    ],
+    "parent": "starter:menu",
+    "notes": "sub-spec rendered via Menu.Item; stories in Menu.stories.tsx"
+  },
+  {
+    "id": "starter:menu-group-label",
+    "source": "starter",
+    "sourceName": "Menu Group Label",
+    "sourceId": "menu-group-label",
+    "importPath": "stories/base-ui/components/menu/Menu.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Menus",
+    "tier": "part",
+    "variants": {},
+    "props": [
+      {
+        "name": "children",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Labels its Menu.Group (aria-labelledby).",
+    "tokensUsed": [
+      "color/foreground/neutral/secondary",
+      "font/family/primary",
+      "font/line-height/caption/md",
+      "font/size/caption/md",
+      "font/weight/body/regular",
+      "space/md",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/menu/menu-group-label.spec.ts",
+    "storyPath": "stories/base-ui/Menu.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it inside a Menu.Group; one or two words.",
+      "whenNotToUse": "Don’t use it as a clickable item.",
+      "antiPatterns": [
+        "Don’t use it as a clickable item."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6217",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/menu/menu-group-label.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/menu",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "Menu.Root",
+      "Menu.Group"
+    ],
+    "parent": "starter:menu",
+    "notes": "sub-spec rendered via Menu.GroupLabel; stories in Menu.stories.tsx"
+  },
+  {
+    "id": "starter:menu-separator",
+    "source": "starter",
+    "sourceName": "Menu Separator",
+    "sourceId": "menu-separator",
+    "importPath": "stories/base-ui/components/menu/Menu.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Menus",
+    "tier": "part",
+    "variants": {},
+    "props": [],
+    "states": [],
+    "a11y": "Renders role=\"separator\"; screen readers skip it while moving through items.",
+    "tokensUsed": [
+      "color/border/neutral/subtle",
+      "size/border/regular",
+      "space/md",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/menu/menu-separator.spec.ts",
+    "storyPath": "stories/base-ui/Menu.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Put it between groups, not at the start or end of a menu.",
+      "whenNotToUse": "Don’t separate every item.",
+      "antiPatterns": [
+        "Don’t separate every item."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6221",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/menu/menu-separator.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/menu",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "Menu.Root"
+    ],
+    "parent": "starter:menu",
+    "notes": "sub-spec rendered via Menu.Separator; stories in Menu.stories.tsx"
+  },
+  {
+    "id": "starter:menu",
+    "source": "starter",
+    "sourceName": "Menu",
+    "sourceId": "menu",
+    "importPath": "stories/base-ui/components/menu/Menu.tsx",
+    "exportName": "Menu",
+    "barrelExport": true,
+    "category": "Menus",
+    "tier": null,
+    "variants": {},
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "The trigger opens it with Enter, Space or Arrow Down; Escape closes it and returns focus to the trigger.\nFocus is trapped while open; the popup is announced as a menu.",
+    "tokensUsed": [
+      "color/background/surface/medium",
+      "color/border/neutral/subtle",
+      "effect/shadow/elevation/medium",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/menu/menu.spec.ts",
+    "storyPath": "stories/base-ui/Menu.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Open it from a Button (Menu.Trigger renders one, with a caret).\nGroup related items under a group label; separate groups with a separator.\nKeep labels short and start them with a verb.",
+      "whenNotToUse": "Don’t use a menu for navigation between pages; use Navigation Menu.\nDon’t use it to pick a form value; use Select.",
+      "antiPatterns": [
+        "Don’t use a menu for navigation between pages; use Navigation Menu.",
+        "Don’t use it to pick a form value; use Select."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6224",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/menu/menu.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/menu",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:switch",
+    "source": "starter",
+    "sourceName": "Switch",
+    "sourceId": "switch",
+    "importPath": "stories/base-ui/components/switch/Switch.tsx",
+    "exportName": "Switch",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {
+      "checked": [
+        "false",
+        "true"
+      ],
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "pressed",
+        "disabled"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "checked",
+      "default",
+      "disabled",
+      "hover",
+      "pressed"
+    ],
+    "a11y": "Renders role=\"switch\" with aria-checked; Space toggles it.\nThe wrapping <label> names it; without visible text, pass aria-label.",
+    "tokensUsed": [
+      "color/background/accent/default",
+      "color/background/accent/hover",
+      "color/background/accent/pressed",
+      "color/background/interactive/disabled",
+      "color/background/neutral/primary",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/pressed",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/tertiary",
+      "color/foreground/on-accent/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "shape/radius/full",
+      "size/2xs",
+      "size/border/regular",
+      "size/lg",
+      "size/md",
+      "size/xl",
+      "size/xs",
+      "space/2xs",
+      "space/md",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/switch/switch.spec.ts",
+    "storyPath": "stories/base-ui/Switch.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use for settings that apply right away (notifications, dark mode).\nLabel the setting, not the action: “Notifications”, not “Turn on notifications”.",
+      "whenNotToUse": "Don’t use a switch in a form that needs a submit; use a Checkbox.",
+      "antiPatterns": [
+        "Don’t use a switch in a form that needs a submit; use a Checkbox."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2056:2156",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/switch/switch.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/switch",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:radio",
+    "source": "starter",
+    "sourceName": "Radio",
+    "sourceId": "radio",
+    "importPath": "stories/base-ui/components/radio/Radio.tsx",
+    "exportName": "Radio",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": "part",
+    "variants": {
+      "checked": [
+        "false",
+        "true"
+      ],
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "pressed",
+        "disabled"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "checked",
+      "default",
+      "disabled",
+      "hover",
+      "pressed"
+    ],
+    "a11y": "Arrow keys move between options in the group and select them.\nThe wrapping <label> names each option.",
+    "tokensUsed": [
+      "color/background/accent/default",
+      "color/background/accent/hover",
+      "color/background/accent/pressed",
+      "color/background/interactive/disabled",
+      "color/background/neutral/primary",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/pressed",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/tertiary",
+      "color/foreground/on-accent/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "shape/radius/full",
+      "size/2xs",
+      "size/border/regular",
+      "size/sm",
+      "size/xs",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/radio/radio.spec.ts",
+    "storyPath": "stories/base-ui/RadioGroup.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Always use radios inside a Radio Group.\nUse for 2–6 visible options; for more, use Select.",
+      "whenNotToUse": "Don’t use a single radio on its own; use a Checkbox.",
+      "antiPatterns": [
+        "Don’t use a single radio on its own; use a Checkbox."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2056:2255",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/radio/radio.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/radio",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [
+      "RadioGroup"
+    ],
+    "parent": "starter:radio-group",
+    "notes": "sub-spec rendered via Radio inside RadioGroup (story lives in RadioGroup.stories.tsx); stories in RadioGroup.stories.tsx"
+  },
+  {
+    "id": "starter:radio-group",
+    "source": "starter",
+    "sourceName": "Radio Group",
+    "sourceId": "radio-group",
+    "importPath": "stories/base-ui/components/radio-group/RadioGroup.tsx",
+    "exportName": "RadioGroup",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Tab moves into the group to the selected option; arrows move between options.",
+    "tokensUsed": [
+      "color/foreground/neutral/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/strong",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/radio-group/radio-group.spec.ts",
+    "storyPath": "stories/base-ui/RadioGroup.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Give the group a visible label.\nOrder options logically (most common first, or a natural order).\nPreselect a sensible default when there is one.",
+      "whenNotToUse": "Don’t use radios for on / off; use a Switch or Checkbox.",
+      "antiPatterns": [
+        "Don’t use radios for on / off; use a Switch or Checkbox."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6503",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/radio-group/radio-group.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/radio-group",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:checkbox-group",
+    "source": "starter",
+    "sourceName": "Checkbox Group",
+    "sourceId": "checkbox-group",
+    "importPath": "stories/base-ui/components/checkbox-group/CheckboxGroup.tsx",
+    "exportName": "CheckboxGroup",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Each checkbox stays its own tab stop; Space toggles it.",
+    "tokensUsed": [
+      "color/foreground/neutral/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/strong",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/checkbox-group/checkbox-group.spec.ts",
+    "storyPath": "stories/base-ui/CheckboxGroup.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Give the group a visible label.\nUse a parent checkbox (indeterminate while partly selected) for “select all”.",
+      "whenNotToUse": "Don’t use for a single choice; use a Radio Group.",
+      "antiPatterns": [
+        "Don’t use for a single choice; use a Radio Group."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6558",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/checkbox-group/checkbox-group.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/checkbox-group",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:toggle",
+    "source": "starter",
+    "sourceName": "Toggle",
+    "sourceId": "toggle",
+    "importPath": "stories/base-ui/components/toggle/Toggle.tsx",
+    "exportName": "Toggle",
+    "barrelExport": true,
+    "category": "Button & Actions",
+    "tier": null,
+    "variants": {
+      "selected": [
+        "false",
+        "true"
+      ],
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "pressed",
+        "disabled"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "hover",
+      "pressed",
+      "selected"
+    ],
+    "a11y": "Renders a button with aria-pressed.\nIcon-only toggles need an aria-label that names the action (“Favorite”).",
+    "tokensUsed": [
+      "color/background/interactive/subtle/default",
+      "color/background/interactive/subtle/hover",
+      "color/background/interactive/subtle/pressed",
+      "color/background/interactive/subtle/selected",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "shape/radius/sm",
+      "size/2xs",
+      "size/lg",
+      "size/sm",
+      "size/xl",
+      "size/xs",
+      "space/2xl"
+    ],
+    "specPath": "stories/base-ui/components/toggle/toggle.spec.ts",
+    "storyPath": "stories/base-ui/Toggle.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use for a single on / off action with an icon (favorite, bold, mute).\nGroup related toggles in a Toggle Group.",
+      "whenNotToUse": "Don’t use for settings that apply immediately and aren’t actions; use a Switch.",
+      "antiPatterns": [
+        "Don’t use for settings that apply immediately and aren’t actions; use a Switch."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2056:4303",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/toggle/toggle.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/toggle",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:toggle-group",
+    "source": "starter",
+    "sourceName": "Toggle Group",
+    "sourceId": "toggle-group",
+    "importPath": "stories/base-ui/components/toggle-group/ToggleGroup.tsx",
+    "exportName": "ToggleGroup",
+    "barrelExport": true,
+    "category": "Button & Actions",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Arrow keys move between toggles; each announces its pressed state.\nGive every icon toggle an aria-label.",
+    "tokensUsed": [
+      "color/background/neutral/primary",
+      "color/border/neutral/subtle",
+      "shape/radius/md",
+      "size/border/regular",
+      "space/2xs"
+    ],
+    "specPath": "stories/base-ui/components/toggle-group/toggle-group.spec.ts",
+    "storyPath": "stories/base-ui/ToggleGroup.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use for 2–5 related options shown as icons.\nPick single (one on at a time, like alignment) or multiple (like bold / italic).",
+      "whenNotToUse": "Don’t mix unrelated actions in one group; use a Toolbar.",
+      "antiPatterns": [
+        "Don’t mix unrelated actions in one group; use a Toolbar."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6607",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/toggle-group/toggle-group.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/toggle-group",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:number-field",
+    "source": "starter",
+    "sourceName": "Number Field",
+    "sourceId": "number-field",
+    "importPath": "stories/base-ui/components/number-field/NumberField.tsx",
+    "exportName": "NumberField",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "focused",
+        "disabled"
+      ],
+      "invalid": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "focused",
+      "hover",
+      "invalid"
+    ],
+    "a11y": "Arrow Up / Down step; Page Up / Down step by 10× (largeStep); Home / End jump to min / max.\nThe − / + buttons have their own labels.",
+    "tokensUsed": [
+      "color/background/interactive/disabled",
+      "color/background/interactive/subtle/default",
+      "color/background/interactive/subtle/hover",
+      "color/background/interactive/subtle/pressed",
+      "color/background/neutral/primary",
+      "color/border/error",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/selected",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "effect/shadow/focus-ring/error",
+      "effect/shadow/focus-ring/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "shape/radius/md",
+      "size/2xs",
+      "size/border/regular",
+      "size/lg",
+      "size/sm",
+      "size/xl",
+      "size/xs",
+      "space/2xl"
+    ],
+    "specPath": "stories/base-ui/components/number-field/number-field.spec.ts",
+    "storyPath": "stories/base-ui/NumberField.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use for small adjustments (quantity, count); type for big jumps.\nSet min, max and step; wrap in Field for a label.",
+      "whenNotToUse": "Don’t use for numbers that aren’t quantities (phone, card, postal code); use Input.",
+      "antiPatterns": [
+        "Don’t use for numbers that aren’t quantities (phone, card, postal code); use Input."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2056:4522",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/number-field/number-field.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/number-field",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:otp-slot",
+    "source": "starter",
+    "sourceName": "OTP Slot",
+    "sourceId": "otp-slot",
+    "importPath": "stories/base-ui/components/otp-field/OtpField.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Form Controls",
+    "tier": "part",
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "focused",
+        "disabled"
+      ],
+      "filled": [
+        "false",
+        "true"
+      ],
+      "invalid": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "filled",
+      "focused",
+      "hover",
+      "invalid"
+    ],
+    "a11y": "",
+    "tokensUsed": [
+      "color/background/interactive/disabled",
+      "color/background/neutral/primary",
+      "color/border/error",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/selected",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "effect/shadow/focus-ring/error",
+      "effect/shadow/focus-ring/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/heading/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/heading/sm",
+      "font/weight/body/regular",
+      "font/weight/heading/regular",
+      "shape/radius/md",
+      "size/border/regular",
+      "size/lg",
+      "size/xl",
+      "space/2xl"
+    ],
+    "specPath": "stories/base-ui/components/otp-field/otp-slot.spec.ts",
+    "storyPath": "stories/base-ui/OtpField.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Only used inside OTP Field."
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2056:4021",
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/otp-field",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "OtpField"
+    ],
+    "parent": "starter:otp-field",
+    "notes": "sub-spec rendered via OtpField (one slot per character); stories in OtpField.stories.tsx"
+  },
+  {
+    "id": "starter:otp-field",
+    "source": "starter",
+    "sourceName": "OTP Field",
+    "sourceId": "otp-field",
+    "importPath": "stories/base-ui/components/otp-field/OtpField.tsx",
+    "exportName": "OtpField",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "The first slot takes the label; the others announce “Character n of length”.\nPasting a whole code fills every slot; autocomplete=\"one-time-code\" lets phones suggest the SMS code.",
+    "tokensUsed": [
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/otp-field/otp-field.spec.ts",
+    "storyPath": "stories/base-ui/OtpField.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use for verification codes (usually 4–8 digits).\nWrap in Field for the label and description (“Sent to …”).",
+      "whenNotToUse": "Don’t use for passwords or anything longer than a code.",
+      "antiPatterns": [
+        "Don’t use for passwords or anything longer than a code."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2056:4062",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/otp-field/otp-field.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/otp-field",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:slider",
+    "source": "starter",
+    "sourceName": "Slider",
+    "sourceId": "slider",
+    "importPath": "stories/base-ui/components/slider/Slider.tsx",
+    "exportName": "Slider",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "focused",
+        "disabled"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "focused",
+      "hover"
+    ],
+    "a11y": "Each thumb is a focusable input with role slider; arrows step, Page Up / Down step 10×, Home / End jump.\nLabel each thumb (aria-label or getAriaLabel), e.g. “Minimum price”.",
+    "tokensUsed": [
+      "color/background/accent/default",
+      "color/background/accent/hover",
+      "color/background/neutral/primary",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/selected",
+      "color/border/neutral/subtle",
+      "effect/shadow/focus-ring/primary",
+      "shape/radius/full",
+      "size/border/regular",
+      "size/sm",
+      "size/xs",
+      "space/2xs",
+      "space/md",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/slider/slider.spec.ts",
+    "storyPath": "stories/base-ui/Slider.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use when the exact value matters less than its position (volume, price range).\nPass an array value for a range: one thumb per value.\nShow the value next to it when users need the number.",
+      "whenNotToUse": "Don’t use for precise numbers; use Number Field (or both together).",
+      "antiPatterns": [
+        "Don’t use for precise numbers; use Number Field (or both together)."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2056:4113",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/slider/slider.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/slider",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:fieldset",
+    "source": "starter",
+    "sourceName": "Fieldset",
+    "sourceId": "fieldset",
+    "importPath": "stories/base-ui/components/fieldset/Fieldset.tsx",
+    "exportName": "Fieldset",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "legend",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Renders a <fieldset> with a <legend>, announced with each field inside.",
+    "tokensUsed": [
+      "color/foreground/neutral/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/heading/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/heading/sm",
+      "font/weight/body/strong",
+      "font/weight/heading/strong",
+      "space/lg",
+      "space/md",
+      "space/sm"
+    ],
+    "specPath": "stories/base-ui/components/fieldset/fieldset.spec.ts",
+    "storyPath": "stories/base-ui/Fieldset.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use to split a long form into named sections.\nThe size applies to the legend and to the fields inside.",
+      "whenNotToUse": "Don’t nest fieldsets more than one level.",
+      "antiPatterns": [
+        "Don’t nest fieldsets more than one level."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6412",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/fieldset/fieldset.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/fieldset",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:form",
+    "source": "starter",
+    "sourceName": "Form",
+    "sourceId": "form",
+    "importPath": "stories/base-ui/components/form/Form.tsx",
+    "exportName": "Form",
+    "barrelExport": true,
+    "category": "Form Controls",
+    "tier": null,
+    "variants": {},
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "On a failed submit, focus moves to the first invalid field.",
+    "tokensUsed": [
+      "space/lg",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/form/form.spec.ts",
+    "storyPath": "stories/base-ui/Form.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use Form around Fields; pass errors from the server with the errors prop.\nPut the primary action first in the actions row.",
+      "whenNotToUse": "Don’t disable the submit button to show a form is incomplete; let validation explain what’s missing.",
+      "antiPatterns": [
+        "Don’t disable the submit button to show a form is incomplete; let validation explain what’s missing."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6413",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/form/form.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/form",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:popover",
+    "source": "starter",
+    "sourceName": "Popover",
+    "sourceId": "popover",
+    "importPath": "stories/base-ui/components/popover/Popover.tsx",
+    "exportName": "Popover",
+    "barrelExport": true,
+    "category": "Overlays",
+    "tier": null,
+    "variants": {
+      "side": [
+        "bottom",
+        "top",
+        "left",
+        "right"
+      ]
+    },
+    "props": [
+      {
+        "name": "arrow",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [
+      "bottom",
+      "left",
+      "right",
+      "top"
+    ],
+    "a11y": "Focus moves into the popover when it opens and back to the trigger when it closes.\nThe title and description label and describe the popup.",
+    "tokensUsed": [
+      "color/background/surface/medium",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "effect/shadow/elevation/medium",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/md",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/popover/popover.spec.ts",
+    "storyPath": "stories/base-ui/Popover.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Open it from a Button; it stays until the user clicks outside, presses Escape or uses a close control.\nGive it a title, so it’s announced with a name.\nKeep it small: a few lines of text, or a short form.",
+      "whenNotToUse": "Don’t use it for hints on hover; use Tooltip.\nDon’t put a long flow in it; use Dialog.",
+      "antiPatterns": [
+        "Don’t use it for hints on hover; use Tooltip.",
+        "Don’t put a long flow in it; use Dialog."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6642",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/popover/popover.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/popover",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:tooltip",
+    "source": "starter",
+    "sourceName": "Tooltip",
+    "sourceId": "tooltip",
+    "importPath": "stories/base-ui/components/tooltip/Tooltip.tsx",
+    "exportName": "Tooltip",
+    "barrelExport": true,
+    "category": "Overlays",
+    "tier": null,
+    "variants": {
+      "side": [
+        "bottom",
+        "top",
+        "left",
+        "right"
+      ]
+    },
+    "props": [
+      {
+        "name": "arrow",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "states": [
+      "bottom",
+      "left",
+      "right",
+      "top"
+    ],
+    "a11y": "Shows on keyboard focus as well as hover; Escape hides it.\nThe trigger still needs its own accessible name (aria-label); the tooltip repeats it visually.",
+    "tokensUsed": [
+      "color/background/surface/medium",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "effect/shadow/elevation/medium",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/tooltip/tooltip.spec.ts",
+    "storyPath": "stories/base-ui/Tooltip.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Name icon-only controls (Bold, Share) and show their keyboard shortcut.\nKeep it to a few words, with no interactive content.\nWrap a group of triggers in Tooltip.Provider so moving between them shows the next tooltip at once.",
+      "whenNotToUse": "Don’t put essential information only in a tooltip; touch users can’t hover.\nDon’t put links or buttons in it; use Popover.",
+      "antiPatterns": [
+        "Don’t put essential information only in a tooltip; touch users can’t hover.",
+        "Don’t put links or buttons in it; use Popover."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6659",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/tooltip/tooltip.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/tooltip",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:preview-card",
+    "source": "starter",
+    "sourceName": "Preview Card",
+    "sourceId": "preview-card",
+    "importPath": "stories/base-ui/components/preview-card/PreviewCard.tsx",
+    "exportName": "PreviewCard",
+    "barrelExport": true,
+    "category": "Overlays",
+    "tier": null,
+    "variants": {
+      "side": [
+        "bottom",
+        "top",
+        "left",
+        "right"
+      ]
+    },
+    "props": [
+      {
+        "name": "arrow",
+        "type": "boolean",
+        "required": false
+      }
+    ],
+    "states": [
+      "bottom",
+      "left",
+      "right",
+      "top"
+    ],
+    "a11y": "It’s a visual extra: the link must make sense without it.\nOpens on keyboard focus too, after a short delay.",
+    "tokensUsed": [
+      "color/background/neutral/tertiary",
+      "color/background/surface/medium",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "effect/shadow/elevation/medium",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/lg",
+      "shape/radius/md",
+      "size/border/regular",
+      "space/sm"
+    ],
+    "specPath": "stories/base-ui/components/preview-card/preview-card.spec.ts",
+    "storyPath": "stories/base-ui/PreviewCard.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it on links to people, documents or pages where a glance saves a click.\nKeep it read-only: a picture, a title and a short summary.",
+      "whenNotToUse": "Don’t put actions in it; it closes when the pointer leaves.\nDon’t use it on buttons; use Tooltip or Popover.",
+      "antiPatterns": [
+        "Don’t put actions in it; it closes when the pointer leaves.",
+        "Don’t use it on buttons; use Tooltip or Popover."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6684",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/preview-card/preview-card.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/preview-card",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:option",
+    "source": "starter",
+    "sourceName": "Option",
+    "sourceId": "option",
+    "importPath": "stories/base-ui/components/listbox/Listbox.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Selection",
+    "tier": "part",
+    "variants": {
+      "state": [
+        "default",
+        "highlighted",
+        "disabled"
+      ],
+      "selected": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [],
+    "states": [
+      "default",
+      "disabled",
+      "highlighted",
+      "selected"
+    ],
+    "a11y": "Arrow keys move the highlight; Enter selects; typing jumps to a matching label.\nSelected options are announced (aria-selected); disabled ones are skipped by the highlight.",
+    "tokensUsed": [
+      "color/background/interactive/subtle/default",
+      "color/background/interactive/subtle/hover",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/sm",
+      "size/xs",
+      "space/md",
+      "space/sm"
+    ],
+    "specPath": "stories/base-ui/components/listbox/option.spec.ts",
+    "storyPath": "stories/base-ui/Select.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Keep labels short and distinct; they are what typeahead matches.\nHide the indicator where nothing stays selected (Autocomplete only fills the input).",
+      "whenNotToUse": "Don’t put interactive content (buttons, links) in an option.",
+      "antiPatterns": [
+        "Don’t put interactive content (buttons, links) in an option."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2057:4750",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/listbox/option.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "Select.Root"
+    ],
+    "parent": "starter:listbox",
+    "notes": "sub-spec rendered via Select.Item / Combobox.Item / Autocomplete.Item; stories in Select.stories.tsx"
+  },
+  {
+    "id": "starter:listbox",
+    "source": "starter",
+    "sourceName": "Listbox",
+    "sourceId": "listbox",
+    "importPath": "stories/base-ui/components/listbox/Listbox.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Selection",
+    "tier": "part",
+    "variants": {},
+    "props": [],
+    "states": [],
+    "a11y": "Renders role=\"listbox\"; the input or trigger keeps focus and points at the highlighted option (aria-activedescendant).",
+    "tokensUsed": [
+      "color/background/surface/medium",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/secondary",
+      "effect/shadow/elevation/medium",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/md",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/listbox/listbox.spec.ts",
+    "storyPath": "stories/base-ui/Select.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "It takes at least its trigger’s width; long lists scroll inside it.\nGroup long lists with group labels, like Menu.\nSay why a search matched nothing in the empty state (“No fruits found”).",
+      "whenNotToUse": "Don’t use it for actions; use Menu.",
+      "antiPatterns": [
+        "Don’t use it for actions; use Menu."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6685",
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "Select.Root"
+    ],
+    "parent": "starter:select",
+    "notes": "sub-spec rendered via Select.Popup / Combobox.Popup / Autocomplete.Popup (shared ds-listbox popup); stories in Select.stories.tsx"
+  },
+  {
+    "id": "starter:select",
+    "source": "starter",
+    "sourceName": "Select",
+    "sourceId": "select",
+    "importPath": "stories/base-ui/components/select/Select.tsx",
+    "exportName": "Select",
+    "barrelExport": true,
+    "category": "Selection",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "focused",
+        "disabled"
+      ],
+      "filled": [
+        "false",
+        "true"
+      ],
+      "invalid": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "filled",
+      "focused",
+      "hover",
+      "invalid"
+    ],
+    "a11y": "The trigger opens the list with Enter, Space or the arrow keys; typing jumps to a matching option.\nThe list opens aligned with the selected option over the trigger (macOS-style) unless turned off.\nInside Field, the label and error are linked to the trigger.",
+    "tokensUsed": [
+      "color/background/interactive/disabled",
+      "color/background/neutral/primary",
+      "color/border/error",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/selected",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "effect/shadow/focus-ring/error",
+      "effect/shadow/focus-ring/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "shape/radius/md",
+      "size/2xs",
+      "size/border/regular",
+      "size/lg",
+      "size/sm",
+      "size/xl",
+      "size/xs",
+      "space/2xl",
+      "space/lg",
+      "space/md",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/select/select.spec.ts",
+    "storyPath": "stories/base-ui/Select.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it for 5–15 options the user doesn’t need to type; for fewer, a Radio Group shows them all; for more, a Combobox lets them search.\nWrap it in Field for a label, description and error; sizes match Input and Button.\nUse a placeholder that says what to pick (“Select a country”).",
+      "whenNotToUse": "Don’t use it for actions; use Menu.\nDon’t use it when users need to compare options; use Radio Group.",
+      "antiPatterns": [
+        "Don’t use it for actions; use Menu.",
+        "Don’t use it when users need to compare options; use Radio Group."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2057:5008",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/select/select.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/select",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:combobox",
+    "source": "starter",
+    "sourceName": "Combobox",
+    "sourceId": "combobox",
+    "importPath": "stories/base-ui/components/combobox/Combobox.tsx",
+    "exportName": "Combobox",
+    "barrelExport": true,
+    "category": "Selection",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "focused",
+        "disabled"
+      ],
+      "filled": [
+        "false",
+        "true"
+      ],
+      "invalid": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "filled",
+      "focused",
+      "hover",
+      "invalid"
+    ],
+    "a11y": "Typing filters; arrow keys move through the matches; Enter picks; Escape closes, then clears.\nThe input keeps focus and points at the highlighted option (aria-activedescendant).\nThe clear and trigger buttons need aria-labels (“Clear selection”, “Open list”).",
+    "tokensUsed": [
+      "color/background/interactive/disabled",
+      "color/background/neutral/primary",
+      "color/border/error",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/border/interactive/hover",
+      "color/border/interactive/selected",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "effect/shadow/focus-ring/error",
+      "effect/shadow/focus-ring/primary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "shape/radius/md",
+      "size/2xs",
+      "size/border/regular",
+      "size/lg",
+      "size/sm",
+      "size/xl",
+      "size/xs",
+      "space/2xl",
+      "space/lg",
+      "space/md",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/combobox/combobox.spec.ts",
+    "storyPath": "stories/base-ui/Combobox.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it for long lists (countries, people, tags) where typing is faster than scrolling.\nOnly values from the list are accepted; for free text with suggestions, use Autocomplete.\nWrap it in Field; sizes match Input and Button.",
+      "whenNotToUse": "Don’t use it for a handful of options; use Select or Radio Group.",
+      "antiPatterns": [
+        "Don’t use it for a handful of options; use Select or Radio Group."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2057:5305",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/combobox/combobox.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/combobox",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:autocomplete",
+    "source": "starter",
+    "sourceName": "Autocomplete",
+    "sourceId": "autocomplete",
+    "importPath": "stories/base-ui/components/autocomplete/Autocomplete.tsx",
+    "exportName": "Autocomplete",
+    "barrelExport": false,
+    "category": "Selection",
+    "tier": null,
+    "variants": {},
+    "props": [],
+    "states": [],
+    "a11y": "Arrow keys move through the suggestions; Enter fills the input; Escape closes the list.\nThe input keeps focus and points at the highlighted suggestion (aria-activedescendant).",
+    "tokensUsed": [
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/autocomplete/autocomplete.spec.ts",
+    "storyPath": "stories/base-ui/Autocomplete.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it for search boxes and free-text fields with common values (tags, cities).\nWhen only listed values are valid, use Combobox instead.\nWrap it in Field for a label; it takes the Field’s size like Input.",
+      "whenNotToUse": "Don’t show a check on suggestions: nothing stays selected, the text is the value.",
+      "antiPatterns": [
+        "Don’t show a check on suggestions: nothing stays selected, the text is the value."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6709",
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/autocomplete",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:menubar-item",
+    "source": "starter",
+    "sourceName": "Menubar Item",
+    "sourceId": "menubar-item",
+    "importPath": "stories/base-ui/components/menubar/Menubar.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Menus",
+    "tier": "part",
+    "variants": {
+      "state": [
+        "default",
+        "hover",
+        "open",
+        "disabled"
+      ]
+    },
+    "props": [],
+    "states": [
+      "default",
+      "disabled",
+      "hover",
+      "open"
+    ],
+    "a11y": "Left/Right move between items; Down or Enter opens the menu.",
+    "tokensUsed": [
+      "color/background/interactive/subtle/default",
+      "color/background/interactive/subtle/hover",
+      "color/background/interactive/subtle/selected",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/sm",
+      "size/md",
+      "space/md"
+    ],
+    "specPath": "stories/base-ui/components/menubar/menubar-item.spec.ts",
+    "storyPath": "stories/base-ui/Menubar.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Label it with a noun for what its menu holds (File, Edit, View).",
+      "whenNotToUse": "Don’t make an item act on its own; every item opens a menu.",
+      "antiPatterns": [
+        "Don’t make an item act on its own; every item opens a menu."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2057:5316",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/menubar/menubar-item.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/menu",
+      "@base-ui/react/menubar",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "Menubar.Root"
+    ],
+    "parent": "starter:menubar",
+    "notes": "sub-spec rendered via Menubar.Trigger; stories in Menubar.stories.tsx"
+  },
+  {
+    "id": "starter:menubar",
+    "source": "starter",
+    "sourceName": "Menubar",
+    "sourceId": "menubar",
+    "importPath": "stories/base-ui/components/menubar/Menubar.tsx",
+    "exportName": "Menubar",
+    "barrelExport": true,
+    "category": "Menus",
+    "tier": null,
+    "variants": {},
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Renders role=\"menubar\": one tab stop; arrow keys move between items.\nOnce a menu is open, moving to the next item opens its menu.",
+    "tokensUsed": [
+      "color/background/neutral/secondary",
+      "color/border/neutral/subtle",
+      "shape/radius/md",
+      "size/border/regular",
+      "space/2xs"
+    ],
+    "specPath": "stories/base-ui/components/menubar/menubar.spec.ts",
+    "storyPath": "stories/base-ui/Menubar.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it in tool-like apps (editors) with many commands grouped by topic.\nThe menus are ordinary Menus: items, checkbox and radio items, submenus.",
+      "whenNotToUse": "Don’t use it for site navigation; use Navigation Menu.",
+      "antiPatterns": [
+        "Don’t use it for site navigation; use Navigation Menu."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6608",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/menubar/menubar.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/menu",
+      "@base-ui/react/menubar",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:navigation-menu-item",
+    "source": "starter",
+    "sourceName": "Navigation Menu Item",
+    "sourceId": "navigation-menu-item",
+    "importPath": "stories/base-ui/components/navigation-menu/NavigationMenu.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Navigation",
+    "tier": "part",
+    "variants": {
+      "type": [
+        "link",
+        "trigger"
+      ],
+      "state": [
+        "default",
+        "hover"
+      ],
+      "active": [
+        "false",
+        "true"
+      ]
+    },
+    "props": [
+      {
+        "name": "type",
+        "type": "'link' | 'trigger'",
+        "values": [
+          "link",
+          "trigger"
+        ],
+        "required": false
+      }
+    ],
+    "states": [
+      "active",
+      "default",
+      "hover"
+    ],
+    "a11y": "The active link gets aria-current=\"page\".\nTriggers open their panel on hover, Enter or Space; Escape closes it and returns focus.",
+    "tokensUsed": [
+      "color/background/interactive/subtle/default",
+      "color/background/interactive/subtle/hover",
+      "color/background/interactive/subtle/selected",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/md",
+      "size/2xs",
+      "size/lg",
+      "size/xs",
+      "space/md",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/navigation-menu/navigation-menu-item.spec.ts",
+    "storyPath": "stories/base-ui/NavigationMenu.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Mark the current page’s link active: its icon fills and it gets the selected background.\nUse a trigger for a section with several pages; its panel lists them with a line of description each.",
+      "whenNotToUse": "Don’t put actions (Log out, Share) in navigation; use Menu.",
+      "antiPatterns": [
+        "Don’t put actions (Log out, Share) in navigation; use Menu."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2057:5425",
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/navigation-menu",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "NavigationMenu.Root"
+    ],
+    "parent": "starter:navigation-menu",
+    "notes": "sub-spec rendered via NavigationMenu.Item; stories in NavigationMenu.stories.tsx"
+  },
+  {
+    "id": "starter:navigation-menu-link",
+    "source": "starter",
+    "sourceName": "Navigation Menu Link",
+    "sourceId": "navigation-menu-link",
+    "importPath": "stories/base-ui/components/navigation-menu/NavigationMenu.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Navigation",
+    "tier": "part",
+    "variants": {
+      "state": [
+        "default",
+        "hover"
+      ]
+    },
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "description",
+        "type": "boolean",
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "hover"
+    ],
+    "a11y": "A real link (render your router’s Link); the title is its accessible name, the description is read after it.",
+    "tokensUsed": [
+      "color/background/interactive/subtle/default",
+      "color/background/interactive/subtle/hover",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/md",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/navigation-menu/navigation-menu-link.spec.ts",
+    "storyPath": "stories/base-ui/NavigationMenu.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Title the page; describe it in one line.",
+      "whenNotToUse": "Don’t put buttons in it; the whole card is the link.",
+      "antiPatterns": [
+        "Don’t put buttons in it; the whole card is the link."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6755",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/navigation-menu/navigation-menu-link.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/navigation-menu",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "NavigationMenu.Root"
+    ],
+    "parent": "starter:navigation-menu",
+    "notes": "sub-spec rendered via NavigationMenu.Link; stories in NavigationMenu.stories.tsx"
+  },
+  {
+    "id": "starter:navigation-menu",
+    "source": "starter",
+    "sourceName": "Navigation Menu",
+    "sourceId": "navigation-menu",
+    "importPath": "stories/base-ui/components/navigation-menu/NavigationMenu.tsx",
+    "exportName": "NavigationMenu",
+    "barrelExport": true,
+    "category": "Navigation",
+    "tier": null,
+    "variants": {},
+    "props": [],
+    "states": [],
+    "a11y": "Renders a <nav> with a list; links are real links (render your router’s Link).\nPanels open on hover and on Enter / Space; arrow keys move between items.",
+    "tokensUsed": [
+      "color/background/surface/medium",
+      "color/border/neutral/subtle",
+      "effect/shadow/elevation/medium",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/2xs",
+      "space/sm"
+    ],
+    "specPath": "stories/base-ui/components/navigation-menu/navigation-menu.spec.ts",
+    "storyPath": "stories/base-ui/NavigationMenu.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it for a site’s or app’s main sections; mark the current page’s link active.\nIn a panel, give each link a title and one line of description.\nKeep the bar short (up to ~6 items); the panel is where depth goes.",
+      "whenNotToUse": "Don’t use it for commands; use Menu or Menubar.",
+      "antiPatterns": [
+        "Don’t use it for commands; use Menu or Menubar."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6757",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/navigation-menu/navigation-menu.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/navigation-menu",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:dialog",
+    "source": "starter",
+    "sourceName": "Dialog",
+    "sourceId": "dialog",
+    "importPath": "stories/base-ui/components/dialog/Dialog.tsx",
+    "exportName": "Dialog",
+    "barrelExport": true,
+    "category": "Overlays",
+    "tier": null,
+    "variants": {},
+    "props": [
+      {
+        "name": "showClose",
+        "type": "boolean",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Focus moves into the dialog and is trapped there; it returns to the trigger on close.\nThe title and description label and describe it (role=\"dialog\", aria-modal).",
+    "tokensUsed": [
+      "color/background/overlay/regular",
+      "color/background/surface/high",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "effect/shadow/elevation/high",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/lg",
+      "space/md",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/dialog/dialog.spec.ts",
+    "storyPath": "stories/base-ui/Dialog.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Give it a title that says what the task is; put the primary action last in the actions row.\nClose it with a Close button, Escape or a click on the backdrop.\nFor a confirmation the user must answer, use Alert Dialog.",
+      "whenNotToUse": "Don’t open a dialog from a dialog.\nDon’t use it for information the user may want to keep looking at while working; use Popover or a page.",
+      "antiPatterns": [
+        "Don’t open a dialog from a dialog.",
+        "Don’t use it for information the user may want to keep looking at while working; use Popover or a page."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6798",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/dialog/dialog.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/dialog",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:alert-dialog",
+    "source": "starter",
+    "sourceName": "Alert Dialog",
+    "sourceId": "alert-dialog",
+    "importPath": "stories/base-ui/components/alert-dialog/AlertDialog.tsx",
+    "exportName": "AlertDialog",
+    "barrelExport": true,
+    "category": "Overlays",
+    "tier": null,
+    "variants": {},
+    "props": [
+      {
+        "name": "showClose",
+        "type": "boolean",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Renders role=\"alertdialog\"; focus is trapped inside until the user picks an action or presses Escape.\nClicking the backdrop doesn’t close it.",
+    "tokensUsed": [
+      "color/background/overlay/regular",
+      "color/background/surface/high",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "effect/shadow/elevation/high",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/lg",
+      "space/md",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/alert-dialog/alert-dialog.spec.ts",
+    "storyPath": "stories/base-ui/AlertDialog.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Ask a question as the title (“Discard draft?”) and say what happens in the description.\nLabel the buttons with the outcome (“Discard”, “Cancel”), not “Yes” / “No”; make a destructive action the destructive Button.",
+      "whenNotToUse": "Don’t use it for routine confirmations; prefer undo.\nDon’t use it for forms; use Dialog.",
+      "antiPatterns": [
+        "Don’t use it for routine confirmations; prefer undo.",
+        "Don’t use it for forms; use Dialog."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6908",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/alert-dialog/alert-dialog.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/alert-dialog",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:drawer",
+    "source": "starter",
+    "sourceName": "Drawer",
+    "sourceId": "drawer",
+    "importPath": "stories/base-ui/components/drawer/Drawer.tsx",
+    "exportName": "Drawer",
+    "barrelExport": true,
+    "category": "Overlays",
+    "tier": null,
+    "variants": {
+      "side": [
+        "right",
+        "left",
+        "bottom"
+      ]
+    },
+    "props": [
+      {
+        "name": "side",
+        "type": "'right' | 'left' | 'bottom'",
+        "values": [
+          "right",
+          "left",
+          "bottom"
+        ],
+        "required": false
+      },
+      {
+        "name": "showClose",
+        "type": "boolean",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Behaves like a dialog: focus is trapped inside and returns to the trigger on close.\nSwiping is an extra: every way to close it also works from the keyboard.",
+    "tokensUsed": [
+      "color/background/overlay/regular",
+      "color/background/surface/high",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "effect/shadow/elevation/high",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/2xl",
+      "space/md",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/drawer/drawer.spec.ts",
+    "storyPath": "stories/base-ui/Drawer.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it for filters, settings or an item’s details next to the list it came from.\nGive it a title; close it with a Close button, Escape, a swipe or a click on the backdrop.",
+      "whenNotToUse": "Don’t stack drawers.\nDon’t use it for short confirmations; use Alert Dialog.",
+      "antiPatterns": [
+        "Don’t stack drawers.",
+        "Don’t use it for short confirmations; use Alert Dialog."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7066",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/drawer/drawer.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/drawer",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:toast",
+    "source": "starter",
+    "sourceName": "Toast",
+    "sourceId": "toast",
+    "importPath": "stories/base-ui/components/toast/Toast.tsx",
+    "exportName": "Toast",
+    "barrelExport": false,
+    "category": "Feedback",
+    "tier": null,
+    "variants": {
+      "type": [
+        "neutral",
+        "success",
+        "warning",
+        "error"
+      ]
+    },
+    "props": [
+      {
+        "name": "icon",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "description",
+        "type": "boolean",
+        "required": false
+      }
+    ],
+    "states": [
+      "error",
+      "neutral",
+      "success",
+      "warning"
+    ],
+    "a11y": "Toasts are announced politely by screen readers as they appear.\nTimers pause while the pointer is over the toasts or focus is inside; F6 moves focus to them.",
+    "tokensUsed": [
+      "color/background/error/subtle",
+      "color/background/success/subtle",
+      "color/background/surface/medium",
+      "color/background/warning/subtle",
+      "color/border/error",
+      "color/border/neutral/subtle",
+      "color/border/success",
+      "color/border/warning",
+      "color/foreground/error",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "color/foreground/success",
+      "color/foreground/warning",
+      "effect/shadow/elevation/medium",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/lg",
+      "size/border/regular",
+      "size/xs",
+      "space/lg",
+      "space/md",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/toast/toast.spec.ts",
+    "storyPath": "stories/base-ui/Toast.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Confirm a completed action (“Message sent”), ideally with a way to undo it.\nPick the type that matches the outcome: neutral, success, warning or error (toastManager.add({ type })).\nKeep the title to a few words; add a description only when it helps.\nCreate toasts with the toast manager (Toast.useToastManager().add({ title, description })).",
+      "whenNotToUse": "Don’t put information the user must act on in a toast; it disappears. Use Alert Dialog or an inline message.",
+      "antiPatterns": [
+        "Don’t put information the user must act on in a toast; it disappears. Use Alert Dialog or an inline message."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7205",
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/toast",
+      "@phosphor-icons/react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [
+      "Toast.Provider"
+    ],
+    "parent": null,
+    "notes": "imperative API: Toast.useToastManager().add({ title, type }) inside <Toast.Provider> with one <Toast.Viewport />"
+  },
+  {
+    "id": "starter:separator",
+    "source": "starter",
+    "sourceName": "Separator",
+    "sourceId": "separator",
+    "importPath": "stories/base-ui/components/separator/Separator.tsx",
+    "exportName": "Separator",
+    "barrelExport": true,
+    "category": "Layout & Disclosure",
+    "tier": null,
+    "variants": {
+      "orientation": [
+        "horizontal",
+        "vertical"
+      ]
+    },
+    "props": [],
+    "states": [
+      "horizontal",
+      "vertical"
+    ],
+    "a11y": "Renders role=\"separator\" with aria-orientation; screen readers announce it between groups.",
+    "tokensUsed": [
+      "color/border/neutral/subtle",
+      "size/border/regular"
+    ],
+    "specPath": "stories/base-ui/components/separator/separator.spec.ts",
+    "storyPath": "stories/base-ui/Separator.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Separate groups that spacing alone doesn’t set apart (toolbar groups, link lists).\nSet orientation=\"vertical\" inside rows.",
+      "whenNotToUse": "Don’t use it as decoration between every item; whitespace usually does the job.",
+      "antiPatterns": [
+        "Don’t use it as decoration between every item; whitespace usually does the job."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:6215",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/separator/separator.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/separator",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:avatar",
+    "source": "starter",
+    "sourceName": "Avatar",
+    "sourceId": "avatar",
+    "importPath": "stories/base-ui/components/avatar/Avatar.tsx",
+    "exportName": "Avatar",
+    "barrelExport": true,
+    "category": "Display",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "type": [
+        "image",
+        "initials"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      },
+      {
+        "name": "type",
+        "type": "'image' | 'initials'",
+        "values": [
+          "image",
+          "initials"
+        ],
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Give the image alt text with the person’s name, or empty alt when the name is shown next to it.",
+    "tokensUsed": [
+      "color/background/accent/selected",
+      "color/foreground/on-accent/primary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/line-height/caption/md",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/size/caption/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/full",
+      "size/lg",
+      "size/xl",
+      "space/2xl"
+    ],
+    "specPath": "stories/base-ui/components/avatar/avatar.spec.ts",
+    "storyPath": "stories/base-ui/Avatar.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Always pass initials as the fallback: images fail, and slow ones show the initials first.\nMatch the size to the text next to it.",
+      "whenNotToUse": "Don’t use it for logos or icons.",
+      "antiPatterns": [
+        "Don’t use it for logos or icons."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2058:5716",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/avatar/avatar.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/avatar",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:progress",
+    "source": "starter",
+    "sourceName": "Progress",
+    "sourceId": "progress",
+    "importPath": "stories/base-ui/components/progress/Progress.tsx",
+    "exportName": "Progress",
+    "barrelExport": true,
+    "category": "Feedback",
+    "tier": null,
+    "variants": {
+      "value": [
+        "0",
+        "25",
+        "50",
+        "75",
+        "100"
+      ]
+    },
+    "props": [
+      {
+        "name": "value",
+        "type": "'0' | '25' | '50' | '75' | '100'",
+        "values": [
+          "0",
+          "25",
+          "50",
+          "75",
+          "100"
+        ],
+        "required": false
+      },
+      {
+        "name": "label",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "showValue",
+        "type": "boolean",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Renders role=\"progressbar\" with aria-valuenow; the label names it.",
+    "tokensUsed": [
+      "color/background/accent/default",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/full",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/progress/progress.spec.ts",
+    "storyPath": "stories/base-ui/Progress.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Label what is in progress; show the value when the user benefits from the number.\nPass value={null} while the total is unknown: the bar becomes indeterminate (it sweeps).",
+      "whenNotToUse": "Don’t use it for a quantity that isn’t moving towards done (disk usage); use Meter.",
+      "antiPatterns": [
+        "Don’t use it for a quantity that isn’t moving towards done (disk usage); use Meter."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7098",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/progress/progress.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/progress",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:meter",
+    "source": "starter",
+    "sourceName": "Meter",
+    "sourceId": "meter",
+    "importPath": "stories/base-ui/components/meter/Meter.tsx",
+    "exportName": "Meter",
+    "barrelExport": true,
+    "category": "Feedback",
+    "tier": null,
+    "variants": {
+      "value": [
+        "0",
+        "25",
+        "50",
+        "75",
+        "100"
+      ]
+    },
+    "props": [
+      {
+        "name": "value",
+        "type": "'0' | '25' | '50' | '75' | '100'",
+        "values": [
+          "0",
+          "25",
+          "50",
+          "75",
+          "100"
+        ],
+        "required": false
+      },
+      {
+        "name": "label",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "showValue",
+        "type": "boolean",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Renders role=\"meter\" with aria-valuenow / min / max; the label names it.",
+    "tokensUsed": [
+      "color/background/accent/default",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/full",
+      "space/md",
+      "space/sm"
+    ],
+    "specPath": "stories/base-ui/components/meter/meter.spec.ts",
+    "storyPath": "stories/base-ui/Meter.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Label what is measured and show the value (formatted with format, e.g. as a percentage or in GB).",
+      "whenNotToUse": "Don’t use it for a task in progress; use Progress.",
+      "antiPatterns": [
+        "Don’t use it for a task in progress; use Progress."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7304",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/meter/meter.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/meter",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:tab",
+    "source": "starter",
+    "sourceName": "Tab",
+    "sourceId": "tab",
+    "importPath": "stories/base-ui/components/tabs/Tabs.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Navigation",
+    "tier": "part",
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "selected": [
+        "false",
+        "true"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "disabled"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "hover",
+      "selected"
+    ],
+    "a11y": "Arrow keys move between tabs; Home / End jump to the first / last.",
+    "tokensUsed": [
+      "color/background/neutral/primary",
+      "color/border/neutral/subtle",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "colors/transparent",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "shape/radius/md",
+      "size/border/regular",
+      "size/lg",
+      "size/xl",
+      "space/2xl",
+      "space/md",
+      "space/sm"
+    ],
+    "specPath": "stories/base-ui/components/tabs/tab.spec.ts",
+    "storyPath": "stories/base-ui/Tabs.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Label tabs with one or two words; keep them parallel (Overview, Projects, Account).",
+      "whenNotToUse": "Don’t disable a tab to hide content the user can’t reach; explain why instead.",
+      "antiPatterns": [
+        "Don’t disable a tab to hide content the user can’t reach; explain why instead."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7242",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/tabs/tab.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/tabs",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "Tabs.Root"
+    ],
+    "parent": "starter:tabs",
+    "notes": "sub-spec rendered via Tabs.Tab; stories in Tabs.stories.tsx"
+  },
+  {
+    "id": "starter:tabs",
+    "source": "starter",
+    "sourceName": "Tabs",
+    "sourceId": "tabs",
+    "importPath": "stories/base-ui/components/tabs/Tabs.tsx",
+    "exportName": "Tabs",
+    "barrelExport": true,
+    "category": "Navigation",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Renders a tablist; each tab controls its panel (aria-controls), and the panel is labelled by its tab.\nArrow keys move focus along the list; selection follows focus unless activateOnFocus is off.",
+    "tokensUsed": [
+      "color/background/neutral/primary",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/lg",
+      "shape/radius/md",
+      "size/border/regular",
+      "space/lg",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/tabs/tabs.spec.ts",
+    "storyPath": "stories/base-ui/Tabs.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use tabs for peer views of the same thing (an item’s Overview, Activity, Settings).\nKeep the number of tabs small (2–6); the selected tab joins its panel.\nMatch the size to the surrounding controls.",
+      "whenNotToUse": "Don’t use tabs for steps in a sequence; use a stepper or a form.\nDon’t nest tabs.",
+      "antiPatterns": [
+        "Don’t use tabs for steps in a sequence; use a stepper or a form.",
+        "Don’t nest tabs."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7273",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/tabs/tabs.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/tabs",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:accordion-item",
+    "source": "starter",
+    "sourceName": "Accordion Item",
+    "sourceId": "accordion-item",
+    "importPath": "stories/base-ui/components/accordion/Accordion.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Layout & Disclosure",
+    "tier": "part",
+    "variants": {
+      "open": [
+        "false",
+        "true"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "disabled"
+      ]
+    },
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "hover",
+      "open"
+    ],
+    "a11y": "The trigger is a button inside a heading (Accordion.Header renders an h3); aria-expanded reflects the state.",
+    "tokensUsed": [
+      "color/background/interactive/subtle/default",
+      "color/background/interactive/subtle/hover",
+      "color/border/neutral/subtle",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "size/border/regular",
+      "size/xs",
+      "space/lg",
+      "space/md",
+      "space/sm"
+    ],
+    "specPath": "stories/base-ui/components/accordion/accordion-item.spec.ts",
+    "storyPath": "stories/base-ui/Accordion.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Write headings that tell the user what’s inside (questions work well for FAQs).",
+      "whenNotToUse": "Don’t hide content the user needs to complete the task in a closed item.",
+      "antiPatterns": [
+        "Don’t hide content the user needs to complete the task in a closed item."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7353",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/accordion/accordion-item.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/accordion",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "Accordion.Root"
+    ],
+    "parent": "starter:accordion",
+    "notes": "sub-spec rendered via Accordion.Item; stories in Accordion.stories.tsx"
+  },
+  {
+    "id": "starter:accordion",
+    "source": "starter",
+    "sourceName": "Accordion",
+    "sourceId": "accordion",
+    "importPath": "stories/base-ui/components/accordion/Accordion.tsx",
+    "exportName": "Accordion",
+    "barrelExport": true,
+    "category": "Layout & Disclosure",
+    "tier": null,
+    "variants": {},
+    "props": [],
+    "states": [],
+    "a11y": "Arrow keys move between headings; Home / End jump to the first / last; Enter or Space toggles.",
+    "tokensUsed": [
+      "color/background/neutral/primary",
+      "color/border/neutral/subtle",
+      "shape/radius/lg",
+      "size/border/regular"
+    ],
+    "specPath": "stories/base-ui/components/accordion/accordion.spec.ts",
+    "storyPath": "stories/base-ui/Accordion.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it for FAQs, settings groups and details the user opens on demand.\nBy default one item is open at a time; pass multiple to allow several.",
+      "whenNotToUse": "Don’t use it for navigation or for a single section (use Collapsible).",
+      "antiPatterns": [
+        "Don’t use it for navigation or for a single section (use Collapsible)."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7503",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/accordion/accordion.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/accordion",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:collapsible",
+    "source": "starter",
+    "sourceName": "Collapsible",
+    "sourceId": "collapsible",
+    "importPath": "stories/base-ui/components/collapsible/Collapsible.tsx",
+    "exportName": "Collapsible",
+    "barrelExport": true,
+    "category": "Layout & Disclosure",
+    "tier": null,
+    "variants": {
+      "open": [
+        "false",
+        "true"
+      ],
+      "state": [
+        "default",
+        "hover",
+        "pressed",
+        "disabled"
+      ]
+    },
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [
+      "default",
+      "disabled",
+      "hover",
+      "open",
+      "pressed"
+    ],
+    "a11y": "The trigger is a button with aria-expanded; the panel stays in the page’s find-in-page results while closed (hidden=\"until-found\").",
+    "tokensUsed": [
+      "color/background/interactive/subtle/hover",
+      "color/background/interactive/subtle/pressed",
+      "color/background/neutral/primary",
+      "color/border/interactive/default",
+      "color/border/interactive/disabled",
+      "color/foreground/interactive/disabled",
+      "color/foreground/neutral/primary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/md",
+      "size/border/regular",
+      "size/lg",
+      "size/xs",
+      "space/md",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/collapsible/collapsible.spec.ts",
+    "storyPath": "stories/base-ui/Collapsible.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it for optional details (advanced settings, recovery keys) that would clutter the view.\nFor several sections, use Accordion.",
+      "whenNotToUse": "Don’t hide required fields in it.",
+      "antiPatterns": [
+        "Don’t hide required fields in it."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7452",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/collapsible/collapsible.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/collapsible",
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:toolbar",
+    "source": "starter",
+    "sourceName": "Toolbar",
+    "sourceId": "toolbar",
+    "importPath": "stories/base-ui/components/toolbar/Toolbar.tsx",
+    "exportName": "Toolbar",
+    "barrelExport": true,
+    "category": "Button & Actions",
+    "tier": null,
+    "variants": {},
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Renders role=\"toolbar\": one tab stop, arrow keys move between controls.",
+    "tokensUsed": [
+      "color/background/neutral/primary",
+      "color/border/neutral/subtle",
+      "shape/radius/md",
+      "size/border/regular",
+      "space/2xs",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/toolbar/toolbar.spec.ts",
+    "storyPath": "stories/base-ui/Toolbar.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use Toggles for on/off formatting and a Toggle Group for one-of choices (alignment).\nGive icon-only controls a Tooltip and an aria-label.\nSeparate groups with a separator; keep the order stable.",
+      "whenNotToUse": "Don’t use it for navigation or a single action.",
+      "antiPatterns": [
+        "Don’t use it for navigation or a single action."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7453",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/toolbar/toolbar.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/toggle-group",
+      "@base-ui/react/toolbar",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:scroll-area",
+    "source": "starter",
+    "sourceName": "Scroll Area",
+    "sourceId": "scroll-area",
+    "importPath": "stories/base-ui/components/scroll-area/ScrollArea.tsx",
+    "exportName": "ScrollArea",
+    "barrelExport": true,
+    "category": "Layout & Disclosure",
+    "tier": null,
+    "variants": {},
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "The native scroll behaviour is kept: wheel, touch, keyboard (the viewport is focusable) and screen readers work as usual.",
+    "tokensUsed": [
+      "color/background/neutral/primary",
+      "color/border/neutral/regular",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "font/family/primary",
+      "font/line-height/body/md",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "shape/radius/full",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/2xs",
+      "space/lg",
+      "space/md",
+      "space/sm"
+    ],
+    "specPath": "stories/base-ui/components/scroll-area/scroll-area.spec.ts",
+    "storyPath": "stories/base-ui/ScrollArea.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it for panels with a fixed height inside a page (lists, code, terms) where the native scrollbar looks out of place.",
+      "whenNotToUse": "Don’t wrap a whole page in it; let the page scroll natively.",
+      "antiPatterns": [
+        "Don’t wrap a whole page in it; let the page scroll natively."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": "2059:7496",
+      "codeConnect": true,
+      "codeConnectPath": "stories/base-ui/components/scroll-area/scroll-area.figma.tsx"
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/scroll-area",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:badge",
+    "source": "starter",
+    "sourceName": "Badge",
+    "sourceId": "badge",
+    "importPath": "stories/base-ui/components/badge/Badge.tsx",
+    "exportName": "Badge",
+    "barrelExport": false,
+    "category": "Display",
+    "tier": null,
+    "variants": {
+      "type": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "size": [
+        "sm",
+        "md"
+      ]
+    },
+    "props": [
+      {
+        "name": "type",
+        "type": "'neutral' | 'info' | 'success' | 'warning' | 'error'",
+        "values": [
+          "neutral",
+          "info",
+          "success",
+          "warning",
+          "error"
+        ],
+        "required": false
+      },
+      {
+        "name": "size",
+        "type": "'sm' | 'md'",
+        "values": [
+          "sm",
+          "md"
+        ],
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "It’s plain text: screen readers read the label. Add context in the label when the status alone is unclear (\"Build failed\", not \"Failed\").",
+    "tokensUsed": [
+      "color/background/error/subtle",
+      "color/background/info/subtle",
+      "color/background/neutral/tertiary",
+      "color/background/success/subtle",
+      "color/background/warning/subtle",
+      "color/border/error",
+      "color/border/info",
+      "color/border/neutral/subtle",
+      "color/border/success",
+      "color/border/warning",
+      "color/foreground/error",
+      "color/foreground/info",
+      "color/foreground/neutral/secondary",
+      "color/foreground/success",
+      "color/foreground/warning",
+      "font/family/primary",
+      "font/line-height/body/sm",
+      "font/line-height/caption/md",
+      "font/size/body/sm",
+      "font/size/caption/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/full",
+      "size/border/regular",
+      "size/sm",
+      "space/2xl",
+      "space/md",
+      "space/sm"
+    ],
+    "specPath": "stories/base-ui/components/badge/badge.spec.ts",
+    "storyPath": "stories/base-ui/Badge.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use the status types for states (Success = done, Warning = needs attention, Error = failed, Info = neutral news).\nKeep it to one or two words.",
+      "whenNotToUse": "Don’t make it clickable; use a Button or Toggle.\nDon’t rely on color alone: the word must say the status.",
+      "antiPatterns": [
+        "Don’t make it clickable; use a Button or Toggle.",
+        "Don’t rely on color alone: the word must say the status."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": null,
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:card",
+    "source": "starter",
+    "sourceName": "Card",
+    "sourceId": "card",
+    "importPath": "stories/base-ui/components/card/Card.tsx",
+    "exportName": "Card",
+    "barrelExport": false,
+    "category": "Layout & Disclosure",
+    "tier": null,
+    "variants": {
+      "type": [
+        "outline",
+        "elevated"
+      ]
+    },
+    "props": [
+      {
+        "name": "type",
+        "type": "'outline' | 'elevated'",
+        "values": [
+          "outline",
+          "elevated"
+        ],
+        "required": false
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "description",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "footer",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "footer",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Pass headingLevel so the title fits the page’s heading order (a list of cards under an h2 takes headingLevel={3}).",
+    "tokensUsed": [
+      "color/background/surface/low",
+      "color/background/surface/medium",
+      "color/border/neutral/subtle",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "effect/shadow/elevation/low",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/lg",
+      "space/sm",
+      "space/xl",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/card/card.spec.ts",
+    "storyPath": "stories/base-ui/Card.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use Outline on plain pages and Elevated where cards sit on a busy or tinted background.\nKeep one primary action per card, in the footer.",
+      "whenNotToUse": "Don’t nest cards in cards.\nDon’t make the whole card a link and also put buttons in it.",
+      "antiPatterns": [
+        "Don’t nest cards in cards.",
+        "Don’t make the whole card a link and also put buttons in it."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": null,
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:skeleton",
+    "source": "starter",
+    "sourceName": "Skeleton",
+    "sourceId": "skeleton",
+    "importPath": "stories/base-ui/components/skeleton/Skeleton.tsx",
+    "exportName": "Skeleton",
+    "barrelExport": false,
+    "category": "Feedback",
+    "tier": null,
+    "variants": {
+      "shape": [
+        "text",
+        "circle",
+        "block"
+      ]
+    },
+    "props": [
+      {
+        "name": "shape",
+        "type": "'text' | 'circle' | 'block'",
+        "values": [
+          "text",
+          "circle",
+          "block"
+        ],
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "Skeletons are hidden from screen readers (aria-hidden). Mark the region that is loading as a status with aria-busy=\"true\" and a label (role=\"status\" aria-label=\"Loading contacts\"), and announce when it’s ready.\nThe pulse stops when the user asks for reduced motion.",
+    "tokensUsed": [
+      "color/background/neutral/tertiary",
+      "shape/radius/full",
+      "shape/radius/md",
+      "shape/radius/sm",
+      "size/2xs",
+      "size/lg"
+    ],
+    "specPath": "stories/base-ui/components/skeleton/skeleton.spec.ts",
+    "storyPath": "stories/base-ui/Skeleton.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Match the shape of what will load: lines for text, a circle for an avatar, a block for an image or card.\nShow it only for waits longer than about 300 ms.",
+      "whenNotToUse": "Don’t use it for actions in progress (saving, sending); use a Button’s loading state or Progress.",
+      "antiPatterns": [
+        "Don’t use it for actions in progress (saving, sending); use a Button’s loading state or Progress."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": null,
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:breadcrumb-item",
+    "source": "starter",
+    "sourceName": "Breadcrumb Item",
+    "sourceId": "breadcrumb-item",
+    "importPath": "stories/base-ui/components/breadcrumb/Breadcrumb.tsx",
+    "exportName": null,
+    "barrelExport": false,
+    "category": "Navigation",
+    "tier": "part",
+    "variants": {
+      "state": [
+        "default",
+        "hover",
+        "current"
+      ]
+    },
+    "props": [
+      {
+        "name": "children",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "states": [
+      "current",
+      "default",
+      "hover"
+    ],
+    "a11y": "The last item is the current page: it isn’t a link, and screen readers hear \"current page\".",
+    "tokensUsed": [
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "color/foreground/neutral/tertiary",
+      "font/family/primary",
+      "font/line-height/body/sm",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "size/2xs",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/breadcrumb/breadcrumb-item.spec.ts",
+    "storyPath": "stories/base-ui/Breadcrumb.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Label each level with its page title, shortened if needed."
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": null,
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "preserved",
+    "providerNeeds": [
+      "Breadcrumb.Root"
+    ],
+    "parent": "starter:breadcrumb",
+    "notes": "sub-spec rendered via Breadcrumb.Item; stories in Breadcrumb.stories.tsx"
+  },
+  {
+    "id": "starter:breadcrumb",
+    "source": "starter",
+    "sourceName": "Breadcrumb",
+    "sourceId": "breadcrumb",
+    "importPath": "stories/base-ui/components/breadcrumb/Breadcrumb.tsx",
+    "exportName": "Breadcrumb",
+    "barrelExport": false,
+    "category": "Navigation",
+    "tier": null,
+    "variants": {},
+    "props": [],
+    "states": [],
+    "a11y": "It’s a nav landmark with an ordered list, so screen readers announce how many levels there are.",
+    "tokensUsed": [
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/breadcrumb/breadcrumb.spec.ts",
+    "storyPath": "stories/base-ui/Breadcrumb.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Start at the top level (often Home) and end with the current page.\nUse it in deep hierarchies (three levels or more), above the page title.",
+      "whenNotToUse": "Don’t use it for steps in a flow; that’s a stepper.\nDon’t replace the main navigation with it.",
+      "antiPatterns": [
+        "Don’t use it for steps in a flow; that’s a stepper.",
+        "Don’t replace the main navigation with it."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": null,
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:pagination",
+    "source": "starter",
+    "sourceName": "Pagination",
+    "sourceId": "pagination",
+    "importPath": "stories/base-ui/components/pagination/Pagination.tsx",
+    "exportName": "Pagination",
+    "barrelExport": false,
+    "category": "Navigation",
+    "tier": null,
+    "variants": {
+      "size": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "'sm' | 'md' | 'lg'",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "It’s a nav landmark labelled \"Pagination\". The current page has aria-current=\"page\"; each page button is named \"Page 4\".\nTwo on one page (above and below a table)? Give each its own aria-label.",
+    "tokensUsed": [
+      "color/foreground/neutral/tertiary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/line-height/body/sm",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/size/body/sm",
+      "font/weight/body/regular",
+      "size/lg",
+      "size/xl",
+      "space/2xl",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/pagination/pagination.spec.ts",
+    "storyPath": "stories/base-ui/Pagination.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Use it under long lists and tables that load one page at a time.\nKeep the current page in the URL, so a page can be shared and the back button works.",
+      "whenNotToUse": "Don’t use it for steps in a flow, or for content that fits on one page.",
+      "antiPatterns": [
+        "Don’t use it for steps in a flow, or for content that fits on one page."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": null,
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "@phosphor-icons/react",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:empty-state",
+    "source": "starter",
+    "sourceName": "Empty State",
+    "sourceId": "empty-state",
+    "importPath": "stories/base-ui/components/empty-state/EmptyState.tsx",
+    "exportName": "EmptyState",
+    "barrelExport": false,
+    "category": "Feedback",
+    "tier": null,
+    "variants": {},
+    "props": [
+      {
+        "name": "icon",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "description",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false
+      }
+    ],
+    "states": [],
+    "a11y": "The icon is decorative (hidden from screen readers). Pass headingLevel when the title should be part of the page’s headings.",
+    "tokensUsed": [
+      "color/background/neutral/tertiary",
+      "color/foreground/neutral/primary",
+      "color/foreground/neutral/secondary",
+      "font/family/primary",
+      "font/line-height/body/lg",
+      "font/line-height/body/md",
+      "font/size/body/lg",
+      "font/size/body/md",
+      "font/weight/body/regular",
+      "font/weight/body/strong",
+      "shape/radius/full",
+      "size/sm",
+      "size/xl",
+      "space/2xl",
+      "space/3xl",
+      "space/lg",
+      "space/sm",
+      "space/xs"
+    ],
+    "specPath": "stories/base-ui/components/empty-state/empty-state.spec.ts",
+    "storyPath": "stories/base-ui/EmptyState.stories.tsx",
+    "testPath": null,
+    "docs": {
+      "whenToUse": "Say what’s missing and what to do about it; offer that action as a Button.\nFor \"no search results\", suggest changing the search instead of creating something.",
+      "whenNotToUse": "Don’t leave a view blank: an empty table with only headers looks broken.\nDon’t use it for errors; say what went wrong and how to retry.",
+      "antiPatterns": [
+        "Don’t leave a view blank: an empty table with only headers looks broken.",
+        "Don’t use it for errors; say what went wrong and how to retry."
+      ]
+    },
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": null,
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": ""
+  },
+  {
+    "id": "starter:context-menu",
+    "source": "starter",
+    "sourceName": "Context Menu",
+    "sourceId": "context-menu",
+    "importPath": "stories/base-ui/components/context-menu/ContextMenu.tsx",
+    "exportName": "ContextMenu",
+    "barrelExport": false,
+    "category": "Menus",
+    "tier": null,
+    "variants": {},
+    "props": [],
+    "states": [],
+    "a11y": "",
+    "tokensUsed": [
+      "color/background/surface/medium",
+      "color/border/neutral/subtle",
+      "effect/shadow/elevation/medium",
+      "shape/radius/lg",
+      "size/border/regular",
+      "space/xs"
+    ],
+    "specPath": null,
+    "storyPath": "stories/base-ui/ContextMenu.stories.tsx",
+    "testPath": null,
+    "docs": {},
+    "figma": {
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "nodeId": null,
+      "codeConnect": false,
+      "codeConnectPath": null
+    },
+    "weight": "light",
+    "dependencies": [
+      "@base-ui/react/context-menu",
+      "react"
+    ],
+    "status": "rendered",
+    "providerNeeds": [],
+    "parent": null,
+    "notes": "code without spec; category 'Menus' inferred — reuses Menu's popup, items and tokens (menu.tokens.css); opens on right-click / long-press"
+  }
+]

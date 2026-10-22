@@ -1,0 +1,67 @@
+{
+  "name": "Nagarro Master Slides",
+  "owner": "Carolina Baptista (carolina.baptista@nagarro.com)",
+  "artifact": "https://claude.ai/artifact/FTePiAfzdDWtb71Bogjpn2",
+  "artifactVersion": "1792662579-390e",
+  "upstream": "Presentation_v1 (local) @ main@ed1dd7e (synced 2026-10-13)",
+  "syncedAt": "2026-10-22T10:46:25.280Z",
+  "templates": 508,
+  "files": {
+    "bundle.js": {
+      "from": "project/components/bundle.js",
+      "sha256": "a992cdd4527caa95958dba1438e37be7b452e28c023ac2269ea0a9861434fb8f",
+      "bytes": 1101619
+    },
+    "bundle.css": {
+      "from": "project/components/bundle.css",
+      "sha256": "cb4af8cbaf6d4ca36095440ab3585c6a8a4e6464736eece184b8b4a0028a4a89",
+      "bytes": 319010
+    },
+    "index.d.ts": {
+      "from": "project/components/index.d.ts",
+      "sha256": "88d5dd15db53f6bb10fb6063d1282fb5be75106417d5b14180b63f6a5392ed1a",
+      "bytes": 18438
+    },
+    "tokens.json": {
+      "from": "project/tokens.json",
+      "sha256": "59745cc3003add1dfa8cbbe4fa1b459ec19d88dfb3d109024526fd23f6484c9f",
+      "bytes": 19497
+    },
+    "docs/README.md": {
+      "from": "project/README.md",
+      "sha256": "5600586282ae860ce3482397f2fa89c22408fb14234786b1ad85eb342458b32b",
+      "bytes": 8573
+    },
+    "docs/09-building-decks.md": {
+      "from": "project/09-building-decks.md",
+      "sha256": "c99f8eea9f97947568a6541acc8ca1ecb36fdc99d42f8f4da3d48d901a831417",
+      "bytes": 7180
+    },
+    "docs/16-composed-layouts.md": {
+      "from": "project/16-composed-layouts.md",
+      "sha256": "7de169f713f6898cc6ca85e3801ede6075b1e616a6fe986e5cb9eff08f4ba1cc",
+      "bytes": 5087
+    },
+    "kit/deck-starter.html": {
+      "from": "project/kit/deck-starter.html",
+      "sha256": "28948f8b8f279403d873213fb0bc33a7d0c77338c4ced0d38c651dea084f09a7",
+      "bytes": 6110
+    },
+    "kit/checks.js": {
+      "from": "project/kit/checks.js",
+      "sha256": "b1ee9fad21f669bf09aa62c6908e954b101a009e9db2437fe5c8df75f6518678",
+      "bytes": 6822
+    },
+    "kit/compose.js": {
+      "from": "project/kit/compose.js",
+      "sha256": "7601200d4ca111b7ee799f4b9e3830d0499902a14a9b7349fc7382c61058360b",
+      "bytes": 25723
+    },
+    "media/assets/main/closing-loop.png": {
+      "from": "project/media/assets/main/closing-loop.png",
+      "sha256": "d4e40bee988a319a037459c703335f2a5eff2a99375aebafd756a14db6fd12d9",
+      "bytes": 94287
+    }
+  },
+  "note": "Vendored unmodified. Do not edit; re-run scripts/sync-nagarro-slides.mjs on a newer version."
+}

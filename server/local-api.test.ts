@@ -1,0 +1,50 @@
+// @vitest-environment node
+// The local API: keys never reach the browser, local reads stay inside the allowlist, model calls
+// need a key and are validated, Figma REST needs a token.
+import { describe, expect, it, vi } from 'vitest'
+import { routeRequest, type ApiEnv, type Deps } from './local-api'
+
+const env = (over: Partial<ApiEnv> = {}): ApiEnv => ({ model: 'claude-opus-5-5', fallbacks: true, workspaceRoot: '/ws', roots: ['gtm'], files: ['offer.html'], ...over })
+const deps = (over: Partial<Deps> = {}): Deps => ({
+  fetch: vi.fn(async () => new Response('{}', { status: 200 })) as unknown as typeof fetch,
+  readFile: vi.fn(async () => Buffer.from('# Battle card')),
+  stat: vi.fn(async () => ({ size: 13, mtimeMs: 1 })),
+  realpath: vi.fn(async (p: string) => p),
+  generate: vi.fn(async () => ({ data: { ok: 1 }, model: 'claude-opus-5-5', usage: { inputTokens: 10, outputTokens: 5 } })),
+  ...over,
+})
+const call = (method: string, path: string, body: unknown, e = env(), d = deps()) => routeRequest(method, new URL(`http://localhost${path}`), body, e, d)
+
+describe('local API', () => {
+  it('reports what is configured as booleans and never echoes a key', async () => {
+    const r = await call('GET', '/api/status', null, env({ apiKey: 'sk-ant-secret', figmaToken: 'figd_secret' }))
+    expect(r.status).toBe(200)
+    expect(JSON.stringify(r.body)).not.toMatch(/secret/)
+    expect(r.body).toMatchObject({ model: { configured: true }, figma: { configured: true } })
+  })
+
+  it('refuses model calls without a key and validates the payload', async () => {
+    expect((await call('POST', '/api/generate', { kind: 'compose', system: 's', user: 'u' })).body).toMatchObject({ code: 'not-configured' })
+    const d = deps()
+    expect((await call('POST', '/api/generate', { kind: 'other', system: 's', user: 'u' }, env({ apiKey: 'k' }), d)).status).toBe(400)
+    const ok = await call('POST', '/api/generate', { kind: 'compose', system: 's', user: 'u' }, env({ apiKey: 'k' }), d)
+    expect(ok.body).toMatchObject({ ok: true, usage: { inputTokens: 10 } })
+    expect(JSON.stringify(ok.body)).not.toContain('"k"')
+  })
+
+  it('reads allowlisted files and blocks traversal and other folders', async () => {
+    expect((await call('GET', '/api/local/read?path=gtm/battle-card.md', null)).body).toMatchObject({ ok: true, text: '# Battle card' })
+    expect((await call('GET', '/api/local/read?path=offer.html', null)).status).toBe(200)
+    for (const bad of ['gtm/../../etc/passwd', '../secret.md', '/etc/passwd', 'other/notes.md', 'gtm/%2e%2e/x']) {
+      const r = await call('GET', `/api/local/read?path=${encodeURIComponent(bad)}`, null)
+      expect(r.status, bad).toBeGreaterThanOrEqual(400)
+    }
+    const escaped = await call('GET', '/api/local/read?path=gtm/link.md', null, env(), deps({ realpath: vi.fn(async () => '/elsewhere/link.md') }))
+    expect(escaped.status).toBeGreaterThanOrEqual(400)
+  })
+
+  it('needs a Figma token for REST and validates ids', async () => {
+    expect((await call('GET', '/api/figma/file?key=abcdefghij12', null)).status).toBeGreaterThanOrEqual(400)
+    expect((await call('GET', '/api/figma/projects?teamId=abc', null, env({ figmaToken: 't' }))).status).toBe(400)
+  })
+})

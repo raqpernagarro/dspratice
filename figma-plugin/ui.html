@@ -1,0 +1,24 @@
+<!doctype html>
+<html><body style="font:13px/1.4 system-ui,sans-serif;margin:12px;color:var(--figma-color-text,#111)">
+<h3 style="margin:0 0 8px;font-size:14px">Nagarro knowledge export</h3>
+<p style="margin:0 0 8px">Reads the text of this page (or the selected frames) and saves it for the hub's knowledge library. Nothing is changed and nothing is sent anywhere.</p>
+<label style="display:block;margin:6px 0">File key (from the file URL, optional) <input id="key" style="width:100%"></label>
+<label style="display:block;margin:6px 0"><input type="checkbox" id="sel"> Selected frames only</label>
+<button id="go">Export text</button> <span id="status"></span>
+<script>
+  const status = document.getElementById('status')
+  document.getElementById('go').onclick = () => { status.textContent = 'Reading…'; parent.postMessage({ pluginMessage: { type: 'export', fileKey: document.getElementById('key').value.trim(), selectionOnly: document.getElementById('sel').checked } }, '*') }
+  onmessage = (e) => {
+    const m = e.data.pluginMessage
+    if (!m) return
+    if (m.type === 'error') { status.textContent = m.message; return }
+    const json = JSON.stringify(m.capture, null, 1)
+    const a = document.createElement('a')
+    a.href = URL.createObjectURL(new Blob([json], { type: 'application/json' }))
+    a.download = (m.capture.fileName + ' · ' + m.capture.page.name).replace(/[^\w ·-]+/g, '') + '.figma-text.json'
+    a.click()
+    const texts = m.capture.frames.reduce((n, f) => n + f.texts.length, 0)
+    status.textContent = 'Saved ' + m.capture.frames.length + ' frames, ' + texts + ' texts. Upload the file in Knowledge library › Add a source.'
+  }
+</script>
+</body></html>

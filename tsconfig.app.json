@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "@testing-library/jest-dom"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@dsn/*": [
+        "../demo tools/DSN-main/src/*"
+      ],
+      "@dsn-theme/*": [
+        "../demo tools/DSN-main/site/lib/theme/*"
+      ],
+      "@dsn-root/*": [
+        "../demo tools/DSN-main/*"
+      ],
+      "ds-ngr": [
+        "../demo tools/DSN-main/src/index.ts"
+      ],
+      "@starter/*": [
+        "../demo tools/ds-starter-pack-main/stories/base-ui/*"
+      ],
+      "@ds-tokens/*": [
+        "../demo tools/ds-starter-pack-main/stories/base-ui/tokens/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.lib-dsn.json"
+    },
+    {
+      "path": "./tsconfig.lib-starter.json"
+    }
+  ]
+}

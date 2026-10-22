@@ -1,0 +1,76 @@
+/* Nagarro typography: Equip (body, UI) and Equip Extended (display headings).
+   Licensed Hoftype fonts from Nagarro's web kits. Do not redistribute. See public/fonts/README.md. */
+
+/* ---- Equip ---- */
+@font-face {
+  font-family: 'Equip';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/equip/equiplig-webfont.woff2') format('woff2'), url('/fonts/equip/equiplig-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'Equip';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/equip/equipreg-webfont.woff2') format('woff2'), url('/fonts/equip/equipreg-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'Equip';
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/equip/equipita-webfont.woff2') format('woff2'), url('/fonts/equip/equipita-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'Equip';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/equip/equipmed-webfont.woff2') format('woff2'), url('/fonts/equip/equipmed-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'Equip';
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/equip/equipmedita-webfont.woff2') format('woff2'), url('/fonts/equip/equipmedita-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'Equip';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/equip/equipbol-webfont.woff2') format('woff2'), url('/fonts/equip/equipbol-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'Equip';
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/equip/equipbolita-webfont.woff2') format('woff2'), url('/fonts/equip/equipbolita-webfont.woff') format('woff');
+}
+
+/* ---- Equip Extended ---- */
+@font-face {
+  font-family: 'Equip Extended';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/equip/equipextreg-webfont.woff2') format('woff2'), url('/fonts/equip/equipextreg-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'Equip Extended';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/equip/equipextmed-webfont.woff2') format('woff2'), url('/fonts/equip/equipextmed-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'Equip Extended';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/equip/equipextbol-webfont.woff2') format('woff2'), url('/fonts/equip/equipextbol-webfont.woff') format('woff');
+}

@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "rootDir": "../demo tools/ds-starter-pack-main/stories/base-ui",
+    "outDir": "./.types/starter",
+    "tsBuildInfoFile": "./.types/starter.tsbuildinfo",
+    "target": "ES2022",
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "types": [
+      "vite/client"
+    ],
+    "paths": {
+      "@ds-tokens/*": [
+        "../demo tools/ds-starter-pack-main/stories/base-ui/tokens/*"
+      ]
+    }
+  },
+  "include": [
+    "../demo tools/ds-starter-pack-main/stories/base-ui/components/**/*.ts",
+    "../demo tools/ds-starter-pack-main/stories/base-ui/components/**/*.tsx",
+    "../demo tools/ds-starter-pack-main/stories/base-ui/tokens/**/*.ts",
+    "../demo tools/ds-starter-pack-main/stories/base-ui/tokens/**/*.json",
+    "../demo tools/ds-starter-pack-main/stories/base-ui/spec/**/*.ts",
+    "../demo tools/ds-starter-pack-main/stories/base-ui/spec/**/*.json"
+  ],
+  "exclude": [
+    "../demo tools/ds-starter-pack-main/stories/base-ui/**/*.stories.tsx",
+    "../demo tools/ds-starter-pack-main/stories/base-ui/**/*.figma.tsx",
+    "../demo tools/ds-starter-pack-main/stories/base-ui/**/*.figma.js",
+    "../demo tools/ds-starter-pack-main/stories/base-ui/**/*.test.ts",
+    "../demo tools/ds-starter-pack-main/stories/base-ui/**/*.test.tsx"
+  ]
+}

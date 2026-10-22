@@ -1,0 +1,168 @@
+// Theme presets: the Starter Pack's five (semantic-editor/src/agent/presets.ts) plus DSN's /brands presets
+// (site/lib/theme/theme.ts) folded into one configurator, per the board decision "two configurators → one".
+
+export interface ThemePreset {
+  id: string
+  name: string
+  blurb: string
+  origin: 'Starter Pack' | 'DSN'
+  main: string
+  accent: string
+  heading: string
+  body: string
+  baseSize: number
+  radius: number
+  density: number
+  depth: number
+  buttonShape: 'default' | 'pill'
+  headingWeight: number
+  appearance?: 'both' | 'light' | 'dark'
+}
+
+export const PRESETS: ThemePreset[] = [
+  {
+    id: 'playful',
+    name: 'Playful cartoon',
+    blurb: 'Bold violet, chunky corners, hard shadows, pill buttons.',
+    origin: 'Starter Pack',
+    main: '#6b4ff5',
+    accent: '#ff3e9d',
+    heading: 'Fredoka',
+    body: 'Nunito',
+    baseSize: 16,
+    radius: 16,
+    density: 1.1,
+    depth: 0.6,
+    buttonShape: 'pill',
+    headingWeight: 700,
+  },
+  {
+    id: 'calm',
+    name: 'Calm healthcare',
+    blurb: 'Soft teal, generous spacing, low depth, rounded controls.',
+    origin: 'Starter Pack',
+    main: '#2a8aa8',
+    accent: '#3fb59b',
+    heading: 'Figtree',
+    body: 'Figtree',
+    baseSize: 16,
+    radius: 12,
+    density: 1.2,
+    depth: 0.15,
+    buttonShape: 'pill',
+    headingWeight: 600,
+  },
+  {
+    id: 'fintech',
+    name: 'Sharp fintech',
+    blurb: 'Deep indigo, tight density, square corners, no shadow.',
+    origin: 'Starter Pack',
+    main: '#3a3f9e',
+    accent: '#10b981',
+    heading: 'Space Grotesk',
+    body: 'Inter',
+    baseSize: 14,
+    radius: 4,
+    density: 0.85,
+    depth: 0,
+    buttonShape: 'default',
+    headingWeight: 600,
+  },
+  {
+    id: 'editorial',
+    name: 'Editorial',
+    blurb: 'Warm brown-red, serif headings, flat, ink borders.',
+    origin: 'Starter Pack',
+    main: '#7a3b2e',
+    accent: '#c7762a',
+    heading: 'Playfair Display',
+    body: 'Source Serif 4',
+    baseSize: 18,
+    radius: 0,
+    density: 1,
+    depth: 0,
+    buttonShape: 'default',
+    headingWeight: 500,
+  },
+  {
+    id: 'neon',
+    name: 'Neon night',
+    blurb: 'Dark by default, magenta brand, lime accent, glow shadows.',
+    origin: 'Starter Pack',
+    main: '#ff3fa4',
+    accent: '#c6ff00',
+    heading: 'Orbitron',
+    body: 'Space Grotesk',
+    baseSize: 15,
+    radius: 8,
+    density: 1,
+    depth: 0.8,
+    buttonShape: 'default',
+    headingWeight: 800,
+    appearance: 'dark',
+  },
+  {
+    id: 'ocean',
+    name: 'Ocean',
+    blurb: 'Blue brand with a cool neutral ramp.',
+    origin: 'DSN',
+    main: '#1f6feb',
+    accent: '#19b5c7',
+    heading: 'Outfit',
+    body: 'Figtree',
+    baseSize: 15,
+    radius: 10,
+    density: 1,
+    depth: 0.3,
+    buttonShape: 'default',
+    headingWeight: 600,
+  },
+  {
+    id: 'forest',
+    name: 'Forest',
+    blurb: 'Green brand, warm neutrals, medium radius.',
+    origin: 'DSN',
+    main: '#1f7a4d',
+    accent: '#d9a21b',
+    heading: 'Outfit',
+    body: 'Figtree',
+    baseSize: 15,
+    radius: 10,
+    density: 1,
+    depth: 0.3,
+    buttonShape: 'default',
+    headingWeight: 600,
+  },
+  {
+    id: 'berry',
+    name: 'Berry',
+    blurb: 'Raspberry brand with violet accent.',
+    origin: 'DSN',
+    main: '#b4236b',
+    accent: '#7c5cff',
+    heading: 'Outfit',
+    body: 'Figtree',
+    baseSize: 15,
+    radius: 12,
+    density: 1,
+    depth: 0.3,
+    buttonShape: 'pill',
+    headingWeight: 600,
+  },
+  {
+    id: 'graphite',
+    name: 'Graphite',
+    blurb: 'Near-monochrome, mint accent, compact.',
+    origin: 'DSN',
+    main: '#2b2f36',
+    accent: '#47d7ac',
+    heading: 'Outfit',
+    body: 'Figtree',
+    baseSize: 14,
+    radius: 6,
+    density: 0.9,
+    depth: 0.2,
+    buttonShape: 'default',
+    headingWeight: 600,
+  },
+]

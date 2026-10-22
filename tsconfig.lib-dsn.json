@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "rootDir": "../demo tools/DSN-main",
+    "outDir": "./.types/dsn",
+    "tsBuildInfoFile": "./.types/dsn.tsbuildinfo",
+    "target": "ES2022",
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "types": [
+      "vite/client"
+    ]
+  },
+  "include": [
+    "../demo tools/DSN-main/src/index.ts",
+    "../demo tools/DSN-main/src/components/**/*.ts",
+    "../demo tools/DSN-main/src/components/**/*.tsx",
+    "../demo tools/DSN-main/src/hooks/**/*.ts",
+    "../demo tools/DSN-main/src/hooks/**/*.tsx",
+    "../demo tools/DSN-main/src/types/**/*.ts",
+    "../demo tools/DSN-main/src/types/**/*.tsx",
+    "../demo tools/DSN-main/site/lib/theme/*.ts"
+  ],
+  "exclude": [
+    "../demo tools/DSN-main/**/*.stories.tsx",
+    "../demo tools/DSN-main/**/*.stories.ts",
+    "../demo tools/DSN-main/**/*.test.tsx",
+    "../demo tools/DSN-main/**/*.test.ts",
+    "../demo tools/DSN-main/**/*.figma.ts",
+    "../demo tools/DSN-main/src/stories/**",
+    "../demo tools/DSN-main/src/docs/**",
+    "../demo tools/DSN-main/src/figma/**",
+    "../demo tools/DSN-main/src/vite-env.d.ts"
+  ]
+}

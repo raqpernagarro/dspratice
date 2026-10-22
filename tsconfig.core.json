@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "composite": false,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/preview/main.tsx",
+    "src/preview/libs/dsn/**",
+    "src/preview/libs/starter/**",
+    "src/library/theme/dsn.ts",
+    "src/library/theme/starter.ts"
+  ],
+  "references": []
+}

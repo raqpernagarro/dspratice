@@ -1,0 +1,1977 @@
+{
+ "src-ask-the-account": {
+  "docId": "seed.ask-the-account",
+  "sourceHash": "bcfc0b61ee04f927",
+  "readAt": 1792664501605,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-bd86c8d1",
+    "heading": "\"Ask the account\": the 48-hour memo"
+   },
+   {
+    "id": "s-27824cd2",
+    "heading": "Intake (Teams form, 5 lines)"
+   },
+   {
+    "id": "s-4193baf1",
+    "heading": "Memo template (1 page, client-ready)"
+   },
+   {
+    "id": "s-43bbaa7a",
+    "heading": "Service level"
+   },
+   {
+    "id": "s-68b9a67d",
+    "heading": "Launch"
+   }
+  ],
+  "excerpt": "For: client managers and account managers who want a reason to go back to a client with something useful.\nDeal: you give us one account problem in 5 lines. Within 48 hours you get a 1-page \"what we'd do\" memo you can forward, with no Nagarro sales language.",
+  "charCount": 1365,
+  "sections": 5,
+  "missing": 0,
+  "fileMd5": "2deca83e2f767b748a4bfdd85c31ff17",
+  "mtime": 1792584318295.7808,
+  "path": "gtm/ask-the-account.md"
+ },
+ "src-authority-engine": {
+  "docId": "seed.authority-engine",
+  "sourceHash": "934af9d1d6b1a63f",
+  "readAt": 1792664501602,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-2ff346d9",
+    "heading": "AI-native design systems: authority engine (Oct 2026 – Mar 2027)"
+   },
+   {
+    "id": "s-bbb4ef04",
+    "heading": "The mandate (Pragathi, 20 Oct 2026)"
+   },
+   {
+    "id": "s-16f6ebc8",
+    "heading": "Big idea"
+   },
+   {
+    "id": "s-0edd5c83",
+    "heading": "The spine: Problem → Proof → Pipeline"
+   },
+   {
+    "id": "s-8ba52b01",
+    "heading": "Audiences"
+   },
+   {
+    "id": "s-28c3433b",
+    "heading": "Markets"
+   },
+   {
+    "id": "s-416e2d55",
+    "heading": "Metrics (proposed, to confirm with Pragathi)"
+   },
+   {
+    "id": "s-7d218a87",
+    "heading": "The plays"
+   },
+   {
+    "id": "s-446d2a70",
+    "heading": "Engagement ideas"
+   },
+   {
+    "id": "s-5b691bd6",
+    "heading": "Attention magnets"
+   },
+   {
+    "id": "s-f61ceeb0",
+    "heading": "Partners + open playbook"
+   },
+   {
+    "id": "s-eeb3e584",
+    "heading": "Calendar"
+   },
+   {
+    "id": "s-acba0b61",
+    "heading": "Asks for Pragathi"
+   },
+   {
+    "id": "s-a6c4a50a",
+    "heading": "Sources (21 Oct 2026)"
+   }
+  ],
+  "excerpt": "Owner: Raquel Pereira · Sponsor: Pragathi Kanth · Loop: Hugo, Carlos (weekly update)\nBoard: FigJam DS-Practice → page Initiatives (453:1978)",
+  "charCount": 9760,
+  "sections": 14,
+  "missing": 0,
+  "fileMd5": "29407898c91cd6d97f88300efdfac418",
+  "mtime": 1792584318249.793,
+  "path": "gtm/authority-engine.md"
+ },
+ "src-battle-card": {
+  "docId": "seed.battle-card",
+  "sourceHash": "1b41a57ee3058088",
+  "readAt": 1792664501600,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-953ebdd5",
+    "heading": "Battle card: AI-ready design systems (1 page, v1, 21 Oct 2026)"
+   },
+   {
+    "id": "s-89576521",
+    "heading": "Listen for these triggers"
+   },
+   {
+    "id": "s-049e4a9d",
+    "heading": "Ask these 10 questions"
+   },
+   {
+    "id": "s-0870f3f8",
+    "heading": "What we sell (canonical names)"
+   },
+   {
+    "id": "s-10662e72",
+    "heading": "Objections"
+   },
+   {
+    "id": "s-02f9a43c",
+    "heading": "Show (internal only unless marked)"
+   }
+  ],
+  "excerpt": "In one line: AI will build your clients' interfaces anyway. We make sure it builds *theirs*: on-brand, accessible, consistent.",
+  "charCount": 3052,
+  "sections": 6,
+  "missing": 0,
+  "fileMd5": "f70e75c3d017707a5c2ff55cf2dfd5ef",
+  "mtime": 1792584318281.9895,
+  "path": "gtm/battle-card.md"
+ },
+ "src-big-idea": {
+  "docId": "seed.big-idea",
+  "sourceHash": "fca7385d4dd60213",
+  "readAt": 1792664973327,
+  "readBy": "figma-mcp",
+  "outline": [
+   {
+    "id": "s-783ed3db",
+    "heading": "AI will build your interfaces anyway. Make sure it builds yours."
+   },
+   {
+    "id": "s-3d1c549d",
+    "heading": "Problem → Proof → Pipeline"
+   }
+  ],
+  "excerpt": "The practice's big idea (decided 21 Oct 2026). It extends the campaign line \"One foundation. Shared by people and AI.\"",
+  "charCount": 690,
+  "sections": 2,
+  "missing": 0,
+  "fileKey": "yeiDcap30EfEY6aSa78VbX",
+  "page": "Strategy",
+  "capturedBy": "figma-mcp"
+ },
+ "src-case-studies": {
+  "docId": "seed.case-studies",
+  "sourceHash": "4e0c718696b11be0",
+  "readAt": 1792664921268,
+  "readBy": "figma-mcp",
+  "outline": [
+   {
+    "id": "s-40899b7d",
+    "heading": "Verizon: Digital Signage Platform"
+   },
+   {
+    "id": "s-bf233c83",
+    "heading": "Verizon: the challenge and our approach"
+   },
+   {
+    "id": "s-bbe7f5de",
+    "heading": "Verizon: scope of work"
+   },
+   {
+    "id": "s-e75aa381",
+    "heading": "Verizon: guiding product vision"
+   },
+   {
+    "id": "s-b1c17bd2",
+    "heading": "Verizon: design language"
+   },
+   {
+    "id": "s-52d31ec7",
+    "heading": "Verizon: results"
+   },
+   {
+    "id": "s-4174e823",
+    "heading": "Datto: the challenge"
+   },
+   {
+    "id": "s-867f5082",
+    "heading": "Datto: collaboration and governance"
+   },
+   {
+    "id": "s-e95447b8",
+    "heading": "Datto: documentation and handover"
+   },
+   {
+    "id": "s-16cfcd34",
+    "heading": "Datto: foundation of the new design language"
+   },
+   {
+    "id": "s-5eeecf3f",
+    "heading": "Datto: scalable and adaptable components"
+   },
+   {
+    "id": "s-f2ebe6a4",
+    "heading": "Datto: summing it up"
+   }
+  ],
+  "excerpt": "Industry: Telecommunications/ Advertising\nExpertise: Strategy, Product Design, Development, QA\nPlatforms: Web, Android\nDeliverables: User Experience, User Interface, Development",
+  "charCount": 6711,
+  "sections": 12,
+  "missing": 4,
+  "fileKey": "D31di4PFgMvTUzfRHuxYkP",
+  "page": "Design-system case studies",
+  "capturedBy": "figma-mcp"
+ },
+ "src-contoso-multibrand-note": {
+  "docId": "seed.contoso-multibrand-note",
+  "sourceHash": "86b26d52c8ace4f0",
+  "readAt": 1792664501640,
+  "readBy": "upload",
+  "outline": [
+   {
+    "id": "s-953644b7",
+    "heading": "Three brands on one foundation"
+   },
+   {
+    "id": "s-20ab409d",
+    "heading": "Shared and local decisions"
+   },
+   {
+    "id": "s-1d4a942c",
+    "heading": "Approving changes that touch every brand"
+   },
+   {
+    "id": "s-17c77407",
+    "heading": "Migrating without a big bang"
+   }
+  ],
+  "excerpt": "Written for a multi-brand bank, anonymised, and approved for reuse with other clients (sample).",
+  "charCount": 876,
+  "sections": 4,
+  "missing": 0,
+  "fileMd5": "b1cbfe1858641cfbeed5f3e1243e3538",
+  "mtime": 1792664460815.7168,
+  "path": "multibrand-governance-note.md"
+ },
+ "src-contoso-questionnaire": {
+  "docId": "seed.contoso-questionnaire",
+  "sourceHash": "acfb823a789e3814",
+  "readAt": 1792664501639,
+  "readBy": "upload",
+  "outline": [
+   {
+    "id": "s-5d86fa72",
+    "heading": "Contoso Bank: design-system vendor questionnaire (sample)"
+   },
+   {
+    "id": "s-db98e85d",
+    "heading": "Section A: Brands"
+   },
+   {
+    "id": "s-e5ce786d",
+    "heading": "Section B: Risk and compliance"
+   }
+  ],
+  "excerpt": "CONTOSO-ISOLATION-MARKER — this sample belongs to the Contoso engagement only and must never appear in another client's opportunity.",
+  "charCount": 609,
+  "sections": 3,
+  "missing": 0,
+  "fileMd5": "e864e3b7d3be64b7e4d20dc0d52a2437",
+  "mtime": 1792664460808.9846,
+  "path": "contoso-vendor-questionnaire.md"
+ },
+ "src-decision-brief": {
+  "docId": "seed.decision-brief",
+  "sourceHash": "1d35e0dee5f3fcf8",
+  "readAt": 1792664501606,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-6354e45f",
+    "heading": "Decision brief: one offering from DSN, Starter Pack and the ASSA kit?"
+   },
+   {
+    "id": "s-6dd925be",
+    "heading": "The answer in one paragraph"
+   },
+   {
+    "id": "s-49491cbe",
+    "heading": "Why (strongest reasons)"
+   },
+   {
+    "id": "s-c9bdfd5b",
+    "heading": "How it helps us sell"
+   },
+   {
+    "id": "s-e3d8d604",
+    "heading": "MVP and service boundaries"
+   },
+   {
+    "id": "s-b5d1879b",
+    "heading": "What each project keeps"
+   },
+   {
+    "id": "s-b9d31502",
+    "heading": "Main trade-offs and uncertainties"
+   },
+   {
+    "id": "s-40c5a41b",
+    "heading": "Validation before investing"
+   },
+   {
+    "id": "s-89df9e2c",
+    "heading": "Decisions needed from you"
+   },
+   {
+    "id": "s-c287cb6b",
+    "heading": "Market update (20 Oct, after the trend research)"
+   }
+  ],
+  "excerpt": "*Product scoping, 20 Oct 2026. For the 12 Nov decision session. This is a proposal, not a decision.*\nEvidence labels used in this folder: O observed, D documented but unverified, I inferred, U unknown. Sources: evidence-index.md.",
+  "charCount": 8650,
+  "sections": 10,
+  "missing": 0,
+  "fileMd5": "882594350e4689899981b6df6efa75cc",
+  "mtime": 1792507188137.212,
+  "path": "product-scoping/decision-brief.md"
+ },
+ "src-dsn-agents": {
+  "docId": "seed.dsn-agents",
+  "sourceHash": "65970c10b9889716",
+  "readAt": 1792664501627,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-efc083e8",
+    "heading": "DS-Ngr Component Library — Building Guide"
+   },
+   {
+    "id": "s-107401a5",
+    "heading": "Project Purpose"
+   },
+   {
+    "id": "s-e6b8c17f",
+    "heading": "Stack"
+   },
+   {
+    "id": "s-47673a9d",
+    "heading": "Repository Structure"
+   },
+   {
+    "id": "s-a4e8a7e3",
+    "heading": "Component Documentation"
+   },
+   {
+    "id": "s-627b4052",
+    "heading": "Foundations"
+   },
+   {
+    "id": "s-ca1b1072",
+    "heading": "Atoms"
+   },
+   {
+    "id": "s-465566f1",
+    "heading": "Molecules"
+   },
+   {
+    "id": "s-4cd47ef9",
+    "heading": "Organisms"
+   },
+   {
+    "id": "s-6032a9bf",
+    "heading": "Patterns"
+   },
+   {
+    "id": "s-acadfc21",
+    "heading": "Page templates"
+   },
+   {
+    "id": "s-bf59ec8b",
+    "heading": "Docs site and prototype routes"
+   },
+   {
+    "id": "s-5afb5494",
+    "heading": "Accessibility"
+   },
+   {
+    "id": "s-06e9bd2e",
+    "heading": "Where tokens live"
+   },
+   {
+    "id": "s-b95bdcd7",
+    "heading": "Naming convention"
+   },
+   {
+    "id": "s-6daa83df",
+    "heading": "Three-layer model"
+   },
+   {
+    "id": "s-635748ac",
+    "heading": "Eight token tiers"
+   },
+   {
+    "id": "s-3c2af00b",
+    "heading": "Key token families"
+   },
+   {
+    "id": "s-ff82fbbe",
+    "heading": "Token invention rule"
+   },
+   {
+    "id": "s-b534d1a6",
+    "heading": "Known fabricated token patterns to reject:"
+   },
+   {
+    "id": "s-094603b8",
+    "heading": "Rule 1: Props = Figma variant properties"
+   },
+   {
+    "id": "s-edad8eb3",
+    "heading": "Rule 2: TypeScript interfaces — explicit union types"
+   },
+   {
+    "id": "s-374c0975",
+    "heading": "Rule 3: Component styles — tokens only, no hardcoded values"
+   },
+   {
+    "id": "s-88fe95a8",
+    "heading": "Rule 4: State implementation"
+   },
+   {
+    "id": "s-af99801c",
+    "heading": "Rule 5: Focus states — always :focus-visible, never :focus"
+   },
+   {
+    "id": "s-cbce3420",
+    "heading": "Rule 6: Semantic HTML and ARIA"
+   },
+   {
+    "id": "s-17686c17",
+    "heading": "Rule 7: Storybook — story contract (CSF 3.0)"
+   },
+   {
+    "id": "s-b7ae6c93",
+    "heading": "Rule 8: File structure — one directory per component"
+   },
+   {
+    "id": "s-7eef0a7e",
+    "heading": "Rule 9: Component generation order (atoms first)"
+   },
+   {
+    "id": "s-a4f1f284",
+    "heading": "Rule 10: Dropdown/popover positioning contract"
+   },
+   {
+    "id": "s-b2cee287",
+    "heading": "Rule 11: Accessibility guardrails and CI gates"
+   },
+   {
+    "id": "s-8af0b641",
+    "heading": "Rule 12: Icons — Lucide only"
+   },
+   {
+    "id": "s-319f515c",
+    "heading": "Rule 13: Placeholder content — never leave it in place"
+   },
+   {
+    "id": "s-0e2877d6",
+    "heading": "Rule 14: Form behavior"
+   },
+   {
+    "id": "s-0d7575ae",
+    "heading": "Accessibility Requirements"
+   },
+   {
+    "id": "s-6557e3ce",
+    "heading": "Writing conventions"
+   },
+   {
+    "id": "s-61571e1e",
+    "heading": "Sentence case everywhere"
+   },
+   {
+    "id": "s-f3b18608",
+    "heading": "Buttons and actions — verb first, object second"
+   },
+   {
+    "id": "s-7fa1d9ab",
+    "heading": "Labels and headings — noun phrases, no verbs"
+   },
+   {
+    "id": "s-566b740f",
+    "heading": "Error messages — what, why, next step"
+   },
+   {
+    "id": "s-be6a1521",
+    "heading": "Empty states — task-oriented, one sentence"
+   },
+   {
+    "id": "s-dbb622cc",
+    "heading": "Help text and tooltips — outcome, not mechanics"
+   },
+   {
+    "id": "s-6118dc4c",
+    "heading": "Placeholder text — contextual, not generic"
+   },
+   {
+    "id": "s-8e4cb2e0",
+    "heading": "Common Mistakes to Avoid"
+   },
+   {
+    "id": "s-34e8af0e",
+    "heading": "CalendarView — builder rules"
+   },
+   {
+    "id": "s-d002bb18",
+    "heading": "AppShell — height chain requirement"
+   },
+   {
+    "id": "s-59da5994",
+    "heading": "Agent process rules"
+   },
+   {
+    "id": "s-e3dc0acd",
+    "heading": "Session hygiene"
+   },
+   {
+    "id": "s-c59c2285",
+    "heading": "ds-index.json integrity"
+   },
+   {
+    "id": "s-74f7c4ec",
+    "heading": "Test triage"
+   },
+   {
+    "id": "s-9200df80",
+    "heading": "Documentation and audits"
+   },
+   {
+    "id": "s-d1e08639",
+    "heading": "Token drift exceptions"
+   },
+   {
+    "id": "s-9d0d73cf",
+    "heading": "Accessibility process"
+   },
+   {
+    "id": "s-45306aff",
+    "heading": "Agent skills (versioned source)"
+   },
+   {
+    "id": "s-0c28fc45",
+    "heading": "Scripts and automation"
+   },
+   {
+    "id": "s-d014096b",
+    "heading": "Before Starting Each Component"
+   }
+  ],
+  "excerpt": "> READ THIS FIRST. This file is the entry point for every coding session on the component library.\n> Do not write any code until you have read and understood this document.\n>\n> This file is for building components. For component usage specs, layout rules, and\n> navigation pattern",
+  "charCount": 54052,
+  "sections": 56,
+  "missing": 0,
+  "fileMd5": "7edc1db8864ee612be8108b1259377b4",
+  "mtime": 1792064601000,
+  "path": "demo tools/DSN-main/AGENTS.md"
+ },
+ "src-dsn-ai-short": {
+  "docId": "seed.dsn-ai-short",
+  "sourceHash": "1f58bb4b72ec27d1",
+  "readAt": 1792664501630,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-38eed4b7",
+    "heading": "DS-Ngr — Usage guide"
+   },
+   {
+    "id": "s-de2e44cd",
+    "heading": "AppShell — mandatory root layout"
+   },
+   {
+    "id": "s-4725ea5d",
+    "heading": "Typography — never override"
+   },
+   {
+    "id": "s-2d36d7c8",
+    "heading": "Navbar rules"
+   },
+   {
+    "id": "s-87ae35e2",
+    "heading": "Card structure"
+   },
+   {
+    "id": "s-dd23f2c7",
+    "heading": "KPI / stat card pattern"
+   },
+   {
+    "id": "s-5b1d01c8",
+    "heading": "EmptyState — critical"
+   },
+   {
+    "id": "s-140419e7",
+    "heading": "Component spacing — critical"
+   },
+   {
+    "id": "s-370bab67",
+    "heading": "Token rules"
+   },
+   {
+    "id": "s-a23da989",
+    "heading": "Three-tier model — always resolve through this chain"
+   },
+   {
+    "id": "s-1dc61878",
+    "heading": "Tag semantic mapping"
+   },
+   {
+    "id": "s-6efd1992",
+    "heading": "Component decision rules"
+   },
+   {
+    "id": "s-67b3c521",
+    "heading": "Select and popovers"
+   },
+   {
+    "id": "s-8f1a4707",
+    "heading": "Forms"
+   },
+   {
+    "id": "s-71334756",
+    "heading": "What not to do"
+   }
+  ],
+  "excerpt": "> Condensed rules for context-limited tools. Full reference: AI.md\n> Storybook: https://nagarro-dv.github.io/DSN/\n\nIcons come from lucide-react (ds-ngr does not re-export them). List it in package.json at the same version ds-ngr uses.\n\nStart pages from a template. templates/*.jsx",
+  "charCount": 14483,
+  "sections": 15,
+  "missing": 0,
+  "fileMd5": "6669fc63fdb0288edb13db252dfc6c50",
+  "mtime": 1792064601000,
+  "path": "demo tools/DSN-main/AI-short.md"
+ },
+ "src-dsn-figma-mcp": {
+  "docId": "seed.dsn-figma-mcp",
+  "sourceHash": "c611454da1240f57",
+  "readAt": 1792664501635,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-94d3a727",
+    "heading": "Figma Code Connect — MCP instructions"
+   },
+   {
+    "id": "s-59858a7a",
+    "heading": "Aspect ratio"
+   },
+   {
+    "id": "s-5f84b3d6",
+    "heading": "Attachment / Attachment card"
+   },
+   {
+    "id": "s-26bf9da2",
+    "heading": "Attachment / Attachment chip"
+   },
+   {
+    "id": "s-af12f991",
+    "heading": "Avatar"
+   },
+   {
+    "id": "s-77b642c7",
+    "heading": "Avatar group"
+   },
+   {
+    "id": "s-1fa7b883",
+    "heading": "Badge"
+   },
+   {
+    "id": "s-f9f79fc3",
+    "heading": "Breadcrumb item"
+   },
+   {
+    "id": "s-ec3ef183",
+    "heading": "Breadcrumbs / Large breadcrumbs"
+   },
+   {
+    "id": "s-d0cf801a",
+    "heading": "Breadcrumbs / Small bradcrumbs"
+   },
+   {
+    "id": "s-92e09e5e",
+    "heading": "Bulk actions"
+   },
+   {
+    "id": "s-bf8ed1d8",
+    "heading": "Bulk actions alt"
+   },
+   {
+    "id": "s-257fcb6c",
+    "heading": "Button"
+   },
+   {
+    "id": "s-62e5a32e",
+    "heading": "Button / Toggle button"
+   },
+   {
+    "id": "s-2f05363c",
+    "heading": "Button / Vertical button"
+   },
+   {
+    "id": "s-1bf4b874",
+    "heading": "Button group / Inline"
+   },
+   {
+    "id": "s-52c7e27b",
+    "heading": "Button group / Vertical"
+   },
+   {
+    "id": "s-2e813b5c",
+    "heading": "Callout"
+   },
+   {
+    "id": "s-7bea14a4",
+    "heading": "Card container"
+   },
+   {
+    "id": "s-6d3f5402",
+    "heading": "Carousel"
+   },
+   {
+    "id": "s-384ec4b9",
+    "heading": "Chart / Bar chart"
+   },
+   {
+    "id": "s-d0037d15",
+    "heading": "Chart / Donut"
+   },
+   {
+    "id": "s-1def3800",
+    "heading": "Chart / Line chart"
+   },
+   {
+    "id": "s-25762de9",
+    "heading": "Checkbox"
+   },
+   {
+    "id": "s-a4e7f0e2",
+    "heading": "Chip"
+   },
+   {
+    "id": "s-2099d984",
+    "heading": "Chip group"
+   },
+   {
+    "id": "s-44b06b46",
+    "heading": "Choice list"
+   },
+   {
+    "id": "s-7eb2b0bd",
+    "heading": "Data list cell / Editable"
+   },
+   {
+    "id": "s-c1fb4361",
+    "heading": "Data list cell / Info"
+   },
+   {
+    "id": "s-99027441",
+    "heading": "Data table / Cell / Header cell"
+   },
+   {
+    "id": "s-3b1b4240",
+    "heading": "Data table / Cell / Table cell"
+   },
+   {
+    "id": "s-bef87fa7",
+    "heading": "Date and time picker"
+   },
+   {
+    "id": "s-8b55b1b7",
+    "heading": "Date and time picker (popover)"
+   },
+   {
+    "id": "s-6521342d",
+    "heading": "Drawer"
+   },
+   {
+    "id": "s-2e9dd757",
+    "heading": "File row"
+   },
+   {
+    "id": "s-9ee1aa62",
+    "heading": "Input / Checkbox"
+   },
+   {
+    "id": "s-0e5267de",
+    "heading": "Input / Chips"
+   },
+   {
+    "id": "s-89a211fc",
+    "heading": "Input / Combobox"
+   },
+   {
+    "id": "s-883145c4",
+    "heading": "Input / Combobox multi"
+   },
+   {
+    "id": "s-ea4dc294",
+    "heading": "Input / Date picker"
+   },
+   {
+    "id": "s-a73e4760",
+    "heading": "Input / Date range picker"
+   },
+   {
+    "id": "s-04fb8ef1",
+    "heading": "Input / File upload"
+   },
+   {
+    "id": "s-0cd4f8c6",
+    "heading": "Input / Horizontal input"
+   },
+   {
+    "id": "s-ecebbbf8",
+    "heading": "Input / Multi choice"
+   },
+   {
+    "id": "s-0669ff13",
+    "heading": "Input / Number input"
+   },
+   {
+    "id": "s-3f2daa10",
+    "heading": "Input / OTP"
+   },
+   {
+    "id": "s-c9ad79a2",
+    "heading": "Input / Password"
+   },
+   {
+    "id": "s-b162fb35",
+    "heading": "Input / Phone number"
+   },
+   {
+    "id": "s-7ad364cb",
+    "heading": "Input / Search"
+   },
+   {
+    "id": "s-919b0cd9",
+    "heading": "Input / Search ghost"
+   },
+   {
+    "id": "s-eb0e7a03",
+    "heading": "Input / Select"
+   },
+   {
+    "id": "s-7537d5e1",
+    "heading": "Input / Single choice"
+   },
+   {
+    "id": "s-7917ca26",
+    "heading": "Input / Text area"
+   },
+   {
+    "id": "s-7dba7b49",
+    "heading": "Input / Text input"
+   },
+   {
+    "id": "s-315946a8",
+    "heading": "Input / Upload area"
+   },
+   {
+    "id": "s-fb085b44",
+    "heading": "Loading / Bar"
+   },
+   {
+    "id": "s-2627292d",
+    "heading": "Loading / Skeleton loading"
+   },
+   {
+    "id": "s-f2a2d1a8",
+    "heading": "Loading / Spinner"
+   },
+   {
+    "id": "s-b0c47dee",
+    "heading": "Menu cell"
+   },
+   {
+    "id": "s-7479d4c1",
+    "heading": "Modal"
+   }
+  ],
+  "excerpt": "Paste each block into Code Connect → component → Add instructions for MCP, then Save.\nSorted by Figma component name (same order as the Code Connect list). Accordion and Alert dialog are already done.\nSource: generated from ds-index.json and each component's *.spec.md.",
+  "charCount": 66870,
+  "sections": 89,
+  "missing": 0,
+  "fileMd5": "dda181f2318cdd6be33c7852904bbf77",
+  "mtime": 1792064601000,
+  "path": "demo tools/DSN-main/docs/figma-mcp-instructions.md"
+ },
+ "src-dsn-llms": {
+  "docId": "seed.dsn-llms",
+  "sourceHash": "2ef6e9518c0a7fdb",
+  "readAt": 1792664501631,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-4764ff38",
+    "heading": "# DS-Ngr"
+   }
+  ],
+  "excerpt": "> Nagarro's design system: React components, design tokens and usage rules. Never write a token, component or prop you have not seen in the inventory below. A name that fits the grammar is not proof that it exists.\n\n## Inventory (read first)\n\n- [ds-index.json](ds-index.json): gen",
+  "charCount": 1441,
+  "sections": 1,
+  "missing": 0,
+  "fileMd5": "1dd8d5961399e98e0c6679d157528bbd",
+  "mtime": 1792064601000,
+  "path": "demo tools/DSN-main/llms.txt"
+ },
+ "src-dsn-readme": {
+  "docId": "seed.dsn-readme",
+  "sourceHash": "99cddcb08a22b25e",
+  "readAt": 1792664501626,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-aa9c14cb",
+    "heading": "DS-Nagarro"
+   },
+   {
+    "id": "s-8992afd9",
+    "heading": "Resources"
+   },
+   {
+    "id": "s-c3238dd4",
+    "heading": "Stack"
+   },
+   {
+    "id": "s-475655e2",
+    "heading": "Running locally"
+   },
+   {
+    "id": "s-830bba0f",
+    "heading": "First-time setup"
+   },
+   {
+    "id": "s-b5a2d48c",
+    "heading": "Run everything (recommended)"
+   },
+   {
+    "id": "s-ada2c10e",
+    "heading": "Run them separately"
+   },
+   {
+    "id": "s-4a9202c2",
+    "heading": "How they stay in sync"
+   },
+   {
+    "id": "s-35dc1ab5",
+    "heading": "Production build"
+   },
+   {
+    "id": "s-d58d1143",
+    "heading": "Optional environment"
+   },
+   {
+    "id": "s-7484501c",
+    "heading": "Installation"
+   },
+   {
+    "id": "s-1d591a0c",
+    "heading": "Repository structure"
+   },
+   {
+    "id": "s-80de73d5",
+    "heading": "For AI agents"
+   },
+   {
+    "id": "s-06829f18",
+    "heading": "Where to go"
+   }
+  ],
+  "excerpt": "An AI-first React component library designed so that AI agents can generate correct UI code without hallucination or guesswork.\n\nEvery structural and naming decision in this library prioritises AI agent interpretability over aesthetic preference.",
+  "charCount": 7502,
+  "sections": 14,
+  "missing": 0,
+  "fileMd5": "f314f294da1eda00a4e32015aa0841e3",
+  "mtime": 1792064601000,
+  "path": "demo tools/DSN-main/README.md"
+ },
+ "src-evidence-index": {
+  "docId": "seed.evidence-index",
+  "sourceHash": "c02730529c869eb8",
+  "readAt": 1792664501612,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-c1cf29d2",
+    "heading": "Evidence index"
+   },
+   {
+    "id": "s-901ec106",
+    "heading": "DSN (DSN-main)"
+   },
+   {
+    "id": "s-3a6d83fa",
+    "heading": "DS Starter Pack (ds-starter-pack-main)"
+   },
+   {
+    "id": "s-3c54901b",
+    "heading": "ASSA prototyping kit v5 (ASSA-ABLOY-DS-prototyping-v5)"
+   },
+   {
+    "id": "s-65fbbef3",
+    "heading": "Video (nuno_ds_configurator.mov)"
+   },
+   {
+    "id": "s-0227fae0",
+    "heading": "Board and Audit (FigJam)"
+   },
+   {
+    "id": "s-1fc8707f",
+    "heading": "Market (web, 20 Oct 2026)"
+   }
+  ],
+  "excerpt": "Labels: O observed (seen in code, config, the running app, video frames or script output), D documented but unverified, I inferred, U unknown.\n\nPaths are relative to DS Pratice/demo tools/. Figma nodes are on board yeiDcap30EfEY6aSa78VbX. Link format: https://www.figma.com/board/",
+  "charCount": 10934,
+  "sections": 7,
+  "missing": 0,
+  "fileMd5": "c033b6040374f57cbfeb98e5ca331f1e",
+  "mtime": 1792507188278.1272,
+  "path": "product-scoping/evidence-index.md"
+ },
+ "src-feasibility": {
+  "docId": "seed.feasibility",
+  "sourceHash": "e1674cdb9600b9c1",
+  "readAt": 1792664501611,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-93e69fba",
+    "heading": "Feasibility experiment: can the control panel adapt to a system it didn't create?"
+   },
+   {
+    "id": "s-7dfb57b8",
+    "heading": "Stage 0: our own three systems (cheapest, most honest)"
+   },
+   {
+    "id": "s-6b173d8c",
+    "heading": "Stage 1: one simple public design system"
+   },
+   {
+    "id": "s-94e80f30",
+    "heading": "What to test"
+   },
+   {
+    "id": "s-1479e416",
+    "heading": "Decision rule"
+   },
+   {
+    "id": "s-49ad0e1e",
+    "heading": "Who and what"
+   },
+   {
+    "id": "s-9eaa30a6",
+    "heading": "What not to claim afterwards"
+   }
+  ],
+  "excerpt": "This is a proposal. Nothing has been run yet.\n\nThe question: can one adapter, mostly through configuration, read an existing design system? And can it support the core loop on that system: inspect → suggest → propose an edit → see the impact → PR + Figma change set?",
+  "charCount": 3509,
+  "sections": 7,
+  "missing": 0,
+  "fileMd5": "4c46a7c6ce2a39d66397718941653e7b",
+  "mtime": 1792504565092.9055,
+  "path": "product-scoping/feasibility-experiment.md"
+ },
+ "src-market-trends": {
+  "docId": "seed.market-trends",
+  "sourceHash": "dd9a3a4ae65de864",
+  "readAt": 1792664501610,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-126b5428",
+    "heading": "Market trends 2026: what clients can't do alone with design systems + AI"
+   },
+   {
+    "id": "s-fdca8967",
+    "heading": "The one-line insight"
+   },
+   {
+    "id": "s-ee595939",
+    "heading": "Trend radar"
+   },
+   {
+    "id": "s-6c005321",
+    "heading": "Experts are saying"
+   },
+   {
+    "id": "s-d9d81114",
+    "heading": "What clients can't do alone → what we sell"
+   },
+   {
+    "id": "s-c794a70b",
+    "heading": "What this changes in the 20 Oct proposal"
+   },
+   {
+    "id": "s-b3969914",
+    "heading": "Watch monthly"
+   },
+   {
+    "id": "s-75eaec71",
+    "heading": "Sources"
+   }
+  ],
+  "excerpt": "*Researched 20 Oct 2026.* Labels: D = documented by a vendor, the press or an expert, not verified by us · I = our inference. LinkedIn can't be searched directly, so expert views come from their talks, newsletters, blogs and courses. On the board, this content is the zones *Marke",
+  "charCount": 7750,
+  "sections": 8,
+  "missing": 0,
+  "fileMd5": "da3b2fcc296c4241db3d73e3f758a03a",
+  "mtime": 1792507162136.6287,
+  "path": "product-scoping/market-trends.md"
+ },
+ "src-offer-deck": {
+  "docId": "seed.offer-deck",
+  "sourceHash": "6f9ee8c98e71a1eb",
+  "readAt": 1792664731623,
+  "readBy": "figma-mcp",
+  "outline": [
+   {
+    "id": "s-dba0945c",
+    "heading": "Today"
+   },
+   {
+    "id": "s-6a9da3e2",
+    "heading": "About Nagarro"
+   },
+   {
+    "id": "s-699b63b8",
+    "heading": "About Nagarro New"
+   },
+   {
+    "id": "s-5e8a0946",
+    "heading": "Our capabilities span the entire product lifecycle."
+   },
+   {
+    "id": "s-63ebf272",
+    "heading": "Our capabilities span the entire product lifecycle."
+   },
+   {
+    "id": "s-f6f5d437",
+    "heading": "Product Operating Model"
+   },
+   {
+    "id": "s-f6435de9",
+    "heading": "AI-ready Design Systems"
+   },
+   {
+    "id": "s-f94362a2",
+    "heading": "Where are most companies today?"
+   },
+   {
+    "id": "s-0663cac4",
+    "heading": "Mixed messages"
+   },
+   {
+    "id": "s-187afb37",
+    "heading": "When AI lacks context, everyone pays."
+   },
+   {
+    "id": "s-878f31ac",
+    "heading": "What makes it ready for AI?"
+   },
+   {
+    "id": "s-a1f4eac5",
+    "heading": "Six pillars. One machine-readable foundation."
+   },
+   {
+    "id": "s-1df7ec90",
+    "heading": "Design Systems already pay for themselves."
+   },
+   {
+    "id": "s-23fa3499",
+    "heading": "What does using AI unlock?"
+   },
+   {
+    "id": "s-953762c0",
+    "heading": "An AI-ready business asset."
+   },
+   {
+    "id": "s-272dbb3a",
+    "heading": "Unlock AI-assisted UI creation."
+   },
+   {
+    "id": "s-9b443825",
+    "heading": "An AI-assisted Design System workflow."
+   },
+   {
+    "id": "s-aa965835",
+    "heading": "Tech Stack."
+   },
+   {
+    "id": "s-4b04d5d7",
+    "heading": "QA & the design-code gap"
+   },
+   {
+    "id": "s-400285ef",
+    "heading": "How does it impact QA?"
+   },
+   {
+    "id": "s-e283589d",
+    "heading": "An AI-ready design system that connects the product team."
+   },
+   {
+    "id": "s-5c750e21",
+    "heading": "DS Accelerator"
+   },
+   {
+    "id": "s-5174fcd0",
+    "heading": "The DS Accelerator’s workflow."
+   },
+   {
+    "id": "s-f036170d",
+    "heading": "Success Stories"
+   },
+   {
+    "id": "s-f1385737",
+    "heading": "International SOS."
+   },
+   {
+    "id": "s-722c5657",
+    "heading": "Datto."
+   },
+   {
+    "id": "s-6f2a1307",
+    "heading": "RMS Design System."
+   },
+   {
+    "id": "s-e924c2e7",
+    "heading": "Securra Health."
+   },
+   {
+    "id": "s-7ce88e39",
+    "heading": "SoSecure App."
+   },
+   {
+    "id": "s-8ff57815",
+    "heading": "Next steps"
+   },
+   {
+    "id": "s-15018267",
+    "heading": "Get results in weeks, not quarters."
+   },
+   {
+    "id": "s-7f0467dc",
+    "heading": "Three plans that cover every business need."
+   },
+   {
+    "id": "s-cfa4a97c",
+    "heading": "Let’s build intelligent experiences together."
+   },
+   {
+    "id": "s-0645c1e5",
+    "heading": "Still not convinced?"
+   },
+   {
+    "id": "s-b617a8b8",
+    "heading": "DS Build"
+   },
+   {
+    "id": "s-ae089196",
+    "heading": "DS Scale"
+   },
+   {
+    "id": "s-c987e428",
+    "heading": "DS Accelerate"
+   },
+   {
+    "id": "s-7ff4520b",
+    "heading": "Our capabilities are built around the whole product lifecycle"
+   }
+  ],
+  "excerpt": "About Nagarro\nAn introduction to the AI tools we use to accelerate PDLC, and our end-to-end product capabilities.\nAI-ready Design Systems\nHow machine-readable foundations, connected workflows, and governance make Design Systems scalable and ready for AI.\nQA & the design-code gap\n",
+  "charCount": 32130,
+  "sections": 38,
+  "missing": 14,
+  "fileKey": "yeSjfdrvwG242j3zAauexZ",
+  "page": "Offer Deck",
+  "capturedBy": "figma-mcp"
+ },
+ "src-offering-v03": {
+  "docId": "seed.offering-v03",
+  "sourceHash": "7fdce3201a44fbea",
+  "readAt": 1792664501618,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-8102098a",
+    "heading": "Introduction"
+   },
+   {
+    "id": "s-12fca59c",
+    "heading": "AI-Ready Design Systems ."
+   },
+   {
+    "id": "s-ac91c3c7",
+    "heading": "One sentence."
+   },
+   {
+    "id": "s-9fc0aed4",
+    "heading": "Where this offering ends, and where it starts small"
+   },
+   {
+    "id": "s-2e7b00e1",
+    "heading": "AI tools are at enterprise scale."
+   },
+   {
+    "id": "s-7253ac77",
+    "heading": "Design system maturity has split."
+   },
+   {
+    "id": "s-e98fb7f1",
+    "heading": "The technical primitives are mature."
+   },
+   {
+    "id": "s-b8168698",
+    "heading": "Four offers mapped to four buyer situations."
+   },
+   {
+    "id": "s-520a4163",
+    "heading": "Four offers mapped to four buyer situations. (continued)"
+   },
+   {
+    "id": "s-510a3fd0",
+    "heading": "Four offers mapped to four buyer situations. (continued)"
+   },
+   {
+    "id": "s-580a4ad5",
+    "heading": "Four offers mapped to four buyer situations. (continued)"
+   },
+   {
+    "id": "s-55bb1c76",
+    "heading": "Four organisational situations we sell into."
+   },
+   {
+    "id": "s-c6ade258",
+    "heading": "Enterprise Multi-Brand Product Organisations"
+   },
+   {
+    "id": "s-9d692ecf",
+    "heading": "Scale-up Platform Companies"
+   },
+   {
+    "id": "s-f2663936",
+    "heading": "Post-Merger and Carve-Out Product Consolidation"
+   },
+   {
+    "id": "s-5af593df",
+    "heading": "AI Transformation Programmes"
+   },
+   {
+    "id": "s-8865bc1d",
+    "heading": "Pitch lines, discovery questions, common objections."
+   },
+   {
+    "id": "s-48832056",
+    "heading": "Pitch lines"
+   },
+   {
+    "id": "s-28aae740",
+    "heading": "Discovery questions"
+   },
+   {
+    "id": "s-2fde0f53",
+    "heading": "Common objections and responses"
+   },
+   {
+    "id": "s-da4aedf8",
+    "heading": "Six phases, collapsed differently per offer."
+   },
+   {
+    "id": "s-48a03ffa",
+    "heading": "In the design system itself"
+   },
+   {
+    "id": "s-4a3b8f58",
+    "heading": "What AI does as part of the team"
+   },
+   {
+    "id": "s-a307a765",
+    "heading": "All pricing at €85 / hour blended."
+   },
+   {
+    "id": "s-0aeecda8",
+    "heading": "Every claim is sourced or labelled."
+   }
+  ],
+  "excerpt": "Position\nPortfolio\nOffers\nICPs\nPlaybook\nCommercials\n\nv0.3\n\nPortfolio proposal · for sales and delivery",
+  "charCount": 30744,
+  "sections": 25,
+  "missing": 0,
+  "fileMd5": "a871cc67c695cfea64ec0e1ec17189f7",
+  "mtime": 1789997691487.5352,
+  "path": "AI-Ready-Design-Systems-Offering 3.html"
+ },
+ "src-problem-bank": {
+  "docId": "seed.problem-bank",
+  "sourceHash": "ccfe3f271168a825",
+  "readAt": 1792664501604,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-e6db7a56",
+    "heading": "Problem bank — the spine of the content engine"
+   },
+   {
+    "id": "s-4dc27d5c",
+    "heading": "Where problems come in"
+   },
+   {
+    "id": "s-d2df6e48",
+    "heading": "Columns (Excel/SharePoint list to start; move to a FigJam zone mirror)"
+   },
+   {
+    "id": "s-736cda3a",
+    "heading": "Themes (tag one or two)"
+   },
+   {
+    "id": "s-eb7adabe",
+    "heading": "Anonymisation rules"
+   },
+   {
+    "id": "s-c745eb1f",
+    "heading": "Monthly rhythm"
+   }
+  ],
+  "excerpt": "Idea: Problem → Proof → Pipeline.\n1. Collect real problems from clients, prospects, sellers and the community.\n2. Solve one in public each month, anonymised and on the demo brand.\n3. Turn each solution into content.\n4. Route the person who sent it to a readout through their clien",
+  "charCount": 2602,
+  "sections": 6,
+  "missing": 0,
+  "fileMd5": "0db81e1915edb0b67349ec6df0f84491",
+  "mtime": 1792584118601.357,
+  "path": "gtm/problem-bank.md"
+ },
+ "src-scoping-analysis": {
+  "docId": "seed.scoping-analysis",
+  "sourceHash": "b6022900c0177aae",
+  "readAt": 1792664501608,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-9ff88442",
+    "heading": "Supporting analysis: product scoping for the DS + AI offering"
+   },
+   {
+    "id": "s-15c0f4ac",
+    "heading": "1.1 The three projects at a glance"
+   },
+   {
+    "id": "s-5a5e7e7a",
+    "heading": "1.2 How they relate"
+   },
+   {
+    "id": "s-f9da7d49",
+    "heading": "2. What the board and the Audit say"
+   },
+   {
+    "id": "s-693f4f7f",
+    "heading": "2.1 Goals and problems (as written on the board)"
+   },
+   {
+    "id": "s-0684d049",
+    "heading": "2.2 How we describe and demo the offering today"
+   },
+   {
+    "id": "s-72de4a5f",
+    "heading": "2.3 Where board, projects and stakeholder input agree or differ"
+   },
+   {
+    "id": "s-27ab7cff",
+    "heading": "3. Users, buyers and jobs"
+   },
+   {
+    "id": "s-f1ecdde8",
+    "heading": "4. Options compared"
+   },
+   {
+    "id": "s-ebaf12d6",
+    "heading": "5. Tensions, and the position taken"
+   },
+   {
+    "id": "s-274cffa3",
+    "heading": "6.1 Proposition (one paragraph)"
+   },
+   {
+    "id": "s-f3ad6936",
+    "heading": "6.2 Users and outcomes"
+   },
+   {
+    "id": "s-f040983a",
+    "heading": "6.3 Main journeys"
+   },
+   {
+    "id": "s-de4fe06d",
+    "heading": "6.4 Information architecture (the control panel)"
+   },
+   {
+    "id": "s-227143ca",
+    "heading": "6.5 Reuse, adapt, connect, replace, retire, keep separate"
+   },
+   {
+    "id": "s-9fbc672b",
+    "heading": "6.6 MVP, later, excluded"
+   },
+   {
+    "id": "s-6fec3f31",
+    "heading": "6.7 Conceptual architecture"
+   },
+   {
+    "id": "s-70386ab8",
+    "heading": "6.8 Service vs tool"
+   },
+   {
+    "id": "s-f2a4bd3a",
+    "heading": "6.9 Onboarding, adaptation, handover, maintenance"
+   },
+   {
+    "id": "s-603fb61e",
+    "heading": "6.10 Dependencies, open decisions, risks"
+   },
+   {
+    "id": "s-9761fd18",
+    "heading": "6.11 Phased outline (no estimates; not executed)"
+   },
+   {
+    "id": "s-06a8cdb5",
+    "heading": "7. What can be standardized vs what stays client-specific"
+   },
+   {
+    "id": "s-cd20c112",
+    "heading": "8. Demonstration journey"
+   },
+   {
+    "id": "s-e090d4b2",
+    "heading": "9. Precedent and market notes"
+   },
+   {
+    "id": "s-ebc8ed76",
+    "heading": "10. Assumptions, open questions, validation"
+   },
+   {
+    "id": "s-ea46c628",
+    "heading": "11. Board state noted (not changed)"
+   }
+  ],
+  "excerpt": "*20 Oct 2026.* Labels: O observed · D documented, unverified · I inferred · U unknown. Every number here is in evidence-index.md. Paths are relative to DS Pratice/demo tools/ unless stated.",
+  "charCount": 31968,
+  "sections": 26,
+  "missing": 0,
+  "fileMd5": "6f8712986853100cebfc9c227eec81c5",
+  "mtime": 1792507188268.6592,
+  "path": "product-scoping/analysis.md"
+ },
+ "src-seller-training": {
+  "docId": "seed.seller-training",
+  "sourceHash": "e110a1375ee7b359",
+  "readAt": 1792664501605,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-e7b9206d",
+    "heading": "\"AI for sellers: open the design-system conversation\" (60 min)"
+   },
+   {
+    "id": "s-c8329566",
+    "heading": "Agenda"
+   },
+   {
+    "id": "s-9d4e1a68",
+    "heading": "Hands-on prompt (sellers paste it into Claude)"
+   },
+   {
+    "id": "s-b089c6c3",
+    "heading": "After the session"
+   }
+  ],
+  "excerpt": "Built from: Raquel's own AI workshop, adapted with Nagarro examples.\nWho: client managers, account managers, presales.\nRollout by region:\n1. North America first, before Experience Day if possible.\n2. DACH\n3. UK & Nordics\n4. Middle East & India\n\nEach session is recorded. Refresh q",
+  "charCount": 2481,
+  "sections": 4,
+  "missing": 0,
+  "fileMd5": "3b38d27fbf8638e86849a2e5b5952559",
+  "mtime": 1792584318266.078,
+  "path": "gtm/seller-training-outline.md"
+ },
+ "src-starter-llms": {
+  "docId": "seed.starter-llms",
+  "sourceHash": "8d124ecb6f46bd49",
+  "readAt": 1792664501622,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-aa7a8bd4",
+    "heading": "# Nagarro DS Starter Pack"
+   },
+   {
+    "id": "s-ad7a908d",
+    "heading": "demo tools/ds-starter-pack-main/llms.txt · part 2"
+   },
+   {
+    "id": "s-b39fafd4",
+    "heading": "demo tools/ds-starter-pack-main/llms.txt · part 2 (continued)"
+   },
+   {
+    "id": "s-ac7a8efa",
+    "heading": "## Source"
+   }
+  ],
+  "excerpt": "> A design system for client projects: every Base UI component as a React wrapper and a matching Figma component, on one semantic token system (same names in Figma and code). Each component is described once, in a spec; code, Figma, the configurator and these docs are generated f",
+  "charCount": 7991,
+  "sections": 4,
+  "missing": 0,
+  "fileMd5": "e54f7dbf13f1b55f04810a2ef61810ef",
+  "mtime": 1792427317000,
+  "path": "demo tools/ds-starter-pack-main/llms.txt"
+ },
+ "src-starter-readme": {
+  "docId": "seed.starter-readme",
+  "sourceHash": "809f67f4f572a776",
+  "readAt": 1792664501621,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-ee060003",
+    "heading": "Nagarro DS Starter Pack"
+   },
+   {
+    "id": "s-a9030942",
+    "heading": "What's inside"
+   },
+   {
+    "id": "s-d0cb3e7a",
+    "heading": "Quick start"
+   },
+   {
+    "id": "s-4372354a",
+    "heading": "Connecting the built-in agent"
+   },
+   {
+    "id": "s-4aeba084",
+    "heading": "Connecting to Figma (only for the sync commands)"
+   },
+   {
+    "id": "s-34090e11",
+    "heading": "How the project is organized"
+   },
+   {
+    "id": "s-94a392db",
+    "heading": "Working on it"
+   },
+   {
+    "id": "s-ee95d8a8",
+    "heading": "Pitch deck"
+   },
+   {
+    "id": "s-c963110e",
+    "heading": "Documentation"
+   },
+   {
+    "id": "s-92f6ec0f",
+    "heading": "License"
+   }
+  ],
+  "excerpt": "A design system you start client projects from. It has every Base UI component, built in React and in Figma to the same level of detail, on one semantic token system.\n\nEach component is described once, in a spec. Code, Figma, the theme configurator and the docs are all generated ",
+  "charCount": 4683,
+  "sections": 10,
+  "missing": 0,
+  "fileMd5": "406f08819289054a239d3172446e1812",
+  "mtime": 1792427317000,
+  "path": "demo tools/ds-starter-pack-main/README.md"
+ },
+ "src-starter-token-sync": {
+  "docId": "seed.starter-token-sync",
+  "sourceHash": "9049287988fc2023",
+  "readAt": 1792664501623,
+  "readBy": "local-read",
+  "outline": [
+   {
+    "id": "s-816ba7db",
+    "heading": "Design tokens and Figma–code sync"
+   },
+   {
+    "id": "s-f815d81f",
+    "heading": "1.1 Primary goal"
+   },
+   {
+    "id": "s-fe9cdfa9",
+    "heading": "1.2 Secondary goals"
+   },
+   {
+    "id": "s-4f9b8385",
+    "heading": "1.3 Non-goals (current phase)"
+   },
+   {
+    "id": "s-c19d335e",
+    "heading": "2. Repository implementation status (done)"
+   },
+   {
+    "id": "s-909ab995",
+    "heading": "2.1 Storybook and Base UI demos"
+   },
+   {
+    "id": "s-44904628",
+    "heading": "2.2 Design-system Button and Icon Button (Figma-aligned)"
+   },
+   {
+    "id": "s-f8612025",
+    "heading": "2.3 Token definitions and generated artifacts"
+   },
+   {
+    "id": "s-acba8ff3",
+    "heading": "2.4 Figma file (Variable Test)"
+   },
+   {
+    "id": "s-ea3b47a8",
+    "heading": "2.5 Automation scripts and npm commands"
+   },
+   {
+    "id": "s-f97725b0",
+    "heading": "2.6 REST / GitHub Action package"
+   },
+   {
+    "id": "s-116631d3",
+    "heading": "2.7 Semantic editor (configurator) — shipped features"
+   },
+   {
+    "id": "s-18b7803b",
+    "heading": "2.8 Documentation and conventions"
+   },
+   {
+    "id": "s-a179adcc",
+    "heading": "2.9 Explicitly not done (repo-wide)"
+   },
+   {
+    "id": "s-4df2cdb4",
+    "heading": "2a. Component specs — the source of truth"
+   },
+   {
+    "id": "s-4c8a3555",
+    "heading": "2a.1 What a spec holds"
+   },
+   {
+    "id": "s-be9b2495",
+    "heading": "2a.2 What is derived from it"
+   },
+   {
+    "id": "s-d0b8428c",
+    "heading": "2a.2 What is derived from it (continued)"
+   },
+   {
+    "id": "s-0bbbd8bd",
+    "heading": "2a.3 Adding a component"
+   },
+   {
+    "id": "s-b986d79f",
+    "heading": "3. Semantic editor (DS Configurator) — purpose and architecture"
+   },
+   {
+    "id": "s-108c7ce8",
+    "heading": "3.1 Layering"
+   },
+   {
+    "id": "s-3e7b7404",
+    "heading": "3.1a Light / Dark only changes color"
+   },
+   {
+    "id": "s-b8ac8dce",
+    "heading": "3.1b Figma plugin (any plan, no REST API)"
+   },
+   {
+    "id": "s-8b046c3b",
+    "heading": "3.1c Component overrides (proof of concept: Button, Icon Button)"
+   },
+   {
+    "id": "s-f3ca217a",
+    "heading": "3.1d The agent: two ways to connect to Claude"
+   },
+   {
+    "id": "s-cc94b367",
+    "heading": "3.2 Controls → tokens"
+   },
+   {
+    "id": "s-bffaf917",
+    "heading": "3.3 Code map"
+   },
+   {
+    "id": "s-6d84cce5",
+    "heading": "3.4 Not done yet"
+   },
+   {
+    "id": "s-5116ea23",
+    "heading": "3.5 How to run"
+   },
+   {
+    "id": "s-afac869e",
+    "heading": "4. Reference Figma file"
+   },
+   {
+    "id": "s-c8b9a763",
+    "heading": "4.1 Variable collections (as used in this project)"
+   },
+   {
+    "id": "s-7768e59a",
+    "heading": "4.2 Color modes"
+   },
+   {
+    "id": "s-46e344dd",
+    "heading": "5. Token taxonomy"
+   },
+   {
+    "id": "s-ceb94b77",
+    "heading": "3.1 Path notation"
+   },
+   {
+    "id": "s-0e9c56cc",
+    "heading": "3.2 Primitives (primitives collection)"
+   },
+   {
+    "id": "s-765a822e",
+    "heading": "3.3 Semantics (semantic collection)"
+   },
+   {
+    "id": "s-d0d824c9",
+    "heading": "3.4 Composites (semantic color + opacity primitive)"
+   },
+   {
+    "id": "s-c7173b85",
+    "heading": "3.5 What not to do (lessons learned)"
+   },
+   {
+    "id": "s-fd91b3f4",
+    "heading": "4.1 Variants (Figma component properties)"
+   },
+   {
+    "id": "s-232d0f70",
+    "heading": "4.2 Layer binding roles (Figma)"
+   },
+   {
+    "id": "s-5efef0bd",
+    "heading": "4.3 React implementation"
+   },
+   {
+    "id": "s-71de0532",
+    "heading": "7. Color binding logic (buttonColor)"
+   },
+   {
+    "id": "s-3195f851",
+    "heading": "5.1 Primary (non-destructive)"
+   },
+   {
+    "id": "s-f1d75637",
+    "heading": "5.2 Secondary"
+   },
+   {
+    "id": "s-e41f53e5",
+    "heading": "5.3 Ghost and outline (non-destructive)"
+   },
+   {
+    "id": "s-aa6fb7b8",
+    "heading": "5.4 Destructive primary"
+   },
+   {
+    "id": "s-4ccf6d2e",
+    "heading": "5.5 Destructive ghost"
+   },
+   {
+    "id": "s-283cec09",
+    "heading": "5.6 Spec file for documentation and rebind"
+   },
+   {
+    "id": "s-0b9f109a",
+    "heading": "8. Dimension and typography bindings"
+   },
+   {
+    "id": "s-c2f0a4dd",
+    "heading": "6.1 Semantic constants"
+   },
+   {
+    "id": "s-b25c1187",
+    "heading": "6.2 Button layout by size"
+   },
+   {
+    "id": "s-aff63f56",
+    "heading": "6.3 Icon button layout"
+   },
+   {
+    "id": "s-d50461ef",
+    "heading": "6.4 Migration from primitives (approximate)"
+   },
+   {
+    "id": "s-435d88ea",
+    "heading": "7.1 Generated file"
+   },
+   {
+    "id": "s-3c14fe83",
+    "heading": "7.2 What gets exported"
+   },
+   {
+    "id": "s-11e4fc32",
+    "heading": "7.3 Storybook and editor consumption"
+   },
+   {
+    "id": "s-4527229d",
+    "heading": "10. Figma automation scripts"
+   },
+   {
+    "id": "s-c150e50f",
+    "heading": "10.1 Retired: prune/rebind script"
+   },
+   {
+    "id": "s-f5615cad",
+    "heading": "10.2 Changing a component token from the terminal"
+   },
+   {
+    "id": "s-8d6032cc",
+    "heading": "11. REST token sync (variables-github-action)"
+   }
+  ],
+  "excerpt": "This document describes the design token model, how Button and Icon Button are tokenized in this repository, how that model maps to the Variable Test Figma file, and which scripts and files keep Figma and code aligned. It is the canonical reference for extending the system to mor",
+  "charCount": 49975,
+  "sections": 69,
+  "missing": 0,
+  "fileMd5": "968ffbcc8dca02a7f1c1e78aa1e3b195",
+  "mtime": 1792427317000,
+  "path": "demo tools/ds-starter-pack-main/docs/DESIGN_TOKENS_AND_FIGMA_SYNC.md"
+ },
+ "src-what-to-use-when": {
+  "docId": "seed.what-to-use-when",
+  "sourceHash": "e545de1fa37c52e1",
+  "readAt": 1792664980000,
+  "readBy": "figma-mcp",
+  "outline": [
+   {
+    "id": "s-16f1772a",
+    "heading": "What does this client need?"
+   },
+   {
+    "id": "s-add6005b",
+    "heading": "Refine by what you learn"
+   },
+   {
+    "id": "s-acd5fec8",
+    "heading": "Before and after the call"
+   }
+  ],
+  "excerpt": "10 · What to use when: a decision map\nStart with where the client is, then refine with what you learn. Every answer is a real asset from section 2, a step we proposed in product scoping, or a gap.\nWhat does this client need?\nFirst meeting, we don’t know yet\nDeck: Design Systems\nD",
+  "charCount": 3957,
+  "sections": 3,
+  "missing": 0,
+  "fileKey": "yeiDcap30EfEY6aSa78VbX",
+  "page": "Strategy",
+  "capturedBy": "figma-mcp"
+ }
+}

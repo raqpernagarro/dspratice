@@ -1,0 +1,199 @@
+/* Nagarro product shell — base styles.
+   Typography: Equip (body, UI) and Equip Extended (display), licensed; see src/styles/fonts.css.
+   Client-brand fonts live only inside the scoped client preview (src/demo-system/demo.css). */
+
+:root {
+  /* ---- Nagarro shell palette. Brand primitives alias the Nagarro Master Slides tokens
+     (src/styles/brand-tokens.css, generated from Carolina Baptista's system) so the hub and the
+     decks share one token source and the same names. ---- */
+  --n-ink: var(--black-100, #010716);
+  --n-ink-90: rgba(1, 7, 22, 0.9);
+  --n-ink-70: rgba(1, 7, 22, 0.7);
+  --n-ink-50: rgba(1, 7, 22, 0.5);
+  --n-ink-30: rgba(1, 7, 22, 0.3);
+  --n-ink-20: rgba(1, 7, 22, 0.2);
+  --n-ink-10: rgba(1, 7, 22, 0.1);
+  --n-ink-06: rgba(1, 7, 22, 0.06);
+  --n-ink-04: rgba(1, 7, 22, 0.04);
+  --n-white: var(--white-100, #ffffff);
+  --n-white-70: rgba(255, 255, 255, 0.7);
+  --n-white-30: rgba(255, 255, 255, 0.3);
+  --n-white-25: rgba(255, 255, 255, 0.25);
+  --n-white-10: rgba(255, 255, 255, 0.1);
+  --n-paper: #f5f6f8;
+  --n-mint: var(--accent-primary, #47d7ac);
+  --n-mint-deep: #1f9c7b;
+  --n-mint-soft: rgba(71, 215, 172, 0.18);
+  --n-blue: #13294b;
+  --n-blue-bright: #3b7bff;
+  --n-blue-soft: rgba(59, 123, 255, 0.14);
+  --n-violet: #8b7cf6;
+  --n-violet-soft: rgba(139, 124, 246, 0.16);
+  --n-pink: #f8485e;
+  --n-pink-soft: rgba(248, 72, 94, 0.14);
+  --n-amber: #f2b705;
+  --n-amber-soft: rgba(242, 183, 5, 0.18);
+
+  /* semantic */
+  --n-bg: var(--n-paper);
+  --n-surface: var(--n-white);
+  --n-surface-2: #fbfbfc;
+  --n-fg: var(--n-ink);
+  --n-fg-muted: var(--fg-60, rgba(1, 7, 22, 0.6)); /* reading text floor: fg-60 (Master Slides a11y rule) */
+  --n-fg-subtle: var(--n-ink-30);
+  --n-line: var(--n-ink-10);
+  --n-line-strong: var(--n-ink-30);
+  --n-accent: var(--n-ink);
+  --n-accent-fg: var(--n-white);
+  --n-focus: var(--n-blue-bright);
+  --n-ok: var(--n-mint-deep);
+  --n-ok-soft: var(--n-mint-soft);
+  --n-warn: #b7780b;
+  --n-warn-soft: var(--n-amber-soft);
+  --n-err: #c92a3d;
+  --n-err-soft: var(--n-pink-soft);
+  --n-info: #2457c5;
+  --n-info-soft: var(--n-blue-soft);
+  --n-ai: #6a5ae0;
+  --n-ai-soft: var(--n-violet-soft);
+
+  /* type */
+  --n-font-display: 'Equip Extended', 'Equip', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --n-font-body: 'Equip', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --n-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --n-text-xs: 12px;
+  --n-text-sm: 13px;
+  --n-text-md: 15px;
+  --n-text-lg: 17px;
+  --n-text-xl: 20px;
+  --n-h3: 28px;
+  --n-h2: 36px;
+  --n-h1: 48px;
+  --n-display: clamp(44px, 7vw, 96px);
+
+  /* shape + space */
+  --n-radius-sm: 8px;
+  --n-radius-md: 12px;
+  --n-radius-lg: 20px;
+  --n-radius-xl: 32px;
+  --n-radius-pill: 999px;
+  --n-space-1: 4px;
+  --n-space-2: 8px;
+  --n-space-3: 12px;
+  --n-space-4: 16px;
+  --n-space-5: 20px;
+  --n-space-6: 24px;
+  --n-space-8: 32px;
+  --n-space-10: 40px;
+  --n-space-12: 48px;
+  --n-space-16: 64px;
+  --n-hairline: 0.5px;
+  --n-shadow-sm: 0 1px 2px rgba(1, 7, 22, 0.06), 0 1px 1px rgba(1, 7, 22, 0.04);
+  --n-shadow-md: 0 8px 24px rgba(1, 7, 22, 0.08);
+  --n-shadow-lg: 0 24px 64px rgba(1, 7, 22, 0.16);
+  --n-sidenav-w: 232px;
+  --n-topbar-h: 56px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--n-bg);
+  color: var(--n-fg);
+  font-family: var(--n-font-body);
+  font-size: var(--n-text-md);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--n-font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--n-h1);
+}
+h2 {
+  font-size: var(--n-h2);
+}
+h3 {
+  font-size: var(--n-h3);
+}
+h4 {
+  font-size: var(--n-text-xl);
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+code,
+kbd,
+.mono {
+  font-family: var(--n-font-mono);
+  font-size: 0.92em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--n-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--n-mint-soft);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

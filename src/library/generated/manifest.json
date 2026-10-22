@@ -1,0 +1,104 @@
+{
+  "generatedAt": "2026-10-21T17:52:41.476Z",
+  "generator": "scripts/build-registry.mjs",
+  "sourcesManifest": "docs/sources.md5",
+  "sources": {
+    "dsn": {
+      "label": "DSN (ds-ngr)",
+      "package": "ds-ngr",
+      "version": "0.1.44",
+      "root": "/Users/raquelpereira/Documents/Claude/DS Pratice/demo tools/DSN-main",
+      "relativeToApp": "../demo tools/DSN-main",
+      "fileKey": "9Lqv0lrj1pRM14NVs4TsSk",
+      "file": "src/library/generated/dsn.json",
+      "counts": {
+        "entries": 105,
+        "components": 97,
+        "parts": 8,
+        "withSpec": 104,
+        "withStories": 104,
+        "withTests": 101,
+        "withCodeConnect": 77,
+        "heavy": 22,
+        "rendered": 81,
+        "renderedLazy": 16,
+        "preserved": 8
+      },
+      "facts": {
+        "package": "ds-ngr",
+        "version": "0.1.44",
+        "fileKey": "9Lqv0lrj1pRM14NVs4TsSk",
+        "publicComponents": 105,
+        "dsIndexComponents": 103,
+        "dsIndexMetaEntries": [
+          "Charts"
+        ],
+        "synthesized": [
+          "PasswordRequirement",
+          "PageSelector"
+        ],
+        "nonComponentExports": [
+          "useVoiceInput",
+          "getFileTypeLabel",
+          "commandScore"
+        ],
+        "componentFolders": 79,
+        "figmaSets": 66,
+        "figmaSetsUnmatched": [],
+        "codeConnectTemplates": 90,
+        "specFiles": 97,
+        "storyFiles": 85,
+        "testFiles": 82
+      }
+    },
+    "starter": {
+      "label": "DS Starter Pack",
+      "package": "nagarro-ds-starter-pack",
+      "version": "1.0.0",
+      "root": "/Users/raquelpereira/Documents/Claude/DS Pratice/demo tools/ds-starter-pack-main",
+      "relativeToApp": "../demo tools/ds-starter-pack-main",
+      "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+      "file": "src/library/generated/starter.json",
+      "counts": {
+        "entries": 57,
+        "components": 44,
+        "parts": 13,
+        "withSpec": 56,
+        "withStories": 57,
+        "withTests": 0,
+        "withCodeConnect": 44,
+        "heavy": 0,
+        "rendered": 45,
+        "renderedLazy": 0,
+        "preserved": 12
+      },
+      "facts": {
+        "package": "nagarro-ds-starter-pack",
+        "version": "1.0.0",
+        "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+        "specs": 56,
+        "subSpecs": 13,
+        "extraWithoutSpec": [
+          "Context Menu"
+        ],
+        "componentFolders": 46,
+        "wrapperFiles": 47,
+        "barrelExports": 37,
+        "transpiledModules": 65,
+        "figmaNodes": 49,
+        "codeConnectFiles": 44,
+        "storyFiles": 48,
+        "testFiles": 0
+      }
+    }
+  },
+  "warnings": [
+    "starter: Badge has no Figma node id (spec/figma-nodes.json)",
+    "starter: Card has no Figma node id (spec/figma-nodes.json)",
+    "starter: Skeleton has no Figma node id (spec/figma-nodes.json)",
+    "starter: Breadcrumb Item has no Figma node id (spec/figma-nodes.json)",
+    "starter: Breadcrumb has no Figma node id (spec/figma-nodes.json)",
+    "starter: Pagination has no Figma node id (spec/figma-nodes.json)",
+    "starter: Empty State has no Figma node id (spec/figma-nodes.json)"
+  ]
+}

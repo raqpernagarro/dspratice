@@ -1,0 +1,7 @@
+html, body { margin: 0; background: #eef0f3; font-family: 'Equip', system-ui, sans-serif; }
+body.is-present { background: #05070d; overflow: hidden; }
+#deck { padding: 8px 16px 24px; }
+body.is-present #deck { padding: 0; height: 100vh; display: flex; align-items: center; justify-content: center; }
+.sf-slide { margin: 0 0 20px; position: relative; }
+.sf-slide figcaption { position: absolute; left: -2px; top: -2px; z-index: 2; background: #010716; color: #fff; font-size: 11px; padding: 2px 7px; border-radius: 0 0 6px 0; }
+.sf-slide .ns-viewport { box-shadow: 0 1px 3px rgba(1, 7, 22, 0.12); }
