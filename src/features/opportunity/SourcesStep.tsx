@@ -87,12 +87,12 @@ export function SourcesStep({ o }: { o: Opportunity }) {
   if (!searched || job?.status === 'running')
     return (
       <ProgressPanel
-        title="Find relevant Nagarro material"
-        explain={`Searches the ${readable.length} readable sources this client may use (practice material, ${project.client.name}'s own sources, and other clients' material only when approved for reuse) for every requirement. Keyword and topic matching, no model.`}
-        stages={['Finding evidence in your sources']}
+        title="Find matching material"
+        explain={`For every requirement, you get the passages that match it in the ${readable.length} readable sources this request may use: practice material, ${project.client.name}’s own sources, and other clients’ material only when it is approved for reuse. Matching uses keywords and topics; no AI is used.`}
+        stages={['Finding matching passages in your sources']}
         job={job}
         mode={<TemplateNote />}
-        action={<button className="btn btn--primary" onClick={() => findEvidence(project.id, o.id)} disabled={job?.status === 'running'} data-testid="find-evidence"><Search /> Find relevant Nagarro material</button>}
+        action={<button className="btn btn--primary" onClick={() => findEvidence(project.id, o.id)} disabled={job?.status === 'running'} data-testid="find-evidence"><Search /> Find matching material</button>}
       />
     )
 
@@ -104,13 +104,13 @@ export function SourcesStep({ o }: { o: Opportunity }) {
     <div className="stack">
       <div className="row row--between">
         <span className="small muted">{sel.included.length} sources selected · {approvedOn.length} approved</span>
-        <button className="btn btn--ghost btn--sm" onClick={() => findEvidence(project.id, o.id)}>Search again</button>
+        <button className="btn btn--ghost btn--sm" onClick={() => findEvidence(project.id, o.id)}>Find them again</button>
       </div>
-      {!approvedOn.length && <Callout tone="warn">No approved source is selected, so no answer can be marked "supported by a source". Approve sources in the knowledge library, or select an approved one.</Callout>}
+      {!approvedOn.length && <Callout tone="warn">No approved source is selected, so no answer can be marked “backed by a source”. Select an approved source, or ask its owner to approve one in the knowledge library.</Callout>}
       {outdatedOn.length > 0 && <Callout tone="warn">{outdatedOn.map((s) => `"${s.title}"`).join(', ')} {outdatedOn.length > 1 ? 'are' : 'is'} marked outdated. Answers from {outdatedOn.length > 1 ? 'them' : 'it'} become recommendations with a caveat, never "supported".</Callout>}
       {internalOn.length > 0 && <Callout tone="info">{internalOn.length} selected source{internalOn.length > 1 ? 's are' : ' is'} internal-only. They can inform the draft, but their citations are removed from anything published to the client.</Callout>}
       {openConflicts.length > 0 && <Callout tone="info">The library knows {openConflicts.length} places where our material disagrees (e.g. "{openConflicts[0].topic}"). If the draft touches them, it says so.</Callout>}
-      <Panel title="Recommended for this request">{recommended.length ? recommended.map((s) => <Row key={s.id} s={s} />) : <p className="muted small">Nothing matched. Add or read sources in the knowledge library.</p>}</Panel>
+      <Panel title="Recommended for this request">{recommended.length ? recommended.map((s) => <Row key={s.id} s={s} />) : <p className="muted small">Nothing matched. Add sources to the knowledge library, or read the ones that are not read yet.</p>}</Panel>
       <Details summary={`Other sources this client may use (${others.length})`}>
         <div>{others.map((s) => <Row key={s.id} s={s} />)}</div>
       </Details>

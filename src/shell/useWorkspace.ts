@@ -21,26 +21,22 @@ export function navFor(ws: Workspace, r: RouteFamily): NavItem[] {
     const b = r.home
     return [
       { to: r.home, label: 'Overview', match: [b], icon: 'home' },
-      { to: r.components, label: 'Explore the system', match: [`${b}/explore`], icon: 'explore' },
-      { to: r.changes, label: 'See the improvement', match: [`${b}/improve`], icon: 'improve' },
-      { to: r.prototype, label: 'Build with AI', match: [`${b}/ai`], icon: 'ai' },
-      { to: r.report, label: 'Evidence and next steps', match: [`${b}/evidence`], icon: 'evidence' },
+      { to: r.components, label: 'The system', match: [`${b}/explore`], icon: 'explore' },
+      { to: r.changes, label: 'Improve it', match: [`${b}/improve`], icon: 'improve' },
+      { to: r.prototype, label: 'AI on the system', match: [`${b}/ai`], icon: 'ai' },
+      { to: r.outcome, label: 'Outcome and next step', match: [`${b}/evidence`, `${b}/scorecard`], icon: 'evidence' },
     ]
   }
-  const p = r.home
+  // One stable, practice-wide list. Project pages keep "Projects" selected; their sections are tabs.
   return [
     { to: practice.home, label: 'Home', match: [practice.home], icon: 'home' },
-    { to: practice.opportunities, label: 'Opportunities', match: [practice.opportunities, `${p}/opportunities`], icon: 'opportunities', group: 'Win work' },
-    { to: practice.demos, label: 'Demos', match: [practice.demos, practice.scorecard], icon: 'demos', group: 'Win work' },
-    { to: practice.presentations, label: 'Presentations', match: [practice.presentations, `${p}/presentations`], icon: 'presentations', group: 'Win work' },
-    { to: practice.clients, label: 'Clients and engagements', match: [practice.clients, `${p}`, `${p}/journey`, `${p}/meeting`, `${p}/report`], icon: 'clients', group: 'Deliver' },
-    { to: practice.library, label: 'System library', match: [practice.library, `${p}/system`], icon: 'library', group: 'Deliver' },
-    { to: r.changes, label: 'Changes and checks', match: [`${p}/changes`], icon: 'changes', group: 'Deliver' },
-    { to: r.channels, label: 'AI setup', match: [`${p}/ai`], icon: 'ai', group: 'Deliver' },
-    { to: practice.knowledge, label: 'Knowledge library', match: [practice.knowledge], icon: 'knowledge', group: 'Practice' },
-    { to: practice.tools, label: 'Tools', match: [practice.tools], icon: 'tools', group: 'Practice' },
-    { to: practice.guides, label: 'Guides and templates', match: [practice.guides], icon: 'guides', group: 'Practice' },
-    { to: practice.settings, label: 'Settings', match: [practice.settings, `${p}/settings`], icon: 'settings', group: 'Practice' },
+    { to: practice.opportunities, label: 'Opportunities', match: [practice.opportunities], icon: 'opportunities' },
+    { to: practice.projects, label: 'Projects', match: [practice.projects, '/nagarro/start'], icon: 'clients' },
+    { to: practice.knowledge, label: 'Knowledge library', match: [practice.knowledge], icon: 'knowledge' },
+    { to: practice.presentations, label: 'Presentations', match: [practice.presentations], icon: 'presentations' },
+    { to: practice.demos, label: 'Client demo', match: [practice.demos, practice.scorecard], icon: 'demos' },
+    { to: practice.tools, label: 'Tools and guides', match: [practice.tools, practice.guides], icon: 'tools' },
+    { to: practice.settings, label: 'Settings', match: [practice.settings], icon: 'settings', group: 'foot' },
   ]
 }
 
@@ -66,7 +62,7 @@ export interface AreaTab {
   match?: string
 }
 
-/** Secondary tabs per area (shown in the page header). */
+/** Secondary tabs inside an area (shown in the page header). Project sections are tabs in the project header. */
 export function areaTabsFor(pathname: string, r: RouteFamily, opts?: { proposalPublished?: boolean }): AreaTab[] | null {
   const b = r.home
   const client = r.workspace === 'client'
@@ -82,59 +78,41 @@ export function areaTabsFor(pathname: string, r: RouteFamily, opts?: { proposalP
     return [
       { label: 'Findings', to: r.changes, match: r.changes },
       { label: 'Pull requests', to: r.changesTab('prs') },
-      { label: 'Figma change sets', to: r.changesTab('figma') },
+      { label: 'Figma changes', to: r.changesTab('figma') },
     ]
   }
   if (under('ai')) {
     return client
       ? [
-          { label: 'Prototype', to: r.prototype, match: r.prototype },
-          { label: 'AI channels', to: r.channels },
-          { label: 'Release eval', to: r.evals },
+          { label: 'Build a screen', to: r.prototype, match: r.prototype },
+          { label: 'AI tools', to: r.channels },
+          { label: 'Release check', to: r.evals },
         ]
       : [
-          { label: 'Channels', to: r.channels },
-          { label: 'Release eval', to: r.evals },
-          { label: 'Agent inbox', to: r.inbox },
-          { label: 'Prototype', to: r.prototype },
+          { label: 'AI tools', to: r.channels },
+          { label: 'Release check', to: r.evals },
+          { label: 'Agent suggestions', to: r.inbox },
+          { label: 'Build a screen', to: r.prototype },
         ]
   }
   if (!client && under('settings')) {
     return [
-      { label: 'Contract', to: r.contract },
+      { label: 'System contract', to: r.contract },
       { label: 'People and roles', to: r.people },
       { label: 'Brands and modes', to: r.brands },
-      { label: 'Trust levels', to: r.trust },
+      { label: 'What agents may do', to: r.trust },
       { label: 'Audit trail', to: r.audit },
     ]
   }
-  if (!client && under('journey/improve')) {
+  if (client && (under('evidence') || under('scorecard'))) {
     return [
-      { label: '2 · Connect', to: r.journeyImprove(2) },
-      { label: '4 · Scan', to: r.journeyImprove(4) },
-      { label: '5 · Drift', to: r.journeyImprove(5) },
-      { label: '6 · Readout', to: r.journeyImprove(6) },
-      { label: '7 · Mapping', to: r.journeyImprove(7) },
-      { label: '9 · Handover', to: r.journeyImprove(9) },
-    ]
-  }
-  if (client && under('evidence')) {
-    return [
-      { label: 'Report', to: r.report, match: r.report },
-      { label: 'Assessment', to: r.assessment },
-      { label: 'Handover', to: r.handover },
-      { label: 'How it works', to: r.guides },
+      { label: 'Outcome and next step', to: r.outcome },
+      { label: 'Assessment report', to: r.report, match: r.report },
+      { label: 'Run the assessment', to: r.assessment },
+      { label: 'Example handover', to: r.handover },
+      { label: 'How we work', to: r.guides },
+      { label: 'Scorecard', to: r.scorecard },
       ...(opts?.proposalPublished ? [{ label: 'Proposal summary', to: r.proposalSummary }] : []),
-    ]
-  }
-  // engagement level: one set of tabs for the client's home, opportunities, decks, meeting and report
-  if (!client && (pathname === b || under('opportunities') || under('presentations') || under('meeting') || under('report'))) {
-    return [
-      { label: 'Overview', to: r.home, match: r.home },
-      { label: 'Opportunities', to: r.opportunities },
-      { label: 'Presentations', to: r.presentations },
-      { label: 'Meeting prep', to: r.meeting },
-      { label: 'Report', to: r.report },
     ]
   }
   if (!client && pathname === practice.knowledge) {
@@ -145,18 +123,25 @@ export function areaTabsFor(pathname: string, r: RouteFamily, opts?: { proposalP
       { label: 'Needs attention', to: practice.knowledgeTab('attention') },
     ]
   }
-  if (!client && (pathname === practice.demos || pathname === practice.scorecard)) {
+  if (!client && (pathname === practice.demos || pathname.startsWith(practice.meetingPrep()) || pathname === practice.scorecard)) {
     return [
-      { label: 'Demo catalogue', to: practice.demos, match: practice.demos },
+      { label: 'Choose a demo', to: practice.demos, match: practice.demos },
+      { label: 'Prepare a meeting', to: practice.meetingPrep() },
       { label: 'AI-readiness scorecard', to: practice.scorecard },
+    ]
+  }
+  if (!client && (pathname === practice.tools || pathname === practice.guides || pathname.startsWith(practice.guides + '/'))) {
+    return [
+      { label: 'Tools', to: practice.tools, match: practice.tools },
+      { label: 'Guides', to: practice.guides },
     ]
   }
   if (!client && pathname.startsWith(practice.settings)) {
     return [
+      { label: 'About this tool', to: practice.about },
       { label: 'People', to: practice.people },
-      { label: 'Setup', to: practice.setup },
       { label: 'Integrations and AI usage', to: practice.integrations },
-      { label: 'Project settings', to: r.contract, match: `${b}/settings` },
+      { label: 'Sample data', to: practice.setup },
     ]
   }
   return null

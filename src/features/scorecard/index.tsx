@@ -65,7 +65,7 @@ export function Scorecard() {
 export function ScorecardPage() {
   return (
     <div className="page page--narrow">
-      <PageHead screen="scorecard" title="AI-readiness scorecard" lead="Ten questions, five minutes: where your design system stands for AI, and a first step that fits. Do it together, live." eyebrow={<Chip tone="mint">Client-safe · nothing is sent</Chip>} />
+      <PageHead title="AI-readiness scorecard" lead="Ten questions, about five minutes: where a design system stands for AI, and a first step that fits. Best filled in together during the meeting." eyebrow={<Chip tone="mint">Nothing you answer is sent anywhere</Chip>} />
       <Scorecard />
     </div>
   )

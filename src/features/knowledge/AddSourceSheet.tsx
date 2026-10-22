@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Sheet, Field, Segmented, Callout } from '@/shell/ui'
 import { DropZone } from '@/shell/DropZone'
-import { act, useProject } from '@/state/hooks'
+import { act } from '@/state/hooks'
 import { useIntegrations } from '@/integrations/status'
 import { readSource, uploadToSource, pasteToSource, readTaskId } from '@/state/flows/knowledge'
 import { practice } from '@/app/routes'
@@ -35,14 +35,14 @@ export function parseFigmaUrl(input: string): { fileKey: string; nodeId?: string
 
 export function AddSourceSheet({ onClose, replace, returnTo }: { onClose: () => void; replace?: KnowledgeSource; returnTo?: string }) {
   const navigate = useNavigate()
-  const project = useProject()
   const integrations = useIntegrations()
   const [where, setWhere] = useState<Where>(replace ? 'upload' : 'upload')
   const [title, setTitle] = useState(replace?.title ?? '')
   const [kind, setKind] = useState<SourceKind>(replace?.kind ?? 'resource')
   const [owner, setOwner] = useState(replace?.owner ?? '')
   const [audience, setAudience] = useState<Audience>(replace?.audience ?? 'internal')
-  const [scopeClient, setScopeClient] = useState(false)
+  const projects = useStore((st) => st.projects)
+  const [scopeProject, setScopeProject] = useState<string>('')
   const [tags, setTags] = useState('')
   const [figma, setFigma] = useState('')
   const [path, setPath] = useState('')
@@ -60,7 +60,7 @@ export function AddSourceSheet({ onClose, replace, returnTo }: { onClose: () => 
     act().registerSource({
       title: title.trim() || fallbackTitle,
       kind,
-      scope: scopeClient ? { kind: 'client', projectId: project.id, reusable: false } : { kind: 'practice' },
+      scope: scopeProject ? { kind: 'client', projectId: scopeProject, reusable: false } : { kind: 'practice' },
       location,
       owner: owner.trim() || undefined,
       audience,
@@ -144,8 +144,15 @@ export function AddSourceSheet({ onClose, replace, returnTo }: { onClose: () => 
             <Field label="Who may see it" hint="Client-safe sources can be cited in what you publish to a client. Internal sources only inform the draft.">
               <Segmented ariaLabel="Audience" value={audience} onChange={(v) => setAudience(v)} options={[{ id: 'internal', label: 'Internal only' }, { id: 'client-safe', label: 'Client-safe' }, { id: 'public', label: 'Public' }]} />
             </Field>
-            <Field label="Scope" hint={`Client material stays inside ${project.client.name}'s opportunities unless someone approves it for reuse.`}>
-              <Segmented ariaLabel="Scope" value={scopeClient ? 'client' : 'practice'} onChange={(v) => setScopeClient(v === 'client')} options={[{ id: 'practice', label: 'Practice-wide' }, { id: 'client', label: `${project.client.name} only` }]} />
+            <Field label="Who is it for?" hint="Material from one client stays inside that client’s project and requests, unless someone approves it for reuse.">
+              <select className="select" value={scopeProject} onChange={(e) => setScopeProject(e.target.value)} aria-label="Scope" data-testid="source-scope">
+                <option value="">The whole practice</option>
+                {Object.values(projects).map((p) => (
+                  <option key={p.id} value={p.id}>
+                    Only {p.client.name}
+                  </option>
+                ))}
+              </select>
             </Field>
           </div>
         )}

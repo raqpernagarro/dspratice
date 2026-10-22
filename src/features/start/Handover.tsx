@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router'
 import { Check, FastForward, Share2 } from 'lucide-react'
 import { act, useIsClient, useProject, useSystem } from '@/state/hooks'
@@ -17,22 +18,26 @@ export function Handover() {
   const vc = valuesWithCodeName(sys)
   const ev = lastEval(sys)
   const checks = checksPassing(sys)
+  useEffect(() => {
+    if (allDone && !client) act().markJourneyStep('improve', 8, true)
+  }, [allDone, client])
 
   return (
     <div className="page">
       <PageHead
-        screen="connect"
-        title={client ? 'What you keep' : 'Handover: what the client keeps'}
-        lead="Everything on this list lives in your repository or your Figma file. A named owner, trust levels for agents and a baseline for the steering group. You own it and can run it."
+       
+        noTabs={!client}
+        title={client ? 'What an engagement leaves behind' : 'Handover (example)'}
+        lead={`An example of what a client keeps at the end of an engagement. Everything lives in ${client ? 'their' : 'the client’s'} own repository and Figma file, with a named owner and a baseline to measure against. The exact list depends on the engagement.`}
         actions={
           <>
             {!sys.journey.engagementFastForwarded && (
               <Btn variant="secondary" onClick={() => act().fastForwardEngagement()} title="Demo shortcut: resolve every remaining finding so the end state shows">
-                <FastForward /> {client ? 'Show the end state' : 'Fast-forward the engagement'}
+                <FastForward /> Skip to the end of the example
               </Btn>
             )}
-            <Link to={`/share/${project.slug}`} className="btn">
-              <Share2 /> Open the share link
+            <Link to={`/share/${project.slug}`} className="btn btn--secondary">
+              <Share2 /> Read-only report
             </Link>
           </>
         }
@@ -43,13 +48,13 @@ export function Handover() {
         {allDone && (
           <Reveal>
             <div className="panel fi-dark fi-wash fi-grain" style={{ color: 'var(--n-white)', borderColor: 'transparent' }}>
-              <span className="xs" style={{ color: 'var(--n-mint)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Handover complete</span>
-              <strong style={{ fontFamily: 'var(--n-font-display)', fontSize: 28, fontWeight: 500, letterSpacing: '-0.02em' }}>You own it and can run it.</strong>
-              <span style={{ color: 'var(--n-white-70)' }}>Repository, Figma library, panel, checks, AI channels, evals, a named owner and a baseline: all in your hands.</span>
+              <span className="xs" style={{ color: 'var(--n-mint)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Example handover complete</span>
+              <strong style={{ fontFamily: 'var(--n-font-display)', fontSize: 28, fontWeight: 500, letterSpacing: '-0.02em' }}>{sys.theme.name}’s team owns it and can run it.</strong>
+              <span style={{ color: 'var(--n-white-70)' }}>Repository, Figma library, checks, files for AI tools, a named owner and a baseline, all in the client’s hands.</span>
             </div>
           </Reveal>
         )}
-        <Panel title={client ? 'Your handover checklist' : 'Handover checklist'} actions={<span className="small muted">{done} / {HANDOVER_ITEMS.length}</span>}>
+        <Panel title="What the client keeps" actions={<span className="small muted">{done} / {HANDOVER_ITEMS.length}</span>}>
           <div className="checklist">
             {HANDOVER_ITEMS.map((it) => (
               <button key={it.id} className={`checklist__item ${sys.journey.handover[it.id] ? 'is-done' : ''}`} onClick={() => act().toggleHandover(it.id)}>
@@ -65,7 +70,7 @@ export function Handover() {
         </div>
 
         <div className="stack">
-          <Panel tight title="Baseline → now" actions={<DemoData />}>
+          <Panel tight title="Before → now (sample)" actions={<DemoData />}>
             <div className="ba">
               <span className="ba__head">Measure</span>
               <span className="ba__head">Before</span>
@@ -77,7 +82,7 @@ export function Handover() {
                 {vc.named} / {vc.total}
               </span>
               <span />
-              <span>Figma ↔ code drift items</span>
+              <span>Places where Figma and code differ</span>
               <span className="ba__before">{before ? before.driftItems : '—'}</span>
               <span className="ba__after"><AnimatedNumber value={driftItems(sys)} /></span>
               <span />
@@ -92,16 +97,16 @@ export function Handover() {
               <span className="ba__after">{readiness(sys)} / 5</span>
               <span />
             </div>
-            {!before && <span className="xs muted">Run the scan to capture the baseline.</span>}
+            {!before && <span className="xs muted">Run the assessment to capture the baseline.</span>}
           </Panel>
           <Panel tight>
             <div className="grid grid--2">
               <Stat label="Checks passing" value={`${checks.passing}/${checks.total}`} small />
-              <Stat label="On-system eval" value={`${ev?.onSystem ?? '–'}%`} small />
+              <Stat label="AI output on the system" value={`${ev?.onSystem ?? '–'}%`} small />
             </div>
           </Panel>
           <Callout tone="info">
-            <SimBadge what="Demo shortcut" detail="Fast-forward marks every remaining finding resolved and republishes channels so the handover shows the end state. In a real engagement each item is a pull request." /> {client ? 'The “show the end state” button stands in for the weeks of engagement between readout and handover.' : 'The fast-forward button stands in for the weeks of engagement between readout and handover.'}
+            <SimBadge what="Demo shortcut" detail="Marks every remaining finding fixed and refreshes the AI tool files so the example end state shows. In a real engagement each item is its own reviewed change." /> “Skip to the end of the example” stands in for the weeks of work between the plan and the handover. The figures are sample data.
           </Callout>
         </div>
       </div>

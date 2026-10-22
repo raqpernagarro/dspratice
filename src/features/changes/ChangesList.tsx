@@ -22,9 +22,9 @@ export function ChangesList() {
   return (
     <div className="page">
       <PageHead
-        screen="finding"
-        title="Changes"
-        lead={`${driftItems(sys)} drift items across ${open.length} open findings, ${prs.length} open pull request${prs.length === 1 ? '' : 's'}, ${sys.figmaChangeSets.filter((c) => c.status === 'pending').length} Figma change set${sys.figmaChangeSets.filter((c) => c.status === 'pending').length === 1 ? '' : 's'} waiting. Suggest, preview, review in both tools.`}
+       
+        title="Findings and changes"
+        lead={`${driftItems(sys)} places where Figma and code differ, in ${open.length} open findings. ${prs.length} open pull request${prs.length === 1 ? '' : 's'} and ${sys.figmaChangeSets.filter((c) => c.status === 'pending').length} Figma change${sys.figmaChangeSets.filter((c) => c.status === 'pending').length === 1 ? '' : 's'} waiting. Every fix is previewed first, then reviewed in code and in Figma.`}
         actions={
           <Segmented
             value={tab}

@@ -222,15 +222,16 @@ export const PRODUCT_TYPES = [
   { id: 'mobile', label: 'Mobile app', blurb: 'Touch targets, bottom navigation.' },
 ]
 
+// An example of what an engagement leaves with the client (shown as an example, never as a promise).
 export const HANDOVER_ITEMS = [
-  { id: 'repo', label: 'Repository with the design system, the panel and CI checks', detail: 'github.com/demo-brand/design-system · 5 checks on every pull request' },
-  { id: 'figma', label: 'Figma library with variables bound and code names on every value', detail: '212 / 212 values named · DS Configurator sync plugin installed' },
-  { id: 'contract', label: 'ds.contract.json with sources of truth per layer', detail: 'Version 3 · changed only through pull requests' },
-  { id: 'channels', label: 'AI channels published from the contract', detail: 'Figma Specs + Make · Storybook MCP · Claude Design · v0 registry · DESIGN.md · AGENTS.md + skills' },
-  { id: 'evals', label: 'Release eval with a gate', detail: '20 prompts per tool · gate 90% · runs on every release' },
-  { id: 'owner', label: 'A named design system owner and trust levels for agents', detail: 'Lena Hartmann · agents suggest; mechanical fixes only' },
-  { id: 'baseline', label: 'Assessment baseline and read-only share link', detail: 'Before/after numbers for the steering group' },
-  { id: 'training', label: 'A training session on the panel', detail: '90 minutes, recorded · the handbook for everything else' },
+  { id: 'repo', label: 'The design system in the client’s own repository, with its checks', detail: 'github.com/demo-brand/design-system · 5 checks on every pull request' },
+  { id: 'figma', label: 'A Figma library where every value is a variable with a code name', detail: '212 of 212 values named · the variables sync plugin installed' },
+  { id: 'contract', label: 'The system contract, recording which side leads for each part', detail: 'ds.contract.json · version 3 · changed only through pull requests' },
+  { id: 'channels', label: 'Files for each AI tool, generated from the contract', detail: 'Figma Specs + Make · Storybook MCP · Claude Design · v0 registry · DESIGN.md · AGENTS.md + skills' },
+  { id: 'evals', label: 'A release check for AI output', detail: '20 test prompts per tool · passes at 90% · runs on every release' },
+  { id: 'owner', label: 'A named owner, and rules for what AI agents may do', detail: 'Lena Hartmann · agents suggest; mechanical fixes only' },
+  { id: 'baseline', label: 'The assessment baseline and a read-only report', detail: 'Before-and-after figures for the steering group' },
+  { id: 'training', label: 'A recorded training session', detail: '90 minutes · guides for everything else' },
 ]
 
 export const READOUT_DECISIONS = [

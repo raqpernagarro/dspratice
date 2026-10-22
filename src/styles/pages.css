@@ -752,11 +752,13 @@
 /* ---------- evidence ---------- */
 .evidence {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 12px;
 }
 
+/* Long token paths (color/background/interactive/…) wrap inside their own cell. */
 .evidence__item {
+  min-width: 0;
   padding: 12px 14px;
   border-radius: var(--n-radius-md);
   background: var(--n-ink-04);
@@ -778,11 +780,14 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .evidence__note {
   font-size: var(--n-text-xs);
   color: var(--n-fg-muted);
+  overflow-wrap: anywhere;
 }
 
 /* ---------- impact numbers ---------- */

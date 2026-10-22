@@ -38,7 +38,7 @@ export function Reveal({ children, index = 0, as: Tag = 'div', className = '', s
     )
     io.observe(el)
     // Safety: never leave content hidden if the observer does not fire (throttled or odd viewports).
-    const fallback = window.setTimeout(() => setInView(true), 1500)
+    const fallback = window.setTimeout(() => setInView(true), 300)
     return () => {
       io.disconnect()
       window.clearTimeout(fallback)

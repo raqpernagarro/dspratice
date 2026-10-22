@@ -49,14 +49,14 @@ ${cs ? `Change set "${cs.title}" (${cs.rows.length} rows) · ${cs.status}` : 'no
   return (
     <div className="page">
       <PageHead
-        screen="pr"
-        crumbs={[{ label: 'Changes', to: r.changes }, { label: `Pull request #${pr.number}` }]}
+       
+        crumbs={[{ label: 'Findings and changes', to: r.changes }, { label: `Pull request #${pr.number}` }]}
         title={`#${pr.number} · ${pr.title}`}
         lead={`${pr.branch} → ${pr.base} · opened from the ${pr.openedFrom} ${relTime(pr.createdAt)}`}
         eyebrow={<Chip tone={pr.status === 'merged' ? 'ai' : pr.status === 'waiting_review' || pr.status === 'approved' ? 'ok' : pr.status === 'changes_requested' ? 'warn' : pr.status === 'closed' ? 'outline' : 'info'}>{pr.status.replace('_', ' ')}</Chip>}
         actions={
           <>
-            <Btn variant="secondary" onClick={() => act().pushToast({ kind: 'sim', title: 'No GitHub behind this demo', detail: 'The pull request exists in local state only. In DSN, customize → PR opens github.com/… via the gh CLI (local dev only).' })}>
+            <Btn variant="secondary" onClick={() => act().pushToast({ kind: 'sim', title: 'No GitHub behind this demo', detail: 'Simulated: this pull request exists only in this demo. In a real engagement it opens on the client’s GitHub.' })}>
               <ExternalLink /> Open in GitHub
             </Btn>
             {cs && (
@@ -120,7 +120,7 @@ ${cs ? `Change set "${cs.title}" (${cs.rows.length} rows) · ${cs.status}` : 'no
             {pr.status === 'merged' ? (
               <Callout tone="ok">
                 Merged {pr.mergedAt ? relTime(pr.mergedAt) : ''}. Channels are stale until published.{' '}
-                <Link to={r.channels}>Publish channels →</Link>
+                <Link to={r.channels}>Update the files AI tools read →</Link>
               </Callout>
             ) : pr.status === 'closed' ? (
               <Callout tone="default">Closed without merging.</Callout>
@@ -144,7 +144,7 @@ ${cs ? `Change set "${cs.title}" (${cs.rows.length} rows) · ${cs.status}` : 'no
                     <Btn variant="secondary" onClick={() => act().requestMerge(pr.number)}>
                       Request merge from the owner
                     </Btn>
-                    <span className="xs muted">You can propose. Merging needs the design system owner. Switch “acting as” to see the owner view.</span>
+                    <span className="xs muted">You can propose. Merging needs the design system’s owner.</span>
                   </>
                 )}
                 <Btn variant="ghost" size="sm" onClick={() => act().closePR(pr.number)}>

@@ -10,9 +10,9 @@ export function PeoplePage() {
   return (
     <div className="page">
       <PageHead
-        screen="people"
+       
         title="Who can do what"
-        lead="Roles follow the repository: approval is CODEOWNERS plus the existing review, not a second permission system. Agents are listed with people because they act in the same repository."
+        lead="Roles follow the repository: approvals use its code owners and existing reviews, not a second permission system. Agents are listed too, because they work in the same repository."
         actions={
           <Btn variant="secondary" onClick={() => act().pushToast({ kind: 'sim', title: 'Invites are simulated', detail: 'In an engagement, people are added through the repository (CODEOWNERS) and the Figma team.' })}>
             <UserPlus /> Invite people

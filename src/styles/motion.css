@@ -24,6 +24,18 @@
   }
 }
 
+/* Entrances start almost opaque so text stays readable while it settles (screen sharing). */
+@keyframes m-settle {
+  from {
+    opacity: 0.86;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes m-fade-in {
   from {
     opacity: 0;
@@ -100,10 +112,10 @@
 
 /* ---- primitives ---- */
 .m-reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity var(--m-slow) var(--m-ease-decel), transform var(--m-slow) var(--m-ease-decel);
-  transition-delay: calc(var(--i, 0) * var(--m-stagger));
+  opacity: 0.86;
+  transform: translateY(6px);
+  transition: opacity var(--m-base) var(--m-ease-decel), transform var(--m-base) var(--m-ease-decel);
+  transition-delay: min(calc(var(--i, 0) * 40ms), 240ms);
 }
 
 .m-reveal.is-in {
@@ -112,12 +124,12 @@
 }
 
 .m-stagger > * {
-  animation: m-fade-up var(--m-slow) var(--m-ease-decel) both;
-  animation-delay: calc(var(--i, 0) * var(--m-stagger));
+  animation: m-settle var(--m-base) var(--m-ease-decel) both;
+  animation-delay: min(calc(var(--i, 0) * 40ms), 240ms);
 }
 
 .m-page {
-  animation: m-fade-up var(--m-base) var(--m-ease-decel) both;
+  animation: m-settle 180ms var(--m-ease-decel) both;
 }
 
 .m-focus {
@@ -154,13 +166,17 @@
   grid-template-rows: 1fr;
 }
 
+/* Moving between the hub and the client demo: a light sweeps along the header edge only, so it
+   marks the change without ever passing over text or controls. */
 .m-wipe {
   position: fixed;
-  inset: 0;
-  z-index: 200;
+  left: 0;
+  right: 0;
+  top: calc(var(--n-topbar-h) - 2px);
+  height: 3px;
+  z-index: 40;
   pointer-events: none;
-  background: linear-gradient(100deg, transparent 0%, rgba(71, 215, 172, 0.55) 30%, rgba(59, 123, 255, 0.6) 50%, rgba(139, 124, 246, 0.6) 70%, transparent 100%);
-  filter: blur(18px);
+  background: linear-gradient(90deg, transparent 0%, var(--n-mint) 30%, var(--n-blue-bright) 55%, var(--n-violet) 75%, transparent 100%);
   animation: m-wipe var(--m-story) var(--m-ease-emph) both;
 }
 
@@ -221,6 +237,17 @@
 .motion-paused .m-reveal {
   opacity: 1;
   transform: none;
+}
+
+/* Pausing holds the demonstration, not the interface: pages, menus and messages still appear. */
+.motion-paused .m-page,
+.motion-paused .m-stagger > *,
+.motion-paused .ws-switch__menu,
+.motion-paused .toast,
+.motion-paused .sheet,
+.motion-paused .sheet-scrim {
+  animation: none !important;
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {

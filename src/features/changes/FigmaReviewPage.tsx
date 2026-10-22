@@ -14,7 +14,7 @@ export function FigmaReviewPage() {
   const scope = useScope()
   const pr = n ? sys.pullRequests.find((p) => p.number === Number(n)) : undefined
   const cs = id ? sys.figmaChangeSets.find((c) => c.id === id) : pr?.figmaChangeSetId ? sys.figmaChangeSets.find((c) => c.id === pr.figmaChangeSetId) : undefined
-  if (!cs) return <div className="empty">No Figma change set here.</div>
+  if (!cs) return <div className="empty">There is no Figma change here.</div>
   const included = cs.rows.filter((row) => row.include).length
   const conflicts = cs.rows.filter((row) => row.status === 'both').length
   const hasMemory = true
@@ -23,10 +23,10 @@ export function FigmaReviewPage() {
   return (
     <div className="page">
       <PageHead
-        screen="figmaReview"
-        crumbs={[{ label: 'Changes', to: r.changes }, ...(pr ? [{ label: `Pull request #${pr.number}`, to: r.pr(pr.number) }] : []), { label: 'Figma review' }]}
+       
+        crumbs={[{ label: 'Findings and changes', to: r.changes }, ...(pr ? [{ label: `Pull request #${pr.number}`, to: r.pr(pr.number) }] : []), { label: 'Figma review' }]}
         title="Review changes before applying"
-        lead={`Figma · DS Configurator sync plugin · ${cs.file}. Three columns: what Figma holds now, what it held at the last sync, and what the system wants. Only layers bound to these variables change.`}
+        lead={`Figma · variables sync plugin · ${cs.file}. Three columns: what Figma has now, what it had at the last sync, and what the system wants. Only layers that use these variables change.`}
         eyebrow={
           <>
             <Chip tone={cs.status === 'applied' ? 'ok' : cs.status === 'undone' ? 'outline' : 'warn'}>{cs.status.replace('_', ' ')}</Chip>
@@ -112,7 +112,7 @@ export function FigmaReviewPage() {
             <p className="small muted">
               <History style={{ width: 14, verticalAlign: 'middle' }} /> A version is saved in the file history first (“Before DS Configurator import”), so you can roll back in one step.
             </p>
-            <p className="xs muted">Matching is by name: the plugin needs a collection named “semantic” (variables-model.ts). Brands are found by their slug.</p>
+            <p className="xs muted">Variables are matched by name: the plugin looks for a collection called “semantic”, and finds brands by their short name.</p>
           </Panel>
         </div>
         <Panel tight>
@@ -124,7 +124,7 @@ export function FigmaReviewPage() {
               <SimBadge detail="The plugin's behaviour is reproduced locally. No Figma file is opened or changed." />
             </>
           )}
-          {cs.status === 'version_saved' && <Callout tone="info">Version saved. Applying…</Callout>}
+          {cs.status === 'version_saved' && <Callout tone="info">Version saved. Applying the change…</Callout>}
           {cs.status === 'applied' && (
             <>
               <Callout tone="ok">

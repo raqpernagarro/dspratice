@@ -1,131 +1,139 @@
+// Projects: design-system work for each client or prospect, with where each one stands and what to do next.
+
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
-import { ArrowRight, Play } from 'lucide-react'
+import { ArrowRight, Plus } from 'lucide-react'
 import { useStore } from '@/state/store'
-import { act, usePaths } from '@/state/hooks'
+import { act } from '@/state/hooks'
 import { nagarro, practice } from '@/app/routes'
 import { PageHead } from '@/shell/PageHead'
-import { Btn, Callout, Chip, DemoData, Panel, Stat } from '@/shell/ui'
-import { driftItems, health } from '@/state/selectors'
-import { Reveal, Stagger } from '@/motion'
+import { Chip, Field, Panel, Sheet } from '@/shell/ui'
+import { demoVersionLabel } from '@/shell/ProjectHeader'
+import { journeySummary } from '@/state/journeyProgress'
+import { opportunityProgress } from '@/opportunity/progress'
 import type { Project } from '@/state/types'
 
-export function ClientPortfolio() {
-  const navigate = useNavigate()
-  const projects = useStore((s) => s.projects)
-  const selectedId = useStore((s) => s.selectedProjectId)
-  const r = usePaths()
-  const list = Object.values(projects)
-  const needs = list.filter((p) => p.engagement.needsSpecialist)
-  const adapters = Array.from(new Set(list.map((p) => p.engagement.adapterVersion)))
-
-  const openClientExperience = (p: Project) => {
-    const to = act().openClientExperience(p.id)
-    if (to) navigate(to)
-    else act().pushToast({ kind: 'warn', title: 'Publish first', detail: 'The client experience opens once a version is published.' })
+function nextStep(p: Project): string {
+  if (p.engagement.needsSpecialist) return `Needs a specialist: ${p.engagement.needsSpecialist}`
+  const openRequests = Object.values(p.opportunities ?? {}).filter((o) => opportunityProgress(o).next).length
+  if (openRequests) return `${openRequests} client request${openRequests > 1 ? 's' : ''} in progress`
+  for (const kind of ['improve', 'new'] as const) {
+    const j = journeySummary(p.draft, kind)
+    if (j.started && !j.complete) return `Resume: ${j.resumeLabel.toLowerCase()}`
   }
+  if (!p.published) return 'Prepare a first client demo version'
+  return p.engagement.nextReview && p.engagement.nextReview !== 'Not set' ? `Next review ${p.engagement.nextReview}` : 'Nothing waiting'
+}
+
+function journeyLabel(p: Project): string {
+  const imp = journeySummary(p.draft, 'improve')
+  const nw = journeySummary(p.draft, 'new')
+  if (imp.started) return `Improve · ${imp.done} of ${imp.total}${imp.complete ? ' · done' : ''}`
+  if (nw.started) return `New system · ${nw.done} of ${nw.total}${nw.complete ? ' · done' : ''}`
+  return 'Not started'
+}
+
+export function NewProjectSheet({ onClose, onCreated }: { onClose: () => void; onCreated?: (slug: string) => void }) {
+  const [name, setName] = useState('')
+  const [sector, setSector] = useState('')
+  const navigate = useNavigate()
+  const create = () => {
+    const slug = act().createProspect({ name, sector })
+    onClose()
+    if (onCreated) onCreated(slug)
+    else navigate(nagarro(slug).home)
+  }
+  return (
+    <Sheet
+      title="New project"
+      onClose={onClose}
+      actions={
+        <>
+          <button className="btn btn--secondary" onClick={onClose}>
+            Cancel
+          </button>
+          <button className="btn btn--primary" disabled={!name.trim()} onClick={create} data-testid="create-project">
+            Create the project
+          </button>
+        </>
+      }
+    >
+      <p className="small muted">A project holds one client’s or prospect’s design-system work: set-up journeys, their system, requests and presentations. It stays in this browser.</p>
+      <Field label="Client or prospect">
+        <input className="input" value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Acme Retail" autoFocus data-testid="project-name" />
+      </Field>
+      <Field label="Sector" hint="Optional. Used as context in drafts and decks.">
+        <input className="input" value={sector} onChange={(e) => setSector(e.target.value)} placeholder="e.g. Retail" />
+      </Field>
+    </Sheet>
+  )
+}
+
+export function ClientPortfolio() {
+  const projects = useStore((s) => s.projects)
+  const [creating, setCreating] = useState(false)
+  const list = Object.values(projects)
 
   return (
     <div className="page">
       <PageHead
-        screen="nagarro"
-        title="Client systems"
-        lead="Every engagement the practice runs: package, stage, health of the internal draft, what is published to the client, and whether a demo session is running. Clients are fictional."
-        eyebrow={
-          <>
-            <Chip tone="ink">Internal only</Chip>
-            <DemoData>Demo data · clients are fictional</DemoData>
-          </>
+        title="Projects"
+        lead="Design-system work for each client or prospect: the set-up journeys, their system, and the version the client demo shows. Sample projects are fictional."
+        actions={
+          <button className="btn btn--primary" onClick={() => setCreating(true)} data-testid="new-project">
+            <Plus /> New project
+          </button>
         }
       />
 
-      <Stagger className="grid grid--3">
-        <Panel tight>
-          <Stat label="Client systems" value={list.length} small />
-        </Panel>
-        <Panel tight>
-          <Stat label="Need a specialist" value={needs.length} small tone={needs.length ? 'warn' : 'ok'} />
-        </Panel>
-        <Panel tight>
-          <Stat label="Adapter versions in use" value={adapters.length} small hint={adapters.join(' · ')} />
-        </Panel>
-      </Stagger>
-
-      <Reveal>
-        <Panel flush>
-          <div className="table-wrap">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Client</th>
-                  <th>Package</th>
-                  <th>Stage</th>
-                  <th>Health</th>
-                  <th>Drift</th>
-                  <th>Published</th>
-                  <th>Client experience</th>
-                  <th>Session</th>
-                  <th>Next review</th>
-                  <th />
+      <Panel flush>
+        <div className="table-wrap">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Package</th>
+                <th>Set-up journey</th>
+                <th>Client demo</th>
+                <th>Next step</th>
+                <th />
+              </tr>
+            </thead>
+            <tbody>
+              {list.map((p) => (
+                <tr key={p.id}>
+                  <td>
+                    <Link to={nagarro(p.slug).home} onClick={() => act().selectProject(p.id)}>
+                      <strong>{p.client.name}</strong>
+                    </Link>
+                    <div className="xs muted">
+                      {p.client.sector}
+                      {p.client.fictional ? ' · sample' : ''}
+                    </div>
+                  </td>
+                  <td>
+                    <Chip tone="outline">{p.engagement.package}</Chip>
+                  </td>
+                  <td className="small">{journeyLabel(p)}</td>
+                  <td className="small">{demoVersionLabel(p)}</td>
+                  <td className="small">{nextStep(p)}</td>
+                  <td className="num">
+                    <Link to={nagarro(p.slug).home} className="btn btn--sm btn--secondary" onClick={() => act().selectProject(p.id)}>
+                      Open <ArrowRight />
+                    </Link>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {list.map((p) => {
-                  const ph = health(p.draft)
-                  const selected = p.id === selectedId
-                  return (
-                    <tr key={p.id} aria-current={selected ? 'true' : undefined}>
-                      <td>
-                        <strong>{p.client.name}</strong>
-                        <div className="xs muted">{p.client.sector}</div>
-                      </td>
-                      <td>
-                        <Chip tone="outline">{p.engagement.package}</Chip>
-                      </td>
-                      <td className="small">{p.engagement.stage}</td>
-                      <td>
-                        <strong style={{ color: ph >= 90 ? 'var(--n-ok)' : ph >= 80 ? 'var(--n-fg)' : 'var(--n-err)' }}>{ph}%</strong>
-                      </td>
-                      <td className="num">{driftItems(p.draft)}</td>
-                      <td className="small">{p.published ? <Chip tone="ok">v{p.published.version}</Chip> : <Chip tone="dashed">not published</Chip>}</td>
-                      <td className="small">{p.clientExperience.enabled ? <Chip tone="mint">enabled</Chip> : <span className="muted">off</span>}</td>
-                      <td className="small">{p.session ? <Chip tone="info">running · v{p.session.baseVersion}</Chip> : <span className="muted">none</span>}</td>
-                      <td>{p.engagement.nextReview === 'Now' ? <Chip tone="err">Now</Chip> : p.engagement.nextReview}</td>
-                      <td className="num">
-                        <span className="row" style={{ justifyContent: 'flex-end', gap: 6 }}>
-                          <Link to={nagarro(p.slug).home} className="btn btn--sm btn--secondary" onClick={() => act().selectProject(p.id)}>
-                            Open engagement <ArrowRight />
-                          </Link>
-                          <Btn size="sm" variant="ghost" disabled={!p.published} title={p.published ? undefined : 'Publish a version first'} onClick={() => openClientExperience(p)}>
-                            <Play /> Open client experience
-                          </Btn>
-                        </span>
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>
-        </Panel>
-      </Reveal>
-
-      {needs.map((p) => (
-        <Callout key={p.id} tone="warn">
-          <strong>{p.client.name}</strong> · {p.engagement.needsSpecialist}
-        </Callout>
-      ))}
-
-      <Panel title="What this view is for" tight>
-        <p className="small muted">The panel ships inside each client’s repository; Nagarro owns the panel source and the adapters, versioned and installed per client. This view only reads: the practice sees health and drift, schedules readouts, and ships adapter upgrades. It is never shared with clients.</p>
-        <div className="row">
-          <Link to={practice.guide('which-path')} className="small">
-            Which path fits a client →
-          </Link>
-          <Link to={r.meeting} className="small">
-            Presenter guide →
-          </Link>
+              ))}
+            </tbody>
+          </table>
         </div>
       </Panel>
+
+      <p className="small muted">
+        Not sure which kind of engagement fits a client? <Link to={practice.guide('which-path')}>Which path fits a client</Link> explains the 2-week AI audit, DS Build, DS Accelerate, DS Scale and Support.
+      </p>
+
+      {creating && <NewProjectSheet onClose={() => setCreating(false)} />}
     </div>
   )
 }

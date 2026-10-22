@@ -43,5 +43,9 @@ export function uiSlice(ctx: Ctx): UiActions {
       set((s) => {
         s.ui.motionPaused = paused
       }),
+    setReturnTo: (path) =>
+      set((s) => {
+        s.ui.returnTo = path
+      }),
   }
 }

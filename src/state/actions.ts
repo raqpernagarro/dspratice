@@ -18,6 +18,7 @@ export interface UiActions {
   setLastWorkspace: (w: Workspace | null) => void
   setPresenter: (on: boolean) => void
   setMotionPaused: (paused: boolean) => void
+  setReturnTo: (path: string | null) => void
 }
 
 export interface ProjectActions {
@@ -58,7 +59,9 @@ export interface KnowledgeActions {
 
 export interface OpportunityActions {
   createOpportunity: (projectId: ProjectId, input: { title: string; task: TaskType; requestKind?: RequestKind; context?: Partial<OpportunityContext> }) => string
-  updateOpportunity: (projectId: ProjectId, id: string, patch: Partial<Pick<Opportunity, 'title' | 'task' | 'requestKind' | 'status' | 'step'>>) => void
+  updateOpportunity: (projectId: ProjectId, id: string, patch: Partial<Pick<Opportunity, 'title' | 'task' | 'requestKind' | 'status' | 'step' | 'furthest' | 'exportedAt'>>) => void
+  /** A person checked (or unchecked) a requirement's answer against the current draft. */
+  setRequirementChecked: (projectId: ProjectId, id: string, requirementId: string, checked: boolean) => void
   setRequest: (projectId: ProjectId, id: string, input: { text: string; filename?: string; format: RequestFormat }) => Promise<number>
   setContext: (projectId: ProjectId, id: string, patch: Partial<OpportunityContext>) => void
   confirmContext: (projectId: ProjectId, id: string) => void
@@ -98,6 +101,8 @@ export interface JourneyActions {
   chooseEntryPath: (p: 'new' | 'bring' | 'explore' | null) => void
   setJourneyProgress: (journey: 'new' | 'improve', patch: Partial<Omit<JourneyProgress, 'data'>>) => void
   setJourneyData: (journey: 'new' | 'improve', key: string, value: unknown) => void
+  /** Records that a step's work is done (or not), which is what progress and resume read. */
+  markJourneyStep: (journey: 'new' | 'improve', step: number, done?: boolean) => void
   updateTheme: (patch: Partial<ThemeConfig>) => void
   applyPreset: (presetId: string) => void
   describeLook: (brief: string) => void

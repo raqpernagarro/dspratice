@@ -3,15 +3,15 @@ import { ExternalLink, Play, RefreshCw } from 'lucide-react'
 import { PageHead } from '@/shell/PageHead'
 import { Callout, Chip, Kv, Panel, Stat } from '@/shell/ui'
 import { LiveBadge } from '@/shell/provenance'
-import { act } from '@/state/hooks'
+import { usePresentDemo } from '@/shell/present'
 import { useStore } from '@/state/store'
 import { useIntegrationStatus } from '@/integrations/status'
-import { client, nagarro, practice } from '@/app/routes'
+import { client, practice } from '@/app/routes'
 import { DEMOS, PRACTICE_TOOLS, SOLUTIONS, type DemoEntry, type ToolEntry } from '@/fixtures/hub'
 import slidesVersion from '@/deck/engine.generated.json'
 
-const STATUS: Record<ToolEntry['status'], { label: string; tone: 'ok' | 'warn' | 'ink' | 'outline' }> = { works: { label: 'Works today', tone: 'ok' }, partly: { label: 'Partly', tone: 'warn' }, 'internal-only': { label: 'Internal only', tone: 'ink' }, proposed: { label: 'Proposed', tone: 'outline' } }
-const IN_HUB: Record<NonNullable<ToolEntry['inHub']>['to'], string> = { library: practice.library, presentations: practice.presentations, knowledge: practice.knowledge, opportunities: practice.opportunities, demos: practice.demos, integrations: practice.integrations }
+const STATUS: Record<ToolEntry['status'], { label: string; tone: 'ok' | 'warn' | 'ink' | 'outline' }> = { works: { label: 'Ready to use', tone: 'ok' }, partly: { label: 'Partly ready', tone: 'warn' }, 'internal-only': { label: 'Internal only', tone: 'ink' }, proposed: { label: 'Planned', tone: 'outline' } }
+const IN_HUB: Record<NonNullable<ToolEntry['inHub']>['to'], string> = { library: practice.projects, presentations: practice.presentations, knowledge: practice.knowledge, opportunities: practice.opportunityStart, demos: practice.demos, integrations: practice.integrations }
 
 function ToolCard({ t }: { t: ToolEntry }) {
   return (
@@ -40,7 +40,7 @@ function ToolCard({ t }: { t: ToolEntry }) {
 export function ToolsPage() {
   return (
     <div className="page">
-      <PageHead screen="tools" title="Tools" lead="Everything the practice has built, in one place: what it is, who owns it, how to get it and where it lives in this hub. Three solutions, plus the tools that run the practice." eyebrow={<Chip tone="ink">Internal only</Chip>} />
+      <PageHead title="Tools" lead="What the practice has built: three solutions, and the tools that support our work. Each card says who owns it, how to get it and where it shows up in this hub." />
       <h2 className="section-title">Our three solutions</h2>
       <div className="grid grid--3">{SOLUTIONS.map((t) => <ToolCard key={t.id} t={t} />)}</div>
       <h2 className="section-title">Practice tools</h2>
@@ -51,39 +51,56 @@ export function ToolsPage() {
 
 export function DemosPage() {
   const navigate = useNavigate()
-  const projects = useStore((s) => s.projects)
+  const present = usePresentDemo()
   const demoUrl = import.meta.env.VITE_DEMO_URL as string | undefined
   const open = (d: DemoEntry) => {
-    const demo = projects['demo-brand']
-    if (d.open === 'opportunity') return navigate(nagarro('northwind').opportunities)
-    if (d.open === 'scorecard') return navigate(practice.scorecard)
-    const to = act().openClientExperience(demo.id)
-    if (!to) return
-    const c = client(demo.slug)
-    navigate(d.open === 'guide' ? `${c.home}?guide=meeting` : d.open === 'prototype' ? c.prototype : d.open === 'components' ? c.components : c.home)
+    if (d.open === 'opportunity') return navigate(practice.opportunitiesFor('northwind'))
+    const c = client('demo-brand')
+    if (d.open === 'guide') return present('demo-brand', { guide: 'meeting' })
+    if (d.open === 'scorecard') return present('demo-brand', { path: c.scorecard })
+    if (d.open === 'prototype') return present('demo-brand', { guide: 'meeting', chapter: 'ai' })
+    return present('demo-brand', { path: d.open === 'components' ? c.components : c.home })
   }
   return (
     <div className="page">
       <PageHead
-        screen="demos"
-        title="Demos"
-        lead="Demos that win the meeting. Each one says who it is for, how long it takes, what it proves and what to say. Client-safe demos also ship in the public demo build."
-        actions={demoUrl ? <a className="btn btn--secondary" href={demoUrl} target="_blank" rel="noreferrer"><ExternalLink /> Open the public demo site</a> : <Chip tone="dashed" title="npm run build:demo, then deploy after marketing's OK (docs/demo-build.md)">Public demo site not deployed yet</Chip>}
+        title="Client demo"
+        lead="What we show prospects and clients in meetings, on Demo Brand, a fictional company. Pick a demo, prepare it, then present. Everything the client sees happens in the client demo; your notes stay with you."
       />
       <div className="grid grid--2">
         {DEMOS.map((d) => (
-          <article key={d.id} className="panel" data-testid={`demo-${d.id}`}>
+          <article key={d.id} className="panel demo-card" data-testid={`demo-${d.id}`}>
             <div className="row row--between" style={{ gap: 8 }}>
               <h3 style={{ margin: 0 }}>{d.title}</h3>
-              <Chip tone={d.audience === 'internal' ? 'ink' : 'mint'}>{d.audience === 'internal' ? 'Internal' : 'Client-safe'}</Chip>
+              <Chip tone={d.audience === 'internal' ? 'ink' : 'mint'}>{d.audience === 'internal' ? 'For colleagues' : 'For clients'}</Chip>
             </div>
-            <p className="small muted">{d.minutes} minutes</p>
-            <p className="small"><strong>Proves:</strong> {d.proves}</p>
-            <ul className="small">{d.notes.map((n) => <li key={n}>{n}</li>)}</ul>
-            <button className="btn btn--mint btn--sm" onClick={() => open(d)} data-testid={`run-demo-${d.id}`}><Play /> {d.audience === 'internal' ? 'Open' : 'Run as presenter'}</button>
+            <p className="small muted">About {d.minutes} minutes</p>
+            <p className="small">{d.proves}</p>
+            <details className="small">
+              <summary>Tips</summary>
+              <ul>{d.notes.map((n) => <li key={n}>{n}</li>)}</ul>
+            </details>
+            <div className="row" style={{ gap: 8, marginTop: 'auto' }}>
+              <button className="btn btn--mint btn--sm" onClick={() => open(d)} data-testid={`run-demo-${d.id}`}>
+                <Play /> {d.audience === 'internal' ? 'Open the sample' : 'Start presenting'}
+              </button>
+              {d.open === 'guide' && (
+                <Link className="btn btn--secondary btn--sm" to={practice.meetingPrep('demo-brand')}>
+                  Prepare the meeting
+                </Link>
+              )}
+            </div>
           </article>
         ))}
       </div>
+      <Panel title="Showing the demo outside a meeting" tight>
+        <p className="small muted">A client-safe copy of the demo can be built as a separate site (see docs/demo-build.md). It is not published: that needs the practice lead’s go-ahead and marketing’s approval of the scorecard.</p>
+        {demoUrl && (
+          <a className="btn btn--secondary btn--sm" href={demoUrl} target="_blank" rel="noreferrer">
+            <ExternalLink /> Open the demo site
+          </a>
+        )}
+      </Panel>
     </div>
   )
 }
@@ -94,7 +111,7 @@ export function IntegrationsPage() {
   const usage = Object.values(projects).flatMap((p) => Object.values(p.opportunities ?? {})).reduce((a, o) => ({ calls: a.calls + o.aiUsage.calls, tokens: a.tokens + o.aiUsage.inputTokens + o.aiUsage.outputTokens }), { calls: 0, tokens: 0 })
   return (
     <div className="page">
-      <PageHead screen="tools" title="Integrations and AI usage" lead="What this machine can reach, and how many model tokens the hub has spent. Keys stay in .env.local on the local server; the browser only learns whether each one is set." actions={<button className="btn btn--secondary" onClick={() => refresh()} disabled={loading}><RefreshCw /> Check again</button>} />
+      <PageHead title="Integrations and AI usage" lead="What this machine can reach, and how many model tokens the hub has spent. Keys stay in .env.local on the local server; the browser only learns whether each one is set." actions={<button className="btn btn--secondary" onClick={() => refresh()} disabled={loading}><RefreshCw /> Check again</button>} />
       <div className="grid grid--3">
         <Stat label="Model" value={status.model.configured ? 'On' : 'Templates only'} hint={status.model.configured ? status.model.model : 'add ANTHROPIC_API_KEY to use a model'} />
         <Stat label="Figma REST" value={status.figma.configured ? 'On' : 'Off'} hint={status.figma.configured ? 'refresh and folder listing' : 'plugin, figma-cli and snapshots still work'} />

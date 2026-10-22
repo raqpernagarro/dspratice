@@ -1,18 +1,19 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
-import { NavLink, Outlet, Link, useLocation, useNavigate } from 'react-router'
-import { Home, Layers, GitPullRequest, Sparkles, Shield, Search, Menu, RotateCcw, Play, Gauge, BookOpen, Building2, Compass, Wrench, FlaskConical, PackageCheck, Presentation, ExternalLink, LogOut, Library, Target, MonitorPlay, Hammer, Radio } from 'lucide-react'
+import { Outlet, Link, useLocation, useNavigate } from 'react-router'
+import { Home, Layers, GitPullRequest, Sparkles, Shield, Search, Menu, RotateCcw, Play, Gauge, BookOpen, Building2, Compass, Wrench, PackageCheck, Presentation, Library, Target, MonitorPlay, Hammer, MoreHorizontal, ArrowLeft, NotebookPen, Info, UserRound } from 'lucide-react'
 import { useIntegrationStatus } from '@/integrations/status'
 import { useStore } from '@/state/store'
 import { Toasts } from './Toasts'
 import { CommandPalette } from './CommandPalette'
 import { DemoBar } from './DemoBar'
-import { WorkspaceSwitch } from './WorkspaceSwitch'
-import { ProjectPicker } from './ProjectPicker'
+import { MenuButton, MenuItem } from './Menu'
+import { usePresentDemo } from './present'
+import { practice } from '@/app/routes'
 import { setSimSpeed } from '@/state/sim'
 import { cx } from './ui'
 import { activeNav, navFor } from './useWorkspace'
 import { act, usePaths, useProject, useSystem } from '@/state/hooks'
-import { hasUnpublishedChanges, sessionIsStale } from '@/state/scope'
+import { sessionIsStale } from '@/state/scope'
 import { PageTransition, WorkspaceWipe } from '@/motion'
 import type { Workspace } from '@/state/types'
 
@@ -65,14 +66,34 @@ export function AppShell({ workspace, bare, children }: { workspace: Workspace; 
   const client = workspace === 'client'
   const nav = navFor(workspace, r)
   const active = activeNav(nav, location.pathname)
-  const dirty = hasUnpublishedChanges(project)
   const stale = sessionIsStale(project)
+  const present = usePresentDemo()
+  const returnTo = useStore((s) => s.ui.returnTo)
+  const inProject = location.pathname.startsWith(practice.projects + '/')
+  const people = sys.people.filter((p) => !p.isAgent)
 
-  const openClient = () => {
-    const to = act().openClientExperience(project.id)
-    if (to) navigate(to)
-    else act().pushToast({ kind: 'warn', title: 'Publish first', detail: `${project.client.name} opens in the client workspace once a version is published.` })
+  const backToPreparation = () => {
+    act().exitPresenter()
+    act().setReturnTo(null)
+    navigate(returnTo || practice.home)
   }
+  const openNotes = () => window.open(practice.presenterNotes(project.slug), 'ds-presenter-notes', 'width=520,height=760')
+
+  const actingAsMenu = (
+    <label className="hdr-menu__field">
+      <span>
+        <UserRound style={{ width: 14 }} /> Acting as
+      </span>
+      <select className="select" value={actingAs} onChange={(e) => setActingAs(e.target.value)}>
+        {people.map((p) => (
+          <option key={p.id} value={p.id}>
+            {p.count ? `${p.role} (${p.name})` : `${p.name} · ${p.role}`}
+          </option>
+        ))}
+      </select>
+      <small>Shows what each role is allowed to do, for example who can merge.</small>
+    </label>
+  )
 
   return (
     <div className={cx('shell', client && 'shell--client', presenter && 'shell--presenter')} data-workspace={workspace}>
@@ -81,109 +102,126 @@ export function AppShell({ workspace, bare, children }: { workspace: Workspace; 
         <button className="icon-btn shell__menu-btn" onClick={() => setSideOpen(!sideOpen)} aria-label="Menu">
           <Menu />
         </button>
-        <Link to={r.home} className="shell__brand" title="Home">
+        <Link to={client ? r.home : practice.home} className="shell__brand" title={client ? 'Demo overview' : 'Home'}>
           <img src="/brand/nagarro-logo.svg" alt="Nagarro" />
           <span className="shell__brand-divider" />
-          <span className="shell__crumb">
-            <strong>{client ? sys.theme.name : 'Design systems'}</strong> · {client ? 'design system' : 'accelerator'}
-          </span>
+          <span className="shell__crumb">{client ? <><strong>{sys.theme.name}</strong> design system</> : <strong>Design systems hub</strong>}</span>
         </Link>
-
-        {import.meta.env.VITE_TARGET !== 'demo' && <WorkspaceSwitch workspace={workspace} />}
-        {!client && <ProjectPicker />}
-        {client && presenter && (
-          <span className="presenter-badge" title="You opened this from the Nagarro workspace. Presenter notes and tools are visible to you only.">
-            Presenter
+        {client && (
+          <span className="demo-notice" title="A fictional company's design system, with sample figures. Actions that would reach GitHub or Figma are simulated.">
+            Demonstration · fictional company · sample figures
           </span>
         )}
 
         <div className="shell__spacer" />
         <button className="btn btn--on-dark-ghost btn--sm" onClick={() => setCmdkOpen(true)} title="Search (⌘K)">
-          <Search /> <span className="hide-sm">Search</span> <kbd>⌘K</kbd>
+          <Search /> <span className="hide-md">Search</span> <kbd>⌘K</kbd>
         </button>
-        {(!client || presenter) && (
-          <label className="row xs hide-sm" style={{ color: 'var(--n-white-70)', gap: 6 }} title="Switch who you act as to see permission gates">
-            <span>Acting as</span>
-            <select className="select" value={actingAs} onChange={(e) => setActingAs(e.target.value)} style={{ width: 'auto', padding: '4px 8px', background: 'var(--n-white-10)', color: 'var(--n-white)', borderColor: 'var(--n-white-30)', fontSize: 12 }}>
-              {sys.people
-                .filter((p) => !p.isAgent)
-                .map((p) => (
-                  <option key={p.id} value={p.id} style={{ color: '#000' }}>
-                    {p.count ? `${p.role} (${p.name})` : `${p.name} · ${p.role}`}
-                  </option>
-                ))}
-            </select>
-          </label>
-        )}
-        {!client && (
-          <button className="btn btn--on-dark-ghost btn--sm hide-sm" onClick={() => setSpeed(speed === 1 ? 3 : 1)} title="Simulation speed">
-            <Gauge /> {speed}×
+
+        {!client && !inProject && (
+          <button className="btn btn--mint btn--sm" onClick={() => present()} title="Opens the client demo as presenter. You can come back here at any time." data-testid="header-present">
+            <MonitorPlay /> <span className="hide-md">Present client demo</span>
           </button>
         )}
         {!client && (
-          <button className="btn btn--mint btn--sm" onClick={openClient} title={dirty ? 'Opens the published version; the draft has unpublished changes' : 'Open the client experience for the selected engagement'}>
-            <ExternalLink /> <span className="hide-sm">Open client experience</span>
-          </button>
+          <MenuButton label={<span className="sr-only">More</span>} icon={<MoreHorizontal />} testid="header-more">
+            {(close) => (
+              <>
+                {actingAsMenu}
+                <MenuItem icon={<Gauge style={{ width: 14 }} />} title={`Simulation speed: ${speed}×`} detail="Simulated checks and scans run faster at 3×." onClick={() => setSpeed(speed === 1 ? 3 : 1)} />
+                <MenuItem
+                  icon={<Info style={{ width: 14 }} />}
+                  title="About this tool"
+                  detail="What works, what needs a key, what is simulated"
+                  onClick={() => {
+                    close()
+                    navigate(practice.about)
+                  }}
+                />
+                <MenuItem
+                  icon={<RotateCcw style={{ width: 14 }} />}
+                  title="Reset sample data…"
+                  detail="Puts every project back to the shipped samples"
+                  danger
+                  onClick={() => {
+                    close()
+                    setConfirmReset(true)
+                  }}
+                />
+              </>
+            )}
+          </MenuButton>
         )}
+
         {client && !guideActive && project.published && (
-          <Link to={`${r.home}?guide=meeting`} className="btn btn--mint btn--sm" title="Start the guided walkthrough">
-            <Play /> <span className="hide-sm">Start the guide</span>
+          <Link to={`${r.home}?guide=meeting`} className="btn btn--mint btn--sm" title="Walk through the story chapter by chapter">
+            <Play /> <span className="hide-md">Start the guided demo</span>
           </Link>
         )}
-        {client && presenter && (
-          <>
-            <button className="icon-btn" onClick={() => setConfirmSession(true)} title="Reset the demo session to the published version" aria-label="Reset the demo session">
-              <RotateCcw />
-            </button>
-            <button
-              className="icon-btn"
-              onClick={() => {
-                act().exitPresenter()
-                navigate(r.home)
-              }}
-              title="Exit presenter mode"
-              aria-label="Exit presenter mode"
-            >
-              <LogOut />
-            </button>
-          </>
+        {client && presenter && import.meta.env.VITE_TARGET !== 'demo' && (
+          <button className="btn btn--on-dark-ghost btn--sm" onClick={openNotes} title="Opens your notes in a separate window. Share this tab only; the notes stay private." data-testid="open-notes">
+            <NotebookPen /> <span className="hide-md">Presenter notes</span>
+          </button>
         )}
-        {!client && (
-          <button className="icon-btn" onClick={() => setConfirmReset(true)} title="Reset every project to the sample data" aria-label="Reset all demo data">
-            <RotateCcw />
+        {client && presenter && (
+          <MenuButton label={<span className="sr-only">Demo options</span>} icon={<MoreHorizontal />} testid="demo-more">
+            {(close) => (
+              <>
+                {actingAsMenu}
+                <MenuItem
+                  icon={<RotateCcw style={{ width: 14 }} />}
+                  title="Reset the demo…"
+                  detail={`Back to the prepared version (v${project.published?.version ?? 1}). Your preparation is untouched.`}
+                  danger
+                  onClick={() => {
+                    close()
+                    setConfirmSession(true)
+                  }}
+                />
+              </>
+            )}
+          </MenuButton>
+        )}
+        {client && presenter && import.meta.env.VITE_TARGET !== 'demo' && (
+          <button className="btn btn--on-dark btn--sm" onClick={backToPreparation} title="Leave the demo and return to the page you opened it from" data-testid="back-to-preparation">
+            <ArrowLeft /> <span className="hide-md">Back to preparation</span>
           </button>
         )}
       </header>
 
       {sideOpen && <div className="shell__scrim" onClick={() => setSideOpen(false)} />}
       <nav className={cx('shell__side', sideOpen && 'is-open')} aria-label="Primary">
-        {nav.map((item, i) => {
-          const Icon = ICONS[item.icon]
-          const isActive = active?.to === item.to
-          const heading = item.group && item.group !== nav[i - 1]?.group ? <div className="nav__heading">{item.group}</div> : null
-          return (
-            <div key={item.to}>
-              {heading}
-              <NavLink to={item.to} className={cx('nav__label', isActive && 'is-active')} aria-current={isActive ? 'page' : undefined}>
+        {nav
+          .filter((item) => item.group !== 'foot')
+          .map((item) => {
+            const Icon = ICONS[item.icon]
+            const isActive = active?.to === item.to
+            return (
+              <Link key={item.to} to={item.to} className={cx('nav__label', isActive && 'is-active')} aria-current={isActive ? 'page' : undefined}>
                 <Icon />
                 <span style={{ flex: 1 }}>{item.label}</span>
-              </NavLink>
-            </div>
-          )
-        })}
+              </Link>
+            )
+          })}
         <div className="nav__foot">
-          <span className="row xs" style={{ gap: 6 }}>
-            <FlaskConical style={{ width: 12 }} /> Sample data · local simulation
-          </span>
+          {nav
+            .filter((item) => item.group === 'foot')
+            .map((item) => {
+              const Icon = ICONS[item.icon]
+              const isActive = active?.to === item.to
+              return (
+                <Link key={item.to} to={item.to} className={cx('nav__label', isActive && 'is-active')} aria-current={isActive ? 'page' : undefined}>
+                  <Icon />
+                  <span style={{ flex: 1 }}>{item.label}</span>
+                </Link>
+              )
+            })}
           {!client && (
-            <span className="row xs" style={{ gap: 6 }} title="Integrations on this machine. Keys stay on the local server.">
-              <Radio style={{ width: 12 }} />
-              {integrations.offline ? 'Static build: no local server' : `Model: ${integrations.model.configured ? integrations.model.model : 'templates only'} · Figma REST: ${integrations.figma.configured ? 'on' : 'off'}`}
+            <span className="nav__note" title={integrations.offline ? 'Static build: no local server' : `AI drafting: ${integrations.model.configured ? 'on' : 'off (templates)'} · Figma REST: ${integrations.figma.configured ? 'on' : 'off'}`}>
+              Sample clients and figures are fictional. Everything runs on this machine.
             </span>
           )}
-          <span>{client ? `${project.client.name} · fictional client` : `${project.client.name} · ${project.engagement.package}`}</span>
-          {!client && <span>Contract v{sys.contract.version} · {project.published ? `published v${project.published.version}` : 'not published'}</span>}
-          {client && presenter && stale && <span style={{ color: 'var(--n-amber, #e8b04b)' }}>A newer version was published · reset the session to show it</span>}
+          {client && presenter && stale && <span className="nav__note nav__note--warn">A newer version was prepared. Reset the demo to show it.</span>}
         </div>
       </nav>
 
@@ -198,8 +236,8 @@ export function AppShell({ workspace, bare, children }: { workspace: Workspace; 
       {confirmReset && (
         <div className="sheet-scrim" onClick={() => setConfirmReset(false)} role="presentation">
           <div className="sheet" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
-            <h4>Reset all demo data?</h4>
-            <p className="muted small">Every project (drafts, published versions, demo sessions, journeys) is reseeded from the sample data. Nothing outside this browser is affected.</p>
+            <h4>Reset the sample data?</h4>
+            <p className="muted small">Every project goes back to the shipped samples: drafts, client demo versions, demos in progress and journeys. Projects, requests and sources you added are removed. Nothing outside this browser is affected.</p>
             <div className="row" style={{ justifyContent: 'flex-end' }}>
               <button className="btn btn--secondary" onClick={() => setConfirmReset(false)}>
                 Keep going
@@ -211,7 +249,7 @@ export function AppShell({ workspace, bare, children }: { workspace: Workspace; 
                   setConfirmReset(false)
                 }}
               >
-                Reset everything
+                Reset sample data
               </button>
             </div>
           </div>
@@ -220,8 +258,8 @@ export function AppShell({ workspace, bare, children }: { workspace: Workspace; 
       {confirmSession && (
         <div className="sheet-scrim" onClick={() => setConfirmSession(false)} role="presentation">
           <div className="sheet" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
-            <h4>Reset the demo session?</h4>
-            <p className="muted small">The client experience goes back to published v{project.published?.version}. Everything done in this session (assessment, proposals, merges) is discarded. Internal draft changes are untouched.</p>
+            <h4>Reset the demo?</h4>
+            <p className="muted small">The demo goes back to the prepared version (v{project.published?.version}). Everything clicked during this meeting (assessment, fixes, merges) is cleared. Your preparation in the hub is untouched.</p>
             <div className="row" style={{ justifyContent: 'flex-end' }}>
               <button className="btn btn--secondary" onClick={() => setConfirmSession(false)}>
                 Keep going
@@ -234,7 +272,7 @@ export function AppShell({ workspace, bare, children }: { workspace: Workspace; 
                   navigate(r.home)
                 }}
               >
-                Reset session
+                Reset the demo
               </button>
             </div>
           </div>

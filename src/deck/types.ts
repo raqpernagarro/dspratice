@@ -26,7 +26,8 @@ export interface SlideSpec {
   [field: string]: unknown
 }
 
-export interface DemoLink { label: string; routeKey: 'home' | 'components' | 'tokens' | 'foundations' | 'changes' | 'report' | 'assessment' | 'handover' | 'outcome' | 'prototype' | 'channels' | 'proposalSummary' | 'scorecard'; id?: string }
+/** A slide that hands over to the live client demo: at a page, or at a chapter of the guided story. */
+export interface DemoLink { label: string; routeKey: 'home' | 'components' | 'tokens' | 'foundations' | 'changes' | 'report' | 'assessment' | 'handover' | 'outcome' | 'prototype' | 'channels' | 'proposalSummary' | 'scorecard'; id?: string; chapter?: string }
 
 export interface DeckSlide {
   id: string
@@ -47,7 +48,7 @@ export interface Deck {
   projectId: string
   opportunityId?: string
   title: string
-  structure: 'proposal' | 'readout' | 'kickoff'
+  structure: 'proposal' | 'readout' | 'kickoff' | 'update'
   durationMin: number
   brief: DeckBrief
   slides: DeckSlide[]

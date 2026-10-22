@@ -22,10 +22,10 @@ export function ReportPage() {
   return (
     <div className="page">
       <PageHead
-        screen="report"
-        title="Your system today"
-        lead={scanned ? `Assessment of ${sys.journey.connect.repoUrl} and ${sys.journey.connect.figmaUrl}. Numbers move as findings are resolved; the baseline stays.` : 'Run the assessment scan to populate this report with a baseline.'}
-        eyebrow={<DemoData />}
+       
+        title={`${sys.theme.name}: assessment report`}
+        lead={scanned ? `Assessment of ${sys.journey.connect.repoUrl} and ${sys.journey.connect.figmaUrl}. Figures change as findings are fixed; the baseline stays as it was.` : 'Run the assessment to fill this report with a baseline.'}
+        eyebrow={<DemoData>Sample figures</DemoData>}
         actions={
           <>
             <Link to={`/share/${project.slug}`} className="btn btn--secondary">
@@ -55,7 +55,7 @@ export function ReportPage() {
           <Stat label="Contrast fails" value={contrastFails(sys)} hint={before ? `baseline ${before.contrastFails}` : ''} tone={contrastFails(sys) === 0 ? 'ok' : 'warn'} />
         </Panel>
         <Panel tight>
-          <Stat label="Drift items" value={<AnimatedNumber value={driftItems(sys)} />} hint={before ? `baseline ${before.driftItems}` : ''} tone={driftItems(sys) === 0 ? 'ok' : 'warn'} />
+          <Stat label="Figma–code differences" value={<AnimatedNumber value={driftItems(sys)} />} hint={before ? `baseline ${before.driftItems}` : ''} tone={driftItems(sys) === 0 ? 'ok' : 'warn'} />
         </Panel>
       </div>
 

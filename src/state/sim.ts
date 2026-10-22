@@ -17,13 +17,18 @@ export interface StageDef {
 }
 
 interface Pending {
-  timer: ReturnType<typeof setTimeout>
+  /** null while the simulation is paused. */
+  timer: ReturnType<typeof setTimeout> | null
+  /** When it is due, and what is left of the wait while paused. */
+  due: number
+  remaining?: number
   /** Runs what the timer would have run; used by settleJobs(). */
   fire: () => void
 }
 
 const timers = new Map<string, Pending>()
 let speed = 1
+let paused = false
 const setJobs: typeof writeJobs | null = writeJobs
 
 export function setSimSpeed(multiplier: number) {
@@ -35,8 +40,43 @@ function schedule(id: string, ms: number, fn: () => void) {
     timers.delete(id)
     fn()
   }
+  if (paused) {
+    timers.set(id, { timer: null, due: Date.now() + ms, remaining: ms, fire })
+    return
+  }
   const timer = setTimeout(fire, ms)
-  timers.set(id, { timer, fire })
+  timers.set(id, { timer, due: Date.now() + ms, fire })
+}
+
+/**
+ * Holds every simulated timer where it is (a scan stage, running checks), so a presenter can stop
+ * on a meaningful state and talk. Resume picks up with the time that was left.
+ */
+export function pauseSim() {
+  if (paused) return
+  paused = true
+  const now = Date.now()
+  for (const p of timers.values()) {
+    if (p.timer) clearTimeout(p.timer)
+    p.timer = null
+    p.remaining = Math.max(0, p.due - now)
+  }
+}
+
+export function resumeSim() {
+  if (!paused) return
+  paused = false
+  const now = Date.now()
+  for (const p of timers.values()) {
+    const ms = p.remaining ?? 0
+    p.due = now + ms
+    p.remaining = undefined
+    p.timer = setTimeout(p.fire, ms)
+  }
+}
+
+export function isSimPaused() {
+  return paused
 }
 
 export function runJob(id: string, label: string, stages: StageDef[], onComplete?: () => void) {
@@ -71,7 +111,7 @@ export function runJob(id: string, label: string, stages: StageDef[], onComplete
 export function cancelJob(id: string) {
   const p = timers.get(id)
   if (p) {
-    clearTimeout(p.timer)
+    if (p.timer) clearTimeout(p.timer)
     timers.delete(id)
     setJobs?.((jobs) => {
       if (jobs[id] && jobs[id].status === 'running') jobs[id].status = 'cancelled'
@@ -103,7 +143,7 @@ export function settleJobs(prefix?: string) {
     const next = Array.from(timers.entries()).find(([id]) => !prefix || id.startsWith(prefix))
     if (!next) return
     const [, p] = next
-    clearTimeout(p.timer)
+    if (p.timer) clearTimeout(p.timer)
     p.fire()
   }
 }

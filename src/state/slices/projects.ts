@@ -42,7 +42,7 @@ export function projectsSlice(ctx: Ctx): ProjectActions {
         p.published = { version, publishedAt: ctx.now(), publishedBy: by, note: note || `Published v${version}`, draftRev: p.draftRev, state: snapshot }
       })
       activity(projectId, `Published v${version}${note ? ` · ${note}` : ''}`, by)
-      toast({ kind: 'ok', title: `Published v${version}`, detail: 'The client experience now shows this version. A running demo session keeps its own state until it is reset.' })
+      toast({ kind: 'ok', title: `Client demo updated to v${version}`, detail: 'The client demo now shows this version. A demo already in progress keeps its own state until you reset it.' })
       return version
     },
     rollbackTo: (projectId, version) => {
@@ -59,7 +59,7 @@ export function projectsSlice(ctx: Ctx): ProjectActions {
         }
         p.published = { version: next, publishedAt: ctx.now(), publishedBy: 'Rollback', note: `Rolled back to v${version}`, draftRev: -1, state: snapshot }
       })
-      activity(projectId, `Rolled the client experience back to v${version} (published as v${next})`)
+      activity(projectId, `Showed v${version} in the client demo again (as v${next})`)
     },
     restoreDraftFromPublished: (projectId) => {
       const p0 = get().projects[projectId]
@@ -96,8 +96,8 @@ export function projectsSlice(ctx: Ctx): ProjectActions {
         const meetingChapters = p.session?.guide.meetingChapters ?? []
         p.session = { baseVersion: p.published?.version ?? 0, startedAt: ctx.now(), state: base, guide: { ...newGuideState(mode), meetingChapters } }
       })
-      activity(projectId, 'Reset the demo session to the published version', 'Presenter', { type: 'session', id: projectId })
-      toast({ kind: 'info', title: 'Demo session reset', detail: 'The client experience is back at the published version. Internal draft changes are untouched.' })
+      activity(projectId, 'Reset the client demo to the prepared version', 'Presenter', { type: 'session', id: projectId })
+      toast({ kind: 'info', title: 'Demo reset', detail: 'The client demo is back at the prepared version. Your preparation in the hub is untouched.' })
     },
     endDemoSession: (projectId) => {
       cancelJobsWithPrefix(`${projectId}:session:`)
@@ -186,7 +186,7 @@ export function projectsSlice(ctx: Ctx): ProjectActions {
         s.projects[slug] = fresh
         s.selectedProjectId = slug
       })
-      activity(slug, `Created ${name.trim()} as a client or prospect`)
+      activity(slug, `Created the project for ${name.trim()}`)
       return slug
     },
   }

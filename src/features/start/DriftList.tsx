@@ -5,19 +5,22 @@ import { PageHead } from '@/shell/PageHead'
 import { Btn, Chip, FindingStatusChip, Panel, SeverityChip } from '@/shell/ui'
 import { driftItems } from '@/state/selectors'
 import { RULE_BY_ID } from '@/fixtures/demo-brand/rules'
+import { useImproveNav } from './JourneyFrame'
 
 export function DriftList() {
   const navigate = useNavigate()
   const sys = useSystem()
+  const nav = useImproveNav('findings')
   const r = usePaths()
   const findings = sys.findings.filter((f) => f.ruleId !== 'guidance-complete')
 
   return (
     <div className="page">
       <PageHead
-        screen="connect"
-        title="Drift list"
-        lead={`${driftItems(sys)} drift items across ${findings.filter((f) => f.status === 'open').length} open findings. The tool lists them and names the side to fix; people decide per item. Nothing auto-resolves.`}
+       
+        noTabs
+        title="Review the findings"
+        lead={`${driftItems(sys)} places where Figma and code disagree, across ${findings.filter((f) => f.status === 'open').length} open findings. Each one names the side to fix and the rule behind it. People decide what to fix; nothing changes on its own.`}
       />
       <Panel flush>
         <div className="table-wrap">
@@ -57,10 +60,10 @@ export function DriftList() {
       </Panel>
       <div className="row row--between">
         <Link to={r.changes} className="small">
-          Work on findings in Changes →
+          Open the findings in Changes →
         </Link>
-        <Btn onClick={() => navigate(r.handover)}>
-          Handover and baseline <ArrowRight />
+        <Btn onClick={nav.complete} data-testid="findings-continue">
+          Reviewed: agree the plan <ArrowRight />
         </Btn>
       </div>
     </div>

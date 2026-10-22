@@ -55,7 +55,7 @@ export function newGuideState(mode: GuideMode = 'meeting'): GuideState {
     completedSteps: {},
     meetingChapters: [],
     autoplay: { on: false, seconds: 8 },
-    notesOpen: true,
+    notesOpen: false,
     presenting: false,
     elapsedMs: {},
   }

@@ -24,7 +24,7 @@ export function ShareView() {
           <Panel>
             <div className="stack" style={{ gap: 4 }}>
               <strong>Nothing published yet</strong>
-              <span className="muted">{project ? `${project.client.name} has no published version to share. Publish the draft from the Nagarro workspace first.` : 'This link does not match a project.'}</span>
+              <span className="muted">{project ? `${project.client.name} has no client demo version to share yet.` : 'This link does not match a project.'}</span>
             </div>
           </Panel>
         </div>
@@ -75,7 +75,7 @@ export function ShareView() {
             <Stat label="On-system eval" value={`${ev?.onSystem ?? '–'}%`} hint={ev ? `${ev.version} · gate ${ev.gate}%` : ''} />
           </Panel>
           <Panel tight>
-            <Stat label="Drift items" value={driftItems(sys)} hint={before ? `from ${before.driftItems}` : ''} />
+            <Stat label="Figma–code differences" value={driftItems(sys)} hint={before ? `from ${before.driftItems}` : ''} />
           </Panel>
         </div>
 

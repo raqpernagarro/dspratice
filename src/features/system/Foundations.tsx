@@ -28,7 +28,7 @@ export function Foundations() {
     <div className="page">
       <PageHead
         title="Foundations"
-        lead="The visual language behind every component: colour, typography, radius, spacing, shadows, icons, themes and density. All values come from the token set; nothing here is hand-written."
+        lead="The visual language behind every component: colour, typography, radius, spacing, shadows, icons, themes and density. All values come from the tokens; nothing here is typed by hand."
         actions={
           <>
             <Segmented value={brand} options={sys.theme.brands.map((b) => ({ id: b.id, label: b.name }))} onChange={setBrand} />

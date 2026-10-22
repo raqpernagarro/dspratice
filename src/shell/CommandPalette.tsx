@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Search, Box, Palette, ScrollText, AlertCircle, Sparkles } from 'lucide-react'
+import { Search, Box, Palette, ScrollText, AlertCircle, Sparkles, Building2, Target, Presentation, Library } from 'lucide-react'
 import { useStore } from '@/state/store'
 import { HERO_TOKEN_ID } from '@/fixtures/demo-brand/tokens'
-import { usePaths, useSys } from '@/state/hooks'
+import { useIsClient, usePaths, useSys } from '@/state/hooks'
+import { nagarro, practice } from '@/app/routes'
+import { useRegistry } from '@/knowledge/hooks'
 
 interface Hit {
   group: string
@@ -22,6 +24,9 @@ export function CommandPalette() {
   const findings = useSys((s) => s.findings)
   const prs = useSys((s) => s.pullRequests)
   const r = usePaths()
+  const client = useIsClient()
+  const projects = useStore((s) => s.projects)
+  const registry = useRegistry()
   const [q, setQ] = useState('')
   const [active, setActive] = useState(0)
   const navigate = useNavigate()
@@ -53,21 +58,36 @@ export function CommandPalette() {
     const match = (text: string) => words.every((w) => text.toLowerCase().includes(w))
     const out: Hit[] = []
     if (!needle) {
-      out.push({ group: 'Go to', label: 'Home', to: r.home, icon: <Search /> })
-      out.push({ group: 'Go to', label: 'Guided walkthrough', to: r.meeting, icon: <Sparkles /> })
-      out.push({ group: 'Go to', label: 'Components', to: r.components, icon: <Box /> })
-      out.push({ group: 'Go to', label: 'Tokens', to: r.tokens, icon: <Palette /> })
-      out.push({ group: 'Go to', label: 'Changes', to: r.changes, icon: <AlertCircle /> })
-      out.push({ group: 'Go to', label: 'AI channels', to: r.channels, icon: <Sparkles /> })
+      if (client) {
+        out.push({ group: 'Go to', label: 'Overview', to: r.home, icon: <Search /> })
+        out.push({ group: 'Go to', label: 'Components', to: r.components, icon: <Box /> })
+        out.push({ group: 'Go to', label: 'Tokens', to: r.tokens, icon: <Palette /> })
+        out.push({ group: 'Go to', label: 'Findings and changes', to: r.changes, icon: <AlertCircle /> })
+        out.push({ group: 'Go to', label: 'AI on the system', to: r.prototype, icon: <Sparkles /> })
+        return out
+      }
+      out.push({ group: 'Go to', label: 'Home', to: practice.home, icon: <Search /> })
+      out.push({ group: 'Go to', label: 'Respond to a client request', to: practice.opportunityStart, icon: <Target /> })
+      out.push({ group: 'Go to', label: 'Knowledge library', to: practice.knowledge, icon: <Library /> })
+      out.push({ group: 'Go to', label: 'Prepare a meeting', to: practice.meetingPrep(), icon: <Sparkles /> })
+      out.push({ group: 'Go to', label: 'Projects', to: practice.projects, icon: <Building2 /> })
       return out
+    }
+    if (!client) {
+      for (const p of Object.values(projects)) {
+        if (match(`${p.client.name} ${p.client.sector} ${p.engagement.package}`)) out.push({ group: 'Projects', label: p.client.name, meta: p.engagement.package, to: nagarro(p.slug).home, icon: <Building2 /> })
+        for (const o of Object.values(p.opportunities ?? {})) if (match(`${o.title} ${p.client.name}`)) out.push({ group: 'Client requests', label: o.title, meta: p.client.name, to: practice.opportunityEntry(o.id), icon: <Target /> })
+        for (const d of Object.values(p.decks ?? {})) if (match(`${d.title} ${p.client.name}`)) out.push({ group: 'Presentations', label: d.title, meta: p.client.name, to: practice.deck(d.id), icon: <Presentation /> })
+      }
+      for (const src of registry) if (match(`${src.title} ${src.owner ?? ''} ${src.tags.join(' ')}`)) out.push({ group: 'Knowledge library', label: src.title, meta: src.approval, to: practice.knowledgeSource(src.id), icon: <Library /> })
     }
     for (const c of components) if (match(c.name + ' ' + c.description)) out.push({ group: 'Components', label: c.name, meta: `${c.usedIn} places`, to: r.component(c.id), icon: <Box /> })
     for (const t of tokens) if (match(t.path + ' ' + t.cssName + ' ' + t.figmaName)) out.push({ group: 'Tokens', label: t.figmaName, meta: t.tier, to: r.token(t.id), icon: <Palette /> })
     for (const rule of rules) if (match(rule.title + ' ' + rule.description + ' ' + rule.category)) out.push({ group: 'Rules', label: rule.title, meta: rule.source, to: `${r.contract}#${rule.id}`, icon: <ScrollText /> })
     for (const f of findings) if (match(f.title + ' ' + f.summary)) out.push({ group: 'Findings', label: f.title, meta: f.status, to: r.finding(f.id), icon: <AlertCircle /> })
     for (const p of prs) if (match(`#${p.number} ${p.title}`)) out.push({ group: 'Pull requests', label: `#${p.number} ${p.title}`, meta: p.status, to: r.pr(p.number), icon: <AlertCircle /> })
-    return out.slice(0, 14)
-  }, [q, components, tokens, rules, findings, prs, r])
+    return out.slice(0, 18)
+  }, [q, components, tokens, rules, findings, prs, r, client, projects, registry])
 
   const answer = useMemo(() => {
     const n = q.toLowerCase()
@@ -80,7 +100,7 @@ export function CommandPalette() {
       return `In dark mode, hover is ${t.values.dark.toUpperCase()}${merged ? ` since #${pr!.number} merged` : ' (same as default: an open finding)'}. Source: ${merged ? `pull request #${pr!.number} and ` : ''}the token file (${t.cssName}).`
     }
     if (/who (can|may) merge|owner/.test(n)) return 'Only the design system owner (Lena Hartmann) can merge. Contributors propose pull requests; agents suggest and make mechanical fixes only.'
-    if (/stale|registry/.test(n)) return 'The v0 / shadcn registry is 3 days stale: 2 merges since its last publish. Publish from the Agent channels screen.'
+    if (/stale|registry/.test(n)) return 'The v0 / shadcn registry file is out of date: two merges since it was last generated. Regenerate it from “AI tools”.'
     if (/contrast/.test(n)) return 'One open contrast warning: Toast warning text on the inverse surface reads 3.9:1 in light mode. The rule is WCAG AA (4.5:1 for text).'
     return null
   }, [q, tokens, prs])

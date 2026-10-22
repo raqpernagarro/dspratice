@@ -27,11 +27,11 @@ export function SourceBadge({ source }: { source: KnowledgeSource }) {
 
 export function GenerationBadge({ mode, model, at }: { mode: 'template' | 'model'; model?: string; at?: number }) {
   if (mode === 'model') return <LiveBadge what={`Model draft · ${model ?? 'model'}${at ? ` · ${day(at)}` : ''}`} title="Drafted by the configured model from the selected sources, then checked by the hub. Review before sharing." />
-  return <SimBadge what="Template draft (no model)" detail="Assembled by rules from the request and the sources' own text. No model was called and no tokens were spent." />
+  return <SimBadge what="Drafted by rules (no AI)" detail="Built from the request and the sources’ own words by rules. No AI model was used and no tokens were spent." />
 }
 
 export const APPROVAL_TONE: Record<Approval, 'ok' | 'outline' | 'warn'> = { approved: 'ok', draft: 'outline', outdated: 'warn' }
-export const APPROVAL_LABEL: Record<Approval, string> = { approved: 'Approved', draft: 'Draft', outdated: 'Outdated' }
+export const APPROVAL_LABEL: Record<Approval, string> = { approved: 'Approved', draft: 'Draft', outdated: 'Out of date' }
 export const AVAILABILITY_LABEL: Record<Availability, string> = { available: 'Available', inaccessible: 'No access', unsupported: 'Not readable', 'not-read': 'Not read' }
 export const AUDIENCE_LABEL: Record<Audience, string> = { internal: 'Internal only', 'client-safe': 'Client-safe', public: 'Public' }
 
@@ -43,12 +43,12 @@ export function AudienceChip({ audience }: { audience: Audience }) {
   return <Chip tone={audience === 'internal' ? 'ink' : audience === 'public' ? 'info' : 'mint'}>{AUDIENCE_LABEL[audience]}</Chip>
 }
 
-export const KIND_LABEL: Record<StatementKind, string> = { supported: 'Supported by a source', recommendation: 'Recommendation', assumption: 'Assumption', 'open-question': 'Open question' }
+export const KIND_LABEL: Record<StatementKind, string> = { supported: 'Backed by a source', recommendation: 'Our recommendation', assumption: 'Assumption', 'open-question': 'Open question' }
 export const KIND_HELP: Record<StatementKind, string> = {
-  supported: 'An approved Nagarro document says this; the citation shows exactly where.',
-  recommendation: 'Our suggested answer, built from the sources and the request; not yet confirmed by an expert.',
-  assumption: 'Something we had to assume because the request does not say; check it with the client.',
-  'open-question': 'The sources cannot answer this; the account team or a practice expert must.',
+  supported: 'An approved source says this. Check that the quoted passage really answers the question.',
+  recommendation: 'Our suggestion, built from draft material or our judgement. Confirm it before sending.',
+  assumption: 'The request doesn’t say, so we assumed it. Confirm it with the client.',
+  'open-question': 'Our sources can’t answer this. Ask the account team or a practice expert.',
 }
 
 export function KindChip({ kind }: { kind: StatementKind }) {
@@ -63,7 +63,7 @@ export function ScopeChip({ source, clientName }: { source: KnowledgeSource; cli
 export function TemplateNote() {
   return (
     <span className="xs muted row" style={{ gap: 4 }}>
-      <FlaskConical style={{ width: 12 }} /> Zero tokens
+      <FlaskConical style={{ width: 12 }} /> No AI, no tokens
     </span>
   )
 }
@@ -71,7 +71,7 @@ export function TemplateNote() {
 export function AiNote() {
   return (
     <span className="xs muted row" style={{ gap: 4 }}>
-      <Sparkles style={{ width: 12 }} /> Uses the model
+      <Sparkles style={{ width: 12 }} /> Uses AI; the cost is shown first
     </span>
   )
 }

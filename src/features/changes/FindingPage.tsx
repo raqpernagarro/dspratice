@@ -43,15 +43,15 @@ export function FindingPage() {
   return (
     <div className="page">
       <PageHead
-        screen="finding"
-        crumbs={[{ label: 'Changes', to: r.changes }, { label: 'Finding' }]}
+       
+        crumbs={[{ label: 'Findings and changes', to: r.changes }, { label: f.title }]}
         title={f.title}
         lead={f.summary}
         eyebrow={
           <>
             <SeverityChip severity={f.severity} />
             <FindingStatusChip status={f.status} />
-            <Chip tone="outline">Fix side: {f.fixSide}</Chip>
+            <Chip tone="outline">Fix in {f.fixSide === 'both' ? 'Figma and code' : f.fixSide === 'figma' ? 'Figma' : 'code'}</Chip>
           </>
         }
         actions={
@@ -63,7 +63,7 @@ export function FindingPage() {
             )}
             {f.status === 'proposed' && f.changeId && (
               <Link to={r.impact(f.changeId)} className="btn btn--secondary">
-                See the impact <ArrowRight />
+                See what the fix affects <ArrowRight />
               </Link>
             )}
           </>
@@ -133,7 +133,7 @@ export function FindingPage() {
                 ))}
               </>
             ) : (
-              <span className="small muted">No automatic fix. This goes to the readout as a decision.</span>
+              <span className="small muted">There is no automatic fix for this one. It becomes a decision when the plan is agreed.</span>
             )}
             {f.status === 'open' && (
               <div className="stack" style={{ gap: 8 }}>
@@ -152,7 +152,7 @@ export function FindingPage() {
                 <Btn variant="ghost" onClick={() => setAskSheet(true)}>
                   <MessageSquare /> Ask a specialist
                 </Btn>
-                {!canWrite && <span className="xs muted">Viewers cannot propose or dismiss.</span>}
+                {!canWrite && <span className="xs muted">Viewers can’t propose or dismiss fixes.</span>}
               </div>
             )}
             {f.status === 'dismissed' && (
@@ -170,8 +170,8 @@ export function FindingPage() {
           <Panel tight>
             <Kv
               rows={[
-                ['Found by', f.source === 'patrol' ? 'Patrol agent' : f.source === 'scan' ? 'Assessment scan' : 'CI audit'],
-                ['Drift items', String(f.count ?? 1)],
+                ['Found by', f.source === 'patrol' ? 'Patrol agent' : f.source === 'scan' ? 'Found by' : 'CI audit'],
+                ['Places where Figma and code differ', String(f.count ?? 1)],
                 ['Tokens', f.tokenIds.length ? f.tokenIds.map((t) => <Link key={t} to={r.token(t)} className="xs" style={{ display: 'block' }}>{sys.tokens.find((x) => x.id === t)?.figmaName}</Link>) : '—'],
               ]}
             />
@@ -200,7 +200,7 @@ export function FindingPage() {
             </>
           }
         >
-          <p className="small muted">The reason is recorded in the audit trail and shown in the assessment report. Dismissed findings do not count as fixed.</p>
+          <p className="small muted">The reason is recorded in the audit trail and shown in the assessment report. A dismissed finding doesn’t count as fixed.</p>
           <textarea className="textarea" placeholder="e.g. Accepted: dark hover is intentionally flat for this brand until the Q1 refresh." value={reason} onChange={(e) => setReason(e.target.value)} />
         </Sheet>
       )}

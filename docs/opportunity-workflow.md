@@ -1,20 +1,23 @@
-# Answering an opportunity
+# Responding to a client request
 
-The workflow turns a client request (an RFP, a questionnaire, a brief or meeting notes) into a traceable first response. Every statement says whether a source supports it, and a person decides what reaches the client. It runs at **Win work › Opportunities** (`/nagarro/opportunities`) and on each engagement's Opportunities tab.
+The workflow turns a client request (an RFP, a questionnaire, a brief or meeting notes) into a traceable first response. Every statement says whether a source backs it, a person checks every answer, and a person decides what reaches the client. It runs at **Opportunities** (`/nagarro/opportunities`, filter by project); each request's pages live there too (`/nagarro/opportunities/:id/:step`), whichever project it belongs to.
+
+Progress means work done: a step is ticked because of what it produced (a request, a confirmed context, a list of requirements, chosen sources, checked answers, something shared), never because someone opened it. The original request opens from every step (**View the request**).
 
 By default it spends **zero model tokens**. A model is used only when you choose an AI action and confirm the consent sheet.
 
-## The seven steps
+## The steps
+
+**Respond to a client request** creates the request (which client or prospect, a name, the kind of response). Then:
 
 | # | Step | What happens | Model tokens |
 |---|---|---|---|
-| 1 | **Choose the opportunity** | Pick or create the client or prospect, the title and the task: RFP or questionnaire, proposal, approach, discovery questions, governance, summary, meeting prep | 0 |
-| 2 | **Add the request** | Paste, upload (`.md`, `.txt`, `.docx`, `.pdf`) or use a sample. The original is kept read-only; a new version keeps the old one | 0 |
-| 3 | **Confirm the context** | Client, audience, objective, expected deliverable and due date, prefilled from the engagement. Hints found in the request (deadline, deliverable, goal) can be applied with one click | 0 |
-| 4 | **Check what they ask for** | **Analyze this request** lists each requirement with its passage highlighted in the original. You can edit, untick, mark must-answer, add or restore. Asks we never answer from documents are flagged "Not from documents" | 0 |
-| 5 | **Pick the sources** | **Find relevant Nagarro material** ranks the sources this client may use and explains each match. Exclude a source with a reason. Notices cover outdated sources, internal-only sources and known conflicts | 0 |
-| 6 | **Review the draft** | **Draft responses** builds the response by rules (below). Edit any section; redrafting keeps your edits unless you choose otherwise. **Draft with AI** and **Improve with AI** appear only when a key is configured | 0 by default |
-| 7 | **Export or present** | Downloads, the generation packet, **Review and publish** to the client workspace, and **Prepare a presentation** | 0 |
+| 1 | **Request** | Paste, upload (`.md`, `.txt`, `.docx`, `.pdf`) or use a sample. The original is kept read-only; a new version keeps the old one | 0 |
+| 2 | **Context** | Client, audience, objective, expected deliverable and due date, prefilled from the project. Hints found in the request can be applied with one click | 0 |
+| 3 | **What they ask** | **List what they ask for** lists each requirement with its passage highlighted in the original. Edit, remove, mark must-answer, add or restore. Asks we never answer from documents are flagged "Not from documents" | 0 |
+| 4 | **Sources** | **Find matching material** ranks the sources this request may use and explains each match. Exclude a source with a reason. Notices cover out-of-date sources, internal-only sources and known conflicts | 0 |
+| 5 | **Draft response** | **Draft the answers** builds the response by rules (below). A **To review** panel counts the answers still to check, the open questions and the source conflicts. Tick **Check** per requirement once you are sure its passage answers it; a redraft asks for a re-check. **Draft with AI** and **Rewrite with AI** appear only when a key is configured, each with its estimated cost | 0 by default |
+| 6 | **Share and present** | Downloads, the generation packet, **Show a summary in the client demo** (chapter 8), **Prepare a presentation** and **Prepare the client demo** | 0 |
 
 ## What a response contains
 
@@ -25,8 +28,8 @@ By default it spends **zero model tokens**. A model is used only when you choose
   - Durations appear only when a cited source states them.
 - **Where our sources disagree**, with the canonical wording.
 - **The draft**, section by section. Each section is one of:
-  - **Supported by a source**: an approved document says it, and the citation shows where.
-  - **Recommendation**: our suggestion from the sources and the request, not yet confirmed by an expert.
+  - **Backed by a source**: an approved source says it, and the citation shows where. Check that the passage really answers the question.
+  - **Our recommendation**: our suggestion from draft material or our judgement; confirm before sending.
   - **Assumption**: something we had to assume; check it with the client.
   - **Open question**: the sources cannot answer it; the account team or a practice expert must.
 - **Needs an expert**: gaps, each with a suggested owner, copyable as a question.
@@ -74,16 +77,16 @@ The model prompt repeats that sources are data.
 
   Such sections start unticked and say why.
 
-The client sees the result under **Evidence and next steps › Proposal summary**, once the engagement has a published version and the client experience is open, or through **See it as the client**. Drafts, notes, the library and unticked sections never appear there.
+The summary appears in the client demo's last chapter (**Outcome and next step › Proposal summary**) once the project has a client demo version. **Preview in the client demo** opens it as presenter. The client demo is something we present in meetings, not a portal the client logs into. Drafts, notes, the library and unticked sections never appear there. Ticked sections with answers nobody has checked yet get a warning.
 
-## Using it for a real opportunity
+## Using it for a real client request
 
 1. **Library first.** Check that the sources you rely on are approved by their owners (Knowledge library › Needs attention). Add the client's own documents as client-scoped sources. Approve reuse only when the content is cleared.
-2. **Create the client or prospect** (Clients and engagements › New client or prospect) and the opportunity with its task.
+2. **Create the project** for the client or prospect (Projects › New project, or directly in **Respond to a client request**) and the request with its kind of response.
 3. **Paste or upload the request.** Real client text stays in your browser unless you choose an AI action.
-4. **Go through steps 3–5.** Fix the requirement list: it drives everything after it.
-5. **Draft**, then edit every section you will stand behind. Resolve each open question with the account team: pricing, references, CVs, SLAs, dates.
-6. **Export** `response.md` and the requirements CSV for the bid document. Publish a summary only after review.
+4. **Go through Context, What they ask and Sources.** Fix the requirement list: it drives everything after it.
+5. **Draft**, then read every answer next to its passage and tick **Check** only when the passage really answers the question. Edit every section you will stand behind. Resolve each open question with the account team: pricing, references, CVs, SLAs, dates.
+6. **Download** `response.md` and the requirements CSV for the bid document. Add a summary to the client demo only after review.
 7. **Prepare a presentation** from the reviewed response (see [presentations.md](presentations.md)).
 
 ## Edge checklist
@@ -91,12 +94,16 @@ The client sees the result under **Evidence and next steps › Proposal summary*
 `npm run e2e` runs the Northwind workflow, the library and the demo build in Microsoft Edge. Screenshots go to `E2E_SHOTS`. The Northwind spec checks:
 - the requirement edit is restored;
 - Contoso's questionnaire is absent;
-- the template label, the package conflict and the approach appear;
+- the rule-based label, the package conflict and the approach appear;
+- the To review panel counts answers to check, and checking one updates it; the draft step stays unticked;
+- the original request opens from the draft step;
 - an edited section is kept on redraft;
 - the markdown, CSV and packet download, with no isolation marker in the packet;
-- publish refuses internal quotes, and the client summary shows ticked sections only, without internal names;
+- adding a summary to the client demo refuses internal quotes, and the summary shows ticked sections only, without internal names;
 - the deck has 13 slides on Carolina's engine;
 - `deck.json` and the HTML export work;
-- present mode works;
-- an outdated source raises the deck's Rebuild banner;
+- present mode works, a demo slide opens the live demo, and Back to preparation returns to the same slide;
+- an out-of-date source raises the deck's Rebuild banner;
 - there are no console errors.
+
+Other specs: `orientation.spec.ts` (Home answers what, who and where to start; no header overlap at 1280 and 1440; fonts; one current nav item; empty state), `journeys.spec.ts` (both set-up journeys: nothing ticked by opening, resume), `client-demo.spec.ts` (direct chapter entry, Show me, keyboard, notes window, reset, Back to preparation, reduced motion).

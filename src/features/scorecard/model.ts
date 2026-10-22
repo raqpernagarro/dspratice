@@ -1,5 +1,5 @@
 // The AI-readiness scorecard: ten plain questions in five dimensions, adapted from the battle
-// card. Pure scoring so it is testable and identical in the hub, the client workspace and the
+// card. Pure scoring so it is testable and identical in the hub, the client demo and the
 // public demo. Nothing is sent anywhere.
 
 export type Dimension = 'foundations' | 'parity' | 'guidance' | 'governance' | 'adoption'

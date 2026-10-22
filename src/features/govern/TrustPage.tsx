@@ -27,7 +27,7 @@ export function TrustPage() {
 
   return (
     <div className="page page--narrow">
-      <PageHead screen="trust" title="What agents may do on their own" lead="Per action, not per agent. Mechanical fixes can auto-apply with undo; anything that changes meaning waits for a person; some things agents never do." />
+      <PageHead title="What agents may do on their own" lead="Set per action, not per agent. Mechanical fixes can apply on their own, with an undo; anything that changes meaning waits for a person; some things agents never do." />
       <Panel>
         <div className="trust-row" style={{ fontWeight: 500, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--n-fg-muted)' }}>
           <span>Action</span>

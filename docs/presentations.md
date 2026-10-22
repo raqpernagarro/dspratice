@@ -5,12 +5,16 @@ Decks in the hub use **Carolina Baptista's Nagarro Master Slides engine**:
 - the same vocabulary: brief → plan → build → check → review;
 - the same look.
 
-Open decks at **Win work › Presentations**, or from an opportunity's step 7 with **Prepare a presentation**.
+Open decks at **Presentations** (`/nagarro/presentations`, filter by project). Start one with **New presentation**:
+
+- **Answer a client request**: from a reviewed response (also reachable from the request's *Share and present* step);
+- **Assessment readout**: from a project's own data, no request needed;
+- **Project update**: from a project's own data, for a steering group (what changed, decisions, open points, next steps).
 
 ## The flow
 
-1. **Brief**: the plugin's 12 points (deck name, key messages, audience and purpose, slide count, client, verbatim lines, hook, tone, must-have slides, takeaways, pictures, sources), prefilled from the reviewed response.
-2. **Plan**: one line per slide, to approve before building. Each line holds the claim, light or dark, the master template and notes. Structures: Proposal, Assessment readout, Discovery kickoff; 15 to 60 minutes.
+1. **Brief**: the plugin's 12 points (deck name, key messages, audience and purpose, slide count, client, verbatim lines, hook, tone, must-have slides, takeaways, pictures, sources), prefilled from what the deck is built from.
+2. **Plan**: one line per slide, to approve before building. Each line holds what the slide says, light or dark, the layout (described in words; template names on request, for Presentation Studio) and notes. Structures: Proposal, Assessment readout, Discovery kickoff and Project update; 15 to 60 minutes.
 3. **Slides**: rendered by `NagarroSlides.renderDeck` inside an isolated frame (`slides.html`), with speaker notes beside them.
 4. **Check**:
    - every slide is a registered template, with only its schema's fields, within capacity;
@@ -21,9 +25,19 @@ Open decks at **Win work › Presentations**, or from an opportunity's step 7 wi
    - no slide still quotes internal-only material.
 
    Balance and rhythm stay a human judgement: look at the slides.
-5. **Hand off**: exports and where to continue.
+5. **Share**: downloads, and where to continue for formats this hub does not produce.
 
-**Present** opens a full-screen presenter (arrow keys or space, F for full screen, Escape to exit). On slides with a demo link, a button switches to the client experience as presenter.
+**Present** opens a full-screen presenter (arrow keys or space, F for full screen, Escape to exit). On slides with a demo link, **Open the live demo** switches to the client demo in the same tab, at the right chapter; **Back to preparation** returns to the same slide.
+
+## What the hub produces, and what it does not
+
+| Format | Here | Where else |
+|---|---|---|
+| One-file HTML deck with present mode | Yes | |
+| `deck.json` (the engine's spec) | Yes | Opening it in Presentation Studio is to be confirmed with Carolina |
+| `brief.md` (12 points and plan) | Yes | Paste into the nagarro-slides plugin in Claude Slides |
+| Speaker notes (Markdown) | Yes | |
+| Editable PowerPoint (`.pptx`) or PDF | **No** | Carolina's Presentation Studio exports both; until `deck.json` import is confirmed, rebuild there from `brief.md` |
 
 ## Mapping
 

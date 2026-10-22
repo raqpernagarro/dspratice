@@ -83,9 +83,9 @@ export function TokensExplorer() {
   return (
     <div className="page">
       <PageHead
-        screen="tokens"
+       
         title="Tokens"
-        lead={`${sys.tokens.length} tokens in three tiers. Every semantic token shows its Figma variable, CSS name, value per brand and mode, and where it is used.`}
+        lead={`${sys.tokens.length} tokens in three layers: raw values, what they mean (semantic), and component-specific ones. Each shows its Figma variable, its code name, its value in every brand and mode, and where it is used.`}
         actions={
           <>
             <Segmented

@@ -1,6 +1,6 @@
 # Contributing
 
-Keep the hub honest: every simulated part says so on screen, every statement cites a source, and nothing internal reaches the demo build or a client.
+Keep the hub honest: every simulated part says so where it could be mistaken for a live action, every statement cites a source, sample figures are labelled, and nothing internal reaches the demo build or the client demo. Write in the voice described in [docs/writing.md](docs/writing.md).
 
 ## Before you open a pull request
 
@@ -31,11 +31,17 @@ Client material never goes into the bundled library. Users add it in the app as 
 
 - **Tools** are listed in `src/fixtures/hub.ts`, under `SOLUTIONS` (the three solutions and their parts) or `PRACTICE_TOOLS`. Give each one an owner, a status, how to get it and the access needed.
 - **Demos** are listed under `DEMOS` in the same file, with:
-  - the duration and what it proves;
-  - presenter notes;
+  - the duration and what it shows;
+  - tips for the presenter;
   - `audience: 'client-safe'` or `'internal'`.
 
   Only client-safe demos may appear in the demo build. The Prototyping Tool stays internal.
+
+## Change the client demo story
+
+- Chapters live in `src/features/demo/steps.ts` and contain **client-facing text only** (title, headline, what it shows, why it matters, route, action, prerequisites in `needs`). They ship in the demo build.
+- Presenter notes for each chapter go in `src/internal/presenterNotes.ts`. Never import that file from `src/features/demo`, `src/shell` or any client route.
+- `src/features/demo/demo.test.ts` enters every chapter directly from a fresh demo and checks its action completes; keep it passing.
 
 ## Change the deck mapping
 

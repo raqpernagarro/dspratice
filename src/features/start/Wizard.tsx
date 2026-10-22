@@ -10,19 +10,22 @@ import { PRESETS } from '@/fixtures/reference/presets'
 import { PRODUCT_TYPES } from '@/fixtures/demo-brand/system'
 import { ThemeEditor } from '@/features/govern/ThemeEditor'
 import { LivePreview } from '@/features/govern/LivePreview'
+import { NEW_PHASES, newStepStates } from '@/state/journeyProgress'
 import type { ThemeConfig } from '@/state/types'
 
+// The ten steps of the Starter Pack set-up, grouped into four phases. `why` is the one line that
+// says what the answer is used for.
 const STEPS = [
-  { id: 'name', label: 'Name it' },
-  { id: 'brands', label: 'Brands' },
-  { id: 'type', label: 'Product' },
-  { id: 'modes', label: 'Modes' },
-  { id: 'start', label: 'Starting point' },
-  { id: 'look', label: 'Look' },
-  { id: 'review', label: 'Second mode' },
-  { id: 'code', label: 'Repository' },
-  { id: 'design', label: 'Figma file' },
-  { id: 'figma', label: 'Export to Figma' },
+  { id: 'name', label: 'Name it', why: 'The name appears in Figma, in the code and in what AI tools read about the system.' },
+  { id: 'brands', label: 'Brands', why: 'Each brand gets its own colours on top of the same components.' },
+  { id: 'type', label: 'Product', why: 'Sets sensible defaults for density and touch targets.' },
+  { id: 'modes', label: 'Light and dark', why: 'Decides which colour modes every component supports.' },
+  { id: 'start', label: 'Starting point', why: 'Gives you a look to refine instead of a blank page.' },
+  { id: 'look', label: 'Fine-tune the look', why: 'Colour, type, corners and spacing, previewed on real components.' },
+  { id: 'review', label: 'Check the second mode', why: 'Catch contrast problems before anything goes to Figma.' },
+  { id: 'code', label: 'Code repository', why: 'Where the system’s code will live.' },
+  { id: 'design', label: 'Figma file', why: 'The Figma library the variables are sent to.' },
+  { id: 'figma', label: 'Send to Figma', why: 'A change file for the Figma variables plugin, reviewed before anything is applied.' },
 ]
 
 export function Wizard() {
@@ -46,6 +49,23 @@ export function Wizard() {
 
   const step = Math.max(0, Math.min(STEPS.length - 1, stepParam ? Number(stepParam) - 1 : 0))
   const go = (n: number) => navigate(r.journeyNew(Math.max(1, Math.min(STEPS.length, n + 1))))
+  const sysStates = useSys((s) => newStepStates(s).join(','))
+  const states = sysStates.split(',')
+  const [blocked, setBlocked] = useState<string | null>(null)
+  // What a step needs before Continue can mark it done.
+  const missing = (): string | null => {
+    if (STEPS[step].id === 'name' && !theme.name.trim()) return 'Give the system a name first.'
+    if (STEPS[step].id === 'brands' && theme.brands.length === 0) return 'Add at least one brand first.'
+    if (STEPS[step].id === 'type' && !theme.productType) return 'Choose the kind of product first.'
+    return null
+  }
+  const continueStep = () => {
+    const m = missing()
+    if (m) return setBlocked(m)
+    setBlocked(null)
+    act().markJourneyStep('new', step + 1, true)
+    go(step + 1)
+  }
 
   useEffect(() => {
     chooseEntryPath('new')
@@ -82,23 +102,40 @@ export function Wizard() {
   return (
     <div className="page">
       <PageHead
-        screen="wizard"
-        title="DS Configurator · Set up system"
-        lead={`Step ${step + 1} of ${STEPS.length} · ${current.label}. The ten steps of the Starter Pack wizard, with the look step shared with Brands and modes.`}
-        actions={<Chip tone="outline">Saves to ds.project.json (local)</Chip>}
+        noTabs
+        eyebrow={
+          <span className="kicker">
+            <span className="kicker__n">{String(step + 1).padStart(2, '0')}</span>
+            <span>
+              Start a new design system · step {step + 1} of {STEPS.length}
+            </span>
+          </span>
+        }
+        title={current.label}
+        lead={current.why}
       />
 
       <div className="wizard">
-        <div className="wizard__steps steps">
-          {STEPS.map((s, i) => (
-            <button key={s.id} className={`step ${i < step ? 'is-done' : i === step ? 'is-active' : ''}`} onClick={() => go(i)} style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer', color: 'inherit' }}>
-              <span className="step__dot">{i < step ? <Check style={{ width: 12 }} /> : i + 1}</span>
-              <span className="step__body">
-                <span className="step__title">{s.label}</span>
-              </span>
-            </button>
+        <nav className="wizard__steps steps" aria-label="Set-up steps">
+          {NEW_PHASES.map((ph) => (
+            <div key={ph.label} className="wizard__phase">
+              <span className="wizard__phase-label">{ph.label}</span>
+              {ph.steps.map((n) => {
+                const i = n - 1
+                const s = STEPS[i]
+                const isDone = states[i] === 'done'
+                return (
+                  <button key={s.id} className={`step ${isDone ? 'is-done' : ''} ${i === step ? 'is-active' : ''}`} onClick={() => go(i)} aria-current={i === step ? 'step' : undefined} style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer', color: 'inherit' }}>
+                    <span className="step__dot">{isDone ? <Check style={{ width: 12 }} /> : n}</span>
+                    <span className="step__body">
+                      <span className="step__title">{s.label}</span>
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
           ))}
-        </div>
+        </nav>
 
         <Panel>
           {current.id === 'name' && (
@@ -107,7 +144,7 @@ export function Wizard() {
               <Field label="System name" id="w-name">
                 <input id="w-name" className="input" value={theme.name} onChange={(e) => update({ name: e.target.value })} />
               </Field>
-              <Field label="In one line, who is it for?" id="w-tag" hint="Optional. Agents read this as context.">
+              <Field label="In one line, who is it for?" id="w-tag" hint="Optional. AI tools read it as context.">
                 <input id="w-tag" className="input" value={theme.tagline} onChange={(e) => update({ tagline: e.target.value })} />
               </Field>
             </div>
@@ -199,9 +236,9 @@ export function Wizard() {
               <div className={`choice ${theme.startingPoint === 'describe' ? 'is-selected' : ''}`} style={{ cursor: 'default' }}>
                 <div className="choice__body">
                   <span className="choice__title">
-                    Describe the look <SimBadge what="Local stylist" detail="A rule-based stylist maps words to intents. In the Starter Pack this is a Claude agent with Undo / Keep." />
+                    Describe the look <SimBadge what="Rule-based" detail="Here a set of rules turns words into colours, corners and spacing. In the Starter Pack an AI agent does this, with the same Undo and Keep." />
                   </span>
-                  <span className="choice__desc">Tell the agent, e.g. “calm and trustworthy” or “bold, playful, pill buttons”.</span>
+                  <span className="choice__desc">Describe it in a few words, for example “calm and trustworthy” or “bold, playful, pill buttons”.</span>
                   <DescribeForm
                     running={stylist?.status === 'running'}
                     stage={stylist?.status === 'running' ? stylist.stages[stylist.stageIndex]?.label : undefined}
@@ -224,7 +261,7 @@ export function Wizard() {
               <div className={`choice ${theme.startingPoint === 'preset' ? 'is-selected' : ''}`} style={{ cursor: 'default' }}>
                 <div className="choice__body">
                   <span className="choice__title">Pick a preset</span>
-                  <span className="choice__desc">Five Starter Pack looks plus four from DSN’s brand configurator, in one list.</span>
+                  <span className="choice__desc">Nine ready-made looks from the practice’s two systems.</span>
                   <div className="grid grid--3" style={{ marginTop: 8 }}>
                     {PRESETS.map((p) => (
                       <button key={p.id} className={`choice ${theme.presetId === p.id ? 'is-selected' : ''}`} onClick={() => applyPreset(p.id)} style={{ padding: 12 }}>
@@ -245,9 +282,9 @@ export function Wizard() {
               <button className="choice is-disabled" onClick={() => setMirrorSheet(true)}>
                 <div className="choice__body">
                   <span className="choice__title">
-                    Mirror an existing Figma system <Chip tone="dashed">Coming later</Chip>
+                    Match an existing Figma file <Chip tone="dashed">Not available yet</Chip>
                   </span>
-                  <span className="choice__desc">Drop in a Figma file; Claude matches it through the Figma MCP. Today this is the “Bring your system” path with a specialist.</span>
+                  <span className="choice__desc">If the client already has a Figma library, use “Improve an existing system” instead.</span>
                 </div>
               </button>
             </div>
@@ -268,18 +305,18 @@ export function Wizard() {
                   ? `${theme.designedFirst === 'light' ? 'Dark' : 'Light'} mode ${theme.secondMode === 'follows' ? 'follows the first mode automatically' : 'is set up on its own'}. Preview it on the right and adjust if anything fails contrast.`
                   : 'Single mode: nothing to check here.'}
               </p>
-              <Callout tone="ok">Contrast: all text pairs ≥ 4.5 : 1 in the preview components. The Starter Pack runs 1,488 such checks on every pull request.</Callout>
+              <Callout tone="info">Check the text in the preview: it needs a contrast of at least 4.5 : 1 against its background. In a real set-up, the Starter Pack checks contrast on every pull request.</Callout>
             </div>
           )}
 
           {current.id === 'code' && (
             <div className="stack">
               <h3>Where does the code live?</h3>
-              <Field label="GitHub repository" id="w-repo" hint="Created from the template with “Use this template”. The panel installs as a dev dependency in this repository.">
+              <Field label="GitHub repository" id="w-repo" hint="Usually created from the Starter Pack template. Optional now; you can add it later.">
                 <input id="w-repo" className="input" value={theme.repoUrl} onChange={(e) => update({ repoUrl: e.target.value })} />
               </Field>
               <Callout tone="info">
-                Local demo: the repository is not contacted. In the Starter Pack, the dev server writes ds.project.json to the repository root.
+                The repository is not contacted from here. In a real set-up, the Starter Pack saves these choices to a settings file in the repository.
               </Callout>
             </div>
           )}
@@ -287,7 +324,7 @@ export function Wizard() {
           {current.id === 'design' && (
             <div className="stack">
               <h3>Which Figma file?</h3>
-              <Field label="Figma file" id="w-figma" hint="A copy of the starter library, with the DS Configurator sync plugin installed.">
+              <Field label="Figma file" id="w-figma" hint="A copy of the starter Figma library, with the variables sync plugin installed.">
                 <input id="w-figma" className="input" value={theme.figmaUrl} onChange={(e) => update({ figmaUrl: e.target.value })} />
               </Field>
             </div>
@@ -295,9 +332,9 @@ export function Wizard() {
 
           {current.id === 'figma' && (
             <div className="stack">
-              <h3>Export to Figma</h3>
+              <h3>Send to Figma</h3>
               <p className="muted small">
-                Download <code>{slug}.changes.json</code> and import it with the DS Configurator sync plugin. The plugin saves a version of the file first, then shows the three-way review. Here the review opens in the panel.
+                Download <code>{slug}.changes.json</code> and open it with the variables sync plugin in Figma. The plugin saves a version of the file first, then shows every change for review. You can also review the changes here without Figma.
               </p>
               <div className="row">
                 <Btn variant="secondary" onClick={downloadChanges}>
@@ -313,13 +350,13 @@ export function Wizard() {
                 >
                   Review without downloading <ArrowRight />
                 </Btn>
-                <SimBadge what="Real download · simulated import" detail="The file downloads for real (the plugin's format). Importing it into Figma is reproduced locally." />
+                <SimBadge what="Real file · simulated import" detail="The file downloads for real, in the plugin’s format. Importing it into Figma is simulated here." />
               </div>
               {exportedSet && (
                 <Callout tone="ok">
                   {exportedSet.rows.length} change{exportedSet.rows.length > 1 ? 's' : ''} ready for review ·{' '}
                   <button className="btn btn--sm" onClick={() => navigate(r.figma(exportedSet.id))}>
-                    Open the 3-way review <ArrowRight />
+                    Review the changes <ArrowRight />
                   </button>
                 </Callout>
               )}
@@ -327,21 +364,24 @@ export function Wizard() {
                 disabled={!downloaded && !exportedSet}
                 onClick={() => {
                   completeWizard()
+                  act().markJourneyStep('new', STEPS.length, true)
                   navigate(r.home)
                 }}
-                title={!downloaded && !exportedSet ? 'Download the changes file first' : undefined}
+                title={!downloaded && !exportedSet ? 'Download or review the changes first' : undefined}
               >
-                Save v1 and open the panel <ArrowRight />
+                Finish the set-up <ArrowRight />
               </Btn>
             </div>
           )}
 
+          {blocked && <Callout tone="warn">{blocked}</Callout>}
           <div className="row row--between" style={{ borderTop: 'var(--n-hairline) solid var(--n-line)', paddingTop: 12 }}>
             <Btn variant="ghost" onClick={() => go(step - 1)} disabled={step === 0}>
               <ArrowLeft /> Back
             </Btn>
+            <span className="xs muted">Your answers save as you go.</span>
             {step < STEPS.length - 1 && (
-              <Btn onClick={() => go(step + 1)}>
+              <Btn onClick={continueStep} data-testid="wizard-continue">
                 Continue <ArrowRight />
               </Btn>
             )}
@@ -354,16 +394,16 @@ export function Wizard() {
       </div>
 
       {mirrorSheet && (
-        <Sheet title="Mirror an existing Figma system" onClose={() => setMirrorSheet(false)}>
+        <Sheet title="Match an existing Figma file" onClose={() => setMirrorSheet(false)}>
           <p className="small">
-            The Starter Pack marks this as <strong>Coming later</strong>: drop in a Figma file and Claude sets the system up to match it, through the Figma MCP. No project in the practice reads an arbitrary client system today. The honest path is <strong>Bring your system</strong>: connect read-only, scan, agree the readout with a specialist, adapt to the contract.
+            Setting a new system up to match an existing Figma library is planned in the Starter Pack but not available yet. If the client already has a library, use <strong>Improve an existing system</strong>: connect it read-only, assess it, and agree a plan with a specialist.
           </p>
           <div className="row" style={{ justifyContent: 'flex-end' }}>
             <Btn variant="secondary" onClick={() => setMirrorSheet(false)}>
               Close
             </Btn>
-            <Btn onClick={() => navigate(r.journeyImprove(2))}>
-              Bring your system instead <ArrowRight />
+            <Btn onClick={() => navigate(r.journeyImprove('goals'))}>
+              Improve an existing system instead <ArrowRight />
             </Btn>
           </div>
         </Sheet>

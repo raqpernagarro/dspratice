@@ -105,7 +105,7 @@ export function seedProject(seed: ProjectSeed, t = Date.now()): Project {
     versions: [],
     clientExperience: { ...seed.clientExperience, chapters: { ...seed.clientExperience.chapters }, publishedOutputs: [] },
     session: null,
-    activity: published ? [{ id: uid('h'), ts: published.publishedAt, actor: 'Seed', text: 'Published v1 of the client experience', entity: { type: 'project', id: seed.id } }] : [],
+    activity: published ? [{ id: uid('h'), ts: published.publishedAt, actor: 'Seed', text: 'Prepared v1 of the client demo', entity: { type: 'project', id: seed.id } }] : [],
     opportunities: internalSeeds()?.opportunities(seed.id, t) ?? {},
     decks: {},
   }
@@ -119,7 +119,7 @@ export function seedState(t = Date.now()): AppData {
     practice: { rules: cloneSys(RULES), knowledge: internalSeeds()?.knowledge() ?? emptyKnowledge() },
     projects,
     selectedProjectId: 'demo-brand',
-    ui: { lastWorkspace: null, presenter: false, actingAs: 'p-owner', motionPaused: false, previewBrand: 'demo', previewMode: 'light', previewDensity: 'standard', sideOpen: false, cmdkOpen: false, simSpeed: 1 },
+    ui: { lastWorkspace: null, presenter: false, actingAs: 'p-owner', motionPaused: false, previewBrand: 'demo', previewMode: 'light', previewDensity: 'standard', sideOpen: false, cmdkOpen: false, simSpeed: 1, returnTo: null },
     sim: { jobs: {}, toasts: [] },
   }
 }

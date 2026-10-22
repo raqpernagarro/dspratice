@@ -7,7 +7,7 @@ import type { Opportunity } from '@/state/types'
 export function useOpportunity(): Opportunity | undefined {
   const { id } = useParams()
   const project = useProject()
-  return useStore((s) => (id ? s.projects[project.id]?.opportunities?.[id] : undefined))
+  return useStore((s) => (id ? (s.projects[project.id]?.opportunities?.[id] ?? Object.values(s.projects).find((p) => p.opportunities?.[id])?.opportunities[id]) : undefined))
 }
 
 export function useRequestText(o: Opportunity | undefined): { text: string; loading: boolean } {

@@ -1,4 +1,4 @@
-// The client workspace's routes, shared by the internal hub (router.tsx) and the client-safe
+// The client demo's routes, shared by the internal hub (router.tsx) and the client-safe
 // demo build (router.demo.tsx). Client pages only: nothing here reaches internal material.
 import { Navigate } from 'react-router'
 import { ClientLayout } from '@/shell/layouts'

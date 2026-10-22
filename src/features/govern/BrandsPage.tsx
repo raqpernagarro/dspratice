@@ -18,9 +18,9 @@ export function BrandsPage() {
   return (
     <div className="page">
       <PageHead
-        screen="brands"
+       
         title="Brands and modes"
-        lead="The one theme configurator (the Starter Pack editor and DSN’s brand presets, merged). Brands extend the semantic collection with overrides; modes are light/dark and density. Shared demo builds use demo brands only; client brands stay in the client’s workspace."
+        lead="One theme editor for every brand and mode. Brands add their own colours on top of the shared meaning of each token; modes are light, dark and density. Demos use sample brands only."
         actions={
           <Btn variant="secondary" onClick={() => setAddSheet(true)}>
             <Plus /> Add a brand

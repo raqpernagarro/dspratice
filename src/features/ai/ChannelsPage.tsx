@@ -24,7 +24,7 @@ export function ChannelsPage() {
     return (
       <div className="page">
         <PageHead
-          screen="channels"
+         
           title={selected.name}
           lead={`${selected.format} · read by ${selected.consumer}. Generated from contract v${sys.contract.version}; never edited by hand.`}
           eyebrow={<Chip tone={selected.status === 'fresh' ? 'ok' : selected.status === 'publishing' ? 'info' : 'warn'}>{selected.status === 'fresh' ? `synced ${relTime(selected.lastPublished)}` : selected.status === 'publishing' ? 'publishing…' : `stale · ${staleAge(selected.lastPublished)}`}</Chip>}
@@ -45,13 +45,13 @@ export function ChannelsPage() {
           </Callout>
         )}
         <div className="grid grid--2">
-          <Panel title={selected.status === 'stale' ? 'Published (stale)' : 'Published'} tight>
+          <Panel title={selected.status === 'stale' ? 'Out of date' : 'Published'} tight>
             <Code>{selected.status === 'stale' ? diffBefore.replace(hero.values.dark.toUpperCase(), beforeValue.toUpperCase()) : diffAfter}</Code>
             <Kv rows={[['Last published', relTime(selected.lastPublished)], ['Format', selected.format], ['Consumers', selected.consumer]]} />
           </Panel>
-          <Panel title="From the contract now" tight actions={<SimBadge what="Generated in memory" />}>
+          <Panel title="Generated from the contract now" tight actions={<SimBadge what="Generated in memory" />}>
             <Code>{diffAfter}</Code>
-            <span className="xs muted">{selected.status === 'stale' ? 'Lines that differ from the published file would be highlighted by the publisher.' : 'Identical to the published file.'}</span>
+            <span className="xs muted">{selected.status === 'stale' ? 'Lines that differ from the last generated file would be highlighted.' : 'Identical to the last generated file.'}</span>
           </Panel>
         </div>
       </div>
@@ -61,9 +61,9 @@ export function ChannelsPage() {
   return (
     <div className="page">
       <PageHead
-        screen="channels"
-        title="Every AI tool, fed from one contract"
-        lead="Each channel is an output of the contract: a format one tool reads. A merge marks all six stale; the publisher regenerates them. Nobody edits these files by hand."
+       
+        title="Keep AI tools on the system"
+        lead="Each AI tool your teams use reads its own file format: Figma, Storybook, Claude, v0 and others. All of these files are generated from the system contract, so one change reaches every tool. After a merge they show as out of date until they are regenerated. Nobody edits them by hand."
         actions={
           <Btn onClick={() => act().publishChannels()} disabled={publishing} loading={publishing}>
             <RefreshCw /> Publish all
@@ -80,7 +80,7 @@ export function ChannelsPage() {
           <table className="table">
             <thead>
               <tr>
-                <th>Channel</th>
+                <th>AI tool file</th>
                 <th>Format</th>
                 <th>Read by</th>
                 <th>Status</th>

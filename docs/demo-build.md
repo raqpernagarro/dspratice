@@ -3,23 +3,24 @@
 `npm run build:demo` builds a separate static site into `dist-demo/` for prospects and events. It contains:
 
 - a short landing page ("AI will build your interfaces anyway. Make sure it builds yours.");
-- the client experience on the fictional **Demo Brand**, with the guided walkthrough (`/client/demo-brand?guide=meeting`);
+- the client demo on the fictional **Demo Brand**, with the guided story (`/client/demo-brand?guide=meeting`; see [client-demo.md](client-demo.md));
 - the **AI-readiness scorecard** (`/scorecard`): ten questions in five dimensions, a level from 1 to 5, the three weakest areas and a first step. Answers never leave the page; there is a print view.
 
-It contains no Nagarro workspace, no knowledge library, no opportunities, no internal seeds and no local API. Any other path falls back to the landing page.
+It contains no hub pages, no knowledge library, no client requests, no presenter notes, no internal seeds and no local API. Any other path falls back to the landing page. Like the client demo in the hub, it is a demonstration on a fictional company, not a client portal.
 
 ## How internal material is kept out
 
 - The demo router (`src/app/router.demo.tsx`) only knows the landing page, the scorecard and the client routes.
 - `src/internal/register.ts` registers the knowledge library, the sample opportunities and the client deny-list. In demo mode it is swapped for `register.demo.ts`, which is empty, so Rollup never bundles that material.
 - Carolina's engine is removed from the output: the demo has no slides, and her template examples name real clients.
-- Internal board chips ("screen 30 · partly works") are hidden, and the page has a public title.
+- Presenter notes (`src/internal/presenterNotes.ts`) and the notes window are only imported by the hub router, so they are never bundled; the presenter-only buttons are removed at build time.
 - The demo uses its own storage key (`unified-ds-tool:demo`).
-- `scripts/check-demo-build.mjs` scans every output file for 25 internal markers and fails the build on any hit:
+- `scripts/check-demo-build.mjs` scans every output file for 30 internal markers and fails the build on any hit:
   - internal source identifiers and the Contoso isolation marker;
   - "Battle card" and "Authority engine";
   - real client names;
   - internal people;
+  - presenter-note and meeting-prep phrases;
   - `ANTHROPIC_API_KEY`, `FIGMA_TOKEN` and `/api/generate`.
 
 Check it locally:
@@ -29,7 +30,7 @@ npm run build:demo
 npm run preview:demo
 ```
 
-Then open <http://localhost:4302>. `npm run e2e` includes a demo spec: landing, scorecard result, walkthrough, and no internal pages.
+Then open <http://localhost:4302>. `npm run e2e` includes a demo spec: landing, scorecard result, the guided story without presenter notes, and no internal pages.
 
 ## Before any public deployment
 

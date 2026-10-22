@@ -40,10 +40,10 @@ export function GuidanceEditor() {
   return (
     <div className="page">
       <PageHead
-        screen="guidance"
+       
         crumbs={[{ label: 'Components', to: r.components }, { label: c.name, to: r.component(c.id) }, { label: 'Guidance' }]}
         title={`${c.name} guidance`}
-        lead="Usage guidance is part of the contract and machine-readable. The right column is exactly what agents receive. Saving creates a pull request."
+        lead="Usage guidance is part of the system contract, written so people and AI tools can both read it. The right column shows exactly what AI tools receive. Saving opens a pull request."
         eyebrow={<SimBadge what="Local pull request" detail="Saving creates a pull request in local state; nothing is pushed." />}
       />
 

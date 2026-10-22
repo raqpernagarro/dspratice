@@ -33,9 +33,9 @@ export function ComponentsIndex() {
   return (
     <div className="page">
       <PageHead
-        screen="components"
+       
         title="Components"
-        lead={`${sys.components.length} components from the contract: the real React components, their guidance coverage, where they are used and what the checks say.`}
+        lead={`${sys.components.length} components in the system contract: the real React components, how complete their guidance is, where they are used and what the checks say.`}
         actions={
           <Btn variant="secondary" onClick={() => setNewSheet(true)}>
             <Plus /> New component

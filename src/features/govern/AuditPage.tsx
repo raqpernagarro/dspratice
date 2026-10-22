@@ -7,7 +7,7 @@ export function AuditPage() {
   const history = useSys((s) => s.history)
   return (
     <div className="page page--narrow">
-      <PageHead screen="trust" title="Audit trail" lead="Every action by a person or an agent, in order. Simulated actions are marked. This is what the steering group and the client’s security team ask for." />
+      <PageHead title="Audit trail" lead="Every action by a person or an agent, in order, with simulated actions marked. Steering groups and security teams usually ask for this." />
       <Panel flush>
         <div className="list" style={{ padding: '0 20px' }}>
           {history.map((h) => (

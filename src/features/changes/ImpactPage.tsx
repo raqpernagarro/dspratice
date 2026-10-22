@@ -25,10 +25,10 @@ export function ImpactPage() {
   return (
     <div className="page">
       <PageHead
-        screen="impact"
-        crumbs={[{ label: 'Changes', to: r.changes }, ...(finding ? [{ label: 'Finding', to: r.finding(finding.id) }] : []), { label: 'Impact' }]}
-        title={`Impact: ${change.title}`}
-        lead="Everything this change touches before anything merges: components, Figma layers, docs and AI channels. Know the blast radius first."
+       
+        crumbs={[{ label: 'Findings and changes', to: r.changes }, ...(finding ? [{ label: finding.title, to: r.finding(finding.id) }] : []), { label: 'What it affects' }]}
+        title={`What this change affects: ${change.title}`}
+        lead="Everything the change touches, before anything merges: components, Figma layers, documentation pages and the files AI tools read."
         eyebrow={
           <>
             <Chip tone={change.status === 'draft' ? 'info' : change.status === 'in_pr' ? 'ai' : 'ok'}>{change.status === 'in_pr' ? 'in pull request' : change.status}</Chip>
@@ -54,18 +54,18 @@ export function ImpactPage() {
         </div>
         <div className="impact__cell">
           <span className="impact__n">{im.docsPages.length}</span>
-          <span className="impact__label">Docs pages</span>
+          <span className="impact__label">Documentation pages</span>
           <span className="impact__detail">{im.docsPages.join(', ') || 'none'}</span>
         </div>
         <div className="impact__cell">
           <span className="impact__n">{im.channels}</span>
-          <span className="impact__label">AI channels</span>
+          <span className="impact__label">Files AI tools read</span>
           <span className="impact__detail">regenerated on merge: Specs, Make, Storybook MCP, Claude Design, v0, DESIGN.md, AGENTS.md</span>
         </div>
       </div>
 
       <div className="grid grid--side">
-        <Panel title="Change set">
+        <Panel title="What changes">
           {change.tokenChanges.map((tc) => {
             const t = sys.tokens.find((x) => x.id === tc.tokenId)!
             return (
@@ -90,7 +90,7 @@ export function ImpactPage() {
               <span className="small">{g.to}</span>
             </div>
           ))}
-          {!change.tokenChanges.length && !change.guidanceChanges.length && <span className="small muted">This change has no automatic diff: it ships as a ticket with the finding attached.</span>}
+          {!change.tokenChanges.length && !change.guidanceChanges.length && <span className="small muted">This change has no automatic edit: it goes to the team as a task, with the finding attached.</span>}
 
           {im.componentIds.length > 0 && (
             <DemoScope mode="dark" style={{ padding: 16, borderRadius: 12, display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>

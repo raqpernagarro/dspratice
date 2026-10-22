@@ -101,7 +101,7 @@ export const useStore = create<AppState>()(
         })
         if (interrupted) state.pushToast({ kind: 'info', title: 'Interrupted simulation reset', detail: 'A reload stopped a running simulation. Start it again when you are ready.' })
         if (state.meta.migratedFrom === 2) {
-          state.pushToast({ kind: 'info', title: 'Your demo data moved into projects', detail: 'Demo Brand kept every change and was published as v1. The guided demo now lives in the client experience.' })
+          state.pushToast({ kind: 'info', title: 'Your demo data moved into projects', detail: 'Demo Brand kept every change and is v1 of its client demo.' })
         } else if (state.meta.migratedFrom === 3) {
           state.pushToast({ kind: 'info', title: 'Knowledge library and opportunities added', detail: 'Your drafts and published versions are unchanged. Northwind has a sample request to try the response workflow.' })
         }
@@ -117,12 +117,30 @@ export const useStore = create<AppState>()(
 
 // "Unpublished changes" without per-action bookkeeping: whenever a project's draft identity changes
 // (immer), bump its revision. Published versions remember the revision they were taken from.
+// Journey progress (where someone is in a set-up journey) is preparation, not system content, so
+// opening or resuming a step never makes the client demo look out of date.
+export function draftContentChanged(a: SystemState, b: SystemState) {
+  if (a === b) return false
+  for (const k of Object.keys(a) as (keyof SystemState)[]) {
+    if (a[k] === b[k]) continue
+    if (k !== 'journey') return true
+    const ja = a.journey
+    const jb = b.journey
+    for (const jk of Object.keys(ja) as (keyof typeof ja)[]) {
+      if (jk === 'new' || jk === 'improve' || jk === 'entryPath') continue
+      if (ja[jk] !== jb[jk]) return true
+    }
+  }
+  return false
+}
+
 useStore.subscribe((next, prev) => {
   if (next.projects === prev.projects) return
   for (const id of Object.keys(next.projects)) {
     const a = next.projects[id]
     const b = prev.projects[id]
-    if (b && a.draft !== b.draft && a.draftRev === b.draftRev) {
+    // A reseed or reset replaces the published version in the same update: nothing to flag then.
+    if (b && a.draft !== b.draft && a.draftRev === b.draftRev && a.published === b.published && draftContentChanged(a.draft, b.draft)) {
       useStore.setState((s) => {
         const p = s.projects[id]
         if (p) p.draftRev += 1

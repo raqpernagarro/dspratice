@@ -1,5 +1,5 @@
 // Opportunity responses, per client project. Everything here is internal: it is never versioned
-// with the system, never cloned into a client session, and only reaches the client workspace
+// with the system, never cloned into a client session, and only reaches the client demo
 // through publishOutput(), which stores a frozen, client-safe copy.
 
 import type { OpportunityActions } from '../actions'
@@ -58,6 +58,13 @@ export function opportunitySlice(ctx: Ctx): OpportunityActions {
       return id
     },
     updateOpportunity: (projectId, id, patch) => mutate(projectId, id, (o) => Object.assign(o, patch)),
+    setRequirementChecked: (projectId, id, requirementId, checked) =>
+      mutate(projectId, id, (o) => {
+        const version = o.responses[0]?.version ?? 0
+        o.checked ??= {}
+        if (checked) o.checked[requirementId] = { at: ctx.now(), by: ctx.actorName(), version }
+        else delete o.checked[requirementId]
+      }),
     setRequest: async (projectId, id, input) => {
       const o = opp(projectId, id)
       if (!o) return 0
@@ -248,8 +255,8 @@ export function opportunitySlice(ctx: Ctx): OpportunityActions {
         oo.publishedOutputIds.unshift(outId)
         oo.status = 'responded'
       })
-      log(projectId, id, `Published "${input.title}" (${input.sectionIds.length} sections of response v${r.version}) to the client workspace`)
-      toast({ kind: 'ok', title: 'Shared with the client workspace', detail: p.published ? 'It appears under Evidence and next steps › Proposal summary.' : `${p.client.name} has no published version yet; the summary appears once v1 is published.` })
+      log(projectId, id, `Added "${input.title}" (${input.sectionIds.length} sections of response v${r.version}) to the client demo`)
+      toast({ kind: 'ok', title: 'Added to the client demo', detail: p.published ? 'It appears in the last chapter, as a proposal summary.' : `${p.client.name} has no client demo version yet; the summary appears once you update the client demo.` })
       return { id: outId }
     },
     retractOutput: (projectId, outputId) => {
@@ -257,14 +264,14 @@ export function opportunitySlice(ctx: Ctx): OpportunityActions {
         const out = s.projects[projectId]?.clientExperience.publishedOutputs.find((x) => x.id === outputId)
         if (out) out.retractedAt = ctx.now()
       })
-      ctx.activity(projectId, 'Withdrew a published proposal summary from the client workspace', { type: 'publishedOutput', id: outputId })
+      ctx.activity(projectId, 'Removed a proposal summary from the client demo', { type: 'publishedOutput', id: outputId })
     },
     deleteOpportunity: async (projectId, id) => {
       const p = get().projects[projectId]
       const o = opp(projectId, id)
       if (!p || !o) return false
       if (p.clientExperience.publishedOutputs.some((x) => x.opportunityId === id && !x.retractedAt)) {
-        toast({ kind: 'warn', title: 'Withdraw the published summary first', detail: 'This opportunity has a summary in the client workspace.' })
+        toast({ kind: 'warn', title: 'Remove its summary from the client demo first', detail: 'This request has a summary in the client demo.' })
         return false
       }
       set((s) => {

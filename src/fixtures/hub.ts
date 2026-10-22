@@ -31,7 +31,7 @@ export const SOLUTIONS: ToolEntry[] = [
     ],
     get: 'Private repository nagarro-dv/DSN',
     access: 'Ask Rui Dias for repository access',
-    inHub: { label: 'Browse in the System library', to: 'library' },
+    inHub: { label: 'See it in a project', to: 'library' },
   },
   {
     id: 'starter',
@@ -47,7 +47,7 @@ export const SOLUTIONS: ToolEntry[] = [
     ],
     get: 'Private repository nagarro-dv/ds-starter-pack',
     access: 'Ask Nuno Almeida for repository access',
-    inHub: { label: 'Browse in the System library', to: 'library' },
+    inHub: { label: 'See it in a project', to: 'library' },
   },
   {
     id: 'prototyping',
@@ -55,10 +55,10 @@ export const SOLUTIONS: ToolEntry[] = [
     owner: 'Raquel Pereira',
     what: 'The prototyping-kit workflow: screens prototyped against a client design system repo in Figma. The pattern is shown on the fictional Demo Brand; the original client work stays internal.',
     status: 'internal-only',
-    parts: [{ name: 'Kit pattern on Demo Brand', how: 'Client workspace › Build with AI' }, { name: 'Before and after', how: 'internal only, never shown externally without written clearance' }],
+    parts: [{ name: 'Kit pattern on Demo Brand', how: 'Client demo › AI on the system' }, { name: 'Before and after', how: 'internal only, never shown externally without written clearance' }],
     get: 'Local kit (not distributed)',
     access: 'Internal only',
-    inHub: { label: 'See the demos', to: 'demos' },
+    inHub: { label: 'See the client demo', to: 'demos' },
   },
 ]
 
@@ -77,18 +77,18 @@ export const PRACTICE_TOOLS: ToolEntry[] = [
     ],
     get: 'Ask Carolina Baptista for access to the design system artifact',
     access: 'Nagarro colleagues',
-    inHub: { label: 'Build a deck', to: 'presentations' },
+    inHub: { label: 'Prepare a presentation', to: 'presentations' },
   },
   {
     id: 'hub',
     name: 'This hub',
     owner: 'Raquel Pereira',
-    what: 'Knowledge library, opportunity responses, presentations, demos and the design-system control panel, in one internal product that also builds a client-safe demo site.',
+    what: 'The knowledge library, responses to client requests, presentations, the client demo and design-system projects, in one internal tool. It can also build a client-safe copy of the demo.',
     status: 'works',
     parts: [{ name: 'Run locally', how: 'npm run setup, then npm run dev' }, { name: 'Client demo build', how: 'npm run build:demo' }],
     get: 'GitHub repository (Nagarro organisation)',
     access: 'Nagarro colleagues',
-    inHub: { label: 'Respond to a request', to: 'opportunities' },
+    inHub: { label: 'Respond to a client request', to: 'opportunities' },
   },
   {
     id: 'knowledge-plugin',
@@ -135,9 +135,9 @@ export interface DemoEntry {
 }
 
 export const DEMOS: DemoEntry[] = [
-  { id: 'guided', title: 'Guided walkthrough: an AI-ready system on Demo Brand', audience: 'client-safe', minutes: '20–30', proves: 'One contract keeps people and AI on-system: assessment, one truth for Figma and code, a rule turned into a fix, AI that builds with the real components.', open: 'guide', notes: ['Open with the big idea: "AI will build your interfaces anyway. Make sure it builds yours."', 'Let the client click; presenter notes follow you in the guide bar.', 'End on "What you keep": the system lives in their repository, not ours.'] },
-  { id: 'panel', title: 'The control panel, explored freely', audience: 'client-safe', minutes: '10', proves: 'What their team gets day to day: components, tokens, changes, checks, AI channels.', open: 'client-home', notes: ['Ask which page they would open first.', 'Show a finding becoming a pull request, then the Figma change set.'] },
-  { id: 'prototype', title: 'AI on your system: a prompt becomes an on-system screen', audience: 'client-safe', minutes: '5', proves: 'With the contract, generated UI uses only real components and tokens; a fake token is refused.', open: 'prototype', notes: ['Say clearly that this planner is rule-based in the demo, not a live model.', 'Contrast with a blind prompt in any public AI tool.'] },
-  { id: 'scorecard', title: 'AI-readiness scorecard', audience: 'client-safe', minutes: '5', proves: 'Where they stand in ten questions, and the first step that fits (the 2-week AI audit).', open: 'scorecard', notes: ['Do it together, live; do not send it as a form.', 'The official assessment on nagarro.com is the one marketing tracks; point to it at the end.'] },
-  { id: 'rfp', title: 'How we answer an RFP in an hour (for colleagues and sellers)', audience: 'internal', minutes: '10', proves: 'The knowledge library and the seven-step workflow: a traceable draft with zero tokens, then a deck on the Nagarro Master Slides.', open: 'opportunity', notes: ['Use the Northwind sample request.', 'Show an open question (pricing) and why the draft never invents it.'] },
+  { id: 'guided', title: 'The guided story', audience: 'client-safe', minutes: '12 or 25', proves: 'One inconsistency in a fictional company’s system, what it affects, the fix reviewed in code and Figma, and AI that stays on the system. Ends on what an engagement could leave behind.', open: 'guide', notes: ['Best for a first meeting with a design or product lead.', 'Open your notes window first, then share only the demo tab.', 'Close on the next conversation, usually the 2-week AI audit.'] },
+  { id: 'panel', title: 'Explore the example system', audience: 'client-safe', minutes: '10', proves: 'Components, tokens, findings and changes, for people who want to look around themselves.', open: 'client-home', notes: ['Ask which page they would open first.', 'Show a finding becoming a pull request and the matching Figma change.'] },
+  { id: 'prototype', title: 'AI builds a screen', audience: 'client-safe', minutes: '5', proves: 'A prompt becomes a screen made of the system’s own components; a made-up token is refused.', open: 'prototype', notes: ['Say clearly that a rule-based planner stands in for the AI model here.', 'Compare with the same prompt in any public AI tool.'] },
+  { id: 'scorecard', title: 'AI-readiness scorecard', audience: 'client-safe', minutes: '5', proves: 'Ten questions answered together, and the first step that fits.', open: 'scorecard', notes: ['Fill it in together, live; do not send it as a form.', 'Marketing tracks the official assessment on nagarro.com; point to it at the end.'] },
+  { id: 'rfp', title: 'How we answer a client request', audience: 'internal', minutes: '10', proves: 'For colleagues: the knowledge library and the response steps on the Northwind sample, from the RFP to a checked draft and a deck.', open: 'opportunity', notes: ['Show an open question (pricing) and why the draft never invents an answer.', 'Show a matching passage and how you check that it really answers the question.'] },
 ]

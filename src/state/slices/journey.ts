@@ -19,13 +19,22 @@ export function journeySlice(ctx: Ctx): JourneyActions {
     setJourneyProgress: (journey, patch) =>
       setSys(activeScope(), (sys) => {
         const j = sys.journey[journey]
+        if (j.currentStep === patch.currentStep && Object.keys(patch).length === 1) return
         Object.assign(j, patch)
         if (patch.currentStep && !j.visited.includes(patch.currentStep)) j.visited.push(patch.currentStep)
-        if (!j.startedAt) j.startedAt = ctx.now()
       }),
     setJourneyData: (journey, key, value) =>
       setSys(activeScope(), (sys) => {
         sys.journey[journey].data[key] = value
+      }),
+    markJourneyStep: (journey, step, done = true) =>
+      setSys(activeScope(), (sys) => {
+        const j = sys.journey[journey]
+        const list = (j.done ??= [])
+        const at = list.indexOf(step)
+        if (done && at < 0) list.push(step)
+        if (!done && at >= 0) list.splice(at, 1)
+        if (!j.startedAt) j.startedAt = ctx.now()
       }),
     updateTheme: (patch) =>
       setSys(activeScope(), (sys) => {
@@ -164,7 +173,7 @@ export function journeySlice(ctx: Ctx): JourneyActions {
           sys.journey.connect.message = undefined
         }
       })
-      log(scope, `Connected ${repoUrl || 'the sample repository'} and ${figmaUrl || 'the sample Figma file'} read-only (local simulation: fixtures, no network)`, { type: 'scan', id: 'connect' }, true)
+      log(scope, `Connected ${repoUrl || 'the sample repository'} and ${figmaUrl || 'the sample Figma file'} read-only (simulated on sample data, no network)`, { type: 'scan', id: 'connect' }, true)
     },
     runScan: () => {
       const scope = activeScope()
@@ -189,7 +198,7 @@ export function journeySlice(ctx: Ctx): JourneyActions {
             }
           })
           log(scope, 'Assessment scan finished: AI readiness 2/5, 62% Figma ↔ code, 8 contrast fails, 38 values without a code name', { type: 'scan', id: 'scan' }, true, 'Scanner')
-          toast({ kind: 'sim', title: 'Scan finished', detail: 'Local simulation on fixtures · no repository or Figma file was read.' })
+          toast({ kind: 'sim', title: 'Assessment finished', detail: 'Simulated on sample data: no repository or Figma file was read.' })
         },
       )
     },

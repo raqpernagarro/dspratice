@@ -1,4 +1,4 @@
-// Shared entity types for the control panel. One contract feeds every screen.
+// Shared entity types for the hub and the client demo.
 
 export type Id = string
 export type Mode = 'light' | 'dark'
@@ -421,6 +421,8 @@ export interface JourneyProgress {
   /** 1-based step the person is on; the URL shows it, the store saves it. */
   currentStep: number
   visited: number[]
+  /** Steps whose work is done (1-based, in the journey's order). Opening a step never adds it here. */
+  done?: number[]
   startedAt?: number
   completedAt?: number
   /** Step data that is not part of the theme or the contract (goals, checklists, choices). */
@@ -503,10 +505,10 @@ export interface DemoSession {
 
 export interface ClientExperience {
   enabled: boolean
-  /** chapter id → enabled in this project's client experience */
+  /** chapter id → enabled in this project's client demo (kept for older data; the path choice replaces it) */
   chapters: Record<string, boolean>
   guidanceDefault: 'none' | 'meeting' | 'full'
-  /** Outputs a Nagarro colleague explicitly published to the client workspace (frozen copies). */
+  /** Summaries a colleague explicitly added to the client demo (frozen copies). */
   publishedOutputs: PublishedOutput[]
 }
 
@@ -534,7 +536,7 @@ export interface Project {
 export interface UiState {
   /** Only used by the welcome redirect; the workspace itself is derived from the route. */
   lastWorkspace: Workspace | null
-  /** True while a Nagarro colleague presents the client experience. Never implied by the workspace. */
+  /** True while a colleague presents the client demo. Never implied by the route. */
   presenter: boolean
   actingAs: string
   motionPaused: boolean
@@ -544,6 +546,8 @@ export interface UiState {
   sideOpen: boolean
   cmdkOpen: boolean
   simSpeed: 1 | 3
+  /** Where "Back to preparation" leads from the client demo (the hub page or slide it was opened from). */
+  returnTo?: string | null
 }
 
 /** Fixture input for one project. */

@@ -35,15 +35,15 @@ export function ContractPage() {
   return (
     <div className="page">
       <PageHead
-        screen="contract"
-        title={`ds.contract.json · version ${sys.contract.version}`}
-        lead="One small file in the repository describes the system and which source leads for each layer. Changed only through pull requests. Every tool reads from it."
+       
+        title={`System contract · version ${sys.contract.version}`}
+        lead="The system contract (ds.contract.json) is one small file in the repository. It records which side leads for tokens, components and guidance, the naming, and the rules the checks apply. It changes only through pull requests, and every tool reads it."
         eyebrow={<Chip tone="outline">Supported profile: {sys.contract.supportedProfile}</Chip>}
       />
 
       <div className="grid grid--side">
         <div className="stack">
-          <Panel title="Sources of truth" flush>
+          <Panel title="Which side leads, part by part" flush>
             <div className="table-wrap">
               <table className="table">
                 <thead>

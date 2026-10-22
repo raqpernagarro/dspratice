@@ -50,7 +50,7 @@ const CHAPTERS: Chapter[] = [
           <li>A closed vocabulary: “pressed” is not a state, “active” is.</li>
         </ul>
         <p>
-          In the panel: <Link to={r.guidance('button')}>Guidance and AI editor</Link> shows the JSON agents see; <Link to={r.prototype}>Prototype</Link> shows the refusal.
+          See it: <Link to={r.guidance('button')}>the guidance editor</Link> shows exactly what AI tools receive; <Link to={r.prototype}>Build a screen</Link> shows a made-up token being refused.
         </p>
       </>
     ),
@@ -60,15 +60,15 @@ const CHAPTERS: Chapter[] = [
     title: 'The system contract',
     body: (r) => (
       <>
-        <p className="lead">One small file in the client’s repository describes any system: tokens in DTCG with a role map, component metadata, rules and absences, the Figma link, and which source leads for each layer. Every tool reads from it.</p>
-        <h2>Sources of truth, per layer</h2>
-        <p>Neither Figma nor code is universally authoritative. The contract declares it per layer, decided in the assessment readout:</p>
+        <p className="lead">The system contract is one small file in the client’s repository. It describes the design system so that people and tools read the same thing: its tokens and what each one is for, its components and how to use them, the rules the checks apply, names that must not be invented, the Figma link, and which side leads for each part.</p>
+        <h2>Which side leads, part by part</h2>
+        <p>When Figma and code disagree, someone has to decide which one is right. Neither is right everywhere, so the contract records it for each part of the system. The client decides this with us when the plan is agreed. A typical result:</p>
         <table>
           <thead>
             <tr>
-              <th>Layer</th>
+              <th>Part of the system</th>
               <th>Usually leads</th>
-              <th>Read through</th>
+              <th>Read from</th>
             </tr>
           </thead>
           <tbody>
@@ -94,12 +94,12 @@ const CHAPTERS: Chapter[] = [
             </tr>
           </tbody>
         </table>
-        <h2>Three grammars, one set of roles</h2>
+        <h2>Different names, the same roles</h2>
         <p>
-          Different systems name tokens differently: <code>--color-background-accent-strong-default</code>, <code>color/background/interactive/primary/pressed</code>, <code>--ds-semantic-color-action-primary-hover</code>. The contract does not rename any of them. Adapters map each to a role; the mapping shows what maps, what needs a decision and what stays system-specific.
+          Systems name their tokens differently: <code>--color-background-accent-strong-default</code>, <code>color/background/interactive/primary/pressed</code>, <code>--ds-semantic-color-action-primary-hover</code>. The contract renames none of them. An adapter maps each name to a role; the mapping shows what fits, what needs a decision and what stays specific to one system.
         </p>
         <p>
-          In the panel: <Link to={r.contract}>Contract and sources of truth</Link>.
+          See it: <Link to={r.contract}>the system contract</Link>.
         </p>
       </>
     ),
@@ -119,7 +119,7 @@ const CHAPTERS: Chapter[] = [
         <h2>Trust levels for agents</h2>
         <p>Per action, not per agent: bind loose fills (auto-fix), write guidance (suggest), rename to contract roles (suggest), change token values (suggest), add or remove components (never). Mechanical fixes apply with undo; anything else waits for a person.</p>
         <p>
-          In the panel: <Link to={r.trust}>Trust levels</Link>.
+          See it: <Link to={r.trust}>what agents may do on their own</Link>.
         </p>
       </>
     ),
@@ -174,7 +174,7 @@ const CHAPTERS: Chapter[] = [
         <h2>Evals next to CI</h2>
         <p>Twenty prompts per tool, scored against tokens, components and rules, with a gate. Not a standard yet; the Spotify Encore team published the pattern. Scores in this demo are illustrative.</p>
         <p>
-          In the panel: <Link to={r.channels}>AI channels</Link>.
+          See it: <Link to={r.channels}>the files AI tools read</Link>.
         </p>
       </>
     ),
@@ -250,7 +250,7 @@ const CHAPTERS: Chapter[] = [
           </tbody>
         </table>
         <p>
-          In the panel: <Link to={r.journeyNew()}>Choose how to start</Link>, <Link to={practice.clients}>Client systems</Link>, <Link to={r.meeting}>Presenter guide</Link>.
+          In the hub: <Link to={practice.startSystem('new')}>start a new design system</Link>, <Link to={practice.projects}>Projects</Link>, <Link to={r.meeting}>Prepare a meeting</Link>.
         </p>
       </>
     ),
@@ -326,7 +326,7 @@ const CHAPTERS: Chapter[] = [
         <h2>What you keep</h2>
         <p>Everything lives in your repository and your Figma file. The panel ships inside the repository as a dev dependency. You can run it without us.</p>
         <p>
-          In the panel: <Link to={r.handover}>Handover</Link>, <Link to={r.report}>Findings and report</Link>.
+          See it: <Link to={r.handover}>the example handover</Link>, <Link to={r.report}>the assessment report</Link>.
         </p>
       </>
     ),
@@ -341,7 +341,7 @@ export function HandbookPage() {
   const chapter = chapters.find((c) => c.slug === slug) ?? chapters[0]
   return (
     <div className="page">
-      <PageHead title="Handbook" lead={client ? 'How the system, Figma, code and AI stay connected, and how we work together.' : 'The approach, the contract, governance, channels, which path fits a client, and where the tool comes from.'} noTabs />
+      <PageHead title={client ? 'How we work' : 'Guides'} lead={client ? 'How the system, Figma, code and AI tools stay connected, and how we work together.' : 'Short guides for colleagues: our approach, the system contract, governance, AI tools, which engagement fits a client, and where our tools come from.'} noTabs={client} />
       <nav className="area-tabs" aria-label="Chapters">
         {chapters.map((c) => (
           <NavLink key={c.slug} to={r.guide(c.slug)} className={({ isActive }) => `area-tabs__tab ${isActive || (!slug && c.slug === chapters[0].slug) ? 'is-active' : ''}`}>

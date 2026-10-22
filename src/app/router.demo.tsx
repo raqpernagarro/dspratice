@@ -1,5 +1,5 @@
 // The client-safe demo build's router (vite build --mode demo). Only the demo landing, the
-// scorecard and the client workspace on Demo Brand: no Nagarro workspace, no knowledge library,
+// scorecard and the client demo on Demo Brand: no hub pages, no knowledge library,
 // no opportunities. scripts/check-demo-build.mjs fails the build if internal text leaks in.
 import { createBrowserRouter, Navigate } from 'react-router'
 import { ClientEntry } from '@/shell/layouts'

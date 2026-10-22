@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router'
 import { ArrowRight, Check, Loader2, Play, Square } from 'lucide-react'
-import { act, useJob, usePaths, useSystem } from '@/state/hooks'
+import { act, useIsClient, useJob, usePaths, useSystem } from '@/state/hooks'
 import { PageHead } from '@/shell/PageHead'
 import { Btn, Callout, Panel, Stat } from '@/shell/ui'
 import { SCAN_STAGES } from '@/fixtures/demo-brand/system'
@@ -15,17 +15,19 @@ export function Scan() {
   const running = scan.status === 'running'
   const done = scan.status === 'done'
   const stageIndex = job?.stageIndex ?? -1
+  const client = useIsClient()
 
   return (
     <div className="page">
       <PageHead
-        screen="connect"
-        title="Assessment scan"
-        lead={`Scanning ${sys.journey.connect.repoUrl} and ${sys.journey.connect.figmaUrl}, read-only. Six stages, about ten seconds. Nothing is written.`}
+       
+        noTabs={!client}
+        title={client ? 'Assess the system' : 'Assess the system'}
+        lead={`Reads ${sys.journey.connect.repoUrl} and ${sys.journey.connect.figmaUrl} without changing them. Six stages, about ten seconds.`}
         actions={
           !running ? (
             <Btn onClick={() => act().runScan()}>
-              <Play /> {done ? 'Run the scan again' : 'Run the scan'}
+              <Play /> {done ? 'Run the assessment again' : 'Run the assessment'}
             </Btn>
           ) : (
             <Btn variant="secondary" onClick={() => act().cancelScan()}>
@@ -52,7 +54,7 @@ export function Scan() {
               )
             })}
           </div>
-          {scan.status === 'cancelled' && <Callout tone="warn">Scan cancelled. Nothing was written; run it again when ready.</Callout>}
+          {scan.status === 'cancelled' && <Callout tone="warn">Assessment stopped. Nothing was changed; run it again when you are ready.</Callout>}
           {done && (
             <div className="row row--between" style={{ borderTop: 'var(--n-hairline) solid var(--n-line)', paddingTop: 12 }}>
               <span className="small muted">Baseline captured {sys.journey.before ? new Date(sys.journey.before.takenAt).toLocaleTimeString() : ''}</span>
@@ -60,9 +62,11 @@ export function Scan() {
                 <Btn variant="secondary" onClick={() => navigate(r.report)}>
                   Open the assessment report
                 </Btn>
-                <Btn onClick={() => navigate(r.journeyImprove(6))}>
-                  Continue to the readout <ArrowRight />
-                </Btn>
+                {!client && (
+                  <Btn onClick={() => navigate(r.journeyImprove('findings'))}>
+                    Review the findings <ArrowRight />
+                  </Btn>
+                )}
               </span>
             </div>
           )}

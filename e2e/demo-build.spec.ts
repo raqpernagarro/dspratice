@@ -1,5 +1,5 @@
 // The client-safe demo build in Edge (served from dist-demo on 4302): landing, scorecard result,
-// the guided walkthrough, and no way into the Nagarro workspace.
+// the guided story, no presenter notes, and no way into the hub.
 import { expect, test } from '@playwright/test'
 import { shot } from './shots'
 
@@ -21,7 +21,9 @@ test('demo build: landing, scorecard, walkthrough, nothing internal', async ({ p
   await shot(page, '13-demo-scorecard', true)
 
   await page.goto(`${DEMO}/client/demo-brand?guide=meeting`)
-  await expect(page).toHaveURL(/\/client\/demo-brand\//)
+  await expect(page.locator('.demobar__headline')).toContainText('drift apart')
+  await expect(page.locator('body')).not.toContainText('Presenter notes')
+  await expect(page.locator('body')).not.toContainText('Back to preparation')
   await shot(page, '14-demo-walkthrough')
 
   for (const internal of ['/nagarro', '/nagarro/knowledge', '/nagarro/opportunities']) {

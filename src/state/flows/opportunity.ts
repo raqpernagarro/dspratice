@@ -40,7 +40,7 @@ async function readableSources(projectId: string, ids?: string[]): Promise<{ sou
 /** Step 4: list the requirements (rules, zero tokens) and offer context hints. */
 export function analyzeRequest(projectId: string, oppId: string): Promise<TaskOutcome> {
   let text = ''
-  return runTask(oppTask(projectId, oppId, 'analyze'), 'Analyze this request', [
+  return runTask(oppTask(projectId, oppId, 'analyze'), 'List what they ask for', [
     {
       label: 'Reading the request',
       run: async () => {
@@ -64,7 +64,7 @@ export function analyzeRequest(projectId: string, oppId: string): Promise<TaskOu
 
 /** Step 5: find evidence for every requirement in the sources this client may use. */
 export function findEvidence(projectId: string, oppId: string): Promise<TaskOutcome> {
-  return runTask(oppTask(projectId, oppId, 'evidence'), 'Find relevant Nagarro material', [
+  return runTask(oppTask(projectId, oppId, 'evidence'), 'Find matching material', [
     {
       label: 'Finding evidence in your sources',
       run: async () => {

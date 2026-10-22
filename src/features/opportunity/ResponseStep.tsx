@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
-import { FileText, RefreshCw, Sparkles, Copy, ChevronUp, ChevronDown, Trash2, Plus, Eye, Pencil } from 'lucide-react'
+import { FileText, RefreshCw, Sparkles, Copy, ChevronUp, ChevronDown, Trash2, Plus, Eye, Pencil, ArrowDown } from 'lucide-react'
 import { Callout, Chip, Panel, Segmented, Sheet, cx } from '@/shell/ui'
 import { ProgressPanel } from '@/shell/ProgressPanel'
 import { MarkdownLite } from '@/shell/markdown'
@@ -13,11 +13,23 @@ import { useDoc } from '@/knowledge/useDoc'
 import { useIntegrations } from '@/integrations/status'
 import { draftResponse, improveSection, oppTask } from '@/state/flows/opportunity'
 import { activeRequirements, coverage, coverageSummary, responseOutdated } from '@/opportunity/selectors'
+import { uncheckedRequirements } from '@/opportunity/progress'
 import { practice } from '@/app/routes'
 import { SectionList } from '@/features/knowledge/SectionList'
 import type { Citation, DraftSection, KnowledgeDocument, Opportunity, StatementKind } from '@/state/types'
 
-const STAGES = ['Reading the request', 'Finding evidence in your sources', 'Identifying gaps', 'Preparing the draft']
+const STAGES = ['Reading the request', 'Finding matching passages in your sources', 'Marking what the sources can’t answer', 'Preparing the draft']
+
+const jump = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
+
+/** Off on this machine: said once, at the action, with where to turn it on. */
+function AiOffNote() {
+  return (
+    <span className="xs muted" title="Add ANTHROPIC_API_KEY to .env.local on this machine to use AI drafting">
+      AI drafting is off on this machine. The rule-based draft works without it. <Link to={practice.about}>What needs a key</Link>
+    </span>
+  )
+}
 
 export function CitationSheet({ c, onClose }: { c: Citation; onClose: () => void }) {
   const source = useSource(c.sourceId)
@@ -67,7 +79,7 @@ function ConsentSheet({ o, onOk, onClose }: { o: Opportunity; onOk: () => void; 
     }} data-testid="consent-ok">Yes, use the model</button>}>
       <p>The hub sends the request text, the listed requirements and only the most relevant sections of the selected sources (at most about 20K tokens) from this machine's local server to the Anthropic API, using the key in .env.local.</p>
       <p><strong>Check the client's confidentiality terms first.</strong> Nothing else leaves this machine, and the result is checked by the same rules as the template draft before you see it.</p>
-      <p className="small muted">Prefer to use your own Claude or ChatGPT chat? Download the generation packet in step 7 instead.</p>
+      <p className="small muted">Prefer to use your own Claude or ChatGPT chat? Download the generation packet in “Share and present” instead.</p>
     </Sheet>
   )
 }
@@ -108,11 +120,14 @@ function SectionEditor({ s, o, onCite }: { s: DraftSection; o: Opportunity; onCi
         </span>
         <span className="row" style={{ gap: 6 }}>
           {integrations.model.configured ? (
-            <button className="btn btn--ghost btn--sm" onClick={run} disabled={job?.status === 'running'} data-testid={`improve-${s.id}`}>
-              <Sparkles /> {job?.status === 'running' ? 'Improving…' : 'Improve with AI'}
-            </button>
+            <>
+              <AiCostNote inputTokens={2_000 + Math.round(s.body.length / 4) + s.citations.length * 400} outputTokens={1_500} />
+              <button className="btn btn--ghost btn--sm" onClick={run} disabled={job?.status === 'running'} data-testid={`improve-${s.id}`}>
+                <Sparkles /> {job?.status === 'running' ? 'Rewriting…' : 'Rewrite with AI'}
+              </button>
+            </>
           ) : (
-            <span className="xs muted" title="Add ANTHROPIC_API_KEY to .env.local, or use the generation packet in step 7">AI improve: no model configured</span>
+            <span className="xs muted" title="Add ANTHROPIC_API_KEY to .env.local, or download the generation packet in “Share and present”">Edit by hand, or use the packet in your own AI chat</span>
           )}
         </span>
       </div>
@@ -160,13 +175,18 @@ export function ResponseStep({ o }: { o: Opportunity }) {
   const startButtons = (
     <>
       <button className="btn btn--primary" onClick={() => (r ? setRegen('template') : draftResponse(project.id, o.id, { mode: 'template' }))} disabled={job?.status === 'running'} data-testid="draft-template">
-        <RefreshCw /> {r ? 'Draft again' : 'Draft responses'}
+        <RefreshCw /> {r ? 'Draft again' : 'Draft the answers'}
       </button>
       {integrations.model.configured ? (
-        <button className="btn btn--secondary" onClick={() => (!o.modelConsentAt ? setConsent(true) : r ? setRegen('model') : runModel())} disabled={job?.status === 'running'} data-testid="draft-model">
-          <Sparkles /> Draft with AI
-        </button>
-      ) : null}
+        <>
+          <button className="btn btn--secondary" onClick={() => (!o.modelConsentAt ? setConsent(true) : r ? setRegen('model') : runModel())} disabled={job?.status === 'running'} data-testid="draft-model">
+            <Sparkles /> Draft with AI
+          </button>
+          <AiCostNote inputTokens={estimate.input} outputTokens={estimate.output} used={o.aiUsage} />
+        </>
+      ) : (
+        <AiOffNote />
+      )}
     </>
   )
 
@@ -174,17 +194,12 @@ export function ResponseStep({ o }: { o: Opportunity }) {
     return (
       <>
         <ProgressPanel
-          title="Draft responses"
-          explain={integrations.model.configured ? 'Drafts every answer from the selected sources. "Draft responses" spends zero tokens; "Draft with AI" sends a small packet to the model and checks its output with the same rules.' : 'Drafts every answer from the selected sources by rules: zero tokens, no model. Wording is plainer than a model draft; you edit it in the next view. To use a model, add ANTHROPIC_API_KEY or download the generation packet in step 7.'}
+          title="Draft the answers"
+          explain={integrations.model.configured ? 'You get a first answer to every requirement, each quoting the passage it is built on, plus the open questions the sources can’t answer. “Draft the answers” uses rules and spends no tokens; “Draft with AI” sends a small packet to the model and checks its output with the same rules. Then you check each answer.' : 'You get a first answer to every requirement, each quoting the passage it is built on, plus the open questions the sources can’t answer. It is built by rules from the sources you chose, so the wording is plain. Then you check each answer and edit what needs it.'}
           stages={STAGES}
           job={job}
           mode={<TemplateNote />}
-          action={
-            <>
-              {startButtons}
-              {integrations.model.configured && <AiCostNote inputTokens={estimate.input} outputTokens={estimate.output} used={o.aiUsage} />}
-            </>
-          }
+          action={startButtons}
         />
         {consent && <ConsentSheet o={o} onClose={() => setConsent(false)} onOk={() => {
           setConsent(false)
@@ -194,8 +209,24 @@ export function ResponseStep({ o }: { o: Opportunity }) {
     )
 
   const byReq = new Map(r.answers.map((a) => [a.requirementId, a]))
+  const unchecked = uncheckedRequirements(o)
+  const openCount = r.gaps.length + r.openQuestions.length
+  const isChecked = (id: string) => o.checked?.[id]?.version === r.version
   return (
     <div className="stack">
+      <section className="to-review" aria-label="To review" data-testid="to-review">
+        <strong>To review</strong>
+        <button className={cx('to-review__item', unchecked.length > 0 && 'is-open')} onClick={() => jump('req-matrix')}>
+          {unchecked.length ? `${unchecked.length} answer${unchecked.length > 1 ? 's' : ''} to check` : 'Every answer checked'} <ArrowDown />
+        </button>
+        <button className={cx('to-review__item', openCount > 0 && 'is-open')} onClick={() => jump('open-questions')}>
+          {openCount ? `${openCount} open question${openCount > 1 ? 's' : ''} for an expert` : 'No open questions'} <ArrowDown />
+        </button>
+        <button className={cx('to-review__item', r.conflicts.length > 0 && 'is-open')} onClick={() => jump(r.conflicts.length ? 'conflicts' : 'req-matrix')}>
+          {r.conflicts.length ? `${r.conflicts.length} place${r.conflicts.length > 1 ? 's' : ''} where sources disagree` : 'No source conflicts'} <ArrowDown />
+        </button>
+        <span className="xs muted">A matching passage is evidence to check, not a finished answer.</span>
+      </section>
       <div className="row row--between" style={{ gap: 8, flexWrap: 'wrap' }}>
         <span className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
           <GenerationBadge mode={r.generatedBy.mode} model={r.generatedBy.model} at={r.generatedBy.at} />
@@ -214,15 +245,17 @@ export function ResponseStep({ o }: { o: Opportunity }) {
         <MarkdownLite text={r.understanding} />
       </Panel>
 
-      <Panel title="Requirements and evidence" flush actions={<span className="xs muted" data-testid="coverage-summary">{sum.full} supported · {sum.partial} recommendation · {sum.none} open or gap</span>}>
+      <div id="req-matrix" />
+      <Panel title="What they ask, and the evidence" flush actions={<span className="xs muted" data-testid="coverage-summary">{sum.full} with a matching passage · {sum.partial} our recommendation · {sum.none} open</span>}>
         <div className="table-wrap">
           <table className="table req-matrix">
             <thead>
               <tr>
                 <th>#</th>
                 <th>Requirement</th>
-                <th>Coverage</th>
+                <th>Answer</th>
                 <th>Evidence</th>
+                <th>Checked</th>
               </tr>
             </thead>
             <tbody>
@@ -240,16 +273,22 @@ export function ResponseStep({ o }: { o: Opportunity }) {
                     </td>
                     <td>
                       <span className={cx('coverage-dot', `coverage-dot--${c?.state ?? 'none'}`)} />
-                      <span className="small">{a ? (a.status === 'gap' ? 'Gap' : KIND_LABEL[a.status as StatementKind]) : 'Not answered'}</span>
+                      <span className="small">{a ? (a.status === 'gap' ? 'Open: no source' : a.status === 'supported' ? (isChecked(q.id) ? 'Backed by a source' : 'Passage found · check it') : KIND_LABEL[a.status as StatementKind]) : 'Not answered'}</span>
                     </td>
                     <td>{cites.length ? <CiteChips citations={cites} onOpen={setCite} /> : <span className="xs muted">{q.unanswerable ? q.unanswerable.reason : 'No source'}</span>}</td>
+                    <td>
+                      <label className="toggle xs" title="Mark that a person has read the answer and its passage">
+                        <input type="checkbox" checked={isChecked(q.id)} onChange={(e) => act().setRequirementChecked(project.id, o.id, q.id, e.target.checked)} data-testid={`check-${q.id}`} aria-label={`Checked: ${q.text}`} />
+                        {isChecked(q.id) ? 'Checked' : o.checked?.[q.id] ? 'Re-check' : 'Check'}
+                      </label>
+                    </td>
                   </tr>
                 )
               })}
             </tbody>
           </table>
         </div>
-        <p className="xs muted" style={{ padding: '8px 16px' }}>Supported: an approved source says it. Recommendation: our suggestion, based on draft or outdated material. Open or gap: the sources cannot answer it; see "Needs an expert".</p>
+        <p className="xs muted" style={{ padding: '8px 16px' }}>Open a requirement to read its answer, and a source chip to read the passage behind it. Tick “Check” once you are sure the passage answers the question. “Re-check” means the draft changed since you checked it.</p>
       </Panel>
 
       <div className="panel panel--ink" data-testid="approach-card">
@@ -263,6 +302,7 @@ export function ResponseStep({ o }: { o: Opportunity }) {
 
       {r.conflicts.length > 0 && (
         <Panel title="Where our sources disagree" tight>
+          <span id="conflicts" />
           <ul className="list" data-testid="conflicts">
             {r.conflicts.map((c) => (
               <li key={c.id} className="list__item">
@@ -287,7 +327,8 @@ export function ResponseStep({ o }: { o: Opportunity }) {
       </Panel>
 
       <div className="grid grid--2">
-        <Panel title="Needs an expert" tight>
+        <Panel title="Open questions for an expert or the account team" tight>
+          <span id="open-questions" />
           {r.gaps.length + r.openQuestions.length === 0 ? (
             <p className="small muted">Nothing open.</p>
           ) : (
@@ -309,7 +350,7 @@ export function ResponseStep({ o }: { o: Opportunity }) {
         </Panel>
       </div>
       {r.issues.length > 0 && (
-        <Panel title="Checks the hub applied" tight>
+        <Panel title="Checks applied to this draft" tight>
           <ul className="small">{r.issues.map((i, n) => <li key={n}><code>{i.code}</code> · {i.where}: {i.detail}</li>)}</ul>
         </Panel>
       )}

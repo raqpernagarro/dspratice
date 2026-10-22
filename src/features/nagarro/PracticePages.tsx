@@ -1,116 +1,149 @@
-// Practice-wide destinations that get their full pages in later phases. Each one is honest about
-// what exists today and links to the working parts.
+// Practice-wide settings pages: what the tool can and cannot do on this machine, and the sample data.
 
 import { Link } from 'react-router'
 import { PageHead } from '@/shell/PageHead'
-import { SimBadge } from '@/shell/ui'
+import { Chip, Panel } from '@/shell/ui'
 import { FontStatus } from '@/shell/FontStatus'
-import { act, usePaths, useProject, useSystem } from '@/state/hooks'
+import { act } from '@/state/hooks'
 import { useStore } from '@/state/store'
-import { practice } from '@/app/routes'
+import { useIntegrations } from '@/integrations/status'
+import { practice, nagarro } from '@/app/routes'
+import { SCHEMA_VERSION } from '@/state/store'
+import { ENGINE } from '@/deck/catalog'
 
-export function PracticeLibrary() {
-  const r = usePaths()
-  const sys = useSystem()
-  const project = useProject()
+function Group({ title, tone, items }: { title: string; tone: 'ok' | 'info' | 'ai' | 'warn' | 'outline'; items: [string, string][] }) {
+  return (
+    <Panel title={<span className="row" style={{ gap: 8 }}><Chip tone={tone}>{title}</Chip></span>}>
+      <ul className="about-list">
+        {items.map(([what, detail]) => (
+          <li key={what}>
+            <strong>{what}</strong>
+            <span>{detail}</span>
+          </li>
+        ))}
+      </ul>
+    </Panel>
+  )
+}
+
+/** One honest place for capability and build details, so task pages do not need to repeat them. */
+export function AboutPage() {
+  const status = useIntegrations()
+  const projects = useStore((s) => s.projects)
+  const demo = projects['demo-brand']
   return (
     <div className="page">
-      <PageHead title="System library" lead="The components, tokens and foundations the practice reuses across engagements. The two source libraries (DSN and the DS Starter Pack) are integrated in the next phase; until then the library shows the selected engagement's system." eyebrow={<span className="chip">Practice-wide</span>} noTabs />
-      <div className="panel">
-        <h3>{project.client.name} · {sys.components.length} components in the contract</h3>
-        <p className="muted">Open the engagement's system pages to browse components, tokens and foundations with the live preview.</p>
-        <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
-          <Link className="btn btn--primary" to={r.components}>
-            Components
-          </Link>
-          <Link className="btn btn--secondary" to={r.tokens}>
-            Tokens
-          </Link>
-          <Link className="btn btn--secondary" to={r.foundations}>
-            Foundations
-          </Link>
-        </div>
+      <PageHead
+        title="About this tool"
+        lead="The design systems hub helps Nagarro colleagues answer client requests, start or improve design systems, and prepare presentations and demos with what the practice already knows. This page lists what works on this machine, what needs a key, and what the client demo only simulates."
+      />
+      <div className="grid grid--2">
+        <Group
+          title="Works on this machine, no AI needed"
+          tone="ok"
+          items={[
+            ['Knowledge library', 'Search, read, approve and add sources: Figma text exports, Markdown, Word, PDF with text, links.'],
+            ['Responses to client requests', 'Requirements, matching passages from approved sources, a first draft, checks against invented figures and other clients’ names, downloads.'],
+            ['Presentations', 'A slide plan on Carolina Baptista’s Nagarro Master Slides, rendered slides, checks, present mode, and HTML, deck.json, brief and notes downloads.'],
+            ['Setup journeys', 'Start a new design system or improve an existing one, with progress you can resume.'],
+            ['Client demo', 'The guided story, the explorable example system, reset and return to preparation.'],
+          ]}
+        />
+        <Group
+          title="Needs a key on this machine"
+          tone="info"
+          items={[
+            ['AI drafting', status.offline ? 'Unknown: the local server is not running.' : status.model.configured ? `On (${status.model.model}). Each AI action shows its estimated cost first.` : 'Off. Add ANTHROPIC_API_KEY to .env.local. Without it, drafts come from templates and you can download a packet for any Claude or ChatGPT chat.'],
+            ['Figma refresh and folder listing', status.offline ? 'Unknown: the local server is not running.' : status.figma.configured ? 'On (FIGMA_TOKEN).' : 'Off. Add FIGMA_TOKEN to .env.local. The knowledge export plugin works without it.'],
+          ]}
+        />
+        <Group
+          title="Built by rules, not by a model"
+          tone="ai"
+          items={[
+            ['First drafts of responses', 'Assembled from the request and the sources’ own text. A person checks every answer before it is shared.'],
+            ['Deck plans', 'Mapped onto registered Master Slides templates. No images are invented.'],
+            ['“Describe the look”, the screen builder and search answers', 'Rule-based stand-ins for the AI agents in the source projects.'],
+          ]}
+        />
+        <Group
+          title="Simulated in the client demo"
+          tone="warn"
+          items={[
+            ['Scans of a client’s repository and Figma file', 'Read a fictional sample system. No URL is requested.'],
+            ['Pull requests, checks and merges', 'Run in the browser on timers. Nothing reaches GitHub.'],
+            ['Figma review and apply', 'The plugin’s review is reproduced. No Figma file is opened or changed.'],
+            ['Publishing to AI tools, release checks, agent suggestions', 'Generated from sample data. Nothing is uploaded and no model runs.'],
+          ]}
+        />
       </div>
-      <div className="panel">
-        <h3>Coming in phase 2</h3>
-        <p className="muted">Real DSN (105 components) and DS Starter Pack (56 specs) implementations rendered in isolated preview frames, a coverage matrix, and the overlap table that records where the two libraries disagree.</p>
-      </div>
+      <Group
+        title="Not available here"
+        tone="outline"
+        items={[
+          ['Editable PowerPoint', 'Use Carolina’s Presentation Studio (it exports .pptx and PDF). Importing this hub’s deck.json there is not confirmed yet; until then, rebuild from brief.md with the nagarro-slides plugin in Claude Slides.'],
+          ['Sharing between colleagues', 'Everything you add stays in this browser. There is no hosted, multi-user version.'],
+          ['Measured client results', 'Health, readiness and accessibility figures in the samples are illustrative, not measurements.'],
+        ]}
+      />
+      <Panel title="Build details">
+        <ul className="about-list">
+          <li>
+            <strong>Slide engine</strong>
+            <span>
+              {ENGINE.name} {ENGINE.artifactVersion} · {ENGINE.templates} master templates · owner {ENGINE.owner} · synced {ENGINE.syncedAt.slice(0, 10)}
+            </span>
+          </li>
+          <li>
+            <strong>Fonts</strong>
+            <span>
+              <FontStatus />
+            </span>
+          </li>
+          <li>
+            <strong>Storage</strong>
+            <span>This browser only (schema v{SCHEMA_VERSION}). Document bodies in IndexedDB.</span>
+          </li>
+          {demo && (
+            <li>
+              <strong>Demo Brand</strong>
+              <span>
+                System contract v{demo.draft.contract.version} · adapter {demo.engagement.adapterVersion} · <Link to={nagarro(demo.slug).home}>open the project</Link>
+              </span>
+            </li>
+          )}
+          <li>
+            <strong>Integrations</strong>
+            <span>
+              <Link to={practice.integrations}>Keys, Figma reading routes and AI usage</Link>
+            </span>
+          </li>
+        </ul>
+      </Panel>
     </div>
   )
 }
 
 export function PracticeSettings() {
   const projects = useStore((s) => s.projects)
-  const r = usePaths()
   return (
     <div className="page">
-      <PageHead title="Settings" lead="Practice-wide people and rules, the font check, and the reset. Project settings (contract, trust levels, brands, audit trail) live on each engagement." eyebrow={<span className="chip">Practice-wide</span>} />
-      <div className="panel">
-        <h3>Typography</h3>
-        <FontStatus />
-      </div>
-      <div className="panel">
-        <h3>Projects</h3>
+      <PageHead title="Sample data" lead="The hub ships with fictional sample projects so you can try every workflow. Reset one project, or everything, when you want a clean start." />
+      <Panel title="Projects">
         <ul className="list">
           {Object.values(projects).map((p) => (
             <li key={p.id} className="row" style={{ justifyContent: 'space-between', gap: 12 }}>
               <span>
-                <strong>{p.client.name}</strong> · {p.engagement.package} · {p.published ? `published v${p.published.version}` : 'not published'}
+                <strong>{p.client.name}</strong>
+                {p.client.fictional ? ' (sample)' : ''} · {p.engagement.package} · {p.published ? `client demo v${p.published.version}` : 'no client demo version'}
               </span>
-              <button className="btn btn--secondary btn--sm" onClick={() => act().resetProject(p.id)}>
+              <button className="btn btn--secondary btn--sm" onClick={() => act().resetProject(p.id)} disabled={!p.client.fictional} title={p.client.fictional ? 'Puts this project back to its shipped sample' : 'Only sample projects can be reset'}>
                 Reset this project
               </button>
             </li>
           ))}
         </ul>
-      </div>
-      <div className="panel">
-        <h3>Project settings for the selected engagement</h3>
-        <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
-          <Link className="btn btn--secondary btn--sm" to={r.contract}>
-            Contract
-          </Link>
-          <Link className="btn btn--secondary btn--sm" to={r.trust}>
-            Trust levels
-          </Link>
-          <Link className="btn btn--secondary btn--sm" to={r.brands}>
-            Brands and modes
-          </Link>
-          <Link className="btn btn--secondary btn--sm" to={r.audit}>
-            Audit trail
-          </Link>
-          <Link className="btn btn--secondary btn--sm" to={practice.people}>
-            People and roles
-          </Link>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const IMPROVE_STEPS: Record<number, { title: string; what: string }> = {
-  1: { title: 'Context', what: 'Client, stack, pains, goals and the package hypothesis. Captured in the journey shell (phase 3).' },
-  3: { title: 'Inventory', what: 'Component and token counts from the connected repository and Figma file. Arrives with the journey shell (phase 3).' },
-  8: { title: 'Review', what: 'A summary of every decision with its factual status before publishing. Arrives with the journey shell (phase 3).' },
-}
-
-export function JourneyStepPlaceholder({ journey, step }: { journey: 'new' | 'improve'; step: number }) {
-  const r = usePaths()
-  const meta = IMPROVE_STEPS[step] ?? { title: `Step ${step}`, what: 'This step arrives with the journey shell.' }
-  const next = journey === 'improve' ? [2, 4, 5, 6, 7, 9].find((n) => n > step) : undefined
-  return (
-    <div className="page">
-      <PageHead title={`${step} · ${meta.title}`} lead={meta.what} eyebrow={<SimBadge detail="Placeholder" />} />
-      <div className="row" style={{ gap: 8 }}>
-        {next && (
-          <Link className="btn btn--primary" to={r.journeyImprove(next)}>
-            Continue to step {next}
-          </Link>
-        )}
-        <Link className="btn btn--secondary" to={r.home}>
-          Back to the engagement
-        </Link>
-      </div>
+      </Panel>
     </div>
   )
 }

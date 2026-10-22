@@ -2231,21 +2231,85 @@ kbd {
   }
 }
 
-/* ---- v3 shell additions: portaled workspace menu, project picker, presenter badge ---- */
+/* ---------- header: brand never shrinks; labels collapse before anything overlaps ---------- */
 .ws-switch__menu--portal { position: fixed; z-index: 1000; }
-.project-pick { display: inline-flex; align-items: center; gap: 8px; margin-left: 8px; }
-.project-pick__select { width: auto; max-width: 220px; padding: 4px 8px; background: var(--n-white-10); color: var(--n-white); border-color: var(--n-white-30); font-size: 12px; }
-.publish-pill { font-size: 11px; padding: 3px 8px; border-radius: 999px; background: var(--n-white-10); color: var(--n-white-70); white-space: nowrap; }
-.publish-pill.is-dirty { background: rgba(232, 176, 75, 0.18); color: #f3c66b; }
-.presenter-badge { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: rgba(70, 214, 172, 0.18); color: #7fe6c6; margin-left: 8px; }
-@media (max-width: 760px) {
-  .project-pick { display: none; }
+.shell__top > * { flex-shrink: 0; }
+.shell__top > .shell__spacer { flex: 1 1 0; min-width: 0; }
+.shell__brand { flex-shrink: 0; }
+.demo-notice {
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--n-white-70);
+  border: 1px solid var(--n-white-30);
+  border-radius: var(--n-radius-pill);
+  padding: 3px 10px;
 }
-.ws-switch__btn { white-space: nowrap; }
-@media (max-width: 1280px) {
+@media (max-width: 1100px) {
+  .hide-md { display: none; }
+}
+@media (max-width: 1024px) {
   .shell__crumb { display: none; }
   .shell__brand-divider { display: none; }
+  .demo-notice { display: none; }
 }
+.hdr-menu { min-width: 300px; }
+.hdr-menu__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 10px 12px;
+  margin-bottom: 6px;
+  border-bottom: var(--n-hairline) solid var(--n-line);
+  font-size: var(--n-text-sm);
+  font-weight: 500;
+}
+.hdr-menu__field > span { display: inline-flex; align-items: center; gap: 8px; }
+.hdr-menu__field small { font-weight: 400; color: var(--n-fg-muted); font-size: var(--n-text-xs); }
+.ws-switch__item.is-danger strong { color: var(--n-err); }
+
+/* ---------- side nav: Settings and the note sit at the bottom ---------- */
+.shell__side { display: flex; flex-direction: column; gap: 2px; }
+.shell__side .nav__foot { margin-top: auto; border-top: var(--n-hairline) solid var(--n-line); padding: var(--n-space-3) 0 0; gap: var(--n-space-3); }
+.nav__note { font-size: var(--n-text-xs); color: var(--n-fg-muted); padding: 0 12px; line-height: 1.45; }
+.nav__note--warn { color: #9a6412; }
+
+/* ---------- project header (every /nagarro/clients/:slug page) ---------- */
+.project-head { gap: var(--n-space-3); margin-bottom: var(--n-space-6); }
+.project-head__row { display: flex; align-items: center; justify-content: space-between; gap: var(--n-space-4); flex-wrap: wrap; }
+.project-head__id { display: flex; align-items: center; gap: var(--n-space-3); flex-wrap: wrap; min-width: 0; }
+.project-head__select {
+  width: auto;
+  max-width: 100%;
+  font-family: var(--n-font-display);
+  font-size: 24px;
+  font-weight: 500;
+  border-color: transparent;
+  background-color: transparent;
+  padding: 2px 30px 2px 4px;
+  margin-left: -4px;
+}
+.project-head__select:hover { border-color: var(--n-line); }
+.project-head__meta { color: var(--n-fg-muted); font-size: var(--n-text-sm); text-transform: capitalize; }
+.version-pill { font-size: var(--n-text-xs); padding: 3px 10px; border-radius: var(--n-radius-pill); background: var(--n-ok-soft); color: var(--n-mint-deep); white-space: nowrap; }
+.version-pill.is-dirty { background: rgba(232, 176, 75, 0.18); color: #8a5a0b; }
+.version-pill.is-none { background: var(--n-ink-06); color: var(--n-fg-muted); }
+.project-tabs { display: flex; gap: 2px; border-bottom: var(--n-hairline) solid var(--n-line-strong); overflow-x: auto; }
+.project-tabs__tab {
+  padding: 10px 14px;
+  margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
+  color: var(--n-fg-muted);
+  font-size: var(--n-text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.project-tabs__tab:hover { color: var(--n-fg); }
+.project-tabs__tab.is-active { color: var(--n-fg); border-bottom-color: var(--n-mint-deep); }
 
 /* ---------- grouped side nav (Nagarro hub) ---------- */
 .nav__heading {

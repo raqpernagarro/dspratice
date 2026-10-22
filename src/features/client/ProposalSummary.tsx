@@ -17,7 +17,7 @@ export function ProposalSummary() {
   const out = outputs[idx]
   return (
     <div className="page">
-      <PageHead screen="proposalSummary" title="Proposal summary" lead="What your Nagarro team has shared from the proposal work: our understanding, the proposed approach, and the points to confirm together." />
+      <PageHead title="Proposal summary" lead="A summary of our response to your request: our understanding, the approach we propose, and the points to confirm together." />
       {!out ? (
         <Empty>Nothing has been shared here yet.</Empty>
       ) : (

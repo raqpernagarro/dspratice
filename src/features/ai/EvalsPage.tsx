@@ -18,9 +18,9 @@ export function EvalsPage() {
   return (
     <div className="page">
       <PageHead
-        screen="evals"
-        title={`${ev.version} · ${ev.onSystem}% on-system`}
-        lead={`${ev.prompts} test prompts per tool, scored against tokens, components and rules. Gate ${ev.gate}%. Runs on every release, next to the CI checks.`}
+       
+        title={`Release check ${ev.version}: ${ev.onSystem}% of AI output on the system`}
+        lead={`${ev.prompts} test prompts per AI tool, scored on whether the output uses the system’s tokens, components and rules. A release passes at ${ev.gate}%. It runs on every release, next to the code checks.`}
         eyebrow={<DemoData>Example values</DemoData>}
         actions={
           <Btn onClick={() => act().runReleaseEval()} loading={running}>

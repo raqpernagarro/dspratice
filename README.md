@@ -1,18 +1,20 @@
 # Nagarro design systems hub (`unified-ds-tool`)
 
-One local application for the Nagarro DS Practice. It has two workspaces:
+An internal tool for the Nagarro design systems practice. It brings together the practice's knowledge, material and tools for design systems and AI, so colleagues can do useful work without an expert sitting beside them:
 
-- **The Nagarro workspace** is where colleagues win and deliver work. It holds:
-  - a curated **knowledge library**;
-  - an **opportunity-response workflow** that drafts traceable answers to RFPs and questionnaires;
-  - **presentations** built on Carolina Baptista's Nagarro Master Slides engine;
-  - a catalogue of **tools** and **demos**;
-  - the design-system **control panel** for each engagement.
-- **The client workspace** is what a client sees: the control panel on their system, a guided walkthrough, the AI-readiness scorecard and a **Proposal summary** that holds only what someone explicitly published.
+- **respond to a client request** (RFP, questionnaire, brief) with a first draft built from approved material, the gaps marked, and every answer checked by a person;
+- **start a new design system** or **improve an existing one**, step by step, with progress you can resume;
+- **find reusable material** in the knowledge library, with owner, approval, audience and freshness visible;
+- **prepare a presentation** on Carolina Baptista's Nagarro Master Slides, from a reviewed response or from a project (assessment readout, project update);
+- **present the client demo**.
 
-A separate **client-safe demo build** packages the client experience on the fictional Demo Brand, the scorecard and a landing page, with nothing internal in it.
+It is for Nagarro designers, consultants, delivery leads and sellers. `/` opens the hub's Home, which starts with these tasks and with work in progress.
 
-Working name until decision D7 (12 Nov). Everything runs on your machine. Clients and engagements are fictional except the prospects you create.
+**The client demo is a guided showcase we present in meetings, not a client portal.** It tells one story on a fictional company's design system: the challenge, an example system, one inconsistency, why it matters, the proposed fix, the review in code and Figma, AI using the system, and what an engagement could leave behind. Presenter notes open in a separate window; the shared tab never shows them. See [docs/client-demo.md](docs/client-demo.md).
+
+A separate **client-safe demo build** packages the client demo on the fictional Demo Brand, the scorecard and a landing page, with nothing internal in it. It is not deployed.
+
+Working name until decision D7 (12 Nov). Everything runs on your machine. Sample clients and their figures are fictional; projects you create are real and stay in your browser.
 
 ## Get started in three commands
 
@@ -38,51 +40,47 @@ open http://localhost:4300
 | `npm run build` | Typecheck and production build into `dist/` |
 | `npm run build:demo` | The client-safe demo into `dist-demo/`, then a leak check that fails on internal names and markers |
 | `npm run preview` / `npm run preview:demo` | Serve `dist/` on 4301 or `dist-demo/` on 4302 (the local API also works in preview) |
-| `npm test` | Vitest: 11 files, 74 tests |
-| `npm run e2e` | Playwright in Microsoft Edge (`channel: 'msedge'`): 3 specs. Run `npm run build:demo` first |
+| `npm test` | Vitest: 13 files, 97 tests |
+| `npm run e2e` | Playwright in Microsoft Edge (`channel: 'msedge'`): 6 specs, 8 tests. Run `npm run build:demo` first |
 | `npm run typecheck` | TypeScript only (core app when the library sources are absent) |
 | `npm run knowledge:local [-- --check]` | Re-read the practice files into the bundled knowledge snapshot, or check it is current |
 | `npm run knowledge:figma -- <capture.json> --source <id>` | Turn a Figma text capture (plugin, figma-cli or MCP) into a knowledge document |
 | `npm run slides:sync -- <folder> --version <id>` | Update the vendored Nagarro Master Slides engine from a downloaded copy |
 | `npm run tokens:sync` | Regenerate `src/styles/brand-tokens.css` from the engine's `tokens.json` |
 
-## What works, what is configured-only, what is simulated
+## What works, what needs a key, what is simulated
 
-**Works today, zero model tokens**
-- The knowledge library:
-  - 34 seed sources, 25 of them readable in the app;
-  - approval, audience and scope;
-  - inspect, approve, mark outdated, replace and remove;
-  - uploads (Markdown, text, Word, PDF with a text layer, Figma text JSON) read in the browser and stored in IndexedDB;
-  - practice files re-read through the local API.
-- The opportunity workflow, steps 1–7:
-  - requirement extraction, with "not from documents" flags for pricing, references, CVs, contract terms, availability and undocumented capabilities;
-  - BM25 retrieval with a design-systems synonym map, and an explanation for every match;
-  - the template draft, with statements labelled supported, recommendation, assumption or open question;
-  - the honesty guards: figures not found in a cited section are replaced, other clients' names are flagged, quotes are checked against their section;
-  - conflicts between sources, edits kept on redraft, exports, the generation packet, and publishing to the client workspace with refusals.
-- Presentations: a brief, a slide plan on Carolina's 508 registered templates, slides rendered by her engine, checks, present mode, and exports (standalone HTML, `deck.json`, `brief.md`, speaker notes). A deck is flagged outdated when its request, response or sources change.
-- The client Proposal summary, the scorecard and the demo build with its leak check.
-- The v3 control panel and client workspace, unchanged.
+The same list is in the app at **Settings › About this tool**, so task pages don't repeat it.
 
-**Real but configured-only**
-- **Model drafting** ("Draft with AI", "Improve with AI") needs `ANTHROPIC_API_KEY`.
-  - It shows a token estimate first, asks for consent per opportunity and records usage.
-  - It is tested with mocked responses only; no live call was made in this round.
-- **Figma REST refresh and folder discovery** need `FIGMA_TOKEN`. The routes are built and unit-tested but not exercised against Figma.
+**Works on this machine, no AI needed**
+- **Knowledge library**: 34 seed sources (25 with readable text); search, filters for kind, approval and audience; a preview of each source with what it is good for; approve, mark out of date, replace and remove; uploads (Markdown, text, Word, PDF with a text layer, Figma text JSON) stored in IndexedDB; practice files re-read through the local API.
+- **Responses to client requests**, six steps (request, context, what they ask, sources, draft response, share and present):
+  - requirements listed by rules, with "not from documents" flags for pricing, references, CVs, contract terms, availability and undocumented capabilities;
+  - matching passages from the selected sources (BM25 with a design-systems synonym map), each explained;
+  - a draft whose statements are labelled *backed by a source*, *our recommendation*, *assumption* or *open question*;
+  - a **To review** panel and a **Checked** tick per requirement: a matching passage is evidence to check, not an answer, so the draft step is done only when every answer is checked;
+  - the original request one click away on every step;
+  - guards against invented figures, other clients' names and quotes from internal-only material;
+  - downloads, the generation packet, and an optional summary in the client demo's closing chapter.
+- **Presentations**: from a reviewed response, or from a project's data as an **assessment readout** or a **project update** (no request needed). Brief, slide plan to approve, slides rendered by Carolina's engine, checks, present mode, and downloads (one-file HTML with present mode, `deck.json`, `brief.md`, speaker notes). Demo slides open the live client demo in the same tab and **Back to preparation** returns to the same slide.
+- **Set-up journeys**: *Start a new design system* (the Starter Pack's ten steps in four phases) and *Improve an existing system* (goals, connect, assess, findings, agree the plan, map the names, review and share, handover). A step is ticked when its work is done, never because it was opened, and the project Overview resumes at the first unfinished step.
+- **Client demo**: the eight-chapter story with a short path (about 12 minutes) and a full path (about 25). Any chapter can be entered directly; the chapters it depends on are set up first. Pause holds the simulation on a state. Reset goes back to the prepared version and never touches preparation.
+- The AI-readiness scorecard and the demo build with its leak check.
+
+**Needs a key on this machine**
+- **AI drafting** ("Draft with AI", "Rewrite with AI") needs `ANTHROPIC_API_KEY`. It shows an estimate at the action, asks for consent per request and records usage. It is tested with mocked responses only; no live call was made.
+- **Figma refresh and folder listing** need `FIGMA_TOKEN`. The routes are built and unit-tested but not exercised against Figma.
 
 **Captured once, refreshed without tokens**
 - The Figma seed documents were read once through the Figma MCP, text only, on 22 Oct 2026: the offer deck, the Case Studies index and the FigJam strategy board. Client frames and the client footer were excluded.
 - Refresh uses the knowledge plugin, figma-cli or REST. See [docs/figma-reading.md](docs/figma-reading.md).
 
-**Simulated, as in v3**
-- GitHub pull requests and checks, the Figma plugin's review, publishing channels, evals and the rule-based agents.
-- All of these are labelled on screen.
+**Simulated in the client demo** (labelled where an action could look live)
+- Scans of a client's repository and Figma file (they read a fictional sample system), pull requests and checks, the Figma review and apply, the files AI tools read, release checks and agent suggestions, the rule-based screen builder.
 
-**Not built**
-- A hosted multi-user mode or shared storage: each person's library additions and opportunities live in their own browser.
-- Presentation Studio import of `deck.json` is to be confirmed with Carolina.
-- `.pptx` export stays in Carolina's Studio.
+**Not available here**
+- A hosted multi-user mode or shared storage: each person's projects, requests and uploads live in their own browser.
+- Editable PowerPoint or PDF: use Carolina's Presentation Studio. Opening this hub's `deck.json` there is to be confirmed with Carolina; until then, rebuild from `brief.md`.
 
 ## Where to read more
 
@@ -90,8 +88,10 @@ open http://localhost:4300
 |---|---|
 | Sources, approval, scope, refresh, limits | [docs/knowledge-library.md](docs/knowledge-library.md) |
 | Reading Figma: plugin, REST, figma-cli, MCP, token costs | [docs/figma-reading.md](docs/figma-reading.md) |
-| Answering a real opportunity, end to end | [docs/opportunity-workflow.md](docs/opportunity-workflow.md) |
+| Answering a real client request, end to end | [docs/opportunity-workflow.md](docs/opportunity-workflow.md) |
 | Decks on the Nagarro Master Slides engine | [docs/presentations.md](docs/presentations.md) |
+| Presenting the client demo: the story, paths, notes window, reset | [docs/client-demo.md](docs/client-demo.md) |
+| Voice, terms and button verbs | [docs/writing.md](docs/writing.md) |
 | The client-safe demo build and its deploy checklist | [docs/demo-build.md](docs/demo-build.md) |
 | Getting the hub to colleagues (GitHub, keys, what is never committed) | [docs/distribution.md](docs/distribution.md) |
 | Adding a source, a tool, a demo or a template mapping | [CONTRIBUTING.md](CONTRIBUTING.md) |
@@ -100,8 +100,10 @@ open http://localhost:4300
 ## How it is built
 
 - **Stack.** Vite 7, React 19, react-router 7, and one persisted Zustand store (schema 4, `src/state`).
-- **Projects.** Each project has a `draft`, a `published` version (last three kept), a client `session` and `clientExperience`. Every internal edit lands in the draft. **Publish** snapshots it; the client workspace reads the published version.
-- **New data stays at project level.** Opportunities, decks and published outputs live on the project, and the knowledge library under `practice.knowledge`. They are never cloned into published versions or sessions, and never flip "Draft ahead". Published outputs are a frozen, client-safe copy whose provenance is kept as hashes only.
+- **Projects.** Each project has a `draft` (preparation), a `published` version (what the client demo shows; last three kept), a demo `session` (what happens during a meeting, resettable) and `clientExperience`. Every edit in the hub lands in the draft. **Update the client demo** snapshots it. Journey progress is preparation: it never marks the draft as changed.
+- **New data stays at project level.** Requests, decks and response summaries live on the project, and the knowledge library under `practice.knowledge`. They are never cloned into published versions or sessions, and never mark the draft as changed. A summary added to the client demo is a frozen, client-safe copy whose provenance is kept as hashes only.
+- **Navigation.** One stable sidebar (Home, Opportunities, Projects, Knowledge library, Presentations, Client demo, Tools and guides, Settings). Requests and decks live under their practice-wide lists; a project's own sections are tabs in its header. Old project-level paths and numeric journey steps redirect.
+- **Presenter notes** live in `src/internal/presenterNotes.ts` and the notes window (`/presenter/:slug`, synced over `BroadcastChannel`). The client-facing chapters are in `src/features/demo/steps.ts`; `prepare.ts` sets up a chapter's prerequisites.
 - **Document bodies** live in IndexedDB (`unified-ds-tool-knowledge`). Seed bodies are bundled JSON in `src/fixtures/knowledge/docs/`.
 - **Pure modules** (`src/knowledge`, `src/opportunity`, `src/deck`) have no DOM, so Node scripts, Vitest and the browser share one implementation.
 - **The local API** is a Vite plugin (`server/local-api.ts`) that serves `/api/status`, `/api/generate`, `/api/figma/*` and `/api/local/*`. Local reads are limited to an allowlist. Keys never reach the browser.
@@ -112,13 +114,13 @@ open http://localhost:4300
 ```
 src/
   app/          routes, router (and router.demo), screens
-  shell/        AppShell, nav model, provenance chips, DropZone, ProgressPanel, AiCostNote, ui primitives
+  shell/        AppShell, nav model, ProjectHeader, DemoBar, Menu, present (hub ⇄ demo), story pieces, provenance, ui primitives
   state/        store, slices (knowledge, opportunity, deck, projects…), flows, tasks, migrate (v2→v3→v4)
   knowledge/    types, docStore, resolve, retrieve (BM25), conflicts, extract/ (markdown, plain, html, figmaText, upload)
   opportunity/  extract, rules, compose, validate, prompts, packet, exports, selectors
   deck/         catalog (generated from the engine), fromOpportunity, checks, exports
   features/     knowledge, opportunity, presentations, hub (tools, demos, integrations), scorecard, demo-site, client, …
-  internal/     register.ts (internal seeds, deny-list) · register.demo.ts (empty)
+  internal/     register.ts (internal seeds, deny-list) · presenterNotes.ts · register.demo.ts (empty)
   fixtures/     demo-brand, reference, knowledge (registry, conflicts, opportunities, samples, docs)
 server/         local-api.ts, schemas.ts
 figma-plugin/   the knowledge export plugin (read-only, no network)
@@ -128,7 +130,7 @@ e2e/            Playwright specs for Edge
 
 ## Honest notes
 
-- Dashboard, report, eval and usage numbers in the control panel are demo data.
+- Health, readiness, accessibility, eval and usage figures in the samples are illustrative, not measured client results. The demo labels them "sample".
 - The template composer quotes the best-matching passage from an approved or draft source. It is a first draft, not an answer: a person must check that each quote answers the question before anything is published.
 - Seed approvals follow recorded verdicts only: the offer deck, the case studies index and the big idea line. Everything else starts as a draft with its owner. See [docs/knowledge-library.md](docs/knowledge-library.md).
 - The three source projects (`../demo tools/*`) and the font folders were only read. `node scripts/check-sources.mjs` verifies they are unchanged.

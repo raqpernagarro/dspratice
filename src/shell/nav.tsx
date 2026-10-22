@@ -1,4 +1,4 @@
-import { Link, NavLink, useLocation } from 'react-router'
+import { Link, useLocation } from 'react-router'
 import { ChevronRight } from 'lucide-react'
 import { areaTabsFor } from './useWorkspace'
 import { useProject } from '@/state/hooks'
@@ -48,9 +48,9 @@ export function AreaTabs() {
         else if (t.match) active = (pathname === base || (pathname.startsWith(base + '/') && !deeperSibling)) && !search.includes('tab=')
         else active = pathname === base || (pathname.startsWith(base + '/') && !deeperSibling)
         return (
-          <NavLink key={t.to} to={t.to} className={cx('area-tabs__tab', active && 'is-active')} aria-current={active ? 'page' : undefined}>
+          <Link key={t.to} to={t.to} className={cx('area-tabs__tab', active && 'is-active')} aria-current={active ? 'page' : undefined}>
             {t.label}
-          </NavLink>
+          </Link>
         )
       })}
     </nav>

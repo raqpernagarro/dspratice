@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { client, equivalentRoute, nagarro, practice, workspaceFromPath } from './routes'
+import { IMPROVE_LEGACY, IMPROVE_STEPS, client, equivalentRoute, nagarro, practice, workspaceFromPath } from './routes'
 import { legacyTarget } from './LegacyRedirect'
 import { activeNav, navFor } from '@/shell/useWorkspace'
+import { activeProjectTab } from '@/shell/ProjectHeader'
 
 const N = nagarro('demo-brand')
 const C = client('demo-brand')
@@ -73,20 +74,53 @@ describe('legacy redirects', () => {
 })
 
 describe('navigation keeps the parent selected on detail routes', () => {
-  it('nagarro', () => {
+  it('hub: one stable list; project pages keep Projects selected', () => {
     const nav = navFor('nagarro', N)
-    expect(activeNav(nav, N.pr(128))?.label).toBe('Changes and checks')
-    expect(activeNav(nav, N.component('button'))?.label).toBe('System library')
-    expect(activeNav(nav, N.journeyNew(3))?.label).toBe('Clients and engagements')
-    expect(activeNav(nav, practice.clients)?.label).toBe('Clients and engagements')
+    expect(nav.map((i) => i.label)).toEqual(['Home', 'Opportunities', 'Projects', 'Knowledge library', 'Presentations', 'Client demo', 'Tools and guides', 'Settings'])
     expect(activeNav(nav, practice.home)?.label).toBe('Home')
-    expect(activeNav(nav, N.trust)?.label).toBe('Settings')
+    expect(activeNav(nav, N.pr(128))?.label).toBe('Projects')
+    expect(activeNav(nav, N.component('button'))?.label).toBe('Projects')
+    expect(activeNav(nav, N.journeyNew(3))?.label).toBe('Projects')
+    expect(activeNav(nav, N.journeyImprove('plan'))?.label).toBe('Projects')
+    expect(activeNav(nav, N.trust)?.label).toBe('Projects')
+    expect(activeNav(nav, practice.clients)?.label).toBe('Projects')
+    expect(activeNav(nav, practice.startSystem('new').split('?')[0])?.label).toBe('Projects')
   })
-  it('client', () => {
+  it('hub: requests and decks live under their own lists, whichever project they belong to', () => {
+    const nav = navFor('nagarro', N)
+    expect(N.opportunity('opp-1', 'response')).toBe(practice.opportunity('opp-1', 'response'))
+    expect(activeNav(nav, practice.opportunity('opp-1', 'response'))?.label).toBe('Opportunities')
+    expect(activeNav(nav, practice.deck('deck-1'))?.label).toBe('Presentations')
+    expect(activeNav(nav, practice.meetingPrep('demo-brand').split('?')[0])?.label).toBe('Client demo')
+    expect(activeNav(nav, practice.scorecard)?.label).toBe('Client demo')
+    expect(activeNav(nav, practice.guide('why'))?.label).toBe('Tools and guides')
+    expect(activeNav(nav, practice.about)?.label).toBe('Settings')
+  })
+  it('project tabs: the longest match wins and Overview owns journeys', () => {
+    expect(activeProjectTab(N, N.home)).toBe('Overview')
+    expect(activeProjectTab(N, N.journeyImprove('assess'))).toBe('Overview')
+    expect(activeProjectTab(N, N.token('x'))).toBe('Design system')
+    expect(activeProjectTab(N, N.prFigma(128))).toBe('Changes')
+    expect(activeProjectTab(N, N.evals)).toBe('AI')
+    expect(activeProjectTab(N, N.report)).toBe('Report')
+    expect(activeProjectTab(N, N.audit)).toBe('Settings')
+  })
+  it('client demo', () => {
     const nav = navFor('client', C)
-    expect(activeNav(nav, C.prFigma(128))?.label).toBe('See the improvement')
-    expect(activeNav(nav, C.token('x'))?.label).toBe('Explore the system')
-    expect(activeNav(nav, C.handover)?.label).toBe('Evidence and next steps')
+    expect(activeNav(nav, C.prFigma(128))?.label).toBe('Improve it')
+    expect(activeNav(nav, C.token('x'))?.label).toBe('The system')
+    expect(activeNav(nav, C.handover)?.label).toBe('Outcome and next step')
+    expect(activeNav(nav, C.scorecard)?.label).toBe('Outcome and next step')
     expect(activeNav(nav, C.home)?.label).toBe('Overview')
+  })
+})
+
+describe('improve journey slugs', () => {
+  it('keeps old numeric steps reachable', () => {
+    expect(IMPROVE_STEPS).toEqual(['goals', 'connect', 'assess', 'findings', 'plan', 'mapping', 'review', 'handover'])
+    expect(IMPROVE_LEGACY['4']).toBe('assess')
+    expect(IMPROVE_LEGACY['9']).toBe('handover')
+    expect(N.assessment).toBe(N.journeyImprove('assess'))
+    expect(legacyTarget('/panel/start/readout', '', N)).toBe(N.journeyImprove('plan'))
   })
 })

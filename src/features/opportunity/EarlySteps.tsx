@@ -64,9 +64,9 @@ export function RequestStep({ o }: { o: Opportunity }) {
   if (!o.request || replacing)
     return (
       <Panel title={replacing ? 'Replace the request' : 'Add the request'}>
-        {replacing && <Callout tone="warn">The current version stays in the history. The requirements and the draft will show as outdated until you run the analysis again.</Callout>}
+        {replacing && <Callout tone="warn">The current version stays in the history. The list of requirements and the draft will show as out of date until you list the requirements again.</Callout>}
         {error && <Callout tone="err">{error}</Callout>}
-        <DropZone accept=".md,.markdown,.txt,.docx,.pdf" onFile={onFile} onText={(t) => importText(t)} busy={busy} pasteLabel="Paste the request instead" hint="RFP, questionnaire, email or meeting notes: .docx, .pdf (with a text layer), .md or .txt. Read in this browser; nothing leaves this machine." />
+        <DropZone accept=".md,.markdown,.txt,.docx,.pdf" onFile={onFile} onText={(t) => importText(t)} busy={busy} pasteLabel="Paste the request instead" hint="An RFP, a questionnaire, an email or meeting notes: .docx, .pdf (with selectable text), .md or .txt. It is read in this browser; nothing leaves this machine." />
         <div className="row" style={{ gap: 8 }}>
           {!o.request && project.id === 'northwind' && (
             <button className="btn btn--ghost btn--sm" onClick={useSample} data-testid="use-sample-request">
@@ -84,11 +84,11 @@ export function RequestStep({ o }: { o: Opportunity }) {
       actions={
         <span className="row" style={{ gap: 6 }}>
           <Chip tone="outline">v{cur.version} · {cur.format}{cur.filename ? ` · ${cur.filename}` : ''}</Chip>
-          <button className="btn btn--secondary btn--sm" onClick={() => setReplacing(true)} data-testid="replace-request">Replace request</button>
+          <button className="btn btn--secondary btn--sm" onClick={() => setReplacing(true)} data-testid="replace-request">Replace the request</button>
         </span>
       }
     >
-      <p className="small muted">The original is never changed. Requirements, drafts and decks record which version they were built from.</p>
+      <p className="small muted">The original is never changed. Requirements, drafts and decks remember which version they were built from, and you can open it from every step.</p>
       {error && <Callout tone="warn">{error}</Callout>}
       {loading ? <p className="muted">Loading…</p> : <RequestView text={text} />}
       {o.request.versions.length > 1 && <p className="xs muted">Versions: {o.request.versions.map((v) => `v${v.version} (${new Date(v.importedAt).toLocaleDateString('en-GB')})`).join(' · ')}</p>}
@@ -136,7 +136,7 @@ export function ContextStep({ o }: { o: Opportunity }) {
       </Panel>
       <div className="stack">
         <Callout tone="info">
-          <strong>From the engagement:</strong> {project.engagement.package} · {project.engagement.stage} · lead {project.engagement.owner}. These prefill the approach recommendation; change the context if this opportunity differs.
+          <strong>From the project:</strong> {project.engagement.package} · {project.engagement.stage} · lead {project.engagement.owner}. These shape the recommended approach; change the context if this request is different.
         </Callout>
         {hints.length > 0 && (
           <Panel title="Found in the request" tight>
@@ -171,12 +171,12 @@ export function RequirementsStep({ o }: { o: Opportunity }) {
   if (!reqs.length || job?.status === 'running')
     return (
       <ProgressPanel
-        title="Analyze this request"
-        explain="Lists every question and requirement, with the exact passage it comes from, and flags what we never answer from documents (pricing, references, dates, contract terms). Rules only, no model."
+        title="List what they ask for"
+        explain="You get every question and requirement in the request, each with the passage it comes from. Anything we never answer from documents (pricing, references, dates, contract terms) is flagged for the account team. Built by rules; no AI is used."
         stages={['Reading the request', 'Listing what it asks for']}
         job={job}
         mode={<TemplateNote />}
-        action={<button className="btn btn--primary" onClick={() => analyzeRequest(project.id, o.id)} disabled={job?.status === 'running'} data-testid="analyze-request"><Sparkles /> Analyze this request</button>}
+        action={<button className="btn btn--primary" onClick={() => analyzeRequest(project.id, o.id)} disabled={job?.status === 'running'} data-testid="analyze-request"><Sparkles /> List what they ask for</button>}
       />
     )
   const activeCount = activeRequirements(o).length
@@ -185,12 +185,12 @@ export function RequirementsStep({ o }: { o: Opportunity }) {
       {stale && (
         <Callout tone="warn">
           The request changed (now v{o.request!.current}). Run the analysis again; edits to requirements whose text still matches are kept.{' '}
-          <button className="btn btn--secondary btn--sm" onClick={() => analyzeRequest(project.id, o.id)}>Analyze again</button>
+          <button className="btn btn--secondary btn--sm" onClick={() => analyzeRequest(project.id, o.id)}>List them again</button>
         </Callout>
       )}
-      <Callout tone="info">Check these before drafting. Fix the wording, untick what is not a real ask, add what was missed. Nothing here is sent anywhere, and the original on the left never changes.</Callout>
+      <Callout tone="info">Check the list before drafting: fix the wording, remove what isn’t a real ask, and add anything that was missed. The original on the left never changes, and nothing here is sent anywhere.</Callout>
       <div className="grid grid--2 req-grid">
-        <Panel title="Original request" flush>
+        <Panel title="The original request" flush>
           <RequestView text={text} o={o} active={active} />
         </Panel>
         <Panel title={`${activeCount} requirements`} actions={<button className="btn btn--secondary btn--sm" onClick={() => setAdding(true)} data-testid="add-requirement"><Plus /> Add</button>}>

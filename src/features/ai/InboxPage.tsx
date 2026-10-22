@@ -20,9 +20,9 @@ export function InboxPage() {
   return (
     <div className="page">
       <PageHead
-        screen="inbox"
-        title={`${pending.length} proposal${pending.length === 1 ? '' : 's'} from agents`}
-        lead="Agents propose. People decide anything beyond a mechanical fix. What counts as mechanical is set per action in Trust levels."
+       
+        title={`${pending.length} suggestion${pending.length === 1 ? '' : 's'} from agents`}
+        lead="Agents suggest changes; people decide anything beyond a mechanical fix. What counts as mechanical is set in Settings › What agents may do."
         actions={
           <Link to={r.trust} className="btn btn--secondary">
             Trust levels

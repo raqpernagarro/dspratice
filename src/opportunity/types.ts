@@ -133,6 +133,12 @@ export interface Opportunity {
   modelConsentAt?: number
   publishedOutputIds: string[]
   deckIds: string[]
+  /** The furthest step someone continued past (set by Continue, never by viewing). */
+  furthest?: OpportunityStep
+  /** Requirements a person has checked against the draft, with the response version they checked. */
+  checked?: Record<string, { at: number; by: string; version: number }>
+  /** When a response file was last downloaded. */
+  exportedAt?: number
 }
 
 export interface PublishedOutput {

@@ -36,7 +36,7 @@ export interface RouteFamily {
   handover: string
   outcome: string
   journeyNew: (step?: number | string) => string
-  journeyImprove: (step?: number | string) => string
+  journeyImprove: (step?: ImproveStep) => string
   meeting: string
   guides: string
   guide: (id: string) => string
@@ -52,20 +52,31 @@ export interface RouteFamily {
 
 export type OpportunityStep = 'request' | 'context' | 'requirements' | 'sources' | 'response' | 'export'
 
+/** The improve journey, in order. Old numeric steps (1–9) redirect to these. */
+export const IMPROVE_STEPS = ['goals', 'connect', 'assess', 'findings', 'plan', 'mapping', 'review', 'handover'] as const
+export type ImproveStep = (typeof IMPROVE_STEPS)[number]
+/** Old numeric improve steps → their slug (3 · Inventory folded into Connect). */
+export const IMPROVE_LEGACY: Record<string, ImproveStep> = { '1': 'goals', '2': 'connect', '3': 'connect', '4': 'assess', '5': 'findings', '6': 'plan', '7': 'mapping', '8': 'review', '9': 'handover' }
+
 /** Practice-wide destinations (no project). */
 export const practice = {
   welcome: '/',
   home: '/nagarro',
+  /** Projects (design-system work per client or prospect). The path keeps its v3 name. */
   clients: '/nagarro/clients',
-  library: '/nagarro/library',
-  libraryEntry: (id: string) => `/nagarro/library/${id}`,
+  projects: '/nagarro/clients',
+  startSystem: (journey: 'new' | 'improve') => `/nagarro/start?journey=${journey}`,
   guides: '/nagarro/guides',
   guide: (id: string) => `/nagarro/guides/${id}`,
   presentations: '/nagarro/presentations',
+  presentationsFor: (slug: string) => `/nagarro/presentations?project=${slug}`,
+  deckNew: '/nagarro/presentations/new',
+  deck: (id: string) => `/nagarro/presentations/${id}`,
   settings: '/nagarro/settings',
   people: '/nagarro/settings/people',
   rules: '/nagarro/settings/rules',
   setup: '/nagarro/settings/setup',
+  about: '/nagarro/settings/about',
   integrations: '/nagarro/settings/integrations',
   clientEntry: '/client',
   knowledge: '/nagarro/knowledge',
@@ -74,9 +85,14 @@ export const practice = {
   knowledgeTab: (tab: 'practice' | 'client' | 'attention') => `/nagarro/knowledge?tab=${tab}`,
   tools: '/nagarro/tools',
   demos: '/nagarro/demos',
+  meetingPrep: (slug?: string) => (slug ? `/nagarro/demos/prepare?project=${slug}` : '/nagarro/demos/prepare'),
   opportunities: '/nagarro/opportunities',
+  opportunitiesFor: (slug: string) => `/nagarro/opportunities?project=${slug}`,
   opportunityStart: '/nagarro/opportunities/new',
+  opportunity: (id: string, step: OpportunityStep = 'request') => `/nagarro/opportunities/${id}/${step}`,
+  opportunityEntry: (id: string) => `/nagarro/opportunities/${id}`,
   scorecard: '/nagarro/scorecard',
+  presenterNotes: (slug: string) => `/presenter/${slug}`,
 }
 
 export function nagarro(slug: string): RouteFamily {
@@ -109,21 +125,22 @@ export function nagarro(slug: string): RouteFamily {
     trust: `${b}/settings/trust`,
     audit: `${b}/settings/audit`,
     report: `${b}/report`,
-    assessment: `${b}/journey/improve/4`,
-    handover: `${b}/journey/improve/9`,
+    assessment: `${b}/journey/improve/assess`,
+    handover: `${b}/journey/improve/handover`,
     outcome: `${b}/report`,
     journeyNew: (step = 1) => `${b}/journey/new/${step}`,
-    journeyImprove: (step = 1) => `${b}/journey/improve/${step}`,
-    meeting: `${b}/meeting`,
+    journeyImprove: (step = 'goals') => `${b}/journey/improve/${step}`,
+    meeting: practice.meetingPrep(slug),
     guides: practice.guides,
     guide: practice.guide,
-    presentations: `${b}/presentations`,
-    presentationNew: `${b}/presentations/new`,
-    presentation: (id) => `${b}/presentations/${id}`,
-    opportunities: `${b}/opportunities`,
-    opportunityNew: `${b}/opportunities/new`,
-    opportunity: (id, step = 'request') => `${b}/opportunities/${id}/${step}`,
-    proposalSummary: `${b}/opportunities`,
+    // Requests and decks are listed practice-wide, filtered by project; their pages live there too.
+    presentations: practice.presentationsFor(slug),
+    presentationNew: `${practice.deckNew}?project=${slug}`,
+    presentation: practice.deck,
+    opportunities: practice.opportunitiesFor(slug),
+    opportunityNew: `${practice.opportunityStart}?project=${slug}`,
+    opportunity: practice.opportunity,
+    proposalSummary: practice.opportunitiesFor(slug),
     scorecard: practice.scorecard,
   }
 }

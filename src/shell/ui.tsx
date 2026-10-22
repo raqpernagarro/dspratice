@@ -1,7 +1,6 @@
 import type { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes, CSSProperties } from 'react'
 import { Link } from 'react-router'
 import { AlertTriangle, CheckCircle2, Info, Sparkles, XCircle, FlaskConical, X, Loader2 } from 'lucide-react'
-import type { ScreenStatus } from '@/state/types'
 
 export function cx(...parts: (string | false | null | undefined)[]) {
   return parts.filter(Boolean).join(' ')
@@ -51,31 +50,17 @@ export function Chip({ tone = 'default', children, className, icon, title }: { t
   )
 }
 
-const STATUS_LABEL: Record<ScreenStatus, string> = { works: 'Works today', partly: 'Partly works', proposed: 'Proposed' }
-const STATUS_TITLE: Record<ScreenStatus, string> = {
-  works: 'The board marks this screen as working today in one of the three source projects.',
-  partly: 'Pieces of this exist in the source projects; the connected version is new.',
-  proposed: 'Proposed on the board; nothing in the source projects does this yet.',
-}
-
-export function StatusChip({ status }: { status: ScreenStatus }) {
+/** Marks one action or result that only looks live: nothing reaches GitHub, Figma or a model. */
+export function SimBadge({ what = 'Simulated', detail }: { what?: string; detail?: string }) {
   return (
-    <span className={cx('chip', `chip--status-${status}`)} title={STATUS_TITLE[status]}>
-      {STATUS_LABEL[status]}
-    </span>
-  )
-}
-
-export function SimBadge({ what = 'Local simulation', detail }: { what?: string; detail?: string }) {
-  return (
-    <span className="chip chip--status-sim" title={detail ?? 'This action runs locally on fixtures. Nothing is sent to GitHub, Figma or a model.'}>
+    <span className="chip chip--status-sim" title={detail ?? 'Simulated in this demo: nothing is sent to GitHub, Figma or a model.'}>
       <FlaskConical />
       {what}
     </span>
   )
 }
 
-export function DemoData({ children = 'Demo data' }: { children?: ReactNode }) {
+export function DemoData({ children = 'Sample data' }: { children?: ReactNode }) {
   return (
     <span className="chip chip--dashed" title="Illustrative values from fixtures, not measurements.">
       {children}

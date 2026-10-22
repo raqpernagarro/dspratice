@@ -11,6 +11,7 @@ import './styles/motion.css'
 import './styles/shell.css'
 import './styles/fi.css'
 import './styles/pages.css'
+import './styles/story.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

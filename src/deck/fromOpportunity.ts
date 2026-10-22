@@ -10,9 +10,10 @@ import type { KnowledgeSource } from '@/knowledge/types'
 import { ENGINE } from './catalog'
 
 export const STRUCTURES = [
-  { id: 'proposal', label: 'Proposal', blurb: 'Understanding, what you asked for, approach, live demo, assumptions, next steps.' },
-  { id: 'readout', label: 'Assessment readout', blurb: 'Where the system stands, what we found, what to do first, live demo.' },
-  { id: 'kickoff', label: 'Discovery kickoff', blurb: 'Why we are here, what we heard, questions for today, how we work together.' },
+  { id: 'proposal', label: 'Proposal', blurb: 'Our understanding, what they asked for, the approach, a live demo, assumptions and next steps.' },
+  { id: 'readout', label: 'Assessment readout', blurb: 'Where the system stands, what we found, what was agreed, a live demo and what happens next.' },
+  { id: 'kickoff', label: 'Discovery kickoff', blurb: 'Why we are here, what we heard, questions for today, how we will work together.' },
+  { id: 'update', label: 'Project update', blurb: 'What changed since the last update, decisions made, open points and next steps.' },
 ] as const
 
 const CAT: Record<string, string> = { assessment: 'Assessment', governance: 'Governance', enablement: 'Enablement', 'tooling-ai': 'AI tooling', accessibility: 'Accessibility', 'delivery-approach': 'Approach', technical: 'Technology', general: 'Other' }
@@ -80,7 +81,7 @@ export function planFromOpportunity(o: Opportunity, r: ResponseVersion, p: Proje
     slides.push(slide({ template: 'core/cards-row-4', caption: 'Governance', title: 'People decide; checks run on every change', subtitle: 'Including changes proposed by AI tools', cards: govCards }, 'How governance works', gov.body, gov.citations))
   }
   if (enable) slides.push(slide({ template: 'main/overview-01', title: 'Your team runs it after us', subtitle: 'Enablement', body: enable.body.split(/\n\n+/).map((b) => clip(b.replace(/\s*\[[^\]]+\]/g, ''), 260)).filter((b) => b && !b.startsWith('_')).slice(0, 2) }, 'Enablement', enable.body, enable.citations))
-  slides.push(slide({ template: 'marketing/text-02', caption: 'Live demo', title: 'See it working', body: `We switch to the client experience: an AI-ready system on our demo brand, where AI builds with the real components and a rule becomes a fix.` }, 'Switch to the live demo', 'Open the client experience as presenter. Come back to this deck for the open points.', [], { demoLink: { label: 'Open the client experience', routeKey: 'home' } }))
+  slides.push(slide({ template: 'marketing/text-02', caption: 'Live demo', title: 'See it working', body: `We switch to the live demo: an example design system on a fictional brand, where AI builds with the real components and a rule becomes a fix.` }, 'Switch to the live demo', 'Open the live demo from this slide; “Back to preparation” brings you back here for the open points.', [], { demoLink: { label: 'Open the live demo', routeKey: 'home', chapter: 'challenge' } }))
   if (open.length >= 2) slides.push(slide({ template: 'core/table-rows-3', caption: 'Before we start', title: 'Assumptions and open points', subtitle: 'What we need to confirm together', rows: open }, 'Assumptions and open points', [...r.assumptions.map((a) => `- Assumption: ${a.text}`), ...r.openQuestions.map((q) => `- Open: ${q.text}`)].join('\n')))
   const steps = r.nextSteps.slice(0, 4).map((s, i) => ({ date: `Step ${i + 1}`, title: clip(s.split(/[.:]/)[0], 40), body: clip(s, 110) }))
   if (steps.length >= 3) slides.push(slide({ template: 'pitch/grid-15', caption: 'Next steps', title: 'How we get started', steps }, 'Next steps', r.nextSteps.join('\n')))
@@ -103,23 +104,59 @@ export function planFromOpportunity(o: Opportunity, r: ResponseVersion, p: Proje
   }
 }
 
-/** A short readout deck from the engagement itself (no opportunity). */
-export function planFromEngagement(p: Project, opts: { durationMin: number }): Omit<Deck, 'id' | 'builtAt' | 'builtBy'> {
+/**
+ * A deck from a project's own data, no client request needed: an assessment readout, or a project
+ * update for a steering group. Figures come from the hub (sample data for sample clients).
+ */
+export function planFromEngagement(p: Project, opts: { durationMin: number; structure?: 'readout' | 'update' }): Omit<Deck, 'id' | 'builtAt' | 'builtBy'> {
   n = 0
+  const structure = opts.structure ?? 'readout'
   const sys = p.draft
-  const open = sys.findings.filter((f) => f.status === 'open').length
-  const slides: DeckSlide[] = [
-    slide({ template: 'main/cover-01', theme: 'dark', title: `${p.client.name}: where the system stands`, subtitle: `${p.engagement.package} · ${p.engagement.stage}` }, 'Cover', ''),
-    slide({ template: 'main/summary-01', title: 'Where you are today', body: [`${sys.components.length} components in the contract, ${open} open findings.`, `Next review: ${p.engagement.nextReview}.`] }, 'Where they are', 'Numbers come from the hub (demo data for sample clients).'),
-    slide({ template: 'marketing/text-02', caption: 'Live demo', title: 'See it working', body: 'We switch to your control panel: findings, changes and what AI builds with your system.' }, 'Switch to the live demo', 'Open the client experience as presenter.', [], { demoLink: { label: 'Open the client experience', routeKey: 'report' } }),
-    slide({ template: 'main/closing-01', theme: 'dark', title: "Let's keep building it together." }, 'Closing', ''),
-  ]
+  const j = sys.journey
+  const open = sys.findings.filter((f) => f.status === 'open')
+  const merged = sys.pullRequests.filter((x) => x.status === 'merged').length
+  const fixed = sys.findings.filter((f) => f.status === 'merged').length
+  const drift = open.reduce((m, f) => m + (f.count ?? 1), 0)
+  const sample = p.client.fictional ? ' (sample data)' : ''
+  const sevRank = (x: string) => ({ error: 0, warn: 1, info: 2 })[x] ?? 3
+  const top = [...open].sort((a, b) => sevRank(a.severity) - sevRank(b.severity)).slice(0, 4)
+  const findingCards = top.map((f) => ({ title: clip(f.title, 48), body: clip(`${f.componentIds.map((id) => sys.components.find((c) => c.id === id)?.name).filter(Boolean).join(', ') || 'Tokens'} · fix in ${f.fixSide === 'both' ? 'Figma and code' : f.fixSide}. ${f.summary}`, 150) }))
+  while (findingCards.length < 3) findingCards.push({ title: 'Nothing else open', body: 'The remaining checks pass.' })
+  const decided = Object.entries(j.readout).filter(([, v]) => Boolean(v))
+  const decisionRows = decided.slice(0, 3).map(([k, v]) => ({ title: clip(k.replace(/-/g, ' '), 40), primary: clip(String(v), 60), secondary: 'Agreed' }))
+  const steps = (structure === 'update'
+    ? [j.scan.status !== 'done' ? 'Run the assessment' : '', Object.keys(j.readout).length < 4 ? 'Agree the plan' : '', Object.keys(j.mapping.decisions).length ? '' : 'Map the names onto the contract', open.length ? `Fix the ${Math.min(open.length, 3)} most important findings` : '', 'Review progress together']
+    : ['Agree what leads for tokens and components', 'Name the system owner', `Fix the ${Math.max(1, Math.min(open.length, 3))} most important findings`, 'Review progress together']
+  ).filter(Boolean).slice(0, 4).map((t, i) => ({ date: `Step ${i + 1}`, title: clip(t, 40), body: i === 0 ? `Next review: ${p.engagement.nextReview}.` : '' }))
+  while (steps.length < 3) steps.push({ date: `Step ${steps.length + 1}`, title: 'Review progress together', body: '' })
+  const demo = slide({ template: 'marketing/text-02', caption: 'Live demo', title: 'See it working', body: 'We switch to the live demo: one finding, the fix reviewed in code and Figma, and AI that stays on the system.' }, 'Switch to the live demo', 'Open the live demo from this slide; “Back to preparation” brings you back here.', [], { demoLink: { label: 'Open the live demo', routeKey: 'home', chapter: 'inconsistency' } })
+  const slides: DeckSlide[] =
+    structure === 'update'
+      ? [
+          slide({ template: 'main/cover-01', theme: 'dark', title: `${p.client.name}: project update`, subtitle: `${p.engagement.package} · ${p.engagement.stage}` }, 'Cover', ''),
+          slide({ template: 'main/summary-01', title: 'Since the last update', body: [`${merged} change${merged === 1 ? '' : 's'} merged and ${fixed} finding${fixed === 1 ? '' : 's'} fixed${sample}.`, `${open.length} finding${open.length === 1 ? '' : 's'} still open: ${drift} place${drift === 1 ? '' : 's'} where Figma and code differ.`, p.published ? `The client demo shows version ${p.published.version}.` : 'No client demo version yet.'] }, 'What changed', 'Lead with what is done, then what is open. Figures come from the hub.'),
+          ...(decisionRows.length >= 2 ? [slide({ template: 'core/table-rows-3', caption: 'Decisions', title: 'What we agreed', subtitle: 'Recorded in the system contract', rows: decisionRows }, 'Decisions made', decided.map(([k, v]) => `- ${k}: ${v}`).join('\n'))] : []),
+          slide({ template: 'core/cards-row-4', caption: 'Open points', title: 'What still needs attention', subtitle: 'The most important findings first', cards: findingCards.slice(0, 4) }, 'Open findings', top.map((f) => `- ${f.title}`).join('\n')),
+          demo,
+          slide({ template: 'pitch/grid-15', caption: 'Next steps', title: 'What happens next', steps }, 'Next steps', steps.map((x) => x.title).join('\n')),
+          slide({ template: 'main/closing-01', theme: 'dark', title: "Let's keep building it together." }, 'Closing', ''),
+        ]
+      : [
+          slide({ template: 'main/cover-01', theme: 'dark', title: `${p.client.name}: where the system stands`, subtitle: `Assessment readout · ${p.engagement.package}` }, 'Cover', 'Open with the question the assessment answers: how consistent is the system, and how well can AI tools use it?'),
+          slide({ template: 'main/summary-01', title: 'Where the system stands', body: [`${sys.components.length} components in the system contract; ${open.length} open finding${open.length === 1 ? '' : 's'}, ${drift} place${drift === 1 ? '' : 's'} where Figma and code differ${sample}.`, j.scan.status === 'done' ? 'The baseline was captured by the read-only assessment.' : 'Run the assessment in the hub to capture a baseline before this readout.'] }, 'Where they are', 'Read the figures back; say where they come from.'),
+          slide({ template: 'core/cards-row-4', caption: 'What we found', title: 'The findings that matter most', subtitle: 'Each names the side to fix and the rule behind it', cards: findingCards.slice(0, 4) }, 'Top findings', top.map((f) => `- ${f.title}: ${f.summary}`).join('\n')),
+          ...(decisionRows.length >= 2 ? [slide({ template: 'core/table-rows-3', caption: 'Agreed', title: 'What we decided together', subtitle: 'Recorded in the system contract', rows: decisionRows }, 'Decisions', decided.map(([k, v]) => `- ${k}: ${v}`).join('\n'))] : []),
+          demo,
+          slide({ template: 'pitch/grid-15', caption: 'Next steps', title: 'What happens next', steps }, 'Next steps', steps.map((x) => x.title).join('\n')),
+          slide({ template: 'main/closing-01', theme: 'dark', title: "Let's keep building it together." }, 'Closing', ''),
+        ]
+  const title = structure === 'update' ? `${p.client.name} project update` : `${p.client.name} assessment readout`
   return {
     projectId: p.id,
-    title: `${p.client.name} readout`,
-    structure: 'readout',
+    title,
+    structure,
     durationMin: opts.durationMin,
-    brief: { deckName: `${p.client.name} readout`, keyMessages: [], audiencePurpose: `${p.client.name} · readout`, slideCount: slides.length, client: { name: p.client.name, logo: 'Look it up in the DS client-logo set' }, verbatim: [], hook: 'AI will build your interfaces anyway. Make sure it builds yours.', tone: 'Plain, specific, confident.', mustHaveSlides: ['See it live'], takeaways: [], pictures: [], sources: [] },
+    brief: { deckName: title, keyMessages: structure === 'update' ? ['What changed since the last update', 'What still needs attention', 'What happens next'] : ['Where the system stands', 'What matters most', 'What happens next'], audiencePurpose: `${p.client.name} · ${structure === 'update' ? 'steering group update' : 'assessment readout'}`, slideCount: slides.length, client: { name: p.client.name, logo: 'Look it up in the DS client-logo set' }, verbatim: [], hook: 'AI will build your interfaces anyway. Make sure it builds yours.', tone: 'Plain, specific, confident. No invented figures.', mustHaveSlides: ['See it live', 'Next steps'], takeaways: steps.map((x) => x.title), pictures: [], sources: [] },
     slides,
     stage: 'plan',
     engine: { artifactVersion: ENGINE.artifactVersion, templates: ENGINE.templates },

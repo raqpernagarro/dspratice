@@ -44,7 +44,7 @@ export function SourceDetail() {
   return (
     <div className="page">
       <PageHead
-        screen="knowledge"
+       
         noTabs
         crumbs={[{ label: 'Knowledge library', to: practice.knowledge }, { label: source.title }]}
         title={source.title}
@@ -75,7 +75,7 @@ export function SourceDetail() {
               </button>
             ) : (
               <button className="btn btn--secondary" onClick={() => act().setApproval(source.id, 'outdated', 'Marked outdated by a reviewer.')} data-testid="mark-outdated">
-                <AlertTriangle /> Mark outdated
+                <AlertTriangle /> Mark out of date
               </button>
             )}
           </>

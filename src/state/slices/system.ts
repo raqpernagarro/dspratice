@@ -131,8 +131,8 @@ export function systemSlice(ctx: Ctx): SystemActions {
         log(scope, allPass ? `Checks passed on #${prNumber}; waiting for review` : `Checks on #${prNumber}: parity failed until the Figma change set is applied`, { type: 'pr', id: String(prNumber) }, true, 'CI')
         toast(
           allPass
-            ? { kind: 'ok', title: `All 5 checks passed on #${prNumber}`, detail: 'Local simulation · no CI run was triggered' }
-            : { kind: 'warn', title: `Parity check failed on #${prNumber}`, detail: 'Apply the Figma change set in the 3-way review, then the check re-runs. Local simulation.' },
+            ? { kind: 'ok', title: `All 5 checks passed on #${prNumber}`, detail: 'Simulated checks: no real CI run.' }
+            : { kind: 'warn', title: `Parity check failed on #${prNumber}`, detail: 'Apply the matching change in the Figma review; the check then runs again.' },
         )
       },
     )
@@ -181,7 +181,7 @@ export function systemSlice(ctx: Ctx): SystemActions {
     if (number !== undefined) {
       const n = number
       log(scope, `Opened pull request #${n} from the panel (branch ds/…)`, { type: 'pr', id: String(n) }, true)
-      toast({ kind: 'sim', title: `Pull request #${n} created`, detail: 'Local simulation · nothing was pushed to GitHub. Checks are running.' })
+      toast({ kind: 'sim', title: `Pull request #${n} created`, detail: 'Simulated: nothing was sent to GitHub. Checks are running.' })
       after(jobKey(scope, `start-checks-${n}`), 400, () => runChecksImpl(scope, n))
     }
     return number
@@ -296,7 +296,7 @@ export function systemSlice(ctx: Ctx): SystemActions {
         sys.contract.version += 1
       })
       log(scope, `Merged #${prNumber} into main; 6 channels marked stale until the publisher runs`, { type: 'pr', id: String(prNumber) }, true)
-      toast({ kind: 'ok', title: `#${prNumber} merged`, detail: 'Local simulation · token values updated in the panel; channels need publishing.', diff: ['token values updated', 'finding → merged', '6 channels → stale', 'contract version +1'] })
+      toast({ kind: 'ok', title: `#${prNumber} merged`, detail: 'The token values are updated. The files AI tools read are out of date until they are regenerated.', diff: ['token values updated', 'finding → merged', '6 channels → stale', 'contract version +1'] })
       return true
     },
     requestMerge: (prNumber) => {
@@ -331,7 +331,7 @@ export function systemSlice(ctx: Ctx): SystemActions {
         cs.status = 'version_saved'
         cs.versionLabel = 'Before DS Configurator import'
       })
-      toast({ kind: 'sim', title: 'Version saved in the file history', detail: '"Before DS Configurator import" · roll back in one step. Local simulation.' })
+      toast({ kind: 'sim', title: 'Version saved in the file history', detail: 'Saved as “Before the import”. You can roll back in one step.' })
       after(jobKey(scope, `apply-${id}`), 1100, () => {
         setSys(scope, (sys) => {
           const cs = sys.figmaChangeSets.find((x) => x.id === id)
@@ -355,7 +355,7 @@ export function systemSlice(ctx: Ctx): SystemActions {
         const cs = readSys(scope).figmaChangeSets.find((x) => x.id === id)
         if (!cs) return
         log(scope, `Applied ${cs.rows.filter((r) => r.include).length} change(s) to "${cs.file}": ${cs.layersRebound} layers rebound`, { type: 'figma', id }, true, 'DS Configurator sync')
-        toast({ kind: 'ok', title: `${cs.rows.filter((r) => r.include).length} change applied in Figma`, detail: `${cs.layersRebound} layers rebound · only layers bound to this variable changed. Local simulation.` })
+        toast({ kind: 'ok', title: `${cs.rows.filter((r) => r.include).length} change applied in Figma`, detail: `${cs.layersRebound} layers updated; only layers that use this variable changed. Simulated in this demo.` })
         if (cs.prNumber) {
           const pr = readSys(scope).pullRequests.find((p) => p.number === cs.prNumber)
           if (pr && pr.checks.some((c) => c.id === 'parity' && c.status === 'fail')) {
@@ -436,7 +436,7 @@ export function systemSlice(ctx: Ctx): SystemActions {
         })),
         () => {
           log(scope, `Published ${targets.length} channel${targets.length > 1 ? 's' : ''} from contract v${readSys(scope).contract.version}`, { type: 'channel', id: 'all' }, true, 'Publisher agent')
-          toast({ kind: 'ok', title: `${targets.length} channel${targets.length > 1 ? 's' : ''} published`, detail: 'Local simulation · files were generated in memory, nothing was uploaded.' })
+          toast({ kind: 'ok', title: `${targets.length} channel${targets.length > 1 ? 's' : ''} published`, detail: 'Generated in this browser; nothing was uploaded.' })
         },
       )
     },
@@ -477,7 +477,7 @@ export function systemSlice(ctx: Ctx): SystemActions {
           })
           const ev = readSys(scope).evals[0]
           log(scope, `Release eval ${ev.version}: ${ev.onSystem}% on-system (gate ${ev.gate}%)`, { type: 'channel', id: 'eval' }, true, 'CI')
-          toast({ kind: ev.onSystem >= ev.gate ? 'ok' : 'warn', title: `${ev.version}: ${ev.onSystem}% on-system`, detail: 'Local simulation · scores derive from the current state (stale channels lower them).' })
+          toast({ kind: ev.onSystem >= ev.gate ? 'ok' : 'warn', title: `${ev.version}: ${ev.onSystem}% of AI output on the system`, detail: 'Sample scores, worked out from the current state. Out-of-date AI tool files lower them.' })
         },
       )
     },
@@ -536,7 +536,7 @@ export function systemSlice(ctx: Ctx): SystemActions {
         }
       })
       log(scope, 'Undid an auto-applied agent fix', { type: 'proposal', id }, true)
-      toast({ kind: 'warn', title: 'Fix undone', detail: 'The 3 fills are loose again and the finding is open. Local simulation.' })
+      toast({ kind: 'warn', title: 'Fix undone', detail: 'The 3 fills are unbound again and the finding is open.' })
     },
     setTrustLevel: (action, level) => {
       const scope = activeScope()
@@ -609,7 +609,7 @@ export function systemSlice(ctx: Ctx): SystemActions {
         if (l) l.leads = leads
       })
       log(scope, `Proposed a contract change: ${layer} is led by "${leads}" (goes to a pull request)`, { type: 'contract', id: layer })
-      toast({ kind: 'sim', title: 'Contract change proposed', detail: 'Changes to ds.contract.json ship as a pull request. Local simulation.' })
+      toast({ kind: 'sim', title: 'Contract change proposed', detail: 'Changes to the system contract go through a pull request.' })
     },
     toggleRule: (ruleId) => {
       const scope = activeScope()

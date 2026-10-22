@@ -1,17 +1,17 @@
 import { createBrowserRouter, Navigate, useParams, useSearchParams } from 'react-router'
 import { useEffect } from 'react'
 import { useStore } from '@/state/store'
-import { practice } from './routes'
+import { IMPROVE_LEGACY, IMPROVE_STEPS, practice, type ImproveStep as ImproveSlug, type OpportunityStep } from './routes'
 import { LegacyRedirect } from './LegacyRedirect'
-import { ClientEntry, NagarroLayout, ProjectRouteSync } from '@/shell/layouts'
-import { WelcomePage } from '@/features/welcome/WelcomePage'
-import { LandingPage } from '@/features/landing/LandingPage'
+import { ClientEntry, NagarroLayout, OwnerRouteSync, ProjectRouteSync } from '@/shell/layouts'
 import { HandbookPage } from '@/features/handbook/HandbookPage'
 import { NagarroHome } from '@/features/nagarro/NagarroHome'
 import { ClientPortfolio } from '@/features/nagarro/ClientPortfolio'
 import { PresenterGuide } from '@/features/nagarro/PresenterGuide'
 import { EngagementHome } from '@/features/nagarro/EngagementHome'
-import { PracticeLibrary, PracticeSettings, JourneyStepPlaceholder } from '@/features/nagarro/PracticePages'
+import { StartSystem } from '@/features/nagarro/StartSystem'
+import { AboutPage, PracticeSettings } from '@/features/nagarro/PracticePages'
+import { NotesWindow } from '@/features/presenter/NotesWindow'
 import { lazyPage } from './lazy'
 import { changeRoutes, clientRoute, systemRoutes } from './clientRoutes'
 
@@ -27,6 +27,9 @@ import { Readout } from '@/features/start/Readout'
 import { Mapping } from '@/features/start/Mapping'
 import { DriftList } from '@/features/start/DriftList'
 import { Handover } from '@/features/start/Handover'
+import { Goals } from '@/features/start/Goals'
+import { ReviewShare } from '@/features/start/ReviewShare'
+import { ImproveFrame } from '@/features/start/JourneyFrame'
 import { ChannelsPage } from '@/features/ai/ChannelsPage'
 import { EvalsPage } from '@/features/ai/EvalsPage'
 import { InboxPage } from '@/features/ai/InboxPage'
@@ -49,25 +52,43 @@ function ResetGate() {
   return null
 }
 
-/** Improve-journey steps: the ported pages for 2/4/5/6/7/9, placeholders for the rest until the journey shell lands. */
+/** The improve journey, in order. Old numeric steps (/journey/improve/4) redirect to their slug. */
 function ImproveStep() {
-  const { step } = useParams()
+  const { step = '' } = useParams()
+  if (IMPROVE_LEGACY[step]) return <Navigate to={`../${IMPROVE_LEGACY[step]}`} relative="path" replace />
+  if (!IMPROVE_STEPS.includes(step as ImproveSlug)) return <Navigate to={`../${IMPROVE_STEPS[0]}`} relative="path" replace />
+  return (
+    <ImproveFrame step={step as ImproveSlug} key={step}>
+      <ImprovePage step={step as ImproveSlug} />
+    </ImproveFrame>
+  )
+}
+
+function ImprovePage({ step }: { step: ImproveSlug }) {
   switch (step) {
-    case '2':
+    case 'goals':
+      return <Goals />
+    case 'connect':
       return <Connect />
-    case '4':
+    case 'assess':
       return <Scan />
-    case '5':
+    case 'findings':
       return <DriftList />
-    case '6':
+    case 'plan':
       return <Readout />
-    case '7':
+    case 'mapping':
       return <Mapping />
-    case '9':
+    case 'review':
+      return <ReviewShare />
+    case 'handover':
       return <Handover />
-    default:
-      return <JourneyStepPlaceholder journey="improve" step={Number(step) || 1} />
   }
+}
+
+/** Old project-level request and deck paths now live under the practice-wide lists. */
+function MovedToPractice({ to }: { to: (p: { slug: string; id?: string; step?: string }) => string }) {
+  const { slug = '', id, step } = useParams()
+  return <Navigate to={to({ slug, id, step })} replace />
 }
 
 export const router = createBrowserRouter([
@@ -76,11 +97,12 @@ export const router = createBrowserRouter([
     element: (
       <>
         <ResetGate />
-        <WelcomePage />
+        <Navigate to={practice.home} replace />
       </>
     ),
   },
-  { path: '/landing', element: <LandingPage /> },
+  { path: '/landing', element: <Navigate to={practice.home} replace /> },
+  { path: '/presenter/:slug', element: <NotesWindow /> },
   { path: '/share/:slug', element: <ShareView /> },
   {
     path: '/nagarro',
@@ -88,24 +110,37 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <NagarroHome /> },
       { path: 'clients', element: <ClientPortfolio /> },
-      { path: 'library', element: <PracticeLibrary /> },
-      { path: 'library/:id', element: <PracticeLibrary /> },
+      { path: 'start', element: <StartSystem /> },
+      { path: 'library', element: <Navigate to={practice.projects} replace /> },
+      { path: 'library/:id', element: <Navigate to={practice.projects} replace /> },
       { path: 'guides', element: <HandbookPage /> },
       { path: 'guides/:slug', element: <HandbookPage /> },
       { path: 'presentations', element: lazyPage(decks, 'DecksPractice') },
+      { path: 'presentations/new', element: lazyPage(decks, 'DeckBuilder') },
+      { path: 'presentations/:id', element: <OwnerRouteSync kind="deck" />, children: [{ index: true, element: lazyPage(decks, 'DeckView') }] },
       { path: 'knowledge', element: lazyPage(knowledge, 'KnowledgeLibrary') },
       { path: 'knowledge/add', element: lazyPage(knowledge, 'KnowledgeLibrary') },
       { path: 'knowledge/:id', element: lazyPage(knowledge, 'SourceDetail') },
       { path: 'opportunities', element: lazyPage(opportunity, 'OpportunitiesPractice') },
       { path: 'opportunities/new', element: lazyPage(opportunity, 'OpportunityNew') },
+      {
+        path: 'opportunities/:id',
+        element: <OwnerRouteSync kind="opportunity" />,
+        children: [
+          { index: true, element: lazyPage(opportunity, 'OpportunityEntry') },
+          { path: ':step', element: lazyPage(opportunity, 'OpportunityWizard') },
+        ],
+      },
       { path: 'tools', element: lazyPage(hub, 'ToolsPage') },
       { path: 'demos', element: lazyPage(hub, 'DemosPage') },
+      { path: 'demos/prepare', element: <PresenterGuide /> },
       { path: 'scorecard', element: lazyPage(scorecard, 'ScorecardPage') },
       { path: 'settings/integrations', element: lazyPage(hub, 'IntegrationsPage') },
       { path: 'settings', element: <PracticeSettings /> },
       { path: 'settings/people', element: <PeoplePage /> },
       { path: 'settings/rules', element: <ContractPage /> },
       { path: 'settings/setup', element: <PracticeSettings /> },
+      { path: 'settings/about', element: <AboutPage /> },
       { path: 'presenter', element: <LegacyRedirect /> },
       {
         path: 'clients/:slug',
@@ -114,17 +149,17 @@ export const router = createBrowserRouter([
           { index: true, element: <EngagementHome /> },
           { path: 'journey/new', element: <Wizard /> },
           { path: 'journey/new/:step', element: <Wizard /> },
-          { path: 'journey/improve', element: <Navigate to="1" replace /> },
+          { path: 'journey/improve', element: <Navigate to={IMPROVE_STEPS[0]} replace /> },
           { path: 'journey/improve/:step', element: <ImproveStep /> },
-          { path: 'meeting', element: <PresenterGuide /> },
+          { path: 'meeting', element: <MovedToPractice to={({ slug }) => practice.meetingPrep(slug)} /> },
           { path: 'report', element: <ReportPage /> },
-          { path: 'presentations', element: lazyPage(decks, 'DeckList') },
-          { path: 'presentations/new', element: lazyPage(decks, 'DeckBuilder') },
-          { path: 'presentations/:id', element: lazyPage(decks, 'DeckView') },
-          { path: 'opportunities', element: lazyPage(opportunity, 'OpportunityList') },
-          { path: 'opportunities/new', element: lazyPage(opportunity, 'OpportunityNew') },
-          { path: 'opportunities/:id', element: lazyPage(opportunity, 'OpportunityEntry') },
-          { path: 'opportunities/:id/:step', element: lazyPage(opportunity, 'OpportunityWizard') },
+          { path: 'presentations', element: <MovedToPractice to={({ slug }) => practice.presentationsFor(slug)} /> },
+          { path: 'presentations/new', element: <MovedToPractice to={({ slug }) => `${practice.deckNew}?project=${slug}`} /> },
+          { path: 'presentations/:id', element: <MovedToPractice to={({ id }) => practice.deck(id!)} /> },
+          { path: 'opportunities', element: <MovedToPractice to={({ slug }) => practice.opportunitiesFor(slug)} /> },
+          { path: 'opportunities/new', element: <MovedToPractice to={({ slug }) => `${practice.opportunityStart}?project=${slug}`} /> },
+          { path: 'opportunities/:id', element: <MovedToPractice to={({ id }) => practice.opportunityEntry(id!)} /> },
+          { path: 'opportunities/:id/:step', element: <MovedToPractice to={({ id, step }) => practice.opportunity(id!, step as OpportunityStep)} /> },
           { path: 'system', element: <Navigate to="components" replace /> },
           ...systemRoutes('system'),
           ...changeRoutes('changes'),

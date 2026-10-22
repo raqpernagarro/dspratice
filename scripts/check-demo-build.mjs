@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // check-demo-build.mjs — fails the client-safe demo build (dist-demo/) if internal material is in
 // it: the knowledge library's content and registry, opportunities and requests, other clients'
-// names, internal planning, keys. Run automatically by `npm run build:demo`.
+// names, internal planning, presenter notes, keys. Run automatically by `npm run build:demo`.
 import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join, resolve } from 'node:path'
@@ -14,6 +14,8 @@ const FORBIDDEN = [
   'opp-northwind-rfp', 'Request for proposal: AI-native', 'generation packet', 'figma-text@1',
   // other clients and internal planning
   'ASSA ABLOY', 'Vorwerk', 'Ajman', 'AJIO', 'Jerónimo', 'AstraZeneca', 'Charter Communications', 'Pragathi', 'Prototyping Tool (internal only)',
+  // presenter notes and meeting preparation (src/internal/presenterNotes.ts, the notes window)
+  'PRESENTER_NOTES', 'Open with the problem, not the tool', 'Never promise another stack', 'Keep this window off the shared screen', 'Before the meeting',
   // integrations and secrets
   'ANTHROPIC_API_KEY', 'FIGMA_TOKEN', '/api/generate',
 ]

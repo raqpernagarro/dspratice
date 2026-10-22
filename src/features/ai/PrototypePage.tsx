@@ -30,9 +30,9 @@ export function PrototypePage() {
   return (
     <div className="page">
       <PageHead
-        screen="prototype"
-        title="Prototype with the system"
-        lead="Describe a screen; it is built from real components and real tokens only. Anything the system does not have is refused with the nearest real thing, before generation."
+       
+        title="Build a screen with the system"
+        lead="Describe a screen. It is built only from the system’s real components and tokens; anything the system doesn’t have is refused, with the nearest real alternative."
       />
 
       <Panel>
@@ -120,7 +120,7 @@ export function PrototypePage() {
                 >
                   <Copy /> Copy code
                 </Btn>
-                <Btn variant="secondary" size="sm" onClick={() => act().pushToast({ kind: 'sim', title: 'Open in Figma is simulated', detail: 'With the Figma MCP (use_figma) this would place real library components on the canvas. Not connected in this demo.' })}>
+                <Btn variant="secondary" size="sm" onClick={() => act().pushToast({ kind: 'sim', title: 'Open in Figma is simulated', detail: 'In a real set-up, an AI tool connected to Figma would place the library’s real components on the canvas. Not connected in this demo.' })}>
                   <Figma /> Open in Figma
                 </Btn>
               </div>

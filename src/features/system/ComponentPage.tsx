@@ -34,7 +34,7 @@ export function ComponentPage() {
   return (
     <div className="page">
       <PageHead
-        screen="component"
+       
         crumbs={[{ label: 'Components', to: r.components }, { label: c.name }]}
         title={c.name}
         lead={c.description}

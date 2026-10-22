@@ -1,18 +1,17 @@
 import { useMemo } from 'react'
-import { useNavigate } from 'react-router'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useStore } from '@/state/store'
-import { act, usePaths, useSys } from '@/state/hooks'
+import { act, useSys } from '@/state/hooks'
 import { PageHead } from '@/shell/PageHead'
 import { Btn, Callout, Chip, Panel, Segmented, Stat } from '@/shell/ui'
 import { GRAMMARS, mapGrammar, summarise, type GrammarId } from '@/contract/adapters'
 import { DSN_SAMPLE, KIT_SAMPLE, STARTER_SAMPLE } from '@/fixtures/reference/grammars'
+import { useImproveNav } from './JourneyFrame'
 
 const SAMPLES: Record<GrammarId, string[]> = { dsn: DSN_SAMPLE, starter: STARTER_SAMPLE, kit: KIT_SAMPLE }
 
 export function Mapping() {
-  const navigate = useNavigate()
-  const r = usePaths()
+  const nav = useImproveNav('mapping')
   const mapping = useSys((s) => s.journey.mapping)
   const setGrammar = useStore((s) => s.setMappingGrammar)
   const setDecision = useStore((s) => s.setMappingDecision)
@@ -25,9 +24,10 @@ export function Mapping() {
   return (
     <div className="page">
       <PageHead
-        screen="connect"
-        title="Token mapping"
-        lead="Three grammars, one set of roles. The adapter maps names to contract roles; it never renames your tokens. What it cannot decide, you decide here. Names below are real samples from the three practice systems."
+       
+        noTabs
+        title="Map the client’s names onto the contract"
+        lead="The contract gives every token a role, such as “background of a primary button on hover”. The adapter maps the client’s names onto those roles and never renames their tokens. Decide the names it cannot place. The samples below come from the practice’s three systems."
       />
 
       <div className="row row--between">
@@ -101,23 +101,19 @@ export function Mapping() {
       </Panel>
 
       <div className="row row--between">
-        <span className="small muted">{pending.length === 0 ? 'All decisions made for this grammar.' : `${pending.length} decision${pending.length > 1 ? 's' : ''} open (partial mapping is allowed; open ones stay listed in the contract).`}</span>
-        <span className="row">
-          <Btn
-            variant="secondary"
-            disabled={decided === 0}
-            title={decided === 0 ? 'Decide at least one mapping first' : undefined}
-            onClick={() => {
-              const n = act().applyMappingDecisions()
-              act().pushToast({ kind: 'ok', title: `${n} decision${n === 1 ? '' : 's'} applied to the contract`, detail: 'The semantic layer now reads through the adapter. Skipped names stay system-specific.' })
-            }}
-          >
-            <Check /> Apply decisions to the contract
-          </Btn>
-          <Btn onClick={() => navigate(r.journeyImprove(5))}>
-            Review the drift list <ArrowRight />
-          </Btn>
-        </span>
+        <span className="small muted">{pending.length === 0 ? 'Every name in this sample is decided.' : `${pending.length} name${pending.length > 1 ? 's' : ''} still to decide. You can apply a partial mapping; open names stay listed in the contract.`}</span>
+        <Btn
+          disabled={decided === 0}
+          title={decided === 0 ? 'Decide at least one name first' : undefined}
+          onClick={() => {
+            const n = act().applyMappingDecisions()
+            act().pushToast({ kind: 'ok', title: `${n} name${n === 1 ? '' : 's'} saved in the contract`, detail: 'Names you kept separate stay specific to this system.' })
+            nav.complete()
+          }}
+          data-testid="mapping-continue"
+        >
+          Save the mapping and review <ArrowRight />
+        </Btn>
       </div>
     </div>
   )

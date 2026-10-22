@@ -1,15 +1,17 @@
 import { useState } from 'react'
-import { Navigate, useNavigate, useParams } from 'react-router'
+import { Navigate, useNavigate, useParams, useSearchParams } from 'react-router'
 import { PageHead } from '@/shell/PageHead'
 import { Callout, Field, Panel, cx } from '@/shell/ui'
 import { act } from '@/state/hooks'
 import { useStore } from '@/state/store'
-import { nagarro, practice } from '@/app/routes'
+import { practice } from '@/app/routes'
+import { opportunityProgress } from '@/opportunity/progress'
 import { TASKS } from './steps'
 import type { TaskType } from '@/state/types'
 
 export function OpportunityNew() {
-  const { slug } = useParams()
+  const [params] = useSearchParams()
+  const slug = params.get('project') ?? undefined
   const navigate = useNavigate()
   const projects = useStore((s) => s.projects)
   const list = Object.values(projects)
@@ -25,15 +27,14 @@ export function OpportunityNew() {
   const create = () => {
     let pid = projectId
     if (newClient) pid = act().createProspect({ name, sector })
-    const p = useStore.getState().projects[pid]
     const id = act().createOpportunity(pid, { title, task })
-    navigate(nagarro(p.slug).opportunity(id, 'request'))
+    navigate(practice.opportunity(id, 'request'))
   }
 
   return (
     <div className="page page--narrow">
-      <PageHead screen="opportunity" title="Respond to a request" lead="Step 1 of 7 · Choose the opportunity: which client, and what they need back." noTabs crumbs={[{ label: 'Opportunities', to: practice.opportunities }, { label: 'New' }]} />
-      <Panel title="Which client?">
+      <PageHead title="Respond to a client request" lead="Say who the request is from and what they need back. Next you add the request itself: paste it or upload the file." noTabs crumbs={[{ label: 'Opportunities', to: practice.opportunities }, { label: 'New request' }]} />
+      <Panel title="Which client or prospect?">
         {!newClient ? (
           <div className="stack">
             <select className="select" value={projectId} onChange={(e) => setProjectId(e.target.value)} disabled={Boolean(slug)} data-testid="opp-client">
@@ -47,7 +48,7 @@ export function OpportunityNew() {
             </select>
             {!slug && (
               <button className="btn btn--ghost btn--sm" onClick={() => setNewClient(true)} data-testid="new-prospect">
-                + New client or prospect
+                + A new client or prospect
               </button>
             )}
           </div>
@@ -59,13 +60,14 @@ export function OpportunityNew() {
             <Field label="Sector">
               <input className="input" value={sector} onChange={(e) => setSector(e.target.value)} placeholder="e.g. Insurance" />
             </Field>
-            <Callout tone="info">The prospect is created in this browser only, as a real (not sample) client with no design system yet. Its opportunities and uploads stay here and are never committed.</Callout>
+            <Callout tone="info">This creates a project for them in this browser only. Their requests and uploaded files stay here.</Callout>
             <button className="btn btn--ghost btn--sm" onClick={() => setNewClient(false)}>Choose an existing client instead</button>
           </div>
         )}
       </Panel>
       <Panel title="Give it a name">
-        <input className="input" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Store operations design system RFP" data-testid="opp-title" />
+        <input className="input" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Store operations design system RFP" data-testid="opp-title" aria-label="Name of the request" />
+        <p className="xs muted">Use the client’s own title if the request has one, so colleagues recognise it.</p>
       </Panel>
       <Panel title="What kind of response is needed?">
         <div className="grid grid--2">
@@ -88,9 +90,10 @@ export function OpportunityNew() {
   )
 }
 
+/** `/nagarro/opportunities/:id` resumes at the first step that is not done yet. */
 export function OpportunityEntry() {
-  const { slug, id } = useParams()
-  const o = useStore((s) => Object.values(s.projects).find((p) => p.slug === slug)?.opportunities?.[id ?? ''])
-  if (!slug || !o) return <Navigate to={slug ? nagarro(slug).opportunities : practice.opportunities} replace />
-  return <Navigate to={nagarro(slug).opportunity(o.id, o.step)} replace />
+  const { id } = useParams()
+  const o = useStore((s) => Object.values(s.projects).find((p) => p.opportunities?.[id ?? ''])?.opportunities[id ?? ''])
+  if (!o) return <Navigate to={practice.opportunities} replace />
+  return <Navigate to={practice.opportunity(o.id, opportunityProgress(o).next ?? 'export')} replace />
 }

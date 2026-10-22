@@ -17,7 +17,7 @@ export interface PackageRule {
 export const PACKAGES: { name: PackageName; what: string }[] = [
   { name: '2-week AI audit', what: 'A short, fixed assessment: where the system stands, what blocks AI from staying on-system, and a readout with the recommended next package.' },
   { name: 'DS Build', what: 'A new design system for a product that has none it can trust.' },
-  { name: 'DS Accelerate', what: 'An existing system made AI-ready: one contract, machine-readable guidance, checks in CI and a named owner.' },
+  { name: 'DS Accelerate', what: 'An existing system made AI-ready: a system contract, guidance AI tools can read, checks on every change and a named owner.' },
   { name: 'DS Scale', what: 'Several systems or brands brought onto one shared foundation.' },
   { name: 'Support', what: 'Ongoing governance, evals and enablement after handover.' },
 ]

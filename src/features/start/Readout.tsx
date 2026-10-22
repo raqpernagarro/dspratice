@@ -1,14 +1,13 @@
-import { useNavigate } from 'react-router'
-import { ArrowRight, Users } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useStore } from '@/state/store'
-import { usePaths, useSys } from '@/state/hooks'
+import { useSys } from '@/state/hooks'
 import { PageHead } from '@/shell/PageHead'
 import { Btn, Callout, Chip, Panel } from '@/shell/ui'
 import { READOUT_DECISIONS } from '@/fixtures/demo-brand/system'
+import { useImproveNav } from './JourneyFrame'
 
 export function Readout() {
-  const navigate = useNavigate()
-  const r = usePaths()
+  const nav = useImproveNav('plan')
   const readout = useSys((s) => s.journey.readout)
   const setReadout = useStore((s) => s.setReadout)
   const scanDone = useSys((s) => s.journey.scan.status === 'done')
@@ -17,13 +16,13 @@ export function Readout() {
   return (
     <div className="page">
       <PageHead
-        screen="connect"
-        title="Readout: agree the plan"
-        lead="The scan lists findings; people decide. Four decisions are written into the contract before anything is adapted. A Nagarro specialist runs this session with you."
-        eyebrow={<Chip tone="info" icon={<Users style={{ width: 12 }} />}>Service step · with a specialist</Chip>}
+       
+        noTabs
+        title="Agree the plan"
+        lead="The assessment lists the findings; people decide what happens. These four decisions go into the system contract before anything changes. Each choice is saved as you make it."
       />
 
-      {!scanDone && <Callout tone="warn">Run the scan first so the readout has findings to discuss.</Callout>}
+      {!scanDone && <Callout tone="warn">Run the assessment first, so the plan has findings to discuss.</Callout>}
 
       <div className="stack">
         {READOUT_DECISIONS.map((d) => (
@@ -47,10 +46,10 @@ export function Readout() {
 
       <div className="row row--between">
         <span className="small muted">
-          {decided} of {READOUT_DECISIONS.length} decided · written to the contract as you choose
+          {decided} of {READOUT_DECISIONS.length} decided
         </span>
-        <Btn onClick={() => navigate(r.journeyImprove(7))} disabled={decided < READOUT_DECISIONS.length}>
-          Adapt to the contract <ArrowRight />
+        <Btn onClick={nav.complete} disabled={decided < READOUT_DECISIONS.length} title={decided < READOUT_DECISIONS.length ? 'Decide all four first' : undefined}>
+          Plan agreed: map the names <ArrowRight />
         </Btn>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import type { GuideActions } from '../actions'
 import { ensureSession, type Ctx } from '../ctx'
 import { activeScope, newGuideState } from '../scope'
+import { pauseSim, resumeSim } from '../sim'
 
 export function guideSlice(ctx: Ctx): GuideActions {
   const { set } = ctx
@@ -10,21 +11,20 @@ export function guideSlice(ctx: Ctx): GuideActions {
       if (sess) fn(sess.guide, s)
     })
   return {
-    startGuide: (mode, chapterId) =>
-      withGuide((g) => {
-        const resume = g.status === 'paused' || (g.status === 'running' && !chapterId)
+    // Starting the guide begins at the first chapter of the path, or at the chapter named.
+    startGuide: (mode, chapterId) => {
+      resumeSim()
+      withGuide((g, s) => {
         g.mode = mode
         g.status = 'running'
-        g.startedAt = g.startedAt ?? ctx.now()
+        g.startedAt = ctx.now()
         g.finishedAt = undefined
-        if (chapterId) {
-          g.chapterId = chapterId
-          g.stepIndex = 0
-        } else if (!resume || !g.chapterId) {
-          g.chapterId = null
-          g.stepIndex = 0
-        }
-      }),
+        g.chapterId = chapterId ?? null
+        g.stepIndex = 0
+        if (!chapterId) g.completedChapters = []
+        s.ui.motionPaused = false
+      })
+    },
     setGuideChapter: (chapterId, stepIndex = 0) =>
       withGuide((g) => {
         g.chapterId = chapterId
@@ -43,24 +43,32 @@ export function guideSlice(ctx: Ctx): GuideActions {
       withGuide((g) => {
         if (!g.completedChapters.includes(chapterId)) g.completedChapters.push(chapterId)
       }),
-    pauseGuide: (paused) =>
+    pauseGuide: (paused) => {
+      if (paused) pauseSim()
+      else resumeSim()
       withGuide((g, s) => {
         if (g.status === 'running' && paused) g.status = 'paused'
         if (g.status === 'paused' && !paused) g.status = 'running'
         s.ui.motionPaused = paused
-      }),
-    endGuide: () =>
+      })
+    },
+    endGuide: () => {
+      resumeSim()
       withGuide((g, s) => {
         g.status = 'idle'
         s.ui.motionPaused = false
-      }),
-    finishGuide: () =>
+      })
+    },
+    finishGuide: () => {
+      resumeSim()
       withGuide((g, s) => {
         g.status = 'finished'
         g.finishedAt = ctx.now()
         s.ui.motionPaused = false
-      }),
+      })
+    },
     restartGuide: (fresh) => {
+      resumeSim()
       const scope = activeScope()
       if (fresh) ctx.get().resetDemoSession(scope.projectId)
       withGuide((g, s) => {

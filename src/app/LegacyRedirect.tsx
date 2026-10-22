@@ -1,5 +1,5 @@
 // Old routes (/panel/*, /demo, /handbook, /nagarro/presenter) land on their new home in the
-// workspace the person used last. Presenters are sent to the client experience.
+// workspace the person used last. Presenters are sent to the client demo.
 
 import { Navigate, matchPath, useLocation } from 'react-router'
 import { useStore } from '@/state/store'
@@ -12,11 +12,11 @@ const RULES: [string, (c: Ctx) => string][] = [
   ['/panel/start', ({ r, client }) => (client ? r.home : r.journeyNew())],
   ['/panel/start/new', ({ r, client }) => (client ? r.home : r.journeyNew())],
   ['/panel/start/new/:step', ({ r, client, params }) => (client ? r.home : r.journeyNew(params.step))],
-  ['/panel/start/connect', ({ r, client }) => (client ? r.home : r.journeyImprove(2))],
+  ['/panel/start/connect', ({ r, client }) => (client ? r.home : r.journeyImprove('connect'))],
   ['/panel/start/scan', ({ r }) => r.assessment],
-  ['/panel/start/readout', ({ r, client }) => (client ? r.report : r.journeyImprove(6))],
-  ['/panel/start/mapping', ({ r, client }) => (client ? r.home : r.journeyImprove(7))],
-  ['/panel/start/drift', ({ r, client }) => (client ? r.changes : r.journeyImprove(5))],
+  ['/panel/start/readout', ({ r, client }) => (client ? r.report : r.journeyImprove('plan'))],
+  ['/panel/start/mapping', ({ r, client }) => (client ? r.home : r.journeyImprove('mapping'))],
+  ['/panel/start/drift', ({ r, client }) => (client ? r.changes : r.journeyImprove('findings'))],
   ['/panel/start/handover', ({ r }) => r.handover],
   ['/panel/system', ({ r }) => r.components],
   ['/panel/system/components', ({ r }) => r.components],
