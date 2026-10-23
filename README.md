@@ -40,13 +40,28 @@ open http://localhost:4300
 | `npm run build` | Typecheck and production build into `dist/` |
 | `npm run build:demo` | The client-safe demo into `dist-demo/`, then a leak check that fails on internal names and markers |
 | `npm run preview` / `npm run preview:demo` | Serve `dist/` on 4301 or `dist-demo/` on 4302 (the local API also works in preview) |
-| `npm test` | Vitest: 13 files, 97 tests |
-| `npm run e2e` | Playwright in Microsoft Edge (`channel: 'msedge'`): 6 specs, 8 tests. Run `npm run build:demo` first |
+| `npm test` | Vitest: 17 files, 116 tests |
+| `npm run e2e` | Playwright in Microsoft Edge (`channel: 'msedge'`): 6 specs, 9 tests. Run `npm run build:demo` first |
 | `npm run typecheck` | TypeScript only (core app when the library sources are absent) |
 | `npm run knowledge:local [-- --check]` | Re-read the practice files into the bundled knowledge snapshot, or check it is current |
 | `npm run knowledge:figma -- <capture.json> --source <id>` | Turn a Figma text capture (plugin, figma-cli or MCP) into a knowledge document |
 | `npm run slides:sync -- <folder> --version <id>` | Update the vendored Nagarro Master Slides engine from a downloaded copy |
 | `npm run tokens:sync` | Regenerate `src/styles/brand-tokens.css` from the engine's `tokens.json` |
+| `npm run tools` | Where each practice tool runs from and whether it is running (see *Practice tools* below) |
+| `npm run tools -- copy <tool\|all>` | Copy a tool out of `../demo tools` into `tool-copies/`, once (an APFS clone on a Mac: about 40s for all three) |
+| `npm run tools -- start <tool…\|all>` | Start tools from your clone or copy; Ctrl+C stops them |
+
+## Practice tools
+
+The hub opens the practice's own tools instead of copying them: **Tools** lists them, and each one opens at `/nagarro/tools/<id>`, inside the page (DS Configurator, DSN site) or in its own tab (Presentation Studio). The list is `src/fixtures/experiences.ts`; the servers are `src/fixtures/tool-servers.json`, read by the hub, the local API (`GET /api/tools`) and `scripts/tools.mjs`.
+
+| Tool | Owner | Default address | Writes into its own folder |
+|---|---|---|---|
+| `starter` · DS Configurator | Nuno Almeida | <http://localhost:4175> | `ds.project.json` |
+| `dsn` · DSN site and Storybook | Rui Dias | <http://localhost:3100> and 6006 | `ds-index.json`, `site/.data` |
+| `studio` · Presentation Studio | Carolina Baptista | <http://localhost:4600> | `product/data`, `assets/uploads` |
+
+Because every tool writes into its own folder, none runs from `../demo tools` (read-only; `scripts/check-sources.mjs` checks all three). A tool runs from your own clone in `sources/` if there is one, else from a copy in `tool-copies/` (git-ignored, outside Vite's file watcher). Addresses can be changed per browser in **Settings › Integrations**. The page checks every few seconds while a tool is down, so starting it in the terminal is enough; the browser console shows a refused connection for each check.
 
 ## What works, what needs a key, what is simulated
 
@@ -63,7 +78,7 @@ The same list is in the app at **Settings › About this tool**, so task pages d
   - guards against invented figures, other clients' names and quotes from internal-only material;
   - downloads, the generation packet, and an optional summary in the client demo's closing chapter.
 - **Presentations**: from a reviewed response, or from a project's data as an **assessment readout** or a **project update** (no request needed). Brief, slide plan to approve, slides rendered by Carolina's engine, checks, present mode, and downloads (one-file HTML with present mode, `deck.json`, `brief.md`, speaker notes). Demo slides open the live client demo in the same tab and **Back to preparation** returns to the same slide.
-- **Set-up journeys**: *Start a new design system* (the Starter Pack's ten steps in four phases) and *Improve an existing system* (goals, connect, assess, findings, agree the plan, map the names, review and share, handover). A step is ticked when its work is done, never because it was opened, and the project Overview resumes at the first unfinished step.
+- **Set-up journeys**: *Start a new design system* opens the DS Starter Pack’s own set-up wizard in the page (from your clone or `tool-copies/`), then *Record it in the project* reads the `ds.project.json` it saved (or a `.dsproject.json` you choose) and shows what the hub keeps and what stays in the Starter Pack (`src/library/theme/fromStarterProject.ts`). Without the Starter Pack, the basics (name, brands, product, modes) are recorded by hand. Other ways to start: DSN Brands and DSN’s command line. *Improve an existing system* (goals, connect, assess, findings, agree the plan, map the names, review and share, handover) names the real tool for its steps where one exists. A step is ticked when its work is done, never because it was opened.
 - **Client demo**: the eight-chapter story with a short path (about 12 minutes) and a full path (about 25). Any chapter can be entered directly; the chapters it depends on are set up first. Pause holds the simulation on a state. Reset goes back to the prepared version and never touches preparation.
 - The AI-readiness scorecard and the demo build with its leak check.
 
@@ -102,7 +117,8 @@ The same list is in the app at **Settings › About this tool**, so task pages d
 - **Stack.** Vite 7, React 19, react-router 7, and one persisted Zustand store (schema 4, `src/state`).
 - **Projects.** Each project has a `draft` (preparation), a `published` version (what the client demo shows; last three kept), a demo `session` (what happens during a meeting, resettable) and `clientExperience`. Every edit in the hub lands in the draft. **Update the client demo** snapshots it. Journey progress is preparation: it never marks the draft as changed.
 - **New data stays at project level.** Requests, decks and response summaries live on the project, and the knowledge library under `practice.knowledge`. They are never cloned into published versions or sessions, and never mark the draft as changed. A summary added to the client demo is a frozen, client-safe copy whose provenance is kept as hashes only.
-- **Navigation.** One stable sidebar (Home, Opportunities, Projects, Knowledge library, Presentations, Client demo, Tools and guides, Settings). Requests and decks live under their practice-wide lists; a project's own sections are tabs in its header. Old project-level paths and numeric journey steps redirect.
+- **Home** asks "What do you need to do?" with one card per journey: *Prepare a client conversation* and *Start a project* (which asks new or existing system first).
+- **Navigation.** One stable sidebar of six (Home, Client conversations, Projects, Knowledge library, Tools, Settings). Client conversations holds Opportunities, Presentations and the Client demo as tabs; requests and decks live under their practice-wide lists; a project's own sections are tabs in its header. Old project-level paths and numeric journey steps redirect.
 - **Presenter notes** live in `src/internal/presenterNotes.ts` and the notes window (`/presenter/:slug`, synced over `BroadcastChannel`). The client-facing chapters are in `src/features/demo/steps.ts`; `prepare.ts` sets up a chapter's prerequisites.
 - **Document bodies** live in IndexedDB (`unified-ds-tool-knowledge`). Seed bodies are bundled JSON in `src/fixtures/knowledge/docs/`.
 - **Pure modules** (`src/knowledge`, `src/opportunity`, `src/deck`) have no DOM, so Node scripts, Vitest and the browser share one implementation.

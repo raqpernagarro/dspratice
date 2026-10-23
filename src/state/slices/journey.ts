@@ -11,6 +11,7 @@ import { cancelJob, runJob } from '../sim'
 import { applyThemeIntents, fastForwardSystem, slugify } from '../system-ops'
 import { makeFigmaChangeSet } from './system'
 import type { ThemeConfig, TokenChange } from '../types'
+import { NEW_STEPS } from '../journeyProgress'
 
 export function journeySlice(ctx: Ctx): JourneyActions {
   const { setSys, readSys, log, toast } = ctx
@@ -120,7 +121,25 @@ export function journeySlice(ctx: Ctx): JourneyActions {
         sys.contract.name = `${sys.theme.name} design system`
         sys.contract.repo = sys.theme.repoUrl || sys.contract.repo
       })
-      log(scope, 'Set-up journey completed; theme saved to ds.project.json (local)', { type: 'wizard', id: 'done' }, true)
+      log(scope, 'Set-up basics recorded in the hub (nothing was written to a repository or to Figma)', { type: 'wizard', id: 'done' }, true)
+    },
+    recordStarterProject: (imp, from) => {
+      const scope = activeScope()
+      setSys(scope, (sys) => {
+        Object.assign(sys.theme, imp.patch, { startingPoint: 'defaults', presetId: undefined, brief: undefined })
+        const j = sys.journey.new
+        j.done = NEW_STEPS.map((s) => s.n)
+        j.startedAt ??= ctx.now()
+        j.completedAt = ctx.now()
+        j.data.recorded = { from, at: ctx.now(), version: imp.source.version, exportedAt: imp.source.exportedAt, kept: imp.kept, notKept: imp.notKept }
+        sys.journey.wizardDone = true
+        sys.journey.entryPath = 'new'
+        applyThemeIntents(sys.tokens, sys.theme)
+        sys.contract.name = `${sys.theme.name} design system`
+        sys.contract.repo = sys.theme.repoUrl || sys.contract.repo
+      })
+      log(scope, `Recorded the DS Starter Pack set-up "${imp.patch.name}" (v${imp.source.version}) from ${from}`, { type: 'wizard', id: 'record' }, true)
+      toast({ kind: 'ok', title: 'Set-up recorded', detail: `${imp.patch.name} is now this project’s system. What the hub keeps is listed on the page.` })
     },
     exportToFigma: () => {
       const scope = activeScope()

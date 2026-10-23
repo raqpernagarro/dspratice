@@ -20,7 +20,7 @@ test('Northwind RFP: from request to a checked draft, the client demo and a deck
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
 
   await page.goto('/nagarro')
-  await expect(page.getByRole('heading', { name: /Use what the practice/ })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'What do you need to do?' })).toBeVisible()
   await shot(page, '01-home')
 
   // 3 · context

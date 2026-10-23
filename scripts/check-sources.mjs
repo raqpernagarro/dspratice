@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-sources.mjs — proves the two read-only source repos are untouched.
+ * check-sources.mjs — proves the read-only source repos (DSN, Starter Pack, Presentation Studio) are untouched.
  *
  *   node scripts/check-sources.mjs --write   # store an md5 manifest in docs/sources.md5
  *   node scripts/check-sources.mjs           # verify; exit 1 listing changed / added / removed paths
@@ -17,6 +17,8 @@ const APP_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SOURCES = {
   dsn: resolve(APP_ROOT, '..', 'demo tools', 'DSN-main'),
   starter: resolve(APP_ROOT, '..', 'demo tools', 'ds-starter-pack-main'),
+  // Carolina's Presentation Studio: run from tool-copies/ (npm run tools), never from here.
+  studio: resolve(APP_ROOT, '..', 'demo tools', 'deckgenerator-platform-main'),
 }
 const MANIFEST = join(APP_ROOT, 'docs', 'sources.md5')
 const EXCLUDED_DIRS = new Set(['node_modules', 'dist', '.git', 'storybook-static'])
@@ -64,7 +66,7 @@ const current = snapshot()
 
 if (write) {
   const lines = [
-    '# md5 manifest of the two read-only source repos (scripts/check-sources.mjs --write)',
+    '# md5 manifest of the read-only source repos (scripts/check-sources.mjs --write)',
     `# generated ${new Date().toISOString()}`,
     ...Object.entries(SOURCES).map(([label, root]) => `# ${label}: ${root}`),
     ...[...current.keys()].sort().map((key) => `${current.get(key)}  ${key}`),
@@ -93,4 +95,4 @@ if (changed.length || added.length || removed.length) {
   console.error(`Source repos differ from ${relative(APP_ROOT, MANIFEST)}:${list('changed', changed)}${list('added', added)}${list('removed', removed)}`)
   process.exit(1)
 }
-console.log(`OK: ${current.size} files in both source repos match ${relative(APP_ROOT, MANIFEST)} (unchanged).`)
+console.log(`OK: ${current.size} files in the source repos match ${relative(APP_ROOT, MANIFEST)} (unchanged).`)

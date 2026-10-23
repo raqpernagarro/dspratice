@@ -117,7 +117,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react(), optionalSources(), localApi(r('.')), ...(mode === 'demo' ? [pruneDemoOutput()] : [])],
   define: { 'import.meta.env.VITE_TARGET': JSON.stringify(mode === 'demo' ? 'demo' : 'internal') },
   resolve: { alias: [...demoAlias(mode), ...Object.entries(libraryAlias).map(([find, replacement]) => ({ find, replacement }))], dedupe },
-  server: { port: 4300, strictPort: true, fs: { allow: [r('.'), ...(HAS_DSN ? [DSN] : []), ...(HAS_STARTER ? [STARTER] : [])] } },
+  server: { port: 4300, strictPort: true, watch: { ignored: ['**/tool-copies/**'] }, fs: { allow: [r('.'), ...(HAS_DSN ? [DSN] : []), ...(HAS_STARTER ? [STARTER] : [])] } },
   optimizeDeps: {
     entries: ['index.html', 'preview.html', 'slides.html'],
     // Packages without a root export ("@lexical/react" only ships subpaths) cannot be pre-bundled whole.

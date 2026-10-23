@@ -11,7 +11,7 @@ import { usePresentDemo } from '@/shell/present'
 import { act, usePaths, useProject, useSystem } from '@/state/hooks'
 import { driftItems, health, openPRs, readiness, relTime } from '@/state/selectors'
 import { hasUnpublishedChanges, sessionIsStale } from '@/state/scope'
-import { IMPROVE_META, IMPROVE_PHASES, NEW_PHASES, improveSlug, improveStepStates, journeySummary, newStepStates } from '@/state/journeyProgress'
+import { IMPROVE_META, IMPROVE_PHASES, improveSlug, improveStepStates, journeySummary, newStepStates } from '@/state/journeyProgress'
 import { opportunityProgress } from '@/opportunity/progress'
 import { stepMeta } from '@/features/opportunity/steps'
 import { practice } from '@/app/routes'
@@ -32,11 +32,12 @@ export function EngagementHome() {
   const decks = Object.values(project.decks ?? {}).sort((a, b) => b.builtAt - a.builtAt)
   const nextVersion = (project.published?.version ?? 0) + 1
 
-  const newPhases = NEW_PHASES.map((ph) => ({
-    title: ph.label,
-    state: ph.steps.every((n) => newStates[n - 1] === 'done') ? ('done' as const) : ph.steps.includes(jNew.resume) && jNew.started ? ('current' as const) : ('todo' as const),
-    to: r.journeyNew(ph.steps.find((n) => newStates[n - 1] !== 'done') ?? ph.steps[0]),
-  }))
+  // The set-up happens in the DS Starter Pack; the hub records it (or the basics, by hand).
+  const basicsByHand = newStates.some((st) => st === 'done') && !jNew.complete
+  const newPhases = [
+    { title: 'Set up in the Starter Pack', state: jNew.complete ? ('done' as const) : jNew.started ? ('current' as const) : ('todo' as const), to: r.journeyNew() },
+    { title: 'Record it in the project', state: jNew.complete ? ('done' as const) : ('todo' as const), to: r.journeyNew() },
+  ]
   const impPhases = IMPROVE_PHASES.map((ph) => ({
     title: ph.label,
     text: ph.steps.some((s) => IMPROVE_META[s].specialist) ? 'With a specialist' : undefined,
@@ -53,11 +54,11 @@ export function EngagementHome() {
       />
 
       <section className="grid grid--2" aria-label="Set-up journeys">
-        <Panel title="Start a new design system" actions={<Chip tone={jNew.complete ? 'ok' : jNew.started ? 'info' : 'outline'}>{jNew.complete ? 'Done' : `${jNew.done} of ${jNew.total} steps done`}</Chip>}>
-          <p className="small muted">For a client without a system: brands, modes, a starting look, then a hand-off to Figma.</p>
+        <Panel title="Start a new design system" actions={<Chip tone={jNew.complete ? 'ok' : jNew.started ? 'info' : 'outline'}>{jNew.complete ? 'Recorded' : jNew.started ? 'In progress' : 'Not started'}</Chip>}>
+          <p className="small muted">For a client without a system: set it up in the DS Starter Pack’s own wizard, then record it here.{basicsByHand ? ` Basics recorded by hand: ${jNew.done} of ${jNew.total}.` : ''}</p>
           <ProcessStrip compact numbered={false} steps={newPhases} label="New system phases" />
-          <Link className="btn btn--primary btn--sm" to={r.journeyNew(jNew.complete ? 1 : jNew.resume)} data-testid="resume-new">
-            {jNew.complete ? 'Review the journey' : jNew.started ? `Resume: ${jNew.resumeLabel.toLowerCase()}` : 'Start'}
+          <Link className="btn btn--primary btn--sm" to={basicsByHand ? r.journeyNew(jNew.resume) : r.journeyNew()} data-testid="resume-new">
+            {jNew.complete ? 'Review the set-up' : jNew.started ? `Resume: ${jNew.resumeLabel.toLowerCase()}` : 'Start'}
           </Link>
         </Panel>
         <Panel title="Improve an existing system" actions={<Chip tone={jImp.complete ? 'ok' : jImp.started ? 'info' : 'outline'}>{jImp.complete ? 'Done' : `${jImp.done} of ${jImp.total} steps done`}</Chip>}>

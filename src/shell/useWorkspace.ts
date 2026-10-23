@@ -27,15 +27,14 @@ export function navFor(ws: Workspace, r: RouteFamily): NavItem[] {
       { to: r.outcome, label: 'Outcome and next step', match: [`${b}/evidence`, `${b}/scorecard`], icon: 'evidence' },
     ]
   }
-  // One stable, practice-wide list. Project pages keep "Projects" selected; their sections are tabs.
+  // One stable, practice-wide list of six. Client requests, decks and the client demo share
+  // "Client conversations" (tabs inside). Project pages keep "Projects" selected; their sections are tabs.
   return [
     { to: practice.home, label: 'Home', match: [practice.home], icon: 'home' },
-    { to: practice.opportunities, label: 'Opportunities', match: [practice.opportunities], icon: 'opportunities' },
+    { to: practice.opportunities, label: 'Client conversations', match: [practice.opportunities, practice.presentations, practice.demos, practice.scorecard], icon: 'opportunities' },
     { to: practice.projects, label: 'Projects', match: [practice.projects, '/nagarro/start'], icon: 'clients' },
     { to: practice.knowledge, label: 'Knowledge library', match: [practice.knowledge], icon: 'knowledge' },
-    { to: practice.presentations, label: 'Presentations', match: [practice.presentations], icon: 'presentations' },
-    { to: practice.demos, label: 'Client demo', match: [practice.demos, practice.scorecard], icon: 'demos' },
-    { to: practice.tools, label: 'Tools and guides', match: [practice.tools, practice.guides], icon: 'tools' },
+    { to: practice.tools, label: 'Tools', match: [practice.tools, practice.guides], icon: 'tools' },
     { to: practice.settings, label: 'Settings', match: [practice.settings], icon: 'settings', group: 'foot' },
   ]
 }
@@ -60,6 +59,8 @@ export interface AreaTab {
   label: string
   to: string
   match?: string
+  /** Other paths that keep this tab active (a page reached from it, outside its own path). */
+  also?: string[]
 }
 
 /** Secondary tabs inside an area (shown in the page header). Project sections are tabs in the project header. */
@@ -123,11 +124,11 @@ export function areaTabsFor(pathname: string, r: RouteFamily, opts?: { proposalP
       { label: 'Needs attention', to: practice.knowledgeTab('attention') },
     ]
   }
-  if (!client && (pathname === practice.demos || pathname.startsWith(practice.meetingPrep()) || pathname === practice.scorecard)) {
+  if (!client && [practice.opportunities, practice.presentations, practice.demos, practice.meetingPrep(), practice.scorecard].includes(pathname)) {
     return [
-      { label: 'Choose a demo', to: practice.demos, match: practice.demos },
-      { label: 'Prepare a meeting', to: practice.meetingPrep() },
-      { label: 'AI-readiness scorecard', to: practice.scorecard },
+      { label: 'Opportunities', to: practice.opportunities },
+      { label: 'Presentations', to: practice.presentations },
+      { label: 'Client demo', to: practice.demos, also: [practice.scorecard] },
     ]
   }
   if (!client && (pathname === practice.tools || pathname === practice.guides || pathname.startsWith(practice.guides + '/'))) {

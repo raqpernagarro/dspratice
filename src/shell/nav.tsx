@@ -47,6 +47,7 @@ export function AreaTabs() {
         if (exactQuery) active = current === t.to
         else if (t.match) active = (pathname === base || (pathname.startsWith(base + '/') && !deeperSibling)) && !search.includes('tab=')
         else active = pathname === base || (pathname.startsWith(base + '/') && !deeperSibling)
+        if (t.also?.includes(pathname)) active = true
         return (
           <Link key={t.to} to={t.to} className={cx('area-tabs__tab', active && 'is-active')} aria-current={active ? 'page' : undefined}>
             {t.label}

@@ -1,0 +1,48 @@
+[
+  {
+    "id": "starter",
+    "name": "DS Configurator",
+    "from": "DS Starter Pack",
+    "owner": "Nuno Almeida",
+    "dir": "ds-starter-pack-main",
+    "repo": "nagarro-dv/ds-starter-pack (private)",
+    "version": "nagarro-ds-starter-pack 1.0.0",
+    "port": 4175,
+    "probe": "/",
+    "start": ["npx", "vite", "--config", "semantic-editor/vite.config.ts", "--port", "{port}", "--strictPort"],
+    "install": ["npm", "install", "--no-audit", "--no-fund"],
+    "needs": ["Node 22 or newer"],
+    "writes": ["ds.project.json at the repository root, when you finish the set-up"]
+  },
+  {
+    "id": "dsn",
+    "name": "DSN site",
+    "from": "DSN (ds-ngr)",
+    "owner": "Rui Dias",
+    "dir": "DSN-main",
+    "repo": "nagarro-dv/DSN (private)",
+    "version": "ds-ngr 0.1.44",
+    "port": 3100,
+    "alsoPorts": [6006],
+    "probe": "/cli/ds-ngr-cli.tgz",
+    "start": ["npm", "run", "dev:docs"],
+    "install": ["npm", "install", "--no-audit", "--no-fund"],
+    "needs": ["Node 20.9 or newer", "Ports 3100 (site) and 6006 (Storybook) free; the site sets them itself"],
+    "writes": ["ds-index.json, regenerated when Storybook starts", "site/.data, the prototypes you save"]
+  },
+  {
+    "id": "studio",
+    "name": "Presentation Studio",
+    "from": "Nagarro presentation system",
+    "owner": "Carolina Baptista",
+    "dir": "deckgenerator-platform-main",
+    "repo": "Presentation_v1",
+    "version": "nagarro-presentation-studio 1.4.0",
+    "port": 4600,
+    "probe": "/api/meta",
+    "start": ["node", "product/application/server.js"],
+    "install": ["npm", "install", "--omit=dev", "--no-audit", "--no-fund"],
+    "needs": ["Node 18 or newer", "The Claude CLI, signed in, for generating decks", "Playwright Chromium, for .pptx and PDF export (npx playwright install chromium in the copy)"],
+    "writes": ["product/data, your presentations", "assets/uploads, images you add"]
+  }
+]

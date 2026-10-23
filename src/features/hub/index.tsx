@@ -9,6 +9,8 @@ import { useIntegrationStatus } from '@/integrations/status'
 import { client, practice } from '@/app/routes'
 import { DEMOS, PRACTICE_TOOLS, SOLUTIONS, type DemoEntry, type ToolEntry } from '@/fixtures/hub'
 import slidesVersion from '@/deck/engine.generated.json'
+import { ToolCatalog } from '@/features/tools'
+import { ToolAddresses } from '@/features/tools/ToolAddresses'
 
 const STATUS: Record<ToolEntry['status'], { label: string; tone: 'ok' | 'warn' | 'ink' | 'outline' }> = { works: { label: 'Ready to use', tone: 'ok' }, partly: { label: 'Partly ready', tone: 'warn' }, 'internal-only': { label: 'Internal only', tone: 'ink' }, proposed: { label: 'Planned', tone: 'outline' } }
 const IN_HUB: Record<NonNullable<ToolEntry['inHub']>['to'], string> = { library: practice.projects, presentations: practice.presentations, knowledge: practice.knowledge, opportunities: practice.opportunityStart, demos: practice.demos, integrations: practice.integrations }
@@ -40,7 +42,8 @@ function ToolCard({ t }: { t: ToolEntry }) {
 export function ToolsPage() {
   return (
     <div className="page">
-      <PageHead title="Tools" lead="What the practice has built: three solutions, and the tools that support our work. Each card says who owns it, how to get it and where it shows up in this hub." />
+      <PageHead title="Tools" lead="What the practice has built. Open a tool here to use the real thing on this machine; the cards below say who owns each one and how to get it." />
+      <ToolCatalog />
       <h2 className="section-title">Our three solutions</h2>
       <div className="grid grid--3">{SOLUTIONS.map((t) => <ToolCard key={t.id} t={t} />)}</div>
       <h2 className="section-title">Practice tools</h2>
@@ -118,6 +121,7 @@ export function IntegrationsPage() {
         <Stat label="Model usage" value={`${usage.tokens.toLocaleString()} tokens`} hint={`${usage.calls} calls across all opportunities`} />
       </div>
       {status.offline && <Callout tone="warn">The local server is not reachable (a static build, or npm run dev is not running). Templates, uploads and the bundled knowledge still work.</Callout>}
+      <ToolAddresses />
       <Panel title="Reading Figma, cheapest first">
         <div className="table-wrap">
           <table className="table">

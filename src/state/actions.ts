@@ -1,6 +1,7 @@
 // Every store action, grouped by slice. Pages import `AppState` from './store'.
 
 import type { GrammarId } from '@/contract/adapters'
+import type { StarterImport } from '@/library/theme/fromStarterProject'
 import type { Approval, Availability, Category, Deck, DeckSlide, DeckStage, DraftSection, EvidenceRef, KnowledgeDocument, KnowledgeSource, OpportunityContext, OpportunityStep, Opportunity, ReadBy, RequestFormat, RequestKind, Requirement, TaskType, Usage, DeckBrief } from './types'
 import type { ResponseDraft } from '@/opportunity/compose'
 import type { PublishRefusal } from '@/opportunity/selectors'
@@ -107,6 +108,8 @@ export interface JourneyActions {
   applyPreset: (presetId: string) => void
   describeLook: (brief: string) => void
   completeWizard: () => void
+  /** Records a set-up made in the DS Starter Pack's own wizard (read by fromStarterProject) and completes the journey. */
+  recordStarterProject: (imp: StarterImport, from: string) => void
   exportToFigma: () => string
   connectSystem: (repoUrl: string, figmaUrl: string) => void
   runScan: () => void

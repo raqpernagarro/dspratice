@@ -47,4 +47,46 @@ describe('local API', () => {
     expect((await call('GET', '/api/figma/file?key=abcdefghij12', null)).status).toBeGreaterThanOrEqual(400)
     expect((await call('GET', '/api/figma/projects?teamId=abc', null, env({ figmaToken: 't' }))).status).toBe(400)
   })
+
+  it('says where each practice tool would run from: own clone, then copy, never the original', async () => {
+    const servers = [{ id: 'starter', dir: 'sp' }, { id: 'dsn', dir: 'dsn' }, { id: 'studio', dir: 'st' }, { id: 'gone', dir: 'x' }]
+    const present = new Set(['/ws/app/sources/sp/package.json', '/ws/app/sources/sp/node_modules', '/ws/demo tools/sp/package.json', '/ws/app/tool-copies/dsn/package.json', '/ws/demo tools/dsn/package.json', '/ws/demo tools/st/package.json'])
+    const d = deps({
+      readFile: vi.fn(async () => Buffer.from(JSON.stringify(servers))),
+      stat: vi.fn(async (p: string) => {
+        if (!present.has(p)) throw new Error('ENOENT')
+        return { size: 1, mtimeMs: 1 }
+      }),
+    })
+    const r = await call('GET', '/api/tools', null, env({ appRoot: '/ws/app' }), d)
+    expect(r.body).toEqual({
+      ok: true,
+      tools: {
+        starter: { runFrom: 'sources', installed: true },
+        dsn: { runFrom: 'copy', installed: false },
+        studio: { runFrom: 'original', installed: false },
+        gone: { runFrom: 'missing', installed: false },
+      },
+    })
+    expect((await call('GET', '/api/tools', null)).body).toMatchObject({ code: 'not-configured' })
+  })
+
+  it('reads the set-up the DS Configurator saved in the copy, and says when there is none yet', async () => {
+    const servers = [{ id: 'starter', dir: 'sp' }]
+    const files: Record<string, string> = { '/ws/app/src/fixtures/tool-servers.json': JSON.stringify(servers), '/ws/app/tool-copies/sp/ds.project.json': '{"format":"ds-configurator/project"}' }
+    const present = new Set(['/ws/app/tool-copies/sp/package.json', '/ws/app/tool-copies/sp/ds.project.json'])
+    const d = deps({
+      readFile: vi.fn(async (p: string) => Buffer.from(files[p] ?? '')),
+      stat: vi.fn(async (p: string) => {
+        if (!present.has(p)) throw new Error('ENOENT')
+        return { size: 40, mtimeMs: 7 }
+      }),
+    })
+    const ok = await call('GET', '/api/tools/starter/project', null, env({ appRoot: '/ws/app' }), d)
+    expect(ok.body).toEqual({ ok: true, path: 'tool-copies/sp/ds.project.json', mtime: 7, text: '{"format":"ds-configurator/project"}' })
+    present.delete('/ws/app/tool-copies/sp/ds.project.json')
+    expect((await call('GET', '/api/tools/starter/project', null, env({ appRoot: '/ws/app' }), d)).body).toMatchObject({ code: 'not-saved' })
+    present.delete('/ws/app/tool-copies/sp/package.json')
+    expect((await call('GET', '/api/tools/starter/project', null, env({ appRoot: '/ws/app' }), d)).body).toMatchObject({ code: 'no-copy' })
+  })
 })

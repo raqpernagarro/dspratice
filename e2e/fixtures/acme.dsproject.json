@@ -1,0 +1,27 @@
+{
+  "format": "ds-configurator/project",
+  "version": 1,
+  "exportedAt": "2026-10-23T10:00:00.000Z",
+  "project": { "name": "Acme Insights", "description": "Analytics for field teams", "appType": "admin", "githubUrl": "github.com/acme/ds", "figmaUrl": "figma.com/design/abc/Acme", "color": "#8b7cff" },
+  "theme": {
+    "name": "Acme Insights",
+    "modes": ["light", "dark"],
+    "appearance": "light",
+    "separate": {},
+    "brand": null,
+    "brands": [],
+    "color": { "main": { "l": 0.55, "c": 0.12, "h": 250 }, "accent": "#1f6feb", "neutralTint": 0.1, "neutralHue": null, "background": null, "rampContrast": null, "status": { "info": null, "success": null, "warning": null, "error": null }, "tertiary": false },
+    "type": { "body": { "family": "Inter", "weights": "400;600" }, "heading": null, "baseSize": 16, "scale": null },
+    "radius": 12,
+    "density": 1,
+    "grid": true,
+    "depth": 0.3,
+    "extras": { "borderWidth": 1, "borderColor": "default", "shadow": "default", "buttonShape": "pill", "headingWeight": 600 },
+    "variables": {},
+    "components": {},
+    "added": []
+  },
+  "prototypes": [],
+  "pages": {},
+  "versions": [{ "version": "1.1", "note": "First set-up", "date": "2026-10-23" }]
+}

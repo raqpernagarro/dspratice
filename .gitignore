@@ -11,6 +11,7 @@ test-results/
 # local-only material: never commit
 .env.local
 sources/
+tool-copies/
 dist-demo/
 playwright-report/
 knowledge-local/

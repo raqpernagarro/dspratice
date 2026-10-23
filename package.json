@@ -18,7 +18,8 @@
     "knowledge:local": "node scripts/snapshot-local-sources.mjs",
     "knowledge:figma": "node scripts/figma-json-to-doc.mjs",
     "slides:sync": "node scripts/sync-nagarro-slides.mjs",
-    "tokens:sync": "node scripts/sync-brand-tokens.mjs"
+    "tokens:sync": "node scripts/sync-brand-tokens.mjs",
+    "tools": "node scripts/tools.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.1.0",

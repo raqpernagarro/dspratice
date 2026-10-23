@@ -65,6 +65,8 @@ export const practice = {
   /** Projects (design-system work per client or prospect). The path keeps its v3 name. */
   clients: '/nagarro/clients',
   projects: '/nagarro/clients',
+  /** "Start a project": asks new or existing system, then goes to `startSystem`. */
+  start: '/nagarro/start',
   startSystem: (journey: 'new' | 'improve') => `/nagarro/start?journey=${journey}`,
   guides: '/nagarro/guides',
   guide: (id: string) => `/nagarro/guides/${id}`,
@@ -84,6 +86,8 @@ export const practice = {
   knowledgeSource: (id: string) => `/nagarro/knowledge/${id}`,
   knowledgeTab: (tab: 'practice' | 'client' | 'attention') => `/nagarro/knowledge?tab=${tab}`,
   tools: '/nagarro/tools',
+  /** One practice tool opened in the hub (src/fixtures/experiences.ts). */
+  tool: (id: string) => `/nagarro/tools/${id}`,
   demos: '/nagarro/demos',
   meetingPrep: (slug?: string) => (slug ? `/nagarro/demos/prepare?project=${slug}` : '/nagarro/demos/prepare'),
   opportunities: '/nagarro/opportunities',
@@ -128,7 +132,8 @@ export function nagarro(slug: string): RouteFamily {
     assessment: `${b}/journey/improve/assess`,
     handover: `${b}/journey/improve/handover`,
     outcome: `${b}/report`,
-    journeyNew: (step = 1) => `${b}/journey/new/${step}`,
+    /** No step: the set-up in the DS Starter Pack. A step: the basics recorded by hand (Wizard). */
+    journeyNew: (step) => (step == null ? `${b}/journey/new` : `${b}/journey/new/${step}`),
     journeyImprove: (step = 'goals') => `${b}/journey/improve/${step}`,
     meeting: practice.meetingPrep(slug),
     guides: practice.guides,

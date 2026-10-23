@@ -13,6 +13,7 @@ import { READOUT_DECISIONS } from '@/fixtures/demo-brand/system'
 import { planFromEngagement } from '@/deck/fromOpportunity'
 import { checkDeck } from '@/deck/checks'
 import type { Deck } from './types'
+import { fromStarterProject } from '@/library/theme/fromStarterProject'
 
 const S = () => useStore.getState()
 const draft = (id = 'demo-brand') => resolveView(S(), id, 'draft')!
@@ -45,6 +46,21 @@ describe('set-up journeys', () => {
     S().markJourneyStep('new', 1)
     expect(newStepStates(draft())[0]).toBe('done')
     expect(journeySummary(draft(), 'new')).toMatchObject({ done: 1, resume: 2, started: true, complete: false })
+  })
+
+  it('before anything is done, a new system resumes at the set-up in the Starter Pack', () => {
+    expect(journeySummary(draft(), 'new')).toMatchObject({ done: 0, total: 4, complete: false, resumeLabel: 'Set up in the Starter Pack' })
+  })
+
+  it('recording a Starter Pack set-up completes the journey and becomes the project’s system', () => {
+    const file = { format: 'ds-configurator/project', version: 1, exportedAt: '', project: { name: 'Acme', appType: 'admin', githubUrl: 'github.com/acme/ds' }, theme: { modes: ['light'], color: { main: { l: 0.5, c: 0.1, h: 200 } } }, versions: [{ version: '1.1' }] }
+    const imp = fromStarterProject(file, draft().theme)
+    S().recordStarterProject(imp, 'tool-copies/ds-starter-pack-main/ds.project.json')
+    const d = draft()
+    expect(journeySummary(d, 'new')).toMatchObject({ complete: true, done: 4 })
+    expect(d.theme).toMatchObject({ name: 'Acme', appearance: 'light', productType: 'admin', repoUrl: 'github.com/acme/ds', activeBrand: 'acme' })
+    expect(d.contract.name).toBe('Acme design system')
+    expect(d.journey.new.data.recorded).toMatchObject({ from: 'tool-copies/ds-starter-pack-main/ds.project.json', version: '1.1' })
   })
 
   it('ticks improve steps from what happened: connection, assessment, the four decisions', () => {

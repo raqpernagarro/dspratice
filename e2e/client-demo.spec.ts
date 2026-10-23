@@ -72,7 +72,8 @@ test('present the client demo from the hub and get back to preparation', async (
 test('reduced motion: no running animations in the demo', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.goto('/nagarro')
-  await page.getByTestId('home-present').click()
+  await page.getByTestId('header-present').click()
+  await page.getByRole('link', { name: 'Start the guided demo' }).first().click()
   await expect(page.locator('.demobar__headline')).toBeVisible()
   const running = await page.evaluate(() => document.getAnimations().filter((a) => a.playState === 'running' && (a.effect as KeyframeEffect | null)?.getTiming().duration !== 0 && Number((a.effect as KeyframeEffect | null)?.getTiming().duration) > 1).length)
   expect(running).toBe(0)

@@ -16,6 +16,9 @@ One voice: an experienced colleague helping someone finish a task. Clear, natura
 
 | Term | Meaning | Use |
 |---|---|---|
+| Journey | One job a colleague comes to do, shown as a card on Home ("Prepare a client conversation", "Start a project") | Add a journey only when real use shows the need |
+| Client conversations | The sidebar area holding Opportunities, Presentations and the Client demo | Not "sales", "pipeline" or "win work" in navigation |
+| Tools | The practice's own tools behind the journeys, and the guides | Not "Tools and guides" |
 | Client demo | The guided showcase we present in meetings | Not "client workspace", "client experience" or "portal" |
 | Project | One client's or prospect's design-system work | Not "engagement" in navigation |
 | Client request | An RFP, questionnaire or brief we respond to | The list is called Opportunities |

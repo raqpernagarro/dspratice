@@ -10,15 +10,15 @@ import { nagarro, practice } from '@/app/routes'
 import { PageHead } from '@/shell/PageHead'
 import { ProcessStrip } from '@/shell/story'
 import { Panel } from '@/shell/ui'
-import { IMPROVE_META, IMPROVE_PHASES, NEW_PHASES, NEW_STEPS, improveSlug, journeySummary } from '@/state/journeyProgress'
+import { IMPROVE_META, IMPROVE_PHASES, improveSlug, journeySummary } from '@/state/journeyProgress'
 import { NewProjectSheet } from './ClientPortfolio'
 
 const COPY = {
   new: {
     title: 'Start a new design system',
-    lead: 'For a client who has no design system yet. You set up brands, light and dark modes and a starting look, choose where the code and the Figma file live, and send the result to Figma. Most of it takes an hour; nothing needs a specialist.',
-    need: 'The client’s brand colour and logo name, the kind of product, and (later) the repository and Figma file links.',
-    get: 'A configured starting system you can preview on real components, and a change file for the Figma variables plugin.',
+    lead: 'For a client who has no design system yet. You set it up in the DS Starter Pack’s own wizard: brands, light and dark, a starting look per brand and mode, where the code and the Figma file live, and a change file for Figma. Then you record it in the project.',
+    need: 'The client’s brand colour and logo name, the kind of product, and (later) the repository and Figma file links. The Starter Pack running on this machine (npm run tools).',
+    get: 'A configured system on real components, ds.project.json in the Starter Pack copy, a change file for the Figma plugin, and the system recorded in the project.',
   },
   improve: {
     title: 'Improve an existing design system',
@@ -28,14 +28,52 @@ const COPY = {
   },
 }
 
+/** The DS Starter Pack's own set-up (semantic-editor/src/system/SetupSystem.tsx), then the hub's record. */
+const STARTER_PHASES = [
+  { title: 'About the product', text: 'Name it · Brands · Product' },
+  { title: 'Look and feel', text: 'Light and dark · Starting point · The look, per brand and mode · Check' },
+  { title: 'Where it lives', text: 'Code repository · Figma file' },
+  { title: 'Hand off to Figma', text: 'A change file for the Figma plugin' },
+  { title: 'Record it here', text: 'Read ds.project.json into the project' },
+]
+
+const CHOICES = [
+  { kind: 'new', title: 'New design system', what: 'The client has no system yet.' },
+  { kind: 'improve', title: 'Existing design system', what: 'The client already has one in Figma and code.' },
+] as const
+
 export function StartSystem() {
   const [params] = useSearchParams()
-  const kind = params.get('journey') === 'new' ? 'new' : 'improve'
+  const journey = params.get('journey')
+  return journey === 'new' || journey === 'improve' ? <StartJourney kind={journey} /> : <StartChooser />
+}
+
+/** "Start a project" from Home: one question before the journey. */
+function StartChooser() {
+  return (
+    <div className="page">
+      <PageHead title="Start a project" lead="Does the client already have a design system?" crumbs={[{ label: 'Projects', to: practice.projects }, { label: 'Start a project' }]} />
+      <div className="journey-grid journey-grid--choice">
+        {CHOICES.map((c) => (
+          <Link key={c.kind} to={practice.startSystem(c.kind)} className="journey-card" data-testid={`start-choice-${c.kind}`}>
+            <strong className="journey-card__title">{c.title}</strong>
+            <span className="journey-card__what">{c.what}</span>
+            <span className="journey-card__cta">
+              Continue <ArrowRight />
+            </span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function StartJourney({ kind }: { kind: 'new' | 'improve' }) {
   const projects = useStore((s) => s.projects)
   const navigate = useNavigate()
   const [creating, setCreating] = useState(false)
   const c = COPY[kind]
-  const phases = kind === 'new' ? NEW_PHASES.map((p) => ({ title: p.label, text: p.steps.map((n) => NEW_STEPS[n - 1].label).join(' · ') })) : IMPROVE_PHASES.map((p) => ({ title: p.label, text: p.steps.map((s) => IMPROVE_META[s].label).join(' · ') }))
+  const phases = kind === 'new' ? STARTER_PHASES : IMPROVE_PHASES.map((p) => ({ title: p.label, text: p.steps.map((s) => IMPROVE_META[s].label).join(' · ') }))
 
   const go = (slug: string) => {
     const p = Object.values(useStore.getState().projects).find((x) => x.slug === slug)
@@ -43,7 +81,7 @@ export function StartSystem() {
     act().selectProject(p.id)
     const j = journeySummary(p.draft, kind)
     const r = nagarro(slug)
-    navigate(kind === 'new' ? r.journeyNew(j.started ? j.resume : 1) : r.journeyImprove(improveSlug(j.started ? j.resume : 1)))
+    navigate(kind === 'new' ? r.journeyNew() : r.journeyImprove(improveSlug(j.started ? j.resume : 1)))
   }
 
   return (

@@ -29,10 +29,10 @@ test('a new colleague can tell what the hub is for and where to start', async ({
   await page.goto('/')
   await expect(page).toHaveURL(/\/nagarro$/)
   const main = page.locator('main')
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Use what the practice already knows')
-  await expect(main).toContainText('For Nagarro designers, consultants, delivery leads and sellers')
-  await expect(main).toContainText('Where do you want to start?')
-  for (const t of ['Respond to a client request', 'Start a new design system', 'Improve an existing system', 'Find reusable material', 'Prepare a presentation']) await expect(main).toContainText(t)
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('What do you need to do?')
+  for (const t of ['Prepare a client conversation', 'Proposal, presentation, demo', 'Start a project', 'New or existing design system', 'More journeys as real needs appear']) await expect(main).toContainText(t)
+  await expect(page.locator('.journey-card')).toHaveCount(2)
+  await expect(page.locator('.shell__side .nav__label')).toHaveText(['Home', 'Client conversations', 'Projects', 'Knowledge library', 'Tools', 'Settings'])
   await expect(page.getByTestId('continue-list')).toBeVisible()
   await expect(main).not.toContainText('System health')
   await shot(page, '20-home')
@@ -52,18 +52,21 @@ test('a new colleague can tell what the hub is for and where to start', async ({
   await page.setViewportSize({ width: 1280, height: 860 })
   await shot(page, '21-header-1280')
 
-  // every task card leads to its page
-  const tasks: [string, RegExp][] = [
-    ['task-respond', /\/nagarro\/opportunities\/new$/],
-    ['task-new', /\/nagarro\/start\?journey=new$/],
-    ['task-improve', /\/nagarro\/start\?journey=improve$/],
-    ['task-library', /\/nagarro\/knowledge$/],
-    ['task-deck', /\/nagarro\/presentations$/],
-  ]
-  for (const [id, url] of tasks) {
+  // journey 1 opens client conversations: requests, decks and the demo as tabs
+  await page.getByTestId('journey-conversation').click()
+  await expect(page).toHaveURL(/\/nagarro\/opportunities$/)
+  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Client conversations')
+  await expect(page.locator('.area-tabs__tab')).toHaveText(['Opportunities', 'Presentations', 'Client demo'])
+  await page.locator('.area-tabs__tab', { hasText: 'Presentations' }).click()
+  await expect(page).toHaveURL(/\/nagarro\/presentations$/)
+
+  // journey 2 asks new or existing, then goes to that journey
+  for (const kind of ['new', 'improve']) {
     await page.goto('/nagarro')
-    await page.getByTestId(id).click()
-    await expect(page).toHaveURL(url)
+    await page.getByTestId('journey-project').click()
+    await expect(page).toHaveURL(/\/nagarro\/start$/)
+    await page.getByTestId(`start-choice-${kind}`).click()
+    await expect(page).toHaveURL(new RegExp(`/nagarro/start\\?journey=${kind}$`))
   }
 
   // practice pages show no client selector; the parent stays selected on detail pages
@@ -71,7 +74,7 @@ test('a new colleague can tell what the hub is for and where to start', async ({
   await expect(page.locator('select[aria-label="Project"]')).toHaveCount(0)
   await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Knowledge library')
   await page.goto('/nagarro/opportunities/opp-northwind-rfp/response')
-  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Opportunities')
+  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Client conversations')
   await expect(page.locator('.crumbs')).toContainText('Opportunities')
   await page.goto('/nagarro/clients/northwind/system/tokens')
   await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Projects')

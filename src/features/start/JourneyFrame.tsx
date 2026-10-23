@@ -3,8 +3,11 @@
 // is ticked when its work is done; opening it only moves the resume point.
 
 import { useEffect, type ReactNode } from 'react'
-import { useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { ArrowLeft, ArrowRight, Users } from 'lucide-react'
+import { practice } from '@/app/routes'
+import { experience } from '@/fixtures/experiences'
+import { CommandLine } from '@/features/tools/ExperienceFrame'
 import { act, usePaths, useSystem } from '@/state/hooks'
 import { IMPROVE_STEPS, type ImproveStep } from '@/app/routes'
 import { IMPROVE_META, improveStepStates } from '@/state/journeyProgress'
@@ -20,6 +23,40 @@ export const IMPROVE_BRIEF: Record<ImproveStep, { need: string; get: string; the
   mapping: { need: 'The agreed plan.', get: 'Each client token name mapped onto the contract, kept as an alias, or left separate.', then: 'Review and share.' },
   review: { need: 'The decisions so far.', get: 'One summary to check, the assessment report, and a new version for the client demo.', then: 'Handover.' },
   handover: { need: 'The work done during the engagement.', get: 'An example of what the client keeps at the end of an engagement.', then: 'Back to the project.' },
+}
+
+/** The real tool to use at each step, where one exists (src/fixtures/experiences.ts). The hub's own
+ *  steps still record the work; these are where it is done on the client's real files. */
+export const IMPROVE_TOOLS: Partial<Record<ImproveStep, { tool?: string; title?: string; why: string; cmd?: string }[]>> = {
+  connect: [
+    { title: 'Export the client’s Figma variables', why: 'Run the DS Starter Pack’s Figma plugin in the client’s file and choose Export variables. Install it once from the Starter copy, then in Figma Desktop: Plugins › Development › Import plugin from manifest.', cmd: 'cd tool-copies/ds-starter-pack-main && npm run plugin:install' },
+    { tool: 'starter-import', why: 'Open the exported .variables.json in the DS Configurator to see the client’s collections, modes and brands on real components.' },
+  ],
+  assess: [{ tool: 'dsn-components', why: 'Check what already exists before anyone builds something new.' }],
+  findings: [{ tool: 'dsn-create', why: 'When a finding needs a component the system does not have, draft options and compare them before adding one.' }],
+  handover: [{ title: 'Apply the changes in Figma', why: 'The client imports the change file with the same Figma plugin: it saves a version first, shows every change for review, and importing twice changes nothing.' }],
+}
+
+function RealTools({ step }: { step: ImproveStep }) {
+  const items = IMPROVE_TOOLS[step]
+  if (!items?.length) return null
+  return (
+    <section className="real-tools" aria-label="Use the real tool" data-testid="real-tools">
+      <strong className="small">Use the real tool</strong>
+      <ul>
+        {items.map((it) => {
+          const e = it.tool ? experience(it.tool) : undefined
+          return (
+            <li key={it.tool ?? it.title}>
+              {e ? <Link to={practice.tool(e.id)}>{e.name}</Link> : <strong>{it.title}</strong>}
+              <span className="small muted">{it.why}</span>
+              {it.cmd && <CommandLine cmd={it.cmd} />}
+            </li>
+          )
+        })}
+      </ul>
+    </section>
+  )
 }
 
 export function useImproveNav(step: ImproveStep) {
@@ -91,6 +128,7 @@ export function ImproveFrame({ step, children }: { step: ImproveStep; children: 
             <strong>Needs a specialist.</strong> {meta.specialist} Where the practice has a default, it is marked “Recommended”.
           </Callout>
         )}
+        <RealTools step={step} />
       </div>
       {children}
       <div className="page journey-foot">

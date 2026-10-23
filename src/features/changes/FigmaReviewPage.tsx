@@ -135,8 +135,8 @@ export function FigmaReviewPage() {
                   Back to the pull request <ArrowRight />
                 </Btn>
               ) : (
-                <Btn onClick={() => navigate(r.journeyNew(10))}>
-                  Back to the wizard <ArrowRight />
+                <Btn onClick={() => navigate(r.journeyNew())}>
+                  Back to the set-up <ArrowRight />
                 </Btn>
               )}
               <Btn variant="ghost" size="sm" onClick={() => act().undoFigmaChangeSet(cs.id)}>

@@ -19,8 +19,10 @@ const knowledge = () => import('@/features/knowledge')
 const opportunity = () => import('@/features/opportunity')
 const decks = () => import('@/features/presentations')
 const hub = () => import('@/features/hub')
+const tools = () => import('@/features/tools')
 const scorecard = () => import('@/features/scorecard')
 import { Wizard } from '@/features/start/Wizard'
+import { NewSystem } from '@/features/start/NewSystem'
 import { Connect } from '@/features/start/Connect'
 import { Scan } from '@/features/start/Scan'
 import { Readout } from '@/features/start/Readout'
@@ -132,6 +134,7 @@ export const router = createBrowserRouter([
         ],
       },
       { path: 'tools', element: lazyPage(hub, 'ToolsPage') },
+      { path: 'tools/:id', element: lazyPage(tools, 'ToolPage') },
       { path: 'demos', element: lazyPage(hub, 'DemosPage') },
       { path: 'demos/prepare', element: <PresenterGuide /> },
       { path: 'scorecard', element: lazyPage(scorecard, 'ScorecardPage') },
@@ -147,7 +150,7 @@ export const router = createBrowserRouter([
         element: <ProjectRouteSync />,
         children: [
           { index: true, element: <EngagementHome /> },
-          { path: 'journey/new', element: <Wizard /> },
+          { path: 'journey/new', element: <NewSystem /> },
           { path: 'journey/new/:step', element: <Wizard /> },
           { path: 'journey/improve', element: <Navigate to={IMPROVE_STEPS[0]} replace /> },
           { path: 'journey/improve/:step', element: <ImproveStep /> },

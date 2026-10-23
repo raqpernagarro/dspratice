@@ -9,6 +9,8 @@
 //   GET  /api/figma/project-files?projectId → the files in a folder
 //   GET  /api/local/read?path               → an allowlisted practice file (read only)
 //   POST /api/local/hash {paths}            → md5 + mtime for change detection
+//   GET  /api/tools                         → per practice tool: where it would run from, installed or not
+//   GET  /api/tools/starter/project         → the ds.project.json the DS Configurator saved in your clone or copy
 //
 // routeRequest() is plain async code with injected dependencies, so it is unit-tested without
 // network or disk (server/local-api.test.ts).
@@ -28,6 +30,8 @@ export interface ApiEnv {
   roots: string[]
   /** Individual files allowed outside the root folders (relative to the workspace). */
   files: string[]
+  /** The hub's own folder (holds sources/ and tool-copies/). */
+  appRoot?: string
 }
 
 export type GenerateFn = (args: { kind: 'compose' | 'improve'; system: string; user: string; env: ApiEnv }) => Promise<{ data: unknown; model: string; usage: { inputTokens: number; outputTokens: number; cacheReadTokens?: number } }>
@@ -50,8 +54,9 @@ export const DEFAULT_ROOTS = ['gtm', 'product-scoping', 'demo tools/ds-starter-p
 export const DEFAULT_FILES = ['AI-Ready-Design-Systems-Offering 3.html']
 const TEXT_EXT = new Set(['.md', '.mdx', '.txt', '.json', '.html'])
 
-export function envFrom(raw: Record<string, string | undefined>, workspaceRoot: string): ApiEnv {
+export function envFrom(raw: Record<string, string | undefined>, workspaceRoot: string, appRoot?: string): ApiEnv {
   return {
+    appRoot,
     apiKey: raw.ANTHROPIC_API_KEY?.trim() || undefined,
     model: raw.ANTHROPIC_MODEL?.trim() || 'claude-opus-5-5',
     fallbacks: (raw.ANTHROPIC_FALLBACKS ?? 'default').trim() !== 'off',
@@ -94,6 +99,22 @@ async function figma(path: string, env: ApiEnv, deps: Deps): Promise<unknown> {
 interface FNode { id: string; name: string; type: string; characters?: string; style?: { fontSize?: number }; absoluteBoundingBox?: { x: number; y: number }; children?: FNode[] }
 export function slim(n: FNode): FNode {
   return { id: n.id, name: n.name, type: n.type, ...(n.characters ? { characters: n.characters } : {}), ...(n.style?.fontSize ? { style: { fontSize: n.style.fontSize } } : {}), ...(n.absoluteBoundingBox ? { absoluteBoundingBox: { x: n.absoluteBoundingBox.x, y: n.absoluteBoundingBox.y } } : {}), ...(n.children ? { children: n.children.map(slim) } : {}) }
+}
+
+/** Where each practice tool would run from (same rules as scripts/tools.mjs): your own clone in
+ *  sources/, else a copy in tool-copies/, else only the read-only original in ../demo tools. */
+export async function toolFiles(env: ApiEnv, deps: Deps): Promise<Record<string, { runFrom: 'sources' | 'copy' | 'original' | 'missing'; installed: boolean }>> {
+  if (!env.appRoot) throw new ApiError(503, 'not-configured', 'The hub folder is unknown to the local server.')
+  const exists = (p: string) => deps.stat(p).then(() => true, () => false)
+  const servers = JSON.parse((await deps.readFile(resolve(env.appRoot, 'src/fixtures/tool-servers.json'))).toString('utf8')) as { id: string; dir: string }[]
+  const out: Record<string, { runFrom: 'sources' | 'copy' | 'original' | 'missing'; installed: boolean }> = {}
+  for (const s of servers) {
+    const own = [['sources', resolve(env.appRoot, 'sources', s.dir)], ['copy', resolve(env.appRoot, 'tool-copies', s.dir)]] as const
+    const found = (await Promise.all(own.map(async ([kind, dir]) => ((await exists(resolve(dir, 'package.json'))) ? { kind, dir } : null)))).find(Boolean)
+    if (found) out[s.id] = { runFrom: found.kind, installed: await exists(resolve(found.dir, 'node_modules')) }
+    else out[s.id] = { runFrom: (await exists(resolve(env.workspaceRoot, 'demo tools', s.dir, 'package.json'))) ? 'original' : 'missing', installed: false }
+  }
+  return out
 }
 
 export async function routeRequest(method: string, url: URL, body: unknown, env: ApiEnv, deps: Deps): Promise<{ status: number; body: unknown }> {
@@ -157,6 +178,25 @@ export async function routeRequest(method: string, url: URL, body: unknown, env:
         }
       }
       return { status: 200, body: { ok: true, hashes } }
+    }
+    if (method === 'GET' && route === '/tools') {
+      return { status: 200, body: { ok: true, tools: await toolFiles(env, deps) } }
+    }
+    if (method === 'GET' && route === '/tools/starter/project') {
+      const where = (await toolFiles(env, deps)).starter
+      if (!where || (where.runFrom !== 'sources' && where.runFrom !== 'copy')) throw new ApiError(404, 'no-copy', 'The DS Configurator has no clone or copy here yet, so there is no saved set-up to read. Run: npm run tools -- copy starter')
+      const servers = JSON.parse((await deps.readFile(resolve(env.appRoot!, 'src/fixtures/tool-servers.json'))).toString('utf8')) as { id: string; dir: string }[]
+      const dir = servers.find((s) => s.id === 'starter')!.dir
+      const rel = `${where.runFrom === 'sources' ? 'sources' : 'tool-copies'}/${dir}/ds.project.json`
+      const abs = resolve(env.appRoot!, rel)
+      let st: { size: number; mtimeMs: number }
+      try {
+        st = await deps.stat(abs)
+      } catch {
+        throw new ApiError(404, 'not-saved', `No set-up saved yet: ${rel} appears when you finish Set up system in the DS Configurator.`)
+      }
+      if (st.size > 2_000_000) throw new ApiError(413, 'too-large', 'The project file is over 2 MB; the hub does not read it.')
+      return { status: 200, body: { ok: true, path: rel, mtime: st.mtimeMs, text: (await deps.readFile(abs)).toString('utf8') } }
     }
     throw new ApiError(404, 'not-found', `No route ${method} ${url.pathname}`)
   } catch (e) {
@@ -229,7 +269,7 @@ export function localApi(appRoot: string): Plugin {
   return {
     name: 'udt-local-api',
     configResolved(config) {
-      env = envFrom({ ...loadEnv(config.mode, appRoot, ''), ...process.env } as Record<string, string | undefined>, resolve(appRoot, '..'))
+      env = envFrom({ ...loadEnv(config.mode, appRoot, ''), ...process.env } as Record<string, string | undefined>, resolve(appRoot, '..'), appRoot)
     },
     configureServer(server) {
       server.middlewares.use(middleware(() => env))

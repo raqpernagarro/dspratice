@@ -15,25 +15,24 @@ export interface JourneyStepMeta {
   specialist?: string
 }
 
+// "Start a new design system" happens in the DS Starter Pack's own wizard; the hub records it
+// (recordStarterProject) or, without the Starter Pack, keeps these four basics by hand (Wizard).
+// Either way these are the steps the hub tracks. Journeys saved with the old ten steps keep only
+// the first four: the look, repository, Figma and hand-off now happen in the Starter Pack.
 export const NEW_STEPS: JourneyStepMeta[] = [
   { n: 1, label: 'Name it' },
   { n: 2, label: 'Brands' },
   { n: 3, label: 'Product' },
   { n: 4, label: 'Light and dark' },
-  { n: 5, label: 'Starting point' },
-  { n: 6, label: 'Fine-tune the look' },
-  { n: 7, label: 'Check the second mode' },
-  { n: 8, label: 'Code repository' },
-  { n: 9, label: 'Figma file' },
-  { n: 10, label: 'Send to Figma' },
 ]
 
 export const NEW_PHASES = [
   { label: 'About the product', steps: [1, 2, 3] },
-  { label: 'Look and feel', steps: [4, 5, 6, 7] },
-  { label: 'Where it lives', steps: [8, 9] },
-  { label: 'Hand off to Figma', steps: [10] },
+  { label: 'Light and dark', steps: [4] },
 ]
+
+/** What a new-system journey is called before anything is done: the real set-up comes first. */
+export const NEW_FIRST_STEP = 'Set up in the Starter Pack'
 
 export const IMPROVE_META: Record<ImproveStep, JourneyStepMeta> = {
   goals: { n: 1, label: 'Goals' },
@@ -97,7 +96,7 @@ export function journeySummary(sys: SystemState, kind: JourneyKind): JourneySumm
     const firstTodo = states.findIndex((s) => s === 'todo')
     const resume = firstTodo < 0 ? NEW_STEPS.length : firstTodo + 1
     const started = done > 0 || (sys.journey.new.visited?.length ?? 0) > 0
-    return { kind, done, total: NEW_STEPS.length, started, complete: firstTodo < 0, resume, resumeLabel: NEW_STEPS[resume - 1].label }
+    return { kind, done, total: NEW_STEPS.length, started, complete: firstTodo < 0, resume, resumeLabel: done === 0 ? NEW_FIRST_STEP : NEW_STEPS[resume - 1].label }
   }
   const states = improveStepStates(sys)
   const done = IMPROVE_STEPS.filter((s) => states[s] === 'done').length

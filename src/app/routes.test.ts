@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { IMPROVE_LEGACY, IMPROVE_STEPS, client, equivalentRoute, nagarro, practice, workspaceFromPath } from './routes'
 import { legacyTarget } from './LegacyRedirect'
-import { activeNav, navFor } from '@/shell/useWorkspace'
+import { activeNav, areaTabsFor, navFor } from '@/shell/useWorkspace'
 import { activeProjectTab } from '@/shell/ProjectHeader'
 
 const N = nagarro('demo-brand')
@@ -76,7 +76,7 @@ describe('legacy redirects', () => {
 describe('navigation keeps the parent selected on detail routes', () => {
   it('hub: one stable list; project pages keep Projects selected', () => {
     const nav = navFor('nagarro', N)
-    expect(nav.map((i) => i.label)).toEqual(['Home', 'Opportunities', 'Projects', 'Knowledge library', 'Presentations', 'Client demo', 'Tools and guides', 'Settings'])
+    expect(nav.map((i) => i.label)).toEqual(['Home', 'Client conversations', 'Projects', 'Knowledge library', 'Tools', 'Settings'])
     expect(activeNav(nav, practice.home)?.label).toBe('Home')
     expect(activeNav(nav, N.pr(128))?.label).toBe('Projects')
     expect(activeNav(nav, N.component('button'))?.label).toBe('Projects')
@@ -85,15 +85,20 @@ describe('navigation keeps the parent selected on detail routes', () => {
     expect(activeNav(nav, N.trust)?.label).toBe('Projects')
     expect(activeNav(nav, practice.clients)?.label).toBe('Projects')
     expect(activeNav(nav, practice.startSystem('new').split('?')[0])?.label).toBe('Projects')
+    expect(activeNav(nav, practice.start)?.label).toBe('Projects')
   })
   it('hub: requests and decks live under their own lists, whichever project they belong to', () => {
     const nav = navFor('nagarro', N)
     expect(N.opportunity('opp-1', 'response')).toBe(practice.opportunity('opp-1', 'response'))
-    expect(activeNav(nav, practice.opportunity('opp-1', 'response'))?.label).toBe('Opportunities')
-    expect(activeNav(nav, practice.deck('deck-1'))?.label).toBe('Presentations')
-    expect(activeNav(nav, practice.meetingPrep('demo-brand').split('?')[0])?.label).toBe('Client demo')
-    expect(activeNav(nav, practice.scorecard)?.label).toBe('Client demo')
-    expect(activeNav(nav, practice.guide('why'))?.label).toBe('Tools and guides')
+    expect(activeNav(nav, practice.opportunity('opp-1', 'response'))?.label).toBe('Client conversations')
+    expect(activeNav(nav, practice.deck('deck-1'))?.label).toBe('Client conversations')
+    expect(activeNav(nav, practice.meetingPrep('demo-brand').split('?')[0])?.label).toBe('Client conversations')
+    expect(activeNav(nav, practice.scorecard)?.label).toBe('Client conversations')
+    expect(activeNav(nav, practice.guide('why'))?.label).toBe('Tools')
+    for (const list of [practice.opportunities, practice.presentations, practice.demos, practice.scorecard]) {
+      expect(areaTabsFor(list, N)?.map((t) => t.label)).toEqual(['Opportunities', 'Presentations', 'Client demo'])
+    }
+    expect(areaTabsFor(practice.deck('deck-1'), N)).toBeNull()
     expect(activeNav(nav, practice.about)?.label).toBe('Settings')
   })
   it('project tabs: the longest match wins and Overview owns journeys', () => {

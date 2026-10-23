@@ -75,3 +75,8 @@ export function figmaProjects(teamId: string) {
 export function figmaProjectFiles(projectId: string) {
   return call<{ name?: string; files: { key: string; name: string; last_modified?: string; thumbnail_url?: string }[] }>(`/api/figma/project-files?projectId=${encodeURIComponent(projectId)}`)
 }
+
+/** The ds.project.json the DS Configurator saved in your clone or copy (see GET /api/tools/starter/project). */
+export function readStarterProject() {
+  return call<{ path: string; mtime: number; text: string }>('/api/tools/starter/project')
+}
