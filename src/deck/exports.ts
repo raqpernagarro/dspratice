@@ -1,5 +1,5 @@
 // Deck exports, all in Carolina's language: deck.json is the engine's own renderDeck input,
-// brief.md is the nagarro-slides plugin's 12-point brief plus the slide plan, notes.md the
+// brief.md is the nagarro-slides plugin's 12-point brief plus the outline, notes.md the
 // speaker notes, deck.html a standalone deck with present mode (the deck-starter equivalent).
 import type { Deck } from './types'
 import { ENGINE, templateInfo } from './catalog'

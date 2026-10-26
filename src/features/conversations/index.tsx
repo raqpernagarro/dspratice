@@ -51,7 +51,7 @@ export function ConversationsPage() {
 
   return (
     <div className="page">
-      <PageHead title="Prepare a client conversation" lead="A proposal, a presentation or a demo. Start from what you have; the hub takes it from there." />
+      <PageHead title="Prepare a client conversation" lead="A proposal, a presentation or a demo. Start from what you have." />
 
       <section aria-labelledby="start-from" className="stack">
         <h2 id="start-from" className="section-title">

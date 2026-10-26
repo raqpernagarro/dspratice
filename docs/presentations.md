@@ -71,7 +71,7 @@ Picture slots stay empty: the hub never invents an image. The header name and th
 |---|---|
 | Standalone HTML | Presenting anywhere: the engine, fonts and assets inlined, with present mode |
 | `deck.json` | The engine's own format (`{engine, deck, slides}`), for Presentation Studio. **Import is to be confirmed with Carolina**; until then, rebuild there from `brief.md` |
-| `brief.md` | The 12 points and the slide plan, for the nagarro-slides plugin in Claude Slides ("make a Nagarro deck", then paste it) |
+| `brief.md` | The 12 points and the outline, for Presentation Studio's prompt box or the nagarro-slides plugin in Claude Slides ("make a Nagarro deck", then paste it) |
 | Speaker notes | Markdown, one section per slide |
 
 Editable PowerPoint and PDF export stay in Presentation Studio.

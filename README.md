@@ -1,14 +1,13 @@
 # Nagarro design systems hub (`unified-ds-tool`)
 
-An internal tool for the Nagarro design systems practice. It brings together the practice's knowledge, material and tools for design systems and AI, so colleagues can do useful work without an expert sitting beside them:
+An internal tool for the Nagarro design systems practice. It brings together the practice's knowledge, material and tools for design systems and AI, so colleagues can do useful work without an expert sitting beside them. Home asks one question, "What do you need to do?", and offers two journeys:
 
-- **respond to a client request** (RFP, questionnaire, brief) with a first draft built from approved material, the gaps marked, and every answer checked by a person;
-- **start a new design system** or **improve an existing one**, step by step, with progress you can resume;
-- **find reusable material** in the knowledge library, with owner, approval, audience and freshness visible;
-- **prepare a presentation** on Carolina Baptista's Nagarro Master Slides, from a reviewed response or from a project (assessment readout, project update);
-- **present the client demo**.
+- **Prepare a client conversation**: start from a client request (a first draft from approved material, the gaps marked, every answer checked by a person), a project (an assessment readout or a project update), an idea (straight to Carolina Baptista's Presentation Studio) or a live demo. Decks build in one click on her Nagarro Master Slides.
+- **Start a project**: a new design system, set up in the DS Starter Pack's own wizard and recorded in the project, or an existing one, improved step by step with progress you can resume.
 
-It is for Nagarro designers, consultants, delivery leads and sellers. `/` opens the hub's Home, which starts with these tasks and with work in progress.
+The knowledge library sits under both, with owner, approval, audience and freshness visible. The practice's own tools (the DS Configurator, the DSN site, Presentation Studio) open from **Tools** once you start them with `npm run tools`. More journeys get a card only when real use shows the need.
+
+It is for Nagarro designers, consultants, delivery leads and sellers. `/` opens Home: the two journeys, then work in progress.
 
 **The client demo is a guided showcase we present in meetings, not a client portal.** It tells one story on a fictional company's design system: the challenge, an example system, one inconsistency, why it matters, the proposed fix, the review in code and Figma, AI using the system, and what an engagement could leave behind. Presenter notes open in a separate window; the shared tab never shows them. See [docs/client-demo.md](docs/client-demo.md).
 
@@ -77,7 +76,7 @@ The same list is in the app at **Settings › About this tool**, so task pages d
   - the original request one click away on every step;
   - guards against invented figures, other clients' names and quotes from internal-only material;
   - downloads, the generation packet, and an optional summary in the client demo's closing chapter.
-- **Presentations**: from a reviewed response, or from a project's data as an **assessment readout** or a **project update** (no request needed). Brief, slide plan to approve, slides rendered by Carolina's engine, checks, present mode, and downloads (one-file HTML with present mode, `deck.json`, `brief.md`, speaker notes). Demo slides open the live client demo in the same tab and **Back to preparation** returns to the same slide.
+- **Presentations**: from a reviewed response, or from a project's data as an **assessment readout** or a **project update** (no request needed). One click builds it (no model) and opens on the slides, rendered by Carolina's engine and checked; an editable outline; present mode; **Edit and export in Presentation Studio** (copies the brief); and downloads (one-file HTML with present mode, `deck.json`, `brief.md`, speaker notes). A deck from an idea alone starts in Presentation Studio. Demo slides open the live client demo in the same tab and **Back to preparation** returns to the same slide.
 - **Set-up journeys**: *Start a new design system* opens the DS Starter Pack’s own set-up wizard in the page (from your clone or `tool-copies/`), then *Record it in the project* reads the `ds.project.json` it saved (or a `.dsproject.json` you choose) and shows what the hub keeps and what stays in the Starter Pack (`src/library/theme/fromStarterProject.ts`). Without the Starter Pack, the basics (name, brands, product, modes) are recorded by hand. Other ways to start: DSN Brands and DSN’s command line. *Improve an existing system* (goals, connect, assess, findings, agree the plan, map the names, review and share, handover) names the real tool for its steps where one exists. A step is ticked when its work is done, never because it was opened.
 - **Client demo**: the eight-chapter story with a short path (about 12 minutes) and a full path (about 25). Any chapter can be entered directly; the chapters it depends on are set up first. Pause holds the simulation on a state. Reset goes back to the prepared version and never touches preparation.
 - The AI-readiness scorecard and the demo build with its leak check.
@@ -95,7 +94,7 @@ The same list is in the app at **Settings › About this tool**, so task pages d
 
 **Not available here**
 - A hosted multi-user mode or shared storage: each person's projects, requests and uploads live in their own browser.
-- Editable PowerPoint or PDF: use Carolina's Presentation Studio. Opening this hub's `deck.json` there is to be confirmed with Carolina; until then, rebuild from `brief.md`.
+- Editable PowerPoint or PDF: Presentation Studio exports both. A deck's **Share** tab copies its brief for Studio to rebuild it; opening this hub's `deck.json` there is to be confirmed with Carolina.
 
 ## Where to read more
 

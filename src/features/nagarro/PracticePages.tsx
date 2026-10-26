@@ -35,7 +35,7 @@ export function AboutPage() {
     <div className="page">
       <PageHead
         title="About this tool"
-        lead="The design systems hub helps Nagarro colleagues answer client requests, start or improve design systems, and prepare presentations and demos with what the practice already knows. This page lists what works on this machine, what needs a key, and what the client demo only simulates."
+        lead="The design systems hub helps Nagarro colleagues prepare a client conversation (a response, a presentation or a demo) and start a design-system project, with what the practice already knows and the practice’s own tools. This page lists what works on this machine, what needs a key or a running tool, and what the client demo only simulates."
       />
       <div className="grid grid--2">
         <Group
@@ -44,8 +44,9 @@ export function AboutPage() {
           items={[
             ['Knowledge library', 'Search, read, approve and add sources: Figma text exports, Markdown, Word, PDF with text, links.'],
             ['Responses to client requests', 'Requirements, matching passages from approved sources, a first draft, checks against invented figures and other clients’ names, downloads.'],
-            ['Presentations', 'A slide plan on Carolina Baptista’s Nagarro Master Slides, rendered slides, checks, present mode, and HTML, deck.json, brief and notes downloads.'],
-            ['Setup journeys', 'Start a new design system or improve an existing one, with progress you can resume.'],
+            ['Presentations', 'Decks built in one click from a reviewed response or a project’s data, on Carolina Baptista’s Nagarro Master Slides: checked slides, an editable outline, present mode, and HTML, notes, brief and deck.json downloads.'],
+            ['Set-up journeys', 'Start a new design system in the DS Starter Pack’s own wizard and record it in the project, or improve an existing one, with progress you can resume.'],
+            ['The practice’s tools', 'The DS Configurator, the DSN site and Presentation Studio open from Tools once you start them with npm run tools. They run from copies, never from the originals.'],
             ['Client demo', 'The guided story, the explorable example system, reset and return to preparation.'],
           ]}
         />
@@ -62,7 +63,7 @@ export function AboutPage() {
           tone="ai"
           items={[
             ['First drafts of responses', 'Assembled from the request and the sources’ own text. A person checks every answer before it is shared.'],
-            ['Deck plans', 'Mapped onto registered Master Slides templates. No images are invented.'],
+            ['Decks', 'Mapped onto registered Master Slides templates from the response or the project. No images are invented.'],
             ['“Describe the look”, the screen builder and search answers', 'Rule-based stand-ins for the AI agents in the source projects.'],
           ]}
         />
@@ -81,7 +82,7 @@ export function AboutPage() {
         title="Not available here"
         tone="outline"
         items={[
-          ['Editable PowerPoint', 'Use Carolina’s Presentation Studio (it exports .pptx and PDF). Importing this hub’s deck.json there is not confirmed yet; until then, rebuild from brief.md with the nagarro-slides plugin in Claude Slides.'],
+          ['Editable PowerPoint or PDF', 'Presentation Studio exports both. A deck’s Share tab copies its brief for Studio to rebuild it; opening this hub’s deck.json there is not confirmed yet.'],
           ['Sharing between colleagues', 'Everything you add stays in this browser. There is no hosted, multi-user version.'],
           ['Measured client results', 'Health, readiness and accessibility figures in the samples are illustrative, not measurements.'],
         ]}

@@ -24,6 +24,7 @@ export const SOLUTIONS: ToolEntry[] = [
     status: 'works',
     parts: [
       { name: 'Component library and tokens', how: 'npm package ds-ngr' },
+      { name: 'DSN site: Brands, components, Prototype', how: 'npm run tools -- start dsn (ports 3100 and 6006), then Tools' },
       { name: 'Storybook', link: 'https://nagarro-dv.github.io/DSN/' },
       { name: 'Site MCP and agent skills', how: 'AGENTS.md, llms.txt, skills/' },
       { name: 'DS Handbook', link: 'https://ds-handbook.vercel.app' },
@@ -41,8 +42,8 @@ export const SOLUTIONS: ToolEntry[] = [
     status: 'works',
     parts: [
       { name: 'Template repository', how: 'Use this template on GitHub' },
-      { name: 'DS Configurator', how: 'npm run dev in semantic-editor (port 4185)' },
-      { name: 'Storybook with an a11y gate', how: 'npm run storybook (port 6006)' },
+      { name: 'DS Configurator', how: 'npm run tools -- start starter (port 4175), then Tools › Set up a new design system' },
+      { name: 'Storybook with an a11y gate', how: 'npm run storybook in your copy (port 6006, which the DSN site also uses)' },
       { name: 'Figma variables plugin', how: 'figma-plugin/ in the repository' },
     ],
     get: 'Private repository nagarro-dv/ds-starter-pack',
@@ -72,12 +73,12 @@ export const PRACTICE_TOOLS: ToolEntry[] = [
     parts: [
       { name: 'DS Nagarro Master Slides', link: 'https://claude.ai/artifact/FTePiAfzdDWtb71Bogjpn2' },
       { name: 'nagarro-slides plugin', how: 'In Claude: /nagarro-slides:start' },
-      { name: 'Presentation Studio', how: 'Presentation_v1 repository, npm start' },
+      { name: 'Presentation Studio', how: 'npm run tools -- start studio (port 4600), then Tools › Make an editable Nagarro deck' },
       { name: 'Engine in this hub', how: 'Presentations (vendored, pinned)' },
     ],
     get: 'Ask Carolina Baptista for access to the design system artifact',
     access: 'Nagarro colleagues',
-    inHub: { label: 'Prepare a presentation', to: 'presentations' },
+    inHub: { label: 'Open presentations', to: 'presentations' },
   },
   {
     id: 'hub',

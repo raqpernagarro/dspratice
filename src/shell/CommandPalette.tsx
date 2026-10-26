@@ -67,10 +67,12 @@ export function CommandPalette() {
         return out
       }
       out.push({ group: 'Go to', label: 'Home', to: practice.home, icon: <Search /> })
+      out.push({ group: 'Go to', label: 'Prepare a client conversation', to: practice.conversations, icon: <Target /> })
       out.push({ group: 'Go to', label: 'Respond to a client request', to: practice.opportunityStart, icon: <Target /> })
-      out.push({ group: 'Go to', label: 'Knowledge library', to: practice.knowledge, icon: <Library /> })
+      out.push({ group: 'Go to', label: 'Start a project', to: practice.start, icon: <Building2 /> })
       out.push({ group: 'Go to', label: 'Prepare a meeting', to: practice.meetingPrep(), icon: <Sparkles /> })
-      out.push({ group: 'Go to', label: 'Projects', to: practice.projects, icon: <Building2 /> })
+      out.push({ group: 'Go to', label: 'Knowledge library', to: practice.knowledge, icon: <Library /> })
+      out.push({ group: 'Go to', label: 'Tools', to: practice.tools, icon: <Box /> })
       return out
     }
     if (!client) {

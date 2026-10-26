@@ -106,4 +106,4 @@ The summary appears in the client demo's last chapter (**Outcome and next step â
 - an out-of-date source raises the deck's Rebuild banner;
 - there are no console errors.
 
-Other specs: `orientation.spec.ts` (Home answers what, who and where to start; no header overlap at 1280 and 1440; fonts; one current nav item; empty state), `journeys.spec.ts` (both set-up journeys: nothing ticked by opening, resume), `client-demo.spec.ts` (direct chapter entry, Show me, keyboard, notes window, reset, Back to preparation, reduced motion).
+Other specs: `orientation.spec.ts` (Home asks what you need to do, with two journeys; the six-item sidebar; Prepare a client conversation and its four starts; Start a project asks new or existing; no header overlap at 1280 and 1440; fonts; one current nav item; empty state), `journeys.spec.ts` (a Starter Pack set-up recorded from its project file; the basics by hand and the improve journey: nothing ticked by opening, resume), `client-demo.spec.ts` (direct chapter entry, Show me, keyboard, notes window, reset, Back to preparation, reduced motion).

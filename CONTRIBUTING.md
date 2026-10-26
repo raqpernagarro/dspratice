@@ -30,6 +30,12 @@ Client material never goes into the bundled library. Users add it in the app as 
 ## Add a tool or a demo
 
 - **Tools** are listed in `src/fixtures/hub.ts`, under `SOLUTIONS` (the three solutions and their parts) or `PRACTICE_TOOLS`. Give each one an owner, a status, how to get it and the access needed.
+- **A tool the hub opens** (in a frame or its own tab) is two entries:
+  - its server in `src/fixtures/tool-servers.json`: owner, folder name, version checked, default port, a fast probe path, the start and install commands, what it needs and what it writes into its own folder (the reason it runs from a copy);
+  - one experience per page in `src/fixtures/experiences.ts`: the path, what you do and get, `frame` or `tab`, and the token grammar if it produces tokens.
+
+  `npm run tools`, the local API and the Tools page all read these files. A tool that writes into its folder never runs from `../demo tools`: add the folder to `scripts/check-sources.mjs` and run it with `--write` once.
+- **A new journey** gets a card on Home only when real use shows the need (see `docs/writing.md`, *Journey*).
 - **Demos** are listed under `DEMOS` in the same file, with:
   - the duration and what it shows;
   - tips for the presenter;

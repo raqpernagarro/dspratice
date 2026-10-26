@@ -2,7 +2,7 @@
 
 The client demo is a **guided showcase we present in meetings**. It is not a client portal and not something clients use to run their system. It shows, on a fictional company's design system, how Nagarro keeps design, code and AI tools on one system, and what an engagement could leave behind.
 
-Everything happens in the client demo; the hub is where you prepare. Open it with **Present client demo** (header, Home, a project's header, or **Client demo › Prepare a meeting**). **Back to preparation** returns to the page, or the slide, you came from.
+Everything happens in the client demo; the hub is where you prepare. Open it with **Present client demo** (the header outside a project, a project's header, or **Client conversations › Client demo › Prepare a meeting**); the header button opens the demo, and **Start the guided demo** begins the story. **Back to preparation** returns to the page, or the slide, you came from.
 
 ## The story
 
