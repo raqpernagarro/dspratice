@@ -17,6 +17,7 @@ function stubFetch(up: boolean, files?: object) {
     vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input)
       if (url === '/api/tools') return new Response(JSON.stringify(files ? { ok: true, tools: files } : { ok: false }))
+      if (url.startsWith('/api/tools/probe')) return new Response(JSON.stringify({ ok: true, up }))
       if (!up) throw new TypeError('Failed to fetch')
       return new Response(null, { status: 200 })
     }),
@@ -114,9 +115,22 @@ describe('ExperienceFrame', () => {
 })
 
 describe('probe and addresses', () => {
-  it('treats any answer as up, and errors or timeouts as down', async () => {
-    expect(await probe('http://localhost:1', '/', vi.fn(async () => new Response(null)) as unknown as typeof fetch)).toBe(true)
-    expect(await probe('http://localhost:1', '/', vi.fn(async () => Promise.reject(new TypeError('x'))) as unknown as typeof fetch)).toBe(false)
+  it('asks the local server for tools on this machine, so a stopped tool is a quiet "down"', async () => {
+    const api = (up: boolean) => vi.fn(async (u: RequestInfo | URL) => (String(u).startsWith('/api/') ? new Response(JSON.stringify({ ok: true, up })) : Promise.reject(new TypeError('direct'))))
+    const down = api(false)
+    expect(await probe('http://localhost:1', '/x', down as unknown as typeof fetch)).toBe(false)
+    expect(down).toHaveBeenCalledTimes(1)
+    expect(String(down.mock.calls[0][0])).toBe('/api/tools/probe?url=http%3A%2F%2Flocalhost%3A1%2Fx')
+    expect(await probe('http://localhost:1', '/', api(true) as unknown as typeof fetch)).toBe(true)
+  })
+
+  it('without the local server, or for another host, any answer is up and errors or timeouts are down', async () => {
+    const noApi = (direct: () => Promise<Response>) => vi.fn((u: RequestInfo | URL) => (String(u).startsWith('/api/') ? Promise.reject(new TypeError('offline')) : direct()))
+    expect(await probe('http://localhost:1', '/', noApi(async () => new Response(null)) as unknown as typeof fetch)).toBe(true)
+    expect(await probe('http://localhost:1', '/', noApi(() => Promise.reject(new TypeError('x'))) as unknown as typeof fetch)).toBe(false)
+    const remote = vi.fn(async () => new Response(null))
+    expect(await probe('https://tools.example.test', '/', remote as unknown as typeof fetch)).toBe(true)
+    expect(String((remote.mock.calls[0] as unknown[])[0])).toBe('https://tools.example.test/')
     const hang = vi.fn((_: unknown, init?: RequestInit) => new Promise<Response>((_r, reject) => init?.signal?.addEventListener('abort', () => reject(new Error('timeout')))))
     expect(await probe('http://localhost:1', '/', hang as unknown as typeof fetch, 20)).toBe(false)
   })

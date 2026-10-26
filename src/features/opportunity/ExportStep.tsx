@@ -125,7 +125,7 @@ export function ExportStep({ o }: { o: Opportunity }) {
       </div>
       <div className="panel panel--ink">
         <h3 style={{ marginTop: 0 }}>Present it</h3>
-        <p>Turn this response into a Nagarro deck: a brief, a slide plan you approve, slides on Carolina Baptista’s Nagarro Master Slides with speaker notes, and the moments to switch to the live demo. Then rehearse the client demo for the same meeting.</p>
+        <p>Turn this response into a Nagarro deck: slides on Carolina Baptista’s Nagarro Master Slides with speaker notes and the moments to switch to the live demo, checked as they are built. For .pptx or PDF, continue in Presentation Studio. Then rehearse the client demo for the same meeting.</p>
         <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
           <Link className="btn btn--on-dark" to={`${practice.deckNew}?from=${o.id}`} data-testid="prepare-presentation"><Presentation /> Prepare a presentation</Link>
           <Link className="btn btn--on-dark-ghost" to={practice.meetingPrep(project.slug)}><MonitorPlay /> Prepare the client demo</Link>

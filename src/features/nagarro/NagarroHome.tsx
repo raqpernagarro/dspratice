@@ -6,14 +6,13 @@ import { ArrowRight, BookOpen, Info } from 'lucide-react'
 import { useStore } from '@/state/store'
 import { nagarro, practice } from '@/app/routes'
 import { relTime } from '@/state/selectors'
-import { opportunityProgress } from '@/opportunity/progress'
 import { journeySummary, improveSlug } from '@/state/journeyProgress'
-import { stepMeta } from '@/features/opportunity/steps'
+import { conversationItems } from '@/features/conversations/items'
 import { Chip } from '@/shell/ui'
 
 const JOURNEYS = [
   {
-    to: practice.opportunities,
+    to: practice.conversations,
     title: 'Prepare a client conversation',
     what: 'Proposal, presentation, demo',
     testid: 'journey-conversation',
@@ -38,18 +37,9 @@ interface ContinueItem {
 
 function useInProgress(): ContinueItem[] {
   const projects = useStore((s) => s.projects)
-  const items: ContinueItem[] = []
+  // Requests and decks come from the same list as Prepare a client conversation; journeys are added here.
+  const items: ContinueItem[] = conversationItems(projects).filter((i) => !i.done)
   for (const p of Object.values(projects)) {
-    for (const o of Object.values(p.opportunities ?? {})) {
-      const prog = opportunityProgress(o)
-      if (!prog.next) continue
-      items.push({ key: `o-${o.id}`, kind: 'Client request', title: o.title, client: p.client.name, status: `${prog.done} of ${prog.total} steps done · Next: ${stepMeta(prog.next).next.toLowerCase()}`, to: practice.opportunity(o.id, prog.next), at: o.updatedAt })
-    }
-    for (const d of Object.values(p.decks ?? {})) {
-      if (d.stage === 'exported') continue
-      const next = d.stage === 'plan' ? 'approve the plan' : d.stage === 'built' ? 'run the checks' : 'share or present it'
-      items.push({ key: `d-${d.id}`, kind: 'Presentation', title: d.title, client: p.client.name, status: `${d.slides.length} slides · Next: ${next}`, to: practice.deck(d.id), at: d.builtAt })
-    }
     for (const kind of ['new', 'improve'] as const) {
       const j = journeySummary(p.draft, kind)
       if (!j.started || j.complete) continue

@@ -89,4 +89,12 @@ describe('local API', () => {
     present.delete('/ws/app/tool-copies/sp/package.json')
     expect((await call('GET', '/api/tools/starter/project', null, env({ appRoot: '/ws/app' }), d)).body).toMatchObject({ code: 'no-copy' })
   })
+
+  it('checks only tools on this machine, and reports a stopped one as down', async () => {
+    const d = deps({ fetch: vi.fn(async (u: RequestInfo | URL) => (String(u).includes(':4600') ? new Response(null) : Promise.reject(new TypeError('refused')))) as unknown as typeof fetch })
+    expect((await call('GET', `/api/tools/probe?url=${encodeURIComponent('http://localhost:4600/api/meta')}`, null, env(), d)).body).toEqual({ ok: true, up: true })
+    expect((await call('GET', `/api/tools/probe?url=${encodeURIComponent('http://127.0.0.1:3100/')}`, null, env(), d)).body).toEqual({ ok: true, up: false })
+    expect((await call('GET', `/api/tools/probe?url=${encodeURIComponent('https://example.com/')}`, null, env(), d)).body).toMatchObject({ code: 'not-local' })
+    expect((await call('GET', '/api/tools/probe?url=nope', null, env(), d)).status).toBe(400)
+  })
 })

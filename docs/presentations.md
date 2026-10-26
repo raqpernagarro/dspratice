@@ -5,18 +5,20 @@ Decks in the hub use **Carolina Baptista's Nagarro Master Slides engine**:
 - the same vocabulary: brief → plan → build → check → review;
 - the same look.
 
-Open decks at **Presentations** (`/nagarro/presentations`, filter by project). Start one with **New presentation**:
+Start from **Prepare a client conversation** (Home, or the sidebar's Client conversations), which asks what you are starting from:
 
-- **Answer a client request**: from a reviewed response (also reachable from the request's *Share and present* step);
-- **Assessment readout**: from a project's own data, no request needed;
-- **Project update**: from a project's own data, for a steering group (what changed, decisions, open points, next steps).
+- **A client request**: respond to it, then build the deck from the reviewed response (also from the request's *Share and present* step);
+- **A project**: an assessment readout or a project update, from the project's own data, no request needed;
+- **An idea or topic**: nothing in the hub yet, so it goes straight to Carolina Baptista's **Presentation Studio**, which drafts it, edits it on a canvas and exports .pptx and PDF;
+- **A live demo**: the client demo.
+
+Decks live at **Presentations** (`/nagarro/presentations`, filter by project), and every request and deck is listed on the journey page.
 
 ## The flow
 
-1. **Brief**: the plugin's 12 points (deck name, key messages, audience and purpose, slide count, client, verbatim lines, hook, tone, must-have slides, takeaways, pictures, sources), prefilled from what the deck is built from.
-2. **Plan**: one line per slide, to approve before building. Each line holds what the slide says, light or dark, the layout (described in words; template names on request, for Presentation Studio) and notes. Structures: Proposal, Assessment readout, Discovery kickoff and Project update; 15 to 60 minutes.
-3. **Slides**: rendered by `NagarroSlides.renderDeck` inside an isolated frame (`slides.html`), with speaker notes beside them.
-4. **Check**:
+One screen, one click: choose what the deck is built from and how long it is, then **Build the deck**. It is built at once, with no model, and opens on the slides.
+
+1. **Slides**: rendered by `NagarroSlides.renderDeck` inside an isolated frame (`slides.html`), with speaker notes beside them. The checks run as it is built and show above the slides (and as a count on the tab):
    - every slide is a registered template, with only its schema's fields, within capacity;
    - covers, dividers and the closing are dark;
    - no two neighbours share a template;
@@ -25,7 +27,10 @@ Open decks at **Presentations** (`/nagarro/presentations`, filter by project). S
    - no slide still quotes internal-only material.
 
    Balance and rhythm stay a human judgement: look at the slides.
-5. **Share**: downloads, and where to continue for formats this hub does not produce.
+2. **Outline**: one line per slide (what it says, light or dark, the layout, notes and demo links). Edit, move or remove; the slides follow at once. Structures: Proposal, Assessment readout, Discovery kickoff and Project update; 15 to 60 minutes.
+3. **Share**: **Edit and export in Presentation Studio** copies the 12-point brief to paste into Studio's prompt box (Studio's status and start command are shown); downloads (HTML with present mode, speaker notes, brief.md, deck.json); the 12-point brief itself, prefilled, under *The 12-point brief*.
+
+There is no plan to approve and no "mark checked" step any more: nothing costly happens at build time, so the deck shows first and you change it after.
 
 **Present** opens a full-screen presenter (arrow keys or space, F for full screen, Escape to exit). On slides with a demo link, **Open the live demo** switches to the client demo in the same tab, at the right chapter; **Back to preparation** returns to the same slide.
 

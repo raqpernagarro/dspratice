@@ -40,7 +40,7 @@ open http://localhost:4300
 | `npm run build` | Typecheck and production build into `dist/` |
 | `npm run build:demo` | The client-safe demo into `dist-demo/`, then a leak check that fails on internal names and markers |
 | `npm run preview` / `npm run preview:demo` | Serve `dist/` on 4301 or `dist-demo/` on 4302 (the local API also works in preview) |
-| `npm test` | Vitest: 17 files, 116 tests |
+| `npm test` | Vitest: 18 files, 120 tests |
 | `npm run e2e` | Playwright in Microsoft Edge (`channel: 'msedge'`): 6 specs, 9 tests. Run `npm run build:demo` first |
 | `npm run typecheck` | TypeScript only (core app when the library sources are absent) |
 | `npm run knowledge:local [-- --check]` | Re-read the practice files into the bundled knowledge snapshot, or check it is current |
@@ -61,7 +61,7 @@ The hub opens the practice's own tools instead of copying them: **Tools** lists 
 | `dsn` · DSN site and Storybook | Rui Dias | <http://localhost:3100> and 6006 | `ds-index.json`, `site/.data` |
 | `studio` · Presentation Studio | Carolina Baptista | <http://localhost:4600> | `product/data`, `assets/uploads` |
 
-Because every tool writes into its own folder, none runs from `../demo tools` (read-only; `scripts/check-sources.mjs` checks all three). A tool runs from your own clone in `sources/` if there is one, else from a copy in `tool-copies/` (git-ignored, outside Vite's file watcher). Addresses can be changed per browser in **Settings › Integrations**. The page checks every few seconds while a tool is down, so starting it in the terminal is enough; the browser console shows a refused connection for each check.
+Because every tool writes into its own folder, none runs from `../demo tools` (read-only; `scripts/check-sources.mjs` checks all three). A tool runs from your own clone in `sources/` if there is one, else from a copy in `tool-copies/` (git-ignored, outside Vite's file watcher). Addresses can be changed per browser in **Settings › Integrations**. The page checks every few seconds while a tool is down, so starting it in the terminal is enough. Tools on this machine are checked by the local API (`GET /api/tools/probe`), so a stopped tool leaves nothing in the browser console.
 
 ## What works, what needs a key, what is simulated
 

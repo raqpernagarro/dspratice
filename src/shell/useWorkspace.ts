@@ -31,7 +31,7 @@ export function navFor(ws: Workspace, r: RouteFamily): NavItem[] {
   // "Client conversations" (tabs inside). Project pages keep "Projects" selected; their sections are tabs.
   return [
     { to: practice.home, label: 'Home', match: [practice.home], icon: 'home' },
-    { to: practice.opportunities, label: 'Client conversations', match: [practice.opportunities, practice.presentations, practice.demos, practice.scorecard], icon: 'opportunities' },
+    { to: practice.conversations, label: 'Client conversations', match: [practice.conversations, practice.opportunities, practice.presentations, practice.demos, practice.scorecard], icon: 'opportunities' },
     { to: practice.projects, label: 'Projects', match: [practice.projects, '/nagarro/start'], icon: 'clients' },
     { to: practice.knowledge, label: 'Knowledge library', match: [practice.knowledge], icon: 'knowledge' },
     { to: practice.tools, label: 'Tools', match: [practice.tools, practice.guides], icon: 'tools' },
@@ -124,8 +124,9 @@ export function areaTabsFor(pathname: string, r: RouteFamily, opts?: { proposalP
       { label: 'Needs attention', to: practice.knowledgeTab('attention') },
     ]
   }
-  if (!client && [practice.opportunities, practice.presentations, practice.demos, practice.meetingPrep(), practice.scorecard].includes(pathname)) {
+  if (!client && [practice.conversations, practice.opportunities, practice.presentations, practice.demos, practice.meetingPrep(), practice.scorecard].includes(pathname)) {
     return [
+      { label: 'Overview', to: practice.conversations },
       { label: 'Opportunities', to: practice.opportunities },
       { label: 'Presentations', to: practice.presentations },
       { label: 'Client demo', to: practice.demos, also: [practice.scorecard] },

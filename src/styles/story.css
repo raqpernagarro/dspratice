@@ -998,3 +998,22 @@ button.process__card {
 .other-ways[open] summary {
   margin-bottom: var(--n-space-4);
 }
+.journey-grid--four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--n-space-4);
+}
+@media (max-width: 640px) {
+  .journey-grid--four {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.journey-card--compact {
+  padding: var(--n-space-6);
+}
+.journey-card--compact .journey-card__title {
+  font-size: var(--n-text-xl);
+}
+.journey-card--compact .journey-card__what {
+  font-size: var(--n-text-sm);
+  flex: 1;
+}

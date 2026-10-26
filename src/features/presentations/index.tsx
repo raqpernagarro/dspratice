@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, Navigate, useNavigate, useParams, useSearchParams } from 'react-router'
-import { Download, Play, RefreshCw, CheckCircle2, MonitorPlay, Copy, Plus, ChevronUp, ChevronDown, Trash2 } from 'lucide-react'
+import { Download, Play, RefreshCw, CheckCircle2, MonitorPlay, Plus, ChevronUp, ChevronDown, Trash2 } from 'lucide-react'
 import { PageHead } from '@/shell/PageHead'
 import { Callout, Chip, Empty, Field, Panel, Segmented, Tabs, cx } from '@/shell/ui'
 import { ProcessStrip } from '@/shell/story'
@@ -19,8 +19,13 @@ import { STRUCTURES, planFromEngagement, planFromOpportunity } from '@/deck/from
 import { currentResponse, requirementsHash, responseHash, sourcesChanged } from '@/opportunity/selectors'
 import type { Deck, DeckBrief, Project } from '@/state/types'
 import { SlidesFrame } from './SlidesFrame'
+import { StudioHandoff } from './StudioHandoff'
 
-const STAGE_LABEL: Record<Deck['stage'], string> = { brief: 'Brief', plan: 'Plan to approve', built: 'Built', checked: 'Checked', exported: 'Downloaded' }
+/** Where a deck stands, from the automatic checks and whether it was downloaded. */
+export function deckStatus(deck: Deck, errors: number): { label: string; tone: 'ok' | 'warn' | 'outline' } {
+  if (errors) return { label: `${errors} to fix`, tone: 'warn' }
+  return deck.stage === 'exported' ? { label: 'Downloaded', tone: 'outline' } : { label: 'Ready', tone: 'ok' }
+}
 
 export function deckOutdated(deck: Deck, p: Project, registry: ReturnType<typeof useRegistry>): string[] {
   const out: string[] = []
@@ -39,20 +44,22 @@ export function deckOutdated(deck: Deck, p: Project, registry: ReturnType<typeof
 function DeckTable({ decks }: { decks: { d: Deck; p: Project }[] }) {
   const navigate = useNavigate()
   const registry = useRegistry()
+  const internalOnly = useMemo(() => new Map(registry.filter((x) => x.audience === 'internal').map((x) => [x.id, x.title])), [registry])
   return (
     <div className="table-wrap">
       <table className="table">
-        <thead><tr><th>Presentation</th><th>Project</th><th>Built from</th><th>Slides</th><th>Stage</th><th>Up to date?</th><th>Built</th></tr></thead>
+        <thead><tr><th>Presentation</th><th>Project</th><th>Built from</th><th>Slides</th><th>Status</th><th>Up to date?</th><th>Built</th></tr></thead>
         <tbody>
           {decks.map(({ d, p }) => {
             const stale = deckOutdated(d, p, registry)
+            const status = deckStatus(d, checkDeck(d, { internalOnly }).filter((i) => i.level === 'error').length)
             return (
               <tr key={d.id} className="is-clickable" onClick={() => navigate(practice.deck(d.id))} data-testid={`deck-row-${d.id}`}>
                 <td><strong>{d.title}</strong></td>
                 <td className="small">{p.client.name}</td>
                 <td className="small">{d.opportunityId ? p.opportunities[d.opportunityId]?.title ?? 'a deleted request' : 'The project’s data'}</td>
                 <td>{d.slides.length}</td>
-                <td><Chip tone="outline">{STAGE_LABEL[d.stage]}</Chip></td>
+                <td><Chip tone={status.tone}>{status.label}</Chip></td>
                 <td>{stale.length ? <Chip tone="warn" title={stale.join(' ')}>Out of date</Chip> : <Chip tone="ok">Up to date</Chip>}</td>
                 <td className="small muted">{relTime(d.builtAt)}</td>
               </tr>
@@ -65,11 +72,9 @@ function DeckTable({ decks }: { decks: { d: Deck; p: Project }[] }) {
 }
 
 const FLOW = [
-  { title: 'Brief', text: 'Twelve points: who it is for, the key messages, the tone.' },
-  { title: 'Plan', text: 'One line per slide. Approve it before anything is built.' },
-  { title: 'Slides', text: 'Rendered on Carolina Baptista’s Nagarro Master Slides.' },
-  { title: 'Check', text: 'Layouts, capacity, and no figure without a source.' },
-  { title: 'Share', text: 'Present here, download, or continue in Presentation Studio.' },
+  { title: 'Build', text: 'From a reviewed client request or a project’s own data. No model, so it takes a second.' },
+  { title: 'Slides', text: 'On Carolina Baptista’s Nagarro Master Slides, checked as they are built. Change any line in the outline.' },
+  { title: 'Share', text: 'Present here, download, or edit and export .pptx or PDF in Presentation Studio.' },
 ]
 
 export function DecksPractice() {
@@ -85,7 +90,7 @@ export function DecksPractice() {
     <div className="page">
       <PageHead
         title="Presentations"
-        lead="Nagarro decks built from what the hub already knows: a reviewed response to a client request, or a project’s own data for an assessment readout or a project update. Each deck has speaker notes and the moments to switch to the live demo."
+        lead="Nagarro decks built from what the hub already knows: a reviewed response to a client request, or a project’s own data for an assessment readout or a project update. Each deck has speaker notes and the moments to switch to the live demo. For a deck from an idea alone, use Presentation Studio."
         actions={
           <Link className="btn btn--primary" to={filter ? `${practice.deckNew}?project=${filter}` : practice.deckNew} data-testid="new-deck">
             <Plus /> New presentation
@@ -132,7 +137,7 @@ export function DeckBuilder() {
   const [projectId, setProjectId] = useState<string>(owner?.id ?? Object.values(projects).find((p) => p.slug === params.get('project'))?.id ?? '')
   const project = projects[projectId]
   const ready = project ? Object.values(project.opportunities ?? {}).filter((o) => o.responses.length) : []
-  const [from, setFrom] = useState<string>(fromParam ?? '')
+  const [from, setFrom] = useState<string>(fromParam ?? (params.get('kind') === 'project' ? 'project' : ''))
   const [projectStructure, setProjectStructure] = useState<'readout' | 'update'>('readout')
   const [structure, setStructure] = useState<Deck['structure']>('proposal')
   const [minutes, setMinutes] = useState(30)
@@ -143,11 +148,12 @@ export function DeckBuilder() {
     const resp = o && currentResponse(o)
     const plan = o && resp ? planFromOpportunity(o, resp, project, registry, { structure, durationMin: minutes }) : planFromEngagement(project, { durationMin: minutes, structure: projectStructure })
     const id = act().saveDeck(project.id, { ...plan, id: '', builtAt: Date.now(), builtBy: '' })
+    // Opens on the slides: there is no model and nothing to approve before seeing them.
     navigate(practice.deck(id))
   }
   return (
     <div className="page page--narrow">
-      <PageHead noTabs title="New presentation" crumbs={[{ label: 'Presentations', to: practice.presentations }, { label: 'New' }]} lead="Choose the project and what the deck is built from. You get a plan first; nothing is built until you approve it." />
+      <PageHead noTabs title="New presentation" crumbs={[{ label: 'Presentations', to: practice.presentations }, { label: 'New' }]} lead="Choose what the deck is built from and how long it is. It is built straight away, with no model; you can change any slide after." />
       <Panel title="Which project?">
         <select className="select" value={projectId} onChange={(e) => { setProjectId(e.target.value); setFrom('') }} aria-label="Project" data-testid="deck-project">
           <option value="">Choose a project</option>
@@ -195,7 +201,7 @@ export function DeckBuilder() {
           </Panel>
         </>
       )}
-      <button className="btn btn--primary" onClick={build} disabled={!project} data-testid="build-deck">Plan the deck</button>
+      <button className="btn btn--primary" onClick={build} disabled={!project} data-testid="build-deck">Build the deck</button>
     </div>
   )
 }
@@ -223,7 +229,7 @@ export function DeckView() {
   const [params, setParams] = useSearchParams()
   const registry = useRegistry()
   const deck = useStore((s) => (id ? s.projects[project.id]?.decks?.[id] : undefined))
-  const [tab, setTab] = useState<'brief' | 'plan' | 'slides' | 'check' | 'handoff'>('plan')
+  const [tab, setTab] = useState<'slides' | 'outline' | 'share'>('slides')
   // ?present=n reopens present mode at slide n (used when coming back from the live demo).
   const resumeAt = Number(params.get('present') ?? 0)
   const [presenting, setPresenting] = useState(resumeAt > 0)
@@ -285,35 +291,39 @@ export function DeckView() {
         crumbs={[{ label: 'Presentations', to: practice.presentations }, { label: project.client.name, to: practice.presentationsFor(project.slug) }, { label: deck.title }]}
         title={deck.title}
         lead={`${deck.slides.length} slides · about ${deck.durationMin} minutes · ${STRUCTURES.find((s) => s.id === deck.structure)?.label}${o ? ` · built from “${o.title}”, response v${deck.recorded.responseVersion}` : ` · built from ${project.client.name}’s project data`}`}
-        eyebrow={<Chip tone="outline">{STAGE_LABEL[deck.stage]}</Chip>}
+        eyebrow={<Chip tone={deckStatus(deck, errors.length).tone}>{deckStatus(deck, errors.length).label}</Chip>}
         actions={<button className="btn btn--mint" onClick={() => { setIdx(0); setPresenting(true) }} data-testid="present-deck"><Play /> Present</button>}
       />
       {stale.length > 0 && (
         <Callout tone="warn">
           <strong>Out of date.</strong> {stale.join(' ')}{' '}
-          <button className="btn btn--secondary btn--sm" onClick={rebuild} data-testid="rebuild-deck"><RefreshCw /> Rebuild the plan</button>
+          <button className="btn btn--secondary btn--sm" onClick={rebuild} data-testid="rebuild-deck"><RefreshCw /> Rebuild the deck</button>
         </Callout>
       )}
-      <Tabs value={tab} onChange={(t) => setTab(t)} tabs={[{ id: 'brief', label: 'Brief' }, { id: 'plan', label: 'Plan' }, { id: 'slides', label: 'Slides' }, { id: 'check', label: 'Check', badge: errors.length ? String(errors.length) : undefined }, { id: 'handoff', label: 'Share' }]} />
-      {tab === 'brief' && (
-        <Panel title="The 12-point brief" actions={<button className="btn btn--ghost btn--sm" onClick={() => navigator.clipboard?.writeText(exportBriefMd(deck).content)}><Copy /> Copy the brief</button>}>
-          <p className="small muted">The same 12 points the nagarro-slides plugin asks for, prefilled from what the deck is built from. Edit freely; changes are saved when you leave a field.</p>
-          <div className="grid grid--2">
-            {BRIEF_FIELDS.map((f) => {
-              const v = deck.brief[f.key]
-              const text = f.key === 'client' ? deck.brief.client.name : Array.isArray(v) ? v.join('\n') : String(v)
-              return (
-                <Field key={f.key} label={f.label}>
-                  {f.list ? <textarea className="textarea" rows={3} defaultValue={text} onBlur={(e) => setBrief(f.key, e.target.value)} /> : <input className="input" defaultValue={text} onBlur={(e) => setBrief(f.key, e.target.value)} data-testid={`brief-${f.key}`} />}
-                </Field>
-              )
-            })}
+      <Tabs value={tab} onChange={(t) => setTab(t)} tabs={[{ id: 'slides', label: 'Slides', badge: errors.length ? String(errors.length) : undefined }, { id: 'outline', label: 'Outline' }, { id: 'share', label: 'Share' }]} />
+      {tab === 'slides' && (
+        <div className="stack">
+          {issues.length ? (
+            <Callout tone={errors.length ? 'warn' : 'info'}>
+              <strong>{errors.length ? `${errors.length} to fix before you share it.` : 'Worth a look.'}</strong>
+              <ul className="small" data-testid="deck-issues" style={{ margin: '4px 0 0' }}>{issues.map((i, k) => <li key={k}>{i.text}</li>)}</ul>
+            </Callout>
+          ) : (
+            <p className="small muted" data-testid="deck-checks-ok" style={{ margin: 0 }}>
+              <CheckCircle2 style={{ width: 14, verticalAlign: '-2px' }} /> Checked: every slide uses a Master Slides layout within its capacity, covers and the closing are dark, and no figure appears without a source. Balance and rhythm are yours to judge.
+            </p>
+          )}
+          <div className="grid grid--side">
+            <Panel flush><SlidesFrame deck={deck} mode="list" /></Panel>
+            <Panel title="Speaker notes" tight>
+              <ol className="small notes-list">{deck.slides.map((s, i) => <li key={s.id}><strong>{s.claim}</strong>{s.demoLink && <> · <em>switch to the live demo</em></>}<textarea className="textarea textarea--inline" rows={2} defaultValue={s.notes} onBlur={(e) => act().updateSlide(project.id, deck.id, s.id, { notes: e.target.value })} aria-label={`Notes for slide ${i + 1}`} /></li>)}</ol>
+            </Panel>
           </div>
-        </Panel>
+        </div>
       )}
-      {tab === 'plan' && (
-        <Panel title="Slide plan" actions={deck.stage === 'plan' ? <button className="btn btn--primary btn--sm" onClick={() => { act().setDeckStage(project.id, deck.id, 'built'); setTab('slides') }} data-testid="approve-plan"><CheckCircle2 /> Approve the plan and build</button> : <Chip tone="ok">Approved</Chip>}>
-          <p className="small muted">One line per slide: what it says, light or dark, and the layout. Edit a claim in place; move or remove slides on the right.</p>
+      {tab === 'outline' && (
+        <Panel title="Outline">
+          <p className="small muted">One line per slide: what it says, light or dark, and the layout. Edit a line in place, or move and remove slides on the right; the slides follow at once.</p>
           <label className="toggle xs" style={{ alignSelf: 'flex-start' }}>
             <input type="checkbox" checked={showTemplates} onChange={(e) => setShowTemplates(e.target.checked)} /> Show template names (for Presentation Studio)
           </label>
@@ -342,41 +352,35 @@ export function DeckView() {
           </div>
         </Panel>
       )}
-      {tab === 'slides' && (
+      {tab === 'share' && (
         <div className="stack">
-          <div className="grid grid--side">
-            <Panel flush><SlidesFrame deck={deck} mode="list" /></Panel>
-            <Panel title="Speaker notes" tight>
-              <ol className="small notes-list">{deck.slides.map((s, i) => <li key={s.id}><strong>{s.claim}</strong>{s.demoLink && <> · <em>switch to the live demo</em></>}<textarea className="textarea textarea--inline" rows={2} defaultValue={s.notes} onBlur={(e) => act().updateSlide(project.id, deck.id, s.id, { notes: e.target.value })} aria-label={`Notes for slide ${i + 1}`} /></li>)}</ol>
+          <div className="grid grid--2">
+            <StudioHandoff deck={deck} />
+            <Panel title="Download">
+              <div className="stack">
+                <button className="btn btn--secondary" disabled={busy} onClick={async () => { setBusy(true); downloadFile(await exportDeckHtml(deck)); setBusy(false); act().setDeckStage(project.id, deck.id, 'exported') }} data-testid="export-deck-html"><Download /> The deck as one HTML file, with present mode</button>
+                <button className="btn btn--secondary" onClick={() => downloadFile(exportNotesMd(deck))} data-testid="export-notes-deck"><Download /> Speaker notes (Markdown)</button>
+                <button className="btn btn--ghost btn--sm" onClick={() => downloadFile(exportBriefMd(deck))} data-testid="export-brief-md"><Download /> brief.md: the 12 points and the outline</button>
+                <button className="btn btn--ghost btn--sm" onClick={() => downloadFile(exportDeckJson(deck))} data-testid="export-deck-json"><Download /> deck.json, the slide engine’s own format</button>
+              </div>
+              <p className="xs muted">This hub does not produce PowerPoint (.pptx) or PDF files: Presentation Studio does. To present from here, use Present (arrow keys to move, F for full screen); slides that switch to the live demo bring you back to the same slide.</p>
             </Panel>
           </div>
-        </div>
-      )}
-      {tab === 'check' && (
-        <Panel title="Checks" actions={!errors.length && deck.stage === 'built' ? <button className="btn btn--primary btn--sm" onClick={() => act().setDeckStage(project.id, deck.id, 'checked')}><CheckCircle2 /> Mark checked</button> : undefined}>
-          {issues.length ? <ul className="small" data-testid="deck-issues">{issues.map((i, k) => <li key={k} style={{ color: i.level === 'error' ? 'var(--n-err)' : undefined }}>{i.text}</li>)}</ul> : <Callout tone="ok">Every slide uses a Master Slides layout within its capacity, covers and the closing are dark, and no figure appears without a source.</Callout>}
-          <p className="xs muted">Balance, rhythm and white space are judgements the checks can’t make: look through the slides before you share them.</p>
-        </Panel>
-      )}
-      {tab === 'handoff' && (
-        <div className="grid grid--2">
-          <Panel title="Download">
-            <div className="stack">
-              <button className="btn btn--secondary" disabled={busy} onClick={async () => { setBusy(true); downloadFile(await exportDeckHtml(deck)); setBusy(false); act().setDeckStage(project.id, deck.id, 'exported') }} data-testid="export-deck-html"><Download /> The deck as one HTML file, with present mode</button>
-              <button className="btn btn--secondary" onClick={() => downloadFile(exportDeckJson(deck))} data-testid="export-deck-json"><Download /> deck.json, the slide engine’s own format</button>
-              <button className="btn btn--secondary" onClick={() => downloadFile(exportBriefMd(deck))} data-testid="export-brief-md"><Download /> brief.md: the 12 points and the slide plan</button>
-              <button className="btn btn--secondary" onClick={() => downloadFile(exportNotesMd(deck))} data-testid="export-notes-deck"><Download /> Speaker notes (Markdown)</button>
+          <details className="panel other-ways">
+            <summary><strong>The 12-point brief</strong> <span className="small muted">· what Studio and Claude Slides read, prefilled from what the deck is built from</span></summary>
+            <div className="grid grid--2">
+              {BRIEF_FIELDS.map((f) => {
+                const v = deck.brief[f.key]
+                const text = f.key === 'client' ? deck.brief.client.name : Array.isArray(v) ? v.join('\n') : String(v)
+                return (
+                  <Field key={f.key} label={f.label}>
+                    {f.list ? <textarea className="textarea" rows={3} defaultValue={text} onBlur={(e) => setBrief(f.key, e.target.value)} /> : <input className="input" defaultValue={text} onBlur={(e) => setBrief(f.key, e.target.value)} data-testid={`brief-${f.key}`} />}
+                  </Field>
+                )
+              })}
             </div>
-            <p className="xs muted">This hub does not produce PowerPoint (.pptx) or PDF files.</p>
-          </Panel>
-          <Panel title="Need PowerPoint, PDF or more editing?">
-            <ul className="small">
-              <li><strong>Editable PowerPoint or PDF:</strong> use Carolina Baptista’s Presentation Studio, which uses the same engine and layouts. Opening this hub’s deck.json there is not confirmed yet; until it is, rebuild the deck from brief.md.</li>
-              <li><strong>Claude Slides:</strong> in Claude, ask to “make a Nagarro deck” (the nagarro-slides plugin) and paste brief.md. It shows a plan to approve, then builds and checks the slides with you.</li>
-              <li><strong>Present from here:</strong> the Present button, or the HTML file (arrow keys to move, F for full screen). Slides that switch to the live demo open it in this tab and bring you back to the same slide.</li>
-            </ul>
-            <p className="xs muted">Slides are rendered by the Nagarro Master Slides engine by Carolina Baptista, included unchanged. Version details are in <Link to={practice.about}>About this tool</Link>.</p>
-          </Panel>
+            <p className="xs muted">Claude Slides: in Claude, ask to “make a Nagarro deck” (the nagarro-slides plugin) and paste brief.md. Slides are rendered by the Nagarro Master Slides engine by Carolina Baptista, included unchanged; version details are in <Link to={practice.about}>About this tool</Link>.</p>
+          </details>
         </div>
       )}
       {presenting && createPortal(

@@ -18,10 +18,26 @@ export interface ToolFiles {
 
 export const PROBE_TIMEOUT_MS = 6000
 
-/** True when anything answers at `base + path`. An opaque response still means the server is up. */
+const LOCAL_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+
+/**
+ * True when anything answers at `base + path`. A tool on this machine is checked by the hub's local
+ * server, so a stopped tool leaves no refused connection in the browser console. Without the local
+ * server, or for another host, the browser asks itself: an opaque response still means "up".
+ */
 export async function probe(base: string, path: string, fetchFn: typeof fetch = fetch, timeoutMs = PROBE_TIMEOUT_MS): Promise<boolean> {
+  const target = new URL(path, base)
+  if (LOCAL_HOSTS.includes(target.hostname)) {
+    try {
+      const res = await fetchFn(`/api/tools/probe?url=${encodeURIComponent(target.toString())}`, { cache: 'no-store', signal: AbortSignal.timeout(timeoutMs) })
+      const body = (await res.json()) as { ok?: boolean; up?: unknown }
+      if (res.ok && typeof body.up === 'boolean') return body.up
+    } catch {
+      // No local server (a static build): ask the tool directly below.
+    }
+  }
   try {
-    await fetchFn(new URL(path, base).toString(), { method: 'HEAD', mode: 'no-cors', cache: 'no-store', signal: AbortSignal.timeout(timeoutMs) })
+    await fetchFn(target.toString(), { method: 'HEAD', mode: 'no-cors', cache: 'no-store', signal: AbortSignal.timeout(timeoutMs) })
     return true
   } catch {
     return false

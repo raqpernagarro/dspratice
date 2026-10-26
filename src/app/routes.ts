@@ -85,6 +85,8 @@ export const practice = {
   knowledgeAdd: '/nagarro/knowledge/add',
   knowledgeSource: (id: string) => `/nagarro/knowledge/${id}`,
   knowledgeTab: (tab: 'practice' | 'client' | 'attention') => `/nagarro/knowledge?tab=${tab}`,
+  /** "Prepare a client conversation": what are you starting from, and every request and deck in one list. */
+  conversations: '/nagarro/conversations',
   tools: '/nagarro/tools',
   /** One practice tool opened in the hub (src/fixtures/experiences.ts). */
   tool: (id: string) => `/nagarro/tools/${id}`,

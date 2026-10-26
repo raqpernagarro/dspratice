@@ -52,13 +52,26 @@ test('a new colleague can tell what the hub is for and where to start', async ({
   await page.setViewportSize({ width: 1280, height: 860 })
   await shot(page, '21-header-1280')
 
-  // journey 1 opens client conversations: requests, decks and the demo as tabs
+  // journey 1 asks what you are starting from, and lists every request and deck
   await page.getByTestId('journey-conversation').click()
-  await expect(page).toHaveURL(/\/nagarro\/opportunities$/)
+  await expect(page).toHaveURL(/\/nagarro\/conversations$/)
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Prepare a client conversation')
+  await expect(main).toContainText('What are you starting from?')
+  for (const id of ['request', 'project', 'idea', 'demo']) await expect(page.getByTestId(`start-${id}`)).toBeVisible()
+  await expect(page.getByTestId('conversation-list')).toContainText('Client request')
   await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Client conversations')
-  await expect(page.locator('.area-tabs__tab')).toHaveText(['Opportunities', 'Presentations', 'Client demo'])
-  await page.locator('.area-tabs__tab', { hasText: 'Presentations' }).click()
-  await expect(page).toHaveURL(/\/nagarro\/presentations$/)
+  await expect(page.locator('.area-tabs__tab')).toHaveText(['Overview', 'Opportunities', 'Presentations', 'Client demo'])
+  const starts: [string, RegExp][] = [
+    ['start-request', /\/nagarro\/opportunities\/new$/],
+    ['start-project', /\/nagarro\/presentations\/new\?kind=project$/],
+    ['start-idea', /\/nagarro\/tools\/studio$/],
+    ['start-demo', /\/nagarro\/demos$/],
+  ]
+  for (const [id, url] of starts) {
+    await page.goto('/nagarro/conversations')
+    await page.getByTestId(id).click()
+    await expect(page).toHaveURL(url)
+  }
 
   // journey 2 asks new or existing, then goes to that journey
   for (const kind of ['new', 'improve']) {

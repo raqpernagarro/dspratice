@@ -112,14 +112,17 @@ test('Northwind RFP: from request to a checked draft, the client demo and a deck
   // deck on Carolina's engine
   await page.goto(`${OPP}/export`)
   await page.getByTestId('prepare-presentation').click()
+  // one gate: Build the deck opens straight on the slides, checked
   await page.getByTestId('build-deck').click()
-  await page.getByTestId('approve-plan').click()
+  await expect(page.getByTestId('deck-checks-ok').or(page.getByTestId('deck-issues'))).toBeVisible()
   const frame = page.frameLocator('[data-testid="slides-frame"]')
   await expect(frame.locator('section')).toHaveCount(13)
   await expect(frame.locator('body')).toContainText('Prepared for Northwind Retail')
   await shot(page, '07-deck-slides')
   await main(page).getByRole('tab', { name: 'Share' }).or(main(page).getByRole('button', { name: 'Share', exact: true })).first().click()
   await expect(main(page)).toContainText('does not produce PowerPoint')
+  await expect(main(page)).toContainText('Edit and export in Presentation Studio')
+  await expect(page.getByTestId('copy-brief-for-studio')).toBeVisible()
   const deckJson = await download(page, () => page.getByTestId('export-deck-json').click())
   expect(JSON.parse(deckJson.text).slides).toHaveLength(13)
   const html = await download(page, () => page.getByTestId('export-deck-html').click())

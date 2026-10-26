@@ -11,6 +11,7 @@
 //   POST /api/local/hash {paths}            → md5 + mtime for change detection
 //   GET  /api/tools                         → per practice tool: where it would run from, installed or not
 //   GET  /api/tools/starter/project         → the ds.project.json the DS Configurator saved in your clone or copy
+//   GET  /api/tools/probe?url               → whether a practice tool on this machine answers (localhost only)
 //
 // routeRequest() is plain async code with injected dependencies, so it is unit-tested without
 // network or disk (server/local-api.test.ts).
@@ -181,6 +182,19 @@ export async function routeRequest(method: string, url: URL, body: unknown, env:
     }
     if (method === 'GET' && route === '/tools') {
       return { status: 200, body: { ok: true, tools: await toolFiles(env, deps) } }
+    }
+    if (method === 'GET' && route === '/tools/probe') {
+      // Checked here so a stopped tool is a plain "down", not a refused connection in the browser
+      // console. Only this machine: anything else is the browser's to check.
+      let target: URL
+      try {
+        target = new URL(q('url'))
+      } catch {
+        throw new ApiError(400, 'bad-request', 'A full http(s) address is required.')
+      }
+      if (!/^https?:$/.test(target.protocol) || !['localhost', '127.0.0.1', '[::1]'].includes(target.hostname)) throw new ApiError(400, 'not-local', 'Only tools on this machine (localhost) are checked here.')
+      const up = await deps.fetch(target.toString(), { method: 'HEAD', signal: AbortSignal.timeout(4000) }).then(() => true, () => false)
+      return { status: 200, body: { ok: true, up } }
     }
     if (method === 'GET' && route === '/tools/starter/project') {
       const where = (await toolFiles(env, deps)).starter

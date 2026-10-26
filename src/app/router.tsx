@@ -20,6 +20,7 @@ const opportunity = () => import('@/features/opportunity')
 const decks = () => import('@/features/presentations')
 const hub = () => import('@/features/hub')
 const tools = () => import('@/features/tools')
+const conversations = () => import('@/features/conversations')
 const scorecard = () => import('@/features/scorecard')
 import { Wizard } from '@/features/start/Wizard'
 import { NewSystem } from '@/features/start/NewSystem'
@@ -133,6 +134,7 @@ export const router = createBrowserRouter([
           { path: ':step', element: lazyPage(opportunity, 'OpportunityWizard') },
         ],
       },
+      { path: 'conversations', element: lazyPage(conversations, 'ConversationsPage') },
       { path: 'tools', element: lazyPage(hub, 'ToolsPage') },
       { path: 'tools/:id', element: lazyPage(tools, 'ToolPage') },
       { path: 'demos', element: lazyPage(hub, 'DemosPage') },

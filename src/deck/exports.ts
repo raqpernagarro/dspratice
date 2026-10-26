@@ -23,7 +23,7 @@ export function exportBriefMd(deck: Deck) {
   const lines = [
     `# Brief for a Nagarro deck: ${b.deckName}`,
     '',
-    `Built with the Nagarro Master Slides engine ${ENGINE.artifactVersion}. Paste this into Claude with the nagarro-slides plugin ("make a Nagarro deck"), or open deck.json in the Presentation Studio when it supports import.`,
+    `Built with the Nagarro Master Slides engine ${ENGINE.artifactVersion}. Paste this into Presentation Studio's prompt box to edit the deck and export .pptx or PDF, or into Claude with the nagarro-slides plugin ("make a Nagarro deck").`,
     '',
     `1. **Deck name:** ${b.deckName}`,
     `2. **Topic and key messages:** ${b.keyMessages.map((m) => `\n   - ${m}`).join('')}`,
