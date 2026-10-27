@@ -2,7 +2,8 @@
 // The browser learns only whether each integration is configured, never a key.
 //
 //   GET  /api/status                       → { model, figma, localRead }
-//   POST /api/generate {kind, system, user} → structured draft via the Anthropic API (if a key is set)
+//   POST /api/generate {kind, system, user} → structured output via the Anthropic API (if a key is set);
+//                                           kind: compose | improve (client requests) | route (Home's Ask AI)
 //   GET  /api/figma/file?key&depth          → pages and top-level frames (Figma REST, if a token is set)
 //   GET  /api/figma/nodes?key&ids           → slimmed node trees with TEXT characters
 //   GET  /api/figma/projects?teamId         → a team's folders (projects)
@@ -35,7 +36,8 @@ export interface ApiEnv {
   appRoot?: string
 }
 
-export type GenerateFn = (args: { kind: 'compose' | 'improve'; system: string; user: string; env: ApiEnv }) => Promise<{ data: unknown; model: string; usage: { inputTokens: number; outputTokens: number; cacheReadTokens?: number } }>
+export type GenerateKind = 'compose' | 'improve' | 'route'
+export type GenerateFn = (args: { kind: GenerateKind; system: string; user: string; env: ApiEnv }) => Promise<{ data: unknown; model: string; usage: { inputTokens: number; outputTokens: number; cacheReadTokens?: number } }>
 
 export interface Deps {
   fetch: typeof fetch
@@ -128,7 +130,8 @@ export async function routeRequest(method: string, url: URL, body: unknown, env:
     if (method === 'POST' && route === '/generate') {
       if (!env.apiKey) throw new ApiError(503, 'not-configured', 'No ANTHROPIC_API_KEY in .env.local. The template composer still works.')
       const b = body as { kind?: string; system?: string; user?: string }
-      if ((b.kind !== 'compose' && b.kind !== 'improve') || typeof b.system !== 'string' || typeof b.user !== 'string') throw new ApiError(400, 'bad-request', 'Expected { kind: "compose" | "improve", system, user }.')
+      if ((b.kind !== 'compose' && b.kind !== 'improve' && b.kind !== 'route') || typeof b.system !== 'string' || typeof b.user !== 'string') throw new ApiError(400, 'bad-request', 'Expected { kind: "compose" | "improve" | "route", system, user }.')
+      if (b.kind === 'route' && b.user.length > 2_000) throw new ApiError(413, 'too-large', 'Keep the question to a sentence or two.')
       if (b.user.length > 400_000) throw new ApiError(413, 'too-large', 'The request is too large; select fewer sources.')
       const out = await deps.generate({ kind: b.kind, system: b.system, user: b.user, env })
       return { status: 200, body: { ok: true, ...out } }
@@ -223,15 +226,15 @@ export async function routeRequest(method: string, url: URL, body: unknown, env:
 export const anthropicGenerate: GenerateFn = async ({ kind, system, user, env }) => {
   const { default: Anthropic } = await import('@anthropic-ai/sdk')
   const { betaZodOutputFormat } = await import('@anthropic-ai/sdk/helpers/beta/zod')
-  const { ComposeSchema, ImproveSchema } = await import('./schemas.ts')
+  const { ComposeSchema, ImproveSchema, RouteSchema } = await import('./schemas.ts')
   const client = new Anthropic({ apiKey: env.apiKey, timeout: 180_000, maxRetries: 1 })
   try {
     const res = await client.beta.messages.parse({
       model: env.model,
-      max_tokens: kind === 'compose' ? 16_000 : 8_000,
+      max_tokens: kind === 'compose' ? 16_000 : kind === 'route' ? 1_000 : 8_000,
       system,
       messages: [{ role: 'user', content: [{ type: 'text', text: user, cache_control: { type: 'ephemeral' } }] }],
-      output_config: { effort: kind === 'compose' ? 'medium' : 'low', format: betaZodOutputFormat(kind === 'compose' ? ComposeSchema : ImproveSchema) },
+      output_config: { effort: kind === 'compose' ? 'medium' : 'low', format: betaZodOutputFormat(kind === 'compose' ? ComposeSchema : kind === 'route' ? RouteSchema : ImproveSchema) },
       ...(env.fallbacks ? { betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default' as const } : {}),
     })
     if (res.stop_reason === 'refusal') throw new ApiError(422, 'refused', `The model declined this request${res.stop_details?.category ? ` (${res.stop_details.category})` : ''}. The template draft is unchanged.`)

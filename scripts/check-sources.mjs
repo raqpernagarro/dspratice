@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-sources.mjs — proves the read-only source repos (DSN, Starter Pack, Presentation Studio) are untouched.
+ * check-sources.mjs — proves the read-only source repos (DSN, Starter Pack, Presentation Studio, DS Prototyping Tooling) are untouched.
  *
  *   node scripts/check-sources.mjs --write   # store an md5 manifest in docs/sources.md5
  *   node scripts/check-sources.mjs           # verify; exit 1 listing changed / added / removed paths
@@ -19,6 +19,8 @@ const SOURCES = {
   starter: resolve(APP_ROOT, '..', 'demo tools', 'ds-starter-pack-main'),
   // Carolina's Presentation Studio: run from tool-copies/ (npm run tools), never from here.
   studio: resolve(APP_ROOT, '..', 'demo tools', 'deckgenerator-platform-main'),
+  // The ASSA ABLOY DS Prototyping Tooling, behind "Prototype on a client's design system".
+  prototyping: resolve(APP_ROOT, '..', 'demo tools', 'ASSA-ABLOY-DS-prototyping-v5'),
 }
 const MANIFEST = join(APP_ROOT, 'docs', 'sources.md5')
 const EXCLUDED_DIRS = new Set(['node_modules', 'dist', '.git', 'storybook-static'])

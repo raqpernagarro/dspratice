@@ -6,7 +6,7 @@
 //   npm run tools -- copy <tool|all>      copy a tool out of ../demo tools, once
 //   npm run tools -- start <tool…|all>    start tools; Ctrl+C stops them
 //
-// Tools: starter, dsn, studio (src/fixtures/tool-servers.json). Every tool writes into its own
+// Tools: starter, dsn, studio, prototyping (src/fixtures/tool-servers.json). Every tool writes into its own
 // folder when used, so it runs from your clone in sources/ or a copy in tool-copies/, never from
 // ../demo tools (read-only; scripts/check-sources.mjs proves it). On a Mac the copy is an APFS
 // clone: under a minute for all three, and no extra disk until files change.

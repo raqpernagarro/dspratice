@@ -46,7 +46,7 @@ export async function getStatus(): Promise<IntegrationStatus> {
 
 export interface GenerateResult<T> { data: T; model: string; usage: { inputTokens: number; outputTokens: number; cacheReadTokens?: number } }
 
-export function generate<T>(payload: { kind: 'compose' | 'improve'; system: string; user: string }, signal?: AbortSignal) {
+export function generate<T>(payload: { kind: 'compose' | 'improve' | 'route'; system: string; user: string }, signal?: AbortSignal) {
   return call<GenerateResult<T>>('/api/generate', { method: 'POST', body: JSON.stringify(payload), signal })
 }
 

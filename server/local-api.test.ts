@@ -30,6 +30,9 @@ describe('local API', () => {
     const ok = await call('POST', '/api/generate', { kind: 'compose', system: 's', user: 'u' }, env({ apiKey: 'k' }), d)
     expect(ok.body).toMatchObject({ ok: true, usage: { inputTokens: 10 } })
     expect(JSON.stringify(ok.body)).not.toContain('"k"')
+
+    expect((await call('POST', '/api/generate', { kind: 'route', system: 's', user: 'u' }, env({ apiKey: 'k' }), d)).status).toBe(200)
+    expect((await call('POST', '/api/generate', { kind: 'route', system: 's', user: 'x'.repeat(2001) }, env({ apiKey: 'k' }), d)).status).toBe(413)
   })
 
   it('reads allowlisted files and blocks traversal and other folders', async () => {

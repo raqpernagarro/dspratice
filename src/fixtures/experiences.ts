@@ -9,7 +9,7 @@
 
 import servers from './tool-servers.json'
 
-export type ServerId = 'starter' | 'dsn' | 'studio'
+export type ServerId = 'starter' | 'dsn' | 'studio' | 'prototyping'
 
 export interface ToolServer {
   id: ServerId
@@ -122,6 +122,17 @@ export const EXPERIENCES: Experience[] = [
     get: 'A live prototype on the client’s system and a link to share it.',
     mode: 'frame',
     note: 'The chat needs a model key; its demo mode (?source=demo) does not.',
+  },
+  {
+    id: 'assa-prototyping',
+    server: 'prototyping',
+    name: 'Prototype on a client’s design system',
+    journey: 'project-existing',
+    path: '/prototyping/library/index.html',
+    what: 'The DS Prototyping Tooling built for ASSA ABLOY: the system’s components, colours and type from its Figma kit, a starting point from the Figma screens, and prototypes you build by describing them to Claude.',
+    get: 'A clickable prototype on the client’s own components, in ASSA ABLOY or Yale, light or dark, desktop to mobile.',
+    mode: 'frame',
+    note: 'This is the reference build for one client. For another client, it is a new copy of it on that client’s tokens and components. To build a prototype by describing it, open the copy’s folder in Claude Code and type start.',
   },
   {
     id: 'studio',

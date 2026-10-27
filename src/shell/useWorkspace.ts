@@ -31,7 +31,7 @@ export function navFor(ws: Workspace, r: RouteFamily): NavItem[] {
   // decks belong to an item on Projects; the client demo and its social cuts live in Demos;
   // posts and Marketing Studio in Engagement. Tools open from journeys, sources sit in Settings.
   return [
-    { to: practice.home, label: 'Home', match: [practice.home, practice.conversations, practice.tools], icon: 'home' },
+    { to: practice.home, label: 'Home', match: [practice.home, practice.conversations, practice.tools, '/nagarro/journeys'], icon: 'home' },
     { to: practice.projects, label: 'Projects', match: [practice.projects, '/nagarro/start', practice.opportunities, practice.presentations], icon: 'clients' },
     { to: practice.demos, label: 'Demos', match: [practice.demos, practice.scorecard], icon: 'demos' },
     { to: practice.engagement, label: 'Engagement', match: [practice.engagement], icon: 'engagement' },

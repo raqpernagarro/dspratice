@@ -10,6 +10,7 @@ import { ClientPortfolio } from '@/features/nagarro/ClientPortfolio'
 import { PresenterGuide } from '@/features/nagarro/PresenterGuide'
 import { EngagementHome } from '@/features/nagarro/EngagementHome'
 import { StartSystem } from '@/features/nagarro/StartSystem'
+import { JourneyGuide } from '@/features/nagarro/JourneyGuide'
 import { AboutPage, PracticeSettings } from '@/features/nagarro/PracticePages'
 import { NotesWindow } from '@/features/presenter/NotesWindow'
 import { lazyPage } from './lazy'
@@ -20,7 +21,6 @@ const opportunity = () => import('@/features/opportunity')
 const decks = () => import('@/features/presentations')
 const hub = () => import('@/features/hub')
 const tools = () => import('@/features/tools')
-const conversations = () => import('@/features/conversations')
 const scorecard = () => import('@/features/scorecard')
 const engagement = () => import('@/features/engagement')
 import { Wizard } from '@/features/start/Wizard'
@@ -115,6 +115,7 @@ export const router = createBrowserRouter([
       { index: true, element: <NagarroHome /> },
       { path: 'clients', element: <ClientPortfolio /> },
       { path: 'start', element: <StartSystem /> },
+      { path: 'journeys/:id', element: <JourneyGuide /> },
       { path: 'library', element: <Navigate to={practice.projects} replace /> },
       { path: 'library/:id', element: <Navigate to={practice.projects} replace /> },
       { path: 'guides', element: <HandbookPage /> },
@@ -138,7 +139,7 @@ export const router = createBrowserRouter([
           { path: ':step', element: lazyPage(opportunity, 'OpportunityWizard') },
         ],
       },
-      { path: 'conversations', element: lazyPage(conversations, 'ConversationsPage') },
+      { path: 'conversations', element: <Navigate to={practice.home} replace /> },
       { path: 'tools', element: <Navigate to={practice.home} replace /> },
       { path: 'tools/:id', element: lazyPage(tools, 'ToolPage') },
       { path: 'demos', element: lazyPage(hub, 'DemosPage') },

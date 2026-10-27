@@ -138,7 +138,7 @@ export function DeckBuilder() {
   const project = projects[projectId]
   const ready = project ? Object.values(project.opportunities ?? {}).filter((o) => o.responses.length) : []
   const [from, setFrom] = useState<string>(fromParam ?? (params.get('kind') === 'project' ? 'project' : ''))
-  const [projectStructure, setProjectStructure] = useState<'readout' | 'update'>('readout')
+  const [projectStructure, setProjectStructure] = useState<'readout' | 'update'>(params.get('structure') === 'update' ? 'update' : 'readout')
   const [structure, setStructure] = useState<Deck['structure']>('proposal')
   const [minutes, setMinutes] = useState(30)
   const source = from || (ready[0] ? ready[0].id : 'project')

@@ -30,8 +30,11 @@ test('a new colleague can tell what the hub is for and where to start', async ({
   await expect(page).toHaveURL(/\/nagarro$/)
   const main = page.locator('main')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('What do you need to do?')
-  for (const t of ['Prepare a client conversation', 'Proposal, presentation, demo', 'Start a project', 'New or existing design system', 'More journeys as real needs appear']) await expect(main).toContainText(t)
-  await expect(page.locator('.journey-card')).toHaveCount(2)
+  await expect(page.getByTestId('group-clients')).toContainText('Client conversations')
+  await expect(page.getByTestId('group-projects')).toContainText('Project work')
+  await expect(page.locator('.jgroup .jrow')).toHaveCount(8)
+  // the lead fits on one line at desktop width
+  expect(await page.locator('.home__lead').evaluate((el) => Math.round(el.getBoundingClientRect().height / parseFloat(getComputedStyle(el).lineHeight)))).toBe(1)
   await expect(page.locator('.shell__side .nav__label')).toHaveText(['Home', 'Projects', 'Demos', 'Engagement', 'Settings'])
   await expect(page.getByTestId('continue-list')).toBeVisible()
   await expect(main).not.toContainText('System health')
@@ -52,31 +55,42 @@ test('a new colleague can tell what the hub is for and where to start', async ({
   await page.setViewportSize({ width: 1280, height: 860 })
   await shot(page, '21-header-1280')
 
-  // journey 1 asks what you are starting from, and lists every request and deck
-  await page.getByTestId('journey-conversation').click()
-  await expect(page).toHaveURL(/\/nagarro\/conversations$/)
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Prepare a client conversation')
-  await expect(main).toContainText('What are you starting from?')
-  for (const id of ['request', 'project', 'idea', 'demo']) await expect(page.getByTestId(`start-${id}`)).toBeVisible()
-  await expect(page.getByTestId('conversation-list')).toContainText('Client request')
-  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Home')
-  const starts: [string, RegExp][] = [
-    ['start-request', /\/nagarro\/opportunities\/new$/],
-    ['start-project', /\/nagarro\/presentations\/new\?kind=project$/],
-    ['start-idea', /\/nagarro\/tools\/studio$/],
-    ['start-demo', /\/nagarro\/demos$/],
+  // the prompt routes plain words to a journey, with no model call, and says why
+  const routes: [string, string, RegExp][] = [
+    ['We got an RFP from a bank', 'respond-request', /\/nagarro\/opportunities\/new$/],
+    ['Jane needs a prototype on the ASSA ABLOY design system', 'prototype', /\/nagarro\/tools\/assa-prototyping$/],
+    ['set up a new design system from scratch', 'new-system', /\/nagarro\/start\?journey=new$/],
   ]
-  for (const [id, url] of starts) {
-    await page.goto('/nagarro/conversations')
-    await page.getByTestId(id).click()
+  for (const [text, id, url] of routes) {
+    await page.goto('/nagarro')
+    await page.getByTestId('home-ask').fill(text)
+    await page.getByTestId('home-ask').press('Enter')
+    const answer = page.getByTestId('home-answer')
+    await expect(answer.locator('.jrow').first()).toHaveAttribute('data-testid', `journey-${id}`)
+    await expect(answer).toContainText('Because you wrote')
+    await answer.locator('.jrow').first().click()
     await expect(page).toHaveURL(url)
   }
+  await shot(page, '22-home-routed')
 
-  // journey 2 asks new or existing, then goes to that journey
+  // a set-up guide says it has no tool yet and starts with its question
+  await page.goto('/nagarro/journeys/product-design')
+  await expect(main).toContainText('Set-up guide · no tool yet')
+  await expect(page.getByTestId('guide-branch-option')).toHaveCount(3)
+  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Home')
+
+  // every journey is one click away from the sheet
+  await page.goto('/nagarro')
+  await page.getByTestId('group-projects').getByRole('button', { name: /All \d+ journeys/ }).click()
+  await expect(page.getByRole('dialog')).toBeInViewport()
+  await expect(page.getByRole('dialog').locator('.jrow')).toHaveCount(7)
+  await page.keyboard.press('Escape')
+
+  // the old conversations page now lands on Home; Start a project still asks new or existing
+  await page.goto('/nagarro/conversations')
+  await expect(page).toHaveURL(/\/nagarro$/)
   for (const kind of ['new', 'improve']) {
-    await page.goto('/nagarro')
-    await page.getByTestId('journey-project').click()
-    await expect(page).toHaveURL(/\/nagarro\/start$/)
+    await page.goto('/nagarro/start')
     await page.getByTestId(`start-choice-${kind}`).click()
     await expect(page).toHaveURL(new RegExp(`/nagarro/start\\?journey=${kind}$`))
   }

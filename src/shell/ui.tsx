@@ -1,5 +1,6 @@
-import type { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes, CSSProperties } from 'react'
+import { useEffect, type ReactNode, type ButtonHTMLAttributes, type AnchorHTMLAttributes, type CSSProperties } from 'react'
 import { Link } from 'react-router'
+import { createPortal } from 'react-dom'
 import { AlertTriangle, CheckCircle2, Info, Sparkles, XCircle, FlaskConical, X, Loader2 } from 'lucide-react'
 
 export function cx(...parts: (string | false | null | undefined)[]) {
@@ -163,8 +164,15 @@ export function Swatch({ color, lg, title }: { color: string; lg?: boolean; titl
   return <span className={cx('swatch', lg && 'swatch--lg')} style={{ background: color }} title={title ?? color} aria-label={title ?? color} />
 }
 
+/** A dialog over the page. Rendered into <body>: the page transition keeps a transform on its
+ *  wrapper, which would otherwise pin a fixed overlay to the page instead of the viewport. */
 export function Sheet({ title, onClose, children, wide, actions }: { title: ReactNode; onClose: () => void; children: ReactNode; wide?: boolean; actions?: ReactNode }) {
-  return (
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose])
+  return createPortal(
     <div className="sheet-scrim" onClick={onClose} role="presentation">
       <div className={cx('sheet', wide && 'sheet--wide')} role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
         <div className="row row--between">
@@ -176,7 +184,8 @@ export function Sheet({ title, onClose, children, wide, actions }: { title: Reac
         {children}
         {actions && <div className="row" style={{ justifyContent: 'flex-end' }}>{actions}</div>}
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
 

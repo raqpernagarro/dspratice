@@ -51,16 +51,16 @@ export function ToolPage() {
   if (!e) {
     return (
       <div className="page">
-        <PageHead title="No such tool" crumbs={[{ label: 'Tools', to: practice.tools }, { label: id }]} />
+        <PageHead title="No such tool" crumbs={[{ label: 'Home', to: practice.home }, { label: id }]} />
         <p>
-          <Link to={practice.tools}>See every tool</Link>
+          <Link to={practice.home}>Back to Home</Link>
         </p>
       </div>
     )
   }
   return (
     <div className="page page--tool">
-      <PageHead title={e.name} lead={`${e.what} You get: ${e.get}`} crumbs={[{ label: 'Tools', to: practice.tools }, { label: e.name }]} />
+      <PageHead title={e.name} lead={`${e.what} You get: ${e.get}`} crumbs={[{ label: 'Home', to: practice.home }, { label: e.name }]} />
       {e.note && <p className="small muted">{e.note}</p>}
       <ExperienceFrame e={e} />
     </div>

@@ -8,7 +8,7 @@ import { experience } from '@/fixtures/experiences'
 import { cleanAddress, probe, useTools } from '@/integrations/tools'
 import { ExperienceFrame } from './ExperienceFrame'
 
-const reset = () => useTools.setState({ addresses: {}, files: null, run: { starter: { state: 'unknown', checkedAt: null }, dsn: { state: 'unknown', checkedAt: null }, studio: { state: 'unknown', checkedAt: null } } })
+const reset = () => useTools.setState({ addresses: {}, files: null, run: { starter: { state: 'unknown', checkedAt: null }, dsn: { state: 'unknown', checkedAt: null }, studio: { state: 'unknown', checkedAt: null }, prototyping: { state: 'unknown', checkedAt: null } } })
 
 /** `up`: whether the tool answers; `files`: what /api/tools says. */
 function stubFetch(up: boolean, files?: object) {

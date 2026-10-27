@@ -27,5 +27,8 @@ export const ComposeSchema = z.object({
 
 export const ImproveSchema = z.object({ heading: z.string(), body: z.string(), kind: KIND, citations: z.array(Citation) })
 
+/** "Ask AI" on Home: which journeys fit what someone typed, from the journey list it is given. */
+export const RouteSchema = z.object({ journeyIds: z.array(z.string()), reason: z.string() })
+
 export type ComposeOutput = z.infer<typeof ComposeSchema>
 export type ImproveOutput = z.infer<typeof ImproveSchema>
