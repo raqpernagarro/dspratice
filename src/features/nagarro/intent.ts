@@ -43,15 +43,25 @@ function containsPhrase(words: string[], phrase: string[]): boolean {
   return false
 }
 
-/** Scores already-normalised words against a keyword list: a phrase counts more than a word. */
+/** True when two words are one edit apart (a typo): only for words of five letters or more. */
+function nearly(a: string, b: string): boolean {
+  if (a.length < 5 || b.length < 5 || Math.abs(a.length - b.length) > 1) return false
+  let i = 0
+  while (i < a.length && a[i] === b[i]) i++
+  if (a.length === b.length) return a.slice(i + 1) === b.slice(i + 1)
+  return a.length > b.length ? a.slice(i + 1) === b.slice(i) : a.slice(i) === b.slice(i + 1)
+}
+
+/** Scores already-normalised words against a keyword list: a phrase counts more than a word; a typo still counts. */
 export function keywordScore(words: string[], keywords: string[]): { score: number; matched: string[] } {
   const content = new Set(words.filter((w) => !STOP.has(w)))
+  const has = (k: string) => content.has(k) || [...content].some((w) => nearly(w, k))
   let score = 0
   const matched: string[] = []
   for (const k of keywords) {
     const phrase = normalise(k)
     if (!phrase.length) continue
-    if (phrase.length === 1 ? content.has(phrase[0]) : containsPhrase(words, phrase)) {
+    if (phrase.length === 1 ? has(phrase[0]) : containsPhrase(words, phrase)) {
       score += phrase.length === 1 ? 1 : 1 + phrase.length
       matched.push(k)
     }

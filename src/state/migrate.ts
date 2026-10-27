@@ -7,7 +7,7 @@ import type { AppData, Journey, Project, SystemState } from './types'
 import { DEFAULT_BASELINE, defaultJourney, seedProject, seedState } from './seed'
 import { emptyKnowledge, internalSeeds } from './internal-seeds'
 import { PROJECT_SEEDS } from '@/fixtures/projects'
-import { DEFAULT_ME, deriveCard } from './card'
+import { deriveCard } from './card'
 import { cloneSys } from './scope'
 import { uid } from './sim'
 
@@ -108,5 +108,5 @@ export type V4State = Omit<AppData, 'projects'> & { projects: Record<string, Omi
 export function migrateV4toV5(v4: V4State): AppData {
   const projects: Record<string, Project> = {}
   for (const [id, p] of Object.entries(v4.projects)) projects[id] = { ...p, card: p.card ?? deriveCard(p) } as Project
-  return { ...(v4 as unknown as AppData), meta: { ...v4.meta, schemaVersion: 5 }, projects, ui: { ...v4.ui, me: v4.ui.me ?? DEFAULT_ME } }
+  return { ...(v4 as unknown as AppData), meta: { ...v4.meta, schemaVersion: 5 }, projects, ui: { ...v4.ui } }
 }

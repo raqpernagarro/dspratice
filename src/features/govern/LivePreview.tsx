@@ -3,7 +3,7 @@ import { useSys } from '@/state/hooks'
 import { DemoScope } from '@/demo-system/DemoScope'
 import { DsAvatar, DsBadge, DsButton, DsCard, DsCheckbox, DsInput, DsPagination, DsSelect, DsTable, DsTabs, DsToast, DsToggle } from '@/demo-system/components'
 import { Segmented } from '@/shell/ui'
-import type { BrandId, Mode } from '@/state/types'
+import type { BrandId, Mode, ThemeConfig } from '@/state/types'
 
 function hexShift(hex: string, amount: number): string {
   const h = hex.replace('#', '')
@@ -15,15 +15,12 @@ function hexShift(hex: string, amount: number): string {
   return '#' + [f(r), f(g), f(b)].map((c) => c.toString(16).padStart(2, '0')).join('')
 }
 
-/** Live preview of the theme intents on the real Demo Brand components (the wizard's "bento"). */
-export function LivePreview({ compact }: { compact?: boolean }) {
-  const theme = useSys((s) => s.theme)
-  const [mode, setMode] = useState<Mode>(theme.designedFirst)
-  const [brand, setBrand] = useState<BrandId>(theme.activeBrand)
+/** The theme's intents (brand colour, radius, button shape, type) as CSS variables over the system's tokens:
+ *  what makes a preview look like this client's system before anything is saved. */
+export function themeIntentVars(theme: ThemeConfig, brand: BrandId, mode: Mode): React.CSSProperties {
   const activeBrand = theme.brands.find((b) => b.id === brand) ?? theme.brands[0]
   const main = activeBrand.main
-  // Theme intents override the interactive family in the preview scope (the wizard previews before anything is saved).
-  const overrides = {
+  return {
     '--color-background-interactive-primary-default': mode === 'light' ? main : hexShift(main, 0.18),
     '--color-background-interactive-primary-hover': mode === 'light' ? hexShift(main, -0.18) : hexShift(main, 0.32),
     '--color-background-interactive-primary-active': mode === 'light' ? hexShift(main, -0.3) : hexShift(main, 0.45),
@@ -37,7 +34,15 @@ export function LivePreview({ compact }: { compact?: boolean }) {
     '--font-size-sm': `${Math.round(theme.type.baseSize * 0.87)}px`,
     '--font-size-lg': `${Math.round(theme.type.baseSize * 1.2)}px`,
   } as React.CSSProperties
+}
 
+/** Live preview of the theme intents on the real Demo Brand components (the wizard's "bento"). */
+export function LivePreview({ compact }: { compact?: boolean }) {
+  const theme = useSys((s) => s.theme)
+  const [mode, setMode] = useState<Mode>(theme.designedFirst)
+  const [brand, setBrand] = useState<BrandId>(theme.activeBrand)
+  const activeBrand = theme.brands.find((b) => b.id === brand) ?? theme.brands[0]
+  const overrides = themeIntentVars(theme, brand, mode)
   return (
     <div className="preview-frame">
       <div className="preview-frame__bar">

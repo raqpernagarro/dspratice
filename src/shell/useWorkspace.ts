@@ -124,14 +124,6 @@ export function areaTabsFor(pathname: string, r: RouteFamily, opts?: { proposalP
       { label: 'Needs attention', to: practice.knowledgeTab('attention') },
     ]
   }
-  if (!client && [practice.myWork, practice.projects, practice.opportunities, practice.presentations].includes(pathname)) {
-    return [
-      { label: 'My work', to: practice.myWork },
-      { label: 'Team board', to: practice.projects, match: practice.projects },
-      { label: 'Client requests', to: practice.opportunities },
-      { label: 'Presentations', to: practice.presentations },
-    ]
-  }
   if (!client && [practice.demos, practice.meetingPrep(), practice.scorecard].includes(pathname)) {
     return [
       { label: 'Demos', to: practice.demos, match: practice.demos },

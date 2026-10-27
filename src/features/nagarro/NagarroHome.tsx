@@ -15,10 +15,9 @@ import { useInProgress } from './work'
 
 const TRY = ['We got an RFP from a bank', 'Jane needs a prototype on the ASSA ABLOY design system', 'Show a prospect how AI stays on their system']
 
-function JourneyRow({ j, n, reason }: { j: JourneyDef; n?: number; reason?: string }) {
+function JourneyRow({ j, reason }: { j: JourneyDef; reason?: string }) {
   return (
     <Link to={j.to} className="jrow" data-testid={`journey-${j.id}`}>
-      {n !== undefined && <span className="jrow__n">{String(n).padStart(2, '0')}</span>}
       <span className="jrow__main">
         <strong className="jrow__title">{j.title}</strong>
         <span className="jrow__outcome">{j.outcome}</span>
@@ -40,8 +39,8 @@ function GroupCard({ group, onAll }: { group: JourneyGroup; onAll: () => void })
       <h2 id={`jgroup-${group}`} className="jgroup__title">{g.title}</h2>
       <p className="jgroup__lead">{g.lead}</p>
       <div className="jgroup__rows">
-        {featured.map((j, i) => (
-          <JourneyRow key={j.id} j={j} n={i + 1} />
+        {featured.map((j) => (
+          <JourneyRow key={j.id} j={j} />
         ))}
       </div>
       <button type="button" className="jgroup__all" onClick={onAll}>
@@ -139,7 +138,14 @@ export function NagarroHome() {
                   </div>
                 </>
               ) : (
-                <p className="ask__none">No journey matches those words yet. Try other words, browse the journeys below{status.model.configured ? ', or ask AI.' : '.'}</p>
+                <>
+                  <p className="ask__none">Nothing matched those words exactly{status.model.configured ? '; Ask AI can try' : ''}. These are the jobs people start most:</p>
+                  <div className="jgroup__rows jgroup__rows--plain" data-testid="home-closest">
+                    {JOURNEYS.filter((j) => j.featured).slice(0, 4).map((j) => (
+                      <JourneyRow key={j.id} j={j} />
+                    ))}
+                  </div>
+                </>
               )}
               {status.model.configured && !ai.result && (
                 <button type="button" className="btn btn--secondary btn--sm ask__ai" onClick={runAi} disabled={ai.state === 'loading'} data-testid="home-ask-ai">

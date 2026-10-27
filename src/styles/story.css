@@ -2213,3 +2213,33 @@ button.process__card {
 .post__media--cover .post__format {
   display: none;
 }
+
+/* project tile: a live preview of the project's own system (round 8) */
+.ptile__thumb {
+  aspect-ratio: 16 / 9;
+  background: var(--n-band);
+}
+.ptile__thumb::after {
+  display: none;
+}
+.ptile__preview {
+  position: absolute;
+  inset: 0;
+  width: 166%;
+  height: 166%;
+  transform: scale(0.6);
+  transform-origin: 0 0;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--color-background-surface-default, #fff);
+  pointer-events: none;
+  overflow: hidden;
+}
+.ptile__preview-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}

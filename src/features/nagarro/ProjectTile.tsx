@@ -1,6 +1,5 @@
-// One item on the Projects board: who it is for, where it stands, who is on it and where its files
-// live. Projects in this browser and work shared through the repository look the same; only
-// projects in this browser can be edited here.
+// One project on My work: a live preview of its own system, who it is for, where it stands and where
+// its files live. Projects stay in this browser; nothing is shared between people.
 
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
@@ -10,7 +9,10 @@ import { useStore } from '@/state/store'
 import { nagarro, practice } from '@/app/routes'
 import { Chip, Field, Sheet } from '@/shell/ui'
 import { MenuButton, MenuItem } from '@/shell/Menu'
-import { SHARED, STATUS_LABEL, TAG_LABEL, TEAM, flag, initials, isRealLink, person } from '@/state/card'
+import { STATUS_LABEL, TAG_LABEL, flag, initials, isRealLink } from '@/state/card'
+import { DemoScope } from '@/demo-system/DemoScope'
+import { DsBadge, DsButton, DsInput, DsToggle } from '@/demo-system/components'
+import { themeIntentVars } from '@/features/govern/LivePreview'
 import type { Project, ProjectCard, ProjectStatus, ProjectTag } from '@/state/types'
 
 export interface BoardItem {
@@ -23,8 +25,8 @@ export interface BoardItem {
   to?: string
   projectId?: string
   sample?: boolean
-  shared?: boolean
-  colors?: [string, string]
+  /** The project's own system, for the live preview. */
+  system?: Project['draft']
   counts: { requests: number; decks: number; demo?: number }
 }
 
@@ -37,11 +39,10 @@ export function boardItems(projects: Record<string, Project>): BoardItem[] {
     to: nagarro(p.slug).home,
     projectId: p.id,
     sample: p.client.fictional,
-    colors: [p.draft.theme.color.main, p.draft.theme.color.accent],
+    system: p.draft,
     counts: { requests: Object.keys(p.opportunities ?? {}).length, decks: Object.keys(p.decks ?? {}).length, demo: p.published?.version },
   }))
-  const shared: BoardItem[] = SHARED.filter((e) => !projects[e.id]).map((e) => ({ key: `shared-${e.id}`, name: e.client.name, title: e.title, sector: e.client.sector, card: e.card, to: e.open, shared: true, sample: e.sample, counts: { requests: 0, decks: 0 } }))
-  return [...local, ...shared]
+  return local
 }
 
 const LINKS: { key: keyof ProjectCard['links']; label: string; icon: typeof PenTool }[] = [
@@ -53,18 +54,20 @@ const LINKS: { key: keyof ProjectCard['links']; label: string; icon: typeof PenT
 
 const STATUS_TONE: Record<ProjectStatus, 'ok' | 'warn' | 'outline' | 'default'> = { opportunity: 'warn', 'in-progress': 'ok', delivered: 'outline', paused: 'default' }
 
-function Avatars({ ids }: { ids: string[] }) {
-  const people = ids.map(person).filter((p): p is NonNullable<typeof p> => Boolean(p))
-  if (!people.length) return <span className="xs muted">No one named yet</span>
+/** A small live preview of the project's own system: its brand, mode, radius and type on real components. */
+export function SystemPreview({ system }: { system: Project['draft'] }) {
+  const theme = system.theme
+  const mode = theme.designedFirst ?? 'light'
   return (
-    <span className="avatars" aria-label={`People: ${people.map((p) => p.name).join(', ')}`}>
-      {people.slice(0, 4).map((p) => (
-        <span key={p.id} className="avatar" title={`${p.name}${p.role ? ` · ${p.role}` : ''}`}>
-          {initials(p.name)}
-        </span>
-      ))}
-      {people.length > 4 && <span className="avatar avatar--more">+{people.length - 4}</span>}
-    </span>
+    <DemoScope system={system} brand={theme.activeBrand} mode={mode} themed className="ptile__preview" style={themeIntentVars(theme, theme.activeBrand, mode)}>
+      <div className="ptile__preview-row">
+        <DsButton>Primary</DsButton>
+        <DsButton variant="secondary">Secondary</DsButton>
+        <DsBadge>Active</DsBadge>
+      </div>
+      <DsInput label="Display name" placeholder={theme.name} />
+      <DsToggle label="Notifications" />
+    </DemoScope>
   )
 }
 
@@ -73,11 +76,10 @@ export function ProjectTile({ item, onEdit }: { item: BoardItem; onEdit?: (proje
   const projects = useStore((s) => s.projects)
   const { card } = item
   const slug = item.projectId ? projects[item.projectId]?.slug : undefined
-  const thumb = card.thumbnail ? { backgroundImage: `url("${card.thumbnail}")` } : item.colors ? { background: `linear-gradient(135deg, ${item.colors[0]}, ${item.colors[1]})` } : undefined
   const body = (
     <>
-      <span className={`ptile__thumb${thumb ? '' : ' ptile__thumb--panel'}`} style={thumb} aria-hidden="true">
-        {!card.thumbnail && <span className="ptile__mono">{initials(item.name)}</span>}
+      <span className="ptile__thumb" aria-hidden="true" style={card.thumbnail ? { backgroundImage: `url("${card.thumbnail}")` } : undefined}>
+        {!card.thumbnail && item.system ? <SystemPreview system={item.system} /> : !card.thumbnail && <span className="ptile__mono">{initials(item.name)}</span>}
       </span>
       <span className="ptile__head">
         <strong className="ptile__name">
@@ -88,7 +90,6 @@ export function ProjectTile({ item, onEdit }: { item: BoardItem; onEdit?: (proje
           {flag(card.country) && <span aria-label={card.country}>{flag(card.country)} </span>}
           {item.sector}
           {item.sample ? ' · sample' : ''}
-          {item.shared ? ' · shared by the team' : ''}
         </span>
       </span>
       {card.brief && <span className="ptile__brief">{card.brief}</span>}
@@ -112,7 +113,7 @@ export function ProjectTile({ item, onEdit }: { item: BoardItem; onEdit?: (proje
         ))}
       </div>
       <div className="ptile__foot">
-        <Avatars ids={card.peopleIds} />
+        <span className="xs muted">{card.links && Object.values(card.links).some(isRealLink) ? 'Links' : 'No links yet'}</span>
         <span className="ptile__links">
           {LINKS.filter((l) => isRealLink(card.links[l.key])).map((l) => (
             <a key={l.key} href={card.links[l.key]} target="_blank" rel="noreferrer" className="icon-btn" title={l.label} aria-label={`${l.label} for ${item.name}`}>
@@ -156,7 +157,7 @@ export function EditCardSheet({ projectId, onClose }: { projectId: string; onClo
   }
   return (
     <Sheet
-      title={`${p.client.name} on the board`}
+      title={`${p.client.name}: the project card`}
       onClose={onClose}
       wide
       actions={
@@ -170,7 +171,7 @@ export function EditCardSheet({ projectId, onClose }: { projectId: string; onClo
         </>
       }
     >
-      <p className="small muted">The card is what the team sees on the board. It is saved in this browser; to share it with everyone, add it to src/fixtures/team-board.json. Tasks stay in Jira: link the board, not the tickets.</p>
+      <p className="small muted">What you see on this project’s tile in My work. It stays in this browser. Tasks stay in Jira: link the project, not the tickets.</p>
       <Field label="Where it stands">
         <select className="select" value={card.status} onChange={(e) => set({ status: e.target.value as ProjectStatus })} data-testid="card-status">
           {STATUSES.map((s) => (
@@ -185,15 +186,6 @@ export function EditCardSheet({ projectId, onClose }: { projectId: string; onClo
           {TAGS.map((t) => (
             <label key={t} className="row small" style={{ gap: 6 }}>
               <input type="checkbox" checked={card.tags.includes(t)} onChange={() => set({ tags: toggle(card.tags, t) })} /> {TAG_LABEL[t]}
-            </label>
-          ))}
-        </div>
-      </Field>
-      <Field label="Who is on it">
-        <div className="row" style={{ flexWrap: 'wrap', gap: 12 }}>
-          {TEAM.map((m) => (
-            <label key={m.id} className="row small" style={{ gap: 6 }}>
-              <input type="checkbox" checked={card.peopleIds.includes(m.id)} onChange={() => set({ peopleIds: toggle(card.peopleIds, m.id) })} /> {m.name}
             </label>
           ))}
         </div>

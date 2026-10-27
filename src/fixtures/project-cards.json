@@ -1,0 +1,24 @@
+{
+  "$comment": "The card of each sample project: a one-line brief, the client's country and the kind of work. No people and no shared client work (NDA): projects stay in each person's browser.",
+  "cards": {
+    "demo-brand": {
+      "brief": "The full showcase: a fictional company whose design, code and AI tools stay on one system.",
+      "tags": [
+        "design-system",
+        "ai-ready"
+      ]
+    },
+    "northwind": {
+      "brief": "A new system from the Starter Pack for store and e-commerce teams. Nothing published yet.",
+      "country": "GB"
+    },
+    "contoso": {
+      "brief": "Three brands on one contract; the multi-brand rollout waits on an architecture call.",
+      "country": "DE"
+    },
+    "fabrikam": {
+      "brief": "Handed over: every finding resolved, the client runs the system with a named owner.",
+      "country": "NL"
+    }
+  }
+}

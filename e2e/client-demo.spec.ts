@@ -60,9 +60,8 @@ test('present the client demo from the hub and get back to preparation', async (
   await shot(page, '33-demo-outcome', true)
 
   // reset the demo, then back to preparation lands where we started
-  await page.getByTestId('demo-more').click()
-  await page.getByRole('menuitem', { name: /Reset the demo/ }).click()
-  await page.getByRole('dialog').getByRole('button', { name: 'Reset the demo' }).click()
+  if (!(await page.getByRole('button', { name: 'Reset the demo' }).isVisible())) await page.getByRole('button', { name: 'Show details' }).click()
+  await page.getByRole('button', { name: 'Reset the demo' }).click()
   await page.getByTestId('back-to-preparation').click()
   await expect(page).toHaveURL(/\/nagarro\/demos\/prepare\?project=demo-brand$/)
   await expect(bar).toHaveCount(0)
@@ -71,9 +70,7 @@ test('present the client demo from the hub and get back to preparation', async (
 
 test('reduced motion: no running animations in the demo', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  await page.goto('/nagarro')
-  await page.getByTestId('header-present').click()
-  await page.getByRole('link', { name: 'Start the guided demo' }).first().click()
+  await page.goto('/client/demo-brand?guide=meeting')
   await expect(page.locator('.demobar__headline')).toBeVisible()
   const running = await page.evaluate(() => document.getAnimations().filter((a) => a.playState === 'running' && (a.effect as KeyframeEffect | null)?.getTiming().duration !== 0 && Number((a.effect as KeyframeEffect | null)?.getTiming().duration) > 1).length)
   expect(running).toBe(0)

@@ -5,7 +5,6 @@ import { IMPROVE_LEGACY, IMPROVE_STEPS, practice, type ImproveStep as ImproveSlu
 import { LegacyRedirect } from './LegacyRedirect'
 import { ClientEntry, NagarroLayout, OwnerRouteSync, ProjectRouteSync } from '@/shell/layouts'
 import { NagarroHome } from '@/features/nagarro/NagarroHome'
-import { ClientPortfolio } from '@/features/nagarro/ClientPortfolio'
 import { MyWork } from '@/features/nagarro/MyWork'
 import { ProjectRequests } from '@/features/nagarro/ProjectRequests'
 import { PresenterGuide } from '@/features/nagarro/PresenterGuide'
@@ -116,7 +115,7 @@ export const router = createBrowserRouter([
     element: <NagarroLayout />,
     children: [
       { index: true, element: <NagarroHome /> },
-      { path: 'clients', element: <ClientPortfolio /> },
+      { path: 'clients', element: <Navigate to={practice.myWork} replace /> },
       { path: 'work', element: <MyWork /> },
       { path: 'start', element: <StartSystem /> },
       { path: 'journeys/:id', element: <JourneyGuide /> },
@@ -125,7 +124,7 @@ export const router = createBrowserRouter([
       // The handbook lives in the client demo (How we work) and as AI context (src/knowledge/handbook.md), not in the workspace.
       { path: 'guides', element: <Navigate to={practice.about} replace /> },
       { path: 'guides/:slug', element: <Navigate to={practice.about} replace /> },
-      { path: 'presentations', element: lazyPage(decks, 'DecksPractice') },
+      { path: 'presentations', element: <Navigate to={practice.myWork} replace /> },
       { path: 'presentations/new', element: lazyPage(decks, 'DeckBuilder') },
       { path: 'presentations/:id', element: <OwnerRouteSync kind="deck" />, children: [{ index: true, element: lazyPage(decks, 'DeckView') }] },
       { path: 'settings/sources', element: lazyPage(knowledge, 'KnowledgeLibrary') },
@@ -134,7 +133,7 @@ export const router = createBrowserRouter([
       { path: 'knowledge', element: <Navigate to={practice.knowledge} replace /> },
       { path: 'knowledge/add', element: <Navigate to={practice.knowledgeAdd} replace /> },
       { path: 'knowledge/:id', element: <MovedToPractice to={({ id }) => practice.knowledgeSource(id!)} /> },
-      { path: 'opportunities', element: lazyPage(opportunity, 'OpportunitiesPractice') },
+      { path: 'opportunities', element: <Navigate to={practice.myWork} replace /> },
       { path: 'opportunities/new', element: lazyPage(opportunity, 'OpportunityNew') },
       {
         path: 'opportunities/:id',

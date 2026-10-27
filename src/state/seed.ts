@@ -1,6 +1,6 @@
 // Builds SystemStates and Projects from the fixtures. Pure apart from uid()/Date.now() for ids and timestamps.
 
-import { DEFAULT_ME, deriveCard } from './card'
+import { deriveCard } from './card'
 import type { AppData, Baseline, Finding, HistoryEvent, Journey, Project, ProjectSeed, SystemState, ThemeConfig } from './types'
 import { DEMO_TOKENS, BEFORE_STATE } from '@/fixtures/demo-brand/tokens'
 import { DEMO_COMPONENTS } from '@/fixtures/demo-brand/components'
@@ -122,7 +122,7 @@ export function seedState(t = Date.now()): AppData {
     practice: { rules: cloneSys(RULES), knowledge: internalSeeds()?.knowledge() ?? emptyKnowledge() },
     projects,
     selectedProjectId: 'demo-brand',
-    ui: { lastWorkspace: null, presenter: false, actingAs: 'p-owner', motionPaused: false, previewBrand: 'demo', previewMode: 'light', previewDensity: 'standard', sideOpen: false, cmdkOpen: false, simSpeed: 1, returnTo: null, me: DEFAULT_ME },
+    ui: { lastWorkspace: null, presenter: false, actingAs: 'p-owner', motionPaused: false, previewBrand: 'demo', previewMode: 'light', previewDensity: 'standard', sideOpen: false, cmdkOpen: false, simSpeed: 1, returnTo: null },
     sim: { jobs: {}, toasts: [] },
   }
 }

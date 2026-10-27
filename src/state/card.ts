@@ -1,39 +1,11 @@
-// The Projects board card (schema v5): derived from what a project already records, then the
-// shared board file (src/fixtures/team-board.json) on top. Local edits go through updateCard.
+// A project's card (schema v5): derived from what the project already records, then the sample cards
+// in src/fixtures/project-cards.json on top. Local edits go through updateCard. Projects are not shared
+// between people (NDA): there is no team board.
 
-import board from '@/fixtures/team-board.json'
+import cards from '@/fixtures/project-cards.json'
 import type { Package, Project, ProjectCard, ProjectStatus, ProjectTag, Stage } from './types'
 
-export interface TeamPerson {
-  id: string
-  name: string
-  role?: string
-  /** The practice tool or work they are known for, shown under the name. */
-  knownFor?: string
-}
-
-/** Work recorded in the shared file that is not a project in this browser. */
-export interface SharedEntry {
-  id: string
-  client: { name: string; sector: string }
-  title?: string
-  /** Where to open it in the workspace, if anywhere. */
-  open?: string
-  /** A fictional entry that shows how the board works. */
-  sample?: boolean
-  card: ProjectCard
-}
-
-export const TEAM: TeamPerson[] = board.people
-export const SHARED: SharedEntry[] = board.shared as SharedEntry[]
-const CARDS = board.cards as Record<string, Partial<ProjectCard>>
-
-/** The practice's default "me" until someone picks themselves. */
-export const DEFAULT_ME = 'raquel-pereira'
-
-export function person(id: string): TeamPerson | undefined {
-  return TEAM.find((p) => p.id === id)
-}
+const CARDS = cards.cards as Record<string, Partial<ProjectCard>>
 
 export function initials(name: string) {
   return name
@@ -70,8 +42,8 @@ export function deriveCard(p: Pick<Project, 'id' | 'engagement' | 'draft' | 'opp
     },
     peopleIds: [],
   }
-  const shared = CARDS[p.id] ?? {}
-  return { ...base, ...shared, links: { ...base.links, ...shared.links } }
+  const sample = CARDS[p.id] ?? {}
+  return { ...base, ...sample, links: { ...base.links, ...sample.links } }
 }
 
 export const STATUS_LABEL: Record<ProjectStatus, string> = { opportunity: 'Opportunity', 'in-progress': 'In progress', delivered: 'Delivered', paused: 'Paused' }

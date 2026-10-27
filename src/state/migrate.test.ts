@@ -90,7 +90,7 @@ describe('migration v3 → v4', () => {
 })
 
 describe('migration v4 → v5', () => {
-  it('gives every project a board card from its own data and the shared file, sets "me", and is idempotent', () => {
+  it('gives every project a board card from its own data and the shared file, and is idempotent', () => {
     const v5 = seedState(1000)
     const v4 = structuredClone(v5) as unknown as V4State
     for (const p of Object.values(v4.projects)) delete p.card
@@ -98,7 +98,6 @@ describe('migration v4 → v5', () => {
     v4.meta.schemaVersion = 4
     const out = migrateV4toV5(v4)
     expect(out.meta.schemaVersion).toBe(5)
-    expect(out.ui.me).toBe('raquel-pereira')
     expect(out.projects.fabrikam.card.status).toBe('delivered')
     expect(out.projects.northwind.card).toMatchObject({ status: 'in-progress', tags: ['design-system'], country: 'GB' })
     // placeholder addresses in sample data never become links; real ones do
@@ -106,7 +105,6 @@ describe('migration v4 → v5', () => {
     const real = structuredClone(v4)
     real.projects.northwind.draft.journey.connect.repoUrl = 'https://github.com/acme/ui'
     expect(migrateV4toV5(real).projects.northwind.card.links.code).toBe('https://github.com/acme/ui')
-    expect(out.projects['demo-brand'].card.peopleIds).toContain('nuno-almeida')
     // drafts and published versions are untouched
     expect(out.projects['demo-brand'].draft).toEqual(v5.projects['demo-brand'].draft)
     // a card someone edited survives a second run

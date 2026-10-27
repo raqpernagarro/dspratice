@@ -1,8 +1,9 @@
 // Practice-wide settings pages: what the tool can and cannot do on this machine, and the sample data.
 
+import { useState } from 'react'
 import { Link } from 'react-router'
 import { PageHead } from '@/shell/PageHead'
-import { Chip, Panel } from '@/shell/ui'
+import { Chip, Panel, Segmented, Sheet } from '@/shell/ui'
 import { FontStatus } from '@/shell/FontStatus'
 import { act } from '@/state/hooks'
 import { useStore } from '@/state/store'
@@ -133,6 +134,9 @@ export function AboutPage() {
 
 export function PracticeSettings() {
   const projects = useStore((s) => s.projects)
+  const speed = useStore((s) => s.ui.simSpeed)
+  const setSpeed = useStore((s) => s.setSimSpeed)
+  const [confirm, setConfirm] = useState(false)
   return (
     <div className="page">
       <PageHead title="Sample data" lead="The workspace ships with fictional sample projects so you can try every workflow. Reset one project, or everything, when you want a clean start." />
@@ -150,7 +154,40 @@ export function PracticeSettings() {
             </li>
           ))}
         </ul>
+        <div className="row" style={{ justifyContent: 'flex-end', marginTop: 12 }}>
+          <button className="btn btn--danger btn--sm" onClick={() => setConfirm(true)} data-testid="reset-all">
+            Reset all sample data…
+          </button>
+        </div>
       </Panel>
+      <Panel title="Simulation speed">
+        <p className="small muted">Simulated checks and scans in the client demo run faster at 3×.</p>
+        <Segmented ariaLabel="Simulation speed" value={String(speed) as '1' | '3'} onChange={(v) => setSpeed(Number(v) as 1 | 3)} options={[{ id: '1', label: '1×' }, { id: '3', label: '3×' }]} />
+      </Panel>
+      {confirm && (
+        <Sheet
+          title="Reset the sample data?"
+          onClose={() => setConfirm(false)}
+          actions={
+            <>
+              <button className="btn btn--secondary" onClick={() => setConfirm(false)}>
+                Keep going
+              </button>
+              <button
+                className="btn btn--danger"
+                onClick={() => {
+                  act().resetAll()
+                  setConfirm(false)
+                }}
+              >
+                Reset sample data
+              </button>
+            </>
+          }
+        >
+          <p className="muted small">Every project goes back to the shipped samples: drafts, client demo versions, demos in progress and journeys. Projects, requests and sources you added are removed. Nothing outside this browser is affected.</p>
+        </Sheet>
+      )}
     </div>
   )
 }

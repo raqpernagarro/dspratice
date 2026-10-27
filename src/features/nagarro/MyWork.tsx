@@ -1,5 +1,5 @@
-// Projects › My work: what I left unfinished, then the projects I am on. Who "I" am is a choice
-// (the workspace has no sign-in), remembered in this browser.
+// Projects: what you left unfinished, then every project in this browser, each with a live preview of
+// its system. Projects are not shared between people (NDA), so there is no team view.
 
 import { useState } from 'react'
 import { Link } from 'react-router'
@@ -9,42 +9,27 @@ import { practice } from '@/app/routes'
 import { relTime } from '@/state/selectors'
 import { PageHead } from '@/shell/PageHead'
 import { Chip } from '@/shell/ui'
-import { DEFAULT_ME, TEAM } from '@/state/card'
 import { useInProgress } from './work'
 import { EditCardSheet, ProjectTile, boardItems } from './ProjectTile'
 import { NewProjectSheet } from './ClientPortfolio'
 
 export function MyWork() {
   const projects = useStore((s) => s.projects)
-  const me = useStore((s) => s.ui.me) ?? DEFAULT_ME
-  const setMe = useStore((s) => s.setMe)
   const items = useInProgress()
   const [editing, setEditing] = useState<string | null>(null)
   const [creating, setCreating] = useState(false)
-  const mine = boardItems(projects).filter((i) => i.card.peopleIds.includes(me))
-  const name = TEAM.find((p) => p.id === me)?.name ?? 'you'
+  const all = boardItems(projects)
 
   return (
     <div className="page">
       <PageHead
+        noTabs
         title="My work"
-        lead="What you left unfinished, then the projects you are on. The team board shows everyone’s."
+        lead="Pick up where you left off, or open a project. Projects stay in this browser."
         actions={
-          <>
-            <label className="row small" style={{ gap: 8 }}>
-              <span className="muted">Showing work for</span>
-              <select className="select" value={me} onChange={(e) => setMe(e.target.value)} aria-label="Whose work" data-testid="me-select">
-                {TEAM.map((p) => (
-                  <option key={p.id} value={p.id}>
-                    {p.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <button className="btn btn--primary" onClick={() => setCreating(true)} data-testid="new-project">
-              <Plus /> New project
-            </button>
-          </>
+          <button className="btn btn--primary" onClick={() => setCreating(true)} data-testid="new-project">
+            <Plus /> New project
+          </button>
         }
       />
 
@@ -78,8 +63,8 @@ export function MyWork() {
               <Link className="btn btn--secondary btn--sm" to={practice.home}>
                 Go to Home
               </Link>
-              {projects.northwind && (
-                <Link className="btn btn--secondary btn--sm" to={practice.opportunitiesFor('northwind')}>
+              {projects.northwind?.opportunities?.['opp-northwind-rfp'] && (
+                <Link className="btn btn--secondary btn--sm" to={practice.opportunityEntry('opp-northwind-rfp')}>
                   Open the Northwind sample
                 </Link>
               )}
@@ -90,21 +75,18 @@ export function MyWork() {
 
       <section aria-labelledby="mine-title" className="stack">
         <h2 id="mine-title" className="section-title">
-          Projects {name === 'you' ? 'you are' : `${name} is`} on
+          Projects
         </h2>
-        {mine.length ? (
+        {all.length ? (
           <div className="ptile-grid" data-testid="my-projects">
-            {mine.map((i) => (
+            {all.map((i) => (
               <ProjectTile key={i.key} item={i} onEdit={setEditing} />
             ))}
           </div>
         ) : (
           <div className="empty-state">
-            <strong>No projects with {name} on them.</strong>
-            <span className="muted">Add yourself to a project’s card on the team board, or start a new project.</span>
-            <Link className="btn btn--secondary btn--sm" to={practice.projects}>
-              Open the team board
-            </Link>
+            <strong>No projects yet.</strong>
+            <span className="muted">Start one with New project, or from a job on Home.</span>
           </div>
         )}
       </section>
