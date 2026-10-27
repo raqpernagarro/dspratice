@@ -20,7 +20,8 @@
 import type { Plugin, Connect } from 'vite'
 import { loadEnv } from 'vite'
 import { createHash } from 'node:crypto'
-import { readFile, stat, realpath } from 'node:fs/promises'
+import { readFile, stat, realpath, readdir } from 'node:fs/promises'
+import { IMAGE_TYPES, assetPath, listPosts, parseFolders, type StudioFolder, type StudioIO } from './engagement'
 import { resolve, sep, extname } from 'node:path'
 
 export interface ApiEnv {
@@ -34,6 +35,8 @@ export interface ApiEnv {
   files: string[]
   /** The hub's own folder (holds sources/ and tool-copies/). */
   appRoot?: string
+  /** Marketing Studio folders for the Engagement calendar (MARKETING_STUDIO_FOLDERS). */
+  studioFolders?: StudioFolder[]
 }
 
 export type GenerateKind = 'compose' | 'improve' | 'route'
@@ -45,6 +48,8 @@ export interface Deps {
   stat: (p: string) => Promise<{ size: number; mtimeMs: number }>
   realpath: (p: string) => Promise<string>
   generate: GenerateFn
+  /** Reading Marketing Studio folders (Engagement). Optional so tests can leave it out. */
+  studio?: StudioIO
 }
 
 export class ApiError extends Error {
@@ -67,6 +72,7 @@ export function envFrom(raw: Record<string, string | undefined>, workspaceRoot: 
     workspaceRoot,
     roots: [...DEFAULT_ROOTS, ...(raw.KNOWLEDGE_ROOTS ?? '').split(',').map((s) => s.trim()).filter(Boolean)],
     files: DEFAULT_FILES,
+    studioFolders: parseFolders(raw.MARKETING_STUDIO_FOLDERS),
   }
 }
 
@@ -125,7 +131,7 @@ export async function routeRequest(method: string, url: URL, body: unknown, env:
   try {
     const route = url.pathname.replace(/^\/api/, '')
     if (method === 'GET' && route === '/status') {
-      return { status: 200, body: { ok: true, model: { configured: Boolean(env.apiKey), model: env.model, fallbacks: env.fallbacks }, figma: { configured: Boolean(env.figmaToken) }, localRead: { configured: true, roots: env.roots } } }
+      return { status: 200, body: { ok: true, model: { configured: Boolean(env.apiKey), model: env.model, fallbacks: env.fallbacks }, figma: { configured: Boolean(env.figmaToken) }, localRead: { configured: true, roots: env.roots }, engagement: { folders: (env.studioFolders ?? []).map((f) => f.person) } } }
     }
     if (method === 'POST' && route === '/generate') {
       if (!env.apiKey) throw new ApiError(503, 'not-configured', 'No ANTHROPIC_API_KEY in .env.local. The template composer still works.')
@@ -161,6 +167,22 @@ export async function routeRequest(method: string, url: URL, body: unknown, env:
       const projectId = q('projectId')
       if (!/^\d+$/.test(projectId)) throw new ApiError(400, 'bad-request', 'A numeric folder (project) id is required.')
       return { status: 200, body: { ok: true, ...(await figma(`/v1/projects/${projectId}/files`, env, deps) as object) } }
+    }
+    if (method === 'GET' && route === '/engagement/posts') {
+      if (!deps.studio) throw new ApiError(503, 'not-configured', 'Reading Marketing Studio folders is not available here.')
+      return { status: 200, body: { ok: true, ...(await listPosts(env.studioFolders ?? [], deps.studio)) } }
+    }
+    if (method === 'GET' && route === '/engagement/asset') {
+      if (!deps.studio) throw new ApiError(503, 'not-configured', 'Reading Marketing Studio folders is not available here.')
+      let p: string
+      try {
+        p = await assetPath(env.studioFolders ?? [], Number(q('f')), q('w'), q('p'), deps.studio)
+      } catch {
+        throw new ApiError(403, 'not-allowed', 'Only images inside a configured Marketing Studio folder’s assets are served.')
+      }
+      const st = await deps.stat(p)
+      if (st.size > 8_000_000) throw new ApiError(413, 'too-large', 'Images over 8 MB are not served.')
+      return { status: 200, body: { __raw: await deps.readFile(p), type: IMAGE_TYPES[extname(p).toLowerCase()] } }
     }
     if (method === 'GET' && route === '/local/read') {
       const p = await safePath(q('path'), env, deps)
@@ -255,7 +277,14 @@ export const anthropicGenerate: GenerateFn = async ({ kind, system, user, env })
   }
 }
 
-const realDeps: Deps = { fetch: (...a) => fetch(...a), readFile: (p) => readFile(p), stat: (p) => stat(p), realpath: (p) => realpath(p), generate: anthropicGenerate }
+const realDeps: Deps = {
+  fetch: (...a) => fetch(...a),
+  readFile: (p) => readFile(p),
+  stat: (p) => stat(p),
+  realpath: (p) => realpath(p),
+  generate: anthropicGenerate,
+  studio: { readdir: (d) => readdir(d), readFile: (p) => readFile(p), isDir: (p) => stat(p).then((s) => s.isDirectory(), () => false), realpath: (p) => realpath(p) },
+}
 
 function middleware(getEnv: () => ApiEnv): Connect.NextHandleFunction {
   return (req, res, next) => {
@@ -274,8 +303,14 @@ function middleware(getEnv: () => ApiEnv): Connect.NextHandleFunction {
       }
       const out = await routeRequest(req.method ?? 'GET', url, body, getEnv(), realDeps)
       res.statusCode = out.status
-      res.setHeader('content-type', 'application/json')
       res.setHeader('cache-control', 'no-store')
+      const raw = (out.body as { __raw?: Buffer; type?: string } | null)?.__raw
+      if (raw) {
+        res.setHeader('content-type', (out.body as { type: string }).type)
+        res.end(raw)
+        return
+      }
+      res.setHeader('content-type', 'application/json')
       res.end(JSON.stringify(out.body))
     })
   }

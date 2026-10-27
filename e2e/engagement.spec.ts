@@ -10,19 +10,28 @@ test('engagement: posts board, a draft from a social cut, the Marketing Studio h
 
   await page.goto('/nagarro/engagement')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Engagement')
+  // the calendar opens first; with no Marketing Studio folder set, it says how to connect one,
+  // and the tray holds Nuno's Starter Pack posts (they have no dates yet)
+  await expect(page.getByTestId('cal-grid')).toBeVisible()
+  await expect(page.getByTestId('cal-setup')).toContainText('MARKETING_STUDIO_FOLDERS')
+  await expect(page.getByTestId('cal-tray')).toContainText('Drift has a number')
+  await shot(page, '50-engagement-calendar')
+
+  // Posts: Nuno's board, grouped by format, each linked to FigJam
+  await page.getByRole('button', { name: 'Posts', exact: true }).click()
   await expect(page.locator('.post-group').first()).toContainText('Videos · 15')
-  await expect(page.getByTestId('shared-posts').locator('.post')).toHaveCount(3)
   await expect(page.getByTestId('post-ds-16')).toContainText('Drift has a number')
   await expect(page.getByTestId('post-ds-16').getByRole('link', { name: /Open in FigJam/ })).toHaveAttribute('href', /node-id=523-1527$/)
-  await page.getByTestId('post-kind').selectOption('field-notes')
-  await expect(page.locator('.post')).toHaveCount(2)
-  await page.getByTestId('post-kind').selectOption('')
-  await shot(page, '50-engagement-posts')
+  await expect(page.locator('main')).not.toContainText('For the Nagarro Design page')
+
+  // Social cuts moved here from Demos
+  await page.getByRole('button', { name: 'Social cuts', exact: true }).click()
+  await expect(page.getByTestId('social-cuts').locator('li')).toHaveCount(5)
 
   // a draft from a social cut
   await page.goto('/nagarro/engagement/cuts/a-fix-travels')
   await page.getByTestId('make-post').click()
-  await expect(page).toHaveURL(/\/nagarro\/engagement$/)
+  await expect(page).toHaveURL(/\/nagarro\/engagement/)
   await expect(page.getByTestId('post-text')).toHaveValue(/In the clip:/)
   await page.getByTestId('post-status').selectOption('in-review')
   await page.getByTestId('save-post').click()
@@ -32,6 +41,7 @@ test('engagement: posts board, a draft from a social cut, the Marketing Studio h
   await expect(draft.getByRole('link', { name: /Play the cut/ })).toHaveAttribute('href', '/nagarro/engagement/cuts/a-fix-travels')
 
   // the hand-off: Marketing Studio's own script, in its Nagarro mode
+  await page.getByRole('button', { name: 'Posts', exact: true }).click()
   await page.getByTestId('send-ds-16').click()
   await page.getByTestId('studio-folder').fill('~/Claude/marketing-studio')
   await expect(page.getByTestId('studio-command')).toContainText('cd ~/"Claude/marketing-studio"')

@@ -4,16 +4,17 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
-import { Check, Clapperboard, Copy, ExternalLink, Send, Trash2 } from 'lucide-react'
+import { ArrowRight, Check, Clapperboard, Copy, ExternalLink, Send, Trash2 } from 'lucide-react'
 import { useStore } from '@/state/store'
 import { act } from '@/state/hooks'
 import { practice } from '@/app/routes'
 import { PageHead } from '@/shell/PageHead'
 import { Chip, Field, Panel, Segmented, Sheet } from '@/shell/ui'
 import { probe } from '@/integrations/tools'
-import { socialCut } from '@/fixtures/social-cuts'
+import { SOCIAL_CUTS, socialCut } from '@/fixtures/social-cuts'
+import { Calendar } from './Calendar'
 import type { PostKind, PostStatus } from '@/state/types'
-import { FIGJAM_BOARD, FORMAT_LABEL, FORMAT_ORDER, KIND_LABEL, SHARED_POSTS, SNAPSHOT, SNAPSHOT_POSTS, STATUS_LABEL, SURFACE_LABEL, studioCommands, type BoardPost } from './posts'
+import { FIGJAM_BOARD, FORMAT_LABEL, FORMAT_ORDER, KIND_LABEL, SNAPSHOT, SNAPSHOT_POSTS, STATUS_LABEL, SURFACE_LABEL, studioCommands, type BoardPost } from './posts'
 
 const TRYPOST = 'http://localhost:8000'
 const FOLDER_KEY = 'unified-ds-tool:marketing-studio-folder'
@@ -246,20 +247,6 @@ function PostsTab() {
         </select>
       </div>
 
-      <section className="stack" aria-labelledby="ready-title">
-        <div className="row row--between" style={{ alignItems: 'baseline', flexWrap: 'wrap', gap: 8 }}>
-          <h2 id="ready-title" className="section-title">
-            For the Nagarro Design page <span className="muted">{SHARED_POSTS.filter(keep).length}</span>
-          </h2>
-          <span className="xs muted">Drafts from our filmed social cuts, waiting for review. Covers and clips are in media/ (npm run covers, npm run clips).</span>
-        </div>
-        <div className="post-grid" data-testid="shared-posts">
-          {SHARED_POSTS.filter(keep).map((p) => (
-            <PostCard key={p.id} post={p} onSend={setSending} />
-          ))}
-        </div>
-      </section>
-
       <section className="stack" aria-labelledby="drafts-title">
         <h2 id="drafts-title" className="section-title">
           Drafts made here <span className="muted">{mine.filter(keep).length}</span>
@@ -404,25 +391,60 @@ function StudioTab() {
   )
 }
 
+function CutsTab() {
+  return (
+    <div className="stack">
+      <p className="small muted" style={{ margin: 0 }}>
+        Short captioned clips of our demos, zoomed for phones, for posts. Each one plays on the real client demo and can be filmed as a video with npm run clips.
+      </p>
+      <ul className="continue-list" data-testid="social-cuts">
+        {SOCIAL_CUTS.map((c) => (
+          <li key={c.id}>
+            <Link to={`${practice.engagement}/cuts/${c.id}`} className="continue-item">
+              <Chip tone="outline">4:5 · {c.shots.reduce((t, x) => t + x.seconds, 0)}s</Chip>
+              <span className="continue-item__main">
+                <strong>{c.title}</strong>
+                <span className="small muted">{c.hook}</span>
+              </span>
+              <ArrowRight className="continue-item__arrow" />
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+type Tab = 'calendar' | 'posts' | 'cuts' | 'studio' | 'trypost'
+
 export function EngagementPage() {
   const [params, setParams] = useSearchParams()
-  const tab = params.get('tab') === 'studio' ? 'studio' : 'posts'
+  const [trypost, setTrypost] = useState(false)
+  useEffect(() => {
+    void probe(TRYPOST, '/').then(setTrypost)
+  }, [])
+  const asked = params.get('tab') as Tab | null
+  const tab: Tab = asked && ['posts', 'cuts', 'studio', 'trypost'].includes(asked) && (asked !== 'trypost' || trypost) ? asked : 'calendar'
   return (
     <div className="page">
-      <PageHead
-        title="Engagement"
-        lead="Advocate design at Nagarro: posts for the Nagarro Design page and our own accounts, made from our real work and demos, planned and drafted with Marketing Studio. Nothing is posted from here."
-      />
+      <PageHead title="Engagement" lead="What the practice plans and publishes to advocate design at Nagarro, and the tools to make it. Nothing is posted from here." />
       <Segmented
         ariaLabel="Engagement"
         value={tab}
-        onChange={(t) => setParams(t === 'studio' ? { tab: 'studio' } : {}, { replace: true })}
+        onChange={(t) => setParams(t === 'calendar' ? {} : { tab: t }, { replace: true })}
         options={[
+          { id: 'calendar', label: 'Calendar' },
           { id: 'posts', label: 'Posts' },
+          { id: 'cuts', label: 'Social cuts' },
           { id: 'studio', label: 'Marketing Studio' },
+          ...(trypost ? [{ id: 'trypost' as Tab, label: 'TryPost' }] : []),
         ]}
       />
-      {tab === 'posts' ? <PostsTab /> : <StudioTab />}
+      {tab === 'calendar' && <Calendar />}
+      {tab === 'posts' && <PostsTab />}
+      {tab === 'cuts' && <CutsTab />}
+      {tab === 'studio' && <StudioTab />}
+      {tab === 'trypost' && <iframe className="trypost-frame" src={TRYPOST} title="TryPost: Marketing Studio’s board" data-testid="trypost-frame" />}
     </div>
   )
 }

@@ -287,7 +287,7 @@ export function CutPage() {
               type="button"
               className="btn btn--primary btn--sm"
               data-testid="make-post"
-              onClick={() => navigate(`${practice.engagement}?draft=${storeAct().addPost(draftFromCut(cut))}`)}
+              onClick={() => navigate(`${practice.engagement}?tab=posts&draft=${storeAct().addPost(draftFromCut(cut))}`)}
             >
               <Megaphone /> Make a post
             </button>

@@ -31,10 +31,12 @@ export interface IntegrationStatus {
   model: { configured: boolean; model?: string; fallbacks?: boolean }
   figma: { configured: boolean }
   localRead: { configured: boolean; roots: string[] }
+  /** Who has a Marketing Studio folder set (MARKETING_STUDIO_FOLDERS); empty when none. */
+  engagement?: { folders: string[] }
   offline?: boolean
 }
 
-export const OFFLINE_STATUS: IntegrationStatus = { model: { configured: false }, figma: { configured: false }, localRead: { configured: false, roots: [] }, offline: true }
+export const OFFLINE_STATUS: IntegrationStatus = { model: { configured: false }, figma: { configured: false }, localRead: { configured: false, roots: [] }, engagement: { folders: [] }, offline: true }
 
 export async function getStatus(): Promise<IntegrationStatus> {
   try {
@@ -79,4 +81,38 @@ export function figmaProjectFiles(projectId: string) {
 /** The ds.project.json the DS Configurator saved in your clone or copy (see GET /api/tools/starter/project). */
 export function readStarterProject() {
   return call<{ path: string; mtime: number; text: string }>('/api/tools/starter/project')
+}
+
+export interface StudioPost {
+  id: string
+  person: string
+  folder: number
+  workspace: string
+  title: string
+  status: string
+  surface: string
+  format: string
+  scheduledDate: string | null
+  postedAt: string | null
+  firstComment: string
+  assets: string[]
+  body: string
+  file: string
+}
+
+export interface StudioFolderReport {
+  person: string
+  path: string
+  found: boolean
+  posts: number
+}
+
+/** Marketing Studio posts from the folders in MARKETING_STUDIO_FOLDERS (Engagement calendar). */
+export function studioPosts(signal?: AbortSignal) {
+  return call<{ folders: StudioFolderReport[]; posts: StudioPost[] }>('/api/engagement/posts', { signal })
+}
+
+/** Where one of a post's images is served from (only inside its folder's assets). */
+export function studioAssetUrl(p: Pick<StudioPost, 'folder' | 'workspace'>, rel: string) {
+  return `/api/engagement/asset?f=${p.folder}&w=${encodeURIComponent(p.workspace)}&p=${encodeURIComponent(rel)}`
 }

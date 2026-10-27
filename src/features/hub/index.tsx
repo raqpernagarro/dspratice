@@ -21,6 +21,13 @@ export function IntegrationsPage() {
       </div>
       {status.offline && <Callout tone="warn">The local server is not reachable (a static build, or npm run dev is not running). Templates, uploads and the bundled knowledge still work.</Callout>}
       <ToolAddresses />
+      <Panel title="Marketing Studio folders (Engagement calendar)" tight>
+        {status.engagement?.folders.length ? (
+          <p className="small">Reading posts for: {status.engagement.folders.join(', ')}. Open Engagement to see which folders were found.</p>
+        ) : (
+          <p className="small muted">None set. Add each person’s Marketing Studio folder to .env.local as MARKETING_STUDIO_FOLDERS="Name=path; Name=path", then restart the workspace.</p>
+        )}
+      </Panel>
       <Panel title="Reading Figma, cheapest first">
         <div className="table-wrap">
           <table className="table">
