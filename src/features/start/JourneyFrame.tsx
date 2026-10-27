@@ -94,9 +94,8 @@ export function ImproveFrame({ step, children }: { step: ImproveStep; children: 
     <>
       <div className="page journey-head">
         <p className="kicker">
-          <span className="kicker__n">{String(n).padStart(2, '0')}</span>
           <span>
-            Improve an existing system · step {n} of {IMPROVE_STEPS.length}
+            Improve a design system · step {n} of {IMPROVE_STEPS.length} · {meta.label}
           </span>
         </p>
         <ProcessStrip
@@ -109,20 +108,9 @@ export function ImproveFrame({ step, children }: { step: ImproveStep; children: 
             badge: IMPROVE_META[s].specialist ? <span className="process__text">With a specialist</span> : undefined,
           }))}
         />
-        <dl className="brief">
-          <div>
-            <dt>You need</dt>
-            <dd>{brief.need}</dd>
-          </div>
-          <div>
-            <dt>You get</dt>
-            <dd>{brief.get}</dd>
-          </div>
-          <div>
-            <dt>Then</dt>
-            <dd>{brief.then}</dd>
-          </div>
-        </dl>
+        <p className="small muted journey-brief">
+          <strong>You get:</strong> {brief.get} <span aria-hidden="true">·</span> <strong>You need:</strong> {brief.need}
+        </p>
         {meta.specialist && (
           <Callout tone="info" icon={<Users />}>
             <strong>Needs a specialist.</strong> {meta.specialist} Where the practice has a default, it is marked “Recommended”.

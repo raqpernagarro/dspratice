@@ -102,7 +102,6 @@ export function areaTabsFor(pathname: string, r: RouteFamily, opts?: { proposalP
       { label: 'People and roles', to: r.people },
       { label: 'Brands and modes', to: r.brands },
       { label: 'What agents may do', to: r.trust },
-      { label: 'Audit trail', to: r.audit },
     ]
   }
   if (client && (under('evidence') || under('scorecard'))) {

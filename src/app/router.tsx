@@ -6,7 +6,6 @@ import { LegacyRedirect } from './LegacyRedirect'
 import { ClientEntry, NagarroLayout, OwnerRouteSync, ProjectRouteSync } from '@/shell/layouts'
 import { NagarroHome } from '@/features/nagarro/NagarroHome'
 import { MyWork } from '@/features/nagarro/MyWork'
-import { ProjectRequests } from '@/features/nagarro/ProjectRequests'
 import { PresenterGuide } from '@/features/nagarro/PresenterGuide'
 import { EngagementHome } from '@/features/nagarro/EngagementHome'
 import { StartSystem } from '@/features/nagarro/StartSystem'
@@ -35,15 +34,10 @@ import { Handover } from '@/features/start/Handover'
 import { Goals } from '@/features/start/Goals'
 import { ReviewShare } from '@/features/start/ReviewShare'
 import { ImproveFrame } from '@/features/start/JourneyFrame'
-import { ChannelsPage } from '@/features/ai/ChannelsPage'
-import { EvalsPage } from '@/features/ai/EvalsPage'
-import { InboxPage } from '@/features/ai/InboxPage'
-import { PrototypePage } from '@/features/ai/PrototypePage'
 import { ContractPage } from '@/features/govern/ContractPage'
 import { PeoplePage } from '@/features/govern/PeoplePage'
 import { BrandsPage } from '@/features/govern/BrandsPage'
 import { TrustPage } from '@/features/govern/TrustPage'
-import { AuditPage } from '@/features/govern/AuditPage'
 import { ReportPage } from '@/features/share/ReportPage'
 import { ShareView } from '@/features/share/ShareView'
 
@@ -169,7 +163,7 @@ export const router = createBrowserRouter([
           { path: 'journey/improve/:step', element: <ImproveStep /> },
           { path: 'meeting', element: <MovedToPractice to={({ slug }) => practice.meetingPrep(slug)} /> },
           { path: 'report', element: <ReportPage /> },
-          { path: 'requests', element: <ProjectRequests /> },
+          { path: 'requests', element: <MovedToPractice to={({ slug }) => `/nagarro/clients/${slug}`} /> },
           { path: 'presentations', element: <MovedToPractice to={({ slug }) => practice.presentationsFor(slug)} /> },
           { path: 'presentations/new', element: <MovedToPractice to={({ slug }) => `${practice.deckNew}?project=${slug}`} /> },
           { path: 'presentations/:id', element: <MovedToPractice to={({ id }) => practice.deck(id!)} /> },
@@ -180,18 +174,15 @@ export const router = createBrowserRouter([
           { path: 'system', element: <Navigate to="components" replace /> },
           ...systemRoutes('system'),
           ...changeRoutes('changes'),
-          { path: 'ai', element: <Navigate to="channels" replace /> },
-          { path: 'ai/channels', element: <ChannelsPage /> },
-          { path: 'ai/channels/:id', element: <ChannelsPage /> },
-          { path: 'ai/evals', element: <EvalsPage /> },
-          { path: 'ai/inbox', element: <InboxPage /> },
-          { path: 'ai/prototype', element: <PrototypePage /> },
+          // The AI tab merged into Overview (round 8): agent suggestions, AI files and the release check are there.
+          { path: 'ai', element: <MovedToPractice to={({ slug }) => `/nagarro/clients/${slug}`} /> },
+          { path: 'ai/*', element: <MovedToPractice to={({ slug }) => `/nagarro/clients/${slug}`} /> },
           { path: 'settings', element: <Navigate to="contract" replace /> },
           { path: 'settings/contract', element: <ContractPage /> },
           { path: 'settings/people', element: <PeoplePage /> },
           { path: 'settings/brands', element: <BrandsPage /> },
           { path: 'settings/trust', element: <TrustPage /> },
-          { path: 'settings/audit', element: <AuditPage /> },
+          { path: 'settings/audit', element: <MovedToPractice to={({ slug }) => `/nagarro/clients/${slug}/settings/trust`} /> },
         ],
       },
       { path: '*', element: <Navigate to={practice.home} replace /> },

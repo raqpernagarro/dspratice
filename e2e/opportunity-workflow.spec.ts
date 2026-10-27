@@ -99,7 +99,7 @@ test('Northwind RFP: from request to a checked draft, the client demo and a deck
   // create Northwind's first client demo version, then preview the summary in the client demo
   await page.goto('/nagarro/clients/northwind')
   await page.getByTestId('update-demo').click()
-  await expect(page.locator('.version-pill')).toContainText('Client demo shows v1')
+  await expect(page.locator('main')).toContainText('The client demo shows the latest version (1)')
   await page.goto(`${OPP}/export`)
   await page.getByTestId('see-as-client').click()
   await expect(page).toHaveURL(/\/client\/northwind\/evidence\/proposal$/)

@@ -26,7 +26,7 @@ export function TrustPage() {
   const dirty = (Object.keys(draft) as TrustAction[]).some((k) => draft[k] !== sys.trust[k])
 
   return (
-    <div className="page page--narrow">
+    <div className="page">
       <PageHead title="What agents may do on their own" lead="Set per action, not per agent. Mechanical fixes can apply on their own, with an undo; anything that changes meaning waits for a person; some things agents never do." />
       <Panel>
         <div className="trust-row" style={{ fontWeight: 500, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--n-fg-muted)' }}>

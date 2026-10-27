@@ -3,24 +3,20 @@
 // selected underneath it, so the parent never changes on detail pages.
 
 import { Link, useLocation, useNavigate } from 'react-router'
-import { MonitorPlay } from 'lucide-react'
 import { useStore } from '@/state/store'
 import { act, usePaths, useProject } from '@/state/hooks'
 import { nagarro, practice, type RouteFamily } from '@/app/routes'
 import { hasUnpublishedChanges } from '@/state/scope'
 import type { Project } from '@/state/types'
 import { Breadcrumbs } from './nav'
-import { usePresentDemo } from './present'
 import { cx } from './ui'
 
 export function projectTabs(r: RouteFamily) {
   const b = r.home
   return [
-    { label: 'Overview', to: r.home, match: [b, `${b}/journey`] },
-    ...(r.workspace === 'nagarro' ? [{ label: 'Requests & decks', to: `${b}/requests`, match: [`${b}/requests`] }] : []),
+    { label: 'Overview', to: r.home, match: [b, `${b}/journey`, `${b}/ai`] },
     { label: 'Design system', to: r.components, match: [`${b}/system`] },
     { label: 'Changes', to: r.changes, match: [`${b}/changes`] },
-    { label: 'AI', to: r.channels, match: [`${b}/ai`] },
     { label: 'Report', to: r.report, match: [`${b}/report`] },
     { label: 'Settings', to: r.contract, match: [`${b}/settings`] },
   ]
@@ -53,14 +49,12 @@ export function ProjectHeader() {
   const r = usePaths()
   const { pathname } = useLocation()
   const navigate = useNavigate()
-  const present = usePresentDemo()
   const active = activeProjectTab(r, pathname)
-  const dirty = hasUnpublishedChanges(project)
   const onOverview = pathname === r.home
 
   return (
     <div className="page project-head">
-      <Breadcrumbs items={[{ label: 'Projects', to: practice.projects }, { label: project.client.name, to: onOverview ? undefined : r.home }]} />
+      <Breadcrumbs items={[{ label: 'Projects', to: practice.myWork }, { label: project.client.name, to: onOverview ? undefined : r.home }]} />
       <div className="project-head__row">
         <div className="project-head__id">
           <select
@@ -81,16 +75,7 @@ export function ProjectHeader() {
               </option>
             ))}
           </select>
-          <span className="project-head__meta">
-            {project.engagement.package} · {project.engagement.stage}
-          </span>
-          <span className={cx('version-pill', dirty && 'is-dirty', !project.published && 'is-none')} title="The client demo always shows the last version you published, so preparation never changes what a client sees.">
-            {demoVersionLabel(project)}
-          </span>
         </div>
-        <button className="btn btn--mint btn--sm" onClick={() => present(project.id)} data-testid="project-present">
-          <MonitorPlay /> Present client demo
-        </button>
       </div>
       <nav className="project-tabs" aria-label="Project sections">
         {projectTabs(r).map((t) => (

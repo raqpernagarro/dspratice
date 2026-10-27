@@ -110,7 +110,7 @@ describe('navigation keeps the parent selected on detail routes', () => {
     expect(activeProjectTab(N, N.journeyImprove('assess'))).toBe('Overview')
     expect(activeProjectTab(N, N.token('x'))).toBe('Design system')
     expect(activeProjectTab(N, N.prFigma(128))).toBe('Changes')
-    expect(activeProjectTab(N, N.evals)).toBe('AI')
+    expect(activeProjectTab(N, N.evals)).toBe('Overview')
     expect(activeProjectTab(N, N.report)).toBe('Report')
     expect(activeProjectTab(N, N.audit)).toBe('Settings')
   })

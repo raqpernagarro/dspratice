@@ -1,241 +1,160 @@
-// A project's Overview: the two set-up journeys with real progress, the version the client demo
-// shows, this project's requests and presentations, and its notes.
+// A project's Overview: the system at a glance, then what to do next in one list (the set-up step,
+// open findings, agent suggestions to decide, files AI tools read, the release check), then one row
+// to show it to the client. The AI tab's useful parts live here now; the full metrics are on Report.
 
 import { useState } from 'react'
 import { Link } from 'react-router'
-import { RotateCcw, History, Plus } from 'lucide-react'
+import { ArrowRight, Check, X } from 'lucide-react'
 import { PageHead } from '@/shell/PageHead'
-import { Chip, DemoData, Kv, Panel, Segmented, Stat } from '@/shell/ui'
-import { ProcessStrip } from '@/shell/story'
+import { Chip, DemoData, Panel, Stat } from '@/shell/ui'
 import { usePresentDemo } from '@/shell/present'
-import { act, usePaths, useProject, useSystem } from '@/state/hooks'
-import { driftItems, health, openPRs, readiness, relTime } from '@/state/selectors'
-import { hasUnpublishedChanges, sessionIsStale } from '@/state/scope'
-import { IMPROVE_META, IMPROVE_PHASES, improveSlug, improveStepStates, journeySummary, newStepStates } from '@/state/journeyProgress'
-import { opportunityProgress } from '@/opportunity/progress'
-import { stepMeta } from '@/features/opportunity/steps'
-import { practice } from '@/app/routes'
+import { useStore } from '@/state/store'
+import { act, usePaths, useProject, useScope, useSystem } from '@/state/hooks'
+import { driftItems, health, lastEval, openFindings, readiness, roleOf, staleChannels } from '@/state/selectors'
+import { effectiveActingAs, hasUnpublishedChanges } from '@/state/scope'
+import { improveSlug, journeySummary } from '@/state/journeyProgress'
+
+const SEV: Record<string, number> = { error: 0, warn: 1, info: 2 }
+
+function NextRow({ kind, title, detail, children }: { kind: string; title: React.ReactNode; detail?: React.ReactNode; children?: React.ReactNode }) {
+  return (
+    <li className="next-row">
+      <Chip tone="outline">{kind}</Chip>
+      <span className="next-row__main">
+        <strong>{title}</strong>
+        {detail && <span className="small muted">{detail}</span>}
+      </span>
+      <span className="next-row__actions">{children}</span>
+    </li>
+  )
+}
 
 export function EngagementHome() {
   const project = useProject()
   const sys = useSystem()
   const r = usePaths()
+  const scope = useScope()
+  const ui = useStore((x) => x.ui)
   const present = usePresentDemo()
-  const [note, setNote] = useState('')
+  const [published, setPublished] = useState<number | null>(null)
   const dirty = hasUnpublishedChanges(project)
-  const stale = sessionIsStale(project)
   const jNew = journeySummary(sys, 'new')
   const jImp = journeySummary(sys, 'improve')
-  const newStates = newStepStates(sys)
-  const impStates = improveStepStates(sys)
-  const requests = Object.values(project.opportunities ?? {}).sort((a, b) => b.updatedAt - a.updatedAt)
-  const decks = Object.values(project.decks ?? {}).sort((a, b) => b.builtAt - a.builtAt)
-  const nextVersion = (project.published?.version ?? 0) + 1
+  const byHand = jNew.complete && !sys.journey.new?.data?.recorded
+  const findings = openFindings(sys).sort((a, b) => (SEV[a.severity] ?? 3) - (SEV[b.severity] ?? 3)).slice(0, 3)
+  const suggestions = sys.agentProposals.filter((p) => p.status === 'pending')
+  const canDecide = ['owner', 'contributor'].includes(roleOf(sys, effectiveActingAs({ ui }, scope)) ?? '')
+  const stale = staleChannels(sys)
+  const ev = lastEval(sys)
+  const evalBelow = ev && ev.onSystem < ev.gate
 
-  // The set-up happens in the DS Starter Pack; the hub records it (or the basics, by hand).
-  const basicsByHand = newStates.some((st) => st === 'done') && !jNew.complete
-  const newPhases = [
-    { title: 'Set up in the Starter Pack', state: jNew.complete ? ('done' as const) : jNew.started ? ('current' as const) : ('todo' as const), to: r.journeyNew() },
-    { title: 'Record it in the project', state: jNew.complete ? ('done' as const) : ('todo' as const), to: r.journeyNew() },
-  ]
-  const impPhases = IMPROVE_PHASES.map((ph) => ({
-    title: ph.label,
-    text: ph.steps.some((s) => IMPROVE_META[s].specialist) ? 'With a specialist' : undefined,
-    state: ph.steps.every((s) => impStates[s] === 'done') ? ('done' as const) : ph.steps.includes(improveSlug(jImp.resume)) && jImp.started ? ('current' as const) : ('todo' as const),
-    to: r.journeyImprove(ph.steps.find((s) => impStates[s] !== 'done') ?? ph.steps[0]),
-  }))
+  // A row per set-up journey that has started; both offers when neither has.
+  const setups = [
+    jNew.started && {
+      key: 'new',
+      title: jNew.complete ? (byHand ? 'Basics entered by hand' : 'Set up in the Starter Pack') : 'New design system: in progress',
+      detail: jNew.complete ? 'Recorded in this project.' : jNew.done > 0 ? `Basics by hand: ${jNew.done} of ${jNew.total}` : 'Step 1 of 2 · Set it up in the Starter Pack, then bring it in here.',
+      to: jNew.complete || jNew.done === 0 ? r.journeyNew() : r.journeyNew(jNew.resume),
+      cta: jNew.complete ? 'Review' : jNew.done > 0 ? `Resume: ${jNew.resumeLabel.toLowerCase()}` : 'Resume',
+      testid: 'resume-new',
+    },
+    jImp.started && {
+      key: 'improve',
+      title: jImp.complete ? 'Improve journey done' : 'Improve the system',
+      detail: jImp.complete ? 'Review it any time.' : `${jImp.done} of ${jImp.total} steps done`,
+      to: r.journeyImprove(jImp.complete ? 'goals' : improveSlug(jImp.resume)),
+      cta: jImp.complete ? 'Review' : `Resume: ${jImp.resumeLabel.toLowerCase()}`,
+      testid: 'resume-improve',
+    },
+  ].filter((x): x is Exclude<typeof x, false> => Boolean(x))
 
   return (
     <div className="page">
-      <PageHead
-        noTabs
-        title="Overview"
-        lead={`${project.client.name}${project.client.sector ? ` · ${project.client.sector}` : ''}. What is in progress, and what the client demo shows. Next review: ${project.engagement.nextReview}.`}
-      />
+      <PageHead noTabs title="Overview" lead={`${project.client.name}${project.client.sector ? ` · ${project.client.sector}` : ''}. How the system is doing and what to do next.`} />
 
-      <section className="grid grid--2" aria-label="Set-up journeys">
-        <Panel title="Start a new design system" actions={<Chip tone={jNew.complete ? 'ok' : jNew.started ? 'info' : 'outline'}>{jNew.complete ? 'Recorded' : jNew.started ? 'In progress' : 'Not started'}</Chip>}>
-          <p className="small muted">For a client without a system: set it up in the DS Starter Pack’s own wizard, then record it here.{basicsByHand ? ` Basics recorded by hand: ${jNew.done} of ${jNew.total}.` : ''}</p>
-          <ProcessStrip compact numbered={false} steps={newPhases} label="New system phases" />
-          <Link className="btn btn--primary btn--sm" to={basicsByHand ? r.journeyNew(jNew.resume) : r.journeyNew()} data-testid="resume-new">
-            {jNew.complete ? 'Review the set-up' : jNew.started ? `Resume: ${jNew.resumeLabel.toLowerCase()}` : 'Start'}
-          </Link>
-        </Panel>
-        <Panel title="Improve an existing system" actions={<Chip tone={jImp.complete ? 'ok' : jImp.started ? 'info' : 'outline'}>{jImp.complete ? 'Done' : `${jImp.done} of ${jImp.total} steps done`}</Chip>}>
-          <p className="small muted">For a client with a system: goals, a read-only connection, an assessment, and a plan agreed with a specialist.</p>
-          <ProcessStrip compact numbered={false} steps={impPhases} label="Improve phases" />
-          <Link className="btn btn--primary btn--sm" to={r.journeyImprove(jImp.complete ? 'goals' : improveSlug(jImp.resume))} data-testid="resume-improve">
-            {jImp.complete ? 'Review the journey' : jImp.started ? `Resume: ${jImp.resumeLabel.toLowerCase()}` : 'Start'}
-          </Link>
-        </Panel>
-      </section>
-
-      <Panel title="Client demo version">
-        <p className="small muted">The client demo always shows the version you last published, so preparing here never changes what a client sees. Update it when your preparation is ready to show.</p>
-        <Kv
-          rows={[
-            ['The demo shows', project.published ? `v${project.published.version} · ${project.published.note} · ${relTime(project.published.publishedAt)}` : 'Nothing yet'],
-            ['Your preparation', dirty ? `Has changes since v${project.published?.version ?? 0}` : 'Matches what the demo shows'],
-            ['Demo in progress', project.session ? `Started ${relTime(project.session.startedAt)} on v${project.session.baseVersion}${stale ? ' · reset it to show the newer version' : ''}` : 'None'],
-          ]}
-        />
-        <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginTop: 12 }}>
-          {(dirty || !project.published) && (
-            <>
-              <input className="input" placeholder="What changed? (optional)" value={note} onChange={(e) => setNote(e.target.value)} style={{ flex: 1, minWidth: 200 }} aria-label="What changed in this version" />
-              <button
-                className="btn btn--primary btn--sm"
-                onClick={() => {
-                  act().publishProject(project.id, note)
-                  setNote('')
-                }}
-                data-testid="update-demo"
-              >
-                Update the client demo (v{nextVersion})
-              </button>
-            </>
-          )}
-          <button className="btn btn--mint btn--sm" onClick={() => present(project.id)} disabled={!project.published} title={project.published ? 'Opens the demo as presenter' : 'Update the client demo first'}>
-            Present client demo
-          </button>
-          {project.published && dirty && (
-            <button className="btn btn--ghost btn--sm" onClick={() => act().restoreDraftFromPublished(project.id)} title="Throws away preparation changes and goes back to what the demo shows">
-              Discard changes since v{project.published.version}
-            </button>
-          )}
-          {project.session && (
-            <button className="btn btn--ghost btn--sm" onClick={() => act().resetDemoSession(project.id)}>
-              <RotateCcw /> Reset the demo
-            </button>
-          )}
-        </div>
-        <div className="row" style={{ gap: 12, alignItems: 'center', marginTop: 12, flexWrap: 'wrap' }}>
-          <span className="small">Default path when you present:</span>
-          <Segmented
-            ariaLabel="Default demo path"
-            value={project.clientExperience.guidanceDefault === 'full' ? 'full' : 'meeting'}
-            options={[
-              { id: 'meeting', label: 'Short, about 12 min' },
-              { id: 'full', label: 'Full, about 25 min' },
-            ]}
-            onChange={(v) => act().setClientExperience(project.id, { guidanceDefault: v })}
-          />
-          <Link className="small" to={r.meeting}>
-            Prepare the meeting
-          </Link>
-        </div>
-        {project.versions.length > 0 && (
-          <details style={{ marginTop: 12 }}>
-            <summary className="small">
-              <History style={{ width: 12 }} /> Earlier versions
-            </summary>
-            <ul className="list">
-              {project.versions.map((v) => (
-                <li key={v.version} className="row" style={{ justifyContent: 'space-between' }}>
-                  <span className="small">
-                    v{v.version} · {v.note} · {relTime(v.publishedAt)}
-                  </span>
-                  <button className="btn btn--secondary btn--sm" onClick={() => act().rollbackTo(project.id, v.version)}>
-                    Show this version again
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </details>
-        )}
-      </Panel>
-
-      <section className="grid grid--2" aria-label="Requests and presentations">
-        <Panel
-          title="Client requests"
-          actions={
-            <Link className="btn btn--secondary btn--sm" to={r.opportunityNew}>
-              <Plus /> New request
-            </Link>
-          }
-        >
-          {requests.length ? (
-            <ul className="list">
-              {requests.map((o) => {
-                const p = opportunityProgress(o)
-                return (
-                  <li key={o.id}>
-                    <Link to={r.opportunity(o.id, p.next ?? 'export')}>{o.title}</Link>
-                    <div className="xs muted">
-                      {p.done} of {p.total} steps done{p.next ? ` · Next: ${stepMeta(p.next).next.toLowerCase()}` : ''}
-                    </div>
-                  </li>
-                )
-              })}
-            </ul>
-          ) : (
-            <p className="small muted">No requests for this project yet. Start one when the client sends an RFP, a questionnaire or a brief.</p>
-          )}
-        </Panel>
-        <Panel
-          title="Presentations"
-          actions={
-            <Link className="btn btn--secondary btn--sm" to={r.presentationNew}>
-              <Plus /> New presentation
-            </Link>
-          }
-        >
-          {decks.length ? (
-            <ul className="list">
-              {decks.map((d) => (
-                <li key={d.id}>
-                  <Link to={r.presentation(d.id)}>{d.title}</Link>
-                  <div className="xs muted">
-                    {d.slides.length} slides · built {relTime(d.builtAt)}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="small muted">No presentations yet. An assessment readout or a project update can start from this project’s data, no request needed.</p>
-          )}
-        </Panel>
-      </section>
-
-      <Panel title="The system at a glance" actions={project.client.fictional ? <DemoData>Sample data · illustrative, not measured</DemoData> : undefined}>
+      <Panel title="The system at a glance" actions={<><DemoData>Sample figures</DemoData><Link to={r.report} className="small">Full report →</Link></>}>
         <div className="grid grid--3">
-          <Stat label="Checks passing (health)" value={`${health(sys)}%`} hint={`${driftItems(sys)} places where Figma and code disagree`} />
-          <Stat label="Open pull requests" value={String(openPRs(sys).length)} hint={`${sys.changes.filter((c) => c.status === 'draft').length} proposed changes`} />
-          <Stat label="AI readiness" value={`${readiness(sys)} / 5`} hint="How well AI tools can read the system" />
-        </div>
-        <div className="row" style={{ gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
-          <Link className="small" to={r.components}>
-            Components and tokens
-          </Link>
-          <Link className="small" to={r.changes}>
-            Findings and changes
-          </Link>
-          <Link className="small" to={r.report}>
-            Assessment report
-          </Link>
+          <Stat label="Checks passing" value={`${health(sys)}%`} hint="Automated checks on tokens, components and AI files" />
+          <Stat label="Figma and code differ" value={driftItems(sys)} hint={<Link to={r.changes}>See what differs</Link>} tone={driftItems(sys) > 0 ? 'warn' : undefined} />
+          <Stat label="Readable by AI tools" value={`${readiness(sys)} / 5`} hint="How much AI tools can read without guessing" />
         </div>
       </Panel>
 
-      <div className="grid grid--2">
-        <Panel title="Notes">
-          <textarea className="input" rows={4} value={project.engagement.notes} onChange={(e) => act().updateEngagement(project.id, { notes: e.target.value })} aria-label="Project notes" placeholder="Anything colleagues should know: contacts, constraints, decisions." />
-          {project.engagement.needsSpecialist && <p className="small" style={{ color: 'var(--n-warn)' }}>Needs a specialist: {project.engagement.needsSpecialist}</p>}
-          <p className="xs muted">Notes stay internal. They never appear in the client demo.</p>
-        </Panel>
-        <Panel title="Activity">
-          <ul className="list">
-            {project.activity.slice(0, 8).map((e) => (
-              <li key={e.id} className="small">
-                {e.text} · <span className="muted">{e.actor} · {relTime(e.ts)}</span>
-              </li>
-            ))}
-            {!project.activity.length && <li className="muted small">Nothing yet.</li>}
-          </ul>
-          <Link className="small" to={practice.opportunitiesFor(project.slug)}>
-            All requests for {project.client.name}
-          </Link>
-        </Panel>
-      </div>
+      <Panel title="What to do next">
+        <ul className="next-list" data-testid="next-list">
+          {setups.length ? (
+            setups.map((st) => (
+              <NextRow key={st.key} kind="Set-up" title={st.title} detail={st.detail}>
+                <Link className="btn btn--primary btn--sm" to={st.to} data-testid={st.testid}>
+                  {st.cta} <ArrowRight />
+                </Link>
+              </NextRow>
+            ))
+          ) : (
+            <NextRow kind="Set-up" title="Not started" detail="New client without a system, or a system that exists already?">
+              <Link className="btn btn--primary btn--sm" to={r.journeyNew()} data-testid="resume-new">
+                Start a design system
+              </Link>
+              <Link className="btn btn--secondary btn--sm" to={r.journeyImprove('goals')} data-testid="resume-improve">
+                Improve one
+              </Link>
+            </NextRow>
+          )}
+          {findings.map((f) => (
+            <NextRow key={f.id} kind={f.severity === 'error' ? 'Fix' : 'Check'} title={f.title} detail={f.summary}>
+              <Link className="btn btn--secondary btn--sm" to={r.finding(f.id)}>
+                Review
+              </Link>
+            </NextRow>
+          ))}
+          {suggestions.map((p) => (
+            <NextRow key={p.id} kind="AI suggestion" title={p.title} detail={`${p.description} · from the ${p.agent} agent`}>
+              <button className="btn btn--primary btn--sm" onClick={() => act().decideProposal(p.id, 'approve')} disabled={!canDecide} data-testid={`approve-${p.id}`}>
+                <Check /> Approve
+              </button>
+              <button className="btn btn--secondary btn--sm" onClick={() => act().decideProposal(p.id, 'reject')} disabled={!canDecide}>
+                <X /> Reject
+              </button>
+            </NextRow>
+          ))}
+          {stale.length > 0 && (
+            <NextRow kind="AI files" title={`${stale.length} file${stale.length > 1 ? 's' : ''} AI tools read ${stale.length > 1 ? 'are' : 'is'} out of date`} detail="They are generated from the system contract. Simulated: nothing is uploaded.">
+              <button className="btn btn--secondary btn--sm" onClick={() => act().publishChannels()}>
+                Update
+              </button>
+            </NextRow>
+          )}
+          {evalBelow && (
+            <NextRow kind="AI check" title={`AI output stays on the system ${ev.onSystem}% of the time (target ${ev.gate}%)`} detail="Run the release check again after a fix.">
+              <button className="btn btn--secondary btn--sm" onClick={() => act().runReleaseEval()}>
+                Run the check
+              </button>
+            </NextRow>
+          )}
+          {!findings.length && !suggestions.length && !stale.length && !evalBelow && setups.length > 0 && (
+            <li className="small muted">Nothing else waiting. Figma and code agree.</li>
+          )}
+        </ul>
+      </Panel>
+
+      <Panel title="Show it to the client">
+        <div className="row" style={{ gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+          <span className="small muted" style={{ flex: 1, minWidth: 220 }}>
+            {project.published ? (dirty ? `The client demo shows version ${project.published.version}; this project has changed since.` : `The client demo shows the latest version (${project.published.version}).`) : 'No client demo version yet: update it to show this project.'}
+            {published ? ` Version ${published} is ready.` : ''}
+          </span>
+          {(dirty || !project.published) && (
+            <button className="btn btn--secondary btn--sm" onClick={() => setPublished(act().publishProject(project.id))} data-testid="update-demo">
+              Update the client demo
+            </button>
+          )}
+          {project.published && (
+            <button className="btn btn--mint btn--sm" onClick={() => present(project.id)} data-testid="overview-present">
+              Present
+            </button>
+          )}
+        </div>
+      </Panel>
     </div>
   )
 }

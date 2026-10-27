@@ -6,7 +6,7 @@ import { relTime } from '@/state/selectors'
 export function AuditPage() {
   const history = useSys((s) => s.history)
   return (
-    <div className="page page--narrow">
+    <div className="page">
       <PageHead title="Audit trail" lead="Every action by a person or an agent, in order, with simulated actions marked. Steering groups and security teams usually ask for this." />
       <Panel flush>
         <div className="list" style={{ padding: '0 20px' }}>

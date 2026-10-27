@@ -6,10 +6,9 @@ import { shot } from './shots'
 
 test('start a new design system: the Starter Pack set-up, recorded in the project', async ({ page }) => {
   await page.goto('/nagarro/start?journey=new')
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Start a new design system')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Start a design system')
   await page.getByTestId('start-fabrikam').click()
   await expect(page).toHaveURL(/\/nagarro\/clients\/fabrikam\/journey\/new$/)
-  await expect(page.locator('.version-pill')).toContainText('up to date')
   // the real wizard sits in the page (framed when it runs, the commands to start it when not)
   await expect(page.getByTestId('xframe-starter-setup')).toBeVisible()
   await shot(page, '22-journey-new')
@@ -24,19 +23,17 @@ test('start a new design system: the Starter Pack set-up, recorded in the projec
   await expect(page.getByText(/Recorded from/)).toBeVisible()
 
   await page.goto('/nagarro/clients/fabrikam')
-  await expect(page.getByTestId('resume-new')).toContainText('Review the set-up')
+  await expect(page.getByTestId('resume-new')).toContainText('Review')
+  await expect(page.getByTestId('next-list')).toContainText('Set up in the Starter Pack')
 })
 
 test('the basics by hand: ticked on work done, resumed from the Overview', async ({ page }) => {
-  await page.goto('/nagarro/clients/fabrikam/journey/new')
-  await page.getByTestId('other-ways').locator('summary').click()
-  await page.getByTestId('other-ways').getByTestId('basics-by-hand').click()
-  await expect(page).toHaveURL(/\/journey\/new\/1$/)
+  // the hand-entered basics are a fallback for machines without the Starter Pack: reached directly here
+  await page.goto('/nagarro/clients/fabrikam/journey/new/1')
 
   // open step 3 directly: nothing is ticked, and the demo version is still current
   await page.goto('/nagarro/clients/fabrikam/journey/new/3')
   await expect(page.locator('.wizard__steps .step.is-done')).toHaveCount(0)
-  await expect(page.locator('.version-pill')).toContainText('up to date')
 
   // finishing step 1 ticks it, and the Overview resumes at step 2
   await page.goto('/nagarro/clients/fabrikam/journey/new/1')

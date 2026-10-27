@@ -2243,3 +2243,33 @@ button.process__card {
   gap: 10px;
   flex-wrap: wrap;
 }
+
+/* project Overview: what to do next, one list (round 8) */
+.next-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.next-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--n-fill);
+  flex-wrap: wrap;
+}
+.next-row__main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 220px;
+}
+.next-row__actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}

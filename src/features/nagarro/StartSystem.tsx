@@ -15,26 +15,23 @@ import { NewProjectSheet } from './ClientPortfolio'
 
 const COPY = {
   new: {
-    title: 'Start a new design system',
-    lead: 'For a client who has no design system yet. You set it up in the DS Starter Pack’s own wizard: brands, light and dark, a starting look per brand and mode, where the code and the Figma file live, and a change file for Figma. Then you record it in the project.',
+    title: 'Start a design system',
+    lead: 'For a client with no design system yet. Two steps: set it up in the DS Starter Pack, then bring it into the project.',
     need: 'The client’s brand colour and logo name, the kind of product, and (later) the repository and Figma file links. The Starter Pack running on this machine (npm run tools).',
     get: 'A configured system on real components, ds.project.json in the Starter Pack copy, a change file for the Figma plugin, and the system recorded in the project.',
   },
   improve: {
-    title: 'Improve an existing design system',
+    title: 'Improve a design system',
     lead: 'For a client who already has a system in Figma and code. You record their goals, connect their files read-only, assess where design, code and AI disagree, and agree a plan. Two steps need a practice specialist.',
     need: 'The client’s goals and the links to their repository and Figma file. Nothing is written to them.',
     get: 'An assessment with findings, a plan agreed with the client, and a version you can show in the client demo.',
   },
 }
 
-/** The DS Starter Pack's own set-up (semantic-editor/src/system/SetupSystem.tsx), then the hub's record. */
+/** The same two steps the project's Overview and the set-up page show. */
 const STARTER_PHASES = [
-  { title: 'About the product', text: 'Name it · Brands · Product' },
-  { title: 'Look and feel', text: 'Light and dark · Starting point · The look, per brand and mode · Check' },
-  { title: 'Where it lives', text: 'Code repository · Figma file' },
-  { title: 'Hand off to Figma', text: 'A change file for the Figma plugin' },
-  { title: 'Record it here', text: 'Read ds.project.json into the project' },
+  { title: 'Set it up in the Starter Pack', text: 'Brands, light and dark, the look, where code and Figma live' },
+  { title: 'Bring it into the project', text: 'The project then shows the system' },
 ]
 
 const CHOICES = [
@@ -52,7 +49,7 @@ export function StartSystem() {
 function StartChooser() {
   return (
     <div className="page">
-      <PageHead title="Start a project" lead="Does the client already have a design system?" crumbs={[{ label: 'Projects', to: practice.projects }, { label: 'Start a project' }]} />
+      <PageHead title="Start a project" lead="Does the client already have a design system?" crumbs={[{ label: 'Projects', to: practice.myWork }, { label: 'Start a project' }]} />
       <div className="journey-grid journey-grid--choice">
         {CHOICES.map((c) => (
           <Link key={c.kind} to={practice.startSystem(c.kind)} className="journey-card" data-testid={`start-choice-${c.kind}`}>
@@ -89,7 +86,7 @@ function StartJourney({ kind }: { kind: 'new' | 'improve' }) {
       <PageHead
         title={c.title}
         lead={c.lead}
-        crumbs={[{ label: 'Projects', to: practice.projects }, { label: c.title }]}
+        crumbs={[{ label: 'Projects', to: practice.myWork }, { label: c.title }]}
         actions={
           <Link className="btn btn--ghost" to={practice.startSystem(kind === 'new' ? 'improve' : 'new')}>
             {kind === 'new' ? 'The client already has a system?' : 'No system yet? Start a new one'}

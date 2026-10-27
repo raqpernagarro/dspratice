@@ -52,7 +52,7 @@ function RecordPanel({ client }: { client: string }) {
   }
 
   return (
-    <Panel title={`Record it in ${client}`} actions={recorded ? <Chip tone="ok">Recorded {relTime(recorded.at)}</Chip> : undefined}>
+    <Panel title={`Bring it into ${client}`} actions={recorded ? <Chip tone="ok">Recorded {relTime(recorded.at)}</Chip> : undefined}>
       <p className="small">
         When you finish <strong>Set up system</strong>, the Starter Pack saves <code>ds.project.json</code> in its copy. Read it here and the project shows the system: its name, brands, modes and main choices. Nothing is sent anywhere.
       </p>
@@ -100,7 +100,7 @@ function RecordPanel({ client }: { client: string }) {
               }}
               data-testid="record-starter-project"
             >
-              {recorded ? 'Replace the recorded set-up' : `Record it in ${client}`} <ArrowRight />
+              {recorded ? 'Bring it in again' : `Bring it into ${client}`} <ArrowRight />
             </Btn>
             <Btn variant="ghost" onClick={() => setState({ kind: 'idle' })}>
               Cancel
@@ -174,29 +174,31 @@ export function NewSystem() {
 
   return (
     <div className="page page--tool">
-      <PageHead noTabs title="Start a new design system" lead={`Set it up in the DS Starter Pack’s own wizard, then record it here so ${project.client.name} shows the system. You need the client’s brand colour, the kind of product and, later, the repository and Figma file links.`} />
+      <PageHead noTabs title="Start a design system" lead={`Two steps: set it up in the DS Starter Pack (Nuno Almeida’s tool, shown below), then bring the result into ${project.client.name}.`} />
       {missing ? (
-        <MissingStarter />
+        <>
+          <MissingStarter />
+          <OtherWays />
+        </>
       ) : (
         <>
           <section className="stack" aria-labelledby="setup-title">
             <h2 id="setup-title" className="section-title">
-              1 · Set it up in the Starter Pack
+              Step 1 of 2 · Set it up in the Starter Pack
             </h2>
             <p className="small muted" style={{ margin: 0 }}>
-              Choose <strong>Set up system</strong> in it. You get a configured system on real components, <code>ds.project.json</code> in the copy, and a change file for the Figma plugin.
+              This is the Starter Pack itself. Choose <strong>Set up system</strong> and follow its steps; when you finish, it saves <code>ds.project.json</code>.
             </p>
             <ExperienceFrame e={experience('starter-setup')!} />
           </section>
           <section className="stack" aria-labelledby="record-title">
             <h2 id="record-title" className="section-title">
-              2 · Record it in the project
+              Step 2 of 2 · Bring it into this project
             </h2>
             <RecordPanel client={project.client.name} />
           </section>
         </>
       )}
-      <OtherWays />
     </div>
   )
 }
