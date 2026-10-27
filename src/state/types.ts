@@ -592,9 +592,33 @@ export interface ProjectSeed {
 }
 
 /** The persisted, action-free part of the store. */
+/** A post about the practice's work (Engagement). Drafts made here; Nuno's posts come from a FigJam snapshot. */
+export type PostFormat = 'video' | 'carousel' | 'image' | 'article' | 'idea'
+export type PostKind = 'show-the-work' | 'point-of-view' | 'field-notes' | 'lesson-learned' | 'insight'
+export type PostStatus = 'idea' | 'draft' | 'in-review' | 'approved' | 'posted'
+export interface PostDraft {
+  id: string
+  title: string
+  format: PostFormat
+  kind: PostKind
+  /** company = the Nagarro Design page; personal = a designer's own account. */
+  surface: 'company' | 'personal'
+  byline: string
+  status: PostStatus
+  /** The post exactly as it would be pasted. */
+  text: string
+  /** Where its facts come from; what is simulated or sped up. */
+  notes: string
+  /** The social cut it came from, if any (src/fixtures/social-cuts.ts). */
+  cutId?: string
+  createdAt: number
+  updatedAt: number
+}
+
 export interface AppData {
   meta: { schemaVersion: number; seededAt: number; migratedFrom?: number }
-  practice: { rules: Rule[]; knowledge: KnowledgeState }
+  /** posts is optional: stores from before Engagement have none. */
+  practice: { rules: Rule[]; knowledge: KnowledgeState; posts?: PostDraft[] }
   projects: Record<ProjectId, Project>
   selectedProjectId: ProjectId
   ui: UiState

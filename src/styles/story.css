@@ -1898,31 +1898,31 @@ button.process__card {
 }
 .cut__brand {
   position: absolute;
-  top: 14px;
-  left: 16px;
+  top: 3.5cqw;
+  left: 3.5cqw;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
+  gap: 1.6cqw;
+  padding: 1.4cqw 2.4cqw;
   border-radius: 999px;
   background: rgba(1, 7, 22, 0.7);
   backdrop-filter: blur(8px);
   font-family: var(--n-font-display);
   font-weight: 500;
-  font-size: 12px;
+  font-size: max(12px, 3cqw);
 }
 .cut__brand img {
-  height: 12px;
+  height: max(12px, 3cqw);
   filter: invert(1) brightness(2);
 }
 .cut__sped {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  padding: 4px 8px;
+  top: 3.5cqw;
+  right: 3.5cqw;
+  padding: 1cqw 2cqw;
   border-radius: 6px;
   background: rgba(1, 7, 22, 0.75);
-  font-size: 11px;
+  font-size: max(11px, 2.6cqw);
   color: var(--n-fg-muted);
 }
 .cut__caption {
@@ -1931,11 +1931,11 @@ button.process__card {
   right: 0;
   bottom: 0;
   margin: 0;
-  padding: 64px 22px 30px;
+  padding: 14cqw 5cqw 8cqw;
   background: linear-gradient(180deg, transparent, rgba(1, 7, 22, 0.92) 45%);
   font-family: var(--n-font-display);
   font-weight: 500;
-  font-size: clamp(18px, 4.6cqw, 26px);
+  font-size: max(18px, 5.6cqw);
   line-height: 1.2;
   letter-spacing: -0.01em;
   text-wrap: balance;
@@ -1963,7 +1963,7 @@ button.process__card {
   margin: 0;
   font-family: var(--n-font-display);
   font-weight: 500;
-  font-size: clamp(22px, 7cqw, 38px);
+  font-size: max(22px, 8cqw);
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-wrap: balance;
@@ -1972,7 +1972,7 @@ button.process__card {
 .cut__outro span {
   font-family: var(--n-font-display);
   color: var(--n-mint);
-  font-size: 14px;
+  font-size: max(14px, 3.4cqw);
 }
 .cut__play {
   position: absolute;
@@ -2004,14 +2004,14 @@ button.process__card {
 }
 .cut__progress {
   position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 10px;
+  left: 3.5cqw;
+  right: 3.5cqw;
+  bottom: 2.6cqw;
   display: flex;
-  gap: 4px;
+  gap: 1cqw;
 }
 .cut__progress span {
-  height: 3px;
+  height: max(3px, 0.6cqw);
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.2);
 }
@@ -2055,4 +2055,148 @@ button.process__card {
   .cut-layout {
     grid-template-columns: 1fr;
   }
+}
+
+/* ---------- Engagement (round 7, phase 5): posts and Marketing Studio ---------- */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: var(--n-space-4);
+}
+.post-group {
+  font-size: var(--n-text-md);
+  color: var(--n-fg-muted);
+  margin: 0;
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--n-radius-lg);
+  background: var(--n-surface);
+  box-shadow: inset 0 0 0 1px var(--n-line);
+  overflow: hidden;
+  min-width: 0;
+}
+.post__media {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  min-height: 150px;
+  padding: 16px;
+  background: var(--n-art-panel-navy) center / cover;
+}
+.post__media--carousel {
+  background-image: var(--n-art-panel-teal);
+}
+.post__media--image,
+.post__media--article {
+  background-image: var(--n-art-sweep-2);
+}
+.post__media--idea {
+  background: var(--n-fill);
+  min-height: 80px;
+}
+.post__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(1, 7, 22, 0.1), rgba(1, 7, 22, 0.8));
+}
+.post__format {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: var(--n-font-mono);
+  font-size: 11px;
+  color: var(--n-mint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.post__media-text {
+  font-size: var(--n-text-sm);
+  color: var(--n-white-70);
+}
+.post__media-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--n-text-xs);
+  color: var(--n-fg);
+  font-weight: 500;
+  text-decoration: none;
+}
+.post__media-link svg {
+  width: 12px;
+  height: 12px;
+}
+.post__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  flex: 1;
+}
+.post__title {
+  font-family: var(--n-font-display);
+  font-weight: 500;
+  font-size: var(--n-text-lg);
+  letter-spacing: -0.01em;
+}
+.post__text {
+  margin: 0;
+  font-size: var(--n-text-sm);
+  color: var(--n-fg-muted);
+  white-space: pre-line;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.post__text.is-open {
+  display: block;
+}
+.post__more {
+  align-self: flex-start;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--n-text-sm);
+}
+.post__actions {
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 8px;
+  flex-wrap: wrap;
+}
+.copy-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.copy-block__code {
+  width: 100%;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--n-band);
+  font-family: var(--n-font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 260px;
+  overflow: auto;
+}
+.tight-list {
+  margin: 8px 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
 }

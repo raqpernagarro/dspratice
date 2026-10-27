@@ -18,6 +18,7 @@ import { guideSlice } from './slices/guide'
 import { knowledgeSlice } from './slices/knowledge'
 import { opportunitySlice } from './slices/opportunity'
 import { deckSlice } from './slices/deck'
+import { postsSlice } from './slices/posts'
 
 export { SCHEMA_VERSION }
 /** The demo build keeps its own storage so a public visitor never shares state with the internal hub. */
@@ -41,6 +42,7 @@ export const useStore = create<AppState>()(
         ...knowledgeSlice(ctx),
         ...opportunitySlice(ctx),
         ...deckSlice(ctx),
+        ...postsSlice(ctx),
       }
     }),
     {

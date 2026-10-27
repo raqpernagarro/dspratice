@@ -7,10 +7,12 @@
 // frame that `npm run clips` films (it starts by itself and sets data-cut-state="done" at the end).
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Link, useParams, useSearchParams } from 'react-router'
-import { Copy, Play, RotateCcw } from 'lucide-react'
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
+import { Copy, Megaphone, Play, RotateCcw } from 'lucide-react'
 import { client, practice } from '@/app/routes'
 import { useStore } from '@/state/store'
+import { act as storeAct } from '@/state/hooks'
+import { draftFromCut } from '@/features/engagement/posts'
 import { PageHead } from '@/shell/PageHead'
 import { Chip, Panel } from '@/shell/ui'
 import { socialCut, type Shot, type SocialCut } from '@/fixtures/social-cuts'
@@ -73,9 +75,9 @@ export function CutFrame({ cut, slug = 'demo-brand', autoplay, onState }: { cut:
     await sleep(500)
   }
 
-  const zoomTo = async (focus?: string) => {
+  const zoomTo = async (focus?: string, ms = 4000) => {
     if (!focus) return setZoom({ s: 1, x: 0, y: 0 })
-    const el = await waitFor(`[data-demo-focus="${focus}"]`)
+    const el = await waitFor(`[data-demo-focus="${focus}"]`, ms)
     if (!el) return setZoom({ s: 1, x: 0, y: 0 })
     el.scrollIntoView({ block: 'center' })
     await sleep(150)
@@ -159,7 +161,9 @@ export function CutFrame({ cut, slug = 'demo-brand', autoplay, onState }: { cut:
       first = false
       await zoomTo(shot.focus)
       await act(shot)
-      if (shot.action) await zoomTo(shot.focus)
+      // Show me starts a simulated job: give its result time to appear before the shot's clock starts.
+      if (shot.action === 'show-me') await sleep(1200)
+      if (shot.action) await zoomTo(shot.focus, 10_000)
       await sleep(shot.seconds * 1000)
     }
     if (run.current !== me) return
@@ -227,6 +231,7 @@ export function CutPage() {
   const { id = '' } = useParams()
   const cut = socialCut(id)
   const [copied, setCopied] = useState(false)
+  const navigate = useNavigate()
   if (!cut) return <PageHead title="No such social cut" crumbs={[{ label: 'Demos', to: practice.demos }, { label: id }]} />
   const cmd = `npm run clips -- ${cut.id}`
   return (
@@ -274,6 +279,17 @@ export function CutPage() {
                 <Copy /> {copied ? 'Copied' : 'Copy'}
               </button>
             </div>
+          </Panel>
+          <Panel title="Post it" tight>
+            <p className="small muted">Start a draft post from this cut’s hook and notes, then refine it with Marketing Studio. Nothing is posted from the workspace.</p>
+            <button
+              type="button"
+              className="btn btn--primary btn--sm"
+              data-testid="make-post"
+              onClick={() => navigate(`${practice.engagement}?draft=${storeAct().addPost(draftFromCut(cut))}`)}
+            >
+              <Megaphone /> Make a post
+            </button>
           </Panel>
           <Link className="small" to={practice.demos}>
             ← All demos

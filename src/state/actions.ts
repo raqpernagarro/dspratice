@@ -5,7 +5,7 @@ import type { StarterImport } from '@/library/theme/fromStarterProject'
 import type { Approval, Availability, Category, Deck, DeckSlide, DeckStage, DraftSection, EvidenceRef, KnowledgeDocument, KnowledgeSource, OpportunityContext, OpportunityStep, Opportunity, ReadBy, RequestFormat, RequestKind, Requirement, TaskType, Usage, DeckBrief } from './types'
 import type { ResponseDraft } from '@/opportunity/compose'
 import type { PublishRefusal } from '@/opportunity/selectors'
-import type { ChannelId, ClientExperience, ComponentGuidance, Contract, Engagement, GuideMode, ProjectCard, HistoryEvent, Mode, ProjectId, ThemeConfig, Toast, TrustAction, TrustLevel, UiState, Workspace, JourneyProgress } from './types'
+import type { ChannelId, ClientExperience, ComponentGuidance, Contract, Engagement, GuideMode, PostDraft, ProjectCard, HistoryEvent, Mode, ProjectId, ThemeConfig, Toast, TrustAction, TrustLevel, UiState, Workspace, JourneyProgress } from './types'
 
 export interface UiActions {
   pushToast: (t: Omit<Toast, 'id'>) => void
@@ -167,5 +167,12 @@ export interface GuideActions {
   setMeetingChapters: (ids: string[]) => void
 }
 
-export type AppActions = UiActions & ProjectActions & JourneyActions & SystemActions & GuideActions & KnowledgeActions & OpportunityActions & DeckActions
+export interface PostActions {
+  /** Saves a new draft post and returns its id. */
+  addPost: (post: Omit<PostDraft, 'id' | 'createdAt' | 'updatedAt'>) => string
+  updatePost: (id: string, patch: Partial<Pick<PostDraft, 'title' | 'text' | 'status' | 'surface' | 'byline' | 'kind' | 'notes'>>) => void
+  deletePost: (id: string) => void
+}
+
+export type AppActions = UiActions & ProjectActions & JourneyActions & SystemActions & GuideActions & KnowledgeActions & OpportunityActions & DeckActions & PostActions
 export type { OpportunityStep }
