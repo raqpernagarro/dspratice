@@ -5,7 +5,7 @@ import { shot } from './shots'
 
 test('knowledge library: browse, add, upload and refuse', async ({ page }) => {
   await page.goto('/nagarro/knowledge')
-  await expect(page.getByRole('heading', { name: 'Knowledge library' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Sources', exact: true })).toBeVisible()
   await expect(page.locator('main')).toContainText('Design Systems offer deck')
   await page.goto('/nagarro/knowledge?tab=client')
   await expect(page.locator('main')).toContainText('Contoso Bank: vendor questionnaire (sample)')

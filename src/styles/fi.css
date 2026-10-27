@@ -4,7 +4,7 @@
 .fi-dark {
   position: relative;
   isolation: isolate;
-  background: var(--n-ink);
+  background: var(--n-band);
   color: var(--n-white);
   overflow: hidden;
 }
@@ -12,8 +12,8 @@
 .fi-light {
   position: relative;
   isolation: isolate;
-  background: var(--n-white);
-  color: var(--n-ink);
+  background: var(--n-surface);
+  color: var(--n-fg);
   overflow: hidden;
 }
 
@@ -85,5 +85,5 @@
   height: 30%;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(to bottom, transparent, var(--n-ink));
+  background: linear-gradient(to bottom, transparent, var(--n-band));
 }

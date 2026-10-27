@@ -11,7 +11,7 @@ export interface NavItem {
   to: string
   label: string
   match: string[]
-  icon: 'home' | 'clients' | 'library' | 'changes' | 'ai' | 'presentations' | 'guides' | 'settings' | 'explore' | 'improve' | 'evidence' | 'knowledge' | 'opportunities' | 'demos' | 'tools' | 'scorecard'
+  icon: 'home' | 'clients' | 'library' | 'changes' | 'ai' | 'presentations' | 'guides' | 'settings' | 'explore' | 'improve' | 'evidence' | 'knowledge' | 'opportunities' | 'demos' | 'tools' | 'scorecard' | 'engagement'
   /** Sidebar group heading (Nagarro workspace): Win work · Deliver · Practice. */
   group?: string
 }
@@ -27,15 +27,15 @@ export function navFor(ws: Workspace, r: RouteFamily): NavItem[] {
       { to: r.outcome, label: 'Outcome and next step', match: [`${b}/evidence`, `${b}/scorecard`], icon: 'evidence' },
     ]
   }
-  // One stable, practice-wide list of six. Client requests, decks and the client demo share
-  // "Client conversations" (tabs inside). Project pages keep "Projects" selected; their sections are tabs.
+  // One stable, practice-wide list of five. Home asks what you need to do; client requests and
+  // decks belong to an item on Projects; the client demo and its social cuts live in Demos;
+  // posts and Marketing Studio in Engagement. Tools open from journeys, sources sit in Settings.
   return [
-    { to: practice.home, label: 'Home', match: [practice.home], icon: 'home' },
-    { to: practice.conversations, label: 'Client conversations', match: [practice.conversations, practice.opportunities, practice.presentations, practice.demos, practice.scorecard], icon: 'opportunities' },
-    { to: practice.projects, label: 'Projects', match: [practice.projects, '/nagarro/start'], icon: 'clients' },
-    { to: practice.knowledge, label: 'Knowledge library', match: [practice.knowledge], icon: 'knowledge' },
-    { to: practice.tools, label: 'Tools', match: [practice.tools, practice.guides], icon: 'tools' },
-    { to: practice.settings, label: 'Settings', match: [practice.settings], icon: 'settings', group: 'foot' },
+    { to: practice.home, label: 'Home', match: [practice.home, practice.conversations, practice.tools], icon: 'home' },
+    { to: practice.projects, label: 'Projects', match: [practice.projects, '/nagarro/start', practice.opportunities, practice.presentations], icon: 'clients' },
+    { to: practice.demos, label: 'Demos', match: [practice.demos, practice.scorecard], icon: 'demos' },
+    { to: practice.engagement, label: 'Engagement', match: [practice.engagement], icon: 'engagement' },
+    { to: practice.settings, label: 'Settings', match: [practice.settings, practice.guides], icon: 'settings', group: 'foot' },
   ]
 }
 
@@ -124,24 +124,25 @@ export function areaTabsFor(pathname: string, r: RouteFamily, opts?: { proposalP
       { label: 'Needs attention', to: practice.knowledgeTab('attention') },
     ]
   }
-  if (!client && [practice.conversations, practice.opportunities, practice.presentations, practice.demos, practice.meetingPrep(), practice.scorecard].includes(pathname)) {
+  if (!client && [practice.projects, practice.opportunities, practice.presentations].includes(pathname)) {
     return [
-      { label: 'Overview', to: practice.conversations },
-      { label: 'Opportunities', to: practice.opportunities },
+      { label: 'Projects', to: practice.projects, match: practice.projects },
+      { label: 'Client requests', to: practice.opportunities },
       { label: 'Presentations', to: practice.presentations },
-      { label: 'Client demo', to: practice.demos, also: [practice.scorecard] },
     ]
   }
-  if (!client && (pathname === practice.tools || pathname === practice.guides || pathname.startsWith(practice.guides + '/'))) {
+  if (!client && [practice.demos, practice.meetingPrep(), practice.scorecard].includes(pathname)) {
     return [
-      { label: 'Tools', to: practice.tools, match: practice.tools },
-      { label: 'Guides', to: practice.guides },
+      { label: 'Client demo', to: practice.demos, match: practice.demos },
+      { label: 'Prepare a meeting', to: practice.meetingPrep() },
+      { label: 'Scorecard', to: practice.scorecard },
     ]
   }
   if (!client && pathname.startsWith(practice.settings)) {
     return [
       { label: 'About this tool', to: practice.about },
       { label: 'People', to: practice.people },
+      { label: 'Sources', to: practice.knowledge },
       { label: 'Integrations and AI usage', to: practice.integrations },
       { label: 'Sample data', to: practice.setup },
     ]

@@ -35,14 +35,14 @@ export function AboutPage() {
     <div className="page">
       <PageHead
         title="About this tool"
-        lead="The design systems hub helps Nagarro colleagues prepare a client conversation (a response, a presentation or a demo) and start a design-system project, with what the practice already knows and the practice’s own tools. This page lists what works on this machine, what needs a key or a running tool, and what the client demo only simulates."
+        lead="Nagarro Design Workspace helps Nagarro colleagues prepare a client conversation (a response, a presentation or a demo) and start a design-system project, with what the practice already knows and the practice’s own tools. This page lists what works on this machine, what needs a key or a running tool, and what the client demo only simulates."
       />
       <div className="grid grid--2">
         <Group
           title="Works on this machine, no AI needed"
           tone="ok"
           items={[
-            ['Knowledge library', 'Search, read, approve and add sources: Figma text exports, Markdown, Word, PDF with text, links.'],
+            ['Sources (Settings)', 'Search, read, approve and add sources: Figma text exports, Markdown, Word, PDF with text, links.'],
             ['Responses to client requests', 'Requirements, matching passages from approved sources, a first draft, checks against invented figures and other clients’ names, downloads.'],
             ['Presentations', 'Decks built in one click from a reviewed response or a project’s data, on Carolina Baptista’s Nagarro Master Slides: checked slides, an editable outline, present mode, and HTML, notes, brief and deck.json downloads.'],
             ['Set-up journeys', 'Start a new design system in the DS Starter Pack’s own wizard and record it in the project, or improve an existing one, with progress you can resume.'],

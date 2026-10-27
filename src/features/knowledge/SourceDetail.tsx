@@ -46,7 +46,7 @@ export function SourceDetail() {
       <PageHead
        
         noTabs
-        crumbs={[{ label: 'Knowledge library', to: practice.knowledge }, { label: source.title }]}
+        crumbs={[{ label: 'Sources', to: practice.knowledge }, { label: source.title }]}
         title={source.title}
         lead={source.approvalNote ?? 'Where it lives, who owns it, what the hub read from it, and where it has been used.'}
         eyebrow={

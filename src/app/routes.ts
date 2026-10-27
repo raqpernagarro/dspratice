@@ -81,10 +81,13 @@ export const practice = {
   about: '/nagarro/settings/about',
   integrations: '/nagarro/settings/integrations',
   clientEntry: '/client',
-  knowledge: '/nagarro/knowledge',
-  knowledgeAdd: '/nagarro/knowledge/add',
-  knowledgeSource: (id: string) => `/nagarro/knowledge/${id}`,
-  knowledgeTab: (tab: 'practice' | 'client' | 'attention') => `/nagarro/knowledge?tab=${tab}`,
+  /** The sources behind responses and the AI (was the Knowledge library page; now Settings › Sources). */
+  knowledge: '/nagarro/settings/sources',
+  knowledgeAdd: '/nagarro/settings/sources/add',
+  knowledgeSource: (id: string) => `/nagarro/settings/sources/${id}`,
+  knowledgeTab: (tab: 'practice' | 'client' | 'attention') => `/nagarro/settings/sources?tab=${tab}`,
+  /** Advocating design at Nagarro: posts, social cuts and Marketing Studio. */
+  engagement: '/nagarro/engagement',
   /** "Prepare a client conversation": what are you starting from, and every request and deck in one list. */
   conversations: '/nagarro/conversations',
   tools: '/nagarro/tools',

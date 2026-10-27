@@ -18,9 +18,9 @@
   gap: var(--n-space-4);
   padding: 0 var(--n-space-5);
   height: var(--n-topbar-h);
-  background: var(--n-ink);
+  background: var(--n-bg);
   color: var(--n-white);
-  border-bottom: var(--n-hairline) solid var(--n-white-10);
+  border-bottom: 1px solid var(--n-line);
 }
 
 .shell__brand {
@@ -55,6 +55,18 @@
 .shell__crumb strong {
   color: var(--n-white);
   font-weight: 500;
+}
+
+/* Lockup like design.nagarro.com: Nagarro | Design Workspace */
+.shell__crumb:has(.shell__product) {
+  font-family: var(--n-font-display);
+  font-size: 15px;
+  letter-spacing: -0.02em;
+}
+
+.shell__product {
+  color: var(--n-white-70);
+  font-weight: 400;
 }
 
 .shell__spacer {
@@ -147,11 +159,11 @@
 }
 
 .nav__label:hover {
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 
 .nav__label.is-active {
-  background: var(--n-ink);
+  background: var(--n-fill-strong);
   color: var(--n-white);
 }
 
@@ -181,18 +193,18 @@
 
 .nav__child:hover {
   color: var(--n-fg);
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 
 .nav__child.is-active {
   color: var(--n-fg);
-  background: var(--n-ink-06);
+  background: var(--n-fill-2);
   font-weight: 500;
 }
 
 .nav__count {
   font-size: 11px;
-  background: var(--n-ink-06);
+  background: var(--n-fill-2);
   padding: 1px 7px;
   border-radius: var(--n-radius-pill);
   color: var(--n-fg-muted);
@@ -362,7 +374,7 @@
 }
 
 .panel--ink {
-  background: var(--n-ink);
+  background: var(--n-band);
   color: var(--n-white);
   border-color: transparent;
 }
@@ -438,8 +450,8 @@
   padding: 9px 16px;
   border-radius: var(--n-radius-pill);
   border: 1px solid transparent;
-  background: var(--n-ink);
-  color: var(--n-white);
+  background: var(--n-strong);
+  color: var(--n-on-strong);
   font-weight: 500;
   font-size: var(--n-text-sm);
   line-height: 1.2;
@@ -455,7 +467,7 @@
 }
 
 .btn:hover {
-  background: var(--n-blue);
+  background: var(--n-strong-hover);
 }
 
 .btn:active {
@@ -469,7 +481,7 @@
 }
 
 .btn--secondary:hover {
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 
 .btn--ghost {
@@ -478,7 +490,7 @@
 }
 
 .btn--ghost:hover {
-  background: var(--n-ink-06);
+  background: var(--n-fill-2);
 }
 
 .btn--mint {
@@ -487,7 +499,7 @@
 }
 
 .btn--mint:hover {
-  background: #5fe3bd;
+  background: var(--n-strong-hover);
 }
 
 .btn--danger {
@@ -571,7 +583,7 @@
   font-size: var(--n-text-xs);
   font-weight: 500;
   line-height: 1.4;
-  background: var(--n-ink-06);
+  background: var(--n-fill-2);
   color: var(--n-fg);
   white-space: nowrap;
 }
@@ -602,7 +614,7 @@
   color: var(--n-ai);
 }
 .chip--ink {
-  background: var(--n-ink);
+  background: var(--n-fill-strong);
   color: var(--n-white);
 }
 .chip--outline {
@@ -680,7 +692,7 @@
 }
 
 .table tr.is-clickable:hover td {
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 
 .table td.num,
@@ -754,12 +766,12 @@
 }
 
 .choice:hover {
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 
 .choice.is-selected {
-  border-color: var(--n-ink);
-  box-shadow: inset 0 0 0 1px var(--n-ink);
+  border-color: var(--n-accent);
+  box-shadow: inset 0 0 0 1px var(--n-accent);
 }
 
 .choice.is-disabled {
@@ -808,8 +820,8 @@
 }
 
 .segmented button.is-active {
-  background: var(--n-ink);
-  color: var(--n-white);
+  background: var(--n-strong);
+  color: var(--n-on-strong);
 }
 
 .toggle {
@@ -846,7 +858,7 @@
 
 .tabs button.is-active {
   color: var(--n-fg);
-  border-bottom-color: var(--n-ink);
+  border-bottom-color: var(--n-accent);
 }
 
 /* ---------- lists ---------- */
@@ -896,7 +908,7 @@
   width: 28px;
   height: 28px;
   border-radius: 8px;
-  border: 1px solid var(--n-ink-10);
+  border: 1px solid var(--n-line);
   flex-shrink: 0;
 }
 
@@ -910,14 +922,14 @@
 .progress {
   height: 6px;
   border-radius: var(--n-radius-pill);
-  background: var(--n-ink-06);
+  background: var(--n-fill-2);
   overflow: hidden;
 }
 
 .progress > span {
   display: block;
   height: 100%;
-  background: var(--n-ink);
+  background: var(--n-strong);
   border-radius: inherit;
   transition: width 0.3s ease;
 }
@@ -945,7 +957,7 @@
   gap: var(--n-space-3);
   padding: var(--n-space-3) var(--n-space-4);
   border-radius: var(--n-radius-md);
-  background: var(--n-ink-04);
+  background: var(--n-fill);
   font-size: var(--n-text-sm);
   align-items: flex-start;
 }
@@ -1001,7 +1013,7 @@
   justify-content: center;
   font-size: 11px;
   font-weight: 600;
-  background: var(--n-ink-06);
+  background: var(--n-fill-2);
   color: var(--n-fg-muted);
 }
 
@@ -1011,8 +1023,8 @@
 }
 
 .step.is-active .step__dot {
-  background: var(--n-ink);
-  color: var(--n-white);
+  background: var(--n-strong);
+  color: var(--n-on-strong);
 }
 
 .step.is-failed .step__dot {
@@ -1038,7 +1050,7 @@
 
 /* ---------- code block ---------- */
 .code {
-  background: var(--n-ink);
+  background: var(--n-band);
   color: #d9e1ec;
   border-radius: var(--n-radius-md);
   padding: var(--n-space-4);
@@ -1051,7 +1063,7 @@
 }
 
 .code--light {
-  background: var(--n-ink-04);
+  background: var(--n-fill);
   color: var(--n-fg);
 }
 
@@ -1078,7 +1090,7 @@
 }
 
 .toast {
-  background: var(--n-ink);
+  background: var(--n-band);
   color: var(--n-white);
   border-radius: var(--n-radius-md);
   padding: 12px 14px;
@@ -1174,7 +1186,7 @@
   transform: translateX(-50%);
   z-index: 50;
   width: min(760px, calc(100vw - 32px));
-  background: var(--n-ink);
+  background: var(--n-band);
   color: var(--n-white);
   border-radius: var(--n-radius-lg);
   box-shadow: var(--n-shadow-lg);
@@ -1303,7 +1315,7 @@
 
 .cmdk__item:hover,
 .cmdk__item.is-active {
-  background: var(--n-ink-06);
+  background: var(--n-fill-2);
 }
 
 .cmdk__answer {
@@ -1394,7 +1406,7 @@ kbd {
   flex-wrap: wrap;
   padding: 3px;
   border-radius: var(--n-radius-pill);
-  background: var(--n-ink-06);
+  background: var(--n-fill-2);
   align-self: flex-start;
   max-width: 100%;
 }
@@ -1415,7 +1427,7 @@ kbd {
 
 .area-tabs__tab:hover {
   color: var(--n-fg);
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 
 .area-tabs__tab.is-active {
@@ -1522,11 +1534,11 @@ kbd {
 }
 
 .ws-switch__item:hover {
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 
 .ws-switch__item.is-active {
-  background: var(--n-ink-06);
+  background: var(--n-fill-2);
 }
 
 .ws-switch__item strong {
@@ -1552,7 +1564,7 @@ kbd {
 }
 
 .shell--client .shell__top {
-  background: linear-gradient(90deg, var(--n-ink), #0b1a3a);
+  background: linear-gradient(90deg, var(--n-band), #0b1a3a);
 }
 
 /* ---------- tiles ---------- */
@@ -1573,7 +1585,7 @@ kbd {
 .tile:hover {
   transform: translateY(-2px);
   box-shadow: var(--n-shadow-md);
-  border-color: var(--n-ink-30);
+  border-color: var(--n-line-strong);
 }
 
 .tile > svg {
@@ -1617,7 +1629,7 @@ kbd {
 }
 
 .client-strip__item:hover {
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 
 .client-strip__name {
@@ -1709,8 +1721,8 @@ kbd {
   gap: 10px;
   padding: 32px;
   border-radius: var(--n-radius-xl);
-  background: var(--n-white);
-  color: var(--n-ink);
+  background: var(--n-surface);
+  color: var(--n-fg);
   border: 2px solid transparent;
   text-align: left;
   cursor: pointer;
@@ -1728,7 +1740,7 @@ kbd {
 }
 
 .ws-card--client {
-  background: var(--n-ink);
+  background: var(--n-band);
   color: var(--n-white);
   border-color: var(--n-white-10);
 }
@@ -1979,7 +1991,7 @@ kbd {
   transform: translateX(-50%);
   z-index: 50;
   width: min(1040px, calc(100vw - 24px));
-  background: var(--n-ink);
+  background: var(--n-band);
   color: var(--n-white);
   border-radius: var(--n-radius-lg);
   box-shadow: var(--n-shadow-lg);
@@ -2275,7 +2287,7 @@ kbd {
 .shell__side { display: flex; flex-direction: column; gap: 2px; }
 .shell__side .nav__foot { margin-top: auto; border-top: var(--n-hairline) solid var(--n-line); padding: var(--n-space-3) 0 0; gap: var(--n-space-3); }
 .nav__note { font-size: var(--n-text-xs); color: var(--n-fg-muted); padding: 0 12px; line-height: 1.45; }
-.nav__note--warn { color: #9a6412; }
+.nav__note--warn { color: var(--n-warn); }
 
 /* ---------- project header (every /nagarro/clients/:slug page) ---------- */
 .project-head { gap: var(--n-space-3); margin-bottom: var(--n-space-6); }
@@ -2295,8 +2307,8 @@ kbd {
 .project-head__select:hover { border-color: var(--n-line); }
 .project-head__meta { color: var(--n-fg-muted); font-size: var(--n-text-sm); text-transform: capitalize; }
 .version-pill { font-size: var(--n-text-xs); padding: 3px 10px; border-radius: var(--n-radius-pill); background: var(--n-ok-soft); color: var(--n-mint-deep); white-space: nowrap; }
-.version-pill.is-dirty { background: rgba(232, 176, 75, 0.18); color: #8a5a0b; }
-.version-pill.is-none { background: var(--n-ink-06); color: var(--n-fg-muted); }
+.version-pill.is-dirty { background: rgba(232, 176, 75, 0.18); color: var(--n-warn); }
+.version-pill.is-none { background: var(--n-fill-2); color: var(--n-fg-muted); }
 .project-tabs { display: flex; gap: 2px; border-bottom: var(--n-hairline) solid var(--n-line-strong); overflow-x: auto; }
 .project-tabs__tab {
   padding: 10px 14px;

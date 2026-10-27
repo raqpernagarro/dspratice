@@ -219,7 +219,7 @@ export function EngagementHome() {
       <div className="grid grid--2">
         <Panel title="Notes">
           <textarea className="input" rows={4} value={project.engagement.notes} onChange={(e) => act().updateEngagement(project.id, { notes: e.target.value })} aria-label="Project notes" placeholder="Anything colleagues should know: contacts, constraints, decisions." />
-          {project.engagement.needsSpecialist && <p className="small" style={{ color: '#9a6412' }}>Needs a specialist: {project.engagement.needsSpecialist}</p>}
+          {project.engagement.needsSpecialist && <p className="small" style={{ color: 'var(--n-warn)' }}>Needs a specialist: {project.engagement.needsSpecialist}</p>}
           <p className="xs muted">Notes stay internal. They never appear in the client demo.</p>
         </Panel>
         <Panel title="Activity">

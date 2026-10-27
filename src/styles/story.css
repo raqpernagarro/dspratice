@@ -61,7 +61,7 @@
   left: calc(-1 * var(--n-space-5));
   top: 22px;
   width: var(--n-space-5);
-  border-top: 2px dashed var(--n-ink-30);
+  border-top: 2px dashed var(--n-line-strong);
 }
 .process__card {
   flex: 1;
@@ -190,7 +190,7 @@ button.process__card {
 }
 .journey-card:hover,
 .journey-card:focus-visible {
-  border-color: var(--n-ink-30);
+  border-color: var(--n-line-strong);
   box-shadow: var(--n-shadow-md);
 }
 .journey-card__n {
@@ -201,7 +201,7 @@ button.process__card {
   margin-bottom: var(--n-space-2);
   border-radius: 50%;
   background: var(--n-mint-soft);
-  color: var(--n-ink);
+  color: var(--n-fg);
   font-size: var(--n-text-lg);
 }
 .journey-card__title {
@@ -247,7 +247,7 @@ button.process__card {
   gap: var(--n-space-4);
   padding: var(--n-space-12) var(--n-space-10);
   border-radius: var(--n-radius-lg);
-  background: var(--n-ink);
+  background: var(--n-band);
   color: var(--n-white);
 }
 /* The ribbon glow sits behind the text and never under it at full strength. */
@@ -305,7 +305,7 @@ button.process__card {
 }
 .task-card:hover,
 .task-card:focus-visible {
-  border-color: var(--n-ink-30);
+  border-color: var(--n-line-strong);
   box-shadow: var(--n-shadow-md);
 }
 .task-card__n {
@@ -358,7 +358,7 @@ button.process__card {
   text-decoration: none;
 }
 .continue-item:hover {
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 .continue-item__main {
   display: flex;
@@ -389,7 +389,7 @@ button.process__card {
   align-items: center;
   padding: var(--n-space-10);
   border-radius: var(--n-radius-lg);
-  background: var(--n-ink);
+  background: var(--n-band);
   color: var(--n-white);
 }
 .demo-panel__intro {
@@ -469,7 +469,7 @@ button.process__card {
   margin: 0;
   padding: var(--n-space-4);
   border-radius: var(--n-radius-md);
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 .brief dt {
   font-family: var(--n-font-mono);
@@ -537,7 +537,7 @@ button.process__card {
   flex-direction: column;
 }
 .pick-list__item:hover {
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 .pick-list__item svg {
   width: 16px;
@@ -587,7 +587,7 @@ button.process__card {
 }
 .to-review__item.is-open {
   background: rgba(232, 176, 75, 0.16);
-  color: #7a4f08;
+  color: var(--n-warn);
   border-color: rgba(232, 176, 75, 0.5);
 }
 .to-review__item svg {
@@ -678,7 +678,7 @@ button.process__card {
   display: flex;
   flex-direction: column;
   gap: var(--n-space-5);
-  background: var(--n-ink);
+  background: var(--n-band);
   color: var(--n-white);
 }
 .notes-window .kicker {
@@ -803,7 +803,7 @@ button.process__card {
   gap: var(--n-space-4);
   padding: var(--n-space-10);
   border-radius: var(--n-radius-lg);
-  background: var(--n-ink);
+  background: var(--n-band);
   color: var(--n-white);
 }
 .story-dark::before {
@@ -866,7 +866,7 @@ button.process__card {
   color: var(--n-fg-muted);
 }
 .outcome-rows--light .outcome-row__bar {
-  background: var(--n-ink-06);
+  background: var(--n-fill-2);
 }
 
 /* Room under the last content for the client demo's guide bar. */
@@ -896,7 +896,7 @@ button.process__card {
   text-decoration: none;
 }
 .tool-list__row:hover {
-  background: var(--n-ink-04);
+  background: var(--n-fill);
 }
 .tool-list__main {
   display: flex;
@@ -953,7 +953,7 @@ button.process__card {
   font-size: var(--n-text-sm);
   padding: 4px 8px;
   border-radius: var(--n-radius-sm);
-  background: var(--n-ink-04);
+  background: var(--n-fill);
   overflow-wrap: anywhere;
 }
 .tool-address {

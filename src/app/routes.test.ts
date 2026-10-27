@@ -76,7 +76,7 @@ describe('legacy redirects', () => {
 describe('navigation keeps the parent selected on detail routes', () => {
   it('hub: one stable list; project pages keep Projects selected', () => {
     const nav = navFor('nagarro', N)
-    expect(nav.map((i) => i.label)).toEqual(['Home', 'Client conversations', 'Projects', 'Knowledge library', 'Tools', 'Settings'])
+    expect(nav.map((i) => i.label)).toEqual(['Home', 'Projects', 'Demos', 'Engagement', 'Settings'])
     expect(activeNav(nav, practice.home)?.label).toBe('Home')
     expect(activeNav(nav, N.pr(128))?.label).toBe('Projects')
     expect(activeNav(nav, N.component('button'))?.label).toBe('Projects')
@@ -87,17 +87,21 @@ describe('navigation keeps the parent selected on detail routes', () => {
     expect(activeNav(nav, practice.startSystem('new').split('?')[0])?.label).toBe('Projects')
     expect(activeNav(nav, practice.start)?.label).toBe('Projects')
   })
-  it('hub: requests and decks live under their own lists, whichever project they belong to', () => {
+  it('hub: requests and decks belong to Projects; the demo and scorecard to Demos; sources to Settings', () => {
     const nav = navFor('nagarro', N)
     expect(N.opportunity('opp-1', 'response')).toBe(practice.opportunity('opp-1', 'response'))
-    expect(activeNav(nav, practice.opportunity('opp-1', 'response'))?.label).toBe('Client conversations')
-    expect(activeNav(nav, practice.deck('deck-1'))?.label).toBe('Client conversations')
-    expect(activeNav(nav, practice.meetingPrep('demo-brand').split('?')[0])?.label).toBe('Client conversations')
-    expect(activeNav(nav, practice.scorecard)?.label).toBe('Client conversations')
-    expect(activeNav(nav, practice.guide('why'))?.label).toBe('Tools')
-    expect(activeNav(nav, practice.conversations)?.label).toBe('Client conversations')
-    for (const list of [practice.conversations, practice.opportunities, practice.presentations, practice.demos, practice.scorecard]) {
-      expect(areaTabsFor(list, N)?.map((t) => t.label)).toEqual(['Overview', 'Opportunities', 'Presentations', 'Client demo'])
+    expect(activeNav(nav, practice.opportunity('opp-1', 'response'))?.label).toBe('Projects')
+    expect(activeNav(nav, practice.deck('deck-1'))?.label).toBe('Projects')
+    expect(activeNav(nav, practice.meetingPrep('demo-brand').split('?')[0])?.label).toBe('Demos')
+    expect(activeNav(nav, practice.scorecard)?.label).toBe('Demos')
+    expect(activeNav(nav, practice.guide('why'))?.label).toBe('Settings')
+    expect(activeNav(nav, practice.knowledgeSource('x'))?.label).toBe('Settings')
+    expect(activeNav(nav, practice.engagement)?.label).toBe('Engagement')
+    for (const list of [practice.projects, practice.opportunities, practice.presentations]) {
+      expect(areaTabsFor(list, N)?.map((t) => t.label)).toEqual(['Projects', 'Client requests', 'Presentations'])
+    }
+    for (const list of [practice.demos, practice.scorecard]) {
+      expect(areaTabsFor(list, N)?.map((t) => t.label)).toEqual(['Client demo', 'Prepare a meeting', 'Scorecard'])
     }
     expect(areaTabsFor(practice.deck('deck-1'), N)).toBeNull()
     expect(activeNav(nav, practice.about)?.label).toBe('Settings')

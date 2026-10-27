@@ -143,7 +143,7 @@ export function KnowledgeLibrary() {
   return (
     <div className="page">
       <PageHead
-        title="Knowledge library"
+        title="Sources"
         lead="Material the practice can reuse: offers, points of view, methods, decks, proposal sections and case studies. It covers the whole practice; the few items that belong to one client are marked. Check approval and audience before you show anything to a client. Drafts for client requests only quote what is here."
         actions={
           <button className="btn btn--primary" onClick={() => navigate(practice.knowledgeAdd)} data-testid="add-source">

@@ -22,6 +22,7 @@ const hub = () => import('@/features/hub')
 const tools = () => import('@/features/tools')
 const conversations = () => import('@/features/conversations')
 const scorecard = () => import('@/features/scorecard')
+const engagement = () => import('@/features/engagement')
 import { Wizard } from '@/features/start/Wizard'
 import { NewSystem } from '@/features/start/NewSystem'
 import { Connect } from '@/features/start/Connect'
@@ -88,7 +89,7 @@ function ImprovePage({ step }: { step: ImproveSlug }) {
   }
 }
 
-/** Old project-level request and deck paths now live under the practice-wide lists. */
+/** A path that moved: old project-level request and deck paths, old knowledge source pages. */
 function MovedToPractice({ to }: { to: (p: { slug: string; id?: string; step?: string }) => string }) {
   const { slug = '', id, step } = useParams()
   return <Navigate to={to({ slug, id, step })} replace />
@@ -121,9 +122,12 @@ export const router = createBrowserRouter([
       { path: 'presentations', element: lazyPage(decks, 'DecksPractice') },
       { path: 'presentations/new', element: lazyPage(decks, 'DeckBuilder') },
       { path: 'presentations/:id', element: <OwnerRouteSync kind="deck" />, children: [{ index: true, element: lazyPage(decks, 'DeckView') }] },
-      { path: 'knowledge', element: lazyPage(knowledge, 'KnowledgeLibrary') },
-      { path: 'knowledge/add', element: lazyPage(knowledge, 'KnowledgeLibrary') },
-      { path: 'knowledge/:id', element: lazyPage(knowledge, 'SourceDetail') },
+      { path: 'settings/sources', element: lazyPage(knowledge, 'KnowledgeLibrary') },
+      { path: 'settings/sources/add', element: lazyPage(knowledge, 'KnowledgeLibrary') },
+      { path: 'settings/sources/:id', element: lazyPage(knowledge, 'SourceDetail') },
+      { path: 'knowledge', element: <Navigate to={practice.knowledge} replace /> },
+      { path: 'knowledge/add', element: <Navigate to={practice.knowledgeAdd} replace /> },
+      { path: 'knowledge/:id', element: <MovedToPractice to={({ id }) => practice.knowledgeSource(id!)} /> },
       { path: 'opportunities', element: lazyPage(opportunity, 'OpportunitiesPractice') },
       { path: 'opportunities/new', element: lazyPage(opportunity, 'OpportunityNew') },
       {
@@ -135,11 +139,12 @@ export const router = createBrowserRouter([
         ],
       },
       { path: 'conversations', element: lazyPage(conversations, 'ConversationsPage') },
-      { path: 'tools', element: lazyPage(hub, 'ToolsPage') },
+      { path: 'tools', element: <Navigate to={practice.home} replace /> },
       { path: 'tools/:id', element: lazyPage(tools, 'ToolPage') },
       { path: 'demos', element: lazyPage(hub, 'DemosPage') },
       { path: 'demos/prepare', element: <PresenterGuide /> },
       { path: 'scorecard', element: lazyPage(scorecard, 'ScorecardPage') },
+      { path: 'engagement', element: lazyPage(engagement, 'EngagementPage') },
       { path: 'settings/integrations', element: lazyPage(hub, 'IntegrationsPage') },
       { path: 'settings', element: <PracticeSettings /> },
       { path: 'settings/people', element: <PeoplePage /> },

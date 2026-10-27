@@ -9,7 +9,7 @@ import { useIsClient } from '@/state/hooks'
 export function PageHead({ title, lead, actions, eyebrow, crumbs, noTabs }: { title: ReactNode; lead?: ReactNode; actions?: ReactNode; eyebrow?: ReactNode; crumbs?: Crumb[]; noTabs?: boolean }) {
   const client = useIsClient()
   useEffect(() => {
-    if (typeof title === 'string') document.title = `${title} · ${client ? 'Client demo' : 'Design systems hub'} · Nagarro`
+    if (typeof title === 'string') document.title = `${title} · ${client ? 'Client demo' : 'Workspace'} · Nagarro Design`
   }, [title, client])
   return (
     <div className="page__top">

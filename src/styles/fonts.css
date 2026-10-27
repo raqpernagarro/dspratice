@@ -1,5 +1,6 @@
 /* Nagarro typography: Equip (body, UI) and Equip Extended (display headings).
-   Licensed Hoftype fonts from Nagarro's web kits. Do not redistribute. See public/fonts/README.md. */
+   Licensed Hoftype fonts from Nagarro's web kits. Do not redistribute. See public/fonts/README.md.
+   The three faces nagarro.com itself serves also fall back to its CORS-open CDN copy. */
 
 /* ---- Equip ---- */
 @font-face {
@@ -14,7 +15,8 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url('/fonts/equip/equipreg-webfont.woff2') format('woff2'), url('/fonts/equip/equipreg-webfont.woff') format('woff');
+  src: url('/fonts/equip/equipreg-webfont.woff2') format('woff2'), url('/fonts/equip/equipreg-webfont.woff') format('woff'),
+    url('https://www.nagarro.com/hubfs/NagarroWebsiteRedesign-Aug2020/Assets/Fonts/Equip/Equip%20-%20woff/EquipReg.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Equip';
@@ -58,14 +60,16 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url('/fonts/equip/equipextreg-webfont.woff2') format('woff2'), url('/fonts/equip/equipextreg-webfont.woff') format('woff');
+  src: url('/fonts/equip/equipextreg-webfont.woff2') format('woff2'), url('/fonts/equip/equipextreg-webfont.woff') format('woff'),
+    url('https://www.nagarro.com/hubfs/NagarroWebsiteRedesign-Aug2020/Assets/Fonts/EquipExtended/EquipExtended%20-%20woff/EquipExtReg.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Equip Extended';
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-  src: url('/fonts/equip/equipextmed-webfont.woff2') format('woff2'), url('/fonts/equip/equipextmed-webfont.woff') format('woff');
+  src: url('/fonts/equip/equipextmed-webfont.woff2') format('woff2'), url('/fonts/equip/equipextmed-webfont.woff') format('woff'),
+    url('https://www.nagarro.com/hubfs/NagarroWebsiteRedesign-Aug2020/Assets/Fonts/EquipExtended/EquipExtended%20-%20woff/EquipExtMed.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Equip Extended';

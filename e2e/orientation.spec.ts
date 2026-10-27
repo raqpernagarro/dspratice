@@ -32,7 +32,7 @@ test('a new colleague can tell what the hub is for and where to start', async ({
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('What do you need to do?')
   for (const t of ['Prepare a client conversation', 'Proposal, presentation, demo', 'Start a project', 'New or existing design system', 'More journeys as real needs appear']) await expect(main).toContainText(t)
   await expect(page.locator('.journey-card')).toHaveCount(2)
-  await expect(page.locator('.shell__side .nav__label')).toHaveText(['Home', 'Client conversations', 'Projects', 'Knowledge library', 'Tools', 'Settings'])
+  await expect(page.locator('.shell__side .nav__label')).toHaveText(['Home', 'Projects', 'Demos', 'Engagement', 'Settings'])
   await expect(page.getByTestId('continue-list')).toBeVisible()
   await expect(main).not.toContainText('System health')
   await shot(page, '20-home')
@@ -59,8 +59,7 @@ test('a new colleague can tell what the hub is for and where to start', async ({
   await expect(main).toContainText('What are you starting from?')
   for (const id of ['request', 'project', 'idea', 'demo']) await expect(page.getByTestId(`start-${id}`)).toBeVisible()
   await expect(page.getByTestId('conversation-list')).toContainText('Client request')
-  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Client conversations')
-  await expect(page.locator('.area-tabs__tab')).toHaveText(['Overview', 'Opportunities', 'Presentations', 'Client demo'])
+  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Home')
   const starts: [string, RegExp][] = [
     ['start-request', /\/nagarro\/opportunities\/new$/],
     ['start-project', /\/nagarro\/presentations\/new\?kind=project$/],
@@ -84,10 +83,11 @@ test('a new colleague can tell what the hub is for and where to start', async ({
 
   // practice pages show no client selector; the parent stays selected on detail pages
   await page.goto('/nagarro/knowledge')
+  await expect(page).toHaveURL(/\/nagarro\/settings\/sources$/)
   await expect(page.locator('select[aria-label="Project"]')).toHaveCount(0)
-  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Knowledge library')
+  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Settings')
   await page.goto('/nagarro/opportunities/opp-northwind-rfp/response')
-  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Client conversations')
+  await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Projects')
   await expect(page.locator('.crumbs')).toContainText('Opportunities')
   await page.goto('/nagarro/clients/northwind/system/tokens')
   await expect(page.locator('.shell__side [aria-current="page"]')).toHaveText('Projects')

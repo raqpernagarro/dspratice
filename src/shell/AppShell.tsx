@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Outlet, Link, useLocation, useNavigate } from 'react-router'
-import { Home, Layers, GitPullRequest, Sparkles, Shield, Search, Menu, RotateCcw, Play, Gauge, BookOpen, Building2, Compass, Wrench, PackageCheck, Presentation, Library, Target, MonitorPlay, Hammer, MoreHorizontal, ArrowLeft, NotebookPen, Info, UserRound } from 'lucide-react'
+import { Home, Layers, GitPullRequest, Sparkles, Shield, Search, Menu, RotateCcw, Play, Gauge, BookOpen, Building2, Compass, Wrench, PackageCheck, Presentation, Library, Target, MonitorPlay, Hammer, MoreHorizontal, ArrowLeft, NotebookPen, Info, UserRound, Megaphone } from 'lucide-react'
 import { useIntegrationStatus } from '@/integrations/status'
 import { useStore } from '@/state/store'
 import { Toasts } from './Toasts'
@@ -17,7 +17,7 @@ import { sessionIsStale } from '@/state/scope'
 import { PageTransition, WorkspaceWipe } from '@/motion'
 import type { Workspace } from '@/state/types'
 
-const ICONS = { home: Home, clients: Building2, library: Layers, changes: GitPullRequest, ai: Sparkles, presentations: Presentation, guides: BookOpen, settings: Shield, explore: Compass, improve: Wrench, evidence: PackageCheck, knowledge: Library, opportunities: Target, demos: MonitorPlay, tools: Hammer, scorecard: Gauge } as const
+const ICONS = { home: Home, clients: Building2, library: Layers, changes: GitPullRequest, ai: Sparkles, presentations: Presentation, guides: BookOpen, settings: Shield, explore: Compass, improve: Wrench, evidence: PackageCheck, knowledge: Library, opportunities: Target, demos: MonitorPlay, tools: Hammer, scorecard: Gauge, engagement: Megaphone } as const
 
 export function AppShell({ workspace, bare, children }: { workspace: Workspace; bare?: boolean; children?: ReactNode }) {
   const location = useLocation()
@@ -105,7 +105,7 @@ export function AppShell({ workspace, bare, children }: { workspace: Workspace; 
         <Link to={client ? r.home : practice.home} className="shell__brand" title={client ? 'Demo overview' : 'Home'}>
           <img src="/brand/nagarro-logo.svg" alt="Nagarro" />
           <span className="shell__brand-divider" />
-          <span className="shell__crumb">{client ? <><strong>{sys.theme.name}</strong> design system</> : <strong>Design systems hub</strong>}</span>
+          <span className="shell__crumb">{client ? <><strong>{sys.theme.name}</strong> design system</> : <><strong>Design</strong> <span className="shell__product">Workspace</span></>}</span>
         </Link>
         {client && (
           <span className="demo-notice" title="A fictional company's design system, with sample figures. Actions that would reach GitHub or Figma are simulated.">

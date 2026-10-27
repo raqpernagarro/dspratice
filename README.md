@@ -1,4 +1,4 @@
-# Nagarro design systems hub (`unified-ds-tool`)
+# Nagarro Design Workspace (`unified-ds-tool`)
 
 An internal tool for the Nagarro design systems practice. It brings together the practice's knowledge, material and tools for design systems and AI, so colleagues can do useful work without an expert sitting beside them. Home asks one question, "What do you need to do?", and offers two journeys:
 
