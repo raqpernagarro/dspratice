@@ -3,7 +3,7 @@
 // quotes and dollar signs in a title.
 import { describe, expect, it } from 'vitest'
 import { execFileSync } from 'node:child_process'
-import { SNAPSHOT_POSTS, draftFromCut, studioCommands, studioId } from './posts'
+import { SHARED_POSTS, SNAPSHOT_POSTS, draftFromCut, studioCommands, studioId } from './posts'
 import { SOCIAL_CUTS } from '@/fixtures/social-cuts'
 
 describe('the Starter Pack posts snapshot', () => {
@@ -13,6 +13,25 @@ describe('the Starter Pack posts snapshot', () => {
     expect(SNAPSHOT_POSTS.filter((p) => p.format === 'idea').every((p) => p.status === 'idea' && !p.text)).toBe(true)
     for (const p of SNAPSHOT_POSTS) expect(p.figjam).toMatch(/^https:\/\/www\.figma\.com\/board\/yeiDcap30EfEY6aSa78VbX\/DS-Practice\?node-id=\d+-\d+$/)
     expect(new Set(SNAPSHOT_POSTS.map((p) => p.id)).size).toBe(20)
+  })
+})
+
+describe('the posts for the Nagarro Design page', () => {
+  // The main rules of Marketing Studio's check.py (evals/lib/checks.py), kept here so an edit cannot break them.
+  const BANNED = ['game-changer', 'unlock', 'elevate', 'delve', 'leverage', 'landscape', 'crucial', 'pivotal', 'testament', 'showcase', 'quietly', 'vibrant', 'robust', 'seamless', 'thrilled', 'humbled', 'excited to announce']
+  const NUNO = SNAPSHOT_POSTS.map((p) => p.text.toLowerCase())
+  it.each(SHARED_POSTS.map((p) => [p.id, p]))('%s follows the house rules', (_id, p) => {
+    expect(p.text).not.toMatch(/[\u2013\u2014]/)
+    expect((p.text.match(/#\w+/g) ?? []).length).toBeLessThanOrEqual(3)
+    expect(p.text.length).toBeLessThanOrEqual(1500)
+    expect(p.text).not.toMatch(/https?:\/\//)
+    for (const w of BANNED) expect(p.text.toLowerCase()).not.toContain(w)
+    expect(p.text).not.toMatch(/\bcolor\b|\boptimiz|\borganiz/i)
+    expect(p.text).not.toMatch(/ASSA|ABLOY|Yale|Jane/)
+    expect(p.text.trim().endsWith('?') || /\?\n\n#/.test(p.text)).toBe(true)
+    // never one of Nuno's lines: the two series go out on the same page
+    for (const line of p.text.split(/(?<=[.?])\s+/).filter((l) => l.length > 30)) for (const n of NUNO) expect(n).not.toContain(line.toLowerCase())
+    expect(p.cutId && p.notes.length > 40).toBeTruthy()
   })
 })
 

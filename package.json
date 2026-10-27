@@ -21,7 +21,8 @@
     "tokens:sync": "node scripts/sync-brand-tokens.mjs",
     "tools": "node scripts/tools.mjs",
     "clips": "node scripts/clips.mjs",
-    "handbook:md": "vite-node scripts/handbook-md.tsx"
+    "handbook:md": "vite-node scripts/handbook-md.tsx",
+    "covers": "node scripts/post-covers.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.1.0",

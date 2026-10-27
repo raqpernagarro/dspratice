@@ -2200,3 +2200,16 @@ button.process__card {
   display: grid;
   gap: 6px;
 }
+
+.post__media--cover {
+  min-height: 0;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+}
+.post__media--cover::after {
+  background: linear-gradient(180deg, transparent 60%, rgba(1, 7, 22, 0.85));
+}
+.post__media--cover .post__format {
+  display: none;
+}

@@ -41,7 +41,7 @@ export const SOCIAL_CUTS: SocialCut[] = [
       { caption: 'Same prompt. One design system.', chapter: 'ai', focus: 'refusal', seconds: 3 },
       { caption: 'The screen is built from the system’s own components', action: 'show-me', focus: 'refusal', seconds: 5 },
       { caption: 'A colour that isn’t in the system is refused', focus: 'refusal', seconds: 4 },
-      { caption: 'AI is only as consistent as what it can read', seconds: 3 },
+      { caption: 'Rules written for machines keep AI on the system', seconds: 3 },
     ],
     notes: 'Filmed on Demo Brand, a fictional company. A rule-based planner stands in for the AI model in this demo: say so in the post. The wait for the screen is sped up.',
   },
@@ -68,7 +68,7 @@ export const SOCIAL_CUTS: SocialCut[] = [
       { caption: 'What it affects, before anyone changes anything', chapter: 'impact', focus: 'rule-panel', seconds: 4 },
       { caption: 'The fix, proposed once', chapter: 'fix', action: 'show-me', focus: 'impact-numbers', seconds: 5 },
       { caption: 'Reviewed in code and in Figma, then merged', chapter: 'review', action: 'show-me', focus: 'checks-list', seconds: 5 },
-      { caption: 'Drift you can measure is drift you can fix this week', seconds: 3 },
+      { caption: 'Fixed once, reviewed in both places', seconds: 3 },
     ],
     notes: 'Filmed on Demo Brand, a fictional company. Nothing reaches GitHub or Figma: the pull request, checks and Figma change are simulated, and their timers are sped up.',
   },
@@ -91,11 +91,11 @@ export const SOCIAL_CUTS: SocialCut[] = [
     hook: 'We described every job our designers and sellers do once, for people and machines. Type what you need; the workspace takes you there.',
     shots: [
       { caption: 'What do you need to do?', open: '/nagarro', seconds: 3 },
-      { caption: '“Jane needs a prototype on the client’s design system”', action: { type: 'Jane needs a prototype on the client’s design system', into: 'home-ask' }, seconds: 4 },
+      { caption: '“A designer needs a prototype on the client’s design system”', action: { type: 'A designer needs a prototype on the client’s design system', into: 'home-ask' }, seconds: 4 },
       { caption: 'Matched to a journey, and it says why', action: { press: 'Enter', in: 'home-ask' }, seconds: 4 },
       { caption: 'No model call: the jobs are written down where machines can read them', seconds: 4 },
     ],
-    notes: 'Internal workspace: film only with sample data, and blur anything with a real client name. The router is keyword matching over src/fixtures/journeys.ts; no AI is involved.',
+    notes: 'Internal workspace, filmed with sample data only: the Try suggestions and the in-progress line are hidden in the cut because they can name clients. The router is keyword matching over src/fixtures/journeys.ts; no AI is involved.',
   },
 ]
 

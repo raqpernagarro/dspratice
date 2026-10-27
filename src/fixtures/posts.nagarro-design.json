@@ -1,0 +1,68 @@
+{
+  "$comment": "First posts for the Nagarro Design page, written 27 Oct 2026 from the workspace's filmed social cuts (media/clips/<cut>.webm) with covers in media/posts/. Drafts for review: nobody has approved them. Checked with Marketing Studio's check.py (British English, no dashes, banned words, hashtags, length). Shared through the repository like the team board.",
+  "posts": [
+    {
+      "id": "nd-01-the-system-says-no",
+      "n": 1,
+      "title": "The system says no",
+      "format": "video",
+      "kind": "show-the-work",
+      "surface": "company",
+      "byline": "Nagarro Design page",
+      "status": "draft",
+      "cutId": "ai-keeps-to-the-system",
+      "cover": "media/posts/nd-01-the-system-says-no.png",
+      "text": "We asked for a screen in a colour our design system does not have. The system refused, and named the token to use instead.\n\nThat refusal is what makes a design system AI-ready. Better prompts do not keep AI output on-brand. Rules that tools can read do: which components exist, what each token is for, and which names were never part of the system.\n\nIn the clip, a prompt becomes a settings page built only from the system's own components. Then a made-up token is refused, with the nearest real one.\n\nTo be clear about the demo: it runs on Demo Brand, a fictional company, and a rule-based planner stands in for the AI model. The refusal comes from the system's rules, which is why the same check works with any model.\n\nWhat would your design system refuse today, if a tool asked?\n\n#designsystems #ai #designops",
+      "notes": "Filmed in the workspace's client demo (chapter 7, AI uses the system) on Demo Brand, a fictional company. A rule-based planner stands in for the AI model, and the post says so. The wait for the screen is sped up, and the clip says so. No numbers in the post.",
+      "coverSpec": {
+        "before": "The system ",
+        "hl": "says no",
+        "after": ".",
+        "art": "glass-x",
+        "kicker": "Show the work · 01"
+      }
+    },
+    {
+      "id": "nd-02-one-fix-two-tools",
+      "n": 2,
+      "title": "One fix, reviewed in two tools",
+      "format": "video",
+      "kind": "show-the-work",
+      "surface": "company",
+      "byline": "Nagarro Design page",
+      "status": "draft",
+      "cutId": "a-fix-travels",
+      "cover": "media/posts/nd-02-one-fix-two-tools.png",
+      "text": "In dark mode, a button's hover state looked exactly like its default. One small inconsistency. This is how we walk a client through fixing it, from the finding to Figma and code.\n\n→ The finding names the rule it breaks: hover must differ from default in every theme.\n→ Before anyone changes anything, we see what the change touches: components, Figma layers, documentation and the files AI tools read.\n→ The fix is proposed once, as a token change.\n→ It is reviewed in both places, as a pull request with its checks and as a Figma change, and then merged.\n\nThe figures in the clip are sample figures for Demo Brand, a fictional company, and the pull request and the Figma review are simulated in the demo. The order of the steps is the one we follow with clients.\n\nIn many teams the same bug gets fixed twice, once in each tool. Where does a fix start in yours?\n\n#designsystems #figma #designtokens",
+      "notes": "Filmed in the workspace's client demo (chapters 3 to 6) on Demo Brand, a fictional company. The impact figures are sample data; the pull request, checks and Figma change are simulated, and the clip's toast says so. The timers are sped up, and the clip says so.",
+      "coverSpec": {
+        "before": "One fix, reviewed in ",
+        "hl": "two tools",
+        "after": ".",
+        "art": "twist-3",
+        "kicker": "Show the work · 02"
+      }
+    },
+    {
+      "id": "nd-03-every-job-written-down",
+      "n": 3,
+      "title": "Every job, written down once",
+      "format": "video",
+      "kind": "show-the-work",
+      "surface": "company",
+      "byline": "Nagarro Design page",
+      "status": "draft",
+      "cutId": "your-job-routed",
+      "cover": "media/posts/nd-03-every-job-written-down.png",
+      "text": "Our designers and consultants kept asking the same question: which tool do I use for this? So we wrote every job down once.\n\nThere are fourteen of them, from answering an RFP to prototyping on a client's design system. Each one says what you get, who it is for, the words people use for it, and when it is the wrong choice.\n\nIn our internal workspace you type what you need. It finds the job and tells you which of your words matched. No AI is involved in that step: it compares your words with the descriptions. The same descriptions are what an AI assistant reads when someone asks it for help.\n\nThat is the idea behind AI-ready design systems, applied to our own work: describe something once, in a form that people and tools read the same way.\n\nWhich job does your team explain again every week?\n\n#designops #designsystems #ai",
+      "notes": "Filmed in the internal Nagarro Design Workspace with sample data; the Try suggestions and the in-progress line are hidden in the cut because they can name clients. Fourteen is the number of journeys in src/fixtures/journeys.ts on 27 Oct 2026. The router is keyword matching, no model.",
+      "coverSpec": {
+        "before": "Every job, ",
+        "hl": "written down once",
+        "after": ".",
+        "art": "loop-6",
+        "kicker": "Show the work · 03"
+      }
+    }
+  ]
+}

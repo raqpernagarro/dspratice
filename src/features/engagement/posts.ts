@@ -2,12 +2,16 @@
 // the workspace, and the hand-off to Hugo França's Marketing Studio. Nothing here posts anywhere.
 
 import snapshot from '@/fixtures/posts.snapshot.json'
+import nagarroDesign from '@/fixtures/posts.nagarro-design.json'
 import type { PostDraft, PostFormat, PostKind, PostStatus } from '@/state/types'
 import type { SocialCut } from '@/fixtures/social-cuts'
 
 export interface BoardPost extends Omit<PostDraft, 'createdAt' | 'updatedAt'> {
-  /** Where it lives: a FigJam card (Nuno's posts) or this browser (drafts made here). */
-  origin: 'figjam' | 'workspace'
+  /** Where it lives: a FigJam card (Nuno's posts), the repository (shared drafts) or this browser (drafts made here). */
+  origin: 'figjam' | 'shared' | 'workspace'
+  /** Its cover picture and filmed clip, under media/ (made by npm run covers and npm run clips; not committed). */
+  cover?: string
+  clip?: string
   /** The FigJam card holding its video, carousel or picture. */
   figjam?: string
   media?: string
@@ -31,6 +35,23 @@ export const SNAPSHOT_POSTS: BoardPost[] = snapshot.posts.map((p) => ({
   origin: 'figjam',
   figjam: figjamUrl(p.node),
   media: p.media,
+}))
+
+/** Drafts for the Nagarro Design page, shared through the repository (src/fixtures/posts.nagarro-design.json). */
+export const SHARED_POSTS: BoardPost[] = nagarroDesign.posts.map((p) => ({
+  id: p.id,
+  title: p.title,
+  format: p.format as PostFormat,
+  kind: p.kind as PostKind,
+  surface: p.surface as 'company' | 'personal',
+  byline: p.byline,
+  status: p.status as PostStatus,
+  text: p.text,
+  notes: p.notes,
+  cutId: p.cutId,
+  origin: 'shared',
+  cover: `/${p.cover}`,
+  clip: `/media/clips/${p.cutId}.webm`,
 }))
 
 export const FORMAT_LABEL: Record<PostFormat, string> = { video: 'Video', carousel: 'Carousel', image: 'Picture', article: 'Article', idea: 'Idea' }

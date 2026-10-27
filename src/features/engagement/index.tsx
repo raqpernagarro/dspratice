@@ -13,7 +13,7 @@ import { Chip, Field, Panel, Segmented, Sheet } from '@/shell/ui'
 import { probe } from '@/integrations/tools'
 import { socialCut } from '@/fixtures/social-cuts'
 import type { PostKind, PostStatus } from '@/state/types'
-import { FIGJAM_BOARD, FORMAT_LABEL, FORMAT_ORDER, KIND_LABEL, SNAPSHOT, SNAPSHOT_POSTS, STATUS_LABEL, SURFACE_LABEL, studioCommands, type BoardPost } from './posts'
+import { FIGJAM_BOARD, FORMAT_LABEL, FORMAT_ORDER, KIND_LABEL, SHARED_POSTS, SNAPSHOT, SNAPSHOT_POSTS, STATUS_LABEL, SURFACE_LABEL, studioCommands, type BoardPost } from './posts'
 
 const TRYPOST = 'http://localhost:8000'
 const FOLDER_KEY = 'unified-ds-tool:marketing-studio-folder'
@@ -147,7 +147,7 @@ function PostCard({ post, onSend, onEdit }: { post: BoardPost; onSend: (p: Board
   const cut = post.cutId ? socialCut(post.cutId) : undefined
   return (
     <article className="post" data-testid={`post-${post.id}`}>
-      <div className={`post__media post__media--${post.format}`}>
+      <div className={`post__media post__media--${post.format}${post.cover ? ' post__media--cover' : ''}`} style={post.cover ? { backgroundImage: `url("${post.cover}")` } : undefined}>
         <span className="post__format">{FORMAT_LABEL[post.format]}</span>
         {post.media && <span className="post__media-text">{post.media}</span>}
         {post.figjam && (
@@ -155,7 +155,17 @@ function PostCard({ post, onSend, onEdit }: { post: BoardPost; onSend: (p: Board
             Open in FigJam <ExternalLink />
           </a>
         )}
-        {cut && (
+        {post.clip && (
+          <a className="post__media-link" href={post.clip} target="_blank" rel="noreferrer">
+            <Clapperboard /> The filmed clip
+          </a>
+        )}
+        {post.cover && (
+          <a className="post__media-link" href={post.cover} target="_blank" rel="noreferrer">
+            The cover <ExternalLink />
+          </a>
+        )}
+        {cut && !post.clip && (
           <Link className="post__media-link" to={`${practice.demos}/cut/${cut.id}`}>
             <Clapperboard /> Play the cut
           </Link>
@@ -166,7 +176,7 @@ function PostCard({ post, onSend, onEdit }: { post: BoardPost; onSend: (p: Board
         <span className="xs muted">
           {SURFACE_LABEL[post.surface]}
           {post.byline && post.byline !== SURFACE_LABEL.company ? ` · ${post.byline}` : ''}
-          {post.origin === 'workspace' ? ' · made here' : ''}
+          {post.origin === 'workspace' ? ' · made here' : post.origin === 'shared' ? ' · shared' : ''}
         </span>
         <div className="ptile__chips" style={{ padding: 0 }}>
           <Chip tone="outline">{KIND_LABEL[post.kind]}</Chip>
@@ -235,6 +245,20 @@ function PostsTab() {
           ))}
         </select>
       </div>
+
+      <section className="stack" aria-labelledby="ready-title">
+        <div className="row row--between" style={{ alignItems: 'baseline', flexWrap: 'wrap', gap: 8 }}>
+          <h2 id="ready-title" className="section-title">
+            For the Nagarro Design page <span className="muted">{SHARED_POSTS.filter(keep).length}</span>
+          </h2>
+          <span className="xs muted">Drafts from our filmed social cuts, waiting for review. Covers and clips are in media/ (npm run covers, npm run clips).</span>
+        </div>
+        <div className="post-grid" data-testid="shared-posts">
+          {SHARED_POSTS.filter(keep).map((p) => (
+            <PostCard key={p.id} post={p} onSend={setSending} />
+          ))}
+        </div>
+      </section>
 
       <section className="stack" aria-labelledby="drafts-title">
         <h2 id="drafts-title" className="section-title">

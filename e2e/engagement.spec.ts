@@ -11,6 +11,7 @@ test('engagement: posts board, a draft from a social cut, the Marketing Studio h
   await page.goto('/nagarro/engagement')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Engagement')
   await expect(page.locator('.post-group').first()).toContainText('Videos · 15')
+  await expect(page.getByTestId('shared-posts').locator('.post')).toHaveCount(3)
   await expect(page.getByTestId('post-ds-16')).toContainText('Drift has a number')
   await expect(page.getByTestId('post-ds-16').getByRole('link', { name: /Open in FigJam/ })).toHaveAttribute('href', /node-id=523-1527$/)
   await page.getByTestId('post-kind').selectOption('field-notes')

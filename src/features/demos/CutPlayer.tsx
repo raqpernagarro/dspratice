@@ -23,6 +23,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
 /** Hides the workspace chrome inside the frame: the cut shows the product, not the tool around it. */
 const CUT_CSS = `.shell__top,.shell__side,.demobar,.demo-notice,.m-wipe{display:none!important}
+.ask__try,.home__progress{display:none!important}
 .shell__main{padding:16px 14px 40px!important}.shell{grid-template-columns:1fr!important}
 html{scroll-behavior:auto!important}`
 
