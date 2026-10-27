@@ -125,20 +125,3 @@ export const PRACTICE_TOOLS: ToolEntry[] = [
   },
 ]
 
-export interface DemoEntry {
-  id: string
-  title: string
-  audience: 'client-safe' | 'internal'
-  minutes: string
-  proves: string
-  open: 'guide' | 'client-home' | 'prototype' | 'scorecard' | 'opportunity' | 'components'
-  notes: string[]
-}
-
-export const DEMOS: DemoEntry[] = [
-  { id: 'guided', title: 'The guided story', audience: 'client-safe', minutes: '12 or 25', proves: 'One inconsistency in a fictional company’s system, what it affects, the fix reviewed in code and Figma, and AI that stays on the system. Ends on what an engagement could leave behind.', open: 'guide', notes: ['Best for a first meeting with a design or product lead.', 'Open your notes window first, then share only the demo tab.', 'Close on the next conversation, usually the 2-week AI audit.'] },
-  { id: 'panel', title: 'Explore the example system', audience: 'client-safe', minutes: '10', proves: 'Components, tokens, findings and changes, for people who want to look around themselves.', open: 'client-home', notes: ['Ask which page they would open first.', 'Show a finding becoming a pull request and the matching Figma change.'] },
-  { id: 'prototype', title: 'AI builds a screen', audience: 'client-safe', minutes: '5', proves: 'A prompt becomes a screen made of the system’s own components; a made-up token is refused.', open: 'prototype', notes: ['Say clearly that a rule-based planner stands in for the AI model here.', 'Compare with the same prompt in any public AI tool.'] },
-  { id: 'scorecard', title: 'AI-readiness scorecard', audience: 'client-safe', minutes: '5', proves: 'Ten questions answered together, and the first step that fits.', open: 'scorecard', notes: ['Fill it in together, live; do not send it as a form.', 'Marketing tracks the official assessment on nagarro.com; point to it at the end.'] },
-  { id: 'rfp', title: 'How we answer a client request', audience: 'internal', minutes: '10', proves: 'For colleagues: the knowledge library and the response steps on the Northwind sample, from the RFP to a checked draft and a deck.', open: 'opportunity', notes: ['Show an open question (pricing) and why the draft never invents an answer.', 'Show a matching passage and how you check that it really answers the question.'] },
-]

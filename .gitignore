@@ -16,3 +16,6 @@ dist-demo/
 playwright-report/
 knowledge-local/
 *.tsbuildinfo
+
+# filmed social cuts (npm run clips): large files, shared by hand
+media/

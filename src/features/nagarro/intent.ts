@@ -43,22 +43,31 @@ function containsPhrase(words: string[], phrase: string[]): boolean {
   return false
 }
 
+/** Scores already-normalised words against a keyword list: a phrase counts more than a word. */
+export function keywordScore(words: string[], keywords: string[]): { score: number; matched: string[] } {
+  const content = new Set(words.filter((w) => !STOP.has(w)))
+  let score = 0
+  const matched: string[] = []
+  for (const k of keywords) {
+    const phrase = normalise(k)
+    if (!phrase.length) continue
+    if (phrase.length === 1 ? content.has(phrase[0]) : containsPhrase(words, phrase)) {
+      score += phrase.length === 1 ? 1 : 1 + phrase.length
+      matched.push(k)
+    }
+  }
+  return { score, matched }
+}
+
 export function matchJourneys(text: string, limit = 3, journeys: JourneyDef[] = JOURNEYS): IntentMatch[] {
   const words = normalise(text)
   if (!words.length) return []
   const content = new Set(words.filter((w) => !STOP.has(w)))
   const out: IntentMatch[] = []
   for (const j of journeys) {
-    let score = 0
-    const matched: string[] = []
-    for (const k of j.keywords) {
-      const phrase = normalise(k)
-      if (!phrase.length) continue
-      if (phrase.length === 1 ? content.has(phrase[0]) : containsPhrase(words, phrase)) {
-        score += phrase.length === 1 ? 1 : 1 + phrase.length
-        matched.push(k)
-      }
-    }
+    const hit = keywordScore(words, j.keywords)
+    let score = hit.score
+    const matched = hit.matched
     for (const w of new Set(normalise(j.title))) if (!STOP.has(w) && !GENERIC.has(w) && content.has(w) && !matched.some((m) => normalise(m).includes(w))) score += 0.5
     if (score > 0) out.push({ journey: j, score, matched })
   }

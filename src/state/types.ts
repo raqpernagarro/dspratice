@@ -476,7 +476,8 @@ export interface PublishedVersion {
   state: SystemState
 }
 
-export type GuideMode = 'meeting' | 'full' | 'free'
+/** meeting = short path, full = every chapter, custom = a playlist built for one meeting (in meetingChapters). */
+export type GuideMode = 'meeting' | 'full' | 'free' | 'custom'
 export type GuideStatus = 'idle' | 'running' | 'paused' | 'finished'
 
 export interface GuideState {
@@ -486,6 +487,7 @@ export interface GuideState {
   stepIndex: number
   completedChapters: string[]
   completedSteps: Record<string, number[]>
+  /** The playlist for mode 'custom', in order. */
   meetingChapters: string[]
   autoplay: { on: boolean; seconds: 5 | 8 | 12 | 20 }
   notesOpen: boolean
@@ -510,6 +512,8 @@ export interface ClientExperience {
   guidanceDefault: 'none' | 'meeting' | 'full'
   /** Summaries a colleague explicitly added to the client demo (frozen copies). */
   publishedOutputs: PublishedOutput[]
+  /** Demos built for a meeting on the Demos page: chapters in order. Optional: older data has none. */
+  playlists?: { id: string; name: string; chapters: string[]; savedAt: number }[]
 }
 
 /** Where an item stands on the Projects board: a pitch we are working on, live work, done, or on hold. */

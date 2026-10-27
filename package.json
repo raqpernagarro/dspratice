@@ -19,7 +19,8 @@
     "knowledge:figma": "node scripts/figma-json-to-doc.mjs",
     "slides:sync": "node scripts/sync-nagarro-slides.mjs",
     "tokens:sync": "node scripts/sync-brand-tokens.mjs",
-    "tools": "node scripts/tools.mjs"
+    "tools": "node scripts/tools.mjs",
+    "clips": "node scripts/clips.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.1.0",

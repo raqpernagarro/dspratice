@@ -10,6 +10,8 @@ export interface DemoStateMessage {
   slug: string
   chapterId: string | null
   mode: GuideMode
+  /** The playlist, when mode is 'custom'. */
+  chapters?: string[]
   status: 'idle' | 'running' | 'paused' | 'finished'
   ready: boolean
   client: string

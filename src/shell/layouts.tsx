@@ -89,10 +89,18 @@ export function ClientLayout() {
       changed = true
     }
     // ?guide=meeting|full starts the story at chapter 1, or at ?chapter=<id> with its set-up done first.
-    if (guide === 'meeting' || guide === 'full') {
+    // ?guide=custom&chapters=a,b,c walks a playlist built for one meeting, from its first chapter.
+    // ?guide=off closes a guide left running, so a page opens as itself (social cuts of one page).
+    if (guide === 'off') {
+      if (project.session?.guide.status === 'running' || project.session?.guide.status === 'paused') act().endGuide()
+      changed = true
+    }
+    if (guide === 'meeting' || guide === 'full' || guide === 'custom') {
       if (project.published) {
         act().startDemoSession(project.id, guide)
-        const chapter = params.get('chapter')
+        const playlist = guide === 'custom' ? (params.get('chapters') ?? '').split(',').filter(Boolean) : []
+        if (guide === 'custom') act().setMeetingChapters(playlist)
+        const chapter = params.get('chapter') ?? playlist[0]
         if (chapter) prepareChapter(chapter)
         act().startGuide(guide, chapter ?? undefined)
       }
@@ -104,6 +112,7 @@ export function ClientLayout() {
       next.delete('presenter')
       next.delete('guide')
       next.delete('chapter')
+      next.delete('chapters')
       setParams(next, { replace: true })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -32,7 +32,7 @@ export function NotesWindow() {
   const send = (action: 'next' | 'back' | 'goto' | 'show' | 'pause' | 'resume' | 'start', chapterId?: string, mode?: 'meeting' | 'full') => channel.current?.post({ type: 'cmd', action, chapterId, mode })
   const step = state?.chapterId ? TOUR_BY_ID[state.chapterId] : undefined
   const note = step ? PRESENTER_NOTES[step.id] : undefined
-  const path = pathFor(state?.mode ?? 'meeting')
+  const path = pathFor(state?.mode ?? 'meeting', state?.chapters)
 
   if (!channel.current && typeof BroadcastChannel === 'undefined') {
     return (
@@ -108,11 +108,11 @@ export function NotesWindow() {
           </div>
 
           <ol className="notes-window__path">
-            {TOUR.map((c) => (
+            {(state?.mode === 'custom' ? [...path, ...TOUR.filter((c) => !path.includes(c))] : TOUR).map((c) => (
               <li key={c.id}>
                 <button className={cx('notes-window__chapter', c.id === step.id && 'is-current', !path.includes(c) && 'is-optional')} onClick={() => send('goto', c.id)}>
                   <span className="kicker__n">{String(c.n).padStart(2, '0')}</span> {c.title}
-                  {!path.includes(c) && <span className="xs muted"> · full path</span>}
+                  {!path.includes(c) && <span className="xs muted"> · {state?.mode === 'custom' ? 'not in this demo' : 'full path'}</span>}
                 </button>
               </li>
             ))}

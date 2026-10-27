@@ -2,13 +2,14 @@ import { useEffect } from 'react'
 import { Link } from 'react-router'
 import { Play, Layers, Shapes, GitPullRequest, BookOpen, Compass } from 'lucide-react'
 import { usePaths, useProject, useSystem } from '@/state/hooks'
-import { driftItems, health, openFindings, relTime, checksPassing, readiness, valuesWithCodeName } from '@/state/selectors'
+import { driftItems, health, openFindings, relTime, readiness } from '@/state/selectors'
 import { Panel, Chip, SeverityChip, FindingStatusChip, DemoData } from '@/shell/ui'
 import { AnimatedNumber, Reveal, Stagger } from '@/motion'
 import { DemoScope } from '@/demo-system/DemoScope'
 import { DsBadge, DsButton, DsInput, DsToggle } from '@/demo-system/components'
-import { Hl, Kicker, ProcessStrip } from '@/shell/story'
-import { TOUR, demoText } from '@/features/demo/steps'
+import { Hl, Kicker } from '@/shell/story'
+import { demoText } from '@/features/demo/steps'
+import { MINI_DEMOS } from '@/fixtures/demos'
 
 export function ClientHome() {
   const sys = useSystem()
@@ -18,9 +19,7 @@ export function ClientHome() {
   const drift = driftItems(sys)
   const open = openFindings(sys).sort((a, b) => sev(a.severity) - sev(b.severity)).slice(0, 4)
   const prs = sys.pullRequests.slice(0, 4)
-  const checks = checksPassing(sys)
   const rd = readiness(sys)
-  const vc = valuesWithCodeName(sys)
   const merged = sys.findings.filter((f) => f.status === 'merged').length
   const guide = project.session?.guide
   const guiding = guide?.status === 'running' || guide?.status === 'paused'
@@ -49,38 +48,44 @@ export function ClientHome() {
             </Link>
           </div>
         )}
-        <ProcessStrip dark compact label="The story" steps={TOUR.map((c) => ({ title: c.title }))} />
       </section>
 
-      <Panel title={`${name} at a glance`} actions={<DemoData>Sample figures, not measurements</DemoData>}>
-        <Stagger className="grid grid--3">
-          <div className="stat">
-            <span className="stat__label">Checks passing</span>
-            <span className="stat__value">
-              <AnimatedNumber value={h} suffix="%" />
-            </span>
-            <span className="stat__hint">
-              {checks.passing} of {checks.total} automated checks
-            </span>
-          </div>
-          <div className="stat">
-            <span className="stat__label">Needs attention</span>
-            <span className="stat__value">
-              <AnimatedNumber value={drift} />
-            </span>
-            <span className="stat__hint">places where Figma and code differ, in {openFindings(sys).length} findings</span>
-          </div>
-          <div className="stat">
-            <span className="stat__label">Readable by AI tools</span>
-            <span className="stat__value">
-              <AnimatedNumber value={rd} /> <span className="muted" style={{ fontSize: 18 }}>/ 5</span>
-            </span>
-            <span className="stat__hint">
-              {vc.named} of {vc.total} values have a code name
-            </span>
-          </div>
-        </Stagger>
-      </Panel>
+      <p className="glance-line" aria-label={`${name} at a glance`}>
+        <span>
+          <strong>
+            <AnimatedNumber value={h} suffix="%" />
+          </strong>{' '}
+          of checks pass
+        </span>
+        <span>
+          <strong>
+            <AnimatedNumber value={drift} />
+          </strong>{' '}
+          places where Figma and code differ
+        </span>
+        <span>
+          <strong>
+            <AnimatedNumber value={rd} />
+          </strong>{' '}
+          of 5 for AI readability
+        </span>
+        <DemoData>Sample figures</DemoData>
+      </p>
+
+      <section className="stack" aria-labelledby="pick-title">
+        <h2 id="pick-title" className="section-title">
+          Pick what to see
+        </h2>
+        <div className="mini-grid mini-grid--compact">
+          {MINI_DEMOS.filter((d) => d.audience === 'client' && d.id !== 'explore').map((d, k) => (
+            <Link key={d.id} className={`mini mini--${k % 3} mini--link`} to={d.chapters ? `${r.home}?guide=custom&chapters=${d.chapters.join(',')}` : d.story ? `${r.home}?guide=${d.story}` : (d.page?.(r) ?? r.home)} data-testid={`pick-${d.id}`}>
+              <span className="mini__min">About {d.minutes} min</span>
+              <span className="mini__title">{d.title}</span>
+              <span className="mini__shows">{d.shows}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <div className="grid grid--2">
         <Reveal>

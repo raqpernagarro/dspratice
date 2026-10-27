@@ -193,9 +193,21 @@ export const TOUR: TourStep[] = [
 export const TOUR_BY_ID = Object.fromEntries(TOUR.map((s) => [s.id, s])) as Record<string, TourStep>
 export const tourIndex = (id: string | null) => Math.max(0, TOUR.findIndex((s) => s.id === id))
 
-/** The chapters a meeting walks through: the short path (meeting) or every chapter (full). */
-export function pathFor(mode: GuideMode): TourStep[] {
+/** The chapters a meeting walks through: the short path (meeting), every chapter (full), or a
+ *  playlist in its own order (custom; an empty or unknown playlist falls back to the short path). */
+export function pathFor(mode: GuideMode, chapters?: string[]): TourStep[] {
+  if (mode === 'custom') {
+    const list = (chapters ?? []).map((id) => TOUR_BY_ID[id]).filter((s): s is TourStep => Boolean(s))
+    if (list.length) return list
+  }
   return mode === 'full' ? TOUR : TOUR.filter((s) => s.short)
+}
+
+/** About how long a path takes, for the bar and the Demos page (a chapter is about a minute and a half). */
+export function pathMinutes(mode: GuideMode, chapters?: string[]) {
+  if (mode === 'full') return PATH_MINUTES.full
+  if (mode === 'custom' && chapters?.length) return Math.max(2, Math.round(pathFor(mode, chapters).length * 1.5))
+  return PATH_MINUTES.meeting
 }
 
 /** Chapter text names the system on screen: {system} is its name, {intro} says whether it is fictional. */

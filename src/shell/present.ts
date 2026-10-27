@@ -21,8 +21,10 @@ export function demoScenario(projects: Record<string, Project>, wanted?: string)
 }
 
 export interface PresentOptions {
-  /** Start the guided story (meeting = short path, full = every chapter). */
-  guide?: 'meeting' | 'full'
+  /** Start the guided story (meeting = short path, full = every chapter, custom = `chapters` in order). */
+  guide?: 'meeting' | 'full' | 'custom'
+  /** The playlist for guide 'custom'. */
+  chapters?: string[]
   /** Enter at this chapter; earlier steps the chapter needs are set up first. */
   chapter?: string
   /** A client-demo path to open instead of the demo's overview. */
@@ -55,6 +57,7 @@ export function usePresentDemo() {
     const q = new URLSearchParams()
     if (opts.guide) q.set('guide', opts.guide)
     if (opts.chapter) q.set('chapter', opts.chapter)
+    if (opts.guide === 'custom' && opts.chapters?.length) q.set('chapters', opts.chapters.join(','))
     const qs = q.toString()
     navigate(qs ? `${base}${base.includes('?') ? '&' : '?'}${qs}` : base)
   }

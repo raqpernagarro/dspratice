@@ -25,6 +25,7 @@ const hub = () => import('@/features/hub')
 const tools = () => import('@/features/tools')
 const scorecard = () => import('@/features/scorecard')
 const engagement = () => import('@/features/engagement')
+const demos = () => import('@/features/demos')
 import { Wizard } from '@/features/start/Wizard'
 import { NewSystem } from '@/features/start/NewSystem'
 import { Connect } from '@/features/start/Connect'
@@ -110,6 +111,7 @@ export const router = createBrowserRouter([
   { path: '/landing', element: <Navigate to={practice.home} replace /> },
   { path: '/presenter/:slug', element: <NotesWindow /> },
   { path: '/share/:slug', element: <ShareView /> },
+  { path: '/cut/:id', element: lazyPage(demos, 'CutRecord') },
   {
     path: '/nagarro',
     element: <NagarroLayout />,
@@ -145,7 +147,8 @@ export const router = createBrowserRouter([
       { path: 'conversations', element: <Navigate to={practice.home} replace /> },
       { path: 'tools', element: <Navigate to={practice.home} replace /> },
       { path: 'tools/:id', element: lazyPage(tools, 'ToolPage') },
-      { path: 'demos', element: lazyPage(hub, 'DemosPage') },
+      { path: 'demos', element: lazyPage(demos, 'DemosStage') },
+      { path: 'demos/cut/:id', element: lazyPage(demos, 'CutPage') },
       { path: 'demos/prepare', element: <PresenterGuide /> },
       { path: 'scorecard', element: lazyPage(scorecard, 'ScorecardPage') },
       { path: 'engagement', element: lazyPage(engagement, 'EngagementPage') },

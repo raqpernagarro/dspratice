@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { ChevronLeft, ChevronRight, FastForward, Pause, Play, RotateCcw, X, ChevronUp, ChevronDown, Timer, ListOrdered, Check } from 'lucide-react'
 import { useStore } from '@/state/store'
-import { TOUR, TOUR_BY_ID, pathFor, PATH_MINUTES, demoText, type TourStep } from '@/features/demo/steps'
+import { TOUR, TOUR_BY_ID, pathFor, pathMinutes, demoText, type TourStep } from '@/features/demo/steps'
 import { prepareChapter, runChapterAction } from '@/features/demo/prepare'
 import { openDemoChannel, type DemoMessage } from '@/features/demo/channel'
 import { focusDemoTarget, Collapse } from '@/motion'
@@ -25,7 +25,7 @@ export function DemoBar() {
   const navigate = useNavigate()
   const location = useLocation()
   const mode = guide?.mode ?? 'meeting'
-  const path = pathFor(mode)
+  const path = pathFor(mode, guide?.meetingChapters)
   // Unknown ids (e.g. chapters saved by an older version) fall back to the start of the path.
   const step: TourStep | undefined = (guide?.chapterId ? TOUR_BY_ID[guide.chapterId] : undefined) ?? path[0]
   const index = step ? path.findIndex((s) => s.id === step.id) : -1
@@ -121,7 +121,7 @@ export function DemoBar() {
 
   // Presenter notes window: send where we are, take its commands.
   const broadcast = () =>
-    channel.current?.post({ type: 'state', slug: project.slug, chapterId: active ? (step?.id ?? null) : null, mode, status: guide?.status ?? 'idle', ready, client: project.client.name })
+    channel.current?.post({ type: 'state', slug: project.slug, chapterId: active ? (step?.id ?? null) : null, mode, chapters: mode === 'custom' ? guide?.meetingChapters : undefined, status: guide?.status ?? 'idle', ready, client: project.client.name })
   const handlers = useRef({ next, back, goto, showMe, broadcast })
   handlers.current = { next, back, goto, showMe, broadcast }
   useEffect(() => {
@@ -236,9 +236,9 @@ export function DemoBar() {
             {(close) => (
               <>
                 <div className="ws-switch__label">
-                  {mode === 'full' ? `Full path · about ${PATH_MINUTES.full} min` : `Short path · about ${PATH_MINUTES.meeting} min`}
+                  {mode === 'full' ? 'Full path' : mode === 'custom' ? `This meeting’s demo · ${path.length} chapters` : 'Short path'} · about {pathMinutes(mode, guide.meetingChapters)} min
                 </div>
-                {TOUR.map((c) => (
+                {(mode === 'custom' ? [...path, ...TOUR.filter((c) => !path.includes(c))] : TOUR).map((c) => (
                   <button
                     key={c.id}
                     role="menuitem"
@@ -254,7 +254,7 @@ export function DemoBar() {
                     </span>
                     <span>
                       <strong>{c.title}</strong>
-                      <small>{guide.completedChapters.includes(c.id) ? 'Seen' : mode === 'meeting' && !c.short ? 'Optional, full path only' : ' '}</small>
+                      <small>{guide.completedChapters.includes(c.id) ? 'Seen' : mode === 'meeting' && !c.short ? 'Optional, full path only' : mode === 'custom' && !path.includes(c) ? 'Not in this demo' : ' '}</small>
                     </span>
                   </button>
                 ))}

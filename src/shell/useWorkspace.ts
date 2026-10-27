@@ -134,7 +134,7 @@ export function areaTabsFor(pathname: string, r: RouteFamily, opts?: { proposalP
   }
   if (!client && [practice.demos, practice.meetingPrep(), practice.scorecard].includes(pathname)) {
     return [
-      { label: 'Client demo', to: practice.demos, match: practice.demos },
+      { label: 'Demos', to: practice.demos, match: practice.demos },
       { label: 'Prepare a meeting', to: practice.meetingPrep() },
       { label: 'Scorecard', to: practice.scorecard },
     ]
