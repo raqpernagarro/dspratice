@@ -3,9 +3,9 @@
 An internal tool for the Nagarro design systems practice: one place where sellers, managers and designers start any design-systems job, in the Nagarro Design look (dark, Equip type, the brand's glass 3D). The sidebar has five places:
 
 - **Home** asks "What do you need to do?". Type the job, or pick one of fourteen journeys in two groups: *Client conversations* (respond to an RFP, build a presentation, prepare a demo, check AI readiness, turn an idea into a deck, follow up, shape the offer) and *Project work* (start or improve a design system, prototype on a client's system, start a product design workflow, make a system AI-ready, connect Figma and code, share an update). The prompt matches words to journeys with no model call; *Ask AI* is an explicit, metered extra. Journeys without a tool of their own are honest set-up guides.
-- **Projects**: *My work* (what you left unfinished, the projects you are on) and the *team board*: every client and prospect as a card with status, kind of work, people and links. Client requests and presentations belong to a project.
-- **Demos**: ready-made demos on the client demo, a playlist built for one meeting from a sentence, and *social cuts*: captioned 4:5 clips of the demos, filmed as video for posts.
-- **Engagement**: posts for the Nagarro Design page and our own accounts (Nuno Almeida's Starter Pack posts, drafts made from social cuts) and the hand-off to Hugo França's Marketing Studio.
+- **Projects**: *My work*, one page: what you left unfinished, then every project with a live preview of its own system. Inside a project: Overview (the system at a glance, then what to do next, including the AI agents' suggestions), Design system, Changes, Report, Settings. Projects stay in each person's browser (NDA).
+- **Demos**: *Prepare a client meeting* (a presentation, a demo, your notes and the follow-up, made one by one) and ready-made demos to present now.
+- **Engagement**: a TryPost-like **calendar** of what is planned and published, by whom, drawn from Marketing Studio's post files (`MARKETING_STUDIO_FOLDERS`); Nuno Almeida's Starter Pack posts; social cuts (captioned 4:5 clips of the demos); and the hand-off to Hugo França's Marketing Studio. TryPost itself is shown when it runs on :8000.
 - **Settings**: sources (what responses and the AI may quote), people, integrations and this tool's limits.
 
 The practice's own tools (the DS Configurator, the DSN site, Presentation Studio, the ASSA ABLOY DS Prototyping Tooling) open from their journeys once you start them with `npm run tools`.
@@ -42,8 +42,8 @@ open http://localhost:4300
 | `npm run build` | Typecheck and production build into `dist/` |
 | `npm run build:demo` | The client-safe demo into `dist-demo/`, then a leak check that fails on internal names and markers |
 | `npm run preview` / `npm run preview:demo` | Serve `dist/` on 4301 or `dist-demo/` on 4302 (the local API also works in preview) |
-| `npm test` | Vitest: 21 files, 157 tests |
-| `npm run e2e` | Playwright in Microsoft Edge (`channel: 'msedge'`): 9 specs, 12 tests. Run `npm run build:demo` first |
+| `npm test` | Vitest: 23 files, 197 tests |
+| `npm run e2e` | Playwright in Microsoft Edge (`channel: 'msedge'`): 10 specs, 13 tests (one opens every journey). Run `npm run build:demo` first |
 | `npm run clips -- <cut\|all>` | Film a social cut in Edge as a 1080 × 1350 video in `media/clips/` (git-ignored). Needs `npx playwright install ffmpeg` once and the dev server running (`BASE_URL` to pick another) |
 | `npm run handbook:md` | Write the handbook as Markdown for AI tools (`src/knowledge/handbook.md`) |
 | `npm run typecheck` | TypeScript only (core app when the library sources are absent) |
@@ -76,9 +76,9 @@ The same list is in the app at **Settings › About this tool**, so task pages d
 
 **Works on this machine, no AI needed**
 - **Home**: fourteen journeys as data (`src/fixtures/journeys.ts`), a keyword router (`src/features/nagarro/intent.ts`), set-up guides at `/nagarro/journeys/<id>`.
-- **Projects**: My work and the team board, cards from `src/state/card.ts` and the shared file `src/fixtures/team-board.json`; each project's Requests & decks tab.
-- **Demos**: mini-demos (`src/fixtures/demos.ts`), custom playlists on the guide bar and notes window, saved per project; social cuts (`src/fixtures/social-cuts.ts`) played on the real client demo and filmed with `npm run clips`.
-- **Engagement**: the Starter Pack posts snapshot (`src/fixtures/posts.snapshot.json`, read once from FigJam), drafts from social cuts, and the Marketing Studio commands.
+- **Projects**: My work (`src/features/nagarro/MyWork.tsx`), project cards from `src/state/card.ts` and `src/fixtures/project-cards.json`, live previews with the project's own theme (`themeIntentVars`); the project Overview (`EngagementHome.tsx`).
+- **Demos**: Prepare a client meeting (`PresenterGuide.tsx`, outcomes), Build a demo (`DemoBuilder.tsx`), mini-demos (`src/fixtures/demos.ts`), custom playlists on the guide bar and notes window, saved per project.
+- **Engagement**: the calendar (`Calendar.tsx`, `server/engagement.ts`: `/api/engagement/posts` and `/api/engagement/asset`), the Starter Pack posts snapshot (`src/fixtures/posts.snapshot.json`), social cuts (`src/fixtures/social-cuts.ts`, filmed with `npm run clips`), and the Marketing Studio commands.
 - **Sources** (Settings): 34 seed sources (25 with readable text); search, filters for kind, approval and audience; a preview of each source with what it is good for; approve, mark out of date, replace and remove; uploads (Markdown, text, Word, PDF with a text layer, Figma text JSON) stored in IndexedDB; practice files re-read through the local API.
 - **Responses to client requests**, six steps (request, context, what they ask, sources, draft response, share and present):
   - requirements listed by rules, with "not from documents" flags for pricing, references, CVs, contract terms, availability and undocumented capabilities;
@@ -105,7 +105,7 @@ The same list is in the app at **Settings › About this tool**, so task pages d
 - Scans of a client's repository and Figma file (they read a fictional sample system), pull requests and checks, the Figma review and apply, the files AI tools read, release checks and agent suggestions, the rule-based screen builder.
 
 **Not available here**
-- A hosted multi-user mode or shared storage: each person's projects, requests and uploads live in their own browser. The team board shares only what is in `src/fixtures/team-board.json`.
+- A hosted multi-user mode or shared storage: each person's projects, requests and uploads live in their own browser (NDA). The Engagement calendar can read shared Marketing Studio folders.
 - Posting: nothing posts from the workspace or from Marketing Studio.
 - Editable PowerPoint or PDF: Presentation Studio exports both. A deck's **Share** tab copies its brief for Studio to rebuild it; opening the workspace's `deck.json` there is to be confirmed with Carolina.
 
@@ -113,12 +113,13 @@ The same list is in the app at **Settings › About this tool**, so task pages d
 
 | Topic | Document |
 |---|---|
+| Trying the workspace (for Nuno and Rui) | [docs/try-it.md](docs/try-it.md) |
 | The journeys on Home and how to add one | [docs/journeys.md](docs/journeys.md) |
 | Sources, approval, scope, refresh, limits | [docs/knowledge-library.md](docs/knowledge-library.md) |
 | Reading Figma: plugin, REST, figma-cli, MCP, token costs | [docs/figma-reading.md](docs/figma-reading.md) |
 | Answering a real client request, end to end | [docs/opportunity-workflow.md](docs/opportunity-workflow.md) |
 | Decks on the Nagarro Master Slides engine | [docs/presentations.md](docs/presentations.md) |
-| Presenting the client demo: the story, paths, playlists, social cuts, notes window, reset | [docs/client-demo.md](docs/client-demo.md) |
+| Presenting the client demo: Prepare a client meeting, the story, playlists, notes window, reset | [docs/client-demo.md](docs/client-demo.md) |
 | Voice, terms and button verbs | [docs/writing.md](docs/writing.md) |
 | The client-safe demo build and its deploy checklist | [docs/demo-build.md](docs/demo-build.md) |
 | Getting the workspace to colleagues (GitHub, keys, what is never committed) | [docs/distribution.md](docs/distribution.md) |
@@ -128,10 +129,10 @@ The same list is in the app at **Settings › About this tool**, so task pages d
 ## How it is built
 
 - **Stack.** Vite 7, React 19, react-router 7, and one persisted Zustand store (schema 5, `src/state`).
-- **Projects.** Each project has a `draft` (preparation), a `published` version (what the client demo shows; last three kept), a demo `session` (what happens during a meeting, resettable) and `clientExperience`. Every edit in the workspace lands in the draft. Each project also has a `card` for the team board (schema 5). **Update the client demo** snapshots it. Journey progress is preparation: it never marks the draft as changed.
+- **Projects.** Each project has a `draft` (preparation), a `published` version (what the client demo shows; last three kept), a demo `session` (what happens during a meeting, resettable) and `clientExperience`. Every edit in the workspace lands in the draft. Each project also has a `card` for its tile on My work (schema 5). **Update the client demo** snapshots it. Journey progress is preparation: it never marks the draft as changed.
 - **New data stays at project level.** Requests, decks and response summaries live on the project, and the knowledge library under `practice.knowledge`. They are never cloned into published versions or sessions, and never mark the draft as changed. A summary added to the client demo is a frozen, client-safe copy whose provenance is kept as hashes only.
 - **Home** asks "What do you need to do?": the prompt and two groups of journeys, all from `src/fixtures/journeys.ts`.
-- **Navigation.** One stable sidebar of five (Home, Projects, Demos, Engagement, Settings). Projects has tabs My work, Team board, Client requests and Presentations; Demos has Demos, Prepare a meeting and Scorecard; a project's own sections are tabs in its header. Old paths (`/nagarro/conversations`, `/nagarro/knowledge`, `/nagarro/tools`, `/nagarro/guides`, project-level request and deck paths, numeric journey steps) redirect.
+- **Navigation.** One stable sidebar of five (Home, Projects, Demos, Engagement, Settings), no buttons in the header besides Search. Projects is one page; Demos has Demos and Prepare a client meeting; a project's sections are tabs in its header. Old paths (the request and deck lists, the team board, the project AI and requests tabs, the audit trail, the scorecard tab, `/nagarro/demos/cut`) redirect.
 - **Presenter notes** live in `src/internal/presenterNotes.ts` and the notes window (`/presenter/:slug`, synced over `BroadcastChannel`). The client-facing chapters are in `src/features/demo/steps.ts`; `prepare.ts` sets up a chapter's prerequisites.
 - **Document bodies** live in IndexedDB (`unified-ds-tool-knowledge`). Seed bodies are bundled JSON in `src/fixtures/knowledge/docs/`.
 - **Pure modules** (`src/knowledge`, `src/opportunity`, `src/deck`) have no DOM, so Node scripts, Vitest and the browser share one implementation.

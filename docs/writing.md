@@ -20,10 +20,10 @@ One voice: an experienced colleague helping someone finish a task. Clear, natura
 | Journey | One job a colleague comes to do, listed on Home and described once in src/fixtures/journeys.ts ("Respond to an RFP or proposal", "Prototype on a client’s design system") | A title says the job, starting with a verb. Add one when real use shows the need |
 | Set-up guide | A journey with no tool of its own yet: steps and links, never progress | Label it "Set-up guide · no tool yet" |
 | Client conversations / Project work | The two groups of journeys on Home | Not "sales", "pipeline" or "win work" |
-| Team board / My work | The two tabs of Projects: every client and prospect as a card; what I left unfinished and the projects I am on | The board is a portfolio, not a task list: tasks stay in Jira |
-| Demos / mini-demo / playlist | The Demos area; a ready-made demo; chapters chosen for one meeting | Not "tour" |
+| My work | Projects, one page: what I left unfinished, then every project | Projects are not shared between people (NDA); tasks stay in Jira |
+| Demos / Prepare a client meeting / mini-demo / playlist | The Demos area; the outcome checklist for one meeting; a ready-made demo; chapters chosen for one meeting | Outcomes, not a script. Not "tour" |
 | Social cut | A short captioned 4:5 clip of a demo, for a post | Keep its notes on where facts come from; say when a wait is sped up |
-| Engagement | The area for posts that advocate design at Nagarro, and Marketing Studio | In the workspace, only this meaning: a client project is a "project". Client-facing demo text may still say "an engagement" for the work we would do together |
+| Engagement | The area that advocates design at Nagarro: the calendar of posts, Nuno's posts, social cuts and Marketing Studio | In the workspace, only this meaning: a client project is a "project". Client-facing demo text may still say "an engagement" for the work we would do together |
 | Practice tools | The practice's own tools behind the journeys (DS Configurator, DSN, Presentation Studio, DS Prototyping Tooling) | Opened from a journey; there is no Tools page |
 | Sources | What responses and the AI may quote, with owner and approval (Settings › Sources) | Not "knowledge library" in text people read |
 | Client demo | The guided showcase we present in meetings | Not "client workspace", "client experience" or "portal" |
@@ -44,7 +44,7 @@ One voice: an experienced colleague helping someone finish a task. Clear, natura
 | **Save** | Keep your preparation (most fields save as you type, and say so) |
 | **Download** | A file is saved by this browser |
 | **Update the client demo** | Publish a new version that the client demo shows |
-| **Present client demo** | Open the demo as presenter; **Back to preparation** returns |
+| **Present** | Open the client demo as presenter (from a project's Overview or Prepare a client meeting); **Back to preparation** returns |
 | **Show me** | Perform a demo chapter's action |
 | **Simulated** (label) | Looks live, but nothing reaches GitHub, Figma or a model |
 

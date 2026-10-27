@@ -57,9 +57,9 @@ Client material never goes into the bundled library. Users add it in the app as 
 
 If you add text that names a real client, a person or an internal document, keep it out of shared modules. Put it under `src/internal/` or a fixture that only `register.ts` imports. If it is a marker worth guarding, add it to `scripts/check-demo-build.mjs`.
 
-## Adding a journey, a demo, a social cut or a team-board entry (round 7)
+## Adding a journey, a demo or a social cut
 
 - **A journey** is one entry in `src/fixtures/journeys.ts`: what you get, who it is for, the words people use, where it starts, what backs it, and when not to pick it. Add phrasings to `src/features/nagarro/intent.test.ts` so the router keeps finding it. See [docs/journeys.md](docs/journeys.md).
 - **A mini-demo** is one entry in `src/fixtures/demos.ts` (chapters, the story, or one page). Its text ships in the client demo build: client-safe only.
 - **A social cut** is one entry in `src/fixtures/social-cuts.ts`. Keep it under 30 seconds, captions under 80 characters, and notes on where every fact comes from; `src/features/demos/demos.test.ts` checks its chapters and focus targets exist.
-- **Team-board work** goes in `src/fixtures/team-board.json` (`shared`), by pull request. Real client names only while the repository is private.
+- **Sample project cards** (a brief, a country) go in `src/fixtures/project-cards.json`. No people and no real client work: projects are not shared (NDA).

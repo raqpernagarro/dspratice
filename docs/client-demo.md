@@ -2,7 +2,7 @@
 
 The client demo is a **guided showcase we present in meetings**. It is not a client portal and not something clients use to run their system. It shows, on a fictional company's design system, how Nagarro keeps design, code and AI tools on one system, and what an engagement could leave behind.
 
-Everything happens in the client demo; the workspace is where you prepare. Open it with **Present client demo** (the header outside a project, a project's header, or **Client conversations › Client demo › Prepare a meeting**); the header button opens the demo, and **Start the guided demo** begins the story. **Back to preparation** returns to the page, or the slide, you came from.
+Everything happens in the client demo; the workspace is where you prepare. Open it with **Present** (a project's Overview, Prepare a client meeting or a ready-made demo; the header outside a project, a project's header, or **Client conversations › Client demo › Prepare a meeting**); the header button opens the demo, and **Start the guided demo** begins the story. **Back to preparation** returns to the page, or the slide, you came from.
 
 ## The story
 
@@ -57,3 +57,7 @@ One notice in the demo header says it once: *Demonstration · fictional company 
 - **The client demo's overview** offers the same ready-made demos under *Pick what to see*, instead of listing the eight chapters.
 - **Social cuts** (`src/fixtures/social-cuts.ts`) are short captioned 4:5 clips for posts. Each is a script, one line per shot: a caption, what to open or which chapter, what to zoom on, what to do (Show me, a button, typing). The player (`/nagarro/demos/cut/<id>`) drives the real client demo in a frame; `npm run clips -- <id>` films it in Edge as a 1080 × 1350 video in `media/clips/`. Every cut keeps notes on where its facts come from, and the frame says "Sped up" during a Show me. A cut's page has **Make a post**, which starts a draft in Engagement.
 - `?guide=off` closes a guide left running, so a page opens as itself.
+
+## Prepare a client meeting (round 8)
+
+Demos › **Prepare a client meeting** replaces the script. Pick the client and the meeting (first meeting, follow-up, workshop), then make four things one by one: a presentation (built on the master slides from the project), a demo (the recommended one for that meeting, or one you build from a sentence; saved on the project), your notes (the private window) and the follow-up readout. **Present** opens the client demo with the saved demo. Social cuts moved to Engagement (`/nagarro/engagement/cuts/<id>`).

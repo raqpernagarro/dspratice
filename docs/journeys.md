@@ -6,11 +6,11 @@ Home asks one question, "What do you need to do?". Every answer is a **journey**
 
 | Client conversations | Project work |
 |---|---|
-| Respond to an RFP or proposal | Start a new design system |
-| Build a presentation | Improve an existing design system |
-| Prepare a client demo | Prototype on a client’s design system |
-| Check a client’s AI readiness | Start a product design workflow (guide) |
-| Turn an idea into a deck | Make a design system AI-ready (guide) |
+| Answer an RFP or proposal | Start a design system |
+| Make a presentation | Improve a design system |
+| Get a demo ready | Prototype on a client’s system |
+| See how AI-ready a client is | Start product design work (guide) |
+| Turn an idea into slides | Make a design system AI-ready (guide) |
 | Follow up after a meeting | Connect Figma and code (guide) |
 | Shape the offer (guide) | Share a project update |
 
@@ -41,7 +41,7 @@ A **set-up guide** never shows progress and always says "no tool yet". When a to
 - a matching single keyword scores 1;
 - a title word scores 0.5, unless it is a word every journey shares ("design", "system", "AI").
 
-The best three appear under the prompt with the words that matched ("Because you wrote: …"). Twenty typical phrasings are tested in `intent.test.ts`, for example "Jane needs a prototype on the ASSA ABLOY design system" → *Prototype on a client’s design system*. When a phrasing should find a journey and does not, add the phrasing to the test and the missing words to `keywords`.
+A word of five letters or more still matches with one typo ("protoype", "presentaton"). The best three appear under the prompt with the words that matched ("Because you wrote: …"); when nothing matches, the answer shows the four jobs people start most. About fifty typical phrasings are tested in `intent.test.ts`, and `e2e/journeys-smoke.spec.ts` opens every journey, for example "Jane needs a prototype on the ASSA ABLOY design system" → *Prototype on a client’s design system*. When a phrasing should find a journey and does not, add the phrasing to the test and the missing words to `keywords`.
 
 ## Ask AI (explicit, small, metered)
 
