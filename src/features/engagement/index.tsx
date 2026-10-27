@@ -166,7 +166,7 @@ function PostCard({ post, onSend, onEdit }: { post: BoardPost; onSend: (p: Board
           </a>
         )}
         {cut && !post.clip && (
-          <Link className="post__media-link" to={`${practice.demos}/cut/${cut.id}`}>
+          <Link className="post__media-link" to={`${practice.engagement}/cuts/${cut.id}`}>
             <Clapperboard /> Play the cut
           </Link>
         )}

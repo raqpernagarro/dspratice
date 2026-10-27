@@ -20,7 +20,7 @@ test('engagement: posts board, a draft from a social cut, the Marketing Studio h
   await shot(page, '50-engagement-posts')
 
   // a draft from a social cut
-  await page.goto('/nagarro/demos/cut/a-fix-travels')
+  await page.goto('/nagarro/engagement/cuts/a-fix-travels')
   await page.getByTestId('make-post').click()
   await expect(page).toHaveURL(/\/nagarro\/engagement$/)
   await expect(page.getByTestId('post-text')).toHaveValue(/In the clip:/)
@@ -29,7 +29,7 @@ test('engagement: posts board, a draft from a social cut, the Marketing Studio h
   const draft = page.getByTestId('drafts').locator('.post').first()
   await expect(draft).toContainText('A fix travels from Figma to code')
   await expect(draft).toContainText('In review')
-  await expect(draft.getByRole('link', { name: /Play the cut/ })).toHaveAttribute('href', '/nagarro/demos/cut/a-fix-travels')
+  await expect(draft.getByRole('link', { name: /Play the cut/ })).toHaveAttribute('href', '/nagarro/engagement/cuts/a-fix-travels')
 
   // the hand-off: Marketing Studio's own script, in its Nagarro mode
   await page.getByTestId('send-ds-16').click()

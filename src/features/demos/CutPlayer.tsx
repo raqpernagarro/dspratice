@@ -3,7 +3,7 @@
 // burned in. Same origin, so the player drives the page directly: the guide bar's own buttons,
 // in-app navigation, typing. Nothing is simulated beyond what the client demo itself simulates.
 //
-// `/nagarro/demos/cut/:id` shows it with its script and notes; `/cut/:id?record=1` is the bare
+// `/nagarro/engagement/cuts/:id` shows it with its script and notes; `/cut/:id?record=1` is the bare
 // frame that `npm run clips` films (it starts by itself and sets data-cut-state="done" at the end).
 
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -227,13 +227,13 @@ export function CutFrame({ cut, slug = 'demo-brand', autoplay, onState }: { cut:
   )
 }
 
-/** /nagarro/demos/cut/:id — the cut, its script, its notes and how to film it. */
+/** /nagarro/engagement/cuts/:id — the cut, its script, its notes and how to film it. */
 export function CutPage() {
   const { id = '' } = useParams()
   const cut = socialCut(id)
   const [copied, setCopied] = useState(false)
   const navigate = useNavigate()
-  if (!cut) return <PageHead title="No such social cut" crumbs={[{ label: 'Demos', to: practice.demos }, { label: id }]} />
+  if (!cut) return <PageHead title="No such social cut" crumbs={[{ label: 'Engagement', to: practice.engagement }, { label: id }]} />
   const cmd = `npm run clips -- ${cut.id}`
   return (
     <div className="page">
@@ -242,7 +242,7 @@ export function CutPage() {
         eyebrow={<Chip tone="outline">Social cut · 4:5</Chip>}
         title={cut.title}
         lead={cut.hook}
-        crumbs={[{ label: 'Demos', to: practice.demos }, { label: 'Social cuts' }, { label: cut.title }]}
+        crumbs={[{ label: 'Engagement', to: practice.engagement }, { label: 'Social cuts', to: `${practice.engagement}?tab=cuts` }, { label: cut.title }]}
       />
       <div className="cut-layout">
         <CutFrame cut={cut} />
@@ -292,8 +292,8 @@ export function CutPage() {
               <Megaphone /> Make a post
             </button>
           </Panel>
-          <Link className="small" to={practice.demos}>
-            ← All demos
+          <Link className="small" to={`${practice.engagement}?tab=cuts`}>
+            ← All social cuts
           </Link>
         </div>
       </div>

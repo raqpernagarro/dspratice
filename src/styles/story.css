@@ -2273,3 +2273,57 @@ button.process__card {
   gap: 6px;
   flex-wrap: wrap;
 }
+
+/* Prepare a client meeting: outcomes, made one by one (round 8) */
+.outcomes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.outcome {
+  display: flex;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: var(--n-radius-lg);
+  background: var(--n-surface);
+  box-shadow: inset 0 0 0 1px var(--n-line);
+}
+.outcome.is-done {
+  box-shadow: inset 0 0 0 1px rgba(71, 215, 172, 0.45);
+}
+.outcome__n {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--n-font-display);
+  font-weight: 500;
+  background: var(--n-fill-2);
+  color: var(--n-fg);
+}
+.outcome.is-done .outcome__n {
+  background: var(--n-strong);
+  color: var(--n-on-strong);
+}
+.outcome__n svg {
+  width: 16px;
+  height: 16px;
+}
+.outcome__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+.outcome__body > .stack {
+  align-self: stretch;
+}
+.outcome__body p {
+  margin: 0;
+}

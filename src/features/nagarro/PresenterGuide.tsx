@@ -1,191 +1,152 @@
-// Client demo › Prepare a meeting. Choose which system to show and how long to take, rehearse the
-// script, open the private notes window, then present. Everything the client sees happens in the
-// client demo; this page is internal.
+// Demos › Prepare a client meeting: pick the client and the meeting, then make what you need, one
+// thing at a time: a presentation, a demo, your notes, and the follow-up afterwards. Outcomes, not a
+// script. Everything the client sees happens in the client demo; this page is internal.
 
 import { useState } from 'react'
-import { useSearchParams } from 'react-router'
-import { CheckSquare, MonitorPlay, NotebookPen, Square } from 'lucide-react'
+import { Link, useSearchParams } from 'react-router'
+import { Check, MonitorPlay, NotebookPen } from 'lucide-react'
 import { useStore } from '@/state/store'
+import { act } from '@/state/hooks'
 import { practice } from '@/app/routes'
 import { PageHead } from '@/shell/PageHead'
 import { Panel, Segmented } from '@/shell/ui'
-import { ProcessStrip } from '@/shell/story'
-import { usePresentDemo, demoScenario } from '@/shell/present'
-import { TOUR, pathFor, PATH_MINUTES } from '@/features/demo/steps'
-import { PRESENTER_NOTES } from '@/internal/presenterNotes'
+import { usePresentDemo, demoScenario, storyFits } from '@/shell/present'
+import { TOUR_BY_ID, pathFor } from '@/features/demo/steps'
+import { MINI_DEMOS, type MiniDemo } from '@/fixtures/demos'
+import { DemoBuilder } from '@/features/demos/DemoBuilder'
 
-const PACKAGES = [
-  { name: '2-week AI audit', dur: '2 weeks', when: 'A system exists but nobody knows how consistent it is, or AI output looks generic.', leaves: 'An assessment, a baseline and one component made readable by AI tools.' },
-  { name: 'DS Build', dur: '12–20 weeks', when: 'No system yet, or one too broken to build on.', leaves: 'Repository, Figma library, checks, files for AI tools, a handover.' },
-  { name: 'DS Accelerate', dur: '8–14 weeks', when: 'A system worth keeping that has drifted and that AI tools cannot read well.', leaves: 'The system contract, fixed differences, files for AI tools, a named owner.' },
-  { name: 'DS Scale', dur: '16–24 weeks', when: 'Many brands or products, a migration ahead.', leaves: 'Token structure for several brands and a migration plan.' },
-  { name: 'Support', dur: 'ongoing', when: 'After handover, to keep the system from drifting.', leaves: 'Regular reviews and upgrades.' },
+type Meeting = 'first' | 'follow-up' | 'workshop'
+const MEETINGS: { id: Meeting; label: string; demo: string; hint: string }[] = [
+  { id: 'first', label: 'First meeting', demo: 'meeting-story', hint: 'The short story: the problem, one fix, AI on the system, what you keep.' },
+  { id: 'follow-up', label: 'Follow-up', demo: 'fix-travels', hint: 'Go deeper on one thing: a fix from Figma to code.' },
+  { id: 'workshop', label: 'Workshop', demo: 'full-story', hint: 'Every chapter, for designers and engineers together.' },
 ]
 
-const BEFORE_THE_MEETING = [
-  'Know the client’s stack. The demo assumes React, JSON tokens and Figma variables; say what else would need a specialist.',
-  'Decide which chapter matters most for this client and rehearse it once.',
-  'Have a view on who could own their system; the outcome chapter asks for it.',
-  'Pick the next step to propose: usually the 2-week AI audit.',
-  'Open your notes window on your own screen and share only the demo tab.',
-]
+function chaptersOf(d: MiniDemo): string[] {
+  return d.chapters ?? (d.story ? pathFor(d.story).map((s) => s.id) : [])
+}
+
+function Outcome({ n, title, done, children }: { n: number; title: string; done: boolean; children: React.ReactNode }) {
+  return (
+    <li className={`outcome${done ? ' is-done' : ''}`} data-testid={`outcome-${n}`}>
+      <span className="outcome__n" aria-hidden="true">
+        {done ? <Check /> : n}
+      </span>
+      <div className="outcome__body">
+        <strong>{title}</strong>
+        {children}
+      </div>
+    </li>
+  )
+}
 
 export function PresenterGuide() {
   const [params, setParams] = useSearchParams()
   const projects = useStore((s) => s.projects)
   const present = usePresentDemo()
   const scenario = demoScenario(projects, Object.values(projects).find((p) => p.slug === params.get('project'))?.id)
-  const [mode, setMode] = useState<'meeting' | 'full'>(scenario?.clientExperience.guidanceDefault === 'full' ? 'full' : 'meeting')
-  const [done, setDone] = useState<Record<number, boolean>>({})
-  const path = pathFor(mode)
-  const minutes = path.reduce((n, c) => n + (PRESENTER_NOTES[c.id]?.minutes ?? 2), 0)
+  const published = Object.values(projects).filter((p) => p.published)
+  const [meeting, setMeeting] = useState<Meeting>('first')
+  const [building, setBuilding] = useState(false)
+  const m = MEETINGS.find((x) => x.id === meeting)!
+  const recommended = MINI_DEMOS.find((d) => d.id === m.demo)!
+  const decks = scenario ? Object.values(scenario.decks ?? {}).sort((a, b) => b.builtAt - a.builtAt) : []
+  const playlists = scenario?.clientExperience.playlists ?? []
+  const demo = playlists[0]
+  const fits = storyFits(scenario)
+
+  const pickDemo = (d: MiniDemo) => {
+    if (!scenario) return
+    const chapters = chaptersOf(d)
+    if (!chapters.length) return
+    act().setClientExperience(scenario.id, { playlists: [{ id: `pl-${Date.now().toString(36)}`, name: d.title, chapters, savedAt: Date.now() }, ...playlists] })
+    setBuilding(false)
+  }
+  const start = () => (demo && fits ? present(scenario?.id, { guide: 'custom', chapters: demo.chapters }) : present(scenario?.id, { guide: 'meeting' }))
 
   return (
     <div className="page">
       <PageHead
-        title="Prepare a meeting"
-        lead="Choose which system to show and how long to take, rehearse the story, then present. The client only ever sees the client demo; your notes stay in a separate window."
+        title="Prepare a client meeting"
+        lead="Pick the client and the meeting, then make what you need, one thing at a time."
         actions={
-          <>
-            {scenario && (
-              <button className="btn btn--secondary" onClick={() => window.open(practice.presenterNotes(scenario.slug), 'ds-presenter-notes', 'width=520,height=760')} data-testid="prep-open-notes">
-                <NotebookPen /> Open presenter notes
-              </button>
-            )}
-            <button className="btn btn--mint" onClick={() => present(scenario?.id, { guide: mode })} disabled={!scenario} data-testid="prep-present">
-              <MonitorPlay /> Start presenting
-            </button>
-          </>
+          <button className="btn btn--mint" onClick={start} disabled={!scenario} data-testid="prep-present">
+            <MonitorPlay /> Present
+          </button>
         }
       />
 
-      <div className="grid grid--2">
-        <Panel title="Which system to show">
-          <select
-            className="select"
-            value={scenario?.slug ?? ''}
-            onChange={(e) => {
-              const next = new URLSearchParams(params)
-              next.set('project', e.target.value)
-              setParams(next, { replace: true })
-            }}
-            aria-label="System to show"
-          >
-            {Object.values(projects).map((p) => (
-              <option key={p.id} value={p.slug} disabled={!p.published}>
-                {p.client.name}
-                {p.client.fictional ? ' (sample)' : ''}
-                {p.published ? '' : ' · no client demo version yet'}
-              </option>
-            ))}
-          </select>
-          <p className="small muted">Demo Brand is built for first meetings. Another project shows its own last published version.</p>
-        </Panel>
-        <Panel title="How long">
-          <Segmented
-            ariaLabel="Demo path"
-            value={mode}
-            options={[
-              { id: 'meeting', label: `Short · about ${PATH_MINUTES.meeting} min` },
-              { id: 'full', label: `Full · about ${PATH_MINUTES.full} min` },
-            ]}
-            onChange={setMode}
-          />
-          <p className="small muted">The short path skips the assessment and the review in Figma; the demo sets them up for you if you open those chapters anyway. This path adds up to about {minutes} minutes of talking.</p>
-        </Panel>
-      </div>
-
-      <ProcessStrip label="The story" steps={path.map((c) => ({ title: c.title, text: PRESENTER_NOTES[c.id] ? `about ${PRESENTER_NOTES[c.id].minutes} min` : undefined }))} />
-
-      <Panel title="The script" flush>
-        <div className="table-wrap">
-          <table className="table table--script">
-            <thead>
-              <tr>
-                <th>Chapter</th>
-                <th>The client sees</th>
-                <th>You say</th>
-                <th>Points to make</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {TOUR.map((c) => {
-                const note = PRESENTER_NOTES[c.id]
-                const inPath = path.includes(c)
-                return (
-                  <tr key={c.id} className={inPath ? undefined : 'is-muted'}>
-                    <td>
-                      <span className="kicker__n">{String(c.n).padStart(2, '0')}</span> <strong>{c.title}</strong>
-                      <div className="xs muted">{inPath ? `about ${note?.minutes ?? 2} min` : 'Full path only'}</div>
-                    </td>
-                    <td className="small">
-                      {c.headline.before}
-                      <span className="em-hl">{c.headline.hl}</span>
-                      {c.headline.after}
-                    </td>
-                    <td className="small">
-                      {note?.say}
-                      {note?.action && <div className="xs muted">On screen: {note.action}</div>}
-                    </td>
-                    <td className="small muted">
-                      <ul style={{ margin: 0, paddingLeft: 16 }}>
-                        {note?.points.map((t) => (
-                          <li key={t}>{t}</li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td className="num">
-                      <button className="btn btn--ghost btn--sm" onClick={() => present(scenario?.id, { guide: mode, chapter: c.id })} disabled={!scenario} title="Opens the demo at this chapter, with everything before it set up">
-                        Rehearse
-                      </button>
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
+      <Panel title="The meeting">
+        <div className="row" style={{ gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
+          <label className="row small" style={{ gap: 8 }}>
+            <span className="muted">Client</span>
+            <select className="select" style={{ width: 'auto' }} value={scenario?.slug ?? ''} onChange={(e) => setParams({ project: e.target.value })} aria-label="Client" data-testid="prep-project">
+              {published.map((p) => (
+                <option key={p.id} value={p.slug}>
+                  {p.client.name}
+                  {p.client.fictional ? ' (fictional)' : ''}
+                </option>
+              ))}
+            </select>
+          </label>
+          <Segmented ariaLabel="Meeting" value={meeting} onChange={setMeeting} options={MEETINGS.map((x) => ({ id: x.id, label: x.label }))} />
         </div>
+        {scenario && !fits && <p className="small" style={{ color: 'var(--n-warn)', margin: '10px 0 0' }}>{scenario.client.name}’s demo version can be explored, not narrated: the story chapters run on Demo Brand.</p>}
       </Panel>
 
-      <div className="grid grid--side">
-        <Panel title="Which engagement to propose next" flush>
-          <div className="table-wrap">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Package</th>
-                  <th>When it fits</th>
-                  <th>What the client keeps</th>
-                </tr>
-              </thead>
-              <tbody>
-                {PACKAGES.map((p) => (
-                  <tr key={p.name}>
-                    <td>
-                      <strong>{p.name}</strong>
-                      <div className="xs muted">{p.dur}</div>
-                    </td>
-                    <td className="small">{p.when}</td>
-                    <td className="small muted">{p.leaves}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Panel>
-        <Panel title="Before the meeting" tight>
-          <div className="stack" style={{ gap: 4 }}>
-            {BEFORE_THE_MEETING.map((t, i) => (
-              <button key={t} className="row small" style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer', padding: '6px 0', color: 'inherit', alignItems: 'flex-start' }} onClick={() => setDone({ ...done, [i]: !done[i] })} aria-pressed={Boolean(done[i])}>
-                {done[i] ? <CheckSquare style={{ width: 16, color: 'var(--n-ok)', flexShrink: 0 }} /> : <Square style={{ width: 16, color: 'var(--n-fg-subtle)', flexShrink: 0 }} />}
-                <span style={{ textDecoration: done[i] ? 'line-through' : undefined, color: done[i] ? 'var(--n-fg-muted)' : undefined }}>{t}</span>
+      {scenario && (
+        <ol className="outcomes">
+          <Outcome n={1} title="A presentation" done={decks.length > 0}>
+            {decks.length ? (
+              <p className="small muted">
+                Ready: <Link to={practice.deck(decks[0].id)}>{decks[0].title}</Link>, {decks[0].slides.length} slides.
+              </p>
+            ) : (
+              <p className="small muted">A Nagarro deck from {scenario.client.name}’s project, built in one click on the master slides.</p>
+            )}
+            <Link className="btn btn--secondary btn--sm" to={`${practice.deckNew}?project=${scenario.slug}&kind=project&structure=${meeting === 'follow-up' ? 'update' : 'readout'}`} data-testid="prep-build-deck">
+              {decks.length ? 'Build another' : 'Build it'}
+            </Link>
+          </Outcome>
+
+          <Outcome n={2} title="A demo" done={Boolean(demo)}>
+            {demo ? (
+              <p className="small muted">
+                Ready: <strong>{demo.name}</strong>, {demo.chapters.map((c) => TOUR_BY_ID[c]?.title).filter(Boolean).join(' → ')}.
+              </p>
+            ) : (
+              <p className="small muted">
+                For a {m.label.toLowerCase()}: <strong>{recommended.title}</strong>. {m.hint}
+              </p>
+            )}
+            <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
+              {!demo && (
+                <button className="btn btn--secondary btn--sm" onClick={() => pickDemo(recommended)} data-testid="prep-use-demo">
+                  Use this demo
+                </button>
+              )}
+              <button className="btn btn--ghost btn--sm" onClick={() => setBuilding(!building)} data-testid="prep-build-demo">
+                {building ? 'Close' : demo ? 'Build a different one' : 'Build my own'}
               </button>
-            ))}
-          </div>
-          <span className="xs muted">This checklist is not saved.</span>
-        </Panel>
-      </div>
+            </div>
+            {building && <DemoBuilder project={scenario} onSaved={() => setBuilding(false)} onPick={pickDemo} />}
+          </Outcome>
+
+          <Outcome n={3} title="Your notes" done={false}>
+            <p className="small muted">What to say in each chapter, in a window only you see. It follows the demo as you present.</p>
+            <button className="btn btn--secondary btn--sm" onClick={() => window.open(practice.presenterNotes(scenario.slug), 'ds-presenter-notes', 'width=520,height=760')} data-testid="prep-open-notes">
+              <NotebookPen /> Open my notes
+            </button>
+          </Outcome>
+
+          <Outcome n={4} title="After the meeting" done={false}>
+            <p className="small muted">A short readout for {scenario.client.name}: what we saw, what we recommend, the next step.</p>
+            <Link className="btn btn--ghost btn--sm" to={`${practice.deckNew}?project=${scenario.slug}&kind=project&structure=readout`}>
+              Build the follow-up
+            </Link>
+          </Outcome>
+        </ol>
+      )}
     </div>
   )
 }

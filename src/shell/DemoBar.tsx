@@ -29,7 +29,10 @@ export function DemoBar() {
   // Unknown ids (e.g. chapters saved by an older version) fall back to the start of the path.
   const step: TourStep | undefined = (guide?.chapterId ? TOUR_BY_ID[guide.chapterId] : undefined) ?? path[0]
   const index = step ? path.findIndex((s) => s.id === step.id) : -1
-  const active = Boolean(guide && (guide.status === 'running' || guide.status === 'paused'))
+  // ?guide=off asks for the page itself: the layout closes the guide, but its effect runs after this one,
+  // so the bar must not take the page to the running chapter first.
+  const off = new URLSearchParams(location.search).get('guide') === 'off'
+  const active = !off && Boolean(guide && (guide.status === 'running' || guide.status === 'paused'))
   const paused = guide?.status === 'paused' || motionPaused
   const lastNavStep = useRef<string | null>(null)
   const [countdown, setCountdown] = useState<number | null>(null)
