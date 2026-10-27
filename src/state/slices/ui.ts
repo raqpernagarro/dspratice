@@ -15,6 +15,10 @@ export function uiSlice(ctx: Ctx): UiActions {
       set((s) => {
         s.ui.actingAs = personId
       }),
+    setMe: (personId) =>
+      set((s) => {
+        s.ui.me = personId
+      }),
     setPreview: (p) =>
       set((s) => {
         Object.assign(s.ui, p)

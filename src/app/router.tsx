@@ -7,6 +7,8 @@ import { ClientEntry, NagarroLayout, OwnerRouteSync, ProjectRouteSync } from '@/
 import { HandbookPage } from '@/features/handbook/HandbookPage'
 import { NagarroHome } from '@/features/nagarro/NagarroHome'
 import { ClientPortfolio } from '@/features/nagarro/ClientPortfolio'
+import { MyWork } from '@/features/nagarro/MyWork'
+import { ProjectRequests } from '@/features/nagarro/ProjectRequests'
 import { PresenterGuide } from '@/features/nagarro/PresenterGuide'
 import { EngagementHome } from '@/features/nagarro/EngagementHome'
 import { StartSystem } from '@/features/nagarro/StartSystem'
@@ -114,6 +116,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <NagarroHome /> },
       { path: 'clients', element: <ClientPortfolio /> },
+      { path: 'work', element: <MyWork /> },
       { path: 'start', element: <StartSystem /> },
       { path: 'journeys/:id', element: <JourneyGuide /> },
       { path: 'library', element: <Navigate to={practice.projects} replace /> },
@@ -164,6 +167,7 @@ export const router = createBrowserRouter([
           { path: 'journey/improve/:step', element: <ImproveStep /> },
           { path: 'meeting', element: <MovedToPractice to={({ slug }) => practice.meetingPrep(slug)} /> },
           { path: 'report', element: <ReportPage /> },
+          { path: 'requests', element: <ProjectRequests /> },
           { path: 'presentations', element: <MovedToPractice to={({ slug }) => practice.presentationsFor(slug)} /> },
           { path: 'presentations/new', element: <MovedToPractice to={({ slug }) => `${practice.deckNew}?project=${slug}`} /> },
           { path: 'presentations/:id', element: <MovedToPractice to={({ id }) => practice.deck(id!)} /> },

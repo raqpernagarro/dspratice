@@ -17,6 +17,7 @@ export function projectTabs(r: RouteFamily) {
   const b = r.home
   return [
     { label: 'Overview', to: r.home, match: [b, `${b}/journey`] },
+    ...(r.workspace === 'nagarro' ? [{ label: 'Requests & decks', to: `${b}/requests`, match: [`${b}/requests`] }] : []),
     { label: 'Design system', to: r.components, match: [`${b}/system`] },
     { label: 'Changes', to: r.changes, match: [`${b}/changes`] },
     { label: 'AI', to: r.channels, match: [`${b}/ai`] },

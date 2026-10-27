@@ -512,6 +512,24 @@ export interface ClientExperience {
   publishedOutputs: PublishedOutput[]
 }
 
+/** Where an item stands on the Projects board: a pitch we are working on, live work, done, or on hold. */
+export type ProjectStatus = 'opportunity' | 'in-progress' | 'delivered' | 'paused'
+export type ProjectTag = 'product-design' | 'design-system' | 'prototype' | 'ai-ready'
+
+/** What the Projects board shows about an item (schema v5). Tasks live in Jira; this is the portfolio view. */
+export interface ProjectCard {
+  status: ProjectStatus
+  tags: ProjectTag[]
+  /** ISO 3166 alpha-2 country of the client, for the flag. */
+  country?: string
+  /** An image URL; without one the board draws a tile from the system's colours. */
+  thumbnail?: string
+  brief: string
+  links: { figma?: string; code?: string; jira?: string; storybook?: string }
+  /** Nagarro people on it (ids from src/fixtures/team-board.json). */
+  peopleIds: string[]
+}
+
 export interface Project {
   id: ProjectId
   slug: string
@@ -531,6 +549,7 @@ export interface Project {
   opportunities: Record<string, Opportunity>
   /** Decks built on the Nagarro Master Slides engine (internal only). */
   decks: Record<string, Deck>
+  card: ProjectCard
 }
 
 export interface UiState {
@@ -548,6 +567,8 @@ export interface UiState {
   simSpeed: 1 | 3
   /** Where "Back to preparation" leads from the client demo (the hub page or slide it was opened from). */
   returnTo?: string | null
+  /** Who "My work" is for (a person id from the team board). */
+  me?: string
 }
 
 /** Fixture input for one project. */

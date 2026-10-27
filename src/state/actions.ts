@@ -5,13 +5,15 @@ import type { StarterImport } from '@/library/theme/fromStarterProject'
 import type { Approval, Availability, Category, Deck, DeckSlide, DeckStage, DraftSection, EvidenceRef, KnowledgeDocument, KnowledgeSource, OpportunityContext, OpportunityStep, Opportunity, ReadBy, RequestFormat, RequestKind, Requirement, TaskType, Usage, DeckBrief } from './types'
 import type { ResponseDraft } from '@/opportunity/compose'
 import type { PublishRefusal } from '@/opportunity/selectors'
-import type { ChannelId, ClientExperience, ComponentGuidance, Contract, Engagement, GuideMode, HistoryEvent, Mode, ProjectId, ThemeConfig, Toast, TrustAction, TrustLevel, UiState, Workspace, JourneyProgress } from './types'
+import type { ChannelId, ClientExperience, ComponentGuidance, Contract, Engagement, GuideMode, ProjectCard, HistoryEvent, Mode, ProjectId, ThemeConfig, Toast, TrustAction, TrustLevel, UiState, Workspace, JourneyProgress } from './types'
 
 export interface UiActions {
   pushToast: (t: Omit<Toast, 'id'>) => void
   dismissToast: (id: string) => void
   log: (text: string, entity?: HistoryEvent['entity'], simulated?: boolean, actor?: string) => void
   setActingAs: (personId: string) => void
+  /** Who "My work" is for. */
+  setMe: (personId: string) => void
   setPreview: (p: Partial<Pick<UiState, 'previewBrand' | 'previewMode' | 'previewDensity'>>) => void
   setSideOpen: (open: boolean) => void
   setCmdkOpen: (open: boolean) => void
@@ -40,6 +42,7 @@ export interface ProjectActions {
   resetAll: () => void
   /** A real client or prospect, created by a colleague (not sample data). Returns the new slug. */
   createProspect: (input: { name: string; sector: string; owner?: string }) => string
+  updateCard: (projectId: ProjectId, patch: Partial<ProjectCard>) => void
 }
 
 export type NewSourceInput = Omit<KnowledgeSource, 'id' | 'bodyHistory' | 'outline' | 'registeredAt' | 'registeredBy' | 'approval' | 'availability' | 'tags'> & { approval?: Approval; availability?: Availability; tags?: string[] }

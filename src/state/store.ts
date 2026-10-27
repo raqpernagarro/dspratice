@@ -8,7 +8,7 @@ import type { AppActions } from './actions'
 import type { AppData, SystemState } from './types'
 import { makeCtx } from './ctx'
 import { SCHEMA_VERSION, seedState } from './seed'
-import { migrateV2toV3, migrateV3toV4, type V2State, type V3State } from './migrate'
+import { migrateV2toV3, migrateV3toV4, migrateV4toV5, type V2State, type V3State, type V4State } from './migrate'
 import { bindJobSetter } from './jobs'
 import { uiSlice } from './slices/ui'
 import { projectsSlice } from './slices/projects'
@@ -63,6 +63,10 @@ export const useStore = create<AppState>()(
           if (v === 3) {
             data = migrateV3toV4(data as V3State)
             v = 4
+          }
+          if (v === 4) {
+            data = migrateV4toV5(data as V4State)
+            v = 5
           }
           if (v === SCHEMA_VERSION) return data as AppState
         } catch {

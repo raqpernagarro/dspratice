@@ -1,4 +1,5 @@
 import type { ProjectActions } from '../actions'
+import { DEFAULT_ME } from '../card'
 import { ensureSession, type Ctx } from '../ctx'
 import { PROJECT_SEEDS } from '@/fixtures/projects'
 import { client } from '@/app/routes'
@@ -182,6 +183,7 @@ export function projectsSlice(ctx: Ctx): ProjectActions {
         ctx.now(),
       )
       fresh.opportunities = {}
+      fresh.card = { status: 'opportunity', tags: [], brief: '', links: {}, peopleIds: [get().ui.me ?? DEFAULT_ME] }
       set((s) => {
         s.projects[slug] = fresh
         s.selectedProjectId = slug
@@ -189,5 +191,11 @@ export function projectsSlice(ctx: Ctx): ProjectActions {
       activity(slug, `Created the project for ${name.trim()}`)
       return slug
     },
+    updateCard: (projectId, patch) =>
+      set((s) => {
+        const p = s.projects[projectId]
+        if (!p) return
+        p.card = { ...p.card, ...patch, links: { ...p.card.links, ...patch.links } }
+      }),
   }
 }

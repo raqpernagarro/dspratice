@@ -62,9 +62,11 @@ export const IMPROVE_LEGACY: Record<string, ImproveStep> = { '1': 'goals', '2': 
 export const practice = {
   welcome: '/',
   home: '/nagarro',
-  /** Projects (design-system work per client or prospect). The path keeps its v3 name. */
+  /** Projects › Team board: every client and prospect. The path keeps its v3 name. */
   clients: '/nagarro/clients',
   projects: '/nagarro/clients',
+  /** Projects › My work: what I left unfinished and the projects I am on. */
+  myWork: '/nagarro/work',
   /** "Start a project": asks new or existing system, then goes to `startSystem`. */
   start: '/nagarro/start',
   startSystem: (journey: 'new' | 'improve') => `/nagarro/start?journey=${journey}`,

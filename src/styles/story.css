@@ -1428,3 +1428,198 @@ button.process__card {
   width: 14px;
   height: 14px;
 }
+
+/* Home: one line to My work (round 7, phase 3) */
+.home__progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  border-radius: var(--n-radius-md);
+  background: var(--n-surface);
+  box-shadow: inset 0 0 0 1px var(--n-line);
+  color: var(--n-fg);
+  text-decoration: none;
+}
+.home__progress:hover {
+  box-shadow: inset 0 0 0 1px var(--n-mint);
+}
+.home__progress-go {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--n-mint);
+  font-weight: 500;
+}
+.home__progress-go svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Projects board: calm cards (thumbnail, who, where it stands, who is on it, where its files live) */
+.board-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.board-filters .input {
+  width: min(240px, 100%);
+}
+.board-filters .select {
+  width: auto;
+}
+.ptile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: var(--n-space-4);
+}
+.ptile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 12px 14px;
+  border-radius: var(--n-radius-lg);
+  background: var(--n-surface);
+  box-shadow: inset 0 0 0 1px var(--n-line);
+  transition: box-shadow var(--m-fast, 0.2s);
+  min-width: 0;
+}
+.ptile:hover,
+.ptile:focus-within {
+  box-shadow: inset 0 0 0 1px var(--n-line-strong);
+}
+.ptile__main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--n-fg);
+  text-decoration: none;
+  min-width: 0;
+}
+.ptile__thumb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 7;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.ptile__thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 85% 0%, rgba(255, 255, 255, 0.28), transparent 55%), linear-gradient(180deg, transparent 40%, rgba(1, 7, 22, 0.35));
+}
+.ptile__thumb--panel {
+  background-image: var(--n-art-panel-navy);
+}
+.ptile__mono {
+  position: relative;
+  z-index: 1;
+  font-family: var(--n-font-display);
+  font-weight: 500;
+  font-size: 34px;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.92);
+}
+.ptile__head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 4px;
+}
+.ptile__name {
+  font-family: var(--n-font-display);
+  font-weight: 500;
+  font-size: var(--n-text-lg);
+  letter-spacing: -0.01em;
+}
+.ptile__title {
+  color: var(--n-fg-muted);
+  font-weight: 400;
+}
+.ptile__brief {
+  padding: 0 4px;
+  font-size: var(--n-text-sm);
+  color: var(--n-fg-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ptile__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 4px;
+}
+.ptile__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 4px 0;
+  border-top: 1px solid var(--n-line);
+  margin-top: auto;
+}
+.ptile__links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+.ptile__links .icon-btn svg {
+  width: 15px;
+  height: 15px;
+}
+.ptile__counts {
+  margin: 0 6px;
+  white-space: nowrap;
+}
+.avatars {
+  display: inline-flex;
+}
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--n-band);
+  color: var(--n-fg);
+  box-shadow: 0 0 0 2px var(--n-surface), inset 0 0 0 1px var(--n-line-strong);
+}
+.avatar + .avatar {
+  margin-left: -6px;
+}
+.avatar--more {
+  background: var(--n-fill-2);
+  color: var(--n-fg-muted);
+}
+.board-columns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  gap: var(--n-space-4);
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.board-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--n-radius-lg);
+  background: var(--n-fill);
+  min-width: 0;
+}
+.board-col__title {
+  font-size: var(--n-text-md);
+  margin: 4px 4px 0;
+}

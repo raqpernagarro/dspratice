@@ -1,5 +1,6 @@
 // Builds SystemStates and Projects from the fixtures. Pure apart from uid()/Date.now() for ids and timestamps.
 
+import { DEFAULT_ME, deriveCard } from './card'
 import type { AppData, Baseline, Finding, HistoryEvent, Journey, Project, ProjectSeed, SystemState, ThemeConfig } from './types'
 import { DEMO_TOKENS, BEFORE_STATE } from '@/fixtures/demo-brand/tokens'
 import { DEMO_COMPONENTS } from '@/fixtures/demo-brand/components'
@@ -12,7 +13,7 @@ import { applyThemeIntents, fastForwardSystem } from './system-ops'
 import { cloneSys } from './scope'
 import { emptyKnowledge, internalSeeds } from './internal-seeds'
 
-export const SCHEMA_VERSION = 4
+export const SCHEMA_VERSION = 5
 
 export const DEFAULT_BASELINE: Baseline = {
   totalValues: BEFORE_STATE.totalValues,
@@ -94,6 +95,7 @@ export function seedProject(seed: ProjectSeed, t = Date.now()): Project {
   const published = seed.publish
     ? { version: 1, publishedAt: t - 24 * 60 * 60 * 1000, publishedBy: 'Seed', note: 'First published version', draftRev: 0, state: cloneSys(draft) }
     : null
+  const opportunities = internalSeeds()?.opportunities(seed.id, t) ?? {}
   return {
     id: seed.id,
     slug: seed.slug,
@@ -106,8 +108,9 @@ export function seedProject(seed: ProjectSeed, t = Date.now()): Project {
     clientExperience: { ...seed.clientExperience, chapters: { ...seed.clientExperience.chapters }, publishedOutputs: [] },
     session: null,
     activity: published ? [{ id: uid('h'), ts: published.publishedAt, actor: 'Seed', text: 'Prepared v1 of the client demo', entity: { type: 'project', id: seed.id } }] : [],
-    opportunities: internalSeeds()?.opportunities(seed.id, t) ?? {},
+    opportunities,
     decks: {},
+    card: deriveCard({ id: seed.id, engagement: seed.engagement, draft, opportunities }),
   }
 }
 
@@ -119,7 +122,7 @@ export function seedState(t = Date.now()): AppData {
     practice: { rules: cloneSys(RULES), knowledge: internalSeeds()?.knowledge() ?? emptyKnowledge() },
     projects,
     selectedProjectId: 'demo-brand',
-    ui: { lastWorkspace: null, presenter: false, actingAs: 'p-owner', motionPaused: false, previewBrand: 'demo', previewMode: 'light', previewDensity: 'standard', sideOpen: false, cmdkOpen: false, simSpeed: 1, returnTo: null },
+    ui: { lastWorkspace: null, presenter: false, actingAs: 'p-owner', motionPaused: false, previewBrand: 'demo', previewMode: 'light', previewDensity: 'standard', sideOpen: false, cmdkOpen: false, simSpeed: 1, returnTo: null, me: DEFAULT_ME },
     sim: { jobs: {}, toasts: [] },
   }
 }

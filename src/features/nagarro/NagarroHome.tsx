@@ -1,55 +1,19 @@
 // The workspace's front door: one question, a prompt that routes to the right journey with no
 // model call, and the journeys in two groups for anyone who would rather pick. Journeys are data
-// (src/fixtures/journeys.ts); this page only shows them. Below, work already in progress.
+// (src/fixtures/journeys.ts); this page only shows them. Work in progress lives in Projects › My work.
 
 import { useMemo, useRef, useState, type FormEvent } from 'react'
 import { Link } from 'react-router'
 import { ArrowRight, Sparkles } from 'lucide-react'
-import { useStore } from '@/state/store'
-import { nagarro, practice } from '@/app/routes'
-import { relTime } from '@/state/selectors'
-import { journeySummary, improveSlug } from '@/state/journeyProgress'
-import { conversationItems } from '@/features/conversations/items'
+import { practice } from '@/app/routes'
 import { useIntegrations } from '@/integrations/status'
 import { Chip, Segmented, Sheet } from '@/shell/ui'
 import { JOURNEYS, JOURNEY_GROUPS, type JourneyDef, type JourneyGroup } from '@/fixtures/journeys'
 import { matchJourneys } from './intent'
 import { askAi, estimateAskTokens, type AskResult } from './askAi'
+import { useInProgress } from './work'
 
 const TRY = ['We got an RFP from a bank', 'Jane needs a prototype on the ASSA ABLOY design system', 'Show a prospect how AI stays on their system']
-
-interface ContinueItem {
-  key: string
-  kind: string
-  title: string
-  client: string
-  status: string
-  to: string
-  at: number
-}
-
-function useInProgress(): ContinueItem[] {
-  const projects = useStore((s) => s.projects)
-  // Requests and decks come from the same list as the Projects tabs; journeys are added here.
-  const items: ContinueItem[] = conversationItems(projects).filter((i) => !i.done)
-  for (const p of Object.values(projects)) {
-    for (const kind of ['new', 'improve'] as const) {
-      const j = journeySummary(p.draft, kind)
-      if (!j.started || j.complete) continue
-      const r = nagarro(p.slug)
-      items.push({
-        key: `j-${p.id}-${kind}`,
-        kind: kind === 'new' ? 'New design system' : 'Improve a system',
-        title: `${p.client.name} set-up`,
-        client: p.client.name,
-        status: `${j.done} of ${j.total} steps done · Resume: ${j.resumeLabel.toLowerCase()}`,
-        to: kind === 'new' ? r.journeyNew() : r.journeyImprove(improveSlug(j.resume)),
-        at: p.draft.journey[kind].startedAt ?? 0,
-      })
-    }
-  }
-  return items.sort((a, b) => b.at - a.at)
-}
 
 function JourneyRow({ j, n, reason }: { j: JourneyDef; n?: number; reason?: string }) {
   return (
@@ -110,7 +74,6 @@ function AllJourneys({ start, onClose }: { start: JourneyGroup | 'all'; onClose:
 
 export function NagarroHome() {
   const items = useInProgress()
-  const projects = useStore((s) => s.projects)
   const status = useIntegrations()
   const [text, setText] = useState('')
   const [asked, setAsked] = useState('')
@@ -207,40 +170,21 @@ export function NagarroHome() {
         <GroupCard group="projects" onAll={() => setAll('projects')} />
       </div>
 
-      <section aria-labelledby="continue-title" className="stack">
-        <h2 id="continue-title" className="section-title">
-          Continue where you left off
-        </h2>
+      <Link to={practice.myWork} className="home__progress" data-testid="home-in-progress">
         {items.length ? (
-          <ul className="continue-list" data-testid="continue-list">
-            {items.slice(0, 4).map((it) => (
-              <li key={it.key}>
-                <Link to={it.to} className="continue-item">
-                  <Chip tone="outline">{it.kind}</Chip>
-                  <span className="continue-item__main">
-                    <strong>{it.title}</strong>
-                    <span className="small muted">
-                      {it.client} · {it.status}
-                    </span>
-                  </span>
-                  <span className="xs muted">{relTime(it.at)}</span>
-                  <ArrowRight className="continue-item__arrow" />
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <>
+            <strong>
+              {items.length} thing{items.length > 1 ? 's' : ''} in progress
+            </strong>{' '}
+            <span className="muted">· latest: {items[0].title}, {items[0].client}</span>
+          </>
         ) : (
-          <div className="empty-state" data-testid="continue-empty">
-            <strong>Nothing in progress yet.</strong>
-            <span className="muted">Pick a journey above. To see a finished example first, open the Northwind sample request: it goes from the RFP to a reviewed draft and a deck.</span>
-            {projects.northwind && (
-              <Link className="btn btn--secondary btn--sm" to={practice.opportunitiesFor('northwind')}>
-                Open the Northwind sample
-              </Link>
-            )}
-          </div>
+          <span className="muted">Nothing in progress yet. Your requests, decks and set-ups will appear in My work.</span>
         )}
-      </section>
+        <span className="home__progress-go">
+          My work <ArrowRight />
+        </span>
+      </Link>
 
       {all && <AllJourneys start={all} onClose={() => setAll(null)} />}
     </div>

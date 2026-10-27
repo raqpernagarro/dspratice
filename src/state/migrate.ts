@@ -1,4 +1,4 @@
-// Schema migrations. v3 → v4 adds the knowledge library, opportunities, decks and published
+// Schema migrations. v4 → v5 adds the Projects board card. v3 → v4 adds the knowledge library, opportunities, decks and published
 // outputs without touching any draft, published version or session. v2 was single-tenant: one system at the top level, four client rows as
 // metadata, a tour. v3 wraps that system into the Demo Brand project, publishes it as v1 and seeds
 // the three lighter engagements.
@@ -7,6 +7,7 @@ import type { AppData, Journey, Project, SystemState } from './types'
 import { DEFAULT_BASELINE, defaultJourney, seedProject, seedState } from './seed'
 import { emptyKnowledge, internalSeeds } from './internal-seeds'
 import { PROJECT_SEEDS } from '@/fixtures/projects'
+import { DEFAULT_ME, deriveCard } from './card'
 import { cloneSys } from './scope'
 import { uid } from './sim'
 
@@ -98,4 +99,14 @@ export function migrateV3toV4(v3: V3State, now = Date.now()): AppData {
     practice: { rules: v3.practice.rules, knowledge: v3.practice.knowledge ?? seeds?.knowledge() ?? emptyKnowledge() },
     projects,
   }
+}
+
+/** A v4 store as persisted: everything v5 has except the Projects board card and "me". */
+export type V4State = Omit<AppData, 'projects'> & { projects: Record<string, Omit<Project, 'card'> & { card?: Project['card'] }> }
+
+/** Idempotent: gives every project its board card (derived, plus the shared file) and sets "me". Nothing else changes. */
+export function migrateV4toV5(v4: V4State): AppData {
+  const projects: Record<string, Project> = {}
+  for (const [id, p] of Object.entries(v4.projects)) projects[id] = { ...p, card: p.card ?? deriveCard(p) } as Project
+  return { ...(v4 as unknown as AppData), meta: { ...v4.meta, schemaVersion: 5 }, projects, ui: { ...v4.ui, me: v4.ui.me ?? DEFAULT_ME } }
 }

@@ -97,9 +97,10 @@ describe('navigation keeps the parent selected on detail routes', () => {
     expect(activeNav(nav, practice.guide('why'))?.label).toBe('Settings')
     expect(activeNav(nav, practice.knowledgeSource('x'))?.label).toBe('Settings')
     expect(activeNav(nav, practice.engagement)?.label).toBe('Engagement')
-    for (const list of [practice.projects, practice.opportunities, practice.presentations]) {
-      expect(areaTabsFor(list, N)?.map((t) => t.label)).toEqual(['Projects', 'Client requests', 'Presentations'])
+    for (const list of [practice.myWork, practice.projects, practice.opportunities, practice.presentations]) {
+      expect(areaTabsFor(list, N)?.map((t) => t.label)).toEqual(['My work', 'Team board', 'Client requests', 'Presentations'])
     }
+    expect(activeNav(nav, practice.myWork)?.label).toBe('Projects')
     for (const list of [practice.demos, practice.scorecard]) {
       expect(areaTabsFor(list, N)?.map((t) => t.label)).toEqual(['Client demo', 'Prepare a meeting', 'Scorecard'])
     }

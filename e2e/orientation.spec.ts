@@ -36,7 +36,7 @@ test('a new colleague can tell what the hub is for and where to start', async ({
   // the lead fits on one line at desktop width
   expect(await page.locator('.home__lead').evaluate((el) => Math.round(el.getBoundingClientRect().height / parseFloat(getComputedStyle(el).lineHeight)))).toBe(1)
   await expect(page.locator('.shell__side .nav__label')).toHaveText(['Home', 'Projects', 'Demos', 'Engagement', 'Settings'])
-  await expect(page.getByTestId('continue-list')).toBeVisible()
+  await expect(page.getByTestId('home-in-progress')).toContainText('in progress')
   await expect(main).not.toContainText('System health')
   await shot(page, '20-home')
 
@@ -128,6 +128,8 @@ test('a new colleague can tell what the hub is for and where to start', async ({
     localStorage.setItem('unified-ds-tool:v1', JSON.stringify(raw))
   })
   await page.goto('/nagarro')
+  await expect(page.getByTestId('home-in-progress')).toContainText('Nothing in progress yet')
+  await page.goto('/nagarro/work')
   await expect(page.getByTestId('continue-empty')).toContainText('Nothing in progress yet')
 
   expect(errors).toEqual([])

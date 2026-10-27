@@ -32,7 +32,7 @@ export function navFor(ws: Workspace, r: RouteFamily): NavItem[] {
   // posts and Marketing Studio in Engagement. Tools open from journeys, sources sit in Settings.
   return [
     { to: practice.home, label: 'Home', match: [practice.home, practice.conversations, practice.tools, '/nagarro/journeys'], icon: 'home' },
-    { to: practice.projects, label: 'Projects', match: [practice.projects, '/nagarro/start', practice.opportunities, practice.presentations], icon: 'clients' },
+    { to: practice.myWork, label: 'Projects', match: [practice.myWork, practice.projects, '/nagarro/start', practice.opportunities, practice.presentations], icon: 'clients' },
     { to: practice.demos, label: 'Demos', match: [practice.demos, practice.scorecard], icon: 'demos' },
     { to: practice.engagement, label: 'Engagement', match: [practice.engagement], icon: 'engagement' },
     { to: practice.settings, label: 'Settings', match: [practice.settings, practice.guides], icon: 'settings', group: 'foot' },
@@ -124,9 +124,10 @@ export function areaTabsFor(pathname: string, r: RouteFamily, opts?: { proposalP
       { label: 'Needs attention', to: practice.knowledgeTab('attention') },
     ]
   }
-  if (!client && [practice.projects, practice.opportunities, practice.presentations].includes(pathname)) {
+  if (!client && [practice.myWork, practice.projects, practice.opportunities, practice.presentations].includes(pathname)) {
     return [
-      { label: 'Projects', to: practice.projects, match: practice.projects },
+      { label: 'My work', to: practice.myWork },
+      { label: 'Team board', to: practice.projects, match: practice.projects },
       { label: 'Client requests', to: practice.opportunities },
       { label: 'Presentations', to: practice.presentations },
     ]

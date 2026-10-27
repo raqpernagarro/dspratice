@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { migrateV2toV3, migrateV3toV4, type V3State } from './migrate'
+import { migrateV2toV3, migrateV3toV4, migrateV4toV5, type V3State, type V4State } from './migrate'
 import { seedState } from './seed'
 import { health } from './selectors'
 
@@ -86,5 +86,31 @@ describe('migration v3 → v4', () => {
     const again = migrateV3toV4(v4 as unknown as V3State, 2000)
     expect(JSON.stringify(again.projects)).toBe(JSON.stringify(v4.projects))
     expect(JSON.stringify(v4).length).toBeLessThan(2_500_000)
+  })
+})
+
+describe('migration v4 → v5', () => {
+  it('gives every project a board card from its own data and the shared file, sets "me", and is idempotent', () => {
+    const v5 = seedState(1000)
+    const v4 = structuredClone(v5) as unknown as V4State
+    for (const p of Object.values(v4.projects)) delete p.card
+    delete v4.ui.me
+    v4.meta.schemaVersion = 4
+    const out = migrateV4toV5(v4)
+    expect(out.meta.schemaVersion).toBe(5)
+    expect(out.ui.me).toBe('raquel-pereira')
+    expect(out.projects.fabrikam.card.status).toBe('delivered')
+    expect(out.projects.northwind.card).toMatchObject({ status: 'in-progress', tags: ['design-system'], country: 'GB' })
+    // placeholder addresses in sample data never become links; real ones do
+    expect(out.projects.contoso.card.links).toEqual({ figma: undefined, code: undefined })
+    const real = structuredClone(v4)
+    real.projects.northwind.draft.journey.connect.repoUrl = 'https://github.com/acme/ui'
+    expect(migrateV4toV5(real).projects.northwind.card.links.code).toBe('https://github.com/acme/ui')
+    expect(out.projects['demo-brand'].card.peopleIds).toContain('nuno-almeida')
+    // drafts and published versions are untouched
+    expect(out.projects['demo-brand'].draft).toEqual(v5.projects['demo-brand'].draft)
+    // a card someone edited survives a second run
+    out.projects.northwind.card.status = 'paused'
+    expect(migrateV4toV5(out as unknown as V4State).projects.northwind.card.status).toBe('paused')
   })
 })
