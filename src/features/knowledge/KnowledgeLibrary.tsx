@@ -93,13 +93,13 @@ function SourcePreview({ source, clientName, onClose }: { source: KnowledgeSourc
       {source.approval !== 'approved' && <Callout tone="info">Not approved yet. Drafts can use it as a recommendation, never as a statement backed by a source. Ask {source.owner ?? 'its owner'} to review it.</Callout>}
       {kdoc ? (
         <>
-          <p className="small muted">The first passages the hub read ({kdoc.sections.length} in total):</p>
+          <p className="small muted">The first passages the workspace read ({kdoc.sections.length} in total):</p>
           <SectionList doc={kdoc} limit={3} compact />
         </>
       ) : loading ? (
         <p className="muted">Loading…</p>
       ) : (
-        <p className="small muted">{source.location.type === 'url' ? 'A link only: the hub does not read its text.' : 'No text has been read from this source yet.'}</p>
+        <p className="small muted">{source.location.type === 'url' ? 'A link only: the workspace does not read its text.' : 'No text has been read from this source yet.'}</p>
       )}
     </Sheet>
   )

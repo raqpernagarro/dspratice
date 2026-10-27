@@ -259,7 +259,7 @@ export function AppShell({ workspace, bare, children }: { workspace: Workspace; 
         <div className="sheet-scrim" onClick={() => setConfirmSession(false)} role="presentation">
           <div className="sheet" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
             <h4>Reset the demo?</h4>
-            <p className="muted small">The demo goes back to the prepared version (v{project.published?.version}). Everything clicked during this meeting (assessment, fixes, merges) is cleared. Your preparation in the hub is untouched.</p>
+            <p className="muted small">The demo goes back to the prepared version (v{project.published?.version}). Everything clicked during this meeting (assessment, fixes, merges) is cleared. Your preparation in the workspace is untouched.</p>
             <div className="row" style={{ justifyContent: 'flex-end' }}>
               <button className="btn btn--secondary" onClick={() => setConfirmSession(false)}>
                 Keep going

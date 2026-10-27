@@ -77,7 +77,7 @@ function ConsentSheet({ o, onOk, onClose }: { o: Opportunity; onOk: () => void; 
       act().setModelConsent(project.id, o.id)
       onOk()
     }} data-testid="consent-ok">Yes, use the model</button>}>
-      <p>The hub sends the request text, the listed requirements and only the most relevant sections of the selected sources (at most about 20K tokens) from this machine's local server to the Anthropic API, using the key in .env.local.</p>
+      <p>The workspace sends the request text, the listed requirements and only the most relevant sections of the selected sources (at most about 20K tokens) from this machine's local server to the Anthropic API, using the key in .env.local.</p>
       <p><strong>Check the client's confidentiality terms first.</strong> Nothing else leaves this machine, and the result is checked by the same rules as the template draft before you see it.</p>
       <p className="small muted">Prefer to use your own Claude or ChatGPT chat? Download the generation packet in “Share and present” instead.</p>
     </Sheet>

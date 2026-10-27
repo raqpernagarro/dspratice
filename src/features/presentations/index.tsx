@@ -90,7 +90,7 @@ export function DecksPractice() {
     <div className="page">
       <PageHead
         title="Presentations"
-        lead="Nagarro decks built from what the hub already knows: a reviewed response to a client request, or a project’s own data for an assessment readout or a project update. Each deck has speaker notes and the moments to switch to the live demo. For a deck from an idea alone, use Presentation Studio."
+        lead="Nagarro decks built from what the workspace already knows: a reviewed response to a client request, or a project’s own data for an assessment readout or a project update. Each deck has speaker notes and the moments to switch to the live demo. For a deck from an idea alone, use Presentation Studio."
         actions={
           <Link className="btn btn--primary" to={filter ? `${practice.deckNew}?project=${filter}` : practice.deckNew} data-testid="new-deck">
             <Plus /> New presentation
@@ -363,7 +363,7 @@ export function DeckView() {
                 <button className="btn btn--ghost btn--sm" onClick={() => downloadFile(exportBriefMd(deck))} data-testid="export-brief-md"><Download /> brief.md: the 12 points and the outline</button>
                 <button className="btn btn--ghost btn--sm" onClick={() => downloadFile(exportDeckJson(deck))} data-testid="export-deck-json"><Download /> deck.json, the slide engine’s own format</button>
               </div>
-              <p className="xs muted">This hub does not produce PowerPoint (.pptx) or PDF files: Presentation Studio does. To present from here, use Present (arrow keys to move, F for full screen); slides that switch to the live demo bring you back to the same slide.</p>
+              <p className="xs muted">The workspace does not produce PowerPoint (.pptx) or PDF files: Presentation Studio does. To present from here, use Present (arrow keys to move, F for full screen); slides that switch to the live demo bring you back to the same slide.</p>
             </Panel>
           </div>
           <details className="panel other-ways">

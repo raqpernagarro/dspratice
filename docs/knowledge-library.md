@@ -1,8 +1,8 @@
-# Knowledge library
+# Sources (formerly the knowledge library)
 
-The library is the product. Generation is replaceable; curated, owned, approved and cited sources are what make the hub AI-*ready* rather than an AI-*generated* text machine. Every draft cites the library, and only the library.
+The library is the product. Generation is replaceable; curated, owned, approved and cited sources are what make the workspace AI-*ready* rather than an AI-*generated* text machine. Every draft cites the library, and only the library.
 
-Open it at **Practice › Knowledge library** (`/nagarro/knowledge`).
+Open it at **Settings › Sources** (`/nagarro/settings/sources`; the old `/nagarro/knowledge` paths redirect). It left the sidebar in round 7: people reach sources from a client request's Sources step, and the AI reads them; the page is for owners who approve and add.
 
 ## What a source records
 

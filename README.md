@@ -1,13 +1,16 @@
 # Nagarro Design Workspace (`unified-ds-tool`)
 
-An internal tool for the Nagarro design systems practice. It brings together the practice's knowledge, material and tools for design systems and AI, so colleagues can do useful work without an expert sitting beside them. Home asks one question, "What do you need to do?", and offers two journeys:
+An internal tool for the Nagarro design systems practice: one place where sellers, managers and designers start any design-systems job, in the Nagarro Design look (dark, Equip type, the brand's glass 3D). The sidebar has five places:
 
-- **Prepare a client conversation**: start from a client request (a first draft from approved material, the gaps marked, every answer checked by a person), a project (an assessment readout or a project update), an idea (straight to Carolina Baptista's Presentation Studio) or a live demo. Decks build in one click on her Nagarro Master Slides.
-- **Start a project**: a new design system, set up in the DS Starter Pack's own wizard and recorded in the project, or an existing one, improved step by step with progress you can resume.
+- **Home** asks "What do you need to do?". Type the job, or pick one of fourteen journeys in two groups: *Client conversations* (respond to an RFP, build a presentation, prepare a demo, check AI readiness, turn an idea into a deck, follow up, shape the offer) and *Project work* (start or improve a design system, prototype on a client's system, start a product design workflow, make a system AI-ready, connect Figma and code, share an update). The prompt matches words to journeys with no model call; *Ask AI* is an explicit, metered extra. Journeys without a tool of their own are honest set-up guides.
+- **Projects**: *My work* (what you left unfinished, the projects you are on) and the *team board*: every client and prospect as a card with status, kind of work, people and links. Client requests and presentations belong to a project.
+- **Demos**: ready-made demos on the client demo, a playlist built for one meeting from a sentence, and *social cuts*: captioned 4:5 clips of the demos, filmed as video for posts.
+- **Engagement**: posts for the Nagarro Design page and our own accounts (Nuno Almeida's Starter Pack posts, drafts made from social cuts) and the hand-off to Hugo França's Marketing Studio.
+- **Settings**: sources (what responses and the AI may quote), people, integrations and this tool's limits.
 
-The knowledge library sits under both, with owner, approval, audience and freshness visible. The practice's own tools (the DS Configurator, the DSN site, Presentation Studio) open from **Tools** once you start them with `npm run tools`. More journeys get a card only when real use shows the need.
+The practice's own tools (the DS Configurator, the DSN site, Presentation Studio, the ASSA ABLOY DS Prototyping Tooling) open from their journeys once you start them with `npm run tools`.
 
-It is for Nagarro designers, consultants, delivery leads and sellers. `/` opens Home: the two journeys, then work in progress.
+It is for Nagarro designers, consultants, delivery leads and sellers. `/` opens Home.
 
 **The client demo is a guided showcase we present in meetings, not a client portal.** It tells one story on a fictional company's design system: the challenge, an example system, one inconsistency, why it matters, the proposed fix, the review in code and Figma, AI using the system, and what an engagement could leave behind. Presenter notes open in a separate window; the shared tab never shows them. See [docs/client-demo.md](docs/client-demo.md).
 
@@ -35,12 +38,14 @@ open http://localhost:4300
 
 | Command | What it does |
 |---|---|
-| `npm run dev` | The hub on <http://localhost:4300>, with the local API (model, Figma REST, practice files) |
+| `npm run dev` | The workspace on <http://localhost:4300>, with the local API (model, Figma REST, practice files) |
 | `npm run build` | Typecheck and production build into `dist/` |
 | `npm run build:demo` | The client-safe demo into `dist-demo/`, then a leak check that fails on internal names and markers |
 | `npm run preview` / `npm run preview:demo` | Serve `dist/` on 4301 or `dist-demo/` on 4302 (the local API also works in preview) |
-| `npm test` | Vitest: 18 files, 120 tests |
-| `npm run e2e` | Playwright in Microsoft Edge (`channel: 'msedge'`): 6 specs, 9 tests. Run `npm run build:demo` first |
+| `npm test` | Vitest: 21 files, 157 tests |
+| `npm run e2e` | Playwright in Microsoft Edge (`channel: 'msedge'`): 9 specs, 12 tests. Run `npm run build:demo` first |
+| `npm run clips -- <cut\|all>` | Film a social cut in Edge as a 1080 × 1350 video in `media/clips/` (git-ignored). Needs `npx playwright install ffmpeg` once and the dev server running (`BASE_URL` to pick another) |
+| `npm run handbook:md` | Write the handbook as Markdown for AI tools (`src/knowledge/handbook.md`) |
 | `npm run typecheck` | TypeScript only (core app when the library sources are absent) |
 | `npm run knowledge:local [-- --check]` | Re-read the practice files into the bundled knowledge snapshot, or check it is current |
 | `npm run knowledge:figma -- <capture.json> --source <id>` | Turn a Figma text capture (plugin, figma-cli or MCP) into a knowledge document |
@@ -52,22 +57,29 @@ open http://localhost:4300
 
 ## Practice tools
 
-The hub opens the practice's own tools instead of copying them: **Tools** lists them, and each one opens at `/nagarro/tools/<id>`, inside the page (DS Configurator, DSN site) or in its own tab (Presentation Studio). The list is `src/fixtures/experiences.ts`; the servers are `src/fixtures/tool-servers.json`, read by the hub, the local API (`GET /api/tools`) and `scripts/tools.mjs`.
+The workspace opens the practice's own tools instead of copying them: journeys link to them, and each one opens at `/nagarro/tools/<id>`, inside the page (DS Configurator, DSN site, DS Prototyping Tooling) or in its own tab (Presentation Studio). The list is `src/fixtures/experiences.ts`; the servers are `src/fixtures/tool-servers.json`, read by the hub, the local API (`GET /api/tools`) and `scripts/tools.mjs`.
 
 | Tool | Owner | Default address | Writes into its own folder |
 |---|---|---|---|
 | `starter` · DS Configurator | Nuno Almeida | <http://localhost:4175> | `ds.project.json` |
 | `dsn` · DSN site and Storybook | Rui Dias | <http://localhost:3100> and 6006 | `ds-index.json`, `site/.data` |
 | `studio` · Presentation Studio | Carolina Baptista | <http://localhost:4600> | `product/data`, `assets/uploads` |
+| `prototyping` · DS Prototyping Tooling (ASSA ABLOY) | Raquel Pereira | <http://localhost:4321> | `prototyping/v1/…`, `prototyping/dist` |
 
-Because every tool writes into its own folder, none runs from `../demo tools` (read-only; `scripts/check-sources.mjs` checks all three). A tool runs from your own clone in `sources/` if there is one, else from a copy in `tool-copies/` (git-ignored, outside Vite's file watcher). Addresses can be changed per browser in **Settings › Integrations**. The page checks every few seconds while a tool is down, so starting it in the terminal is enough. Tools on this machine are checked by the local API (`GET /api/tools/probe`), so a stopped tool leaves nothing in the browser console.
+**Marketing Studio** (Hugo França) is Python plus a local TryPost board in Docker, so it is not one of these: install it from `../demo tools/Install-Marketing-Studio` (its INSTALL.md) and Engagement checks whether TryPost answers on <http://localhost:8000>.
+
+Because every tool writes into its own folder, none runs from `../demo tools` (read-only; `scripts/check-sources.mjs` checks all four). A tool runs from your own clone in `sources/` if there is one, else from a copy in `tool-copies/` (git-ignored, outside Vite's file watcher). Addresses can be changed per browser in **Settings › Integrations**. The page checks every few seconds while a tool is down, so starting it in the terminal is enough. Tools on this machine are checked by the local API (`GET /api/tools/probe`), so a stopped tool leaves nothing in the browser console.
 
 ## What works, what needs a key, what is simulated
 
 The same list is in the app at **Settings › About this tool**, so task pages don't repeat it.
 
 **Works on this machine, no AI needed**
-- **Knowledge library**: 34 seed sources (25 with readable text); search, filters for kind, approval and audience; a preview of each source with what it is good for; approve, mark out of date, replace and remove; uploads (Markdown, text, Word, PDF with a text layer, Figma text JSON) stored in IndexedDB; practice files re-read through the local API.
+- **Home**: fourteen journeys as data (`src/fixtures/journeys.ts`), a keyword router (`src/features/nagarro/intent.ts`), set-up guides at `/nagarro/journeys/<id>`.
+- **Projects**: My work and the team board, cards from `src/state/card.ts` and the shared file `src/fixtures/team-board.json`; each project's Requests & decks tab.
+- **Demos**: mini-demos (`src/fixtures/demos.ts`), custom playlists on the guide bar and notes window, saved per project; social cuts (`src/fixtures/social-cuts.ts`) played on the real client demo and filmed with `npm run clips`.
+- **Engagement**: the Starter Pack posts snapshot (`src/fixtures/posts.snapshot.json`, read once from FigJam), drafts from social cuts, and the Marketing Studio commands.
+- **Sources** (Settings): 34 seed sources (25 with readable text); search, filters for kind, approval and audience; a preview of each source with what it is good for; approve, mark out of date, replace and remove; uploads (Markdown, text, Word, PDF with a text layer, Figma text JSON) stored in IndexedDB; practice files re-read through the local API.
 - **Responses to client requests**, six steps (request, context, what they ask, sources, draft response, share and present):
   - requirements listed by rules, with "not from documents" flags for pricing, references, CVs, contract terms, availability and undocumented capabilities;
   - matching passages from the selected sources (BM25 with a design-systems synonym map), each explained;
@@ -77,12 +89,12 @@ The same list is in the app at **Settings › About this tool**, so task pages d
   - guards against invented figures, other clients' names and quotes from internal-only material;
   - downloads, the generation packet, and an optional summary in the client demo's closing chapter.
 - **Presentations**: from a reviewed response, or from a project's data as an **assessment readout** or a **project update** (no request needed). One click builds it (no model) and opens on the slides, rendered by Carolina's engine and checked; an editable outline; present mode; **Edit and export in Presentation Studio** (copies the brief); and downloads (one-file HTML with present mode, `deck.json`, `brief.md`, speaker notes). A deck from an idea alone starts in Presentation Studio. Demo slides open the live client demo in the same tab and **Back to preparation** returns to the same slide.
-- **Set-up journeys**: *Start a new design system* opens the DS Starter Pack’s own set-up wizard in the page (from your clone or `tool-copies/`), then *Record it in the project* reads the `ds.project.json` it saved (or a `.dsproject.json` you choose) and shows what the hub keeps and what stays in the Starter Pack (`src/library/theme/fromStarterProject.ts`). Without the Starter Pack, the basics (name, brands, product, modes) are recorded by hand. Other ways to start: DSN Brands and DSN’s command line. *Improve an existing system* (goals, connect, assess, findings, agree the plan, map the names, review and share, handover) names the real tool for its steps where one exists. A step is ticked when its work is done, never because it was opened.
+- **Set-up journeys**: *Start a new design system* opens the DS Starter Pack’s own set-up wizard in the page (from your clone or `tool-copies/`), then *Record it in the project* reads the `ds.project.json` it saved (or a `.dsproject.json` you choose) and shows what the workspace keeps and what stays in the Starter Pack (`src/library/theme/fromStarterProject.ts`). Without the Starter Pack, the basics (name, brands, product, modes) are recorded by hand. Other ways to start: DSN Brands and DSN’s command line. *Improve an existing system* (goals, connect, assess, findings, agree the plan, map the names, review and share, handover) names the real tool for its steps where one exists. A step is ticked when its work is done, never because it was opened.
 - **Client demo**: the eight-chapter story with a short path (about 12 minutes) and a full path (about 25). Any chapter can be entered directly; the chapters it depends on are set up first. Pause holds the simulation on a state. Reset goes back to the prepared version and never touches preparation.
 - The AI-readiness scorecard and the demo build with its leak check.
 
 **Needs a key on this machine**
-- **AI drafting** ("Draft with AI", "Rewrite with AI") needs `ANTHROPIC_API_KEY`. It shows an estimate at the action, asks for consent per request and records usage. It is tested with mocked responses only; no live call was made.
+- **Ask AI** on Home (kind `route`, the journey list only) and **AI drafting** ("Draft with AI", "Rewrite with AI") need `ANTHROPIC_API_KEY`. It shows an estimate at the action, asks for consent per request and records usage. It is tested with mocked responses only; no live call was made.
 - **Figma refresh and folder listing** need `FIGMA_TOKEN`. The routes are built and unit-tested but not exercised against Figma.
 
 **Captured once, refreshed without tokens**
@@ -93,48 +105,51 @@ The same list is in the app at **Settings › About this tool**, so task pages d
 - Scans of a client's repository and Figma file (they read a fictional sample system), pull requests and checks, the Figma review and apply, the files AI tools read, release checks and agent suggestions, the rule-based screen builder.
 
 **Not available here**
-- A hosted multi-user mode or shared storage: each person's projects, requests and uploads live in their own browser.
-- Editable PowerPoint or PDF: Presentation Studio exports both. A deck's **Share** tab copies its brief for Studio to rebuild it; opening this hub's `deck.json` there is to be confirmed with Carolina.
+- A hosted multi-user mode or shared storage: each person's projects, requests and uploads live in their own browser. The team board shares only what is in `src/fixtures/team-board.json`.
+- Posting: nothing posts from the workspace or from Marketing Studio.
+- Editable PowerPoint or PDF: Presentation Studio exports both. A deck's **Share** tab copies its brief for Studio to rebuild it; opening the workspace's `deck.json` there is to be confirmed with Carolina.
 
 ## Where to read more
 
 | Topic | Document |
 |---|---|
+| The journeys on Home and how to add one | [docs/journeys.md](docs/journeys.md) |
 | Sources, approval, scope, refresh, limits | [docs/knowledge-library.md](docs/knowledge-library.md) |
 | Reading Figma: plugin, REST, figma-cli, MCP, token costs | [docs/figma-reading.md](docs/figma-reading.md) |
 | Answering a real client request, end to end | [docs/opportunity-workflow.md](docs/opportunity-workflow.md) |
 | Decks on the Nagarro Master Slides engine | [docs/presentations.md](docs/presentations.md) |
-| Presenting the client demo: the story, paths, notes window, reset | [docs/client-demo.md](docs/client-demo.md) |
+| Presenting the client demo: the story, paths, playlists, social cuts, notes window, reset | [docs/client-demo.md](docs/client-demo.md) |
 | Voice, terms and button verbs | [docs/writing.md](docs/writing.md) |
 | The client-safe demo build and its deploy checklist | [docs/demo-build.md](docs/demo-build.md) |
-| Getting the hub to colleagues (GitHub, keys, what is never committed) | [docs/distribution.md](docs/distribution.md) |
+| Getting the workspace to colleagues (GitHub, keys, what is never committed) | [docs/distribution.md](docs/distribution.md) |
 | Adding a source, a tool, a demo or a template mapping | [CONTRIBUTING.md](CONTRIBUTING.md) |
 | Licences: Equip, Carolina's engine, the library sources, figma-cli | [LICENSES.md](LICENSES.md) |
 
 ## How it is built
 
-- **Stack.** Vite 7, React 19, react-router 7, and one persisted Zustand store (schema 4, `src/state`).
-- **Projects.** Each project has a `draft` (preparation), a `published` version (what the client demo shows; last three kept), a demo `session` (what happens during a meeting, resettable) and `clientExperience`. Every edit in the hub lands in the draft. **Update the client demo** snapshots it. Journey progress is preparation: it never marks the draft as changed.
+- **Stack.** Vite 7, React 19, react-router 7, and one persisted Zustand store (schema 5, `src/state`).
+- **Projects.** Each project has a `draft` (preparation), a `published` version (what the client demo shows; last three kept), a demo `session` (what happens during a meeting, resettable) and `clientExperience`. Every edit in the workspace lands in the draft. Each project also has a `card` for the team board (schema 5). **Update the client demo** snapshots it. Journey progress is preparation: it never marks the draft as changed.
 - **New data stays at project level.** Requests, decks and response summaries live on the project, and the knowledge library under `practice.knowledge`. They are never cloned into published versions or sessions, and never mark the draft as changed. A summary added to the client demo is a frozen, client-safe copy whose provenance is kept as hashes only.
-- **Home** asks "What do you need to do?" with one card per journey: *Prepare a client conversation* and *Start a project* (which asks new or existing system first).
-- **Navigation.** One stable sidebar of six (Home, Client conversations, Projects, Knowledge library, Tools, Settings). Client conversations holds Opportunities, Presentations and the Client demo as tabs; requests and decks live under their practice-wide lists; a project's own sections are tabs in its header. Old project-level paths and numeric journey steps redirect.
+- **Home** asks "What do you need to do?": the prompt and two groups of journeys, all from `src/fixtures/journeys.ts`.
+- **Navigation.** One stable sidebar of five (Home, Projects, Demos, Engagement, Settings). Projects has tabs My work, Team board, Client requests and Presentations; Demos has Demos, Prepare a meeting and Scorecard; a project's own sections are tabs in its header. Old paths (`/nagarro/conversations`, `/nagarro/knowledge`, `/nagarro/tools`, `/nagarro/guides`, project-level request and deck paths, numeric journey steps) redirect.
 - **Presenter notes** live in `src/internal/presenterNotes.ts` and the notes window (`/presenter/:slug`, synced over `BroadcastChannel`). The client-facing chapters are in `src/features/demo/steps.ts`; `prepare.ts` sets up a chapter's prerequisites.
 - **Document bodies** live in IndexedDB (`unified-ds-tool-knowledge`). Seed bodies are bundled JSON in `src/fixtures/knowledge/docs/`.
 - **Pure modules** (`src/knowledge`, `src/opportunity`, `src/deck`) have no DOM, so Node scripts, Vitest and the browser share one implementation.
 - **The local API** is a Vite plugin (`server/local-api.ts`) that serves `/api/status`, `/api/generate`, `/api/figma/*` and `/api/local/*`. Local reads are limited to an allowlist. Keys never reach the browser.
 - **Internal-only seeds**, including the knowledge library, sample opportunities and the client deny-list, are registered from `src/internal/register.ts`. The demo build swaps that module for an empty one, so none of it ships.
 - **Carolina's engine** is vendored unmodified in `public/vendor/nagarro-master-slides/`, with a version file and SHA-256 hashes. It renders only inside `slides.html`, an isolated frame, so its CSS never touches the shell.
+- **Look.** The shell is dark (design.nagarro.com): components use role tokens (`--n-surface`, `--n-fill`, `--n-band`, `--n-strong`, `--n-line`) in `src/styles/base.css`, never the ink/white primitives; client systems in `DemoScope` and the slides keep their own theme. The brand's 3D renders are `--n-art-*` tokens over `public/brand/3d/`.
 - **Brand tokens.** The shell's `--n-*` tokens alias the engine's tokens (`--fg-100`, `--accent-primary`, …) from `brand-tokens.css`. The shell uses the licensed Equip fonts (`public/fonts/equip`; see [LICENSES.md](LICENSES.md)).
 
 ```
 src/
   app/          routes, router (and router.demo), screens
-  shell/        AppShell, nav model, ProjectHeader, DemoBar, Menu, present (hub ⇄ demo), story pieces, provenance, ui primitives
+  shell/        AppShell, nav model, ProjectHeader, DemoBar, Menu, present (workspace ⇄ demo), story pieces, provenance, ui primitives
   state/        store, slices (knowledge, opportunity, deck, projects…), flows, tasks, migrate (v2→v3→v4)
   knowledge/    types, docStore, resolve, retrieve (BM25), conflicts, extract/ (markdown, plain, html, figmaText, upload)
   opportunity/  extract, rules, compose, validate, prompts, packet, exports, selectors
   deck/         catalog (generated from the engine), fromOpportunity, checks, exports
-  features/     knowledge, opportunity, presentations, hub (tools, demos, integrations), scorecard, demo-site, client, …
+  features/     knowledge, opportunity, presentations, hub (integrations), demos (stage, cuts), engagement (posts, Marketing Studio), nagarro (Home, journeys, Projects), scorecard, demo-site, client, …
   internal/     register.ts (internal seeds, deny-list) · presenterNotes.ts · register.demo.ts (empty)
   fixtures/     demo-brand, reference, knowledge (registry, conflicts, opportunities, samples, docs)
 server/         local-api.ts, schemas.ts

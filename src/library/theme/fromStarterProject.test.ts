@@ -69,7 +69,7 @@ describe('fromStarterProject', () => {
     expect(notKept).toMatch(/1 saved prototype/)
   })
 
-  it('falls back to the hub’s own values where the Starter left its defaults', () => {
+  it('falls back to the workspace’s own values where the Starter left its defaults', () => {
     const imp = fromStarterProject(file({ theme: { modes: ['light'] }, project: { name: 'Solo' }, versions: [] }), DEFAULT_THEME)
     expect(imp.patch).toMatchObject({ name: 'Solo', appearance: 'light', color: { main: DEFAULT_THEME.color.main }, type: DEFAULT_THEME.type, radius: DEFAULT_THEME.radius, repoUrl: DEFAULT_THEME.repoUrl })
     expect(imp.patch.brands).toEqual([{ id: 'solo', name: 'Solo', main: DEFAULT_THEME.color.main, accent: DEFAULT_THEME.color.main, isDefault: true }])

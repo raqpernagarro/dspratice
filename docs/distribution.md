@@ -1,4 +1,4 @@
-# Getting the hub to colleagues
+# Getting the workspace to colleagues
 
 ## Recommended now: a private GitHub repository, run locally
 
@@ -13,7 +13,7 @@ npm run dev
 - Keys stay on each person's machine.
 - Client text stays in their browser.
 - Nobody needs a hosted service approved before they can use it.
-- Without a key the hub spends no model tokens at all.
+- Without a key the workspace spends no model tokens at all.
 
 **Steps for Raquel**
 1. Create a private repository in the Nagarro GitHub organisation (for example `nagarro-dv/ds-hub`).
@@ -44,7 +44,7 @@ Also search the history for keys.
 
 ## Keys
 
-- `ANTHROPIC_API_KEY` is optional. Use a Nagarro-approved key: per person, or a shared one from a team account with a spend limit. The hub shows the estimate and usage of every call.
+- `ANTHROPIC_API_KEY` is optional. Use a Nagarro-approved key: per person, or a shared one from a team account with a spend limit. The workspace shows the estimate and usage of every call.
 - `FIGMA_TOKEN` is optional: a personal access token with read scopes only.
 
 ## Next options, when the practice outgrows "run it locally"

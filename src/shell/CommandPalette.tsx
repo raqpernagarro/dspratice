@@ -67,7 +67,6 @@ export function CommandPalette() {
         return out
       }
       out.push({ group: 'Go to', label: 'Home', to: practice.home, icon: <Search /> })
-      out.push({ group: 'Go to', label: 'Prepare a client conversation', to: practice.conversations, icon: <Target /> })
       out.push({ group: 'Go to', label: 'Respond to a client request', to: practice.opportunityStart, icon: <Target /> })
       out.push({ group: 'Go to', label: 'Start a project', to: practice.start, icon: <Building2 /> })
       out.push({ group: 'Go to', label: 'Prepare a meeting', to: practice.meetingPrep(), icon: <Sparkles /> })
@@ -82,7 +81,7 @@ export function CommandPalette() {
         for (const o of Object.values(p.opportunities ?? {})) if (match(`${o.title} ${p.client.name}`)) out.push({ group: 'Client requests', label: o.title, meta: p.client.name, to: practice.opportunityEntry(o.id), icon: <Target /> })
         for (const d of Object.values(p.decks ?? {})) if (match(`${d.title} ${p.client.name}`)) out.push({ group: 'Presentations', label: d.title, meta: p.client.name, to: practice.deck(d.id), icon: <Presentation /> })
       }
-      for (const src of registry) if (match(`${src.title} ${src.owner ?? ''} ${src.tags.join(' ')}`)) out.push({ group: 'Knowledge library', label: src.title, meta: src.approval, to: practice.knowledgeSource(src.id), icon: <Library /> })
+      for (const src of registry) if (match(`${src.title} ${src.owner ?? ''} ${src.tags.join(' ')}`)) out.push({ group: 'Sources', label: src.title, meta: src.approval, to: practice.knowledgeSource(src.id), icon: <Library /> })
     }
     for (const c of components) if (match(c.name + ' ' + c.description)) out.push({ group: 'Components', label: c.name, meta: `${c.usedIn} places`, to: r.component(c.id), icon: <Box /> })
     for (const t of tokens) if (match(t.path + ' ' + t.cssName + ' ' + t.figmaName)) out.push({ group: 'Tokens', label: t.figmaName, meta: t.tier, to: r.token(t.id), icon: <Palette /> })

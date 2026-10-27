@@ -81,7 +81,7 @@ The summary appears in the client demo's last chapter (**Outcome and next step �
 
 ## Using it for a real client request
 
-1. **Library first.** Check that the sources you rely on are approved by their owners (Knowledge library › Needs attention). Add the client's own documents as client-scoped sources. Approve reuse only when the content is cleared.
+1. **Library first.** Check that the sources you rely on are approved by their owners (Settings › Sources › Needs attention). Add the client's own documents as client-scoped sources. Approve reuse only when the content is cleared.
 2. **Create the project** for the client or prospect (Projects › New project, or directly in **Respond to a client request**) and the request with its kind of response.
 3. **Paste or upload the request.** Real client text stays in your browser unless you choose an AI action.
 4. **Go through Context, What they ask and Sources.** Fix the requirement list: it drives everything after it.
@@ -106,4 +106,4 @@ The summary appears in the client demo's last chapter (**Outcome and next step �
 - an out-of-date source raises the deck's Rebuild banner;
 - there are no console errors.
 
-Other specs: `orientation.spec.ts` (Home asks what you need to do, with two journeys; the six-item sidebar; Prepare a client conversation and its four starts; Start a project asks new or existing; no header overlap at 1280 and 1440; fonts; one current nav item; empty state), `journeys.spec.ts` (a Starter Pack set-up recorded from its project file; the basics by hand and the improve journey: nothing ticked by opening, resume), `client-demo.spec.ts` (direct chapter entry, Show me, keyboard, notes window, reset, Back to preparation, reduced motion).
+Other specs: `orientation.spec.ts` (Home asks what you need to do: the two groups of journeys, the prompt routing words to a journey, a set-up guide, the five-item sidebar, the old conversations page landing on Home; Start a project asks new or existing; no header overlap at 1280 and 1440; fonts; one current nav item; empty state), `journeys.spec.ts` (a Starter Pack set-up recorded from its project file; the basics by hand and the improve journey: nothing ticked by opening, resume), `client-demo.spec.ts` (direct chapter entry, Show me, keyboard, notes window, reset, Back to preparation, reduced motion).

@@ -1,7 +1,7 @@
 import { Link, NavLink, useParams } from 'react-router'
 import { PageHead } from '@/shell/PageHead'
 import { useIsClient, usePaths } from '@/state/hooks'
-import { practice, type RouteFamily } from '@/app/routes'
+import type { RouteFamily } from '@/app/routes'
 import { Reveal } from '@/motion'
 import { Chip } from '@/shell/ui'
 
@@ -12,7 +12,7 @@ interface Chapter {
   body: (r: RouteFamily) => React.ReactNode
 }
 
-const CHAPTERS: Chapter[] = [
+export const CHAPTERS: Chapter[] = [
   {
     slug: 'why',
     title: 'Why AI-ready, not AI-generated',
@@ -183,7 +183,7 @@ const CHAPTERS: Chapter[] = [
     slug: 'which-path',
     title: 'Which path fits a client',
     internal: true,
-    body: (r) => (
+    body: () => (
       <>
         <p className="lead">Five situations, from the practice’s decision map. The next step is a package, not a tool.</p>
         <table>
@@ -249,9 +249,6 @@ const CHAPTERS: Chapter[] = [
             </tr>
           </tbody>
         </table>
-        <p>
-          In the hub: <Link to={practice.startSystem('new')}>start a new design system</Link>, <Link to={practice.projects}>Projects</Link>, <Link to={r.meeting}>Prepare a meeting</Link>.
-        </p>
       </>
     ),
   },

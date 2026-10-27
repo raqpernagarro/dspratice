@@ -63,7 +63,7 @@ export function fromStarterProject(raw: unknown, current: ThemeConfig): StarterI
     }
   }
   if (!isObj(data) || data.format !== STARTER_PROJECT_FORMAT) throw new Error('This is not a DS Starter Pack project file. Look for ds.project.json in the copy, or a file ending in .dsproject.json.')
-  if (typeof data.version !== 'number' || data.version > SUPPORTED_VERSION) throw new Error('This project file was made by a newer DS Configurator than the hub reads. Ask the hub’s maintainer to update the import.')
+  if (typeof data.version !== 'number' || data.version > SUPPORTED_VERSION) throw new Error('This project file was made by a newer DS Configurator than the workspace reads. Ask the workspace’s maintainer to update the import.')
   const project = isObj(data.project) ? data.project : {}
   const theme = isObj(data.theme) ? data.theme : {}
   const color = isObj(theme.color) ? theme.color : {}
@@ -83,7 +83,7 @@ export function fromStarterProject(raw: unknown, current: ThemeConfig): StarterI
   const appearance: ThemeConfig['appearance'] = modes.length > 1 ? 'both' : base
   const separate = isObj(theme.separate) && modes[1] ? Boolean((theme.separate as Record<string, unknown>)[modes[1]]) : false
   kept.push(appearance === 'both' ? `Light and dark, ${base} first, the second ${separate ? 'set up on its own' : 'following'}` : `${base === 'light' ? 'Light' : 'Dark'} only`)
-  if (separate) notKept.push(`The ${modes[1]} mode’s own colours (the hub keeps one colour set)`)
+  if (separate) notKept.push(`The ${modes[1]} mode’s own colours (the workspace keeps one colour set)`)
 
   const productType = str(project.appType) || current.productType
   kept.push(`Product: ${productType}`)
@@ -92,7 +92,7 @@ export function fromStarterProject(raw: unknown, current: ThemeConfig): StarterI
   const mainHex = main ? oklchToHex(main) : current.color.main
   const accent = hex(color.accent) ?? mainHex
   const neutralTint = num(color.neutralTint) ?? current.color.neutralTint
-  kept.push(main ? `Brand colour ${mainHex}` : 'Brand colour: the Starter Pack default, so the hub keeps its own')
+  kept.push(main ? `Brand colour ${mainHex}` : 'Brand colour: the Starter Pack default, so the workspace keeps its own')
 
   const starterBrands = (Array.isArray(theme.brands) ? theme.brands : []).filter(isObj)
   const brands: BrandDef[] = starterBrands.length
@@ -105,14 +105,14 @@ export function fromStarterProject(raw: unknown, current: ThemeConfig): StarterI
     : [{ id: slug(name) as BrandId, name, main: mainHex, accent, isDefault: true }]
   kept.push(starterBrands.length ? `${plural(brands.length, 'brand')}: ${brands.map((b) => b.name).join(', ')}` : 'One brand')
   const brandFonts = starterBrands.filter((b) => isObj(b.own) && (b.own.fonts || b.own.shape)).length
-  if (brandFonts) notKept.push(`Fonts or shape owned by ${plural(brandFonts, 'brand')} (the hub keeps the main brand’s)`)
+  if (brandFonts) notKept.push(`Fonts or shape owned by ${plural(brandFonts, 'brand')} (the workspace keeps the main brand’s)`)
 
   const family = (f: unknown) => (isObj(f) && typeof f.family === 'string' ? f.family : null)
   const body = family(type.body)
   const heading = family(type.heading) ?? body
   const baseSize = num(type.baseSize)
   const headingWeight = num(extras.headingWeight)
-  kept.push(body || heading ? `Type: ${heading ?? current.type.heading} and ${body ?? current.type.body}` : 'Type: the Starter Pack default fonts, so the hub keeps its own')
+  kept.push(body || heading ? `Type: ${heading ?? current.type.heading} and ${body ?? current.type.body}` : 'Type: the Starter Pack default fonts, so the workspace keeps its own')
 
   const radius = num(theme.radius)
   const density = num(theme.density)

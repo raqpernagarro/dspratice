@@ -23,7 +23,7 @@ export function Connect() {
 
       <div className="grid grid--side">
         <Panel>
-          <Field label="Repository" id="c-repo" hint="GitHub, GitLab or a local path. In this sample, a URL containing “flutter” shows what happens with a stack the hub cannot read.">
+          <Field label="Repository" id="c-repo" hint="GitHub, GitLab or a local path. In this sample, a URL containing “flutter” shows what happens with a stack the workspace cannot read.">
             <div className="row">
               <Github style={{ width: 18, color: 'var(--n-fg-muted)' }} />
               <input id="c-repo" className="input" value={repo} onChange={(e) => setRepo(e.target.value)} style={{ flex: 1 }} />

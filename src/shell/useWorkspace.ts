@@ -35,7 +35,7 @@ export function navFor(ws: Workspace, r: RouteFamily): NavItem[] {
     { to: practice.myWork, label: 'Projects', match: [practice.myWork, practice.projects, '/nagarro/start', practice.opportunities, practice.presentations], icon: 'clients' },
     { to: practice.demos, label: 'Demos', match: [practice.demos, practice.scorecard], icon: 'demos' },
     { to: practice.engagement, label: 'Engagement', match: [practice.engagement], icon: 'engagement' },
-    { to: practice.settings, label: 'Settings', match: [practice.settings, practice.guides], icon: 'settings', group: 'foot' },
+    { to: practice.settings, label: 'Settings', match: [practice.settings], icon: 'settings', group: 'foot' },
   ]
 }
 

@@ -48,7 +48,7 @@ export function SourceDetail() {
         noTabs
         crumbs={[{ label: 'Sources', to: practice.knowledge }, { label: source.title }]}
         title={source.title}
-        lead={source.approvalNote ?? 'Where it lives, who owns it, what the hub read from it, and where it has been used.'}
+        lead={source.approvalNote ?? 'Where it lives, who owns it, what the workspace read from it, and where it has been used.'}
         eyebrow={
           <>
             <Chip tone="outline">{KIND_OPTIONS.find((k) => k.id === source.kind)?.label ?? source.kind}</Chip>
@@ -85,13 +85,13 @@ export function SourceDetail() {
       {!can.ok && <Callout tone="info">{can.why}</Callout>}
       <div className="grid grid--side">
         <div className="stack">
-          <Panel title="What the hub read" actions={kdoc ? <span className="xs muted">{kdoc.stats.sections} sections · {kdoc.stats.chars.toLocaleString()} characters</span> : undefined}>
+          <Panel title="What the workspace read" actions={kdoc ? <span className="xs muted">{kdoc.stats.sections} sections · {kdoc.stats.chars.toLocaleString()} characters</span> : undefined}>
             {loading ? (
               <p className="muted">Loading…</p>
             ) : kdoc ? (
               <SectionList doc={kdoc} highlightId={location.hash.slice(1) || undefined} />
             ) : source.availability === 'inaccessible' ? (
-              <Callout tone="err">{source.availabilityMessage ?? 'The hub has no access to this source.'}</Callout>
+              <Callout tone="err">{source.availabilityMessage ?? 'The workspace has no access to this source.'}</Callout>
             ) : source.availability === 'unsupported' ? (
               <Callout tone="warn">{source.availabilityMessage ?? 'This format is not read. Export it to PDF or markdown, or paste the text with Replace.'}</Callout>
             ) : (

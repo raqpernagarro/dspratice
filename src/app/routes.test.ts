@@ -94,7 +94,6 @@ describe('navigation keeps the parent selected on detail routes', () => {
     expect(activeNav(nav, practice.deck('deck-1'))?.label).toBe('Projects')
     expect(activeNav(nav, practice.meetingPrep('demo-brand').split('?')[0])?.label).toBe('Demos')
     expect(activeNav(nav, practice.scorecard)?.label).toBe('Demos')
-    expect(activeNav(nav, practice.guide('why'))?.label).toBe('Settings')
     expect(activeNav(nav, practice.knowledgeSource('x'))?.label).toBe('Settings')
     expect(activeNav(nav, practice.engagement)?.label).toBe('Engagement')
     for (const list of [practice.myWork, practice.projects, practice.opportunities, practice.presentations]) {

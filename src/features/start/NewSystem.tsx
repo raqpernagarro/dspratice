@@ -43,7 +43,7 @@ function RecordPanel({ client }: { client: string }) {
       preview(res.text, res.path)
     } catch (e) {
       const offline = e instanceof IntegrationError && e.code === 'offline'
-      setState({ kind: 'error', message: offline ? 'The hub’s local server is not running, so it cannot read the copy. Choose the project file instead.' : e instanceof Error ? e.message : String(e) })
+      setState({ kind: 'error', message: offline ? 'The workspace’s local server is not running, so it cannot read the copy. Choose the project file instead.' : e instanceof Error ? e.message : String(e) })
     }
   }
   const choose = async (f: File | undefined) => {
@@ -84,7 +84,7 @@ function RecordPanel({ client }: { client: string }) {
           />
           <div className="grid grid--2">
             <div>
-              <h4 style={{ margin: '0 0 6px' }}>The hub keeps</h4>
+              <h4 style={{ margin: '0 0 6px' }}>The workspace keeps</h4>
               <ul className="small" style={{ margin: 0, paddingLeft: '1.2em' }}>{state.imp.kept.map((k) => <li key={k}>{k}</li>)}</ul>
             </div>
             <div>

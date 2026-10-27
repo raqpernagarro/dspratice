@@ -4,7 +4,6 @@ import { useStore } from '@/state/store'
 import { IMPROVE_LEGACY, IMPROVE_STEPS, practice, type ImproveStep as ImproveSlug, type OpportunityStep } from './routes'
 import { LegacyRedirect } from './LegacyRedirect'
 import { ClientEntry, NagarroLayout, OwnerRouteSync, ProjectRouteSync } from '@/shell/layouts'
-import { HandbookPage } from '@/features/handbook/HandbookPage'
 import { NagarroHome } from '@/features/nagarro/NagarroHome'
 import { ClientPortfolio } from '@/features/nagarro/ClientPortfolio'
 import { MyWork } from '@/features/nagarro/MyWork'
@@ -123,8 +122,9 @@ export const router = createBrowserRouter([
       { path: 'journeys/:id', element: <JourneyGuide /> },
       { path: 'library', element: <Navigate to={practice.projects} replace /> },
       { path: 'library/:id', element: <Navigate to={practice.projects} replace /> },
-      { path: 'guides', element: <HandbookPage /> },
-      { path: 'guides/:slug', element: <HandbookPage /> },
+      // The handbook lives in the client demo (How we work) and as AI context (src/knowledge/handbook.md), not in the workspace.
+      { path: 'guides', element: <Navigate to={practice.about} replace /> },
+      { path: 'guides/:slug', element: <Navigate to={practice.about} replace /> },
       { path: 'presentations', element: lazyPage(decks, 'DecksPractice') },
       { path: 'presentations/new', element: lazyPage(decks, 'DeckBuilder') },
       { path: 'presentations/:id', element: <OwnerRouteSync kind="deck" />, children: [{ index: true, element: lazyPage(decks, 'DeckView') }] },

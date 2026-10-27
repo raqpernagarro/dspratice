@@ -43,11 +43,11 @@ export function StudioHandoff({ deck }: { deck: Deck }) {
       {copied && <p className="small">Paste it into Studio’s prompt box, then choose Generate.</p>}
       {run.state === 'down' && (
         <div className="stack" style={{ gap: 6 }}>
-          <span className="small muted">Studio is not running. Start it from the hub folder:</span>
+          <span className="small muted">Studio is not running. Start it from the workspace folder:</span>
           <CommandLine cmd={startCommand('studio')} />
         </div>
       )}
-      <p className="xs muted">Opening this hub’s deck.json in Studio is not confirmed with Carolina yet, so Studio rebuilds the deck from the brief rather than importing these exact slides.</p>
+      <p className="xs muted">Opening the workspace’s deck.json in Studio is not confirmed with Carolina yet, so Studio rebuilds the deck from the brief rather than importing these exact slides.</p>
     </Panel>
   )
 }

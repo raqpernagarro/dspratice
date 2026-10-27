@@ -6,14 +6,14 @@
 - the client demo on the fictional **Demo Brand**, with the guided story (`/client/demo-brand?guide=meeting`; see [client-demo.md](client-demo.md));
 - the **AI-readiness scorecard** (`/scorecard`): ten questions in five dimensions, a level from 1 to 5, the three weakest areas and a first step. Answers never leave the page; there is a print view.
 
-It contains no hub pages, no knowledge library, no client requests, no presenter notes, no internal seeds and no local API. Any other path falls back to the landing page. Like the client demo in the hub, it is a demonstration on a fictional company, not a client portal.
+It contains no workspace pages, no knowledge library, no client requests, no presenter notes, no internal seeds and no local API. Any other path falls back to the landing page. Like the client demo in the workspace, it is a demonstration on a fictional company, not a client portal.
 
 ## How internal material is kept out
 
 - The demo router (`src/app/router.demo.tsx`) only knows the landing page, the scorecard and the client routes.
 - `src/internal/register.ts` registers the knowledge library, the sample opportunities and the client deny-list. In demo mode it is swapped for `register.demo.ts`, which is empty, so Rollup never bundles that material.
 - Carolina's engine is removed from the output: the demo has no slides, and her template examples name real clients.
-- Presenter notes (`src/internal/presenterNotes.ts`) and the notes window are only imported by the hub router, so they are never bundled; the presenter-only buttons are removed at build time.
+- Presenter notes (`src/internal/presenterNotes.ts`) and the notes window are only imported by the workspace router, so they are never bundled; the presenter-only buttons are removed at build time.
 - The demo uses its own storage key (`unified-ds-tool:demo`).
 - `scripts/check-demo-build.mjs` scans every output file for 30 internal markers and fails the build on any hit:
   - internal source identifiers and the Contoso isolation marker;

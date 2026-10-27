@@ -26,7 +26,7 @@ export function SourceBadge({ source }: { source: KnowledgeSource }) {
 }
 
 export function GenerationBadge({ mode, model, at }: { mode: 'template' | 'model'; model?: string; at?: number }) {
-  if (mode === 'model') return <LiveBadge what={`Model draft · ${model ?? 'model'}${at ? ` · ${day(at)}` : ''}`} title="Drafted by the configured model from the selected sources, then checked by the hub. Review before sharing." />
+  if (mode === 'model') return <LiveBadge what={`Model draft · ${model ?? 'model'}${at ? ` · ${day(at)}` : ''}`} title="Drafted by the configured model from the selected sources, then checked by the workspace. Review before sharing." />
   return <SimBadge what="Drafted by rules (no AI)" detail="Built from the request and the sources’ own words by rules. No AI model was used and no tokens were spent." />
 }
 

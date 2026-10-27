@@ -37,7 +37,7 @@ export function NotesWindow() {
   if (!channel.current && typeof BroadcastChannel === 'undefined') {
     return (
       <main className="notes-window">
-        <p>This browser cannot link two windows. Use the meeting-prep page in the hub for your notes.</p>
+        <p>This browser cannot link two windows. Use the meeting-prep page in the workspace for your notes.</p>
       </main>
     )
   }

@@ -1,4 +1,4 @@
-# Writing in the hub
+# Writing in the workspace
 
 One voice: an experienced colleague helping someone finish a task. Clear, natural English; professional, approachable and confident.
 
@@ -16,11 +16,18 @@ One voice: an experienced colleague helping someone finish a task. Clear, natura
 
 | Term | Meaning | Use |
 |---|---|---|
-| Journey | One job a colleague comes to do, shown as a card on Home ("Prepare a client conversation", "Start a project") | Add a journey only when real use shows the need |
-| Client conversations | The sidebar area holding Opportunities, Presentations and the Client demo | Not "sales", "pipeline" or "win work" in navigation |
-| Tools | The practice's own tools behind the journeys, and the guides | Not "Tools and guides" |
+| Nagarro Design Workspace | This tool. "The workspace" in running text | Not "the hub" or "Design System Hub" |
+| Journey | One job a colleague comes to do, listed on Home and described once in src/fixtures/journeys.ts ("Respond to an RFP or proposal", "Prototype on a client’s design system") | A title says the job, starting with a verb. Add one when real use shows the need |
+| Set-up guide | A journey with no tool of its own yet: steps and links, never progress | Label it "Set-up guide · no tool yet" |
+| Client conversations / Project work | The two groups of journeys on Home | Not "sales", "pipeline" or "win work" |
+| Team board / My work | The two tabs of Projects: every client and prospect as a card; what I left unfinished and the projects I am on | The board is a portfolio, not a task list: tasks stay in Jira |
+| Demos / mini-demo / playlist | The Demos area; a ready-made demo; chapters chosen for one meeting | Not "tour" |
+| Social cut | A short captioned 4:5 clip of a demo, for a post | Keep its notes on where facts come from; say when a wait is sped up |
+| Engagement | The area for posts that advocate design at Nagarro, and Marketing Studio | In the workspace, only this meaning: a client project is a "project". Client-facing demo text may still say "an engagement" for the work we would do together |
+| Practice tools | The practice's own tools behind the journeys (DS Configurator, DSN, Presentation Studio, DS Prototyping Tooling) | Opened from a journey; there is no Tools page |
+| Sources | What responses and the AI may quote, with owner and approval (Settings › Sources) | Not "knowledge library" in text people read |
 | Client demo | The guided showcase we present in meetings | Not "client workspace", "client experience" or "portal" |
-| Project | One client's or prospect's design-system work | Not "engagement" in navigation |
+| Project | One client's or prospect's work, at any stage from opportunity to delivered | Not "engagement" |
 | Client request | An RFP, questionnaire or brief we respond to | The list is called Opportunities |
 | System contract | One small file in the client's repository that records tokens, components, rules and which side leads for each part, so people and tools read the same thing | Explain it the first time on a page |
 | Finding | A place where the system breaks one of its rules, with evidence and the side to fix | |

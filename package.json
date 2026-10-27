@@ -20,7 +20,8 @@
     "slides:sync": "node scripts/sync-nagarro-slides.mjs",
     "tokens:sync": "node scripts/sync-brand-tokens.mjs",
     "tools": "node scripts/tools.mjs",
-    "clips": "node scripts/clips.mjs"
+    "clips": "node scripts/clips.mjs",
+    "handbook:md": "vite-node scripts/handbook-md.tsx"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.1.0",

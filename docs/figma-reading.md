@@ -1,4 +1,4 @@
-# Reading Figma into the knowledge library
+# Reading Figma into Sources
 
 The library reads Figma as **text in reading order, frame by frame**, with a link back to each frame. One extractor, `figma-plugin/extract-text.js` (format `figma-text@1`), runs in four places. Every route produces the same JSON, which the app and `npm run knowledge:figma` turn into a knowledge document.
 
@@ -17,7 +17,7 @@ The library reads Figma as **text in reading order, frame by frame**, with a lin
 1. `figma-plugin/code.js` is generated and committed. Rebuild it with `node scripts/build-figma-plugin.mjs` only after editing the extractor or the plugin glue.
 2. In Figma desktop, open **Plugins › Development › Import plugin from manifest…** and pick `figma-plugin/manifest.json`.
 3. Open the file and the page, then run **Nagarro knowledge export**. Choose **Copy JSON** or **Download JSON**.
-4. In the hub, open **Knowledge library › Add a source** (or **Replace** on an existing source) and drop the JSON in.
+4. In the workspace, open **Settings › Sources › Add a source** (or **Replace** on an existing source) and drop the JSON in.
 
 The plugin:
 - is read-only;

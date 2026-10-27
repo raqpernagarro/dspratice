@@ -167,7 +167,7 @@ export function AddSourceSheet({ onClose, replace, returnTo }: { onClose: () => 
             </Field>
             {!integrations.figma.configured && (
               <Callout tone="info">
-                Figma REST is not configured, so the hub cannot read the file itself. Register it now, then read it with the <strong>Nagarro knowledge export</strong> Figma plugin (zero tokens, any plan, no AI needed) and upload the JSON with Replace. A FIGMA_TOKEN in .env.local lets the hub read it directly.
+                Figma REST is not configured, so the workspace cannot read the file itself. Register it now, then read it with the <strong>Nagarro knowledge export</strong> Figma plugin (zero tokens, any plan, no AI needed) and upload the JSON with Replace. A FIGMA_TOKEN in .env.local lets the workspace read it directly.
               </Callout>
             )}
             <div className="row" style={{ gap: 8 }}>

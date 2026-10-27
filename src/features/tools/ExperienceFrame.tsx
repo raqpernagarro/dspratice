@@ -49,7 +49,7 @@ function StartIt({ server, files, address }: { server: ToolServer; files: ToolFi
     <Panel title={`${server.name} is not running`} className="xframe__start">
       {files?.runFrom === 'missing' ? (
         <p className="small">
-          {server.from} is not on this machine. Ask {server.owner} for access to {server.repo}, then clone it into <code>sources/{server.dir}</code> in the hub folder.
+          {server.from} is not on this machine. Ask {server.owner} for access to {server.repo}, then clone it into <code>sources/{server.dir}</code> in the workspace folder.
         </p>
       ) : (
         <ol className="xframe__steps small">
@@ -62,7 +62,7 @@ function StartIt({ server, files, address }: { server: ToolServer; files: ToolFi
             </li>
           )}
           <li>
-            <span>Start it from the hub folder and leave the terminal open. The first start can take a minute{files && !files.installed ? ', because it installs its dependencies' : ''}.</span>
+            <span>Start it from the workspace folder and leave the terminal open. The first start can take a minute{files && !files.installed ? ', because it installs its dependencies' : ''}.</span>
             <CommandLine cmd={startCommand(server.id)} />
           </li>
           <li>

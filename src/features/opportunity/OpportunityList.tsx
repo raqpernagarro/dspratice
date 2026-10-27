@@ -121,7 +121,7 @@ export function OpportunitiesPractice() {
         ) : (
           <div className="empty-state" style={{ border: 0 }}>
             <strong>{projectName ? `No requests for ${projectName} yet.` : 'No requests yet.'}</strong>
-            <span className="muted">When a client sends an RFP, a questionnaire or a brief, start a response here. You paste or upload the request; the hub lists what it asks for and drafts answers from approved material.</span>
+            <span className="muted">When a client sends an RFP, a questionnaire or a brief, start a response here. You paste or upload the request; the workspace lists what it asks for and drafts answers from approved material.</span>
           </div>
         )}
       </Panel>

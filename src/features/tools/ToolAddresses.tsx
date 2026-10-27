@@ -56,7 +56,7 @@ export function ToolAddresses() {
   return (
     <Panel title="Practice tools on this machine" actions={<span className="xs muted">Saved in this browser. Leave empty for the default.</span>}>
       <p className="small muted" style={{ marginTop: 0 }}>
-        Where the hub looks for each tool. <code>npm run tools -- start &lt;tool&gt;</code> uses the default address.
+        Where the workspace looks for each tool. <code>npm run tools -- start &lt;tool&gt;</code> uses the default address.
       </p>
       <ul className="stack" style={{ listStyle: 'none', margin: 0, padding: 0, gap: 12 }}>
         {TOOL_SERVERS.map((s) => (

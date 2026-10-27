@@ -1,15 +1,15 @@
 # Presentations on the Nagarro Master Slides engine
 
-Decks in the hub use **Carolina Baptista's Nagarro Master Slides engine**:
+Decks in the workspace use **Carolina Baptista's Nagarro Master Slides engine**:
 - the same 508 master templates, slide spec and tokens as her Presentation Studio (`Presentation_v1`), her nagarro-slides plugin for Claude Slides, and the "DS Nagarro Master Slides" design system;
 - the same vocabulary: brief → plan → build → check → review;
 - the same look.
 
-Start from **Prepare a client conversation** (Home, or the sidebar's Client conversations), which asks what you are starting from:
+Start from a journey on Home (*Build a presentation*, *Follow up after a meeting*, *Share a project update*, *Turn an idea into a deck*), from a project's **Requests & decks** tab, or from **Projects › Presentations**:
 
 - **A client request**: respond to it, then build the deck from the reviewed response (also from the request's *Share and present* step);
 - **A project**: an assessment readout or a project update, from the project's own data, no request needed;
-- **An idea or topic**: nothing in the hub yet, so it goes straight to Carolina Baptista's **Presentation Studio**, which drafts it, edits it on a canvas and exports .pptx and PDF;
+- **An idea or topic**: nothing in the workspace yet, so it goes straight to Carolina Baptista's **Presentation Studio**, which drafts it, edits it on a canvas and exports .pptx and PDF;
 - **A live demo**: the client demo.
 
 Decks live at **Presentations** (`/nagarro/presentations`, filter by project), and every request and deck is listed on the journey page.
@@ -34,7 +34,7 @@ There is no plan to approve and no "mark checked" step any more: nothing costly 
 
 **Present** opens a full-screen presenter (arrow keys or space, F for full screen, Escape to exit). On slides with a demo link, **Open the live demo** switches to the client demo in the same tab, at the right chapter; **Back to preparation** returns to the same slide.
 
-## What the hub produces, and what it does not
+## What the workspace produces, and what it does not
 
 | Format | Here | Where else |
 |---|---|---|
@@ -63,7 +63,7 @@ There is no plan to approve and no "mark checked" step any more: nothing costly 
 | Next steps | `pitch/grid-15` |
 | Closing | `main/closing-01` |
 
-Picture slots stay empty: the hub never invents an image. The header name and the footer's deck and client names are filled on every slide.
+Picture slots stay empty: the workspace never invents an image. The header name and the footer's deck and client names are filled on every slide.
 
 ## Exports
 
@@ -96,8 +96,8 @@ A deck records the request version, response version and hash, requirements hash
   npm test
   ```
 
-  The deck mapping tests fail if a template the hub uses disappears or changes its schema.
+  The deck mapping tests fail if a template the workspace uses disappears or changes its schema.
 - **Isolation.** Her CSS loads only in the slides frame, never in the shell.
-- **Credit.** She is credited on the Hand off tab, on the Tools page and in [LICENSES.md](../LICENSES.md).
+- **Credit.** She is credited on the Hand off tab, in Settings › About this tool and in [LICENSES.md](../LICENSES.md).
 
 **Vendoring creates a fork.** Mitigation: no local edits, a pinned version, a sync script, and a check-in with Carolina. Long term, one versioned engine package should be consumed by her Studio, her plugin, her artifact and this hub.

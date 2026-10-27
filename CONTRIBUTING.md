@@ -1,6 +1,6 @@
 # Contributing
 
-Keep the hub honest: every simulated part says so where it could be mistaken for a live action, every statement cites a source, sample figures are labelled, and nothing internal reaches the demo build or the client demo. Write in the voice described in [docs/writing.md](docs/writing.md).
+Keep the workspace honest: every simulated part says so where it could be mistaken for a live action, every statement cites a source, sample figures are labelled, and nothing internal reaches the demo build or the client demo. Write in the voice described in [docs/writing.md](docs/writing.md).
 
 ## Before you open a pull request
 
@@ -30,11 +30,11 @@ Client material never goes into the bundled library. Users add it in the app as 
 ## Add a tool or a demo
 
 - **Tools** are listed in `src/fixtures/hub.ts`, under `SOLUTIONS` (the three solutions and their parts) or `PRACTICE_TOOLS`. Give each one an owner, a status, how to get it and the access needed.
-- **A tool the hub opens** (in a frame or its own tab) is two entries:
+- **A tool the workspace opens** (in a frame or its own tab) is two entries:
   - its server in `src/fixtures/tool-servers.json`: owner, folder name, version checked, default port, a fast probe path, the start and install commands, what it needs and what it writes into its own folder (the reason it runs from a copy);
   - one experience per page in `src/fixtures/experiences.ts`: the path, what you do and get, `frame` or `tab`, and the token grammar if it produces tokens.
 
-  `npm run tools`, the local API and the Tools page all read these files. A tool that writes into its folder never runs from `../demo tools`: add the folder to `scripts/check-sources.mjs` and run it with `--write` once.
+  `npm run tools`, the local API and the tool pages all read these files; a journey in `src/fixtures/journeys.ts` links to the tool. A tool that writes into its folder never runs from `../demo tools`: add the folder to `scripts/check-sources.mjs` and run it with `--write` once.
 - **A new journey** gets a card on Home only when real use shows the need (see `docs/writing.md`, *Journey*).
 - **Demos** are listed under `DEMOS` in the same file, with:
   - the duration and what it shows;
@@ -56,3 +56,10 @@ Client material never goes into the bundled library. Users add it in the app as 
 ## Add an internal-only string
 
 If you add text that names a real client, a person or an internal document, keep it out of shared modules. Put it under `src/internal/` or a fixture that only `register.ts` imports. If it is a marker worth guarding, add it to `scripts/check-demo-build.mjs`.
+
+## Adding a journey, a demo, a social cut or a team-board entry (round 7)
+
+- **A journey** is one entry in `src/fixtures/journeys.ts`: what you get, who it is for, the words people use, where it starts, what backs it, and when not to pick it. Add phrasings to `src/features/nagarro/intent.test.ts` so the router keeps finding it. See [docs/journeys.md](docs/journeys.md).
+- **A mini-demo** is one entry in `src/fixtures/demos.ts` (chapters, the story, or one page). Its text ships in the client demo build: client-safe only.
+- **A social cut** is one entry in `src/fixtures/social-cuts.ts`. Keep it under 30 seconds, captions under 80 characters, and notes on where every fact comes from; `src/features/demos/demos.test.ts` checks its chapters and focus targets exist.
+- **Team-board work** goes in `src/fixtures/team-board.json` (`shared`), by pull request. Real client names only while the repository is private.

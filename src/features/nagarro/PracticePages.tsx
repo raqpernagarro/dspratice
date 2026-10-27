@@ -35,18 +35,22 @@ export function AboutPage() {
     <div className="page">
       <PageHead
         title="About this tool"
-        lead="Nagarro Design Workspace helps Nagarro colleagues prepare a client conversation (a response, a presentation or a demo) and start a design-system project, with what the practice already knows and the practice’s own tools. This page lists what works on this machine, what needs a key or a running tool, and what the client demo only simulates."
+        lead="Nagarro Design Workspace is where Nagarro sellers and designers start any design-systems job: respond to a client, present or demo, start, improve or prototype on a system, and share the work. Home asks what you need to do and takes you to the journey. This page lists what works on this machine, what needs a key or a running tool, and what the client demo only simulates."
       />
       <div className="grid grid--2">
         <Group
           title="Works on this machine, no AI needed"
           tone="ok"
           items={[
+            ['Home and its journeys', 'Fourteen journeys described once as data (src/fixtures/journeys.ts). The prompt matches what you type to them by keywords, with no model call; guides without a tool of their own say so.'],
+            ['Projects', 'My work (what you left unfinished, the projects you are on) and the team board: status, kind of work, people, links. Shared through src/fixtures/team-board.json; tasks stay in Jira.'],
+            ['Demos', 'Ready-made demos, a playlist built for one meeting from a sentence, saved per project, and social cuts: captioned 4:5 clips of the demos, filmed as video with npm run clips.'],
+            ['Engagement', 'Nuno Almeida’s Starter Pack posts (a FigJam snapshot), drafts made from social cuts, and the commands that hand a post to Hugo França’s Marketing Studio.'],
             ['Sources (Settings)', 'Search, read, approve and add sources: Figma text exports, Markdown, Word, PDF with text, links.'],
             ['Responses to client requests', 'Requirements, matching passages from approved sources, a first draft, checks against invented figures and other clients’ names, downloads.'],
             ['Presentations', 'Decks built in one click from a reviewed response or a project’s data, on Carolina Baptista’s Nagarro Master Slides: checked slides, an editable outline, present mode, and HTML, notes, brief and deck.json downloads.'],
             ['Set-up journeys', 'Start a new design system in the DS Starter Pack’s own wizard and record it in the project, or improve an existing one, with progress you can resume.'],
-            ['The practice’s tools', 'The DS Configurator, the DSN site and Presentation Studio open from Tools once you start them with npm run tools. They run from copies, never from the originals.'],
+            ['The practice’s tools', 'The DS Configurator, the DSN site, Presentation Studio and the ASSA ABLOY DS Prototyping Tooling open from their journeys once you start them with npm run tools. They run from copies, never from the originals. Marketing Studio runs on its own (Docker) and is linked from Engagement.'],
             ['Client demo', 'The guided story, the explorable example system, reset and return to preparation.'],
           ]}
         />
@@ -54,6 +58,7 @@ export function AboutPage() {
           title="Needs a key on this machine"
           tone="info"
           items={[
+            ['Ask AI on Home', status.offline ? 'Unknown: the local server is not running.' : status.model.configured ? `On (${status.model.model}). A small call that only sees the journey list, with its size shown first.` : 'Off without ANTHROPIC_API_KEY. The keyword router works without it.'],
             ['AI drafting', status.offline ? 'Unknown: the local server is not running.' : status.model.configured ? `On (${status.model.model}). Each AI action shows its estimated cost first.` : 'Off. Add ANTHROPIC_API_KEY to .env.local. Without it, drafts come from templates and you can download a packet for any Claude or ChatGPT chat.'],
             ['Figma refresh and folder listing', status.offline ? 'Unknown: the local server is not running.' : status.figma.configured ? 'On (FIGMA_TOKEN).' : 'Off. Add FIGMA_TOKEN to .env.local. The knowledge export plugin works without it.'],
           ]}
@@ -82,8 +87,9 @@ export function AboutPage() {
         title="Not available here"
         tone="outline"
         items={[
-          ['Editable PowerPoint or PDF', 'Presentation Studio exports both. A deck’s Share tab copies its brief for Studio to rebuild it; opening this hub’s deck.json there is not confirmed yet.'],
-          ['Sharing between colleagues', 'Everything you add stays in this browser. There is no hosted, multi-user version.'],
+          ['Editable PowerPoint or PDF', 'Presentation Studio exports both. A deck’s Share tab copies its brief for Studio to rebuild it; opening the workspace’s deck.json there is not confirmed yet.'],
+          ['Sharing between colleagues', 'Everything you add stays in this browser. The team board shares what is in src/fixtures/team-board.json through the repository; there is no hosted, multi-user version yet.'],
+          ['Posting', 'Nothing posts from the workspace or from Marketing Studio. A person posts by hand.'],
           ['Measured client results', 'Health, readiness and accessibility figures in the samples are illustrative, not measurements.'],
         ]}
       />
@@ -129,7 +135,7 @@ export function PracticeSettings() {
   const projects = useStore((s) => s.projects)
   return (
     <div className="page">
-      <PageHead title="Sample data" lead="The hub ships with fictional sample projects so you can try every workflow. Reset one project, or everything, when you want a clean start." />
+      <PageHead title="Sample data" lead="The workspace ships with fictional sample projects so you can try every workflow. Reset one project, or everything, when you want a clean start." />
       <Panel title="Projects">
         <ul className="list">
           {Object.values(projects).map((p) => (

@@ -1,55 +1,11 @@
-import { Link } from 'react-router'
-import { ExternalLink, RefreshCw } from 'lucide-react'
+import { RefreshCw } from 'lucide-react'
 import { PageHead } from '@/shell/PageHead'
 import { Callout, Chip, Kv, Panel, Stat } from '@/shell/ui'
 import { LiveBadge } from '@/shell/provenance'
 import { useStore } from '@/state/store'
 import { useIntegrationStatus } from '@/integrations/status'
-import { practice } from '@/app/routes'
-import { PRACTICE_TOOLS, SOLUTIONS, type ToolEntry } from '@/fixtures/hub'
 import slidesVersion from '@/deck/engine.generated.json'
-import { ToolCatalog } from '@/features/tools'
 import { ToolAddresses } from '@/features/tools/ToolAddresses'
-
-const STATUS: Record<ToolEntry['status'], { label: string; tone: 'ok' | 'warn' | 'ink' | 'outline' }> = { works: { label: 'Ready to use', tone: 'ok' }, partly: { label: 'Partly ready', tone: 'warn' }, 'internal-only': { label: 'Internal only', tone: 'ink' }, proposed: { label: 'Planned', tone: 'outline' } }
-const IN_HUB: Record<NonNullable<ToolEntry['inHub']>['to'], string> = { library: practice.projects, presentations: practice.presentations, knowledge: practice.knowledge, opportunities: practice.opportunityStart, demos: practice.demos, integrations: practice.integrations }
-
-function ToolCard({ t }: { t: ToolEntry }) {
-  return (
-    <article className="panel tool-card" data-testid={`tool-${t.id}`}>
-      <div className="row row--between" style={{ gap: 8 }}>
-        <h3 style={{ margin: 0 }}>{t.name}</h3>
-        <Chip tone={STATUS[t.status].tone}>{STATUS[t.status].label}</Chip>
-      </div>
-      <p className="small muted" style={{ margin: '4px 0 8px' }}>Owner: {t.owner}</p>
-      <p className="small">{t.what}</p>
-      <ul className="tool-parts">
-        {t.parts.map((p) => (
-          <li key={p.name} className="small">
-            <strong>{p.name}</strong>
-            {p.how && <span className="muted"> · {p.how}</span>}
-            {p.link && <> · <a href={p.link} target="_blank" rel="noreferrer">open <ExternalLink style={{ width: 12 }} /></a></>}
-          </li>
-        ))}
-      </ul>
-      <Kv rows={[['Get it', t.get], ['Access', t.access]]} />
-      {t.inHub && <Link className="btn btn--secondary btn--sm" to={IN_HUB[t.inHub.to]}>{t.inHub.label}</Link>}
-    </article>
-  )
-}
-
-export function ToolsPage() {
-  return (
-    <div className="page">
-      <PageHead title="Tools" lead="What the practice has built. Open a tool here to use the real thing on this machine; the cards below say who owns each one and how to get it." />
-      <ToolCatalog />
-      <h2 className="section-title">Our three solutions</h2>
-      <div className="grid grid--3">{SOLUTIONS.map((t) => <ToolCard key={t.id} t={t} />)}</div>
-      <h2 className="section-title">Practice tools</h2>
-      <div className="grid grid--3">{PRACTICE_TOOLS.map((t) => <ToolCard key={t.id} t={t} />)}</div>
-    </div>
-  )
-}
 
 export function IntegrationsPage() {
   const { status, refresh, loading, checkedAt } = useIntegrationStatus()
@@ -57,7 +13,7 @@ export function IntegrationsPage() {
   const usage = Object.values(projects).flatMap((p) => Object.values(p.opportunities ?? {})).reduce((a, o) => ({ calls: a.calls + o.aiUsage.calls, tokens: a.tokens + o.aiUsage.inputTokens + o.aiUsage.outputTokens }), { calls: 0, tokens: 0 })
   return (
     <div className="page">
-      <PageHead title="Integrations and AI usage" lead="What this machine can reach, and how many model tokens the hub has spent. Keys stay in .env.local on the local server; the browser only learns whether each one is set." actions={<button className="btn btn--secondary" onClick={() => refresh()} disabled={loading}><RefreshCw /> Check again</button>} />
+      <PageHead title="Integrations and AI usage" lead="What this machine can reach, and how many model tokens the workspace has spent. Keys stay in .env.local on the local server; the browser only learns whether each one is set." actions={<button className="btn btn--secondary" onClick={() => refresh()} disabled={loading}><RefreshCw /> Check again</button>} />
       <div className="grid grid--3">
         <Stat label="Model" value={status.model.configured ? 'On' : 'Templates only'} hint={status.model.configured ? status.model.model : 'add ANTHROPIC_API_KEY to use a model'} />
         <Stat label="Figma REST" value={status.figma.configured ? 'On' : 'Off'} hint={status.figma.configured ? 'refresh and folder listing' : 'plugin, figma-cli and snapshots still work'} />

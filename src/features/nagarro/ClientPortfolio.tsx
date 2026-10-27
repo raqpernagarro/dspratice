@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router'
 import { Plus } from 'lucide-react'
 import { useStore } from '@/state/store'
 import { act } from '@/state/hooks'
-import { nagarro, practice } from '@/app/routes'
+import { nagarro } from '@/app/routes'
 import { PageHead } from '@/shell/PageHead'
 import { Field, Segmented, Sheet } from '@/shell/ui'
 import { STATUS_LABEL, TAG_LABEL, TEAM, flag } from '@/state/card'
@@ -160,7 +160,7 @@ export function ClientPortfolio() {
       )}
 
       <p className="small muted">
-        Sample projects are fictional. To share real work with the whole team, add it to src/fixtures/team-board.json (only while the repository is private). Not sure which package fits a client? <Link to={practice.guide('which-path')}>Which path fits a client</Link>.
+        Sample projects are fictional. To share real work with the whole team, add it to src/fixtures/team-board.json (only while the repository is private). Not sure which package fits a client? <Link to="/nagarro/journeys/shape-offer">Shape the offer</Link>.
       </p>
 
       {creating && <NewProjectSheet onClose={() => setCreating(false)} />}

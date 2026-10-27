@@ -2,7 +2,7 @@
 
 The client demo is a **guided showcase we present in meetings**. It is not a client portal and not something clients use to run their system. It shows, on a fictional company's design system, how Nagarro keeps design, code and AI tools on one system, and what an engagement could leave behind.
 
-Everything happens in the client demo; the hub is where you prepare. Open it with **Present client demo** (the header outside a project, a project's header, or **Client conversations › Client demo › Prepare a meeting**); the header button opens the demo, and **Start the guided demo** begins the story. **Back to preparation** returns to the page, or the slide, you came from.
+Everything happens in the client demo; the workspace is where you prepare. Open it with **Present client demo** (the header outside a project, a project's header, or **Client conversations › Client demo › Prepare a meeting**); the header button opens the demo, and **Start the guided demo** begins the story. **Back to preparation** returns to the page, or the slide, you came from.
 
 ## The story
 
@@ -27,7 +27,7 @@ The story follows one finding (`f-hover-dark`). Projects whose client demo versi
 - **Chapters** lists all eight. Any chapter can be entered directly: the chapters it depends on are set up first (`src/features/demo/prepare.ts`), and a short line on the guide bar says what was set up.
 - **Show me** performs the chapter's action. In chapter 6 it applies the Figma change and merges in one go, then gives the presenter their own role back.
 - **Pause** (Space) holds the simulation on its current state: scan stages and running checks wait until you resume.
-- **Start again** goes back to chapter 1 and keeps what is on screen. **Reset the demo** goes back to the prepared version (a fresh copy of the published version). Neither touches your preparation in the hub.
+- **Start again** goes back to chapter 1 and keeps what is on screen. **Reset the demo** goes back to the prepared version (a fresh copy of the published version). Neither touches your preparation in the workspace.
 - Keyboard: ← → chapters, Space pause, Esc hides the details.
 - With reduced motion, entrances and counters are immediate.
 
@@ -45,7 +45,15 @@ One notice in the demo header says it once: *Demonstration · fictional company 
 
 ## Data
 
-- **Preparation** (the project's draft) is where you work in the hub.
+- **Preparation** (the project's draft) is where you work in the workspace.
 - **The client demo version** (published) is what the demo shows. Update it from the project's Overview or from *Review and share* in the improve journey.
 - **The demo session** is what happens during a meeting. It starts from the published version and can be reset at any time.
 - A response summary appears in chapter 8 only if someone added it from the request's *Share and present* step, after the publishing checks.
+
+## Demos, playlists and social cuts (round 7)
+
+- **Demos** in the sidebar is where you choose what to show: ready-made demos (`src/fixtures/demos.ts`), the short and full story, and the scorecard. **Present on** picks the project; the story chapters run on Demo Brand.
+- **Build a demo for this meeting**: type what the meeting should show. Plain words suggest ready-made demos and a playlist of chapters (no model); add, remove and reorder them, present, or save the playlist for the project. A playlist runs as guide mode `custom` (`?guide=custom&chapters=a,b,c`): the guide bar, its chapter menu and the notes window walk only those chapters, in that order, and mark the rest "Not in this demo".
+- **The client demo's overview** offers the same ready-made demos under *Pick what to see*, instead of listing the eight chapters.
+- **Social cuts** (`src/fixtures/social-cuts.ts`) are short captioned 4:5 clips for posts. Each is a script, one line per shot: a caption, what to open or which chapter, what to zoom on, what to do (Show me, a button, typing). The player (`/nagarro/demos/cut/<id>`) drives the real client demo in a frame; `npm run clips -- <id>` films it in Edge as a 1080 × 1350 video in `media/clips/`. Every cut keeps notes on where its facts come from, and the frame says "Sped up" during a Show me. A cut's page has **Make a post**, which starts a draft in Engagement.
+- `?guide=off` closes a guide left running, so a page opens as itself.

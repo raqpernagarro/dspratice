@@ -90,10 +90,10 @@ export const practice = {
   knowledgeTab: (tab: 'practice' | 'client' | 'attention') => `/nagarro/settings/sources?tab=${tab}`,
   /** Advocating design at Nagarro: posts, social cuts and Marketing Studio. */
   engagement: '/nagarro/engagement',
-  /** "Prepare a client conversation": what are you starting from, and every request and deck in one list. */
+  /** Retired page (round 7): redirects to Home, whose journeys replaced it. */
   conversations: '/nagarro/conversations',
   tools: '/nagarro/tools',
-  /** One practice tool opened in the hub (src/fixtures/experiences.ts). */
+  /** One practice tool opened in the workspace (src/fixtures/experiences.ts). The /nagarro/tools list itself redirects to Home. */
   tool: (id: string) => `/nagarro/tools/${id}`,
   demos: '/nagarro/demos',
   meetingPrep: (slug?: string) => (slug ? `/nagarro/demos/prepare?project=${slug}` : '/nagarro/demos/prepare'),

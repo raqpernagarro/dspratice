@@ -14,7 +14,7 @@ export function Root({ params }: { params: FrameParams; theme: ThemeIntents | un
   return (
     <div className="pv">
       <div className="pv__error" role="status">
-        Library source not installed: {name}. Run <code>npm run setup</code> for how to add it. Everything else in the hub works without it.
+        Library source not installed: {name}. Run <code>npm run setup</code> for how to add it. Everything else in the workspace works without it.
       </div>
     </div>
   )

@@ -302,7 +302,7 @@ export function DemoBar() {
               <RotateCcw /> Start again
             </button>
             {presenter && (
-              <button className="btn btn--on-dark-ghost btn--sm" onClick={() => act().restartGuide(true)} title="Back to the prepared version and chapter 1. Your preparation in the hub is untouched.">
+              <button className="btn btn--on-dark-ghost btn--sm" onClick={() => act().restartGuide(true)} title="Back to the prepared version and chapter 1. Your preparation in the workspace is untouched.">
                 <RotateCcw /> Reset the demo
               </button>
             )}

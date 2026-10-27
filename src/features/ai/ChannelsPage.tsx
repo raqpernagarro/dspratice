@@ -107,9 +107,11 @@ export function ChannelsPage() {
       </Panel>
       <div className="row">
         <SimBadge detail="Publishing generates each format in memory from the contract. Nothing is uploaded." />
-        <Link to={r.guide('channels')} className="small">
-          Why one source, every channel →
-        </Link>
+        {r.workspace === 'client' && (
+          <Link to={r.guide('channels')} className="small">
+            Why one source, every channel →
+          </Link>
+        )}
       </div>
     </div>
   )

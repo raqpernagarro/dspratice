@@ -18,7 +18,7 @@ test('start a new design system: the Starter Pack set-up, recorded in the projec
   await page.getByTestId('starter-project-file').setInputFiles('e2e/fixtures/acme.dsproject.json')
   const preview = page.getByTestId('starter-preview')
   await expect(preview).toContainText('Acme Insights')
-  await expect(preview).toContainText('The hub keeps')
+  await expect(preview).toContainText('The workspace keeps')
   await expect(preview).toContainText('Stays in the Starter Pack')
   await page.getByTestId('record-starter-project').click()
   await expect(page.getByText(/Recorded from/)).toBeVisible()
