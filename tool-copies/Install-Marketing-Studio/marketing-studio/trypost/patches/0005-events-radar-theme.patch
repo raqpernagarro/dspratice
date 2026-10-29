@@ -1,0 +1,977 @@
+diff --git a/resources/css/app.css b/resources/css/app.css
+index 8401f87f..69d27377 100644
+--- a/resources/css/app.css
++++ b/resources/css/app.css
+@@ -9,63 +9,98 @@
+ @custom-variant dark (&:is(.dark *));
+ 
+ :root {
+-    --background: #ffffff;
+-    --foreground: #292928;
+-    --card: #ffffff;
+-    --card-foreground: #292928;
+-    --popover: #ffffff;
+-    --popover-foreground: #292928;
+-    --tooltip: #292928;
+-    --tooltip-foreground: #ffffff;
+-    --primary: #ddd6fe;
+-    --primary-foreground: #292928;
+-    --primary-hover: #c4b5fd;
+-    --primary-strong: #6d28d9;
+-    --primary-strong-foreground: #ffffff;
+-    --primary-subtle: #ede9fe;
+-    --primary-selected: #8b5cf633;
+-    --secondary: #eae8e5;
+-    --secondary-foreground: #292928;
+-    --muted: #f7f6f3;
+-    --muted-foreground: #5a5a59;
+-    --subtle-foreground: #6f6e6c;
+-    --accent: #f3f2f0;
+-    --accent-foreground: #292928;
+-    --destructive: #c02e1c;
++    /*
++     * Hugo's workspace: the Events Radar design system (Nagarro brand kit).
++     * The raw tokens are --er-*; TryPost's shadcn variables below map onto them.
++     */
++    --er-bg: #eff1f4;
++    --er-surface: #ffffff;
++    --er-sunk: #f6f7f9;
++    --er-ink: #06041f;
++    --er-muted: #4e5e78;
++    --er-faint: #8893a5;
++    --er-line: #e0e3e8;
++    --er-line-soft: #eff1f4;
++    --er-accent: #205463;
++    --er-accent-mark: #2d807b;
++    --er-accent-strong: #47d7ac;
++    --er-accent-soft: #d1f5ea;
++    --er-primary: #06041f;
++    --er-primary-ink: #ffffff;
++    --er-crit: #c8243a;
++    --er-crit-dot: #f8485e;
++    --er-crit-soft: #fde2e6;
++    --er-warn: #9a5b12;
++    --er-warn-dot: #f99068;
++    --er-warn-soft: #fef4d9;
++    --er-ok: #205463;
++    --er-ok-dot: #3aab94;
++    --er-ok-soft: #d1f5ea;
++    --er-panel: #6240a8;
++    --er-panel-soft: #ebe6f4;
++    --er-sponsor-soft: #fce195;
++    --er-attend: #13294b;
++    --er-tooltip: #06041f;
++    --er-tooltip-ink: #ffffff;
++
++    --background: var(--er-bg);
++    --foreground: var(--er-ink);
++    --card: var(--er-surface);
++    --card-foreground: var(--er-ink);
++    --popover: var(--er-surface);
++    --popover-foreground: var(--er-ink);
++    --tooltip: var(--er-tooltip);
++    --tooltip-foreground: var(--er-tooltip-ink);
++    /* Selection and active states use the mint accent; primary buttons use the petrol primary. */
++    --primary: var(--er-accent-soft);
++    --primary-foreground: var(--er-ink);
++    --primary-hover: color-mix(in srgb, var(--er-accent-soft) 80%, var(--er-accent-strong));
++    --primary-strong: var(--er-primary);
++    --primary-strong-foreground: var(--er-primary-ink);
++    --primary-subtle: var(--er-accent-soft);
++    --primary-selected: color-mix(in srgb, var(--er-accent-strong) 20%, transparent);
++    --secondary: var(--er-sunk);
++    --secondary-foreground: var(--er-ink);
++    --muted: var(--er-sunk);
++    --muted-foreground: var(--er-muted);
++    --subtle-foreground: var(--er-faint);
++    --accent: var(--er-sunk);
++    --accent-foreground: var(--er-ink);
++    --destructive: var(--er-crit);
+     --destructive-foreground: #ffffff;
+-    --destructive-text: #7f0f00;
+-    --critical: #ffb2a8;
+-    --critical-hover: #ff8575;
+-    --critical-subtle: #ffdbd6;
+-    --success: #4e975b;
+-    --success-subtle: #d9f1d1;
+-    --success-text: #337046;
+-    --error: #c02e1c;
+-    --warning: #d97706;
+-    --info: #2563eb;
+-    --info-subtle: #def0ff;
+-    --info-text: #004781;
+-    --border: #eae8e5;
+-    --border-strong: #dedcd9;
+-    --input: #8c8b88;
+-    --ring: #7c3aed;
+-    --primary-text: #6d28d9;
+-    --primary-text-hover: #5b21b6;
+-    --rating: #b45309;
+-    --chart-1: #4c1d95;
+-    --chart-2: #6d28d9;
+-    --chart-3: #7c3aed;
+-    --chart-4: #a78bfa;
+-    --chart-5: #ddd6fe;
+-    --sidebar: #f7f6f3;
+-    --sidebar-foreground: #292928;
+-    --sidebar-primary: #ddd6fe;
+-    --sidebar-primary-foreground: #292928;
+-    --sidebar-accent: #eae8e5;
+-    --sidebar-accent-foreground: #292928;
+-    --sidebar-action-hover: rgb(51 34 0 / 0.06);
+-    --sidebar-border: #eae8e5;
+-    --sidebar-ring: #7c3aed;
++    --destructive-text: var(--er-crit);
++    --critical: var(--er-crit-soft);
++    --critical-hover: color-mix(in srgb, var(--er-crit-soft) 75%, var(--er-crit-dot));
++    --critical-subtle: var(--er-crit-soft);
++    --success: var(--er-ok-dot);
++    --success-subtle: var(--er-ok-soft);
++    --success-text: var(--er-ok);
++    --error: var(--er-crit);
++    --warning: var(--er-warn);
++    --info: var(--er-accent);
++    --info-subtle: var(--er-accent-soft);
++    --info-text: var(--er-accent);
++    --border: var(--er-line);
++    --border-strong: var(--er-line);
++    --input: var(--er-line);
++    --ring: var(--er-accent-strong);
++    --primary-text: var(--er-accent);
++    --primary-text-hover: var(--er-accent-mark);
++    --rating: var(--er-warn);
++    --chart-1: var(--er-accent);
++    --chart-2: var(--er-accent-mark);
++    --chart-3: var(--er-ok-dot);
++    --chart-4: var(--er-accent-strong);
++    --chart-5: var(--er-accent-soft);
++    --sidebar: var(--er-surface);
++    --sidebar-foreground: var(--er-ink);
++    --sidebar-primary: var(--er-accent-soft);
++    --sidebar-primary-foreground: var(--er-ink);
++    --sidebar-accent: var(--er-accent-soft);
++    --sidebar-accent-foreground: var(--er-ink);
++    --sidebar-action-hover: var(--er-sunk);
++    --sidebar-border: var(--er-line);
++    --sidebar-ring: var(--er-accent-strong);
+     --font-sans:
+         'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+         'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+@@ -73,124 +108,54 @@ :root {
+         'Noto Color Emoji';
+     --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+     --font-mono:
+-        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
++        'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+         'Liberation Mono', 'Courier New', monospace;
+-    --font-heading:
+-        'Outfit', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+-        'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+-    --font-display: var(--font-heading);
+-    --font-logo: 'Roboto Slab', ui-serif, Georgia, serif;
++    --font-heading: var(--font-sans);
++    --font-display: var(--font-sans);
++    --font-logo: var(--font-sans);
+     --radius: 0.5rem;
+-    --shadow-2xs: 0 1px 2px #0000000a;
+-    --shadow-xs: 0 1px 2px #0000000f;
+-    --shadow-sm: 0 1px 2px #0000000f, 0 1px 3px #0000001a;
+-    --shadow: 0 1px 2px #0000000f, 0 1px 3px #0000001a;
+-    --shadow-md:
+-        0 0 1px 1px #331f0017, 0 4px 8px -4px #2e1c001f,
+-        0 16px 24px -8px #2e1c001f;
+-    --shadow-lg:
+-        0 0 0 1px #00000014, 0 1px 1px #00000005, 0 4px 8px -4px #0000000a,
+-        0 16px 24px -8px #0000000f;
+-    --shadow-xl:
+-        0 0 0 1px #00000014, 0 1px 1px #00000005, 0 4px 8px -4px #0000000a,
+-        0 16px 24px -8px #0000000f;
+-    --shadow-2xl:
+-        0 0 0 1px #00000014, 0 1px 1px #00000005, 0 4px 8px -4px #0000000a,
+-        0 16px 24px -8px #0000000f;
++    /* No heavy shadows: cards and dialogs rely on their 1px line border. */
++    --shadow-2xs: 0 1px 2px rgb(6 4 31 / 0.04);
++    --shadow-xs: 0 1px 2px rgb(6 4 31 / 0.04);
++    --shadow-sm: 0 1px 2px rgb(6 4 31 / 0.04);
++    --shadow: 0 1px 2px rgb(6 4 31 / 0.04);
++    --shadow-md: 0 4px 12px rgb(6 4 31 / 0.06);
++    --shadow-lg: 0 4px 12px rgb(6 4 31 / 0.06);
++    --shadow-xl: 0 4px 12px rgb(6 4 31 / 0.06);
++    --shadow-2xl: 0 4px 12px rgb(6 4 31 / 0.06);
+     --tracking-normal: 0em;
+     --spacing: 0.25rem;
+ }
+ 
+ .dark {
+-    --background: #111111;
+-    --raised: #1e1e1e;
+-    --foreground: #f7f6f3;
+-    --card: #191919;
+-    --card-foreground: #f7f6f3;
+-    --popover: #232323;
+-    --popover-foreground: #f7f6f3;
+-    --tooltip: #3a3a39;
+-    --tooltip-foreground: #ffffff;
+-    --primary: #c4b5fd;
+-    --primary-foreground: #292928;
+-    --primary-hover: #ddd6fe;
+-    --primary-strong: #a78bfa;
+-    --primary-strong-foreground: #1e1530;
+-    --primary-subtle: #2e1065;
+-    --primary-selected: #8b5cf633;
+-    --secondary: #2e2e2e;
+-    --secondary-foreground: #f7f6f3;
+-    --muted: #202020;
+-    --muted-foreground: #bcbab6;
+-    --subtle-foreground: #8c8b88;
+-    --accent: #2a2a2a;
+-    --accent-foreground: #f7f6f3;
+-    --destructive: #ef4444;
+-    --destructive-foreground: #ffffff;
+-    --destructive-text: #f87171;
+-    --critical: #7f1d1d;
+-    --critical-hover: #991b1b;
+-    --critical-subtle: #2a1210;
+-    --success: #74c079;
+-    --success-subtle: #29493c;
+-    --success-text: #b0ec9c;
+-    --error: #ef4444;
+-    --warning: #d97706;
+-    --info: #2563eb;
+-    --info-subtle: #0c2a4a;
+-    --info-text: #9fd0ff;
+-    --border: #2e2e2e;
+-    --border-strong: #3a3a3a;
+-    --input: #6b6a68;
+-    --ring: #a78bfa;
+-    --primary-text: #c4b5fd;
+-    --primary-text-hover: #ddd6fe;
+-    --rating: #facc15;
+-    --chart-1: #ddd6fe;
+-    --chart-2: #c4b5fd;
+-    --chart-3: #a78bfa;
+-    --chart-4: #7c3aed;
+-    --chart-5: #5b21b6;
+-    --sidebar: #111111;
+-    --sidebar-foreground: #f7f6f3;
+-    --sidebar-primary: #c4b5fd;
+-    --sidebar-primary-foreground: #292928;
+-    --sidebar-accent: #2a2a2a;
+-    --sidebar-accent-foreground: #f7f6f3;
+-    --sidebar-action-hover: rgb(255 255 255 / 0.08);
+-    --sidebar-border: #2e2e2e;
+-    --sidebar-ring: #a78bfa;
+-    --font-sans:
+-        'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+-        'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+-        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+-        'Noto Color Emoji';
+-    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+-    --font-mono:
+-        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+-        'Liberation Mono', 'Courier New', monospace;
+-    --font-heading:
+-        'Outfit', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+-        'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+-    --font-display: var(--font-heading);
+-    --font-logo: 'Roboto Slab', ui-serif, Georgia, serif;
+-    --radius: 0.5rem;
+-    --shadow-2xs: 0 1px 2px #0000000a;
+-    --shadow-xs: 0 1px 2px #0000000f;
+-    --shadow-sm: 0 1px 2px #0000000f, 0 1px 3px #0000001a;
+-    --shadow: 0 1px 2px #0000000f, 0 1px 3px #0000001a;
+-    --shadow-md:
+-        0 0 1px 1px #331f0017, 0 4px 8px -4px #2e1c001f,
+-        0 16px 24px -8px #2e1c001f;
+-    --shadow-lg:
+-        0 0 0 1px #00000014, 0 1px 1px #00000005, 0 4px 8px -4px #0000000a,
+-        0 16px 24px -8px #0000000f;
+-    --shadow-xl:
+-        0 0 0 1px #00000014, 0 1px 1px #00000005, 0 4px 8px -4px #0000000a,
+-        0 16px 24px -8px #0000000f;
+-    --shadow-2xl:
+-        0 0 0 1px #00000014, 0 1px 1px #00000005, 0 4px 8px -4px #0000000a,
+-        0 16px 24px -8px #0000000f;
++    --er-bg: #131310;
++    --er-surface: #171714;
++    --er-sunk: #1e1e1b;
++    --er-ink: #eff1f4;
++    --er-muted: #8893a5;
++    --er-faint: #4e5e78;
++    --er-line: rgb(239 241 244 / 0.1);
++    --er-line-soft: rgb(239 241 244 / 0.06);
++    --er-accent: #75e1c1;
++    --er-accent-strong: #47d7ac;
++    --er-accent-soft: rgb(71 215 172 / 0.14);
++    --er-accent-mark: #75e1c1;
++    --er-primary: #eff1f4;
++    --er-primary-ink: #131310;
++    --er-crit: #ffb3bd;
++    --er-crit-dot: #f8485e;
++    --er-crit-soft: rgb(248 72 94 / 0.22);
++    --er-warn: #fce195;
++    --er-warn-dot: #f99068;
++    --er-warn-soft: rgb(249 144 104 / 0.2);
++    --er-ok: #a3ebd5;
++    --er-ok-dot: #47d7ac;
++    --er-ok-soft: rgb(71 215 172 / 0.14);
++    --er-tooltip: #eff1f4;
++    --er-tooltip-ink: #131310;
++
++    --raised: var(--er-surface);
++    --destructive: var(--er-crit-dot);
+ }
+ 
+ .dark
+@@ -201,7 +166,21 @@ .dark
+         [data-slot='drawer-content']
+     ) {
+     --background: var(--raised);
+-    --muted: #0f0f0f;
++    --muted: var(--er-bg);
++}
++
++/* Dialogs, sheets, drawers, popovers and the sidebar sit on the surface colour, not the page background. */
++:is(
++        [data-slot='dialog-content'],
++        [data-slot='alert-dialog-content'],
++        [data-slot='sheet-content'],
++        [data-slot='drawer-content'],
++        [data-slot='popover-content'],
++        [data-slot='dropdown-menu-content'],
++        [data-slot='hover-card-content'],
++        [data-sidebar='sidebar']
++    ) {
++    --background: var(--er-surface);
+ }
+ 
+ @theme inline {
+@@ -269,8 +248,8 @@ @theme inline {
+     --font-display: var(--font-display);
+     --font-logo: var(--font-logo);
+ 
+-    --font-weight-emphasis: 550;
+-    --font-weight-strong: 650;
++    --font-weight-emphasis: 500;
++    --font-weight-strong: 600;
+ 
+     --radius-sm: calc(var(--radius) - 4px);
+     --radius-md: calc(var(--radius) - 2px);
+@@ -288,8 +267,31 @@ @theme inline {
+ 
+     --text-xs: 12px;
+     --text-xs--line-height: 18px;
+-    --text-sm: 14px;
+-    --text-sm--line-height: 21px;
++    --text-sm: 13px;
++    --text-sm--line-height: 1.5;
++
++    /* Events Radar tokens as Tailwind colours (bg-er-sunk, text-er-muted, ...). */
++    --color-er-bg: var(--er-bg);
++    --color-er-surface: var(--er-surface);
++    --color-er-sunk: var(--er-sunk);
++    --color-er-ink: var(--er-ink);
++    --color-er-muted: var(--er-muted);
++    --color-er-faint: var(--er-faint);
++    --color-er-line: var(--er-line);
++    --color-er-line-soft: var(--er-line-soft);
++    --color-er-accent: var(--er-accent);
++    --color-er-accent-mark: var(--er-accent-mark);
++    --color-er-accent-strong: var(--er-accent-strong);
++    --color-er-accent-soft: var(--er-accent-soft);
++    --color-er-ok: var(--er-ok);
++    --color-er-ok-dot: var(--er-ok-dot);
++    --color-er-ok-soft: var(--er-ok-soft);
++    --color-er-warn: var(--er-warn);
++    --color-er-warn-dot: var(--er-warn-dot);
++    --color-er-warn-soft: var(--er-warn-soft);
++    --color-er-crit: var(--er-crit);
++    --color-er-crit-dot: var(--er-crit-dot);
++    --color-er-crit-soft: var(--er-crit-soft);
+ }
+ 
+ @layer base {
+@@ -299,6 +301,24 @@ @layer base {
+ 
+     body {
+         @apply bg-background text-foreground;
++        font-size: 13px;
++        line-height: 1.5;
++        font-feature-settings: 'cv11', 'ss01';
++    }
++
++    h1 {
++        font-size: 20px;
++        font-weight: 450;
++    }
++
++    h2 {
++        font-size: 15px;
++        font-weight: 450;
++    }
++
++    h3 {
++        font-size: 13px;
++        font-weight: 500;
+     }
+ 
+     :where(
+@@ -343,6 +363,52 @@ :root {
+     --motion-easing-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+ }
+ 
++/*
++ * Events Radar small labels: section headings, table and calendar column
++ * headers and form labels in Roboto Mono, 11px, uppercase.
++ */
++@utility er-label {
++    font-family: var(--font-mono);
++    font-size: 11px;
++    line-height: 16px;
++    font-weight: 500;
++    letter-spacing: 0.04em;
++    text-transform: uppercase;
++    color: var(--er-muted);
++}
++
++/*
++ * The sidebar rail: 36px square items with an 8px radius, the active one on
++ * the soft accent with a 3px Mint bar on its left edge.
++ */
++[data-sidebar='sidebar'] [data-sidebar='menu-button'][data-active='true'] {
++    position: relative;
++}
++
++[data-sidebar='sidebar'] [data-sidebar='menu-button'][data-active='true']::before {
++    content: '';
++    position: absolute;
++    inset-block: 8px;
++    inset-inline-start: 0;
++    width: 3px;
++    border-radius: 0 3px 3px 0;
++    background: var(--er-accent-strong);
++}
++
++[data-sidebar='sidebar'] [data-sidebar='menu-button'] > svg {
++    stroke-width: 1.6;
++}
++
++/* Calendar column headers (week and month views) read as Events Radar labels. */
++[data-testid='calendar-month-grid'] > div:first-child > div,
++[data-testid^='calendar-column-'] {
++    font-family: var(--font-mono);
++    font-size: 11px;
++    font-weight: 500;
++    letter-spacing: 0.04em;
++    text-transform: uppercase;
++}
++
+ @utility transition-control {
+     transition-property: color, background-color, border-color;
+     transition-duration: var(--motion-duration-control-feedback);
+diff --git a/resources/js/components/AppHeader.vue b/resources/js/components/AppHeader.vue
+index ac4e082a..0e4e8c8d 100644
+--- a/resources/js/components/AppHeader.vue
++++ b/resources/js/components/AppHeader.vue
+@@ -1,8 +1,8 @@
+ <template>
+     <header
+-        class="flex shrink-0 items-center justify-between gap-2 bg-card px-4 pt-4 md:px-8 md:pt-6"
++        class="flex h-[52px] shrink-0 items-center justify-between gap-2 border-b border-border bg-card px-4 md:px-6"
+     >
+-        <div class="flex h-12 min-w-0 flex-1 items-center gap-2">
++        <div class="flex h-full min-w-0 flex-1 items-center gap-2">
+             <slot name="left" />
+         </div>
+         <div class="flex shrink-0 items-center gap-2">
+diff --git a/resources/js/components/HeaderTitle.vue b/resources/js/components/HeaderTitle.vue
+index cfab0d5e..cd66ea81 100644
+--- a/resources/js/components/HeaderTitle.vue
++++ b/resources/js/components/HeaderTitle.vue
+@@ -12,18 +12,18 @@ defineProps<{
+     <div class="flex min-w-0 items-center gap-2">
+         <span
+             v-if="icon"
+-            class="flex size-[42px] shrink-0 items-center justify-center rounded-xl border border-border-strong bg-card text-foreground"
++            class="flex size-4 shrink-0 items-center justify-center text-muted-foreground"
+             data-testid="header-icon"
+             aria-hidden="true"
+         >
+-            <component :is="icon" class="size-6" stroke-width="1.5" />
++            <component :is="icon" class="size-4" stroke-width="1.6" />
+         </span>
+ 
+         <div class="min-w-0">
+             <slot>
+                 <h1
+                     v-if="title"
+-                    class="truncate font-heading text-xl leading-tight font-medium text-foreground"
++                    class="truncate text-[14px] leading-5 font-semibold text-foreground"
+                     data-testid="header-title"
+                 >
+                     {{ title }}
+diff --git a/resources/js/components/channels/PostingGoalFlow.vue b/resources/js/components/channels/PostingGoalFlow.vue
+index fcf29216..3a490055 100644
+--- a/resources/js/components/channels/PostingGoalFlow.vue
++++ b/resources/js/components/channels/PostingGoalFlow.vue
+@@ -129,7 +129,7 @@ const options: { value: Choice; label: string; badge: string }[] = [
+     {
+         value: 1,
+         label: 'steady',
+-        badge: 'bg-violet-100 text-violet-700 dark:bg-violet-500/15 dark:text-violet-300',
++        badge: 'bg-er-accent-soft text-er-accent',
+     },
+     {
+         value: 3,
+diff --git a/resources/js/components/labels/CreateDialog.vue b/resources/js/components/labels/CreateDialog.vue
+index 7d118bc3..2f37efe2 100644
+--- a/resources/js/components/labels/CreateDialog.vue
++++ b/resources/js/components/labels/CreateDialog.vue
+@@ -22,7 +22,7 @@ const emit = defineEmits<{
+     created: [label: { id: string; name: string; color: string }];
+ }>();
+ 
+-const DEFAULT_COLOR = '#7c3aed';
++const DEFAULT_COLOR = '#205463';
+ 
+ const form = useForm({
+     name: '',
+diff --git a/resources/js/components/labels/LabelBadge.vue b/resources/js/components/labels/LabelBadge.vue
+index a692a23c..aa1ed37d 100644
+--- a/resources/js/components/labels/LabelBadge.vue
++++ b/resources/js/components/labels/LabelBadge.vue
+@@ -27,11 +27,11 @@ defineEmits<{ click: [] }>();
+         :is="interactive ? 'button' : 'span'"
+         :type="interactive ? 'button' : undefined"
+         :disabled="interactive && disabled"
+-        class="inline-flex items-center gap-1.5 rounded-full border border-border px-2 py-0.5 text-[10px] font-bold tracking-widest text-foreground uppercase shadow-2xs"
++        class="inline-flex h-5 items-center gap-1.5 rounded-md border border-border px-1.5 text-xs leading-5 font-medium text-foreground"
+         :class="[
+             selected
+-                ? 'border-primary-strong bg-primary-subtle text-foreground shadow-sm'
+-                : 'bg-card',
++                ? 'border-transparent bg-primary-subtle text-foreground'
++                : 'bg-secondary',
+             interactive
+                 ? 'cursor-pointer transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed'
+                 : '',
+diff --git a/resources/js/components/labels/LabelFilter.vue b/resources/js/components/labels/LabelFilter.vue
+index bbcb3cf8..4f68b533 100644
+--- a/resources/js/components/labels/LabelFilter.vue
++++ b/resources/js/components/labels/LabelFilter.vue
+@@ -50,7 +50,7 @@ const labelsById = computed(
+ 
+ const labelFor = (id: string): Label => labelsById.value.get(id)!;
+ 
+-const DEFAULT_COLOR = '#7c3aed';
++const DEFAULT_COLOR = '#205463';
+ 
+ const creating = ref(false);
+ const form = useForm({ name: '', color: DEFAULT_COLOR });
+diff --git a/resources/js/components/publish/PublishHeader.vue b/resources/js/components/publish/PublishHeader.vue
+index ba8465cc..51cc66a2 100644
+--- a/resources/js/components/publish/PublishHeader.vue
++++ b/resources/js/components/publish/PublishHeader.vue
+@@ -6,6 +6,7 @@ import ChannelAvatar from '@/components/ChannelAvatar.vue';
+ import HeaderTitle from '@/components/HeaderTitle.vue';
+ import GoalProgress from '@/components/publish/GoalProgress.vue';
+ import { Button } from '@/components/ui/button';
++import { useManualPublishing } from '@/composables/useManualStatus';
+ import { useWorkspaceAbilities } from '@/composables/useWorkspaceAbilities';
+ import { settings } from '@/routes/app/channels';
+ import { channelName } from '@/types/channel';
+@@ -16,10 +17,12 @@ defineProps<{
+ }>();
+ 
+ const { canManageAccounts } = useWorkspaceAbilities();
++// Manual publishing: the weekly goal counts sent posts, so it is not shown.
++const manualPublishing = useManualPublishing();
+ </script>
+ 
+ <template>
+-    <div v-if="channel" class="flex min-w-0 items-center gap-4">
++    <div v-if="channel" class="flex min-w-0 items-center gap-2.5">
+         <ChannelAvatar
+             :status="channel.status"
+             :account-id="channel.id"
+@@ -27,12 +30,12 @@ const { canManageAccounts } = useWorkspaceAbilities();
+             :src="channel.avatar_url"
+             :verified="channel.verified_badge"
+             :name="channelName(channel)"
+-            :size="44"
++            :size="28"
+         />
+         <div class="min-w-0">
+             <div class="flex min-w-0 items-center gap-2">
+                 <h1
+-                    class="truncate font-heading text-xl leading-6 font-medium text-foreground"
++                    class="truncate text-[14px] leading-5 font-semibold text-foreground"
+                     data-testid="header-title"
+                 >
+                     {{ channelName(channel) }}
+@@ -54,7 +57,7 @@ const { canManageAccounts } = useWorkspaceAbilities();
+                 </Button>
+             </div>
+             <GoalProgress
+-                v-if="channel.posting_goal !== null"
++                v-if="channel.posting_goal !== null && !manualPublishing"
+                 :channel-id="channel.id"
+                 :sent="channel.sent_this_week"
+                 :scheduled="channel.scheduled_this_week"
+diff --git a/resources/js/components/ui/badge/index.ts b/resources/js/components/ui/badge/index.ts
+index 40a45156..4cf28fb5 100644
+--- a/resources/js/components/ui/badge/index.ts
++++ b/resources/js/components/ui/badge/index.ts
+@@ -4,14 +4,14 @@ import { cva } from "class-variance-authority"
+ export { default as Badge } from "./Badge.vue"
+ 
+ export const badgeVariants = cva(
+-  "inline-flex items-center justify-center h-4.5 rounded-full border px-1 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-colors overflow-hidden",
++  "inline-flex items-center justify-center h-5 rounded-md border px-1.5 text-xs leading-5 font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-colors overflow-hidden",
+   {
+     variants: {
+       variant: {
+         default:
+           "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary-hover",
+         secondary:
+-          "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
++          "border-border bg-secondary text-muted-foreground [a&]:hover:bg-secondary/90",
+         destructive:
+           "border-transparent bg-destructive text-destructive-foreground [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
+         "destructive-subtle":
+@@ -21,7 +21,7 @@ export const badgeVariants = cva(
+         info:
+           "border-transparent bg-info-subtle text-info-text",
+         warning:
+-          "border-transparent bg-amber-50 text-amber-700 dark:bg-amber-950 dark:text-amber-400",
++          "border-transparent bg-er-warn-soft text-er-warn",
+         outline:
+           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
+       },
+diff --git a/resources/js/components/ui/button/index.ts b/resources/js/components/ui/button/index.ts
+index a7400daa..9027a07b 100644
+--- a/resources/js/components/ui/button/index.ts
++++ b/resources/js/components/ui/button/index.ts
+@@ -9,11 +9,11 @@ export const buttonVariants = cva(
+     variants: {
+       variant: {
+         default:
+-          "bg-primary-strong text-primary-strong-foreground hover:bg-primary-text-hover dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary-hover active:translate-y-px disabled:bg-border-strong disabled:text-subtle-foreground disabled:opacity-100",
++          "bg-primary-strong text-primary-strong-foreground hover:bg-primary-strong/85 active:translate-y-px disabled:bg-border-strong disabled:text-subtle-foreground disabled:opacity-100",
+         destructive:
+           "bg-critical text-foreground hover:bg-critical-hover active:translate-y-px disabled:bg-border-strong disabled:text-subtle-foreground disabled:opacity-100",
+         outline:
+-          "border border-border-strong bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent",
++          "border border-border-strong bg-card text-foreground hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent",
+         secondary:
+           "bg-secondary text-secondary-foreground hover:bg-border-strong",
+         ghost:
+diff --git a/resources/js/components/ui/dialog/DialogContent.vue b/resources/js/components/ui/dialog/DialogContent.vue
+index 3b37850e..7ff12e25 100644
+--- a/resources/js/components/ui/dialog/DialogContent.vue
++++ b/resources/js/components/ui/dialog/DialogContent.vue
+@@ -36,7 +36,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
+       v-bind="{ ...$attrs, ...forwarded }"
+       :class="
+         cn(
+-          'motion-dialog bg-background fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 max-h-[85dvh] overflow-y-auto rounded-2xl px-6 pt-6 pb-4 shadow-lg duration-200 sm:max-w-lg dark:border',
++          'motion-dialog bg-background fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 max-h-[85dvh] overflow-y-auto rounded-xl border border-border px-6 pt-6 pb-4 shadow-lg duration-200 sm:max-w-lg',
+           fullscreenOnMobile && 'max-sm:inset-0 max-sm:flex max-sm:h-dvh max-sm:max-h-none max-sm:w-full max-sm:max-w-none max-sm:translate-none max-sm:flex-col max-sm:rounded-none max-sm:shadow-none max-sm:[&>:has([data-slot$=dialog-footer])]:flex max-sm:[&>:has([data-slot$=dialog-footer])]:grow max-sm:[&>:has([data-slot$=dialog-footer])]:flex-col max-sm:[&>[data-slot$=dialog-header]]:sticky max-sm:[&>[data-slot$=dialog-header]]:top-0 max-sm:[&>[data-slot$=dialog-header]]:z-10 max-sm:[&>[data-slot$=dialog-header]]:bg-background max-sm:[&>[data-slot$=dialog-header]]:shadow-[0_-1.5rem_0_1.5rem_var(--background)]',
+           props.class,
+         )"
+diff --git a/resources/js/components/ui/dropdown-menu/DropdownMenuContent.vue b/resources/js/components/ui/dropdown-menu/DropdownMenuContent.vue
+index f93946ac..a13fed80 100644
+--- a/resources/js/components/ui/dropdown-menu/DropdownMenuContent.vue
++++ b/resources/js/components/ui/dropdown-menu/DropdownMenuContent.vue
+@@ -31,7 +31,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
+     <DropdownMenuContent
+       data-slot="dropdown-menu-content"
+       v-bind="{ ...$attrs, ...forwarded }"
+-      :class="cn('motion-overlay bg-popover text-popover-foreground z-50 max-h-(--reka-dropdown-menu-content-available-height) min-w-[140px] origin-(--reka-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-xl px-2 py-3 shadow-md dark:border dark:border-border', props.class)"
++      :class="cn('motion-overlay bg-popover text-popover-foreground z-50 max-h-(--reka-dropdown-menu-content-available-height) min-w-[140px] origin-(--reka-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-xl border border-border px-2 py-3 shadow-md', props.class)"
+     >
+       <slot />
+     </DropdownMenuContent>
+diff --git a/resources/js/components/ui/input/Input.vue b/resources/js/components/ui/input/Input.vue
+index 40926ae0..f19d972b 100644
+--- a/resources/js/components/ui/input/Input.vue
++++ b/resources/js/components/ui/input/Input.vue
+@@ -21,7 +21,7 @@ const modelValue = useVModel(props, "modelValue", emits, {
+ 
+ <template>
+   <input v-model="modelValue" data-slot="input" :class="cn(
+-    'text-foreground file:text-foreground placeholder:text-subtle-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-8 w-full min-w-0 rounded-md border bg-card px-2 py-1 text-sm transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
++    'text-foreground file:text-foreground placeholder:text-subtle-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-8 w-full min-w-0 rounded-lg border bg-card px-2.5 py-1 text-sm shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
+     'focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring',
+     'aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',
+     props.class,
+diff --git a/resources/js/components/ui/label/Label.vue b/resources/js/components/ui/label/Label.vue
+index ee639702..d3f5e6c3 100644
+--- a/resources/js/components/ui/label/Label.vue
++++ b/resources/js/components/ui/label/Label.vue
+@@ -16,7 +16,7 @@ const delegatedProps = reactiveOmit(props, "class")
+     v-bind="delegatedProps"
+     :class="
+       cn(
+-        'flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
++        'er-label flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+         props.class,
+       )
+     "
+diff --git a/resources/js/components/ui/popover/PopoverContent.vue b/resources/js/components/ui/popover/PopoverContent.vue
+index 6af658f0..33661556 100644
+--- a/resources/js/components/ui/popover/PopoverContent.vue
++++ b/resources/js/components/ui/popover/PopoverContent.vue
+@@ -34,7 +34,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
+       v-bind="{ ...$attrs, ...forwarded }"
+       :class="
+         cn(
+-          'motion-overlay bg-popover text-popover-foreground z-50 w-72 rounded-xl p-4 shadow-md dark:border dark:border-border origin-(--reka-popover-content-transform-origin) outline-hidden',
++          'motion-overlay bg-popover text-popover-foreground z-50 w-72 rounded-xl border border-border p-4 shadow-md origin-(--reka-popover-content-transform-origin) outline-hidden',
+           props.class,
+         )
+       "
+diff --git a/resources/js/components/ui/select/SelectTrigger.vue b/resources/js/components/ui/select/SelectTrigger.vue
+index 815fbb40..89a2dc67 100644
+--- a/resources/js/components/ui/select/SelectTrigger.vue
++++ b/resources/js/components/ui/select/SelectTrigger.vue
+@@ -21,7 +21,7 @@ const forwardedProps = useForwardProps(delegatedProps)
+     :data-size="size"
+     v-bind="forwardedProps"
+     :class="cn(
+-      'border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*=\'text-\'])]:text-muted-foreground aria-invalid:border-destructive flex w-fit items-center justify-between gap-2 rounded-md border bg-card px-2 py-1 text-sm text-foreground whitespace-nowrap transition-[color,box-shadow] outline-none focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-8 data-[size=sm]:h-7 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=\'size-\'])]:size-4',
++      'border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*=\'text-\'])]:text-muted-foreground aria-invalid:border-destructive flex w-fit items-center justify-between gap-2 rounded-lg border bg-card px-2.5 py-1 text-sm shadow-xs text-foreground whitespace-nowrap transition-[color,box-shadow] outline-none focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-8 data-[size=sm]:h-7 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=\'size-\'])]:size-4',
+       props.class,
+     )"
+   >
+diff --git a/resources/js/components/ui/sidebar/Sidebar.vue b/resources/js/components/ui/sidebar/Sidebar.vue
+index dfb2883d..dd1a0c04 100644
+--- a/resources/js/components/ui/sidebar/Sidebar.vue
++++ b/resources/js/components/ui/sidebar/Sidebar.vue
+@@ -87,7 +87,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
+     >
+       <div
+         data-sidebar="sidebar"
+-        class="bg-sidebar flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow-sm"
++        class="bg-sidebar flex h-full w-full flex-col group-data-[variant=sidebar]:border-e group-data-[variant=sidebar]:border-sidebar-border group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow-sm"
+       >
+         <slot />
+       </div>
+diff --git a/resources/js/components/ui/sidebar/SidebarGroupLabel.vue b/resources/js/components/ui/sidebar/SidebarGroupLabel.vue
+index 4e493048..d9c0fc71 100644
+--- a/resources/js/components/ui/sidebar/SidebarGroupLabel.vue
++++ b/resources/js/components/ui/sidebar/SidebarGroupLabel.vue
+@@ -11,7 +11,7 @@ const props = defineProps<PrimitiveProps & {
+ 
+ <template>
+   <Primitive data-slot="sidebar-group-label" data-sidebar="group-label" :as="as" :as-child="asChild" :class="cn(
+-    'text-muted-foreground ring-sidebar-ring flex h-8 shrink-0 items-center rounded-md pl-2 text-xs font-normal outline-hidden transition-[margin,opacity] duration-(--motion-duration-sidebar-toggle) ease-(--motion-easing-sidebar-toggle) focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0',
++    'er-label ring-sidebar-ring flex h-8 shrink-0 items-center rounded-md pl-2 outline-hidden transition-[margin,opacity] duration-(--motion-duration-sidebar-toggle) ease-(--motion-easing-sidebar-toggle) focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0',
+     'group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0',
+     props.class)">
+     <slot />
+diff --git a/resources/js/components/ui/sidebar/index.ts b/resources/js/components/ui/sidebar/index.ts
+index 4d810c5e..286cc3ec 100644
+--- a/resources/js/components/ui/sidebar/index.ts
++++ b/resources/js/components/ui/sidebar/index.ts
+@@ -36,11 +36,11 @@ export { default as SidebarTrigger } from "./SidebarTrigger.vue"
+ export { useSidebar } from "./utils"
+ 
+ export const sidebarMenuButtonVariants = cva(
+-  "peer/menu-button flex w-full cursor-pointer items-center gap-1 overflow-hidden rounded-lg px-2 text-left text-sm font-normal text-sidebar-foreground outline-hidden ring-sidebar-ring [transition:background-color_150ms_ease-out,color_150ms_ease-out,padding_200ms_ease-in-out] hover:bg-sidebar-accent focus-visible:ring-2 active:bg-sidebar-accent disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-muted-foreground",
++  "peer/menu-button flex w-full cursor-pointer items-center gap-1 overflow-hidden rounded-lg px-2 text-left text-sm font-normal text-sidebar-foreground outline-hidden ring-sidebar-ring [transition:background-color_150ms_ease-out,color_150ms_ease-out,padding_200ms_ease-in-out] hover:bg-sidebar-action-hover focus-visible:ring-2 active:bg-sidebar-action-hover disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[active=true]:hover:bg-sidebar-accent data-[state=open]:hover:bg-sidebar-action-hover group-data-[collapsible=icon]:size-9! group-data-[collapsible=icon]:p-2.5! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-muted-foreground",
+   {
+     variants: {
+       variant: {
+-        default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
++        default: "hover:bg-sidebar-action-hover hover:text-sidebar-accent-foreground",
+         outline:
+           "bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]",
+       },
+diff --git a/resources/js/components/ui/sidebar/utils.ts b/resources/js/components/ui/sidebar/utils.ts
+index 1561865e..6df6d3b1 100644
+--- a/resources/js/components/ui/sidebar/utils.ts
++++ b/resources/js/components/ui/sidebar/utils.ts
+@@ -11,11 +11,12 @@ export type SidebarContext = {
+     toggleSidebar: () => void;
+ };
+ 
+-export const SIDEBAR_COOKIE_NAME = "sidebar_state"
++// Hugo's workspace: a new cookie name, so the rail starts collapsed until Hugo expands it.
++export const SIDEBAR_COOKIE_NAME = "ms_sidebar_state"
+ export const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
+ export const SIDEBAR_WIDTH = "15rem"
+ export const SIDEBAR_WIDTH_MOBILE = "18rem"
+-export const SIDEBAR_WIDTH_ICON = "3.25rem"
++export const SIDEBAR_WIDTH_ICON = "3.5rem"
+ export const SIDEBAR_KEYBOARD_SHORTCUT = "b"
+ 
+ export const [useSidebar, provideSidebarContext] = createContext<SidebarContext>("Sidebar")
+diff --git a/resources/js/components/ui/table/TableHead.vue b/resources/js/components/ui/table/TableHead.vue
+index 83b57cd7..5c22e7d2 100644
+--- a/resources/js/components/ui/table/TableHead.vue
++++ b/resources/js/components/ui/table/TableHead.vue
+@@ -10,7 +10,7 @@ const props = defineProps<{
+ <template>
+   <th
+     data-slot="table-head"
+-    :class="cn('text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap border-r border-border last:border-r-0 [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]', props.class)"
++    :class="cn('er-label h-10 px-2 text-left align-middle whitespace-nowrap border-r border-border last:border-r-0 [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]', props.class)"
+   >
+     <slot />
+   </th>
+diff --git a/resources/js/components/ui/textarea/Textarea.vue b/resources/js/components/ui/textarea/Textarea.vue
+index 7e6336d0..16dad2ed 100644
+--- a/resources/js/components/ui/textarea/Textarea.vue
++++ b/resources/js/components/ui/textarea/Textarea.vue
+@@ -23,6 +23,6 @@ const modelValue = useVModel(props, "modelValue", emits, {
+   <textarea
+     v-model="modelValue"
+     data-slot="textarea"
+-    :class="cn('border-input placeholder:text-muted-foreground aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex field-sizing-content min-h-16 w-full rounded-md border bg-card px-2 py-1.5 text-sm transition-[color,box-shadow] outline-none focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50', props.class)"
++    :class="cn('border-input placeholder:text-muted-foreground aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex field-sizing-content min-h-16 w-full rounded-lg border bg-card px-2.5 py-1.5 text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50', props.class)"
+   />
+ </template>
+diff --git a/resources/js/layouts/app/AppSidebarLayout.vue b/resources/js/layouts/app/AppSidebarLayout.vue
+index 9665edb2..0da889d0 100644
+--- a/resources/js/layouts/app/AppSidebarLayout.vue
++++ b/resources/js/layouts/app/AppSidebarLayout.vue
+@@ -3,11 +3,9 @@ let compactSidebarOpen: boolean | null = null;
+ </script>
+ 
+ <script setup lang="ts">
+-import { Link } from '@inertiajs/vue3';
+ import { ref, watch } from 'vue';
+ 
+ import AppHeader from '@/components/AppHeader.vue';
+-import AppLogo from '@/components/AppLogo.vue';
+ import AppSidebar from '@/components/AppSidebar.vue';
+ import ChangelogDialog from '@/components/changelog/ChangelogDialog.vue';
+ import ConnectChannelDialog from '@/components/channels/ConnectChannelDialog.vue';
+@@ -22,7 +20,6 @@ import {
+ } from '@/components/ui/sidebar';
+ import { SIDEBAR_COOKIE_NAME } from '@/components/ui/sidebar/utils';
+ import { useBelowBreakpoint } from '@/composables/useBreakpoint';
+-import { index as postsIndex } from '@/routes/app/posts';
+ 
+ type Props = {
+     fullWidth?: boolean;
+@@ -32,12 +29,13 @@ withDefaults(defineProps<Props>(), {
+     fullWidth: false,
+ });
+ 
++// Hugo's workspace: the sidebar is an icon rail by default and only opens once Hugo expands it.
+ const readSidebarOpen = (): boolean => {
+     if (typeof document === 'undefined') {
+-        return true;
++        return false;
+     }
+ 
+-    return !document.cookie.split('; ').includes(`${SIDEBAR_COOKIE_NAME}=false`);
++    return document.cookie.split('; ').includes(`${SIDEBAR_COOKIE_NAME}=true`);
+ };
+ 
+ const isCompactViewport = useBelowBreakpoint('lg');
+@@ -60,32 +58,25 @@ watch(isCompactViewport, (isCompact) => {
+ </script>
+ 
+ <template>
+-    <SidebarProvider v-model:open="sidebarOpen" class="bg-sidebar">
++    <SidebarProvider v-model:open="sidebarOpen" class="bg-background">
+         <slot name="sidebar">
+             <AppSidebar />
+         </slot>
+         <SidebarInset
+-            class="min-w-0 overflow-hidden max-md:bg-sidebar md:my-2 md:me-2 md:rounded-xl md:border md:border-border md:bg-card"
++            class="min-w-0 overflow-hidden bg-background"
+             data-testid="app-content-shell"
+         >
+             <div
+-                class="flex h-14 shrink-0 items-center gap-2 px-4 md:hidden"
++                class="flex h-[52px] shrink-0 items-center gap-2 border-b border-border bg-card px-4 md:hidden"
+                 data-testid="app-mobile-bar"
+             >
+                 <SidebarTrigger
+                     class="-ms-1.5 size-9 [&_svg]:size-5"
+                     data-testid="app-sidebar-trigger"
+                 />
+-                <Link
+-                    :href="postsIndex.url()"
+-                    class="flex h-8 items-center rounded-md outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+-                    data-testid="app-mobile-logo"
+-                >
+-                    <AppLogo class="text-[19px]" />
+-                </Link>
+             </div>
+             <div
+-                class="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-card max-md:mx-2 max-md:rounded-t-xl max-md:border max-md:border-b-0 max-md:border-border"
++                class="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-background"
+             >
+                 <AppHeader v-if="$slots['header'] || $slots['header-actions']">
+                     <template v-if="$slots['header']" #left>
+diff --git a/resources/js/lib/welcomeOptions.ts b/resources/js/lib/welcomeOptions.ts
+index 389cd3ea..11d539e5 100644
+--- a/resources/js/lib/welcomeOptions.ts
++++ b/resources/js/lib/welcomeOptions.ts
+@@ -5,7 +5,7 @@ export interface WelcomeOptionArt {
+ }
+ 
+ const TINTS = {
+-    violet: 'bg-violet-100 dark:bg-violet-400/15',
++    violet: 'bg-er-accent-soft',
+     rose: 'bg-rose-100 dark:bg-rose-400/15',
+     amber: 'bg-amber-100 dark:bg-amber-400/15',
+     emerald: 'bg-emerald-100 dark:bg-emerald-400/15',
+diff --git a/resources/js/utils/confetti.ts b/resources/js/utils/confetti.ts
+index d7e70558..a54890f9 100644
+--- a/resources/js/utils/confetti.ts
++++ b/resources/js/utils/confetti.ts
+@@ -58,9 +58,9 @@ const BRAND_TOKENS = [
+ ];
+ 
+ const FALLBACK_COLORS = [
+-    '#ddd6fe',
+-    '#6d28d9',
+-    '#a78bfa',
++    '#d1f5ea',
++    '#205463',
++    '#47d7ac',
+     '#2563eb',
+     '#d97706',
+     '#ff8575',
+diff --git a/resources/views/app.blade.php b/resources/views/app.blade.php
+index a41f219b..fea49c6a 100644
+--- a/resources/views/app.blade.php
++++ b/resources/views/app.blade.php
+@@ -29,26 +29,26 @@
+              first paint doesn't flash before CSS loads. --}}
+         <style>
+             html {
+-                background-color: #ffffff;
++                background-color: #eff1f4;
+                 color-scheme: light;
+             }
+ 
+             html.dark {
+-                background-color: #111111;
++                background-color: #131310;
+                 color-scheme: dark;
+             }
+         </style>
+ 
+-        <title data-inertia>{{ config('app.name', 'TryPost.it') }}</title>
++        <title data-inertia>{{ config('app.name', 'Marketing Studio') }}</title>
+ 
+         <link rel="icon" href="/favicon.ico" sizes="any">
+         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+ 
+-        <!-- Fonts: Inter (UI body), Outfit (headings), JetBrains Mono (code/tokens). -->
++        <!-- Fonts (Events Radar): Inter for everything, Roboto Mono for numbers, dates and small labels. -->
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Outfit:wght@400;500;600;700&family=Roboto+Slab:wght@700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
++        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+ 
+         @vite(['resources/js/app.ts'])
+         @inertiaHead

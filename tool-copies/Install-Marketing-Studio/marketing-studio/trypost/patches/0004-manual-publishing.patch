@@ -1,0 +1,2413 @@
+diff --git a/app/Actions/Post/BuildCalendarPageProps.php b/app/Actions/Post/BuildCalendarPageProps.php
+index 707235cf..bbaf32fe 100644
+--- a/app/Actions/Post/BuildCalendarPageProps.php
++++ b/app/Actions/Post/BuildCalendarPageProps.php
+@@ -11,6 +11,7 @@
+ use App\Models\Post;
+ use App\Models\SocialAccount;
+ use App\Models\Workspace;
++use App\Support\ManualPublishing;
+ use App\Support\RequestIds;
+ use App\Support\Timezone;
+ use Carbon\CarbonImmutable;
+@@ -31,6 +32,9 @@ class BuildCalendarPageProps
+ 
+     public const STATUSES = [self::STATUS_ALL, 'drafts', 'scheduled', 'sent'];
+ 
++    /** The status filter while manual publishing is on: the three states a post can have. */
++    public const MANUAL_STATUSES = [self::STATUS_ALL, 'drafts', 'planned', 'published'];
++
+     public const UNDATED_PAGE_NAME = 'undated_page';
+ 
+     /**
+@@ -41,7 +45,8 @@ public static function handle(Request $request, Workspace $workspace, ?SocialAcc
+         $userTimezone = Timezone::normalize($request->user()->timezone);
+         $timezone = BuildPublishPageProps::displayTimezone($request->query('tz'), $userTimezone);
+         $view = in_array($view, self::VIEWS, true) ? $view : 'week';
+-        $status = in_array($request->query('status'), self::STATUSES, true) ? $request->query('status') : self::STATUS_ALL;
++        $statuses = ManualPublishing::enabled() ? self::MANUAL_STATUSES : self::STATUSES;
++        $status = in_array($request->query('status'), $statuses, true) ? $request->query('status') : self::STATUS_ALL;
+ 
+         $labelIds = RequestIds::uuidList($request->collect('labels'));
+         $untagged = $request->boolean('untagged');
+@@ -85,7 +90,10 @@ public static function handle(Request $request, Workspace $workspace, ?SocialAcc
+             ->each(fn (Post $post) => $post->setAttribute('calendar_at', self::calendarAt($post)->utc()->toIso8601ZuluString()));
+ 
+         BuildPublishPageProps::decorate($posts);
+-        BuildPublishPageProps::attachMetrics($posts);
++
++        if (! ManualPublishing::enabled()) {
++            BuildPublishPageProps::attachMetrics($posts);
++        }
+ 
+         $posts = $posts
+             ->sortBy('calendar_at')
+@@ -115,8 +123,9 @@ public static function handle(Request $request, Workspace $workspace, ?SocialAcc
+         ];
+ 
+         if ($request->boolean('undated')) {
+-            $props['undatedDrafts'] = Inertia::scroll(fn (): LengthAwarePaginator => $scopedPosts()
+-                ->where('status', PostStatus::Draft)
++            $props['undatedDrafts'] = Inertia::scroll(fn (): LengthAwarePaginator => (ManualPublishing::enabled()
++                    ? ManualPublishing::whereDraft($scopedPosts())
++                    : $scopedPosts()->where('status', PostStatus::Draft))
+                 ->whereNull('scheduled_at')
+                 ->latest('created_at')
+                 ->orderBy('id')
+@@ -135,7 +144,7 @@ public static function handle(Request $request, Workspace $workspace, ?SocialAcc
+                 $timezone,
+                 $rangeStart,
+                 $rangeEnd,
+-                $labelIds === [] && ! $untagged && in_array($status, [self::STATUS_ALL, 'scheduled'], true),
++                $labelIds === [] && ! $untagged && in_array($status, [self::STATUS_ALL, 'scheduled'], true) && ! ManualPublishing::enabled(),
+             );
+         }
+ 
+@@ -178,6 +187,15 @@ private static function calendarAt(Post $post): CarbonInterface
+ 
+     private static function whereStatus(Builder $query, string $status): Builder
+     {
++        if (ManualPublishing::enabled()) {
++            return match ($status) {
++                'drafts' => ManualPublishing::whereDraft($query),
++                'planned' => ManualPublishing::wherePlanned($query),
++                'published' => ManualPublishing::wherePublished($query),
++                default => $query,
++            };
++        }
++
+         return match ($status) {
+             'drafts' => $query->where('status', PostStatus::Draft),
+             'scheduled' => $query->whereIn('status', BuildPublishPageProps::QUEUE_STATUSES),
+diff --git a/app/Actions/Post/BuildPublishPageProps.php b/app/Actions/Post/BuildPublishPageProps.php
+index bd6aba38..10b00613 100644
+--- a/app/Actions/Post/BuildPublishPageProps.php
++++ b/app/Actions/Post/BuildPublishPageProps.php
+@@ -17,6 +17,7 @@
+ use App\Models\SocialAccount;
+ use App\Models\User;
+ use App\Models\Workspace;
++use App\Support\ManualPublishing;
+ use App\Support\PostStatusRules;
+ use App\Support\RequestIds;
+ use App\Support\Timezone;
+@@ -88,7 +89,9 @@ public static function handle(Request $request, Workspace $workspace, ?SocialAcc
+         $openPostDetailsId = self::uuidQuery($request, 'post');
+         $focusedPostId = $openPostNotesId ?? $openPostDetailsId;
+ 
+-        $resolveTab = fn (mixed $requested, ?string $focusedId): string => self::tab($requested, $focusedId ? (clone $basePosts)->whereKey($focusedId)->visiblePendingApprovalsFor($requester)->value('status') : null);
++        $resolveTab = ManualPublishing::enabled()
++            ? fn (mixed $requested, ?string $focusedId): string => self::manualTab($requested, $focusedId, $basePosts)
++            : fn (mixed $requested, ?string $focusedId): string => self::tab($requested, $focusedId ? (clone $basePosts)->whereKey($focusedId)->visiblePendingApprovalsFor($requester)->value('status') : null);
+ 
+         $tab = $resolveTab($request->query('tab'), $focusedPostId);
+ 
+@@ -102,6 +105,7 @@ public static function handle(Request $request, Workspace $workspace, ?SocialAcc
+         $hasQueueSlotsResult = null;
+         $hasQueueSlots = function () use (&$hasQueueSlotsResult, $tab, $channel, $filterAccounts): bool {
+             return $hasQueueSlotsResult ??= $tab === self::TAB_QUEUE
++                && ! ManualPublishing::enabled()
+                 && ($channel ? collect([$channel]) : $filterAccounts())->contains(fn (SocialAccount $account): bool => $account->hasPostingSchedule());
+         };
+ 
+@@ -110,7 +114,7 @@ public static function handle(Request $request, Workspace $workspace, ?SocialAcc
+             'scope' => $channel ? 'channel' : 'all',
+             'channel' => fn (): ?array => $channel ? self::channelHeader($channel, $user->week_starts_on) : null,
+             'tab' => $tab,
+-            'counts' => fn (): array => [
++            'counts' => fn (): array => ManualPublishing::enabled() ? self::manualCounts($basePosts) : [
+                 ...self::counts(clone $basePosts),
+                 'approvals' => (clone $basePosts)->pendingApproval()->visiblePendingApprovalsFor($requester)->count(),
+             ],
+@@ -131,7 +135,8 @@ public static function handle(Request $request, Workspace $workspace, ?SocialAcc
+             && ($hasData() || $hasQueueSlots())
+             && ! self::reloadsSameList($request, $tab, $resolveTab);
+ 
+-        if ($tab === self::TAB_QUEUE) {
++        // Manual publishing has no queue: the Planned tab is a plain list of dated posts.
++        if ($tab === self::TAB_QUEUE && ! ManualPublishing::enabled()) {
+             $queue = fn (): array => self::queue($workspace, $channels(), $displayTimezone, $request, $labelIds, $untagged, $cards, $channel !== null, $requester);
+             $props['queue'] = $defersList ? Inertia::defer($queue) : $queue;
+         }
+@@ -184,6 +189,10 @@ private static function hasData(string $tab, Workspace $workspace, ?SocialAccoun
+     {
+         $posts = $workspace->posts()->when(filled($channel), fn (Builder $query) => $query->where('posts.social_account_id', $channel->id));
+ 
++        if (ManualPublishing::enabled()) {
++            return ManualPublishing::whereState($posts, self::manualState($tab))->exists();
++        }
++
+         return match ($tab) {
+             self::TAB_QUEUE => $posts->where(fn (Builder $query) => $query
+                 ->whereIn('status', self::QUEUE_STATUSES)
+@@ -254,6 +263,63 @@ private static function tab(mixed $requested, ?PostStatus $focusedPostStatus): s
+         };
+     }
+ 
++    /**
++     * Manual publishing: the tab a request lands on, and the tab of a focused post
++     * (a notes or details link) from its state.
++     */
++    private static function manualTab(mixed $requested, ?string $focusedId, HasMany $basePosts): string
++    {
++        if (blank($requested) && $focusedId !== null) {
++            foreach ([self::TAB_SENT, self::TAB_QUEUE, self::TAB_DRAFTS] as $tab) {
++                if (ManualPublishing::whereState((clone $basePosts)->whereKey($focusedId), self::manualState($tab))->exists()) {
++                    return $tab;
++                }
++            }
++        }
++
++        return match ($requested) {
++            self::TAB_DRAFTS => self::TAB_DRAFTS,
++            self::TAB_SENT => self::TAB_SENT,
++            default => self::TAB_QUEUE,
++        };
++    }
++
++    /** Manual publishing: the Publish tab that lists the post (after a save, the page returns there). */
++    public static function manualTabFor(Post $post): string
++    {
++        return match (ManualPublishing::stateOf($post)) {
++            ManualPublishing::PUBLISHED => self::TAB_SENT,
++            ManualPublishing::PLANNED => self::TAB_QUEUE,
++            default => self::TAB_DRAFTS,
++        };
++    }
++
++    /**
++     * Manual publishing keeps the tab keys: queue lists planned posts, drafts the
++     * posts without a date and sent the posts marked as published.
++     */
++    private static function manualState(string $tab): string
++    {
++        return match ($tab) {
++            self::TAB_SENT => ManualPublishing::PUBLISHED,
++            self::TAB_DRAFTS => ManualPublishing::DRAFT,
++            default => ManualPublishing::PLANNED,
++        };
++    }
++
++    /**
++     * @return array{queue: int, drafts: int, sent: int, approvals: int}
++     */
++    private static function manualCounts(HasMany $basePosts): array
++    {
++        return [
++            'queue' => ManualPublishing::wherePlanned(clone $basePosts)->count(),
++            'drafts' => ManualPublishing::whereDraft(clone $basePosts)->count(),
++            'sent' => ManualPublishing::wherePublished(clone $basePosts)->count(),
++            'approvals' => 0,
++        ];
++    }
++
+     /**
+      * @return array{queue: int, drafts: int, sent: int}
+      */
+@@ -350,6 +416,20 @@ private static function paginatedCards(string $tab, Builder $query, ?string $foc
+     {
+         $query->when($focusedPostId, fn (Builder $query) => $query->whereKey($focusedPostId));
+ 
++        if (ManualPublishing::enabled()) {
++            match ($tab) {
++                self::TAB_DRAFTS => ManualPublishing::whereDraft($query)->latest('posts.created_at'),
++                self::TAB_SENT => ManualPublishing::wherePublished($query)->latestAttempt(),
++                default => ManualPublishing::wherePlanned($query)->orderBy('posts.scheduled_at'),
++            };
++
++            $paginator = $query->orderBy('posts.id')->paginate((int) config('app.pagination.default'));
++
++            self::decorate($paginator->getCollection());
++
++            return $paginator->through(fn (Post $post): array => PostCardResource::make($post)->resolve());
++        }
++
+         match ($tab) {
+             self::TAB_QUEUE => $query->where('status', PostStatus::Scheduled)
+                 ->orderBy('posts.scheduled_at'),
+diff --git a/app/Console/Commands/ProcessScheduledPosts.php b/app/Console/Commands/ProcessScheduledPosts.php
+index 61b7bc61..2062a55d 100644
+--- a/app/Console/Commands/ProcessScheduledPosts.php
++++ b/app/Console/Commands/ProcessScheduledPosts.php
+@@ -8,6 +8,7 @@
+ use App\Jobs\PublishPost;
+ use App\Jobs\PublishToSocialPlatform;
+ use App\Models\Post;
++use App\Support\ManualPublishing;
+ use App\Support\Social\LimitRetryPolicy;
+ use Illuminate\Console\Command;
+ use Throwable;
+@@ -20,6 +21,11 @@ class ProcessScheduledPosts extends Command
+ 
+     public function handle(): void
+     {
++        // Manual publishing: no due post is claimed and no limit retry is sent.
++        if (ManualPublishing::enabled()) {
++            return;
++        }
++
+         Post::query()
+             ->due()
+             ->each(function (Post $post) {
+diff --git a/app/Http/Controllers/App/PostController.php b/app/Http/Controllers/App/PostController.php
+index fc675d0e..09ed3d3b 100644
+--- a/app/Http/Controllers/App/PostController.php
++++ b/app/Http/Controllers/App/PostController.php
+@@ -5,6 +5,7 @@
+ namespace App\Http\Controllers\App;
+ 
+ use App\Actions\Post\BuildCalendarPageProps;
++use App\Actions\Post\BuildPublishPageProps;
+ use App\Actions\Post\CreatePosts;
+ use App\Actions\Post\DeletePost;
+ use App\Actions\Post\DuplicatePost;
+@@ -17,6 +18,7 @@
+ use App\Http\Requests\App\Post\StorePostRequest;
+ use App\Http\Requests\App\Post\UpdatePostRequest;
+ use App\Models\Post;
++use App\Support\ManualPublishing;
+ use App\Support\PostStatusRules;
+ use Illuminate\Http\RedirectResponse;
+ use Illuminate\Http\Request;
+@@ -124,9 +126,11 @@ public function store(StorePostRequest $request): RedirectResponse|HttpResponse
+             $posts = CreatePosts::execute($workspace, $request->user(), $composition);
+         }
+ 
+-        $tab = match ($request->input('status')) {
+-            PostStatus::Draft->value => ['tab' => 'drafts'],
+-            PostStatus::Scheduled->value, PostStatus::Publishing->value => ['tab' => 'queue'],
++        $tab = match (true) {
++            // Manual publishing: return to the tab that lists the new post (Planned when it has a date).
++            ManualPublishing::enabled() && $posts->isNotEmpty() => ['tab' => BuildPublishPageProps::manualTabFor($posts->first())],
++            $request->input('status') === PostStatus::Draft->value => ['tab' => 'drafts'],
++            in_array($request->input('status'), [PostStatus::Scheduled->value, PostStatus::Publishing->value], true) => ['tab' => 'queue'],
+             default => [],
+         };
+ 
+@@ -190,9 +194,11 @@ public function update(UpdatePostRequest $request, Post $post): RedirectResponse
+             return redirect($this->publishPageReturnUrl(['tab' => 'queue']) ?? route('app.posts.index', ['post' => $post->id]));
+         }
+ 
+-        $publishPage = $this->publishPageReturnUrl(
+-            $request->validated('status') === PostStatus::Draft->value ? ['tab' => 'drafts'] : [],
+-        );
++        $publishPage = $this->publishPageReturnUrl(match (true) {
++            ManualPublishing::enabled() => ['tab' => BuildPublishPageProps::manualTabFor($post->refresh())],
++            $request->validated('status') === PostStatus::Draft->value => ['tab' => 'drafts'],
++            default => [],
++        });
+ 
+         return $publishPage ? redirect($publishPage) : back();
+     }
+diff --git a/app/Http/Middleware/App/HandleInertiaRequests.php b/app/Http/Middleware/App/HandleInertiaRequests.php
+index 946a901a..0cb11110 100644
+--- a/app/Http/Middleware/App/HandleInertiaRequests.php
++++ b/app/Http/Middleware/App/HandleInertiaRequests.php
+@@ -25,6 +25,7 @@
+ use App\Models\Workspace;
+ use App\Support\HeicConverter;
+ use App\Support\LinkTlds;
++use App\Support\ManualPublishing;
+ use Illuminate\Http\Request;
+ use Illuminate\Support\Facades\Cache;
+ use Inertia\Middleware;
+@@ -77,6 +78,7 @@ public function share(Request $request): array
+             'env' => config('app.env'),
+             'locale' => app()->getLocale(),
+             'selfHosted' => $isSelfHosted,
++            'manualPublishing' => ManualPublishing::enabled(),
+         ];
+     }
+ 
+diff --git a/app/Http/Resources/App/HandleInertiaRequests/SidebarChannelResource.php b/app/Http/Resources/App/HandleInertiaRequests/SidebarChannelResource.php
+index 1b59e4b2..72504b4c 100644
+--- a/app/Http/Resources/App/HandleInertiaRequests/SidebarChannelResource.php
++++ b/app/Http/Resources/App/HandleInertiaRequests/SidebarChannelResource.php
+@@ -7,6 +7,7 @@
+ use App\Enums\Post\Status as PostStatus;
+ use App\Models\SocialAccount;
+ use App\Models\Workspace;
++use App\Support\ManualPublishing;
+ use App\Support\Timezone;
+ use Illuminate\Database\Eloquent\Builder;
+ 
+@@ -18,9 +19,12 @@ class SidebarChannelResource
+     public static function collection(Workspace $workspace): array
+     {
+         return $workspace->socialAccounts()
+-            ->withCount(['posts as scheduled_posts_count' => fn (Builder $query) => $query
+-                ->where('workspace_id', $workspace->id)
+-                ->where('status', PostStatus::Scheduled)])
++            ->withCount(['posts as scheduled_posts_count' => fn (Builder $query) => ManualPublishing::enabled()
++                // Manual publishing: the count is the channel's planned posts (a date, not yet published).
++                ? ManualPublishing::wherePlanned($query->where('workspace_id', $workspace->id))
++                : $query
++                    ->where('workspace_id', $workspace->id)
++                    ->where('status', PostStatus::Scheduled)])
+             ->get()
+             ->map(fn (SocialAccount $account): array => [
+                 'id' => $account->id,
+diff --git a/app/Http/Resources/App/PostCardResource.php b/app/Http/Resources/App/PostCardResource.php
+index f13efe77..14334384 100644
+--- a/app/Http/Resources/App/PostCardResource.php
++++ b/app/Http/Resources/App/PostCardResource.php
+@@ -4,7 +4,10 @@
+ 
+ namespace App\Http\Resources\App;
+ 
++use App\Enums\Post\PublishStatus;
++use App\Enums\Post\Status as PostStatus;
+ use App\Models\Post;
++use App\Support\ManualPublishing;
+ use Illuminate\Http\Request;
+ use Illuminate\Http\Resources\Json\JsonResource;
+ 
+@@ -29,6 +32,24 @@ public function toArray(Request $request): array
+             ],
+         ];
+ 
++        if (ManualPublishing::enabled()) {
++            // Manual publishing: a card never shows a sending state, a failure or a link to a
++            // network. The UI derives draft, planned or published from the date and the
++            // `posted` label (useManualStatus.ts); the stored status is left as it is.
++            $card = [
++                ...$card,
++                'status' => $this->resource->status === PostStatus::PendingApproval
++                    ? PostStatus::PendingApproval->value
++                    : PostStatus::Draft->value,
++                'publish_status' => PublishStatus::Pending->value,
++                'error_message' => null,
++                'error_context' => null,
++                'failure' => null,
++                'retry_at' => null,
++                'platform_url' => null,
++            ];
++        }
++
+         if ($this->resource->relationLoaded('user')) {
+             $card['user'] = $this->user === null ? null : [
+                 'id' => $this->user->id,
+diff --git a/app/Jobs/PublishPost.php b/app/Jobs/PublishPost.php
+index ea788f2a..cf97ca20 100644
+--- a/app/Jobs/PublishPost.php
++++ b/app/Jobs/PublishPost.php
+@@ -6,6 +6,7 @@
+ 
+ use App\Actions\Post\FinalizePostPublication;
+ use App\Models\Post;
++use App\Support\ManualPublishing;
+ use Illuminate\Contracts\Queue\ShouldQueue;
+ use Illuminate\Foundation\Queue\Queueable;
+ use Illuminate\Support\Facades\Log;
+@@ -21,6 +22,11 @@ public function __construct(public Post $post) {}
+ 
+     public function handle(): void
+     {
++        // Manual publishing: the post is left as it is and nothing is sent.
++        if (ManualPublishing::enabled()) {
++            return;
++        }
++
+         $this->post->markAsPublishing();
+ 
+         if (! $this->post->hasChannel()) {
+diff --git a/app/Jobs/PublishToSocialPlatform.php b/app/Jobs/PublishToSocialPlatform.php
+index 90110b27..0b8adeab 100644
+--- a/app/Jobs/PublishToSocialPlatform.php
++++ b/app/Jobs/PublishToSocialPlatform.php
+@@ -32,6 +32,7 @@
+ use App\Services\Social\TikTokPublisher;
+ use App\Services\Social\XPublisher;
+ use App\Services\Social\YouTubePublisher;
++use App\Support\ManualPublishing;
+ use App\Support\Social\GoogleBusinessDerivativeCleaner;
+ use App\Support\Social\LimitRetryPolicy;
+ use App\Support\Social\PublishCheckpoint;
+@@ -90,6 +91,11 @@ public function middleware(): array
+ 
+     public function handle(): void
+     {
++        // Manual publishing: nothing is ever sent to a network, so the job stops before any call.
++        if (ManualPublishing::enabled()) {
++            return;
++        }
++
+         $this->post->refresh();
+ 
+         if ($this->post->publish_status->isClosed() || $this->post->isPublicationWaitingForLimitRetry()) {
+diff --git a/app/Mcp/Tools/Post/PublishPostTool.php b/app/Mcp/Tools/Post/PublishPostTool.php
+index 7d09a467..85ab3baf 100644
+--- a/app/Mcp/Tools/Post/PublishPostTool.php
++++ b/app/Mcp/Tools/Post/PublishPostTool.php
+@@ -12,6 +12,7 @@
+ use App\Http\Resources\Api\PostResource;
+ use App\Mcp\Concerns\AuthorizesMcpTool;
+ use App\Models\Post;
++use App\Support\ManualPublishing;
+ use App\Support\PostStatusRules;
+ use App\Support\Requests\Post\PostRequestRules;
+ use Illuminate\Contracts\JsonSchema\JsonSchema;
+@@ -34,6 +35,10 @@ class PublishPostTool extends Tool
+ 
+     public function handle(Request $request): Response|ResponseFactory
+     {
++        if (ManualPublishing::enabled()) {
++            return Response::error(ManualPublishing::refusedMessage());
++        }
++
+         $validated = $request->validate(PostRequestRules::publish(), PostRequestRules::messages());
+ 
+         $workspace = $request->user()?->currentWorkspace;
+diff --git a/app/Support/ManualPublishing.php b/app/Support/ManualPublishing.php
+new file mode 100644
+index 00000000..357267ab
+--- /dev/null
++++ b/app/Support/ManualPublishing.php
+@@ -0,0 +1,140 @@
++<?php
++
++declare(strict_types=1);
++
++namespace App\Support;
++
++use App\Enums\Post\Origin;
++use App\Enums\Post\Status;
++use App\Models\Post;
++use Illuminate\Database\Eloquent\Builder;
++use Illuminate\Database\Eloquent\Relations\Relation;
++
++/**
++ * Hugo's workspace: TryPost never sends a post to a network (config
++ * `trypost.manual_publishing`, env MANUAL_PUBLISHING, on by default).
++ *
++ * A post has one of three states, derived from data that is already there:
++ * published when it carries the `posted` label (or came from the network),
++ * planned when it has a date (`scheduled_at`), draft otherwise. Its stored
++ * status is left as it is. The frontend derives the same states in
++ * resources/js/composables/useManualStatus.ts.
++ */
++final class ManualPublishing
++{
++    public const POSTED_LABEL = 'posted';
++
++    public const DRAFT = 'draft';
++
++    public const PLANNED = 'planned';
++
++    public const PUBLISHED = 'published';
++
++    public static function enabled(): bool
++    {
++        return (bool) config('trypost.manual_publishing', true);
++    }
++
++    /**
++     * The statuses a write may ask for: draft only while manual publishing is on.
++     *
++     * @param  list<string>  $statuses
++     * @return list<string>
++     */
++    public static function allowedStatuses(array $statuses): array
++    {
++        if (! self::enabled()) {
++            return $statuses;
++        }
++
++        return array_values(array_diff($statuses, [Status::Scheduled->value, Status::Publishing->value]));
++    }
++
++    public static function refusedMessage(): string
++    {
++        return __('posts.errors.manual_publishing');
++    }
++
++    /**
++     * Validation messages that explain a refused status while the flag is on.
++     *
++     * @return array<string, string>
++     */
++    public static function statusMessages(): array
++    {
++        return self::enabled() ? ['status.in' => self::refusedMessage()] : [];
++    }
++
++    /** The state of one post, read the same way as the query scopes below. */
++    public static function stateOf(Post $post): string
++    {
++        if ($post->origin === Origin::Network || $post->labels()->where('workspace_labels.name', self::POSTED_LABEL)->exists()) {
++            return self::PUBLISHED;
++        }
++
++        return $post->scheduled_at !== null ? self::PLANNED : self::DRAFT;
++    }
++
++    /**
++     * @template TQuery of Builder<Post>|Relation<Post, *, *>
++     *
++     * @param  TQuery  $query
++     * @return TQuery
++     */
++    public static function wherePublished(Builder|Relation $query): Builder|Relation
++    {
++        return $query->where(fn (Builder $published): Builder => $published
++            ->whereHas('labels', fn (Builder $label): Builder => $label->where('workspace_labels.name', self::POSTED_LABEL))
++            ->orWhere('posts.origin', Origin::Network));
++    }
++
++    /**
++     * @template TQuery of Builder<Post>|Relation<Post, *, *>
++     *
++     * @param  TQuery  $query
++     * @return TQuery
++     */
++    public static function whereNotPublished(Builder|Relation $query): Builder|Relation
++    {
++        return $query
++            ->whereDoesntHave('labels', fn (Builder $label): Builder => $label->where('workspace_labels.name', self::POSTED_LABEL))
++            ->where('posts.origin', '!=', Origin::Network);
++    }
++
++    /**
++     * @template TQuery of Builder<Post>|Relation<Post, *, *>
++     *
++     * @param  TQuery  $query
++     * @return TQuery
++     */
++    public static function wherePlanned(Builder|Relation $query): Builder|Relation
++    {
++        return self::whereNotPublished($query)->whereNotNull('posts.scheduled_at');
++    }
++
++    /**
++     * @template TQuery of Builder<Post>|Relation<Post, *, *>
++     *
++     * @param  TQuery  $query
++     * @return TQuery
++     */
++    public static function whereDraft(Builder|Relation $query): Builder|Relation
++    {
++        return self::whereNotPublished($query)->whereNull('posts.scheduled_at');
++    }
++
++    /**
++     * @template TQuery of Builder<Post>|Relation<Post, *, *>
++     *
++     * @param  TQuery  $query
++     * @return TQuery
++     */
++    public static function whereState(Builder|Relation $query, string $state): Builder|Relation
++    {
++        return match ($state) {
++            self::PUBLISHED => self::wherePublished($query),
++            self::PLANNED => self::wherePlanned($query),
++            default => self::whereDraft($query),
++        };
++    }
++}
+diff --git a/app/Support/PostCompositionValidator.php b/app/Support/PostCompositionValidator.php
+index 8c8fba33..e1b3dfed 100644
+--- a/app/Support/PostCompositionValidator.php
++++ b/app/Support/PostCompositionValidator.php
+@@ -52,7 +52,8 @@ public static function forSinglePost(callable $write): mixed
+     public static function validate(Workspace $workspace, array $composition, array $existingMedia = []): array
+     {
+         Validator::make($composition, [
+-            'status' => ['required', Rule::in([Status::Draft->value, Status::Scheduled->value, Status::Publishing->value])],
++            // Every writer (web, API, MCP, approvals) passes here: with manual publishing on, only drafts are stored.
++            'status' => ['required', Rule::in(ManualPublishing::allowedStatuses([Status::Draft->value, Status::Scheduled->value, Status::Publishing->value]))],
+             'content' => ['sometimes', 'nullable', 'string', new PostContentFitsMaxLength],
+             'media' => ['sometimes', 'array'],
+             'destinations' => ['required', 'array', 'min:1'],
+@@ -72,7 +73,10 @@ public static function validate(Workspace $workspace, array $composition, array
+             'queue_slot' => ['nullable', 'date', 'prohibited_unless:status,scheduled', 'prohibits:queue'],
+             'label_ids' => ['sometimes', 'array'],
+             'label_ids.*' => ['uuid', Rule::exists('workspace_labels', 'id')->where('workspace_id', $workspace->id)->withoutTrashed()],
+-        ], PostStatusRules::queueMessages())->validate();
++        ], [
++            ...PostStatusRules::queueMessages(),
++            ...(in_array(data_get($composition, 'status'), [Status::Scheduled->value, Status::Publishing->value], true) ? ManualPublishing::statusMessages() : []),
++        ])->validate();
+ 
+         $composition['queue'] = filled(data_get($composition, 'queue'))
+             ? QueuePosition::from(data_get($composition, 'queue'))
+diff --git a/app/Support/PostStatusRules.php b/app/Support/PostStatusRules.php
+index dd28c65e..2ac626cc 100644
+--- a/app/Support/PostStatusRules.php
++++ b/app/Support/PostStatusRules.php
+@@ -47,12 +47,21 @@ class PostStatusRules
+ 
+     public static function blocksEditing(Post $post): bool
+     {
+-        return in_array($post->status, self::EDIT_BLOCKED_STATUSES, true);
++        return in_array($post->status, self::EDIT_BLOCKED_STATUSES, true) && ! self::isManualFailure($post);
+     }
+ 
+     public static function blocksDeletion(Post $post): bool
+     {
+-        return in_array($post->status, self::DELETE_BLOCKED_STATUSES, true);
++        return in_array($post->status, self::DELETE_BLOCKED_STATUSES, true) && ! self::isManualFailure($post);
++    }
++
++    /**
++     * With manual publishing on, a post TryPost failed to send (from before the
++     * flag) is shown and handled as a draft, so it stays editable and deletable.
++     */
++    private static function isManualFailure(Post $post): bool
++    {
++        return $post->status === PostStatus::Failed && ManualPublishing::enabled();
+     }
+ 
+     public static function editBlockedMessage(): string
+diff --git a/app/Support/Requests/Post/PostRequestRules.php b/app/Support/Requests/Post/PostRequestRules.php
+index 8447304c..6583dfff 100644
+--- a/app/Support/Requests/Post/PostRequestRules.php
++++ b/app/Support/Requests/Post/PostRequestRules.php
+@@ -15,6 +15,7 @@
+ use App\Rules\ContentTypeMatchesPlatform;
+ use App\Rules\ContentTypeMatchesPostChannel;
+ use App\Rules\PostContentFitsMaxLength;
++use App\Support\ManualPublishing;
+ use App\Support\PostMediaRules;
+ use App\Support\PostPlatformMetaRules;
+ use App\Support\PostStatusRules;
+@@ -56,7 +57,7 @@ public static function store(Workspace $workspace, array $input): array
+             ],
+             ...PostMediaRules::rules(),
+             'platforms' => ['prohibited'],
+-            'status' => ['sometimes', 'string', Rule::in(self::STATUSES)],
++            'status' => ['sometimes', 'string', Rule::in(self::statuses())],
+             'social_account_id' => [
+                 'required',
+                 'uuid',
+@@ -83,7 +84,7 @@ public static function store(Workspace $workspace, array $input): array
+     public static function batch(Workspace $workspace): array
+     {
+         return [
+-            'status' => ['required', 'string', Rule::in(self::STATUSES)],
++            'status' => ['required', 'string', Rule::in(self::statuses())],
+             'content' => ['sometimes', 'nullable', 'string', new PostContentFitsMaxLength],
+             ...PostMediaRules::rules(),
+             'scheduled_at' => ['nullable', 'date', 'after:now', 'before:2038-01-19'],
+@@ -112,7 +113,7 @@ public static function update(Workspace $workspace, Post $post, array $input): a
+         $target = $post->socialAccount ?? $post->platform;
+ 
+         return [
+-            'status' => ['sometimes', 'string', Rule::in(self::STATUSES)],
++            'status' => ['sometimes', 'string', Rule::in(self::statuses())],
+             'content' => [
+                 'nullable',
+                 'string',
+@@ -197,10 +198,21 @@ public static function messages(): array
+         return [
+             ...PostPlatformMetaRules::messages(),
+             ...PostStatusRules::queueMessages(),
++            ...ManualPublishing::statusMessages(),
+             'scheduled_at.prohibits' => __('posts.errors.queue_with_scheduled_at'),
+         ];
+     }
+ 
++    /**
++     * The statuses a write may ask for; draft only while manual publishing is on.
++     *
++     * @return list<string>
++     */
++    private static function statuses(): array
++    {
++        return ManualPublishing::allowedStatuses(self::STATUSES);
++    }
++
+     /**
+      * @return array<string, string>
+      */
+diff --git a/config/trypost.php b/config/trypost.php
+index 69c3fb12..2e7353c2 100644
+--- a/config/trypost.php
++++ b/config/trypost.php
+@@ -16,6 +16,20 @@
+ 
+     'self_hosted' => env('SELF_HOSTED', true),
+ 
++    /*
++    |--------------------------------------------------------------------------
++    | Manual publishing
++    |--------------------------------------------------------------------------
++    |
++    | On (the default) for Hugo's workspace: TryPost never sends a post to a
++    | network. The publish jobs and the scheduled-posts command do nothing,
++    | the API and the MCP tools refuse the scheduled and publishing statuses,
++    | and a post counts as published when it carries the `posted` label.
++    |
++    */
++
++    'manual_publishing' => (bool) env('MANUAL_PUBLISHING', true),
++
+     /*
+     |--------------------------------------------------------------------------
+     | Changelog ("What's New")
+diff --git a/lang/en/calendar.php b/lang/en/calendar.php
+index ed4c562c..9c0c1a36 100644
+--- a/lang/en/calendar.php
++++ b/lang/en/calendar.php
+@@ -19,6 +19,8 @@
+         'drafts' => 'Drafts',
+         'scheduled' => 'Scheduled',
+         'sent' => 'Sent',
++        'planned' => 'Planned',
++        'published' => 'Published',
+     ],
+     'no_date' => 'No Date',
+     'undated' => [
+diff --git a/lang/en/posts.php b/lang/en/posts.php
+index 4b7f5a5b..9d0ff73f 100644
+--- a/lang/en/posts.php
++++ b/lang/en/posts.php
+@@ -576,6 +576,48 @@
+         ],
+     ],
+ 
++    // Hugo's workspace: manual publishing (config trypost.manual_publishing). A post is a draft, planned or published.
++    'manual' => [
++        'states' => [
++            'draft' => 'Draft',
++            'planned' => 'Planned',
++            'published' => 'Published',
++        ],
++        'tabs' => [
++            'queue' => 'Planned',
++            'drafts' => 'Drafts',
++            'sent' => 'Published',
++        ],
++        'empty' => [
++            'queue' => [
++                'title' => 'No planned posts',
++                'description' => 'Give a post a date and it shows here until you mark it as published.',
++            ],
++            'drafts' => [
++                'title' => 'No drafts',
++                'description' => 'Posts without a date show here.',
++            ],
++            'sent' => [
++                'title' => 'Nothing published yet',
++                'description' => 'Posts you mark as published show here.',
++            ],
++        ],
++        'mark_published' => 'Mark as published',
++        'mark_unpublished' => 'Mark as not published',
++        'marked_published' => 'Marked as published',
++        'marked_unpublished' => 'Marked as not published',
++        'mark_failed' => 'The post could not be updated. Try again.',
++        'planned_for' => 'Planned for :date',
++        'no_date' => 'No date',
++        'composer' => [
++            'save' => 'Save',
++            'no_date' => 'No date',
++            'no_date_description' => 'Keep it as a draft without a date.',
++            'set_date' => 'Plan a date and time',
++            'set_date_description' => 'Shows it on the calendar. Nothing is posted; you post it yourself.',
++        ],
++    ],
++
+     'status' => [
+         'pending' => 'Pending',
+         'draft' => 'Draft',
+@@ -847,6 +889,7 @@
+     ],
+ 
+     'errors' => [
++        'manual_publishing' => 'Manual publishing is on: TryPost only saves drafts and never publishes or schedules a post. Send status draft; a scheduled_at on a draft is kept as its planned date.',
+         'thread_incomplete' => 'Published :published of :total posts in the thread: :error',
+         'media_expired' => 'This upload expired. Add the file again.',
+         'cover_offset_min' => 'The video cover time must be 0 ms or more.',
+diff --git a/phpunit.xml b/phpunit.xml
+index f06f15dd..af0dfc67 100644
+--- a/phpunit.xml
++++ b/phpunit.xml
+@@ -32,6 +32,8 @@
+         <env name="PULSE_ENABLED" value="false"/>
+         <env name="FILESYSTEM_DISK" value="local"/>
+         <env name="TELESCOPE_ENABLED" value="false"/>
++        <!-- Upstream tests publish; tests/Feature/ManualPublishingTest.php turns manual publishing on itself. -->
++        <env name="MANUAL_PUBLISHING" value="false"/>
+         <env name="NIGHTWATCH_ENABLED" value="false"/>
+     </php>
+ </phpunit>
+diff --git a/resources/js/components/posts/composer/PostComposerDialog.vue b/resources/js/components/posts/composer/PostComposerDialog.vue
+index d1adc14e..ff569262 100644
+--- a/resources/js/components/posts/composer/PostComposerDialog.vue
++++ b/resources/js/components/posts/composer/PostComposerDialog.vue
+@@ -10,6 +10,8 @@ import {
+     IconCheck,
+     IconChevronDown,
+     IconChevronUp,
++    IconCircleCheck,
++    IconCircleDashed,
+     IconCirclePlus,
+     IconEye,
+     IconLayoutGrid,
+@@ -112,6 +114,11 @@ import { useComposerLiveState } from '@/composables/useComposerData';
+ import { useConnectChannelDialog } from '@/composables/useConnectChannelDialog';
+ import { trackPostComposerOpen } from '@/composables/useGlobalPostComposer';
+ import { useLinkCard } from '@/composables/useLinkCard';
++import {
++    ensurePostedLabel,
++    POSTED_LABEL,
++    useManualPublishing,
++} from '@/composables/useManualStatus';
+ import {
+     getMediaValidationWarning,
+     mediaWarningParams,
+@@ -402,6 +409,9 @@ const showScheduleMenu = (): void => {
+ };
+ 
+ const createAnother = ref(false);
++// Manual publishing: the composer only saves drafts. 'now' means no date and
++// 'custom' keeps the picked date as the planned date (scheduled_at).
++const manualPublishing = useManualPublishing();
+ type ComposerScheduleMode = QueuePositionValue | 'now' | 'custom';
+ const scheduleModeChosen = ref(
+     Boolean(props.initialPost) || Boolean(composition.scheduledAt.value),
+@@ -409,6 +419,10 @@ const scheduleModeChosen = ref(
+ const initialScheduleMode = (): ComposerScheduleMode => {
+     const initial = props.initialPost;
+ 
++    if (manualPublishing.value) {
++        return composition.scheduledAt.value ? 'custom' : 'now';
++    }
++
+     if (
+         initial?.schedule_mode === ScheduleMode.Queue &&
+         initial.status === PostStatus.PendingApproval
+@@ -856,6 +870,7 @@ watch(
+     (available) => {
+         if (
+             available &&
++            !manualPublishing.value &&
+             !scheduleModeChosen.value &&
+             (defaultPostAction === 'next' || defaultPostAction === 'top')
+         ) {
+@@ -876,7 +891,7 @@ watch(
+ watch(
+     [scheduleMode, queueBlocked],
+     ([mode, blocked]) => {
+-        if (requiresApproval.value && mode === 'now') {
++        if (requiresApproval.value && mode === 'now' && !manualPublishing.value) {
+             scheduleMode.value = blocked ? 'custom' : 'next';
+         }
+     },
+@@ -957,6 +972,30 @@ const addLabel = (label: {
+     }
+     composition.labelIds.value = [...composition.labelIds.value, label.id];
+ };
++// Manual publishing: Hugo marks a post published by giving it the `posted` label, saved with the post.
++const markedPublished = computed(() =>
++    selectedLabels.value.some((label) => label.name === POSTED_LABEL),
++);
++const toggleMarkedPublished = async (): Promise<void> => {
++    if (markedPublished.value) {
++        const posted = new Set(
++            availableLabels.value
++                .filter((label) => label.name === POSTED_LABEL)
++                .map((label) => label.id),
++        );
++        composition.labelIds.value = composition.labelIds.value.filter(
++            (id) => !posted.has(id),
++        );
++
++        return;
++    }
++
++    try {
++        addLabel(await ensurePostedLabel(availableLabels.value));
++    } catch {
++        toast.error(trans('posts.manual.mark_failed'));
++    }
++};
+ const { recentlyUsed: recentlyUsedAccounts, remember: rememberAccounts } =
+     useLastUsedAccounts(() => props.socialAccounts);
+ const hasSharedPreview = computed(
+@@ -1505,11 +1544,15 @@ const draftActionLabel = computed((): string => {
+         ? 'posts.composer.save_drafts'
+         : 'posts.composer.save_draft';
+ });
+-const scheduleLabelKey = computed(() =>
+-    scheduleMode.value === 'next' || scheduleMode.value === 'top'
++const scheduleLabelKey = computed(() => {
++    if (manualPublishing.value) {
++        return 'posts.manual.composer.no_date';
++    }
++
++    return scheduleMode.value === 'next' || scheduleMode.value === 'top'
+         ? `posts.composer.queue.${scheduleMode.value}`
+-        : 'posts.composer.now',
+-);
++        : 'posts.composer.now';
++});
+ const scheduleDateLabel = computed(() =>
+     scheduleMode.value === 'custom' && composition.scheduledAt.value
+         ? date.formatLocalMonthDayTime(composition.scheduledAt.value)
+@@ -1520,6 +1563,10 @@ const scheduleTriggerIcon = computed(() => {
+         return { name: 'pin', component: IconPin };
+     }
+ 
++    if (manualPublishing.value) {
++        return { name: 'calendar-clock', component: IconCalendarClock };
++    }
++
+     return scheduleMode.value === 'next' || scheduleMode.value === 'top'
+         ? { name: 'calendar-clock', component: IconCalendarClock }
+         : { name: 'send', component: IconSend };
+@@ -1532,7 +1579,19 @@ watch(scheduleMenuOpen, (open) => {
+                 : 'menu';
+     }
+ });
+-const scheduleOptions = computed(() => [
++const MANUAL_SCHEDULE_OPTIONS = [
++    {
++        mode: 'now' as const,
++        titleKey: 'posts.manual.composer.no_date',
++        descriptionKey: 'posts.manual.composer.no_date_description',
++    },
++    {
++        mode: 'custom' as const,
++        titleKey: 'posts.manual.composer.set_date',
++        descriptionKey: 'posts.manual.composer.set_date_description',
++    },
++];
++const scheduleOptions = computed(() => manualPublishing.value ? MANUAL_SCHEDULE_OPTIONS : [
+     ...(['next', 'top'] as const).map((mode) => ({
+         mode,
+         titleKey: `posts.composer.queue.${mode}`,
+@@ -1760,6 +1819,15 @@ const submit = (
+             ? scheduleMode.value
+             : null;
+     const payload = composition.materialize(status, queue);
++    if (
++        manualPublishing.value &&
++        status === PostStatus.Draft &&
++        scheduleMode.value === 'custom' &&
++        scheduledInstant
++    ) {
++        // The draft keeps the picked date as its planned date.
++        payload.scheduled_at = scheduledInstant;
++    }
+     if (status === PostStatus.Scheduled && !queue) {
+         if (!scheduledInstant) return false;
+         payload.scheduled_at = scheduledInstant;
+@@ -1786,6 +1854,12 @@ const saveAndLinkFacebook = useSaveAndLinkFacebook({
+ });
+ 
+ const submitSelectedSchedule = (): void => {
++    if (manualPublishing.value) {
++        submit(PostStatus.Draft);
++
++        return;
++    }
++
+     submit(
+         scheduleMode.value === 'now'
+             ? PostStatus.Publishing
+@@ -1794,7 +1868,7 @@ const submitSelectedSchedule = (): void => {
+ };
+ 
+ const isScheduleModeDisabled = (mode: ComposerScheduleMode): boolean =>
+-    (mode === 'next' || mode === 'top') && queueBlocked.value;
++    (mode === 'next' || mode === 'top') && queueBlocked.value && !manualPublishing.value;
+ const selectScheduleMode = (mode: ComposerScheduleMode): void => {
+     if (isScheduleModeDisabled(mode)) return;
+     if (mode === 'custom') {
+@@ -1924,7 +1998,10 @@ const resumeUnfinishedPost = (): void => {
+     const [firstGroup] = composition.networkGroups.value;
+     if (firstGroup) openNetwork(firstGroup.key);
+     const mode = snapshot.scheduleMode;
+-    if (
++    if (manualPublishing.value && (mode === 'next' || mode === 'top')) {
++        scheduleModeChosen.value = true;
++        scheduleMode.value = 'now';
++    } else if (
+         mode === 'now' ||
+         ((mode === 'next' || mode === 'top') && !queueBlocked.value)
+     ) {
+@@ -2081,7 +2158,7 @@ const onDialogOpenChange = (value: boolean): void => {
+                         }}
+                     </TooltipContent>
+                 </Tooltip>
+-                <Tooltip :disabled="!canHover">
++                <Tooltip v-if="!manualPublishing" :disabled="!canHover">
+                     <TooltipTrigger as-child>
+                         <button
+                             type="button"
+@@ -2144,7 +2221,7 @@ const onDialogOpenChange = (value: boolean): void => {
+             </div>
+         </TooltipProvider>
+         <div
+-            v-if="queueBlocked"
++            v-if="queueBlocked && !manualPublishing"
+             data-testid="composer-queue-hint"
+             class="mt-2 space-y-1 border-t border-border-strong px-3 pt-3 pb-1 text-xs text-muted-foreground"
+         >
+@@ -3280,6 +3357,25 @@ const onDialogOpenChange = (value: boolean): void => {
+                         {{ $t('posts.composer.create_another') }}
+                     </label>
+                     <Button
++                        v-if="manualPublishing"
++                        type="button"
++                        variant="ghost"
++                        size="lg"
++                        class="max-sm:h-8 max-sm:px-3"
++                        :aria-pressed="markedPublished"
++                        data-testid="composer-mark-published"
++                        @click="toggleMarkedPublished"
++                        ><IconCircleDashed
++                            v-if="markedPublished"
++                            class="size-4"
++                        /><IconCircleCheck v-else class="size-4" />{{
++                            markedPublished
++                                ? $t('posts.manual.mark_unpublished')
++                                : $t('posts.manual.mark_published')
++                        }}</Button
++                    >
++                    <Button
++                        v-else
+                         type="button"
+                         variant="ghost"
+                         size="lg"
+@@ -3359,7 +3455,7 @@ const onDialogOpenChange = (value: boolean): void => {
+                             :delay-duration="150"
+                             :disabled="!canHover"
+                         >
+-                            <Tooltip :disabled="!canHover || !blockingIssue">
++                            <Tooltip :disabled="!canHover || !blockingIssue || manualPublishing">
+                                 <TooltipTrigger as-child>
+                                     <Button
+                                         type="button"
+@@ -3373,14 +3469,16 @@ const onDialogOpenChange = (value: boolean): void => {
+                                                 !composition.scheduledAt.value)
+                                         "
+                                         :aria-disabled="
+-                                            hasBlockingIssues ? 'true' : undefined
++                                            hasBlockingIssues && !manualPublishing ? 'true' : undefined
+                                         "
+                                         @click="submitSelectedSchedule"
+                                         ><IconLoader2
+                                             v-if="submitting || cropUploading"
+                                             class="size-4 animate-spin"
+                                         />{{
+-                                            requiresApproval
++                                            manualPublishing
++                                                ? $t('posts.manual.composer.save')
++                                                : requiresApproval
+                                                 ? $t('posts.composer.request_approval')
+                                                 : isQueueMode && !postId
+                                                 ? isBatch
+@@ -3405,7 +3503,7 @@ const onDialogOpenChange = (value: boolean): void => {
+                                     >
+                                 </TooltipTrigger>
+                                 <TooltipContent
+-                                    v-if="blockingIssue"
++                                    v-if="blockingIssue && !manualPublishing"
+                                     side="top"
+                                     data-testid="composer-blocked-tooltip"
+                                 >
+diff --git a/resources/js/components/publish/CalendarPostChip.vue b/resources/js/components/publish/CalendarPostChip.vue
+index c6a02218..a4673832 100644
+--- a/resources/js/components/publish/CalendarPostChip.vue
++++ b/resources/js/components/publish/CalendarPostChip.vue
+@@ -12,6 +12,11 @@ import {
+     PopoverTrigger,
+ } from '@/components/ui/popover';
+ import { useBelowBreakpoint } from '@/composables/useBreakpoint';
++import {
++    type ManualState,
++    useManualPublishing,
++    useManualStatus,
++} from '@/composables/useManualStatus';
+ import { getPlatformLabel } from '@/composables/usePlatformLogo';
+ import date from '@/date';
+ import { isImage, isVideo } from '@/lib/mediaType';
+@@ -73,7 +78,39 @@ const STATUS_CLASSES: Record<string, string> = {
+     failed: 'border-destructive/40 bg-destructive/5',
+ };
+ 
++// Manual publishing: a chip shows the post's state (useManualStatus) with a 6px dot, never a sending state.
++const manualPublishing = useManualPublishing();
++const manualState = useManualStatus(() => props.post);
++
++const MANUAL_STATE_CLASSES: Record<ManualState, string> = {
++    draft: 'border-dashed',
++    planned: '',
++    published: 'border-transparent bg-success-subtle',
++};
++
++const MANUAL_DOT_CLASSES: Record<ManualState, string> = {
++    draft: 'bg-subtle-foreground',
++    planned: 'bg-primary-text-hover',
++    published: 'bg-success',
++};
++
++const MANUAL_TABS: Record<ManualState, PublishTab> = {
++    draft: 'drafts',
++    planned: 'queue',
++    published: 'sent',
++};
++
++const chipClass = computed((): string =>
++    manualPublishing.value
++        ? MANUAL_STATE_CLASSES[manualState.value]
++        : (STATUS_CLASSES[props.post.status] ?? ''),
++);
++
+ const tab = computed((): PublishTab => {
++    if (manualPublishing.value) {
++        return MANUAL_TABS[manualState.value];
++    }
++
+     if (SENT_STATUSES.includes(props.post.status)) {
+         return 'sent';
+     }
+@@ -137,14 +174,18 @@ const scheduleMode = computed(() =>
+                 v-bind="$attrs"
+                 class="flex min-w-0 shrink-0 gap-1.5 rounded-lg border border-border-strong bg-card text-start transition-control hover:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring data-[state=open]:bg-secondary"
+                 :class="[
+-                    STATUS_CLASSES[post.status] ?? '',
++                    chipClass,
+                     compact
+                         ? 'size-7 items-center justify-center'
+                         : layout === 'week'
+                           ? 'items-start p-1.5'
+                           : 'h-7 items-center px-1',
+                 ]"
+-                :aria-label="`${channels} · ${time} · ${text || $t('calendar.no_content')}`"
++                :aria-label="
++                    manualPublishing
++                        ? `${channels} · ${time} · ${$t('posts.manual.states.' + manualState)} · ${text || $t('calendar.no_content')}`
++                        : `${channels} · ${time} · ${text || $t('calendar.no_content')}`
++                "
+                 :data-testid="`calendar-post-${post.id}`"
+             >
+                 <template v-if="compact">
+@@ -158,6 +199,14 @@ const scheduleMode = computed(() =>
+                 <template v-else>
+                     <span class="flex min-w-0 flex-1 flex-col gap-1">
+                         <span class="flex min-w-0 items-center gap-1">
++                            <span
++                                v-if="manualPublishing"
++                                class="size-1.5 shrink-0 rounded-full"
++                                :class="MANUAL_DOT_CLASSES[manualState]"
++                                :data-state="manualState"
++                                :title="$t(`posts.manual.states.${manualState}`)"
++                                :data-testid="`calendar-post-state-${post.id}`"
++                            />
+                             <PlatformBrandIcon
+                                 v-if="post.platform"
+                                 :platform="post.platform"
+diff --git a/resources/js/components/publish/CalendarStatusFilter.vue b/resources/js/components/publish/CalendarStatusFilter.vue
+index 2f3daf9d..f829a13b 100644
+--- a/resources/js/components/publish/CalendarStatusFilter.vue
++++ b/resources/js/components/publish/CalendarStatusFilter.vue
+@@ -4,6 +4,7 @@ import {
+     IconChevronDown,
+     IconLayersSubtract,
+ } from '@tabler/icons-vue';
++import { computed } from 'vue';
+ 
+ import { Button } from '@/components/ui/button';
+ import {
+@@ -12,10 +13,21 @@ import {
+     DropdownMenuItem,
+     DropdownMenuTrigger,
+ } from '@/components/ui/dropdown-menu';
+-import { CALENDAR_STATUSES, type CalendarStatus } from '@/types/publish';
++import { useManualPublishing } from '@/composables/useManualStatus';
++import {
++    CALENDAR_STATUSES,
++    MANUAL_CALENDAR_STATUSES,
++    type CalendarStatus,
++} from '@/types/publish';
+ 
+ const status = defineModel<CalendarStatus>({ required: true });
+ 
++const manualPublishing = useManualPublishing();
++
++const options = computed(() =>
++    manualPublishing.value ? MANUAL_CALENDAR_STATUSES : CALENDAR_STATUSES,
++);
++
+ const selectStatus = (option: CalendarStatus): void => {
+     status.value = option;
+ };
+@@ -38,7 +50,7 @@ const selectStatus = (option: CalendarStatus): void => {
+         </DropdownMenuTrigger>
+         <DropdownMenuContent align="start">
+             <DropdownMenuItem
+-                v-for="option in CALENDAR_STATUSES"
++                v-for="option in options"
+                 :key="option"
+                 :data-testid="`calendar-status-${option}`"
+                 @click="selectStatus(option)"
+diff --git a/resources/js/components/publish/CalendarUndatedPanel.vue b/resources/js/components/publish/CalendarUndatedPanel.vue
+index d95c2812..e6603212 100644
+--- a/resources/js/components/publish/CalendarUndatedPanel.vue
++++ b/resources/js/components/publish/CalendarUndatedPanel.vue
+@@ -2,8 +2,10 @@
+ import { InfiniteScroll, Link } from '@inertiajs/vue3';
+ import { IconEdit, IconX } from '@tabler/icons-vue';
+ 
++import ManualStatusChip from '@/components/publish/ManualStatusChip.vue';
+ import { Badge } from '@/components/ui/badge';
+ import { Button } from '@/components/ui/button';
++import { useManualPublishing } from '@/composables/useManualStatus';
+ import {
+     getPlatformLabel,
+     getPlatformLogo,
+@@ -21,6 +23,8 @@ const emit = defineEmits<{
+     close: [];
+ }>();
+ 
++const manualPublishing = useManualPublishing();
++
+ const thumbnail = (draft: UndatedDraft): string | null =>
+     (draft.media ?? []).find(isImage)?.url ?? null;
+ 
+@@ -106,7 +110,12 @@ const plainText = (draft: UndatedDraft): string =>
+                                     $t('calendar.undated.no_channel')
+                                 }}
+                             </span>
+-                            <Badge variant="info" class="shrink-0">
++                            <ManualStatusChip
++                                v-if="manualPublishing"
++                                state="draft"
++                                :test-id="`calendar-undated-state-${draft.id}`"
++                            />
++                            <Badge v-else variant="info" class="shrink-0">
+                                 <IconEdit />
+                                 {{ $t('calendar.undated.draft') }}
+                             </Badge>
+diff --git a/resources/js/components/publish/ManualStatusChip.vue b/resources/js/components/publish/ManualStatusChip.vue
+new file mode 100644
+index 00000000..731871bd
+--- /dev/null
++++ b/resources/js/components/publish/ManualStatusChip.vue
+@@ -0,0 +1,43 @@
++<script setup lang="ts">
++import type { ManualState } from '@/composables/useManualStatus';
++
++/**
++ * A post's state with manual publishing on (see useManualStatus.ts): a neutral
++ * Draft chip, an accent Planned chip and an ok Published chip, each with a 6px dot.
++ */
++withDefaults(
++    defineProps<{
++        state: ManualState;
++        testId?: string;
++    }>(),
++    { testId: undefined },
++);
++
++const CHIP_CLASSES: Record<ManualState, string> = {
++    draft: 'border border-border bg-secondary text-muted-foreground',
++    planned: 'bg-primary-subtle text-primary-text',
++    published: 'bg-success-subtle text-success-text',
++};
++
++const DOT_CLASSES: Record<ManualState, string> = {
++    draft: 'bg-subtle-foreground',
++    planned: 'bg-primary-text-hover',
++    published: 'bg-success',
++};
++</script>
++
++<template>
++    <span
++        class="inline-flex h-5 shrink-0 items-center gap-1.5 rounded-md px-1.5 text-xs leading-5 font-medium whitespace-nowrap"
++        :class="CHIP_CLASSES[state]"
++        :data-state="state"
++        :data-testid="testId"
++    >
++        <span
++            class="size-1.5 shrink-0 rounded-full"
++            :class="DOT_CLASSES[state]"
++            aria-hidden="true"
++        />
++        {{ $t(`posts.manual.states.${state}`) }}
++    </span>
++</template>
+diff --git a/resources/js/components/publish/PostCardMenu.vue b/resources/js/components/publish/PostCardMenu.vue
+index b569159e..1d20d573 100644
+--- a/resources/js/components/publish/PostCardMenu.vue
++++ b/resources/js/components/publish/PostCardMenu.vue
+@@ -4,6 +4,8 @@ import {
+     IconArrowDown,
+     IconArrowsMaximize,
+     IconArrowUp,
++    IconCircleCheck,
++    IconCircleDashed,
+     IconCopyPlus,
+     IconDotsVertical,
+     IconFileArrowLeft,
+@@ -24,6 +26,10 @@ import {
+     DropdownMenuTrigger,
+ } from '@/components/ui/dropdown-menu';
+ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
++import {
++    isMarkedPublished,
++    useManualPublishing,
++} from '@/composables/useManualStatus';
+ import { useWorkspaceAbilities } from '@/composables/useWorkspaceAbilities';
+ import { isRecurring } from '@/lib/recurrence';
+ import { PostStatus, ScheduleMode } from '@/types/post';
+@@ -44,6 +50,8 @@ const props = withDefaults(
+ const emit = defineEmits<{ select: [action: PostCardMenuAction] }>();
+ 
+ const { canPublishDirectly } = useWorkspaceAbilities();
++const manualPublishing = useManualPublishing();
++const markedPublished = computed(() => isMarkedPublished(props.post));
+ 
+ const isScheduled = computed(
+     () => props.post.status === PostStatus.Scheduled,
+@@ -81,8 +89,26 @@ const isQueued = computed(
+                     align="end"
+                     :data-testid="`post-card-menu-content-${testKey}`"
+                 >
++                    <template v-if="manualPublishing">
++                        <DropdownMenuItem
++                            v-if="markedPublished"
++                            :data-testid="`post-mark-unpublished-${testKey}`"
++                            @click="emit('select', 'mark_unpublished')"
++                        >
++                            <IconCircleDashed class="size-4" />
++                            {{ $t('posts.manual.mark_unpublished') }}
++                        </DropdownMenuItem>
++                        <DropdownMenuItem
++                            v-else
++                            :data-testid="`post-mark-published-${testKey}`"
++                            @click="emit('select', 'mark_published')"
++                        >
++                            <IconCircleCheck class="size-4" />
++                            {{ $t('posts.manual.mark_published') }}
++                        </DropdownMenuItem>
++                    </template>
+                     <DropdownMenuItem
+-                        v-if="isDraft && canPublishDirectly"
++                        v-if="isDraft && canPublishDirectly && !manualPublishing"
+                         :data-testid="`post-publish-now-${testKey}`"
+                         @click="emit('select', 'publish_now')"
+                     >
+@@ -105,7 +131,7 @@ const isQueued = computed(
+                         {{ $t('posts.publish.actions.duplicate') }}
+                     </DropdownMenuItem>
+                     <DropdownMenuItem
+-                        v-if="canRecur && canPublishDirectly"
++                        v-if="canRecur && canPublishDirectly && !manualPublishing"
+                         :data-testid="`post-recurrence-open-${testKey}`"
+                         @click="emit('select', 'recurrence')"
+                     >
+@@ -124,7 +150,7 @@ const isQueued = computed(
+                         <IconArrowsMaximize class="size-4" />
+                         {{ $t('posts.show.title') }}
+                     </DropdownMenuItem>
+-                    <template v-if="post.platform_url">
++                    <template v-if="post.platform_url && !manualPublishing">
+                         <DropdownMenuSeparator />
+                         <DropdownMenuItem
+                             :data-testid="`post-share-link-${testKey}`"
+@@ -141,7 +167,7 @@ const isQueued = computed(
+                             {{ $t('posts.publish.actions.copy_link') }}
+                         </DropdownMenuItem>
+                     </template>
+-                    <template v-if="isQueued">
++                    <template v-if="isQueued && !manualPublishing">
+                         <DropdownMenuSeparator />
+                         <DropdownMenuItem
+                             :data-testid="`post-move-top-${testKey}`"
+diff --git a/resources/js/components/publish/PostDetailsDialog.vue b/resources/js/components/publish/PostDetailsDialog.vue
+index 9e0059a0..d69a25cf 100644
+--- a/resources/js/components/publish/PostDetailsDialog.vue
++++ b/resources/js/components/publish/PostDetailsDialog.vue
+@@ -1,6 +1,8 @@
+ <script setup lang="ts">
+ import { useHttp } from '@inertiajs/vue3';
+ import {
++    IconCircleCheck,
++    IconCircleDashed,
+     IconExternalLink,
+     IconPencil,
+     IconRepeat,
+@@ -14,6 +16,7 @@ import ChannelAvatar from '@/components/ChannelAvatar.vue';
+ import MediaLightbox from '@/components/media/MediaLightbox.vue';
+ import PlatformBrandIcon from '@/components/PlatformBrandIcon.vue';
+ import ThreadView from '@/components/posts/ThreadView.vue';
++import ManualStatusChip from '@/components/publish/ManualStatusChip.vue';
+ import PostCardLabels from '@/components/publish/PostCardLabels.vue';
+ import PostCardMenu from '@/components/publish/PostCardMenu.vue';
+ import PostDetailsMedia from '@/components/publish/PostDetailsMedia.vue';
+@@ -30,6 +33,11 @@ import {
+ } from '@/components/ui/dialog';
+ import { Skeleton } from '@/components/ui/skeleton';
+ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
++import {
++    isMarkedPublished,
++    manualStateOf,
++    useManualPublishing,
++} from '@/composables/useManualStatus';
+ import {
+     getPlatformLabel,
+ } from '@/composables/usePlatformLogo';
+@@ -61,6 +69,7 @@ const emit = defineEmits<{
+ const open = defineModel<boolean>('open', { required: true });
+ 
+ const { canPublishDirectly } = useWorkspaceAbilities();
++const manualPublishing = useManualPublishing();
+ 
+ const http = useHttp<Record<string, never>, PostCard[]>({});
+ const group = ref<PostCard[] | null>(null);
+@@ -156,7 +165,23 @@ const metricsDetail = computed(() => {
+         : null;
+ });
+ 
++const currentState = computed(() => manualStateOf(current.value));
++const currentMarkedPublished = computed(() => isMarkedPublished(current.value));
++
++const MANUAL_DOT_CLASSES = {
++    draft: 'bg-subtle-foreground',
++    planned: 'bg-primary-text-hover',
++    published: 'bg-success',
++} as const;
++
+ const moment = computed(() => {
++    // Manual publishing: the date shown is the planned date Hugo picked.
++    if (manualPublishing.value) {
++        return current.value.scheduled_at
++            ? { key: 'posts.manual.planned_for', at: current.value.scheduled_at }
++            : null;
++    }
++
+     if (current.value.published_at) {
+         return {
+             key: 'posts.show.published_on',
+@@ -305,8 +330,15 @@ const siblingMoment = (sibling: PostCard): string | null => {
+                                 :data-testid="`post-details-rail-status-${sibling.id}`"
+                                 :data-status="sibling.status"
+                             >
++                                <span
++                                    v-if="manualPublishing"
++                                    class="size-1.5 shrink-0 rounded-full"
++                                    :class="MANUAL_DOT_CLASSES[manualStateOf(sibling)]"
++                                    :aria-label="$t(`posts.manual.states.${manualStateOf(sibling)}`)"
++                                />
+                                 <component
+                                     :is="getPostStatusConfig(sibling.status).icon"
++                                    v-else
+                                     :class="getPostStatusConfig(sibling.status).iconClass"
+                                     class="size-3.5 shrink-0"
+                                     :aria-label="$t(`posts.status.${sibling.status}`)"
+@@ -339,7 +371,13 @@ const siblingMoment = (sibling: PostCard): string | null => {
+                             class="flex flex-wrap items-center gap-2"
+                             as="div"
+                         >
++                            <ManualStatusChip
++                                v-if="manualPublishing"
++                                :state="currentState"
++                                :test-id="`post-details-state-${testKey}`"
++                            />
+                             <Badge
++                                v-else
+                                 :variant="currentStatusConfig.variant"
+                                 class="h-6 gap-1 px-2 [&>svg]:size-4"
+                                 :data-testid="`post-details-status-${testKey}`"
+@@ -366,7 +404,9 @@ const siblingMoment = (sibling: PostCard): string | null => {
+                                                   timezone,
+                                               ),
+                                           })
+-                                        : $t('posts.publish.unscheduled')
++                                        : manualPublishing
++                                          ? $t('posts.manual.no_date')
++                                          : $t('posts.publish.unscheduled')
+                                 }}
+                             </span>
+                             <span
+@@ -484,7 +524,8 @@ const siblingMoment = (sibling: PostCard): string | null => {
+                             <TooltipProvider
+                                 v-if="
+                                     current.origin === PostOrigin.Network &&
+-                                    channel
++                                    channel &&
++                                    !manualPublishing
+                                 "
+                                 :delay-duration="200"
+                             >
+@@ -528,8 +569,28 @@ const siblingMoment = (sibling: PostCard): string | null => {
+                             class="flex shrink-0 items-center gap-1 max-sm:ms-auto"
+                             :data-testid="`post-details-actions-${currentKey}`"
+                         >
++                            <template v-if="manualPublishing">
++                                <Button
++                                    v-if="currentMarkedPublished"
++                                    variant="outline"
++                                    :data-testid="`post-details-mark-unpublished-${currentKey}`"
++                                    @click="emit('select', 'mark_unpublished', current)"
++                                >
++                                    <IconCircleDashed class="size-4" />
++                                    {{ $t('posts.manual.mark_unpublished') }}
++                                </Button>
++                                <Button
++                                    v-else
++                                    variant="outline"
++                                    :data-testid="`post-details-mark-published-${currentKey}`"
++                                    @click="emit('select', 'mark_published', current)"
++                                >
++                                    <IconCircleCheck class="size-4" />
++                                    {{ $t('posts.manual.mark_published') }}
++                                </Button>
++                            </template>
+                             <Button
+-                                v-if="permalink"
++                                v-if="permalink && !manualPublishing"
+                                 as="a"
+                                 :href="permalink"
+                                 target="_blank"
+@@ -543,7 +604,8 @@ const siblingMoment = (sibling: PostCard): string | null => {
+                             <Button
+                                 v-if="
+                                     current.status === PostStatus.Scheduled &&
+-                                    canPublishDirectly
++                                    canPublishDirectly &&
++                                    !manualPublishing
+                                 "
+                                 variant="outline"
+                                 :data-testid="`post-details-publish-now-${currentKey}`"
+diff --git a/resources/js/components/publish/PostTimelineCard.vue b/resources/js/components/publish/PostTimelineCard.vue
+index 5327dc4c..7abb6656 100644
+--- a/resources/js/components/publish/PostTimelineCard.vue
++++ b/resources/js/components/publish/PostTimelineCard.vue
+@@ -29,6 +29,7 @@ import PostNotesPanel from '@/components/posts/editor/PostNotesPanel.vue';
+ import PostScheduleModeBadge from '@/components/posts/PostScheduleModeBadge.vue';
+ import AddToQueueButton from '@/components/publish/AddToQueueButton.vue';
+ import ApprovePostButton from '@/components/publish/ApprovePostButton.vue';
++import ManualStatusChip from '@/components/publish/ManualStatusChip.vue';
+ import PostCardLabels from '@/components/publish/PostCardLabels.vue';
+ import PostCardMenu from '@/components/publish/PostCardMenu.vue';
+ import PostDetailsDialog from '@/components/publish/PostDetailsDialog.vue';
+@@ -50,6 +51,11 @@ import {
+     TooltipTrigger,
+ } from '@/components/ui/tooltip';
+ import { useDisplayTimezone } from '@/composables/useDisplayTimezone';
++import {
++    setMarkedPublished,
++    useManualPublishing,
++    useManualStatus,
++} from '@/composables/useManualStatus';
+ import {
+     getContentTypeBadgeKey,
+     getPlatformLabel,
+@@ -59,6 +65,7 @@ import {
+     copyPostCardLink,
+     duplicatePostCard,
+     editPostCardUrlKey,
++    postCardLabelsKey,
+     schedulePostCard,
+     sharePostCardLink,
+     toastFirstError,
+@@ -122,6 +129,12 @@ const editUrl = inject(editPostCardUrlKey, (post: PostCard) =>
+     editPostRoute.url(post.id),
+ );
+ const { timezone, formatTime } = useDisplayTimezone(props.displayTimezone, []);
++const workspaceLabels = inject(
++    postCardLabelsKey,
++    computed(() => []),
++);
++const manualPublishing = useManualPublishing();
++const manualState = useManualStatus(() => props.post);
+ 
+ watch(
+     () => props.displayTimezone,
+@@ -157,6 +170,10 @@ const isInGoogleReview = computed(
+ );
+ 
+ const scheduleMode = computed(() => {
++    if (manualPublishing.value) {
++        return null;
++    }
++
+     if (props.post.origin === PostOrigin.Network) {
+         return props.tab === 'sent' ? ScheduleMode.Custom : null;
+     }
+@@ -363,6 +380,14 @@ const runPostAction = (action: PostCardMenuAction, post: PostCard): void => {
+         case 'copy_link':
+             copyPostCardLink(post);
+             break;
++        case 'mark_published':
++        case 'mark_unpublished':
++            void setMarkedPublished(
++                post,
++                action === 'mark_published',
++                workspaceLabels.value,
++            );
++            break;
+         case 'delete':
+             deletePost(post);
+             break;
+@@ -466,8 +491,13 @@ defineExpose({ openDetails });
+                 :mode="scheduleMode"
+                 plain
+             />
++            <ManualStatusChip
++                v-if="manualPublishing"
++                :state="manualState"
++                :test-id="`post-state-${post.id}`"
++            />
+             <PostFailurePopover
+-                v-if="showStatus && hasFailure"
++                v-else-if="showStatus && hasFailure"
+                 :post="post"
+                 :test-key="post.id"
+                 :attempted-at="time"
+@@ -739,7 +769,7 @@ defineExpose({ openDetails });
+                         :class="{ 'max-sm:hidden': post.origin === PostOrigin.Network }"
+                     >
+                         <TooltipProvider
+-                            v-if="post.origin === PostOrigin.Network && platform"
++                            v-if="post.origin === PostOrigin.Network && platform && !manualPublishing"
+                             :delay-duration="200"
+                         >
+                             <Tooltip>
+@@ -841,11 +871,11 @@ defineExpose({ openDetails });
+                             {{ $t('posts.approvals.revert') }}
+                         </Button>
+                         <AddToQueueButton
+-                            v-if="canCreatePost && tab === 'drafts' && account"
++                            v-if="canCreatePost && tab === 'drafts' && account && !manualPublishing"
+                             :post="post"
+                             :account="account"
+                         />
+-                        <Tooltip v-if="permalink && platform">
++                        <Tooltip v-if="permalink && platform && !manualPublishing">
+                             <TooltipTrigger as-child>
+                                 <Button
+                                     as="a"
+@@ -872,7 +902,7 @@ defineExpose({ openDetails });
+                             </TooltipContent>
+                         </Tooltip>
+                         <Button
+-                            v-if="canPublishDirectly && post.status === PostStatus.Scheduled"
++                            v-if="canPublishDirectly && post.status === PostStatus.Scheduled && !manualPublishing"
+                             variant="outline"
+                             :data-testid="`post-publish-now-${post.id}`"
+                             @click="schedulePostCard(post.id, 'publish_now')"
+diff --git a/resources/js/components/publish/PublishFilterMenu.vue b/resources/js/components/publish/PublishFilterMenu.vue
+index 4ceabc89..6c258b4f 100644
+--- a/resources/js/components/publish/PublishFilterMenu.vue
++++ b/resources/js/components/publish/PublishFilterMenu.vue
+@@ -15,8 +15,13 @@ import {
+     DropdownMenuTrigger,
+ } from '@/components/ui/dropdown-menu';
+ import { useBelowBreakpoint } from '@/composables/useBreakpoint';
++import { useManualPublishing } from '@/composables/useManualStatus';
+ import type { TimezoneOption } from '@/types/posting-schedule';
+-import { CALENDAR_STATUSES, type CalendarStatus } from '@/types/publish';
++import {
++    CALENDAR_STATUSES,
++    MANUAL_CALENDAR_STATUSES,
++    type CalendarStatus,
++} from '@/types/publish';
+ 
+ const props = withDefaults(
+     defineProps<{
+@@ -36,6 +41,11 @@ const emit = defineEmits<{
+     'update:showSlots': [value: boolean];
+ }>();
+ 
++const manualPublishing = useManualPublishing();
++const statusOptions = computed(() =>
++    manualPublishing.value ? MANUAL_CALENDAR_STATUSES : CALENDAR_STATUSES,
++);
++
+ const belowMd = useBelowBreakpoint('md');
+ const isCompact = computed(() => props.compact ?? belowMd.value);
+ 
+@@ -84,7 +94,7 @@ const rowClass =
+                     {{ $t('calendar.status.label') }}
+                 </p>
+                 <button
+-                    v-for="option in CALENDAR_STATUSES"
++                    v-for="option in statusOptions"
+                     :key="option"
+                     type="button"
+                     :aria-pressed="status === option"
+diff --git a/resources/js/components/publish/PublishTabs.vue b/resources/js/components/publish/PublishTabs.vue
+index 39fd9d14..a0ee48bc 100644
+--- a/resources/js/components/publish/PublishTabs.vue
++++ b/resources/js/components/publish/PublishTabs.vue
+@@ -1,9 +1,10 @@
+ <script setup lang="ts">
+ import { Link } from '@inertiajs/vue3';
+ import { IconCheck, IconChevronDown } from '@tabler/icons-vue';
+-import { ref } from 'vue';
++import { computed, ref } from 'vue';
+ 
+ import ResponsivePopover from '@/components/ResponsivePopover.vue';
++import { useManualPublishing } from '@/composables/useManualStatus';
+ import type { PublishCounts, PublishTab } from '@/types/publish';
+ 
+ defineProps<{
+@@ -12,7 +13,17 @@ defineProps<{
+     hrefFor: (tab: PublishTab) => string;
+ }>();
+ 
+-const tabs: PublishTab[] = ['queue', 'approvals', 'drafts', 'sent'];
++const manualPublishing = useManualPublishing();
++
++// Manual publishing: the tabs are the three states (queue lists planned posts, sent the published ones).
++const tabs = computed<PublishTab[]>(() =>
++    manualPublishing.value
++        ? ['queue', 'drafts', 'sent']
++        : ['queue', 'approvals', 'drafts', 'sent'],
++);
++
++const labelKey = (key: PublishTab): string =>
++    manualPublishing.value ? `posts.manual.tabs.${key}` : `posts.publish.tabs.${key}`;
+ 
+ const selectOpen = ref(false);
+ 
+@@ -38,7 +49,7 @@ const closeSelect = (): void => {
+                     :aria-label="$t('posts.publish.title')"
+                     data-testid="publish-tabs-mobile-trigger"
+                 >
+-                    {{ $t(`posts.publish.tabs.${tab}`) }}
++                    {{ $t(labelKey(tab)) }}
+                     <span
+                         class="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary px-1.5 text-xs font-medium text-foreground"
+                         >{{ counts[tab] }}</span
+@@ -56,7 +67,7 @@ const closeSelect = (): void => {
+                     class="flex h-9 items-center gap-2 rounded-md px-2 text-sm font-medium text-foreground transition-control hover:bg-accent focus-visible:bg-accent focus-visible:outline-none max-sm:h-11 max-sm:text-base"
+                     @click="closeSelect"
+                 >
+-                    {{ $t(`posts.publish.tabs.${key}`) }}
++                    {{ $t(labelKey(key)) }}
+                     <span
+                         class="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary px-1.5 text-xs font-medium text-foreground"
+                         >{{ counts[key] }}</span
+@@ -88,7 +99,7 @@ const closeSelect = (): void => {
+                         : 'text-muted-foreground hover:text-foreground'
+                 "
+             >
+-                {{ $t(`posts.publish.tabs.${key}`) }}
++                {{ $t(labelKey(key)) }}
+                 <span
+                     class="inline-flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-secondary px-1 text-xs font-medium text-foreground"
+                     :data-testid="`publish-tab-count-${key}`"
+diff --git a/resources/js/composables/useManualStatus.ts b/resources/js/composables/useManualStatus.ts
+new file mode 100644
+index 00000000..ceb8d525
+--- /dev/null
++++ b/resources/js/composables/useManualStatus.ts
+@@ -0,0 +1,171 @@
++import { router, usePage } from '@inertiajs/vue3';
++import { trans } from 'laravel-vue-i18n';
++import { computed, type ComputedRef } from 'vue';
++import { toast } from 'vue-sonner';
++
++import { update as updatePostLabels } from '@/actions/App/Http/Controllers/App/PostLabelController';
++import { store as labelsStore } from '@/routes/app/labels';
++import type { FlashData } from '@/types';
++import { PostOrigin } from '@/types/post';
++
++/**
++ * Hugo's workspace: manual publishing (config `trypost.manual_publishing`,
++ * shared as the `manualPublishing` page prop). TryPost never sends a post;
++ * Hugo posts by hand and marks the post published himself.
++ *
++ * This is the one place the UI derives a post's state. A post is:
++ * - published when it carries the `posted` label (or came from the network),
++ * - planned when it has a planned date (`scheduled_at`),
++ * - a draft otherwise.
++ * The server derives the same states in app/Support/ManualPublishing.php.
++ */
++export type ManualState = 'draft' | 'planned' | 'published';
++
++export const MANUAL_STATES: readonly ManualState[] = [
++    'draft',
++    'planned',
++    'published',
++];
++
++/** The label the sync (scripts/trypost_sync.py) reads to mark a file published. */
++export const POSTED_LABEL = 'posted';
++
++/** The colour the sync gives the label (LABEL_COLOURS in scripts/lib/sync_plan.py). */
++export const POSTED_LABEL_COLOUR = '#C0E50A';
++
++interface ManualLabel {
++    id: string;
++    name: string;
++    color: string;
++}
++
++interface ManualStatusSource {
++    labels?: { name: string }[] | null;
++    scheduled_at?: string | null;
++    origin?: string | null;
++}
++
++export const isMarkedPublished = (post: ManualStatusSource): boolean =>
++    (post.labels ?? []).some((label) => label.name === POSTED_LABEL);
++
++export const manualStateOf = (post: ManualStatusSource): ManualState => {
++    if (isMarkedPublished(post) || post.origin === PostOrigin.Network) {
++        return 'published';
++    }
++
++    return post.scheduled_at ? 'planned' : 'draft';
++};
++
++/** Whether manual publishing is on; on unless the server says otherwise. */
++export const useManualPublishing = (): ComputedRef<boolean> => {
++    const page = usePage();
++
++    return computed(() => page.props.manualPublishing !== false);
++};
++
++export const useManualStatus = (
++    post: () => ManualStatusSource,
++): ComputedRef<ManualState> => computed(() => manualStateOf(post()));
++
++/**
++ * The workspace's `posted` label: the one in `labels`, or a new one created
++ * through the existing label route when the workspace has none.
++ */
++export const ensurePostedLabel = (
++    labels: readonly ManualLabel[],
++): Promise<ManualLabel> => {
++    const existing = labels.find((label) => label.name === POSTED_LABEL);
++
++    if (existing) {
++        return Promise.resolve(existing);
++    }
++
++    return new Promise((resolve, reject) => {
++        let created: ManualLabel | null = null;
++
++        router.post(
++            labelsStore.url(),
++            { name: POSTED_LABEL, color: POSTED_LABEL_COLOUR },
++            {
++                preserveState: true,
++                preserveScroll: true,
++                onFlash: (flash) => {
++                    created = (flash as FlashData).createdLabel ?? null;
++                },
++                onFinish: () => {
++                    if (created) {
++                        resolve(created);
++                    } else {
++                        reject(new Error('The posted label could not be created.'));
++                    }
++                },
++            },
++        );
++    });
++};
++
++/**
++ * Marks a post published (adds `posted`) or not published (removes it)
++ * through the post's existing label update. No network is called.
++ */
++export const setMarkedPublished = async (
++    post: { id: string; labels?: ManualLabel[] | null },
++    published: boolean,
++    workspaceLabels: readonly ManualLabel[],
++    options: { only?: string[]; reset?: string[] } = {},
++): Promise<void> => {
++    const fail = (): void => {
++        toast.error(trans('posts.manual.mark_failed'), {
++            testId: 'post-mark-published-error-toast',
++        });
++    };
++
++    let label: ManualLabel;
++
++    try {
++        label = await ensurePostedLabel([
++            ...(post.labels ?? []),
++            ...workspaceLabels,
++        ]);
++    } catch {
++        fail();
++
++        return;
++    }
++
++    const ids = new Set((post.labels ?? []).map((item) => item.id));
++
++    if (published) {
++        ids.add(label.id);
++    } else {
++        ids.delete(label.id);
++    }
++
++    router.patch(
++        updatePostLabels.url(post.id),
++        { labels: [...ids] },
++        {
++            // The page reloads its posts and counts, so the post moves to its new state and tab.
++            reset: ['posts'],
++            ...options,
++            preserveState: true,
++            preserveScroll: true,
++            onSuccess: () => {
++                toast.success(
++                    trans(
++                        published
++                            ? 'posts.manual.marked_published'
++                            : 'posts.manual.marked_unpublished',
++                    ),
++                    { testId: 'post-mark-published-toast' },
++                );
++            },
++            onError: fail,
++            onHttpException: () => {
++                fail();
++
++                return false;
++            },
++        },
++    );
++};
+diff --git a/resources/js/pages/posts/Calendar.vue b/resources/js/pages/posts/Calendar.vue
+index e291a4e9..f0d3b1bf 100644
+--- a/resources/js/pages/posts/Calendar.vue
++++ b/resources/js/pages/posts/Calendar.vue
+@@ -35,6 +35,7 @@ import { useAtLeastBreakpoint } from '@/composables/useBreakpoint';
+ import { useCollapseWhenTruncated } from '@/composables/useCollapseWhenTruncated';
+ import { useDisplayTimezone } from '@/composables/useDisplayTimezone';
+ import { openPostComposer } from '@/composables/useGlobalPostComposer';
++import { useManualPublishing } from '@/composables/useManualStatus';
+ import {
+     deletePostCardKey,
+     postCardLabelsKey,
+@@ -154,6 +155,7 @@ const selectedUntagged = ref<boolean>(props.filters.untagged ?? false);
+ const selectedChannelIds = ref<string[]>(props.filters.channels ?? []);
+ const selectedStatus = ref<CalendarStatus>(props.filters.status ?? 'all');
+ const undatedOpen = ref(props.undatedDrafts !== undefined);
++const manualPublishing = useManualPublishing();
+ 
+ const filterQuery = (): Record<string, string | string[] | undefined> => ({
+     labels: selectedLabelIds.value.length ? selectedLabelIds.value : undefined,
+@@ -221,7 +223,14 @@ const reload = (only: string[], reset: string[] = []): void => {
+ 
+ watch(
+     [selectedLabelIds, selectedUntagged, selectedChannelIds, selectedStatus],
+-    () => reload([...RELOAD_PROPS, 'undatedDrafts'], ['undatedDrafts']),
++    () => {
++        // Manual publishing: drafts have no date, so the Drafts filter opens the panel that lists them.
++        if (manualPublishing.value && selectedStatus.value === 'drafts') {
++            undatedOpen.value = true;
++        }
++
++        reload([...RELOAD_PROPS, 'undatedDrafts'], ['undatedDrafts']);
++    },
+     { deep: true },
+ );
+ 
+@@ -628,9 +637,9 @@ const goToDay = (key: string): void => {
+                         test-id="calendar"
+                         :compact="compactFilters"
+                         :timezones="timezones"
+-                        :show-slots="showSlots"
++                        :show-slots="manualPublishing ? null : showSlots"
+                         :manage-slots-href="
+-                            channel && canManageAccounts
++                            channel && canManageAccounts && !manualPublishing
+                                 ? settings.url(channel.id)
+                                 : null
+                         "
+diff --git a/resources/js/pages/publish/Index.vue b/resources/js/pages/publish/Index.vue
+index cdf0d093..aab1a965 100644
+--- a/resources/js/pages/publish/Index.vue
++++ b/resources/js/pages/publish/Index.vue
+@@ -49,6 +49,7 @@ import { useComposerData } from '@/composables/useComposerData';
+ import { useConnectChannelDialog } from '@/composables/useConnectChannelDialog';
+ import { useDisplayTimezone } from '@/composables/useDisplayTimezone';
+ import { openPostComposer } from '@/composables/useGlobalPostComposer';
++import { useManualPublishing } from '@/composables/useManualStatus';
+ import {
+     deletePostCardKey,
+     editPostCardUrlKey,
+@@ -128,6 +129,11 @@ const props = defineProps<Props>();
+ const page = usePage();
+ const { canManageAccounts, canManageTeam, canPublishDirectly } =
+     useWorkspaceAbilities();
++// Manual publishing: the queue tab lists planned posts as a plain list, with no posting slots.
++const manualPublishing = useManualPublishing();
++const queueTimeline = computed(
++    () => props.tab === 'queue' && !manualPublishing.value,
++);
+ 
+ const userTimezone = computed(
+     () => (page.props.auth.user as User).timezone || props.displayTimezone,
+@@ -611,20 +617,25 @@ const publishingPosts = computed<PostCard[]>(() =>
+ );
+ 
+ const isEmpty = computed(() =>
+-    props.tab === 'queue'
++    queueTimeline.value
+         ? visibleQueueDays.value.length === 0 &&
+           publishingPosts.value.length === 0
+         : (props.posts?.data.length ?? 0) === 0,
+ );
+ 
+ const listProps = computed<string[]>(() =>
+-    props.tab === 'queue' ? ['posts', 'queue'] : ['posts'],
++    queueTimeline.value ? ['posts', 'queue'] : ['posts'],
+ );
+ 
+ const showsQueueSlots = computed(
+-    () => props.tab === 'queue' && (showSlots.value || !props.channel),
++    () => queueTimeline.value && (showSlots.value || !props.channel),
+ );
+ 
++const emptyKey = (part: 'title' | 'description'): string =>
++    manualPublishing.value
++        ? `posts.manual.empty.${props.tab}.${part}`
++        : `posts.publish.empty.${props.tab}.${part}`;
++
+ const hasListData = computed(
+     () => props.hasData || (showsQueueSlots.value && props.hasQueueSlots),
+ );
+@@ -884,9 +895,9 @@ const submitComposition = (
+                         :timezone="timezone"
+                         test-id="publish"
+                         :timezones="timezones"
+-                        :show-slots="channel ? showSlots : null"
++                        :show-slots="channel && !manualPublishing ? showSlots : null"
+                         :manage-slots-href="
+-                            channel && canManageAccounts
++                            channel && canManageAccounts && !manualPublishing
+                                 ? settings.url(channel.id)
+                                 : null
+                         "
+@@ -954,8 +965,8 @@ const submitComposition = (
+ 
+             <EmptyState
+                 v-else-if="showFirstUse"
+-                :title="$t(`posts.publish.empty.${tab}.title`)"
+-                :description="$t(`posts.publish.empty.${tab}.description`)"
++                :title="$t(emptyKey('title'))"
++                :description="$t(emptyKey('description'))"
+             >
+                 <template #illustration>
+                     <PublishEmptyIllustration />
+@@ -995,7 +1006,7 @@ const submitComposition = (
+                 />
+ 
+                 <div
+-                    v-else-if="tab === 'queue'"
++                    v-else-if="queueTimeline"
+                     class="min-h-0 min-w-0 flex-1 overflow-auto overscroll-contain pb-px"
+                     data-testid="posts-scroll"
+                 >
+@@ -1072,7 +1083,11 @@ const submitComposition = (
+                                     v-if="group.key === NO_TIME"
+                                     class="text-base leading-5 font-emphasis text-foreground"
+                                 >
+-                                    {{ $t('posts.publish.unscheduled') }}
++                                    {{
++                                        manualPublishing
++                                            ? $t('posts.manual.no_date')
++                                            : $t('posts.publish.unscheduled')
++                                    }}
+                                 </h2>
+                                 <DayHeading
+                                     v-else
+diff --git a/resources/js/types/publish.ts b/resources/js/types/publish.ts
+index 97d5a913..d560e59f 100644
+--- a/resources/js/types/publish.ts
++++ b/resources/js/types/publish.ts
+@@ -143,6 +143,8 @@ export type PostCardMenuAction =
+     | 'details'
+     | 'share_link'
+     | 'copy_link'
++    | 'mark_published'
++    | 'mark_unpublished'
+     | 'delete';
+ 
+ export interface CalendarPost extends PostCard {
+@@ -151,7 +153,13 @@ export interface CalendarPost extends PostCard {
+ 
+ export type CalendarView = 'days' | 'week' | 'month';
+ 
+-export type CalendarStatus = 'all' | 'drafts' | 'scheduled' | 'sent';
++export type CalendarStatus =
++    | 'all'
++    | 'drafts'
++    | 'scheduled'
++    | 'sent'
++    | 'planned'
++    | 'published';
+ 
+ export const CALENDAR_STATUSES: readonly CalendarStatus[] = [
+     'all',
+@@ -160,6 +168,14 @@ export const CALENDAR_STATUSES: readonly CalendarStatus[] = [
+     'sent',
+ ];
+ 
++/** The status filter with manual publishing on: the three states of a post. */
++export const MANUAL_CALENDAR_STATUSES: readonly CalendarStatus[] = [
++    'all',
++    'drafts',
++    'planned',
++    'published',
++];
++
+ export interface CalendarSlot {
+     at: string;
+     channel_id: string;
+diff --git a/tests/Feature/ManualPublishingTest.php b/tests/Feature/ManualPublishingTest.php
+new file mode 100644
+index 00000000..39ffd902
+--- /dev/null
++++ b/tests/Feature/ManualPublishingTest.php
+@@ -0,0 +1,244 @@
++<?php
++
++declare(strict_types=1);
++
++use App\Console\Commands\ProcessScheduledPosts;
++use App\Enums\Post\PublishStatus;
++use App\Enums\Post\Status as PostStatus;
++use App\Enums\SocialAccount\Platform;
++use App\Jobs\PublishPost;
++use App\Jobs\PublishToSocialPlatform;
++use App\Models\Post;
++use App\Models\SocialAccount;
++use App\Models\User;
++use App\Models\Workspace;
++use App\Models\WorkspaceLabel;
++use Illuminate\Support\Facades\Http;
++use Illuminate\Support\Facades\Queue;
++use Inertia\Testing\AssertableInertia;
++
++/*
++ * Hugo's workspace: with manual publishing on (config trypost.manual_publishing),
++ * nothing is ever sent to a network and the API only stores drafts.
++ */
++
++beforeEach(function () {
++    config(['trypost.manual_publishing' => true]);
++});
++
++function manualPublishingDuePost(): Post
++{
++    $account = SocialAccount::factory()->create([
++        'platform' => Platform::LinkedIn,
++        'scopes' => Platform::LinkedIn->requiredPublishScopes(),
++    ]);
++
++    return Post::factory()->forAccount($account)->scheduled()->create([
++        'user_id' => $account->workspace->user_id,
++        'scheduled_at' => now()->subMinute(),
++        'content' => 'Never sent',
++    ]);
++}
++
++test('the scheduled posts command claims no due post', function () {
++    Queue::fake();
++    $post = manualPublishingDuePost();
++
++    $this->artisan(ProcessScheduledPosts::class)->assertSuccessful();
++
++    Queue::assertNotPushed(PublishPost::class);
++    Queue::assertNotPushed(PublishToSocialPlatform::class);
++    expect($post->fresh()->status)->toBe(PostStatus::Scheduled);
++});
++
++test('the scheduled posts command sends no limit retry', function () {
++    Queue::fake();
++    $post = manualPublishingDuePost();
++    $post->forceFill(['status' => PostStatus::Publishing, 'publish_status' => PublishStatus::Retrying, 'retry_at' => now()->subMinute()])->save();
++
++    $this->artisan(ProcessScheduledPosts::class)->assertSuccessful();
++
++    Queue::assertNotPushed(PublishToSocialPlatform::class);
++    expect($post->fresh()->retry_at)->not->toBeNull();
++});
++
++test('the publish post job leaves the post alone', function () {
++    Queue::fake();
++    $post = manualPublishingDuePost();
++
++    (new PublishPost($post))->handle();
++
++    Queue::assertNotPushed(PublishToSocialPlatform::class);
++    expect($post->fresh()->status)->toBe(PostStatus::Scheduled);
++});
++
++test('the publish to social platform job makes no network call', function () {
++    Http::fake();
++    $post = manualPublishingDuePost();
++
++    (new PublishToSocialPlatform($post))->handle();
++
++    Http::assertNothingSent();
++    expect($post->fresh())
++        ->status->toBe(PostStatus::Scheduled)
++        ->publish_status->toBe(PublishStatus::Pending);
++});
++
++describe('the API', function () {
++    beforeEach(function () {
++        $result = createApiTestToken();
++        $this->plainToken = $result['plain_token'];
++        $this->socialAccount = SocialAccount::factory()->create([
++            'workspace_id' => $result['workspace']->id,
++            'platform' => Platform::LinkedIn,
++        ]);
++    });
++
++    test('refuses a scheduled or publishing post with a clear 422', function (string $status) {
++        Queue::fake();
++
++        $this->withHeaders(['Authorization' => 'Bearer '.$this->plainToken])
++            ->postJson(route('api.posts.store'), [
++                'social_account_id' => $this->socialAccount->id,
++                'content_type' => 'linkedin_post',
++                'content' => 'Hello',
++                'status' => $status,
++                'scheduled_at' => now()->addDay()->toIso8601String(),
++            ])
++            ->assertUnprocessable()
++            ->assertJsonPath('errors.status.0', __('posts.errors.manual_publishing'));
++
++        expect(Post::query()->count())->toBe(0);
++        Queue::assertNotPushed(PublishPost::class);
++    })->with(['scheduled', 'publishing']);
++
++    test('refuses an update to scheduled or publishing', function (string $status) {
++        Queue::fake();
++        $post = Post::factory()->forAccount($this->socialAccount)->draft()->create([
++            'user_id' => $this->socialAccount->workspace->user_id,
++        ]);
++
++        $this->withHeaders(['Authorization' => 'Bearer '.$this->plainToken])
++            ->putJson(route('api.posts.update', $post), [
++                'status' => $status,
++                'scheduled_at' => now()->addDay()->toIso8601String(),
++            ])
++            ->assertUnprocessable()
++            ->assertJsonPath('errors.status.0', __('posts.errors.manual_publishing'));
++
++        expect($post->fresh()->status)->toBe(PostStatus::Draft);
++        Queue::assertNotPushed(PublishPost::class);
++    })->with(['scheduled', 'publishing']);
++
++    test('still creates a draft that keeps its planned date', function () {
++        $when = now()->addDays(2)->startOfMinute();
++
++        $this->withHeaders(['Authorization' => 'Bearer '.$this->plainToken])
++            ->postJson(route('api.posts.store'), [
++                'social_account_id' => $this->socialAccount->id,
++                'content_type' => 'linkedin_post',
++                'content' => 'Planned by hand',
++                'status' => 'draft',
++                'scheduled_at' => $when->toIso8601String(),
++            ])
++            ->assertCreated()
++            ->assertJsonPath('status', PostStatus::Draft->value);
++
++        $post = Post::query()->sole();
++        expect($post->status)->toBe(PostStatus::Draft)
++            ->and($post->scheduled_at?->equalTo($when))->toBeTrue();
++    });
++});
++
++describe('the publish page', function () {
++    beforeEach(function () {
++        $this->user = User::factory()->create();
++        $this->workspace = Workspace::factory()->create(['user_id' => $this->user->id]);
++        $this->workspace->members()->attach($this->user->id, membershipPivot('member'));
++        $this->user->update(['current_workspace_id' => $this->workspace->id]);
++        $this->channel = SocialAccount::factory()->linkedin()->create(['workspace_id' => $this->workspace->id]);
++        $this->posted = WorkspaceLabel::factory()->create(['workspace_id' => $this->workspace->id, 'name' => 'posted']);
++    });
++
++    test('groups posts as draft, planned and published, and never shows a failure', function () {
++        $draft = Post::factory()->forAccount($this->channel)->draft()->create(['user_id' => $this->user->id, 'scheduled_at' => null]);
++        $planned = Post::factory()->forAccount($this->channel)->draft()->create(['user_id' => $this->user->id, 'scheduled_at' => now()->addDays(3)]);
++        $failed = Post::factory()->forAccount($this->channel)->failed()->create(['user_id' => $this->user->id, 'scheduled_at' => now()->subDay()]);
++        $published = Post::factory()->forAccount($this->channel)->draft()->create(['user_id' => $this->user->id, 'scheduled_at' => now()->subDays(2)]);
++        $published->labels()->attach($this->posted);
++
++        $ids = fn (iterable $posts): array => collect($posts)->pluck('id')->sort()->values()->all();
++        $sorted = fn (array $ids): array => collect($ids)->sort()->values()->all();
++
++        $this->actingAs($this->user)
++            ->get(route('app.posts.index', ['tab' => 'queue']))
++            ->assertOk()
++            ->assertInertia(fn (AssertableInertia $page) => $page
++                ->where('manualPublishing', true)
++                ->where('counts.queue', 2)
++                ->where('counts.drafts', 1)
++                ->where('counts.sent', 1)
++                ->loadDeferredProps(fn (AssertableInertia $reload) => $reload
++                    ->missing('queue')
++                    ->where('posts.data', fn ($posts): bool => $ids($posts) === $sorted([$planned->id, $failed->id])
++                        && collect($posts)->every(fn ($post): bool => data_get($post, 'status') === 'draft'
++                            && data_get($post, 'failure') === null
++                            && data_get($post, 'error_message') === null
++                            && data_get($post, 'platform_url') === null))));
++
++        $this->get(route('app.posts.index', ['tab' => 'drafts']))
++            ->assertInertia(fn (AssertableInertia $page) => $page
++                ->loadDeferredProps(fn (AssertableInertia $reload) => $reload
++                    ->where('posts.data', fn ($posts): bool => $ids($posts) === [$draft->id])));
++
++        $this->get(route('app.posts.index', ['tab' => 'sent']))
++            ->assertInertia(fn (AssertableInertia $page) => $page
++                ->loadDeferredProps(fn (AssertableInertia $reload) => $reload
++                    ->where('posts.data', fn ($posts): bool => $ids($posts) === [$published->id])));
++
++        expect($failed->fresh()->status)->toBe(PostStatus::Failed);
++    });
++
++    test('lets a post that failed before the flag be edited as a draft', function () {
++        $failed = Post::factory()->forAccount($this->channel)->failed()->create(['user_id' => $this->user->id, 'scheduled_at' => now()->subDay()]);
++
++        $this->actingAs($this->user)
++            ->get(route('app.posts.edit', $failed))
++            ->assertRedirect(route('app.posts.index', ['edit' => $failed->id]));
++    });
++
++    test('marks a post published through its labels without sending anything', function () {
++        Queue::fake();
++        $post = Post::factory()->forAccount($this->channel)->draft()->create(['user_id' => $this->user->id, 'scheduled_at' => now()->addDay()]);
++
++        $this->actingAs($this->user)
++            ->patch(route('app.posts.labels.update', $post), ['labels' => [$this->posted->id]])
++            ->assertRedirect();
++
++        expect($post->fresh()->labels->pluck('name')->all())->toBe(['posted'])
++            ->and($post->fresh()->status)->toBe(PostStatus::Draft);
++        Queue::assertNotPushed(PublishPost::class);
++    });
++
++    test('filters the calendar by state and counts planned posts per channel', function () {
++        $this->travelTo(now()->startOfWeek()->addDays(2)->setTime(9, 0));
++        $planned = Post::factory()->forAccount($this->channel)->draft()->create(['user_id' => $this->user->id, 'scheduled_at' => now()->addHours(3)]);
++        $published = Post::factory()->forAccount($this->channel)->draft()->create(['user_id' => $this->user->id, 'scheduled_at' => now()->addHours(4)]);
++        $published->labels()->attach($this->posted);
++        Post::factory()->forAccount($this->channel)->draft()->create(['user_id' => $this->user->id, 'scheduled_at' => null]);
++
++        $calendarIds = fn ($posts): array => collect($posts)->flatten(1)->pluck('id')->sort()->values()->all();
++
++        $this->actingAs($this->user)
++            ->get(route('app.calendar', ['view' => 'week', 'status' => 'published']))
++            ->assertOk()
++            ->assertInertia(fn (AssertableInertia $page) => $page
++                ->where('filters.status', 'published')
++                ->where('posts', fn ($posts): bool => $calendarIds($posts) === [$published->id])
++                ->where('channels.0.scheduled_posts_count', 1));
++
++        $this->get(route('app.calendar', ['view' => 'week', 'status' => 'planned']))
++            ->assertInertia(fn (AssertableInertia $page) => $page
++                ->where('posts', fn ($posts): bool => $calendarIds($posts) === [$planned->id]));
++    });
++});

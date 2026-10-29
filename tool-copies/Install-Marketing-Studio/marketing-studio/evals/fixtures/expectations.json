@@ -1,0 +1,28 @@
+{
+  "_comment": "For each fixture, the deterministic checks that must report a problem (by the prefix of the message). Every other check must be clean. llm_pending lists judge cases to wire later.",
+  "fixtures": {
+    "good-linkedin.md": { "fails": [], "llm_pending": ["voice-match: expect HIGH", "score: expect >= 35/50"] },
+    "good-instagram.md": { "fails": [] },
+    "good-x-thread.md": { "fails": [] },
+    "bad-slop.md": { "fails": ["banned word", "pattern"], "llm_pending": ["slop-judge: expect FAIL"] },
+    "bad-offvoice.md": { "fails": [], "llm_pending": ["voice-match: expect LOW, deterministically clean on purpose"] },
+    "bad-american.md": { "fails": ["spelling"] },
+    "bad-compliance.md": { "fails": ["unsubstantiated", "comparative"] },
+    "bad-dashes.md": { "fails": ["em dash", "en dash"] },
+    "bad-banned-words.md": { "fails": ["banned word"] },
+    "bad-giveaway.md": { "fails": ["comment-gated"] },
+    "bad-hashtags-linkedin.md": { "fails": ["4 hashtags"] },
+    "bad-hashtags-instagram.md": { "fails": ["6 hashtags"] },
+    "bad-hashtags-x.md": { "fails": ["2 hashtags"] },
+    "bad-link-linkedin.md": { "fails": ["link in body"] },
+    "bad-link-instagram.md": { "fails": ["link in body"] },
+    "bad-link-x.md": { "fails": ["link in body"] },
+    "bad-neutral.md": { "fails": ["neutral piece"] },
+    "bad-personal-promo.md": { "fails": ["personal piece"] },
+    "bad-thread-too-long.md": { "fails": ["thread post"] },
+    "bad-placeholder.md": { "fails": ["placeholder"] },
+    "bad-unsourced-number.md": { "fails": ["number without a source"] },
+    "bad-article-short.md": { "fails": ["article is"] },
+    "good-essay-markers.md": { "fails": [] }
+  }
+}

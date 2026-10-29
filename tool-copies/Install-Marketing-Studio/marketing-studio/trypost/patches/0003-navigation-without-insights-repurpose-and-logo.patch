@@ -1,0 +1,386 @@
+diff --git a/resources/js/app.ts b/resources/js/app.ts
+index 8111e962..fa45e1de 100644
+--- a/resources/js/app.ts
++++ b/resources/js/app.ts
+@@ -16,7 +16,7 @@ import { capturePageview, initializePostHog, syncPostHogContext } from './postho
+ import { syncPreferences } from './preferences';
+ import type { Auth } from './types';
+ 
+-const appName = import.meta.env.VITE_APP_NAME || 'TryPost.it';
++const appName = import.meta.env.VITE_APP_NAME || 'Marketing Studio';
+ 
+ createInertiaApp({
+     title: (title) => (title ? `${title} - ${appName}` : appName),
+diff --git a/resources/js/components/AppSidebar.vue b/resources/js/components/AppSidebar.vue
+index cb9506da..e21f21b5 100644
+--- a/resources/js/components/AppSidebar.vue
++++ b/resources/js/components/AppSidebar.vue
+@@ -1,20 +1,17 @@
+ <script setup lang="ts">
+-import { Link, router, usePage } from '@inertiajs/vue3';
++import { router, usePage } from '@inertiajs/vue3';
+ import {
+     IconBulb,
+     IconCalendarEvent,
+-    IconTrendingUp,
+     IconFileText,
+     IconLayoutGrid,
+     IconPlus,
+-    IconRepeat,
+     IconUsers,
+ } from '@tabler/icons-vue';
+ import { trans } from 'laravel-vue-i18n';
+ import { computed, ref } from 'vue';
+ 
+ import { index as postsIndex } from '@/actions/App/Http/Controllers/App/PostController';
+-import AppLogo from '@/components/AppLogo.vue';
+ import ChangelogCard from '@/components/changelog/ChangelogCard.vue';
+ import InviteMemberDialog from '@/components/members/InviteMemberDialog.vue';
+ import NavChannels from '@/components/NavChannels.vue';
+@@ -32,15 +29,12 @@ import {
+     Sidebar,
+     SidebarContent,
+     SidebarFooter,
+-    SidebarHeader,
+     useSidebar,
+ } from '@/components/ui/sidebar';
+ import { useConnectChannelDialog } from '@/composables/useConnectChannelDialog';
+ import { openPostComposer } from '@/composables/useGlobalPostComposer';
+ import { useWorkspaceAbilities } from '@/composables/useWorkspaceAbilities';
+-import { insights } from '@/routes/app';
+ import { index as ideasIndex, create as createIdea } from '@/routes/app/create/ideas';
+-import { index as repurposes } from '@/routes/app/repurposes';
+ import type { NavItem } from '@/types';
+ import type { SidebarChannel } from '@/types/channel';
+ 
+@@ -51,7 +45,6 @@ const currentWorkspace = computed(
+ 
+ const {
+     canCreatePost,
+-    canManageRepurposes,
+     canManageAccounts,
+     canManageTeam,
+ } = useWorkspaceAbilities();
+@@ -90,43 +83,12 @@ const mainNavItems = computed<NavItem[]>(() => [
+         count: scheduledPostsCount.value,
+         countTestId: 'sidebar-publish-count',
+     },
+-    {
+-        title: trans('channels.insights'),
+-        href: insights.url(),
+-        icon: IconTrendingUp,
+-    },
+-    ...(canManageRepurposes.value
+-        ? [
+-              {
+-                  title: trans('sidebar.repurposes'),
+-                  href: repurposes.url(),
+-                  icon: IconRepeat,
+-                  badge: trans('common.beta'),
+-              },
+-          ]
+-        : []),
++    // Hugo's workspace: Insights and Repurpose stay in the code but have no entry here.
+ ]);
+ </script>
+ 
+ <template>
+     <Sidebar collapsible="icon">
+-        <SidebarHeader
+-            class="flex-row items-center justify-between gap-3 px-4 pt-4 pb-0 group-data-[collapsible=icon]:px-2.5"
+-        >
+-            <Link
+-                :href="postsIndex.url()"
+-                class="flex h-8 items-center rounded-md px-2 outline-hidden focus-visible:ring-2 focus-visible:ring-sidebar-ring group-data-[collapsible=icon]:px-1"
+-                data-testid="sidebar-logo"
+-            >
+-                <span class="inline-flex group-data-[collapsible=icon]:hidden">
+-                    <AppLogo class="text-[20px]" />
+-                </span>
+-                <span class="hidden group-data-[collapsible=icon]:inline-flex">
+-                    <AppLogo variant="mark" class="text-[21px]" />
+-                </span>
+-            </Link>
+-        </SidebarHeader>
+-
+         <SidebarContent class="gap-0">
+             <div
+                 v-if="currentWorkspace && canCreatePost"
+diff --git a/resources/js/components/NavChannels.vue b/resources/js/components/NavChannels.vue
+index 5f059767..9d74b64a 100644
+--- a/resources/js/components/NavChannels.vue
++++ b/resources/js/components/NavChannels.vue
+@@ -2,7 +2,6 @@
+ import { Link, usePage } from '@inertiajs/vue3';
+ import {
+     IconCalendarEvent,
+-    IconTrendingUp,
+     IconChevronDown,
+     IconGripVertical,
+     IconPlus,
+@@ -45,7 +44,7 @@ import { openPostComposer } from '@/composables/useGlobalPostComposer';
+ import { useNetworkConnect } from '@/composables/useNetworkConnect';
+ import { getPlatformLabel } from '@/composables/usePlatformLogo';
+ import { useWorkspaceAbilities } from '@/composables/useWorkspaceAbilities';
+-import { insights, publish } from '@/routes/app/channels';
++import { publish } from '@/routes/app/channels';
+ import { channels as channelsSettings } from '@/routes/app/workspace';
+ import { channelName, type SidebarChannel } from '@/types/channel';
+ import type { AvailablePlatform } from '@/types/social-account';
+@@ -428,14 +427,6 @@ const reconnect = (channel: SidebarChannel): void => {
+                                 <IconCalendarEvent />
+                                 {{ $t('channels.publish') }}
+                             </Link>
+-                            <Link
+-                                :href="insights.url(channel.id)"
+-                                :class="channelCardItemClass"
+-                                :data-testid="`sidebar-channel-${channel.id}-card-insights`"
+-                            >
+-                                <IconTrendingUp />
+-                                {{ $t('channels.insights') }}
+-                            </Link>
+                         </HoverCardContent>
+                     </HoverCard>
+                     <TooltipProvider
+@@ -521,20 +512,6 @@ const reconnect = (channel: SidebarChannel): void => {
+                                         </Link>
+                                     </SidebarMenuSubButton>
+                                 </SidebarMenuSubItem>
+-                                <SidebarMenuSubItem>
+-                                    <SidebarMenuSubButton
+-                                        as-child
+-                                        :is-active="urlIsActive(insights.url(channel.id))"
+-                                    >
+-                                        <Link
+-                                            :href="insights.url(channel.id)"
+-                                            :data-testid="`sidebar-channel-${channel.id}-insights`"
+-                                        >
+-                                            <IconTrendingUp />
+-                                            <span>{{ $t('channels.insights') }}</span>
+-                                        </Link>
+-                                    </SidebarMenuSubButton>
+-                                </SidebarMenuSubItem>
+                             </SidebarMenuSub>
+                         </div>
+                     </div>
+diff --git a/resources/js/components/command-palette/CommandPaletteContent.vue b/resources/js/components/command-palette/CommandPaletteContent.vue
+index 8c25373a..29664b2f 100644
+--- a/resources/js/components/command-palette/CommandPaletteContent.vue
++++ b/resources/js/components/command-palette/CommandPaletteContent.vue
+@@ -5,11 +5,9 @@ import {
+     IconArrowUp,
+     IconBulb,
+     IconCalendarEvent,
+-    IconTrendingUp,
+     IconCornerDownLeft,
+     IconFileText,
+     IconPlus,
+-    IconRepeat,
+     IconRss,
+     IconSearch,
+     IconSettings,
+@@ -34,13 +32,11 @@ import { getPlatformLabel } from '@/composables/usePlatformLogo';
+ import { useSettingsNavigation } from '@/composables/useSettingsNavigation';
+ import { useWorkspaceAbilities } from '@/composables/useWorkspaceAbilities';
+ import { toUrl } from '@/lib/utils';
+-import { insights as insightsIndex } from '@/routes/app';
+-import { insights, publish } from '@/routes/app/channels';
++import { publish } from '@/routes/app/channels';
+ import { index as feedsIndex } from '@/routes/app/create/feeds';
+ import { create as createIdea, index as ideasIndex } from '@/routes/app/create/ideas';
+ import { index as templatesIndex } from '@/routes/app/create/templates';
+ import { index as postsIndex } from '@/routes/app/posts';
+-import { index as repurposes } from '@/routes/app/repurposes';
+ import { channelName, type SidebarChannel } from '@/types/channel';
+ import type {
+     CommandPaletteEntry,
+@@ -68,7 +64,6 @@ const settingsNavigation = useSettingsNavigation();
+ const { open: openConnectDialog } = useConnectChannelDialog();
+ const {
+     canCreatePost,
+-    canManageRepurposes,
+     canManageAccounts,
+     canManageTeam,
+ } = useWorkspaceAbilities();
+@@ -174,24 +169,7 @@ const navigation = computed<CommandPaletteEntry[]>(() => {
+                         },
+                     ]
+                   : []),
+-              {
+-                  id: 'nav-insights',
+-                  group: 'navigation',
+-                  title: { key: 'channels.insights' },
+-                  icon: IconTrendingUp,
+-                  run: visit(insightsIndex.url()),
+-              },
+-              ...(canManageRepurposes.value
+-                  ? [
+-                        {
+-                            id: 'nav-repurposes',
+-                            group: 'navigation' as const,
+-                            title: { key: 'sidebar.repurposes' },
+-                            icon: IconRepeat,
+-                            run: visit(repurposes.url()),
+-                        },
+-                    ]
+-                  : []),
++              // Hugo's workspace: no Insights or Repurpose entries.
+           ]
+         : [];
+ 
+@@ -253,18 +231,8 @@ const settingsEntries = computed<CommandPaletteEntry[]>(() =>
+     ),
+ );
+ 
+-const insightEntries = computed<CommandPaletteEntry[]>(() =>
+-    channels.value.map((channel) => ({
+-        id: `insights-${channel.id}`,
+-        group: 'insights',
+-        title: {
+-            path: [{ text: channelName(channel) }, { key: 'channels.insights' }],
+-        },
+-        subtitle: { text: getPlatformLabel(channel.platform) },
+-        channel,
+-        run: visit(insights.url(channel.id)),
+-    })),
+-);
++// Hugo's workspace: the per-channel Insights entries are gone; the group stays empty.
++const insightEntries = computed<CommandPaletteEntry[]>(() => []);
+ 
+ const allEntries = computed<CommandPaletteEntry[]>(() => [
+     ...quickActions.value,
+diff --git a/resources/js/components/publish/PostMetricsBand.vue b/resources/js/components/publish/PostMetricsBand.vue
+index ceb98ecc..f8c9f7cb 100644
+--- a/resources/js/components/publish/PostMetricsBand.vue
++++ b/resources/js/components/publish/PostMetricsBand.vue
+@@ -19,7 +19,6 @@ import {
+     publicationMetricLabel,
+ } from '@/lib/publicationMetrics';
+ import { cn } from '@/lib/utils';
+-import { insights as channelInsights } from '@/routes/app/channels';
+ import type { PublicationAnalyticsDetail } from '@/types/analytics';
+ 
+ const props = withDefaults(
+@@ -42,9 +41,8 @@ const metrics = computed(() => compactPublicationMetrics(props.detail));
+ 
+ const refreshedAt = computed(() => props.detail.snapshot?.collected_at ?? null);
+ 
+-const insightsUrl = computed(() =>
+-    props.channelId ? channelInsights.url(props.channelId) : null,
+-);
++// Hugo's workspace: nothing links to Insights.
++const insightsUrl = computed((): string | null => null);
+ 
+ const scroller = ref<HTMLElement | null>(null);
+ const metricItems = ref<HTMLElement[]>([]);
+diff --git a/resources/js/components/welcome/mcp/McpChatExample.vue b/resources/js/components/welcome/mcp/McpChatExample.vue
+index 2c00d57d..d6a6322a 100644
+--- a/resources/js/components/welcome/mcp/McpChatExample.vue
++++ b/resources/js/components/welcome/mcp/McpChatExample.vue
+@@ -2,7 +2,6 @@
+ import { IconCheck } from '@tabler/icons-vue';
+ import { computed, type Component } from 'vue';
+ 
+-import AppLogo from '@/components/AppLogo.vue';
+ import McpFollowersMockup from '@/components/welcome/mcp/McpFollowersMockup.vue';
+ import McpIdeasMockup from '@/components/welcome/mcp/McpIdeasMockup.vue';
+ import McpQueueMockup from '@/components/welcome/mcp/McpQueueMockup.vue';
+@@ -35,8 +34,7 @@ const scheduledTime = computed((): string => date.formatClockTime('10:00'));
+             <span
+                 class="inline-flex items-center gap-1.5 self-start rounded-md border border-border bg-card px-2 py-1 text-xs font-medium text-foreground"
+             >
+-                <AppLogo variant="mark" class="text-[12px]" />
+-                TryPost
++                Marketing Studio
+                 <IconCheck class="size-3.5 text-green-500" />
+             </span>
+             <p class="text-sm text-foreground">
+diff --git a/resources/js/layouts/ConnectLayout.vue b/resources/js/layouts/ConnectLayout.vue
+index 221a8816..7d866971 100644
+--- a/resources/js/layouts/ConnectLayout.vue
++++ b/resources/js/layouts/ConnectLayout.vue
+@@ -1,9 +1,8 @@
+ <script setup lang="ts">
+ import { Head, Link, router } from '@inertiajs/vue3';
+-import { IconArrowsLeftRight, IconX } from '@tabler/icons-vue';
++import { IconX } from '@tabler/icons-vue';
+ import { onMounted, onUnmounted } from 'vue';
+ 
+-import AppLogo from '@/components/AppLogo.vue';
+ import PlatformLogo from '@/components/PlatformLogo.vue';
+ import { Button } from '@/components/ui/button';
+ 
+@@ -60,8 +59,6 @@ onUnmounted(stopClearingOnNavigate);
+                     aria-hidden="true"
+                     data-testid="connect-header-logos"
+                 >
+-                    <AppLogo variant="mark" class="text-[32px]" />
+-                    <IconArrowsLeftRight class="size-5 text-muted-foreground" />
+                     <PlatformLogo :platform="platform" :size="32" />
+                 </div>
+                 <div class="col-start-3 flex justify-end">
+diff --git a/resources/js/layouts/WelcomeLayout.vue b/resources/js/layouts/WelcomeLayout.vue
+index 0ce1ebfc..cb27a76e 100644
+--- a/resources/js/layouts/WelcomeLayout.vue
++++ b/resources/js/layouts/WelcomeLayout.vue
+@@ -4,7 +4,6 @@ import { IconArrowLeft } from '@tabler/icons-vue';
+ import { computed } from 'vue';
+ 
+ import { updateLanguage } from '@/actions/App/Http/Controllers/App/Settings/ProfileController';
+-import AppLogo from '@/components/AppLogo.vue';
+ import LanguageSelect from '@/components/LanguageSelect.vue';
+ import ThemeToggle from '@/components/ThemeToggle.vue';
+ import Toast from '@/components/Toast.vue';
+@@ -96,7 +95,6 @@ const previousStep = computed(() =>
+                 >
+                     <IconArrowLeft class="size-4 rtl:rotate-180" />
+                 </Link>
+-                <AppLogo class="text-[24px] max-sm:[&>span]:hidden" />
+             </div>
+ 
+             <Teleport
+diff --git a/resources/js/layouts/auth/AuthSplitLayout.vue b/resources/js/layouts/auth/AuthSplitLayout.vue
+index 0b0405e6..e260d758 100644
+--- a/resources/js/layouts/auth/AuthSplitLayout.vue
++++ b/resources/js/layouts/auth/AuthSplitLayout.vue
+@@ -3,7 +3,6 @@ import { usePage } from '@inertiajs/vue3';
+ import { IconCircleCheck } from '@tabler/icons-vue';
+ import { computed } from 'vue';
+ 
+-import AppLogo from '@/components/AppLogo.vue';
+ import LanguageSelect from '@/components/LanguageSelect.vue';
+ import G2ReviewsLink from '@/components/reviews/G2ReviewsLink.vue';
+ import ReviewCard from '@/components/reviews/ReviewCard.vue';
+@@ -79,11 +78,6 @@ const loopedReviews = [
+                 data-testid="auth-content"
+             >
+                 <div class="flex flex-col items-center gap-4 text-center">
+-                    <AppLogo
+-                        variant="mark"
+-                        class="motion-auth-logo text-[38px]"
+-                        data-testid="auth-logo"
+-                    />
+                     <div
+                         v-if="title || description"
+                         class="flex flex-col gap-1"
+diff --git a/resources/js/layouts/mcp/AuthorizeLayout.vue b/resources/js/layouts/mcp/AuthorizeLayout.vue
+index 829b4af8..eda0a297 100644
+--- a/resources/js/layouts/mcp/AuthorizeLayout.vue
++++ b/resources/js/layouts/mcp/AuthorizeLayout.vue
+@@ -1,8 +1,6 @@
+ <script setup lang="ts">
+ import { Head } from '@inertiajs/vue3';
+ 
+-import AppLogo from '@/components/AppLogo.vue';
+-
+ defineProps<{
+     title: string;
+     description?: string;
+@@ -18,7 +16,6 @@ defineProps<{
+ 
+         <div class="w-full max-w-md space-y-8">
+             <div class="flex flex-col items-center gap-4 text-center">
+-                <AppLogo class="text-[36px]" />
+                 <div class="space-y-2">
+                     <h1
+                         class="text-xl font-semibold tracking-tight text-foreground"

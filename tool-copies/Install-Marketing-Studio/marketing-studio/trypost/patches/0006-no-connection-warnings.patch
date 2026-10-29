@@ -1,0 +1,85 @@
+diff --git a/resources/js/components/ChannelAvatar.vue b/resources/js/components/ChannelAvatar.vue
+index 0843868a..282392b9 100644
+--- a/resources/js/components/ChannelAvatar.vue
++++ b/resources/js/components/ChannelAvatar.vue
+@@ -11,6 +11,7 @@ import {
+     TooltipTrigger,
+ } from '@/components/ui/tooltip';
+ import VerifiedBadge from '@/components/VerifiedBadge.vue';
++import { useManualPublishing } from '@/composables/useManualStatus';
+ import { cn } from '@/lib/utils';
+ import {
+     isConnectionLost,
+@@ -139,7 +140,9 @@ const ringClasses: Record<ChannelAvatarRing, string> = {
+     sidebar: 'ring-sidebar',
+ };
+ 
+-const disconnected = computed(() => isConnectionLost({ status: props.status }));
++// Marketing Studio: with manual publishing nothing is sent through a channel, so a disconnected one is not a problem to show.
++const manualPublishing = useManualPublishing();
++const disconnected = computed(() => !manualPublishing.value && isConnectionLost({ status: props.status }));
+ </script>
+ 
+ <template>
+diff --git a/resources/js/components/NavChannels.vue b/resources/js/components/NavChannels.vue
+index 9d74b64a..6bd10324 100644
+--- a/resources/js/components/NavChannels.vue
++++ b/resources/js/components/NavChannels.vue
+@@ -39,6 +39,7 @@ import {
+ import { useActiveUrl } from '@/composables/useActiveUrl';
+ import { orderChannels, useChannelOrder } from '@/composables/useChannelOrder';
+ import { useCommandPalette } from '@/composables/useCommandPalette';
++import { useManualPublishing } from '@/composables/useManualStatus';
+ import { useConnectChannelDialog } from '@/composables/useConnectChannelDialog';
+ import { openPostComposer } from '@/composables/useGlobalPostComposer';
+ import { useNetworkConnect } from '@/composables/useNetworkConnect';
+@@ -145,6 +146,9 @@ const reconnect = (channel: SidebarChannel): void => {
+         startConnect(channel.platform, channel.id);
+     }
+ };
++
++// Marketing Studio: no reconnect dots while manual publishing is on (channels are placeholders by design).
++const manualPublishing = useManualPublishing();
+ </script>
+ 
+ <template>
+@@ -414,7 +418,7 @@ const reconnect = (channel: SidebarChannel): void => {
+                                 {{ channelName(channel) }}
+                             </p>
+                             <p
+-                                v-if="isConnectionLost(channel) && !canManageAccounts"
++                                v-if="isConnectionLost(channel) && !canManageAccounts && !manualPublishing"
+                                 class="px-2 pb-1.5 text-xs text-destructive"
+                             >
+                                 {{ $t('channels.connection_lost_hint') }}
+@@ -430,7 +434,7 @@ const reconnect = (channel: SidebarChannel): void => {
+                         </HoverCardContent>
+                     </HoverCard>
+                     <TooltipProvider
+-                        v-if="isConnectionLost(channel) && canManageAccounts"
++                        v-if="isConnectionLost(channel) && canManageAccounts && !manualPublishing"
+                         :delay-duration="200"
+                     >
+                         <Tooltip>
+diff --git a/resources/js/components/channels/ChannelListItem.vue b/resources/js/components/channels/ChannelListItem.vue
+index eaaec6b3..659d697c 100644
+--- a/resources/js/components/channels/ChannelListItem.vue
++++ b/resources/js/components/channels/ChannelListItem.vue
+@@ -20,6 +20,7 @@ import {
+     DropdownMenuSeparator,
+     DropdownMenuTrigger,
+ } from '@/components/ui/dropdown-menu';
++import { useManualPublishing } from '@/composables/useManualStatus';
+ import { getPlatformLabel } from '@/composables/usePlatformLogo';
+ import { settings as settingsRoute } from '@/routes/app/channels';
+ import {
+@@ -46,7 +47,8 @@ const emit = defineEmits<{
+     disconnect: [channel: ConnectedAccount];
+ }>();
+ 
+-const lost = computed(() => isConnectionLost(props.channel));
++const manualPublishing = useManualPublishing();
++const lost = computed(() => !manualPublishing.value && isConnectionLost(props.channel));
+ 
+ const typeKey = computed(() => accountTypeKey(props.channel));
+ </script>

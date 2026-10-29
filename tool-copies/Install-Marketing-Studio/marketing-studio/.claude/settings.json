@@ -1,0 +1,4 @@
+{
+  "extraKnownMarketplaces": { "marketing-studio": { "source": { "source": "directory", "path": "." } } },
+  "enabledPlugins": { "marketeer@marketing-studio": true }
+}

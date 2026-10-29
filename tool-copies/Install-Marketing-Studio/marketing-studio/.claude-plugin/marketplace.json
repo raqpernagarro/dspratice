@@ -1,0 +1,11 @@
+{
+  "name": "marketing-studio",
+  "owner": { "name": "Hugo França" },
+  "plugins": [
+    {
+      "name": "marketeer",
+      "source": "./marketeer",
+      "description": "A personal content engine: context, ideation, network drafts and scoring over the Content Objects in brands/me"
+    }
+  ]
+}

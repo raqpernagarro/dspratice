@@ -1,0 +1,10 @@
+trypost/.env
+trypost/upstream/
+linkedin-authority-skill/
+.superpowers/
+__pycache__/
+*.pyc
+.DS_Store
+
+# The Claude bridge log never leaves this Mac
+trypost/claude-bridge/bridge.log

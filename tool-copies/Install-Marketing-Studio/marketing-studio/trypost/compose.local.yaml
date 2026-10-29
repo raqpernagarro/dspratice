@@ -1,0 +1,72 @@
+# Local single-user TryPost for Marketing Studio.
+# Uses the published image; all settings and secrets live in .env (gitignored).
+#   Start: docker compose -f compose.local.yaml up -d
+#   Stop:  docker compose -f compose.local.yaml down
+
+services:
+  app:
+    # Built from the source checkout in upstream/ with our patches (see README.md, "Our patches").
+    # The published image this replaced was ghcr.io/trypostit/trypost@sha256:04c8e9ba48f97091106daa247afeb3be9ec5c395671bbc7ad73adf7f42334155, pinned on 2026-10-21.
+    build:
+      context: ./upstream
+      dockerfile: docker/Dockerfile
+      target: production
+      args:
+        VITE_APP_NAME: ${APP_NAME}
+        VITE_REVERB_APP_KEY: ${REVERB_APP_KEY}
+        VITE_REVERB_HOST: ${REVERB_HOST}
+        VITE_REVERB_PORT: ${REVERB_PORT}
+        VITE_REVERB_SCHEME: ${REVERB_SCHEME}
+        VITE_POSTHOG_ENABLED: "false"
+    image: trypost-local:patched
+    container_name: trypost
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "127.0.0.1:8000:80"     # app
+      - "127.0.0.1:8080:8080"   # Reverb WebSocket
+    volumes:
+      - storage:/var/www/html/storage/app
+      # Our two borrowed platforms show their own logos: Viva Engage sits on facebook, Substack on mastodon.
+      # The patched app loads these two paths for those platforms (patches/0002). Replace the PNGs in icons/ and run up -d again.
+      - ./icons/viva-engage.png:/var/www/html/public/images/accounts/viva-engage.png:ro
+      - ./icons/substack.png:/var/www/html/public/images/accounts/substack.png:ro
+    depends_on:
+      pgsql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  pgsql:
+    image: postgres:16-alpine
+    container_name: trypost-pgsql
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${DB_USERNAME} -d ${DB_DATABASE}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: trypost-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  pgdata:
+  redisdata:
+  storage:

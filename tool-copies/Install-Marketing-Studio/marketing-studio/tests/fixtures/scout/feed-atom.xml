@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Fixture Atom Feed</title>
+  <updated>2026-10-21T12:00:00Z</updated>
+  <id>urn:uuid:fixture-atom</id>
+  <entry>
+    <title>Governance for design ops – a short guide</title>
+    <link rel="self" href="https://example.com/atom/entry-1.xml"/>
+    <link rel="alternate" href="https://example.com/design-ops-governance"/>
+    <id>urn:uuid:fixture-atom-entry-1</id>
+    <published>2026-10-20T16:00:00+01:00</published>
+    <updated>2026-10-21T09:00:00Z</updated>
+    <summary type="html">&lt;p&gt;Design ops needs &lt;b&gt;governance&lt;/b&gt; and tokens that teams can trust.&lt;/p&gt;</summary>
+  </entry>
+</feed>

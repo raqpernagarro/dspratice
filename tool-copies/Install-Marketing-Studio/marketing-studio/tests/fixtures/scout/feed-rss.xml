@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Fixture Design Feed</title>
+    <link>https://example.com/</link>
+    <description>A feed for the scout tests. The dashes in the titles are on purpose.</description>
+    <item>
+      <title>Design systems that agents can read — a field note</title>
+      <link>https://example.com/design-systems-agents</link>
+      <pubDate>Wed, 21 Oct 2026 08:30:00 +0000</pubDate>
+      <description><![CDATA[<p>Agents are users too: a <strong>design system</strong> with clear tokens gives them one truth.</p>
+<p>Second paragraph.</p>]]></description>
+    </item>
+    <item>
+      <title>Hiring for craft in a small team</title>
+      <link>https://example.com/hiring-craft</link>
+      <pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
+      <description>Care and craft decide who joins. &lt;em&gt;Culture&lt;/em&gt; follows.</description>
+    </item>
+  </channel>
+</rss>

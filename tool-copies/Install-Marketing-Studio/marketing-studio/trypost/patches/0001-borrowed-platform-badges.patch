@@ -1,0 +1,34 @@
+diff --git a/resources/js/components/PlatformBrandIcon.vue b/resources/js/components/PlatformBrandIcon.vue
+index 89ae93ba..6d7db07d 100644
+--- a/resources/js/components/PlatformBrandIcon.vue
++++ b/resources/js/components/PlatformBrandIcon.vue
+@@ -59,12 +59,28 @@ const icons = {
+ } as const;
+ 
+ const icon = computed(() => icons[props.platform as keyof typeof icons]);
++
++// Marketing Studio: two placeholder channels borrow a platform TryPost has no publisher for.
++// Viva Engage sits on facebook and Substack on mastodon, so those two platforms show the
++// logo under public/images/accounts/ (mounted from trypost/icons/) instead of the brand glyph.
++const BORROWED_IMAGES: Record<string, string> = {
++    facebook: '/images/accounts/viva-engage.png',
++    mastodon: '/images/accounts/substack.png',
++};
++
++const borrowedImage = computed(() => BORROWED_IMAGES[props.platform]);
+ </script>
+ 
+ <template>
++    <img
++        v-if="borrowedImage"
++        :src="borrowedImage"
++        alt=""
++        class="size-4.5 rounded-full object-cover"
++    />
+     <component
+         :is="icon"
+-        v-if="icon"
++        v-else-if="icon"
+         :class="[
+             'size-4.5',
+             inverse
