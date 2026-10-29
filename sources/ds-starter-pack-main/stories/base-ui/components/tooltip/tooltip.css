@@ -1,0 +1,6 @@
+/* Layout only (the surface and arrow are in shared/popup.css). Colors, spacing and type come from tooltip.tokens.css. */
+
+.ds-tooltip {
+  width: max-content;
+  max-width: 20rem;
+}

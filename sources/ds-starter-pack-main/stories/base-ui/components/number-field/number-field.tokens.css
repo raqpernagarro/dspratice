@@ -1,0 +1,293 @@
+/* Generated from number-field.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-number-field[data-size="sm"] {
+  height: var(--number-field-height-sm, var(--space-2xl));
+  border-radius: var(--number-field-radius-sm, var(--shape-radius-md));
+}
+
+.ds-number-field[data-size="md"] {
+  height: var(--number-field-height-md, var(--size-lg));
+  border-radius: var(--number-field-radius-md, var(--shape-radius-md));
+}
+
+.ds-number-field[data-size="lg"] {
+  height: var(--number-field-height-lg, var(--size-xl));
+  border-radius: var(--number-field-radius-lg, var(--shape-radius-md));
+}
+
+.ds-number-field {
+  border-width: var(--number-field-border-width, var(--size-border-regular));
+  background-color: var(--number-field-background-default, var(--color-background-neutral-primary));
+}
+
+.ds-number-field:not([data-invalid]) {
+  border-color: var(--number-field-border-color-valid-default, var(--color-border-interactive-default));
+  box-shadow: none;
+}
+
+.ds-number-field[data-size="sm"] .ds-number-field__decrement {
+  width: var(--number-field-decrement-width-sm, var(--space-2xl));
+}
+
+.ds-number-field[data-size="md"] .ds-number-field__decrement {
+  width: var(--number-field-decrement-width-md, var(--size-lg));
+}
+
+.ds-number-field[data-size="lg"] .ds-number-field__decrement {
+  width: var(--number-field-decrement-width-lg, var(--size-xl));
+}
+
+.ds-number-field .ds-number-field__decrement {
+  border-right-width: var(--size-border-regular);
+  background-color: var(--color-background-interactive-subtle-default);
+}
+
+.ds-number-field:not([data-invalid]) .ds-number-field__decrement {
+  border-color: var(--color-border-interactive-default);
+}
+
+.ds-number-field .ds-number-field__decrement:hover:not([data-disabled]) {
+  background-color: var(--color-background-interactive-subtle-hover);
+}
+
+.ds-number-field .ds-number-field__decrement:active:not([data-disabled]) {
+  background-color: var(--color-background-interactive-subtle-pressed);
+}
+
+.ds-number-field[data-size="sm"] .ds-number-field__decrement-icon {
+  width: var(--size-2xs);
+  height: var(--size-2xs);
+}
+
+.ds-number-field[data-size="md"] .ds-number-field__decrement-icon {
+  width: var(--size-xs);
+  height: var(--size-xs);
+}
+
+.ds-number-field[data-size="lg"] .ds-number-field__decrement-icon {
+  width: var(--size-sm);
+  height: var(--size-sm);
+}
+
+.ds-number-field .ds-number-field__decrement-icon {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.ds-number-field .ds-number-field__value {
+  color: var(--number-field-foreground-default, var(--color-foreground-neutral-primary));
+}
+
+.ds-number-field[data-size="sm"] .ds-number-field__value {
+  font-family: var(--number-field-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--number-field-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--number-field-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--number-field-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-number-field[data-size="md"] .ds-number-field__value {
+  font-family: var(--number-field-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--number-field-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--number-field-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--number-field-text-style-md-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-number-field[data-size="lg"] .ds-number-field__value {
+  font-family: var(--number-field-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--number-field-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--number-field-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--number-field-text-style-lg-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-number-field[data-size="sm"] .ds-number-field__increment {
+  width: var(--number-field-increment-width-sm, var(--space-2xl));
+}
+
+.ds-number-field[data-size="md"] .ds-number-field__increment {
+  width: var(--number-field-increment-width-md, var(--size-lg));
+}
+
+.ds-number-field[data-size="lg"] .ds-number-field__increment {
+  width: var(--number-field-increment-width-lg, var(--size-xl));
+}
+
+.ds-number-field .ds-number-field__increment {
+  border-left-width: var(--size-border-regular);
+  background-color: var(--color-background-interactive-subtle-default);
+}
+
+.ds-number-field:not([data-invalid]) .ds-number-field__increment {
+  border-color: var(--color-border-interactive-default);
+}
+
+.ds-number-field .ds-number-field__increment:hover:not([data-disabled]) {
+  background-color: var(--color-background-interactive-subtle-hover);
+}
+
+.ds-number-field .ds-number-field__increment:active:not([data-disabled]) {
+  background-color: var(--color-background-interactive-subtle-pressed);
+}
+
+.ds-number-field[data-size="sm"] .ds-number-field__increment-icon {
+  width: var(--size-2xs);
+  height: var(--size-2xs);
+}
+
+.ds-number-field[data-size="md"] .ds-number-field__increment-icon {
+  width: var(--size-xs);
+  height: var(--size-xs);
+}
+
+.ds-number-field[data-size="lg"] .ds-number-field__increment-icon {
+  width: var(--size-sm);
+  height: var(--size-sm);
+}
+
+.ds-number-field .ds-number-field__increment-icon {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.ds-number-field:hover:not([data-disabled]):not([data-focused]),
+.ds-number-field[data-preview-state="hover"] {
+  background-color: var(--number-field-background-hover, var(--color-background-neutral-primary));
+}
+
+.ds-number-field:not([data-invalid]):hover:not([data-disabled]):not([data-focused]),
+.ds-number-field:not([data-invalid])[data-preview-state="hover"] {
+  border-color: var(--number-field-border-color-valid-hover, var(--color-border-interactive-hover));
+  box-shadow: none;
+}
+
+.ds-number-field[data-invalid] {
+  border-color: var(--number-field-border-color-invalid-default, var(--color-border-error));
+  box-shadow: none;
+}
+
+.ds-number-field[data-invalid]:hover:not([data-disabled]):not([data-focused]),
+.ds-number-field[data-invalid][data-preview-state="hover"] {
+  border-color: var(--number-field-border-color-invalid-hover, var(--color-border-error));
+  box-shadow: none;
+}
+
+.ds-number-field:not([data-invalid]):hover:not([data-disabled]):not([data-focused]) .ds-number-field__decrement,
+.ds-number-field:not([data-invalid])[data-preview-state="hover"] .ds-number-field__decrement {
+  border-color: var(--color-border-interactive-hover);
+}
+
+.ds-number-field[data-invalid] .ds-number-field__decrement {
+  border-color: var(--color-border-error);
+}
+
+.ds-number-field[data-invalid]:hover:not([data-disabled]):not([data-focused]) .ds-number-field__decrement,
+.ds-number-field[data-invalid][data-preview-state="hover"] .ds-number-field__decrement {
+  border-color: var(--color-border-error);
+}
+
+.ds-number-field:hover:not([data-disabled]):not([data-focused]) .ds-number-field__decrement-icon,
+.ds-number-field[data-preview-state="hover"] .ds-number-field__decrement-icon {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.ds-number-field:hover:not([data-disabled]):not([data-focused]) .ds-number-field__value,
+.ds-number-field[data-preview-state="hover"] .ds-number-field__value {
+  color: var(--number-field-foreground-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-number-field:not([data-invalid]):hover:not([data-disabled]):not([data-focused]) .ds-number-field__increment,
+.ds-number-field:not([data-invalid])[data-preview-state="hover"] .ds-number-field__increment {
+  border-color: var(--color-border-interactive-hover);
+}
+
+.ds-number-field[data-invalid] .ds-number-field__increment {
+  border-color: var(--color-border-error);
+}
+
+.ds-number-field[data-invalid]:hover:not([data-disabled]):not([data-focused]) .ds-number-field__increment,
+.ds-number-field[data-invalid][data-preview-state="hover"] .ds-number-field__increment {
+  border-color: var(--color-border-error);
+}
+
+.ds-number-field:hover:not([data-disabled]):not([data-focused]) .ds-number-field__increment-icon,
+.ds-number-field[data-preview-state="hover"] .ds-number-field__increment-icon {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.ds-number-field[data-focused],
+.ds-number-field[data-preview-state="focused"] {
+  background-color: var(--number-field-background-focused, var(--color-background-neutral-primary));
+}
+
+.ds-number-field:not([data-invalid])[data-focused],
+.ds-number-field:not([data-invalid])[data-preview-state="focused"] {
+  border-color: var(--number-field-border-color-valid-focused, var(--color-border-interactive-selected));
+  box-shadow: var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-number-field[data-invalid][data-focused],
+.ds-number-field[data-invalid][data-preview-state="focused"] {
+  border-color: var(--number-field-border-color-invalid-focused, var(--color-border-error));
+  box-shadow: var(--effect-shadow-focus-ring-error);
+}
+
+.ds-number-field:not([data-invalid])[data-focused] .ds-number-field__decrement,
+.ds-number-field:not([data-invalid])[data-preview-state="focused"] .ds-number-field__decrement {
+  border-color: var(--color-border-interactive-selected);
+}
+
+.ds-number-field[data-invalid][data-focused] .ds-number-field__decrement,
+.ds-number-field[data-invalid][data-preview-state="focused"] .ds-number-field__decrement {
+  border-color: var(--color-border-error);
+}
+
+.ds-number-field[data-focused] .ds-number-field__decrement-icon,
+.ds-number-field[data-preview-state="focused"] .ds-number-field__decrement-icon {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.ds-number-field[data-focused] .ds-number-field__value,
+.ds-number-field[data-preview-state="focused"] .ds-number-field__value {
+  color: var(--number-field-foreground-focused, var(--color-foreground-neutral-primary));
+}
+
+.ds-number-field:not([data-invalid])[data-focused] .ds-number-field__increment,
+.ds-number-field:not([data-invalid])[data-preview-state="focused"] .ds-number-field__increment {
+  border-color: var(--color-border-interactive-selected);
+}
+
+.ds-number-field[data-invalid][data-focused] .ds-number-field__increment,
+.ds-number-field[data-invalid][data-preview-state="focused"] .ds-number-field__increment {
+  border-color: var(--color-border-error);
+}
+
+.ds-number-field[data-focused] .ds-number-field__increment-icon,
+.ds-number-field[data-preview-state="focused"] .ds-number-field__increment-icon {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.ds-number-field[data-disabled] {
+  background-color: var(--number-field-background-disabled, var(--color-background-interactive-disabled));
+}
+
+.ds-number-field:not([data-invalid])[data-disabled] {
+  border-color: var(--number-field-border-color-valid-disabled, var(--color-border-interactive-disabled));
+  box-shadow: none;
+}
+
+.ds-number-field:not([data-invalid])[data-disabled] .ds-number-field__decrement {
+  border-color: var(--color-border-interactive-disabled);
+}
+
+.ds-number-field[data-disabled] .ds-number-field__decrement-icon {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.ds-number-field[data-disabled] .ds-number-field__value {
+  color: var(--number-field-foreground-disabled, var(--color-foreground-interactive-disabled));
+}
+
+.ds-number-field:not([data-invalid])[data-disabled] .ds-number-field__increment {
+  border-color: var(--color-border-interactive-disabled);
+}
+
+.ds-number-field[data-disabled] .ds-number-field__increment-icon {
+  color: var(--color-foreground-interactive-disabled);
+}

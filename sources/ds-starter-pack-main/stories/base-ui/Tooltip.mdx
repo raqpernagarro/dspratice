@@ -1,0 +1,27 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Tooltip.stories';
+import docs from './docs/tooltip.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { tooltipSpec } from './components/tooltip/tooltip.spec';
+
+<Meta of={Stories} />
+
+# Tooltip
+
+<Canvas of={Stories.Default} />
+
+## As in Figma
+
+<Canvas of={Stories.Preview} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={tooltipSpec} />
+
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={tooltipSpec.docs.baseUi} />

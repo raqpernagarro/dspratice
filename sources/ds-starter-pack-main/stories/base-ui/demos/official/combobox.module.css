@@ -1,0 +1,196 @@
+.InputGroup {
+  box-sizing: border-box;
+  position: relative;
+  width: 14rem;
+  height: var(--size-md);
+  border: 1px solid var(--color-border-interactive-default);
+  border-radius: var(--shape-radius-md);
+  background-color: var(--color-background-neutral-primary);
+
+  
+
+  &:focus-within {
+    outline: 2px solid var(--color-shadow-focus-ring-primary);
+    outline-offset: -1px;
+
+    
+  }
+
+  &:has(.Clear) .Input {
+    padding: 0 calc(var(--space-sm) + 2rem * 2) 0 var(--space-sm);
+  }
+}
+
+.Input {
+  box-sizing: border-box;
+  padding: 0 calc(var(--space-sm) + 2rem) 0 var(--space-sm);
+  margin: 0;
+  border: none;
+  border-radius: var(--shape-radius-md);
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  font-weight: var(--font-weight-body-regular);
+  background-color: var(--color-background-neutral-primary);
+  color: var(--color-foreground-neutral-primary);
+
+  @media (any-pointer: coarse) {
+    font-size: var(--font-size-body-lg);
+    line-height: var(--font-line-height-body-lg);
+  }
+
+  
+
+  &::placeholder {
+    color: var(--color-foreground-neutral-secondary);
+
+    
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.Label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  font-weight: var(--font-weight-body-strong);
+  color: var(--color-foreground-neutral-primary);
+  position: relative;
+
+  
+}
+
+.ActionButtons {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  height: 100%;
+  right: 0;
+  border: none;
+  color: var(--color-foreground-neutral-secondary);
+  padding: 0;
+
+  
+}
+
+.Trigger,
+.Clear {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-sm);
+  height: 100%;
+  color: var(--color-foreground-neutral-primary);
+  border: none;
+  padding: 0;
+  background: none;
+
+  
+}
+
+.Positioner {
+  outline: 0;
+}
+
+.Popup {
+  box-sizing: border-box;
+  background-color: var(--color-background-surface-medium);
+  border-radius: var(--shape-radius-lg);
+  color: var(--color-foreground-neutral-primary);
+  width: var(--anchor-width);
+  max-width: var(--available-width);
+  transition:
+    opacity var(--motion-duration-fast),
+    transform var(--motion-duration-fast);
+  transform-origin: var(--transform-origin);
+
+  border: 1px solid var(--color-border-neutral-subtle);
+  box-shadow: var(--effect-shadow-elevation-medium);
+
+  
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.List {
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-block: var(--space-xs);
+  scroll-padding-block: var(--space-xs);
+  outline: 0;
+  max-height: min(22.5rem, var(--available-height));
+
+  &[data-empty] {
+    padding: 0;
+  }
+}
+
+.Item {
+  box-sizing: border-box;
+  outline: 0;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+  padding-block: var(--space-sm);
+  padding-left: var(--space-sm);
+  padding-right: var(--space-sm);
+  display: grid;
+  gap: var(--space-sm);
+  align-items: center;
+  grid-template-columns: var(--size-xs) 1fr;
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+
+  &[data-highlighted] {
+    z-index: 0;
+    position: relative;
+    color: var(--color-foreground-neutral-primary);
+
+    
+  }
+
+  &[data-highlighted]::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
+    background-color: var(--color-background-interactive-subtle-hover);
+
+    
+  }
+}
+
+.ItemText {
+  grid-column-start: 2;
+}
+
+.ItemIndicator {
+  grid-column-start: 1;
+}
+
+.Empty {
+  box-sizing: border-box;
+  padding: var(--space-lg) var(--space-lg) var(--space-lg) var(--space-sm);
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  color: var(--color-foreground-neutral-secondary);
+
+  
+}

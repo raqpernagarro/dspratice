@@ -1,0 +1,27 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Drawer.stories';
+import docs from './docs/drawer.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { drawerSpec } from './components/drawer/drawer.spec';
+
+<Meta of={Stories} />
+
+# Drawer
+
+<Canvas of={Stories.Default} />
+
+## As in Figma
+
+<Canvas of={Stories.Preview} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={drawerSpec} />
+
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={drawerSpec.docs.baseUi} />

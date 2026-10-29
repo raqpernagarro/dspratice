@@ -1,0 +1,158 @@
+/* Generated from radio.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-radio[data-size="sm"] {
+  gap: var(--radio-gap-sm, var(--space-xs));
+}
+
+.ds-radio[data-size="md"] {
+  gap: var(--radio-gap-md, var(--space-sm));
+}
+
+.ds-radio[data-size="lg"] {
+  gap: var(--radio-gap-lg, var(--space-sm));
+}
+
+.ds-radio[data-size="sm"] .ds-radio__control {
+  width: var(--radio-control-size-sm, var(--size-2xs));
+  height: var(--radio-control-size-sm, var(--size-2xs));
+}
+
+.ds-radio[data-size="md"] .ds-radio__control {
+  width: var(--radio-control-size-md, var(--size-xs));
+  height: var(--radio-control-size-md, var(--size-xs));
+}
+
+.ds-radio[data-size="lg"] .ds-radio__control {
+  width: var(--radio-control-size-lg, var(--size-sm));
+  height: var(--radio-control-size-lg, var(--size-sm));
+}
+
+.ds-radio .ds-radio__control {
+  border-radius: var(--shape-radius-full);
+  border-width: var(--radio-control-border-width, var(--size-border-regular));
+}
+
+.ds-radio .ds-radio__control[data-unchecked] {
+  background-color: var(--radio-control-background-unchecked-default, var(--color-background-neutral-primary));
+  border-color: var(--radio-control-border-color-unchecked-default, var(--color-border-interactive-default));
+}
+
+.ds-radio .ds-radio__indicator {
+  width: var(--radio-indicator-size, var(--space-sm));
+  height: var(--radio-indicator-size, var(--space-sm));
+  border-radius: var(--shape-radius-full);
+}
+
+.ds-radio .ds-radio__control[data-unchecked] .ds-radio__indicator {
+  background-color: var(--radio-indicator-background-unchecked-default, var(--color-foreground-on-accent-primary));
+}
+
+.ds-radio .ds-radio__label {
+  color: var(--radio-label-foreground-default, var(--color-foreground-neutral-primary));
+}
+
+.ds-radio[data-size="sm"] .ds-radio__label {
+  font-family: var(--radio-label-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--radio-label-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--radio-label-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--radio-label-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-radio[data-size="md"] .ds-radio__label {
+  font-family: var(--radio-label-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--radio-label-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--radio-label-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--radio-label-text-style-md-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-radio[data-size="lg"] .ds-radio__label {
+  font-family: var(--radio-label-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--radio-label-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--radio-label-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--radio-label-text-style-lg-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-radio:hover:not(:has(> .ds-radio__control[data-disabled])) .ds-radio__control[data-unchecked],
+.ds-radio[data-preview-state="hover"] .ds-radio__control[data-unchecked] {
+  background-color: var(--radio-control-background-unchecked-hover, var(--color-background-neutral-primary));
+  border-color: var(--radio-control-border-color-unchecked-hover, var(--color-border-interactive-hover));
+}
+
+.ds-radio .ds-radio__control[data-checked] {
+  background-color: var(--radio-control-background-checked-default, var(--color-background-accent-default));
+  border-color: var(--radio-control-border-color-checked-default, var(--color-background-accent-default));
+}
+
+.ds-radio:hover:not(:has(> .ds-radio__control[data-disabled])) .ds-radio__control[data-checked],
+.ds-radio[data-preview-state="hover"] .ds-radio__control[data-checked] {
+  background-color: var(--radio-control-background-checked-hover, var(--color-background-accent-hover));
+  border-color: var(--radio-control-border-color-checked-hover, var(--color-background-accent-hover));
+}
+
+.ds-radio:hover:not(:has(> .ds-radio__control[data-disabled])) .ds-radio__control[data-unchecked] .ds-radio__indicator,
+.ds-radio[data-preview-state="hover"] .ds-radio__control[data-unchecked] .ds-radio__indicator {
+  background-color: var(--radio-indicator-background-unchecked-hover, var(--color-foreground-on-accent-primary));
+}
+
+.ds-radio .ds-radio__control[data-checked] .ds-radio__indicator {
+  background-color: var(--radio-indicator-background-checked-default, var(--color-foreground-on-accent-primary));
+}
+
+.ds-radio:hover:not(:has(> .ds-radio__control[data-disabled])) .ds-radio__control[data-checked] .ds-radio__indicator,
+.ds-radio[data-preview-state="hover"] .ds-radio__control[data-checked] .ds-radio__indicator {
+  background-color: var(--radio-indicator-background-checked-hover, var(--color-foreground-on-accent-primary));
+}
+
+.ds-radio:hover:not(:has(> .ds-radio__control[data-disabled])) .ds-radio__label,
+.ds-radio[data-preview-state="hover"] .ds-radio__label {
+  color: var(--radio-label-foreground-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-radio:active:not(:has(> .ds-radio__control[data-disabled])) .ds-radio__control[data-unchecked],
+.ds-radio[data-preview-state="pressed"] .ds-radio__control[data-unchecked] {
+  background-color: var(--radio-control-background-unchecked-pressed, var(--color-background-neutral-primary));
+  border-color: var(--radio-control-border-color-unchecked-pressed, var(--color-border-interactive-pressed));
+}
+
+.ds-radio:active:not(:has(> .ds-radio__control[data-disabled])) .ds-radio__control[data-checked],
+.ds-radio[data-preview-state="pressed"] .ds-radio__control[data-checked] {
+  background-color: var(--radio-control-background-checked-pressed, var(--color-background-accent-pressed));
+  border-color: var(--radio-control-border-color-checked-pressed, var(--color-background-accent-pressed));
+}
+
+.ds-radio:active:not(:has(> .ds-radio__control[data-disabled])) .ds-radio__control[data-unchecked] .ds-radio__indicator,
+.ds-radio[data-preview-state="pressed"] .ds-radio__control[data-unchecked] .ds-radio__indicator {
+  background-color: var(--radio-indicator-background-unchecked-pressed, var(--color-foreground-on-accent-primary));
+}
+
+.ds-radio:active:not(:has(> .ds-radio__control[data-disabled])) .ds-radio__control[data-checked] .ds-radio__indicator,
+.ds-radio[data-preview-state="pressed"] .ds-radio__control[data-checked] .ds-radio__indicator {
+  background-color: var(--radio-indicator-background-checked-pressed, var(--color-foreground-on-accent-primary));
+}
+
+.ds-radio:active:not(:has(> .ds-radio__control[data-disabled])) .ds-radio__label,
+.ds-radio[data-preview-state="pressed"] .ds-radio__label {
+  color: var(--radio-label-foreground-pressed, var(--color-foreground-neutral-primary));
+}
+
+.ds-radio:has(> .ds-radio__control[data-disabled]) .ds-radio__control[data-unchecked] {
+  background-color: var(--radio-control-background-unchecked-disabled, var(--color-background-interactive-disabled));
+  border-color: var(--radio-control-border-color-unchecked-disabled, var(--color-border-interactive-disabled));
+}
+
+.ds-radio:has(> .ds-radio__control[data-disabled]) .ds-radio__control[data-checked] {
+  background-color: var(--radio-control-background-checked-disabled, var(--color-background-interactive-disabled));
+  border-color: var(--radio-control-border-color-checked-disabled, var(--color-border-interactive-disabled));
+}
+
+.ds-radio:has(> .ds-radio__control[data-disabled]) .ds-radio__control[data-unchecked] .ds-radio__indicator {
+  background-color: var(--radio-indicator-background-unchecked-disabled, var(--color-foreground-neutral-tertiary));
+}
+
+.ds-radio:has(> .ds-radio__control[data-disabled]) .ds-radio__control[data-checked] .ds-radio__indicator {
+  background-color: var(--radio-indicator-background-checked-disabled, var(--color-foreground-neutral-tertiary));
+}
+
+.ds-radio:has(> .ds-radio__control[data-disabled]) .ds-radio__label {
+  color: var(--radio-label-foreground-disabled, var(--color-foreground-interactive-disabled));
+}

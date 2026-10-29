@@ -1,0 +1,53 @@
+/* Layout of Progress and Meter. Sizes, colors and type come from their tokens.css files. */
+
+.ds-progress,
+.ds-meter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 10rem;
+}
+
+.ds-progress__header,
+.ds-meter__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.ds-progress__track,
+.ds-meter__track {
+  position: relative;
+  overflow: hidden;
+}
+
+.ds-progress__indicator,
+.ds-meter__indicator {
+  height: 100%;
+  transition: width var(--motion-duration-slow) var(--motion-ease-regular);
+}
+
+/* Unknown total: a segment sweeps across the track. */
+.ds-progress__indicator[data-indeterminate] {
+  position: absolute;
+  width: 40%;
+  animation: ds-progress-sweep 1.4s var(--motion-ease-regular) infinite;
+}
+
+@keyframes ds-progress-sweep {
+  from {
+    left: -40%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-progress__indicator[data-indeterminate] {
+    animation: none;
+    left: 0;
+    width: 100%;
+    opacity: 0.5;
+  }
+}

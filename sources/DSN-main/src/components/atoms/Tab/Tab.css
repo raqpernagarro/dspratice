@@ -1,0 +1,107 @@
+.dsn-tab {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dsn-tab-list {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2xs);
+  width: 100%;
+  padding-left: var(--space-sm);
+  border-bottom: var(--size-border-sm) solid var(--color-border-neutral-secondary);
+}
+
+.dsn-tab-trigger {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  border: none;
+  border-bottom: var(--size-border-sm) solid transparent;
+  background: transparent;
+  color: var(--color-foreground-neutral-secondary);
+  padding: var(--space-xs) 0;
+  cursor: pointer;
+  transition:
+    background-color var(--motion-transition-fast),
+    border-color var(--motion-transition-fast),
+    color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
+}
+
+.dsn-tab-trigger-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border-radius: var(--shape-radius-control-md);
+  padding: var(--space-2xs);
+}
+
+.dsn-tab-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xs);
+}
+
+.dsn-tab-label-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xs);
+}
+
+.dsn-tab-label {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  white-space: nowrap;
+}
+
+.dsn-tab-trigger:hover:not(:disabled):not([data-selected]) .dsn-tab-trigger-content {
+  background: var(--color-background-interactive-secondary-hover);
+}
+
+.dsn-tab-trigger:active:not(:disabled):not([data-selected]) .dsn-tab-trigger-content {
+  background: var(--color-background-interactive-secondary-active);
+}
+
+.dsn-tab-trigger[data-selected] {
+  color: var(--color-foreground-interactive-primary-default);
+  border-bottom-color: var(--color-border-interactive-primary-selected);
+}
+
+.dsn-tab-trigger:focus-visible {
+  outline: none;
+}
+
+.dsn-tab-trigger:focus-visible .dsn-tab-trigger-content {
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-tab-trigger:disabled {
+  color: var(--color-foreground-interactive-disabled);
+  cursor: not-allowed;
+}
+
+.dsn-tab-panel {
+  padding-top: var(--space-xs);
+}
+/* TabNav — the same row rendered as page navigation (<nav> > <ul> > <li> > link). */
+.dsn-tab-nav .dsn-tab-list {
+  margin: 0;
+  list-style: none;
+}
+
+.dsn-tab-nav-item {
+  display: flex;
+}
+
+.dsn-tab-nav .dsn-tab-trigger {
+  display: inline-flex;
+  text-decoration: none;
+}

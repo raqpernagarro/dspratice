@@ -1,0 +1,91 @@
+.dsn-alert-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  box-sizing: border-box;
+}
+
+.dsn-alert-dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--color-background-overlay-strong);
+  pointer-events: none;
+}
+
+.dsn-alert-dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--size-container-md, 320px);
+  overflow: hidden;
+  background: var(--color-background-neutral-primary);
+  border-radius: var(--modal-radius);
+  box-shadow:
+    0 0 0 var(--primitive-size-1) var(--color-shadow-contrast-border),
+    0 2px 8px 1px var(--color-shadow-default),
+    0 16px 24px -8px var(--color-shadow-default);
+}
+
+.dsn-alert-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl) var(--space-xl) 0 var(--space-xl);
+}
+
+.dsn-alert-dialog-title {
+  margin: 0;
+  color: var(--color-foreground-neutral-primary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-display-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--font-line-height-display-sm);
+  letter-spacing: var(--font-letter-spacing-normal);
+}
+
+.dsn-alert-dialog[data-variant='danger'] .dsn-alert-dialog-title {
+  color: var(--color-foreground-error-strong);
+}
+
+.dsn-alert-dialog-message {
+  margin: 0;
+  color: var(--color-foreground-neutral-secondary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-body-md);
+  letter-spacing: var(--font-letter-spacing-tight);
+}
+
+.dsn-alert-dialog-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.dsn-alert-dialog-footer-left,
+.dsn-alert-dialog-footer-right {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  flex: 1 0 0;
+}
+
+.dsn-alert-dialog-footer-left {
+  justify-content: flex-start;
+}
+
+.dsn-alert-dialog-footer-right {
+  justify-content: flex-end;
+  gap: var(--space-xs);
+}
+
+/* Critical alert: match acknowledgement checkbox selected color to destructive button */
+.dsn-alert-dialog[data-variant='danger'] .dsn-checkbox[data-checked]:not([data-disabled]) .dsn-checkbox-indicator {
+  background: var(--color-background-interactive-destructive-default);
+}

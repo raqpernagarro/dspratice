@@ -1,0 +1,20 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Badge.stories';
+import { SpecDocs } from './shared/SpecDocs';
+import { badgeSpec } from './components/badge/badge.spec';
+
+<Meta of={Stories} />
+
+# Badge
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={badgeSpec} />
+
+## Not part of Base UI
+
+Badge is built on the same tokens and spec system as the Base UI components, as a plain `<span>`: there is no Base UI part for it.

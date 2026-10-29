@@ -1,0 +1,79 @@
+.dsn-page-selector {
+  /* Reset */
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  border: 1px solid transparent;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Size — matches control/height/standard */
+  min-height: var(--size-control-height-md); /* 32px */
+  padding: var(--space-2xs);                 /* 4px */
+  border-radius: var(--shape-radius-control-md); /* 16px */
+
+  /* Colors — default (unselected) */
+  background-color: var(--color-background-neutral-primary);
+  color: var(--color-foreground-neutral-secondary);
+
+  /* Typography */
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+
+  /* Interaction */
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast),
+    color var(--motion-transition-fast),
+    border-color var(--motion-transition-fast);
+}
+
+/* Number text — horizontally centered with a minimum width */
+.dsn-page-selector-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+}
+
+/* ── Hover ────────────────────────────────────────────────────────────────── */
+
+.dsn-page-selector:hover:not(:disabled):not([data-selected]) {
+  background-color: var(--color-background-interactive-secondary-hover);
+}
+
+/* ── Pressed ──────────────────────────────────────────────────────────────── */
+
+.dsn-page-selector:active:not(:disabled) {
+  box-shadow: var(--button-shadow-active);
+}
+
+/* ── Focused ──────────────────────────────────────────────────────────────── */
+
+.dsn-page-selector:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+/* ── Selected ─────────────────────────────────────────────────────────────── */
+
+.dsn-page-selector[data-selected] {
+  border-color: var(--color-border-interactive-primary-selected);
+  color: var(--color-foreground-interactive-primary-selected);
+  background-color: var(--color-background-neutral-primary);
+}
+
+/* ── Disabled ─────────────────────────────────────────────────────────────── */
+
+.dsn-page-selector:disabled {
+  cursor: not-allowed;
+  color: var(--color-foreground-interactive-disabled);
+}

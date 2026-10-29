@@ -1,0 +1,11 @@
+.Text {
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  color: var(--color-foreground-neutral-primary);
+
+  
+
+  strong& {
+    font-weight: var(--font-weight-body-strong);
+  }
+}

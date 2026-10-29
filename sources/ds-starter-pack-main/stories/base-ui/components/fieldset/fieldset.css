@@ -1,0 +1,14 @@
+/* Layout only. Spacing and type come from fieldset.tokens.css (generated from fieldset.spec.ts). */
+
+.ds-fieldset {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ds-fieldset__legend {
+  padding: 0;
+}

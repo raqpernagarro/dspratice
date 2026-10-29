@@ -1,0 +1,22 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Collapsible.stories';
+import docs from './docs/collapsible.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { collapsibleSpec } from './components/collapsible/collapsible.spec';
+
+<Meta of={Stories} />
+
+# Collapsible
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={collapsibleSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={collapsibleSpec.docs.baseUi} />

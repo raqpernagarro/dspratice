@@ -1,0 +1,164 @@
+.dsn-attachment-chip {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  border: none;
+  box-shadow: inset 0 0 0 var(--size-border-sm) var(--color-border-neutral-secondary);
+  background: var(--color-background-neutral-primary);
+  color: var(--color-foreground-neutral-primary);
+  transition:
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
+}
+
+.dsn-attachment-chip[data-size='md'] {
+  min-height: var(--size-control-height-md);
+  border-radius: var(--shape-radius-control-md);
+  padding: var(--space-2xs);
+}
+
+.dsn-attachment-chip[data-size='sm'] {
+  min-height: var(--size-control-height-sm);
+  border-radius: var(--shape-radius-control-sm);
+  padding: var(--space-2xs);
+}
+
+/* sm: 16px thumbnail + 4px inset on every side keeps the 24px control height. */
+.dsn-attachment-chip[data-size='sm'] .dsn-attachment-chip-preview {
+  width: 16px;
+  height: 16px;
+}
+
+.dsn-attachment-chip[data-size='sm'] .dsn-attachment-chip-label-wrap {
+  padding-block: 0;
+}
+
+.dsn-attachment-chip[data-size='sm'] .dsn-attachment-chip-action {
+  width: 16px;
+  height: 16px;
+}
+
+.dsn-attachment-chip:not([data-disabled]):not([data-loading]):hover {
+  background: var(--button-background-secondary-hover);
+}
+
+.dsn-attachment-chip:not([data-disabled]):not([data-loading]):active {
+  background: var(--color-background-interactive-secondary-active);
+}
+
+.dsn-attachment-chip:focus-within {
+  box-shadow:
+    inset 0 0 0 var(--size-border-sm) var(--color-border-neutral-secondary),
+    var(--button-shadow-focus);
+}
+
+.dsn-attachment-chip[data-disabled] {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-attachment-chip-content {
+  display: inline-flex;
+  align-items: center;
+}
+
+.dsn-attachment-chip-preview {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Fixed slot = the FileThumbnail size, so the loading spinner never changes the chip's size. */
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.dsn-attachment-chip-spinner {
+  animation: dsn-attachment-chip-spin 1s linear infinite;
+  color: var(--color-foreground-interactive-primary-default);
+}
+
+@keyframes dsn-attachment-chip-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dsn-attachment-chip-label-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: var(--space-2xs);
+  min-width: 0;
+}
+
+.dsn-attachment-chip-label,
+.dsn-attachment-chip-meta {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  white-space: nowrap;
+}
+
+.dsn-attachment-chip-label {
+  color: var(--color-foreground-neutral-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.dsn-attachment-chip-meta {
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-attachment-chip[data-disabled] .dsn-attachment-chip-label,
+.dsn-attachment-chip[data-disabled] .dsn-attachment-chip-meta {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-attachment-chip-action {
+  border: none;
+  background: transparent;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--shape-radius-full);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.dsn-attachment-chip-action:hover:not(:disabled) {
+  background: var(--button-background-secondary-hover);
+}
+
+.dsn-attachment-chip-action:active:not(:disabled) {
+  background: var(--color-background-interactive-secondary-active);
+}
+
+.dsn-attachment-chip-action:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-attachment-chip-action:disabled {
+  cursor: not-allowed;
+}
+
+.dsn-attachment-chip-popover {
+  z-index: 3;
+}
+
+.dsn-attachment-chip-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dsn-attachment-chip-menu-item {
+  width: 100%;
+}

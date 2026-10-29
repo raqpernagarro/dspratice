@@ -1,0 +1,108 @@
+{
+  "shape": {
+    "radius": {
+      "sm": {
+        "$type": "number",
+        "$value": "{primitive.size.12}",
+        "$description": "For smaller interactive elements and controls nested inside other controls, like a button inside an input or a chip inside a select.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11051:336809"
+          }
+        }
+      },
+      "xl": {
+        "$type": "number",
+        "$value": "{primitive.size.32}",
+        "$description": "Outer container radius for large surfaces that wrap standard controls, like modals and drawers. Larger than radius/standard to stay visually balanced with the content inside.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11051:336810"
+          }
+        }
+      },
+      "md": {
+        "$type": "number",
+        "$value": "{primitive.size.16}",
+        "$description": "Default corner radius for most interactive controls — buttons, inputs, selects, and chips. Use this unless a more specific token applies.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11051:336817"
+          }
+        }
+      },
+      "full": {
+        "$type": "number",
+        "$value": "{primitive.size.full}",
+        "$description": "Fully rounded corners for pill shapes and circular elements. Results in a pill or circle depending on the element&#39;s dimensions.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11051:336818"
+          }
+        }
+      },
+      "none": {
+        "$type": "number",
+        "$value": "{primitive.size.0}",
+        "$description": "No rounding. Use for elements that need hard edges — table cells, full-bleed images, or elements flush against a container edge.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11051:336819"
+          }
+        }
+      },
+      "lg": {
+        "$type": "number",
+        "$value": "{primitive.size.24}",
+        "$description": "Outer container radius for surfaces that wrap standard controls, like cards and popovers. Slightly larger than radius/standard to maintain visual harmony with nested elements.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11051:336823"
+          }
+        }
+      },
+      "2xs": {
+        "$type": "number",
+        "$value": "{primitive.size.4}",
+        "$description": "Minimal rounding for compact elements like tooltips, code snippets, and small badges. Barely noticeable — just enough to soften a sharp edge.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11051:336824"
+          }
+        }
+      },
+      "control": {
+        "md": {
+          "$type": "number",
+          "$value": "{shape.radius.md}",
+          "$description": "Corner radius for standard interactive controls. Aliases radius/standard — prefer this token inside component definitions for semantic clarity.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11051:336808"
+            }
+          }
+        },
+        "sm": {
+          "$type": "number",
+          "$value": "{shape.radius.sm}",
+          "$description": "Corner radius for smaller controls nested inside other controls. Aliases radius/small — prefer this token inside component definitions for semantic clarity.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11051:336820"
+            }
+          }
+        }
+      },
+      "xs": {
+        "$type": "number",
+        "$value": "{primitive.size.8}",
+        "$description": "8px. Small tiles and organization avatars.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11056:336843"
+          }
+        }
+      }
+    }
+  }
+}

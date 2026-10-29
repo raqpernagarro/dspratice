@@ -1,0 +1,27 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './OtpField.stories';
+import docs from './docs/otp-field.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { otpFieldSpec } from './components/otp-field/otp-field.spec';
+import { otpSlotSpec } from './components/otp-field/otp-slot.spec';
+
+<Meta of={Stories} />
+
+# OTP Field
+
+<Canvas of={Stories.Default} />
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={otpFieldSpec} />
+
+# OTP Slot
+
+<Canvas of={Stories.SlotMatrix} />
+
+<SpecDocs spec={otpSlotSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={otpFieldSpec.docs.baseUi} />

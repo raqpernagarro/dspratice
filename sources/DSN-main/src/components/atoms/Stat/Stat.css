@@ -1,0 +1,36 @@
+.dsn-stat {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dsn-stat[data-variant='card'] {
+  padding: var(--space-md);
+  border: var(--size-border-sm) solid var(--color-border-neutral-primary);
+  border-radius: var(--card-radius);
+  background: var(--color-background-elevated);
+}
+
+.dsn-stat-title,
+.dsn-stat-value {
+  margin: 0;
+  width: 100%;
+}
+
+.dsn-stat-title {
+  color: var(--color-foreground-neutral-tertiary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-body-md);
+  letter-spacing: var(--font-letter-spacing-normal);
+}
+
+.dsn-stat-value {
+  color: var(--color-foreground-neutral-primary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-display-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--font-line-height-display-sm);
+  letter-spacing: var(--font-letter-spacing-normal);
+}

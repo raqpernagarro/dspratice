@@ -1,0 +1,4324 @@
+{
+  "templateFile": "./Icon.figma.batch.ts",
+  "components": [
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3045",
+      "source": "https://lucide.dev/icons/",
+      "component": "Activity",
+      "componentName": "Activity",
+      "id": "icon-activity-111-3045"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3041",
+      "source": "https://lucide.dev/icons/",
+      "component": "Airplay",
+      "componentName": "Airplay",
+      "id": "icon-airplay-111-3041"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3079",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlertCircle",
+      "componentName": "AlertCircle",
+      "id": "icon-alert-circle-111-3079"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3073",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlertOctagon",
+      "componentName": "AlertOctagon",
+      "id": "icon-alert-octagon-111-3073"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3060",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlertTriangle",
+      "componentName": "AlertTriangle",
+      "id": "icon-alert-triangle-111-3060"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3061",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlignCenter",
+      "componentName": "AlignCenter",
+      "id": "icon-align-center-111-3061"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3052",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlignJustify",
+      "componentName": "AlignJustify",
+      "id": "icon-align-justify-111-3052"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3057",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlignLeft",
+      "componentName": "AlignLeft",
+      "id": "icon-align-left-111-3057"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3016",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlignRight",
+      "componentName": "AlignRight",
+      "id": "icon-align-right-111-3016"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3076",
+      "source": "https://lucide.dev/icons/",
+      "component": "Anchor",
+      "componentName": "Anchor",
+      "id": "icon-anchor-111-3076"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3049",
+      "source": "https://lucide.dev/icons/",
+      "component": "Aperture",
+      "componentName": "Aperture",
+      "id": "icon-aperture-111-3049"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3007",
+      "source": "https://lucide.dev/icons/",
+      "component": "Archive",
+      "componentName": "Archive",
+      "id": "icon-archive-111-3007"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3043",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowDownCircle",
+      "componentName": "ArrowDownCircle",
+      "id": "icon-arrow-down-circle-111-3043"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3068",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowDownLeft",
+      "componentName": "ArrowDownLeft",
+      "id": "icon-arrow-down-left-111-3068"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3063",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowDownRight",
+      "componentName": "ArrowDownRight",
+      "id": "icon-arrow-down-right-111-3063"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3037",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowDown",
+      "componentName": "ArrowDown",
+      "id": "icon-arrow-down-111-3037"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3034",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowLeftCircle",
+      "componentName": "ArrowLeftCircle",
+      "id": "icon-arrow-left-circle-111-3034"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3031",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowLeft",
+      "componentName": "ArrowLeft",
+      "id": "icon-arrow-left-111-3031"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3030",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowRightCircle",
+      "componentName": "ArrowRightCircle",
+      "id": "icon-arrow-right-circle-111-3030"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3056",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowRight",
+      "componentName": "ArrowRight",
+      "id": "icon-arrow-right-111-3056"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3027",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUpCircle",
+      "componentName": "ArrowUpCircle",
+      "id": "icon-arrow-up-circle-111-3027"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3051",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUpLeft",
+      "componentName": "ArrowUpLeft",
+      "id": "icon-arrow-up-left-111-3051"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2979",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUpRight",
+      "componentName": "ArrowUpRight",
+      "id": "icon-arrow-up-right-111-2979"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3039",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUp",
+      "componentName": "ArrowUp",
+      "id": "icon-arrow-up-111-3039"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3026",
+      "source": "https://lucide.dev/icons/",
+      "component": "AtSign",
+      "componentName": "AtSign",
+      "id": "icon-at-sign-111-3026"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3025",
+      "source": "https://lucide.dev/icons/",
+      "component": "Award",
+      "componentName": "Award",
+      "id": "icon-award-111-3025"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3047",
+      "source": "https://lucide.dev/icons/",
+      "component": "BarChart2",
+      "componentName": "BarChart2",
+      "id": "icon-bar-chart-2-111-3047"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3075",
+      "source": "https://lucide.dev/icons/",
+      "component": "BarChart",
+      "componentName": "BarChart",
+      "id": "icon-bar-chart-111-3075"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3028",
+      "source": "https://lucide.dev/icons/",
+      "component": "BatteryCharging",
+      "componentName": "BatteryCharging",
+      "id": "icon-battery-charging-111-3028"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3023",
+      "source": "https://lucide.dev/icons/",
+      "component": "Battery",
+      "componentName": "Battery",
+      "id": "icon-battery-111-3023"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3022",
+      "source": "https://lucide.dev/icons/",
+      "component": "BellOff",
+      "componentName": "BellOff",
+      "id": "icon-bell-off-111-3022"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3020",
+      "source": "https://lucide.dev/icons/",
+      "component": "Bell",
+      "componentName": "Bell",
+      "id": "icon-bell-111-3020"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3019",
+      "source": "https://lucide.dev/icons/",
+      "component": "Bluetooth",
+      "componentName": "Bluetooth",
+      "id": "icon-bluetooth-111-3019"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3013",
+      "source": "https://lucide.dev/icons/",
+      "component": "Bold",
+      "componentName": "Bold",
+      "id": "icon-bold-111-3013"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3012",
+      "source": "https://lucide.dev/icons/",
+      "component": "BookOpen",
+      "componentName": "BookOpen",
+      "id": "icon-book-open-111-3012"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3011",
+      "source": "https://lucide.dev/icons/",
+      "component": "Book",
+      "componentName": "Book",
+      "id": "icon-book-111-3011"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3010",
+      "source": "https://lucide.dev/icons/",
+      "component": "Bookmark",
+      "componentName": "Bookmark",
+      "id": "icon-bookmark-111-3010"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3009",
+      "source": "https://lucide.dev/icons/",
+      "component": "Box",
+      "componentName": "Box",
+      "id": "icon-box-111-3009"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3065",
+      "source": "https://lucide.dev/icons/",
+      "component": "Briefcase",
+      "componentName": "Briefcase",
+      "id": "icon-briefcase-111-3065"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3006",
+      "source": "https://lucide.dev/icons/",
+      "component": "Calendar",
+      "componentName": "Calendar",
+      "id": "icon-calendar-111-3006"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3002",
+      "source": "https://lucide.dev/icons/",
+      "component": "CameraOff",
+      "componentName": "CameraOff",
+      "id": "icon-camera-off-111-3002"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3018",
+      "source": "https://lucide.dev/icons/",
+      "component": "Camera",
+      "componentName": "Camera",
+      "id": "icon-camera-111-3018"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2999",
+      "source": "https://lucide.dev/icons/",
+      "component": "Cast",
+      "componentName": "Cast",
+      "id": "icon-cast-111-2999"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2997",
+      "source": "https://lucide.dev/icons/",
+      "component": "CheckCircle",
+      "componentName": "CheckCircle",
+      "id": "icon-check-circle-111-2997"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2996",
+      "source": "https://lucide.dev/icons/",
+      "component": "CheckSquare",
+      "componentName": "CheckSquare",
+      "id": "icon-check-square-111-2996"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2994",
+      "source": "https://lucide.dev/icons/",
+      "component": "Check",
+      "componentName": "Check",
+      "id": "icon-check-111-2994"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2993",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronDown",
+      "componentName": "ChevronDown",
+      "id": "icon-chevron-down-111-2993"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3062",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronLeft",
+      "componentName": "ChevronLeft",
+      "id": "icon-chevron-left-111-3062"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2991",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronRight",
+      "componentName": "ChevronRight",
+      "id": "icon-chevron-right-111-2991"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2989",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronUp",
+      "componentName": "ChevronUp",
+      "id": "icon-chevron-up-111-2989"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2988",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronsDown",
+      "componentName": "ChevronsDown",
+      "id": "icon-chevrons-down-111-2988"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2987",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronsLeft",
+      "componentName": "ChevronsLeft",
+      "id": "icon-chevrons-left-111-2987"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2985",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronsRight",
+      "componentName": "ChevronsRight",
+      "id": "icon-chevrons-right-111-2985"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2984",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronsUp",
+      "componentName": "ChevronsUp",
+      "id": "icon-chevrons-up-111-2984"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3054",
+      "source": "https://lucide.dev/icons/",
+      "component": "Chrome",
+      "componentName": "Chrome",
+      "id": "icon-chrome-111-3054"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2982",
+      "source": "https://lucide.dev/icons/",
+      "component": "Circle",
+      "componentName": "Circle",
+      "id": "icon-circle-111-2982"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3008",
+      "source": "https://lucide.dev/icons/",
+      "component": "Clipboard",
+      "componentName": "Clipboard",
+      "id": "icon-clipboard-111-3008"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2980",
+      "source": "https://lucide.dev/icons/",
+      "component": "Clock",
+      "componentName": "Clock",
+      "id": "icon-clock-111-2980"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2978",
+      "source": "https://lucide.dev/icons/",
+      "component": "CloudDrizzle",
+      "componentName": "CloudDrizzle",
+      "id": "icon-cloud-drizzle-111-2978"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3059",
+      "source": "https://lucide.dev/icons/",
+      "component": "CloudLightning",
+      "componentName": "CloudLightning",
+      "id": "icon-cloud-lightning-111-3059"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3001",
+      "source": "https://lucide.dev/icons/",
+      "component": "CloudOff",
+      "componentName": "CloudOff",
+      "id": "icon-cloud-off-111-3001"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2986",
+      "source": "https://lucide.dev/icons/",
+      "component": "CloudRain",
+      "componentName": "CloudRain",
+      "id": "icon-cloud-rain-111-2986"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3015",
+      "source": "https://lucide.dev/icons/",
+      "component": "CloudSnow",
+      "componentName": "CloudSnow",
+      "id": "icon-cloud-snow-111-3015"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2941",
+      "source": "https://lucide.dev/icons/",
+      "component": "Cloud",
+      "componentName": "Cloud",
+      "id": "icon-cloud-111-2941"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2976",
+      "source": "https://lucide.dev/icons/",
+      "component": "Code",
+      "componentName": "Code",
+      "id": "icon-code-111-2976"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3067",
+      "source": "https://lucide.dev/icons/",
+      "component": "Codepen",
+      "componentName": "Codepen",
+      "id": "icon-codepen-111-3067"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2975",
+      "source": "https://lucide.dev/icons/",
+      "component": "Codesandbox",
+      "componentName": "Codesandbox",
+      "id": "icon-codesandbox-111-2975"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2973",
+      "source": "https://lucide.dev/icons/",
+      "component": "Coffee",
+      "componentName": "Coffee",
+      "id": "icon-coffee-111-2973"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2949",
+      "source": "https://lucide.dev/icons/",
+      "component": "Columns",
+      "componentName": "Columns",
+      "id": "icon-columns-111-2949"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2998",
+      "source": "https://lucide.dev/icons/",
+      "component": "Command",
+      "componentName": "Command",
+      "id": "icon-command-111-2998"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3071",
+      "source": "https://lucide.dev/icons/",
+      "component": "Compass",
+      "componentName": "Compass",
+      "id": "icon-compass-111-3071"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2971",
+      "source": "https://lucide.dev/icons/",
+      "component": "Copy",
+      "componentName": "Copy",
+      "id": "icon-copy-111-2971"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2970",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerDownLeft",
+      "componentName": "CornerDownLeft",
+      "id": "icon-corner-down-left-111-2970"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2968",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerDownRight",
+      "componentName": "CornerDownRight",
+      "id": "icon-corner-down-right-111-2968"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2966",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerLeftDown",
+      "componentName": "CornerLeftDown",
+      "id": "icon-corner-left-down-111-2966"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2964",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerLeftUp",
+      "componentName": "CornerLeftUp",
+      "id": "icon-corner-left-up-111-2964"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2962",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerRightDown",
+      "componentName": "CornerRightDown",
+      "id": "icon-corner-right-down-111-2962"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2960",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerRightUp",
+      "componentName": "CornerRightUp",
+      "id": "icon-corner-right-up-111-2960"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2992",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerUpLeft",
+      "componentName": "CornerUpLeft",
+      "id": "icon-corner-up-left-111-2992"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2959",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerUpRight",
+      "componentName": "CornerUpRight",
+      "id": "icon-corner-up-right-111-2959"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2957",
+      "source": "https://lucide.dev/icons/",
+      "component": "Cpu",
+      "componentName": "Cpu",
+      "id": "icon-cpu-111-2957"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2955",
+      "source": "https://lucide.dev/icons/",
+      "component": "CreditCard",
+      "componentName": "CreditCard",
+      "id": "icon-credit-card-111-2955"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2953",
+      "source": "https://lucide.dev/icons/",
+      "component": "Crop",
+      "componentName": "Crop",
+      "id": "icon-crop-111-2953"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3069",
+      "source": "https://lucide.dev/icons/",
+      "component": "Crosshair",
+      "componentName": "Crosshair",
+      "id": "icon-crosshair-111-3069"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2952",
+      "source": "https://lucide.dev/icons/",
+      "component": "Database",
+      "componentName": "Database",
+      "id": "icon-database-111-2952"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2950",
+      "source": "https://lucide.dev/icons/",
+      "component": "Delete",
+      "componentName": "Delete",
+      "id": "icon-delete-111-2950"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3033",
+      "source": "https://lucide.dev/icons/",
+      "component": "Disc",
+      "componentName": "Disc",
+      "id": "icon-disc-111-3033"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2948",
+      "source": "https://lucide.dev/icons/",
+      "component": "DivideCircle",
+      "componentName": "DivideCircle",
+      "id": "icon-divide-circle-111-2948"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3036",
+      "source": "https://lucide.dev/icons/",
+      "component": "DivideSquare",
+      "componentName": "DivideSquare",
+      "id": "icon-divide-square-111-3036"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2947",
+      "source": "https://lucide.dev/icons/",
+      "component": "Divide",
+      "componentName": "Divide",
+      "id": "icon-divide-111-2947"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3042",
+      "source": "https://lucide.dev/icons/",
+      "component": "DollarSign",
+      "componentName": "DollarSign",
+      "id": "icon-dollar-sign-111-3042"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2981",
+      "source": "https://lucide.dev/icons/",
+      "component": "DownloadCloud",
+      "componentName": "DownloadCloud",
+      "id": "icon-download-cloud-111-2981"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2977",
+      "source": "https://lucide.dev/icons/",
+      "component": "Download",
+      "componentName": "Download",
+      "id": "icon-download-111-2977"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2945",
+      "source": "https://lucide.dev/icons/",
+      "component": "Dribbble",
+      "componentName": "Dribbble",
+      "id": "icon-dribbble-111-2945"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3004",
+      "source": "https://lucide.dev/icons/",
+      "component": "Droplet",
+      "componentName": "Droplet",
+      "id": "icon-droplet-111-3004"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2943",
+      "source": "https://lucide.dev/icons/",
+      "component": "Edit2",
+      "componentName": "Edit2",
+      "id": "icon-edit-2-111-2943"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2942",
+      "source": "https://lucide.dev/icons/",
+      "component": "Edit3",
+      "componentName": "Edit3",
+      "id": "icon-edit-3-111-2942"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3058",
+      "source": "https://lucide.dev/icons/",
+      "component": "Edit",
+      "componentName": "Edit",
+      "id": "icon-edit-111-3058"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2969",
+      "source": "https://lucide.dev/icons/",
+      "component": "ExternalLink",
+      "componentName": "ExternalLink",
+      "id": "icon-external-link-111-2969"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2967",
+      "source": "https://lucide.dev/icons/",
+      "component": "EyeOff",
+      "componentName": "EyeOff",
+      "id": "icon-eye-off-111-2967"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3070",
+      "source": "https://lucide.dev/icons/",
+      "component": "Eye",
+      "componentName": "Eye",
+      "id": "icon-eye-111-3070"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2940",
+      "source": "https://lucide.dev/icons/",
+      "component": "Facebook",
+      "componentName": "Facebook",
+      "id": "icon-facebook-111-2940"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2938",
+      "source": "https://lucide.dev/icons/",
+      "component": "FastForward",
+      "componentName": "FastForward",
+      "id": "icon-fast-forward-111-2938"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2936",
+      "source": "https://lucide.dev/icons/",
+      "component": "Feather",
+      "componentName": "Feather",
+      "id": "icon-feather-111-2936"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3029",
+      "source": "https://lucide.dev/icons/",
+      "component": "Figma",
+      "componentName": "Figma",
+      "id": "icon-figma-111-3029"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2954",
+      "source": "https://lucide.dev/icons/",
+      "component": "FileMinus",
+      "componentName": "FileMinus",
+      "id": "icon-file-minus-111-2954"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2934",
+      "source": "https://lucide.dev/icons/",
+      "component": "FilePlus",
+      "componentName": "FilePlus",
+      "id": "icon-file-plus-111-2934"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3050",
+      "source": "https://lucide.dev/icons/",
+      "component": "FileText",
+      "componentName": "FileText",
+      "id": "icon-file-text-111-3050"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3021",
+      "source": "https://lucide.dev/icons/",
+      "component": "File",
+      "componentName": "File",
+      "id": "icon-file-111-3021"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2972",
+      "source": "https://lucide.dev/icons/",
+      "component": "Film",
+      "componentName": "Film",
+      "id": "icon-film-111-2972"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2932",
+      "source": "https://lucide.dev/icons/",
+      "component": "Filter",
+      "componentName": "Filter",
+      "id": "icon-filter-111-2932"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2930",
+      "source": "https://lucide.dev/icons/",
+      "component": "Flag",
+      "componentName": "Flag",
+      "id": "icon-flag-111-2930"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2956",
+      "source": "https://lucide.dev/icons/",
+      "component": "FolderMinus",
+      "componentName": "FolderMinus",
+      "id": "icon-folder-minus-111-2956"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2928",
+      "source": "https://lucide.dev/icons/",
+      "component": "FolderPlus",
+      "componentName": "FolderPlus",
+      "id": "icon-folder-plus-111-2928"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2927",
+      "source": "https://lucide.dev/icons/",
+      "component": "Folder",
+      "componentName": "Folder",
+      "id": "icon-folder-111-2927"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2925",
+      "source": "https://lucide.dev/icons/",
+      "component": "Framer",
+      "componentName": "Framer",
+      "id": "icon-framer-111-2925"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3044",
+      "source": "https://lucide.dev/icons/",
+      "component": "Frown",
+      "componentName": "Frown",
+      "id": "icon-frown-111-3044"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2963",
+      "source": "https://lucide.dev/icons/",
+      "component": "Gift",
+      "componentName": "Gift",
+      "id": "icon-gift-111-2963"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3035",
+      "source": "https://lucide.dev/icons/",
+      "component": "GitBranch",
+      "componentName": "GitBranch",
+      "id": "icon-git-branch-111-3035"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2958",
+      "source": "https://lucide.dev/icons/",
+      "component": "GitCommit",
+      "componentName": "GitCommit",
+      "id": "icon-git-commit-111-2958"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2924",
+      "source": "https://lucide.dev/icons/",
+      "component": "GitMerge",
+      "componentName": "GitMerge",
+      "id": "icon-git-merge-111-2924"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2921",
+      "source": "https://lucide.dev/icons/",
+      "component": "GitPullRequest",
+      "componentName": "GitPullRequest",
+      "id": "icon-git-pull-request-111-2921"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2919",
+      "source": "https://lucide.dev/icons/",
+      "component": "Github",
+      "componentName": "Github",
+      "id": "icon-github-111-2919"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2917",
+      "source": "https://lucide.dev/icons/",
+      "component": "Gitlab",
+      "componentName": "Gitlab",
+      "id": "icon-gitlab-111-2917"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2915",
+      "source": "https://lucide.dev/icons/",
+      "component": "Globe",
+      "componentName": "Globe",
+      "id": "icon-globe-111-2915"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2913",
+      "source": "https://lucide.dev/icons/",
+      "component": "Grid",
+      "componentName": "Grid",
+      "id": "icon-grid-111-2913"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2935",
+      "source": "https://lucide.dev/icons/",
+      "component": "HardDrive",
+      "componentName": "HardDrive",
+      "id": "icon-hard-drive-111-2935"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2911",
+      "source": "https://lucide.dev/icons/",
+      "component": "Hash",
+      "componentName": "Hash",
+      "id": "icon-hash-111-2911"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2910",
+      "source": "https://lucide.dev/icons/",
+      "component": "Headphones",
+      "componentName": "Headphones",
+      "id": "icon-headphones-111-2910"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2907",
+      "source": "https://lucide.dev/icons/",
+      "component": "Heart",
+      "componentName": "Heart",
+      "id": "icon-heart-111-2907"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2906",
+      "source": "https://lucide.dev/icons/",
+      "component": "HelpCircle",
+      "componentName": "HelpCircle",
+      "id": "icon-help-circle-111-2906"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2914",
+      "source": "https://lucide.dev/icons/",
+      "component": "Hexagon",
+      "componentName": "Hexagon",
+      "id": "icon-hexagon-111-2914"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2995",
+      "source": "https://lucide.dev/icons/",
+      "component": "Home",
+      "componentName": "Home",
+      "id": "icon-home-111-2995"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2905",
+      "source": "https://lucide.dev/icons/",
+      "component": "Image",
+      "componentName": "Image",
+      "id": "icon-image-111-2905"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2903",
+      "source": "https://lucide.dev/icons/",
+      "component": "Inbox",
+      "componentName": "Inbox",
+      "id": "icon-inbox-111-2903"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2902",
+      "source": "https://lucide.dev/icons/",
+      "component": "Info",
+      "componentName": "Info",
+      "id": "icon-info-111-2902"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2961",
+      "source": "https://lucide.dev/icons/",
+      "component": "Instagram",
+      "componentName": "Instagram",
+      "id": "icon-instagram-111-2961"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2900",
+      "source": "https://lucide.dev/icons/",
+      "component": "Italic",
+      "componentName": "Italic",
+      "id": "icon-italic-111-2900"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2898",
+      "source": "https://lucide.dev/icons/",
+      "component": "Key",
+      "componentName": "Key",
+      "id": "icon-key-111-2898"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2897",
+      "source": "https://lucide.dev/icons/",
+      "component": "Menu",
+      "componentName": "Menu",
+      "id": "icon-menu-2-111-2897"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3053",
+      "source": "https://lucide.dev/icons/",
+      "component": "Layout",
+      "componentName": "Layout",
+      "id": "icon-layout-111-3053"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2912",
+      "source": "https://lucide.dev/icons/",
+      "component": "LifeBuoy",
+      "componentName": "LifeBuoy",
+      "id": "icon-life-buoy-111-2912"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2896",
+      "source": "https://lucide.dev/icons/",
+      "component": "Link2",
+      "componentName": "Link2",
+      "id": "icon-link-2-111-2896"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2937",
+      "source": "https://lucide.dev/icons/",
+      "component": "Link",
+      "componentName": "Link",
+      "id": "icon-link-111-2937"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2933",
+      "source": "https://lucide.dev/icons/",
+      "component": "Linkedin",
+      "componentName": "Linkedin",
+      "id": "icon-linkedin-111-2933"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2895",
+      "source": "https://lucide.dev/icons/",
+      "component": "List",
+      "componentName": "List",
+      "id": "icon-list-111-2895"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2929",
+      "source": "https://lucide.dev/icons/",
+      "component": "Loader",
+      "componentName": "Loader",
+      "id": "icon-loader-111-2929"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2893",
+      "source": "https://lucide.dev/icons/",
+      "component": "Lock",
+      "componentName": "Lock",
+      "id": "icon-lock-111-2893"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2892",
+      "source": "https://lucide.dev/icons/",
+      "component": "LogIn",
+      "componentName": "LogIn",
+      "id": "icon-log-in-111-2892"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2891",
+      "source": "https://lucide.dev/icons/",
+      "component": "LogOut",
+      "componentName": "LogOut",
+      "id": "icon-log-out-111-2891"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3032",
+      "source": "https://lucide.dev/icons/",
+      "component": "Mail",
+      "componentName": "Mail",
+      "id": "icon-mail-111-3032"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2931",
+      "source": "https://lucide.dev/icons/",
+      "component": "MapPin",
+      "componentName": "MapPin",
+      "id": "icon-map-pin-111-2931"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2890",
+      "source": "https://lucide.dev/icons/",
+      "component": "Map",
+      "componentName": "Map",
+      "id": "icon-map-111-2890"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2889",
+      "source": "https://lucide.dev/icons/",
+      "component": "Maximize2",
+      "componentName": "Maximize2",
+      "id": "icon-maximize-2-111-2889"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2888",
+      "source": "https://lucide.dev/icons/",
+      "component": "Maximize",
+      "componentName": "Maximize",
+      "id": "icon-maximize-111-2888"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2916",
+      "source": "https://lucide.dev/icons/",
+      "component": "Meh",
+      "componentName": "Meh",
+      "id": "icon-meh-111-2916"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2886",
+      "source": "https://lucide.dev/icons/",
+      "component": "Menu",
+      "componentName": "Menu",
+      "id": "icon-menu-111-2886"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2885",
+      "source": "https://lucide.dev/icons/",
+      "component": "MessageCircle",
+      "componentName": "MessageCircle",
+      "id": "icon-message-circle-111-2885"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2923",
+      "source": "https://lucide.dev/icons/",
+      "component": "MessageSquare",
+      "componentName": "MessageSquare",
+      "id": "icon-message-square-111-2923"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2884",
+      "source": "https://lucide.dev/icons/",
+      "component": "MicOff",
+      "componentName": "MicOff",
+      "id": "icon-mic-off-111-2884"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2883",
+      "source": "https://lucide.dev/icons/",
+      "component": "Mic",
+      "componentName": "Mic",
+      "id": "icon-mic-111-2883"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2882",
+      "source": "https://lucide.dev/icons/",
+      "component": "Minimize2",
+      "componentName": "Minimize2",
+      "id": "icon-minimize-2-111-2882"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2881",
+      "source": "https://lucide.dev/icons/",
+      "component": "Minimize",
+      "componentName": "Minimize",
+      "id": "icon-minimize-111-2881"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2879",
+      "source": "https://lucide.dev/icons/",
+      "component": "MinusCircle",
+      "componentName": "MinusCircle",
+      "id": "icon-minus-circle-111-2879"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2878",
+      "source": "https://lucide.dev/icons/",
+      "component": "MinusSquare",
+      "componentName": "MinusSquare",
+      "id": "icon-minus-square-111-2878"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2990",
+      "source": "https://lucide.dev/icons/",
+      "component": "Minus",
+      "componentName": "Minus",
+      "id": "icon-minus-111-2990"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3000",
+      "source": "https://lucide.dev/icons/",
+      "component": "Monitor",
+      "componentName": "Monitor",
+      "id": "icon-monitor-111-3000"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2887",
+      "source": "https://lucide.dev/icons/",
+      "component": "Moon",
+      "componentName": "Moon",
+      "id": "icon-moon-111-2887"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2946",
+      "source": "https://lucide.dev/icons/",
+      "component": "MoreHorizontal",
+      "componentName": "MoreHorizontal",
+      "id": "icon-more-horizontal-111-2946"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2877",
+      "source": "https://lucide.dev/icons/",
+      "component": "MoreVertical",
+      "componentName": "MoreVertical",
+      "id": "icon-more-vertical-111-2877"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3014",
+      "source": "https://lucide.dev/icons/",
+      "component": "MousePointer",
+      "componentName": "MousePointer",
+      "id": "icon-mouse-pointer-111-3014"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2901",
+      "source": "https://lucide.dev/icons/",
+      "component": "Move",
+      "componentName": "Move",
+      "id": "icon-move-111-2901"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2875",
+      "source": "https://lucide.dev/icons/",
+      "component": "Music",
+      "componentName": "Music",
+      "id": "icon-music-111-2875"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2874",
+      "source": "https://lucide.dev/icons/",
+      "component": "Navigation2",
+      "componentName": "Navigation2",
+      "id": "icon-navigation-2-111-2874"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2899",
+      "source": "https://lucide.dev/icons/",
+      "component": "Navigation",
+      "componentName": "Navigation",
+      "id": "icon-navigation-111-2899"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3048",
+      "source": "https://lucide.dev/icons/",
+      "component": "Octagon",
+      "componentName": "Octagon",
+      "id": "icon-octagon-111-3048"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2880",
+      "source": "https://lucide.dev/icons/",
+      "component": "Package",
+      "componentName": "Package",
+      "id": "icon-package-111-2880"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2965",
+      "source": "https://lucide.dev/icons/",
+      "component": "Paperclip",
+      "componentName": "Paperclip",
+      "id": "icon-paperclip-111-2965"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2939",
+      "source": "https://lucide.dev/icons/",
+      "component": "PauseCircle",
+      "componentName": "PauseCircle",
+      "id": "icon-pause-circle-111-2939"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2944",
+      "source": "https://lucide.dev/icons/",
+      "component": "Pause",
+      "componentName": "Pause",
+      "id": "icon-pause-111-2944"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2894",
+      "source": "https://lucide.dev/icons/",
+      "component": "PenTool",
+      "componentName": "PenTool",
+      "id": "icon-pen-tool-111-2894"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2873",
+      "source": "https://lucide.dev/icons/",
+      "component": "Percent",
+      "componentName": "Percent",
+      "id": "icon-percent-111-2873"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3055",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneCall",
+      "componentName": "PhoneCall",
+      "id": "icon-phone-call-111-3055"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3017",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneForwarded",
+      "componentName": "PhoneForwarded",
+      "id": "icon-phone-forwarded-111-3017"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2876",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneIncoming",
+      "componentName": "PhoneIncoming",
+      "id": "icon-phone-incoming-111-2876"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2983",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneMissed",
+      "componentName": "PhoneMissed",
+      "id": "icon-phone-missed-111-2983"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2926",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneOff",
+      "componentName": "PhoneOff",
+      "id": "icon-phone-off-111-2926"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3066",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneOutgoing",
+      "componentName": "PhoneOutgoing",
+      "id": "icon-phone-outgoing-111-3066"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2872",
+      "source": "https://lucide.dev/icons/",
+      "component": "Phone",
+      "componentName": "Phone",
+      "id": "icon-phone-111-2872"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2920",
+      "source": "https://lucide.dev/icons/",
+      "component": "PieChart",
+      "componentName": "PieChart",
+      "id": "icon-pie-chart-111-2920"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2918",
+      "source": "https://lucide.dev/icons/",
+      "component": "PlayCircle",
+      "componentName": "PlayCircle",
+      "id": "icon-play-circle-111-2918"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2951",
+      "source": "https://lucide.dev/icons/",
+      "component": "Play",
+      "componentName": "Play",
+      "id": "icon-play-111-2951"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3077",
+      "source": "https://lucide.dev/icons/",
+      "component": "PlusCircle",
+      "componentName": "PlusCircle",
+      "id": "icon-plus-circle-111-3077"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2908",
+      "source": "https://lucide.dev/icons/",
+      "component": "PlusSquare",
+      "componentName": "PlusSquare",
+      "id": "icon-plus-square-111-2908"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2974",
+      "source": "https://lucide.dev/icons/",
+      "component": "Plus",
+      "componentName": "Plus",
+      "id": "icon-plus-111-2974"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2871",
+      "source": "https://lucide.dev/icons/",
+      "component": "Pocket",
+      "componentName": "Pocket",
+      "id": "icon-pocket-111-2871"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3003",
+      "source": "https://lucide.dev/icons/",
+      "component": "Power",
+      "componentName": "Power",
+      "id": "icon-power-111-3003"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2870",
+      "source": "https://lucide.dev/icons/",
+      "component": "Printer",
+      "componentName": "Printer",
+      "id": "icon-printer-111-2870"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2869",
+      "source": "https://lucide.dev/icons/",
+      "component": "Radio",
+      "componentName": "Radio",
+      "id": "icon-radio-111-2869"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2868",
+      "source": "https://lucide.dev/icons/",
+      "component": "RefreshCcw",
+      "componentName": "RefreshCcw",
+      "id": "icon-refresh-ccw-111-2868"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2867",
+      "source": "https://lucide.dev/icons/",
+      "component": "RefreshCw",
+      "componentName": "RefreshCw",
+      "id": "icon-refresh-cw-111-2867"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2866",
+      "source": "https://lucide.dev/icons/",
+      "component": "Repeat",
+      "componentName": "Repeat",
+      "id": "icon-repeat-111-2866"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2909",
+      "source": "https://lucide.dev/icons/",
+      "component": "Rewind",
+      "componentName": "Rewind",
+      "id": "icon-rewind-111-2909"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2865",
+      "source": "https://lucide.dev/icons/",
+      "component": "RotateCcw",
+      "componentName": "RotateCcw",
+      "id": "icon-rotate-ccw-111-2865"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2864",
+      "source": "https://lucide.dev/icons/",
+      "component": "RotateCw",
+      "componentName": "RotateCw",
+      "id": "icon-rotate-cw-111-2864"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2863",
+      "source": "https://lucide.dev/icons/",
+      "component": "Rss",
+      "componentName": "Rss",
+      "id": "icon-rss-111-2863"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2862",
+      "source": "https://lucide.dev/icons/",
+      "component": "Save",
+      "componentName": "Save",
+      "id": "icon-save-111-2862"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3040",
+      "source": "https://lucide.dev/icons/",
+      "component": "Scissors",
+      "componentName": "Scissors",
+      "id": "icon-scissors-111-3040"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2861",
+      "source": "https://lucide.dev/icons/",
+      "component": "Search",
+      "componentName": "Search",
+      "id": "icon-search-111-2861"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2904",
+      "source": "https://lucide.dev/icons/",
+      "component": "Send",
+      "componentName": "Send",
+      "id": "icon-send-111-2904"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2860",
+      "source": "https://lucide.dev/icons/",
+      "component": "Server",
+      "componentName": "Server",
+      "id": "icon-server-111-2860"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2858",
+      "source": "https://lucide.dev/icons/",
+      "component": "Settings",
+      "componentName": "Settings",
+      "id": "icon-settings-111-2858"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2857",
+      "source": "https://lucide.dev/icons/",
+      "component": "Share2",
+      "componentName": "Share2",
+      "id": "icon-share-2-111-2857"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2856",
+      "source": "https://lucide.dev/icons/",
+      "component": "Share",
+      "componentName": "Share",
+      "id": "icon-share-111-2856"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2855",
+      "source": "https://lucide.dev/icons/",
+      "component": "ShieldOff",
+      "componentName": "ShieldOff",
+      "id": "icon-shield-off-111-2855"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2854",
+      "source": "https://lucide.dev/icons/",
+      "component": "Shield",
+      "componentName": "Shield",
+      "id": "icon-shield-111-2854"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2853",
+      "source": "https://lucide.dev/icons/",
+      "component": "ShoppingBag",
+      "componentName": "ShoppingBag",
+      "id": "icon-shopping-bag-111-2853"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2852",
+      "source": "https://lucide.dev/icons/",
+      "component": "ShoppingCart",
+      "componentName": "ShoppingCart",
+      "id": "icon-shopping-cart-111-2852"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2851",
+      "source": "https://lucide.dev/icons/",
+      "component": "Shuffle",
+      "componentName": "Shuffle",
+      "id": "icon-shuffle-111-2851"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2922",
+      "source": "https://lucide.dev/icons/",
+      "component": "Sidebar",
+      "componentName": "Sidebar",
+      "id": "icon-sidebar-111-2922"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3078",
+      "source": "https://lucide.dev/icons/",
+      "component": "SkipBack",
+      "componentName": "SkipBack",
+      "id": "icon-skip-back-111-3078"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2850",
+      "source": "https://lucide.dev/icons/",
+      "component": "SkipForward",
+      "componentName": "SkipForward",
+      "id": "icon-skip-forward-111-2850"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2849",
+      "source": "https://lucide.dev/icons/",
+      "component": "Slack",
+      "componentName": "Slack",
+      "id": "icon-slack-111-2849"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2848",
+      "source": "https://lucide.dev/icons/",
+      "component": "Slash",
+      "componentName": "Slash",
+      "id": "icon-slash-111-2848"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2847",
+      "source": "https://lucide.dev/icons/",
+      "component": "Sliders",
+      "componentName": "Sliders",
+      "id": "icon-sliders-111-2847"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2846",
+      "source": "https://lucide.dev/icons/",
+      "component": "Smartphone",
+      "componentName": "Smartphone",
+      "id": "icon-smartphone-111-2846"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2845",
+      "source": "https://lucide.dev/icons/",
+      "component": "Smile",
+      "componentName": "Smile",
+      "id": "icon-smile-111-2845"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2844",
+      "source": "https://lucide.dev/icons/",
+      "component": "Speaker",
+      "componentName": "Speaker",
+      "id": "icon-speaker-111-2844"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2843",
+      "source": "https://lucide.dev/icons/",
+      "component": "SquareCheck",
+      "componentName": "SquareCheck",
+      "id": "icon-checkbox-111-2843"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2842",
+      "source": "https://lucide.dev/icons/",
+      "component": "Star",
+      "componentName": "Star",
+      "id": "icon-star-111-2842"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2841",
+      "source": "https://lucide.dev/icons/",
+      "component": "StopCircle",
+      "componentName": "StopCircle",
+      "id": "icon-stop-circle-111-2841"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2840",
+      "source": "https://lucide.dev/icons/",
+      "component": "Sun",
+      "componentName": "Sun",
+      "id": "icon-sun-111-2840"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2839",
+      "source": "https://lucide.dev/icons/",
+      "component": "Sunrise",
+      "componentName": "Sunrise",
+      "id": "icon-sunrise-111-2839"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2838",
+      "source": "https://lucide.dev/icons/",
+      "component": "Sunset",
+      "componentName": "Sunset",
+      "id": "icon-sunset-111-2838"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2837",
+      "source": "https://lucide.dev/icons/",
+      "component": "Tablet",
+      "componentName": "Tablet",
+      "id": "icon-tablet-111-2837"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2836",
+      "source": "https://lucide.dev/icons/",
+      "component": "Tag",
+      "componentName": "Tag",
+      "id": "icon-tag-111-2836"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2859",
+      "source": "https://lucide.dev/icons/",
+      "component": "Target",
+      "componentName": "Target",
+      "id": "icon-target-111-2859"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2835",
+      "source": "https://lucide.dev/icons/",
+      "component": "Terminal",
+      "componentName": "Terminal",
+      "id": "icon-terminal-111-2835"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2834",
+      "source": "https://lucide.dev/icons/",
+      "component": "Thermometer",
+      "componentName": "Thermometer",
+      "id": "icon-thermometer-111-2834"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2833",
+      "source": "https://lucide.dev/icons/",
+      "component": "ThumbsDown",
+      "componentName": "ThumbsDown",
+      "id": "icon-thumbs-down-111-2833"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2832",
+      "source": "https://lucide.dev/icons/",
+      "component": "ThumbsUp",
+      "componentName": "ThumbsUp",
+      "id": "icon-thumbs-up-111-2832"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2831",
+      "source": "https://lucide.dev/icons/",
+      "component": "ToggleLeft",
+      "componentName": "ToggleLeft",
+      "id": "icon-toggle-left-111-2831"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2830",
+      "source": "https://lucide.dev/icons/",
+      "component": "ToggleRight",
+      "componentName": "ToggleRight",
+      "id": "icon-toggle-right-111-2830"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2828",
+      "source": "https://lucide.dev/icons/",
+      "component": "Trash2",
+      "componentName": "Trash2",
+      "id": "icon-trash-2-111-2828"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2827",
+      "source": "https://lucide.dev/icons/",
+      "component": "Trash",
+      "componentName": "Trash",
+      "id": "icon-trash-111-2827"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2826",
+      "source": "https://lucide.dev/icons/",
+      "component": "Trello",
+      "componentName": "Trello",
+      "id": "icon-trello-111-2826"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2824",
+      "source": "https://lucide.dev/icons/",
+      "component": "TrendingDown",
+      "componentName": "TrendingDown",
+      "id": "icon-trending-down-111-2824"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2823",
+      "source": "https://lucide.dev/icons/",
+      "component": "TrendingUp",
+      "componentName": "TrendingUp",
+      "id": "icon-trending-up-111-2823"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2822",
+      "source": "https://lucide.dev/icons/",
+      "component": "Triangle",
+      "componentName": "Triangle",
+      "id": "icon-triangle-111-2822"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2820",
+      "source": "https://lucide.dev/icons/",
+      "component": "Truck",
+      "componentName": "Truck",
+      "id": "icon-truck-111-2820"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2819",
+      "source": "https://lucide.dev/icons/",
+      "component": "Tv",
+      "componentName": "Tv",
+      "id": "icon-tv-111-2819"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2818",
+      "source": "https://lucide.dev/icons/",
+      "component": "Twitch",
+      "componentName": "Twitch",
+      "id": "icon-twitch-111-2818"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2817",
+      "source": "https://lucide.dev/icons/",
+      "component": "Twitter",
+      "componentName": "Twitter",
+      "id": "icon-twitter-111-2817"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2816",
+      "source": "https://lucide.dev/icons/",
+      "component": "Type",
+      "componentName": "Type",
+      "id": "icon-type-111-2816"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2815",
+      "source": "https://lucide.dev/icons/",
+      "component": "Umbrella",
+      "componentName": "Umbrella",
+      "id": "icon-umbrella-111-2815"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2813",
+      "source": "https://lucide.dev/icons/",
+      "component": "Underline",
+      "componentName": "Underline",
+      "id": "icon-underline-111-2813"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3024",
+      "source": "https://lucide.dev/icons/",
+      "component": "Unlock",
+      "componentName": "Unlock",
+      "id": "icon-unlock-111-3024"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2811",
+      "source": "https://lucide.dev/icons/",
+      "component": "UploadCloud",
+      "componentName": "UploadCloud",
+      "id": "icon-upload-cloud-111-2811"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2810",
+      "source": "https://lucide.dev/icons/",
+      "component": "Upload",
+      "componentName": "Upload",
+      "id": "icon-upload-111-2810"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2814",
+      "source": "https://lucide.dev/icons/",
+      "component": "UserCheck",
+      "componentName": "UserCheck",
+      "id": "icon-user-check-111-2814"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2809",
+      "source": "https://lucide.dev/icons/",
+      "component": "UserMinus",
+      "componentName": "UserMinus",
+      "id": "icon-user-minus-111-2809"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2808",
+      "source": "https://lucide.dev/icons/",
+      "component": "UserPlus",
+      "componentName": "UserPlus",
+      "id": "icon-user-plus-111-2808"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2807",
+      "source": "https://lucide.dev/icons/",
+      "component": "UserX",
+      "componentName": "UserX",
+      "id": "icon-user-x-111-2807"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2806",
+      "source": "https://lucide.dev/icons/",
+      "component": "User",
+      "componentName": "User",
+      "id": "icon-user-111-2806"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2805",
+      "source": "https://lucide.dev/icons/",
+      "component": "Users",
+      "componentName": "Users",
+      "id": "icon-users-111-2805"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2804",
+      "source": "https://lucide.dev/icons/",
+      "component": "VideoOff",
+      "componentName": "VideoOff",
+      "id": "icon-video-off-111-2804"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2803",
+      "source": "https://lucide.dev/icons/",
+      "component": "Video",
+      "componentName": "Video",
+      "id": "icon-video-111-2803"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2802",
+      "source": "https://lucide.dev/icons/",
+      "component": "Voicemail",
+      "componentName": "Voicemail",
+      "id": "icon-voicemail-111-2802"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2801",
+      "source": "https://lucide.dev/icons/",
+      "component": "Volume1",
+      "componentName": "Volume1",
+      "id": "icon-volume-1-111-2801"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2800",
+      "source": "https://lucide.dev/icons/",
+      "component": "Volume2",
+      "componentName": "Volume2",
+      "id": "icon-volume-2-111-2800"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3046",
+      "source": "https://lucide.dev/icons/",
+      "component": "VolumeX",
+      "componentName": "VolumeX",
+      "id": "icon-volume-x-111-3046"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2812",
+      "source": "https://lucide.dev/icons/",
+      "component": "Volume",
+      "componentName": "Volume",
+      "id": "icon-volume-111-2812"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3038",
+      "source": "https://lucide.dev/icons/",
+      "component": "Watch",
+      "componentName": "Watch",
+      "id": "icon-watch-111-3038"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3064",
+      "source": "https://lucide.dev/icons/",
+      "component": "WifiOff",
+      "componentName": "WifiOff",
+      "id": "icon-wifi-off-111-3064"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2799",
+      "source": "https://lucide.dev/icons/",
+      "component": "Wifi",
+      "componentName": "Wifi",
+      "id": "icon-wifi-111-2799"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2798",
+      "source": "https://lucide.dev/icons/",
+      "component": "Wind",
+      "componentName": "Wind",
+      "id": "icon-wind-111-2798"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2797",
+      "source": "https://lucide.dev/icons/",
+      "component": "XCircle",
+      "componentName": "XCircle",
+      "id": "icon-x-circle-111-2797"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2796",
+      "source": "https://lucide.dev/icons/",
+      "component": "XOctagon",
+      "componentName": "XOctagon",
+      "id": "icon-x-octagon-111-2796"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2795",
+      "source": "https://lucide.dev/icons/",
+      "component": "XSquare",
+      "componentName": "XSquare",
+      "id": "icon-x-square-111-2795"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2794",
+      "source": "https://lucide.dev/icons/",
+      "component": "X",
+      "componentName": "X",
+      "id": "icon-x-111-2794"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2793",
+      "source": "https://lucide.dev/icons/",
+      "component": "Youtube",
+      "componentName": "Youtube",
+      "id": "icon-youtube-111-2793"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2825",
+      "source": "https://lucide.dev/icons/",
+      "component": "ZapOff",
+      "componentName": "ZapOff",
+      "id": "icon-zap-off-111-2825"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2792",
+      "source": "https://lucide.dev/icons/",
+      "component": "Zap",
+      "componentName": "Zap",
+      "id": "icon-zap-111-2792"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3074",
+      "source": "https://lucide.dev/icons/",
+      "component": "ZoomIn",
+      "componentName": "ZoomIn",
+      "id": "icon-zoom-in-111-3074"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3072",
+      "source": "https://lucide.dev/icons/",
+      "component": "ZoomOut",
+      "componentName": "ZoomOut",
+      "id": "icon-zoom-out-111-3072"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2821",
+      "source": "https://lucide.dev/icons/",
+      "component": "Slash",
+      "componentName": "Slash",
+      "id": "icon-slash-divider-111-2821"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2791",
+      "source": "https://lucide.dev/icons/",
+      "component": "Layers2",
+      "componentName": "Layers2",
+      "id": "icon-2-layers-111-2791"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2790",
+      "source": "https://lucide.dev/icons/",
+      "component": "Layers3",
+      "componentName": "Layers3",
+      "id": "icon-3-layers-111-2790"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-3005",
+      "source": "https://lucide.dev/icons/",
+      "component": "ListFilter",
+      "componentName": "ListFilter",
+      "id": "icon-filters-lines-111-3005"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2789",
+      "source": "https://lucide.dev/icons/",
+      "component": "Coins",
+      "componentName": "Coins",
+      "id": "icon-coins-111-2789"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2788",
+      "source": "https://lucide.dev/icons/",
+      "component": "Coins",
+      "componentName": "Coins",
+      "id": "icon-coin-stack-111-2788"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2787",
+      "source": "https://lucide.dev/icons/",
+      "component": "Rocket",
+      "componentName": "Rocket",
+      "id": "icon-rocket-111-2787"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5637",
+      "source": "https://lucide.dev/icons/",
+      "component": "Activity",
+      "componentName": "Activity",
+      "id": "icon-activity-111-5637"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5652",
+      "source": "https://lucide.dev/icons/",
+      "component": "Airplay",
+      "componentName": "Airplay",
+      "id": "icon-airplay-111-5652"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5576",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlertCircle",
+      "componentName": "AlertCircle",
+      "id": "icon-alert-circle-111-5576"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5561",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlertOctagon",
+      "componentName": "AlertOctagon",
+      "id": "icon-alert-octagon-111-5561"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5626",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlertTriangle",
+      "componentName": "AlertTriangle",
+      "id": "icon-alert-triangle-111-5626"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5648",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlignCenter",
+      "componentName": "AlignCenter",
+      "id": "icon-align-center-111-5648"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5656",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlignJustify",
+      "componentName": "AlignJustify",
+      "id": "icon-align-justify-111-5656"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5646",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlignLeft",
+      "componentName": "AlignLeft",
+      "id": "icon-align-left-111-5646"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5642",
+      "source": "https://lucide.dev/icons/",
+      "component": "AlignRight",
+      "componentName": "AlignRight",
+      "id": "icon-align-right-111-5642"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=657-24997",
+      "source": "https://lucide.dev/icons/",
+      "component": "Rows3",
+      "componentName": "Rows3",
+      "id": "icon-row-height-657-24997"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5638",
+      "source": "https://lucide.dev/icons/",
+      "component": "Anchor",
+      "componentName": "Anchor",
+      "id": "icon-anchor-111-5638"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5634",
+      "source": "https://lucide.dev/icons/",
+      "component": "Aperture",
+      "componentName": "Aperture",
+      "id": "icon-aperture-111-5634"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5619",
+      "source": "https://lucide.dev/icons/",
+      "component": "Archive",
+      "componentName": "Archive",
+      "id": "icon-archive-111-5619"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5627",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowDownCircle",
+      "componentName": "ArrowDownCircle",
+      "id": "icon-arrow-down-circle-111-5627"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5625",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowDownLeft",
+      "componentName": "ArrowDownLeft",
+      "id": "icon-arrow-down-left-111-5625"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5639",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowDownRight",
+      "componentName": "ArrowDownRight",
+      "id": "icon-arrow-down-right-111-5639"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5630",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowDown",
+      "componentName": "ArrowDown",
+      "id": "icon-arrow-down-111-5630"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5661",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowLeftCircle",
+      "componentName": "ArrowLeftCircle",
+      "id": "icon-arrow-left-circle-111-5661"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5614",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowLeft",
+      "componentName": "ArrowLeft",
+      "id": "icon-arrow-left-111-5614"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=2304-39698",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowLeftToLine",
+      "componentName": "ArrowLeftToLine",
+      "id": "icon-arrow-left-start-2304-39698"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=2304-39705",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowRightToLine",
+      "componentName": "ArrowRightToLine",
+      "id": "icon-arrow-left-end-2304-39705"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5580",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowRightCircle",
+      "componentName": "ArrowRightCircle",
+      "id": "icon-arrow-right-circle-111-5580"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5563",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowRight",
+      "componentName": "ArrowRight",
+      "id": "icon-arrow-right-111-5563"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5622",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUpCircle",
+      "componentName": "ArrowUpCircle",
+      "id": "icon-arrow-up-circle-111-5622"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5559",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUpLeft",
+      "componentName": "ArrowUpLeft",
+      "id": "icon-arrow-up-left-111-5559"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5617",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUpRight",
+      "componentName": "ArrowUpRight",
+      "id": "icon-arrow-up-right-111-5617"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5613",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUp",
+      "componentName": "ArrowUp",
+      "id": "icon-arrow-up-111-5613"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=924-35",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUpDown",
+      "componentName": "ArrowUpDown",
+      "id": "icon-arrow-up-down-924-35"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5612",
+      "source": "https://lucide.dev/icons/",
+      "component": "AtSign",
+      "componentName": "AtSign",
+      "id": "icon-at-sign-111-5612"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5608",
+      "source": "https://lucide.dev/icons/",
+      "component": "Award",
+      "componentName": "Award",
+      "id": "icon-award-111-5608"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5602",
+      "source": "https://lucide.dev/icons/",
+      "component": "BarChart2",
+      "componentName": "BarChart2",
+      "id": "icon-bar-chart-2-111-5602"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5650",
+      "source": "https://lucide.dev/icons/",
+      "component": "BarChart",
+      "componentName": "BarChart",
+      "id": "icon-bar-chart-111-5650"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5658",
+      "source": "https://lucide.dev/icons/",
+      "component": "BatteryCharging",
+      "componentName": "BatteryCharging",
+      "id": "icon-battery-charging-111-5658"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5632",
+      "source": "https://lucide.dev/icons/",
+      "component": "Battery",
+      "componentName": "Battery",
+      "id": "icon-battery-111-5632"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5599",
+      "source": "https://lucide.dev/icons/",
+      "component": "BellOff",
+      "componentName": "BellOff",
+      "id": "icon-bell-off-111-5599"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5598",
+      "source": "https://lucide.dev/icons/",
+      "component": "Bell",
+      "componentName": "Bell",
+      "id": "icon-bell-111-5598"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5556",
+      "source": "https://lucide.dev/icons/",
+      "component": "Bluetooth",
+      "componentName": "Bluetooth",
+      "id": "icon-bluetooth-111-5556"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5595",
+      "source": "https://lucide.dev/icons/",
+      "component": "Bold",
+      "componentName": "Bold",
+      "id": "icon-bold-111-5595"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5593",
+      "source": "https://lucide.dev/icons/",
+      "component": "BookOpen",
+      "componentName": "BookOpen",
+      "id": "icon-book-open-111-5593"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5605",
+      "source": "https://lucide.dev/icons/",
+      "component": "Book",
+      "componentName": "Book",
+      "id": "icon-book-111-5605"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5566",
+      "source": "https://lucide.dev/icons/",
+      "component": "Bookmark",
+      "componentName": "Bookmark",
+      "id": "icon-bookmark-111-5566"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5554",
+      "source": "https://lucide.dev/icons/",
+      "component": "Box",
+      "componentName": "Box",
+      "id": "icon-box-111-5554"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5591",
+      "source": "https://lucide.dev/icons/",
+      "component": "Briefcase",
+      "componentName": "Briefcase",
+      "id": "icon-briefcase-111-5591"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5589",
+      "source": "https://lucide.dev/icons/",
+      "component": "Calendar",
+      "componentName": "Calendar",
+      "id": "icon-calendar-111-5589"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=3243-51658",
+      "source": "https://lucide.dev/icons/",
+      "component": "CalendarClock",
+      "componentName": "CalendarClock",
+      "id": "icon-calendar-clock-3243-51658"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5587",
+      "source": "https://lucide.dev/icons/",
+      "component": "CameraOff",
+      "componentName": "CameraOff",
+      "id": "icon-camera-off-111-5587"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5585",
+      "source": "https://lucide.dev/icons/",
+      "component": "Camera",
+      "componentName": "Camera",
+      "id": "icon-camera-111-5585"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5596",
+      "source": "https://lucide.dev/icons/",
+      "component": "Cast",
+      "componentName": "Cast",
+      "id": "icon-cast-111-5596"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5582",
+      "source": "https://lucide.dev/icons/",
+      "component": "CheckCircle",
+      "componentName": "CheckCircle",
+      "id": "icon-check-circle-111-5582"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5643",
+      "source": "https://lucide.dev/icons/",
+      "component": "CheckSquare",
+      "componentName": "CheckSquare",
+      "id": "icon-check-square-111-5643"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5636",
+      "source": "https://lucide.dev/icons/",
+      "component": "Check",
+      "componentName": "Check",
+      "id": "icon-check-111-5636"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=838-24549",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronDown",
+      "componentName": "ChevronDown",
+      "id": "icon-disclosure-838-24549"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=2601-22795",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronsLeftRight",
+      "componentName": "ChevronsLeftRight",
+      "id": "icon-hug-content-2601-22795"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=2601-22802",
+      "source": "https://lucide.dev/icons/",
+      "component": "MoveHorizontal",
+      "componentName": "MoveHorizontal",
+      "id": "icon-fill-content-2601-22802"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5581",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronDown",
+      "componentName": "ChevronDown",
+      "id": "icon-chevron-down-111-5581"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5579",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronLeft",
+      "componentName": "ChevronLeft",
+      "id": "icon-chevron-left-111-5579"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5578",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronRight",
+      "componentName": "ChevronRight",
+      "id": "icon-chevron-right-111-5578"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5577",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronUp",
+      "componentName": "ChevronUp",
+      "id": "icon-chevron-up-111-5577"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5574",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronsDown",
+      "componentName": "ChevronsDown",
+      "id": "icon-chevrons-down-111-5574"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5647",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronsLeft",
+      "componentName": "ChevronsLeft",
+      "id": "icon-chevrons-left-111-5647"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5653",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronsRight",
+      "componentName": "ChevronsRight",
+      "id": "icon-chevrons-right-111-5653"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5573",
+      "source": "https://lucide.dev/icons/",
+      "component": "ChevronsUp",
+      "componentName": "ChevronsUp",
+      "id": "icon-chevrons-up-111-5573"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5572",
+      "source": "https://lucide.dev/icons/",
+      "component": "Chrome",
+      "componentName": "Chrome",
+      "id": "icon-chrome-111-5572"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5571",
+      "source": "https://lucide.dev/icons/",
+      "component": "Circle",
+      "componentName": "Circle",
+      "id": "icon-circle-111-5571"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5570",
+      "source": "https://lucide.dev/icons/",
+      "component": "Clipboard",
+      "componentName": "Clipboard",
+      "id": "icon-clipboard-111-5570"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5569",
+      "source": "https://lucide.dev/icons/",
+      "component": "Clock",
+      "componentName": "Clock",
+      "id": "icon-clock-111-5569"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5568",
+      "source": "https://lucide.dev/icons/",
+      "component": "CloudDrizzle",
+      "componentName": "CloudDrizzle",
+      "id": "icon-cloud-drizzle-111-5568"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5609",
+      "source": "https://lucide.dev/icons/",
+      "component": "CloudLightning",
+      "componentName": "CloudLightning",
+      "id": "icon-cloud-lightning-111-5609"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5623",
+      "source": "https://lucide.dev/icons/",
+      "component": "CloudOff",
+      "componentName": "CloudOff",
+      "id": "icon-cloud-off-111-5623"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5597",
+      "source": "https://lucide.dev/icons/",
+      "component": "CloudRain",
+      "componentName": "CloudRain",
+      "id": "icon-cloud-rain-111-5597"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5567",
+      "source": "https://lucide.dev/icons/",
+      "component": "CloudSnow",
+      "componentName": "CloudSnow",
+      "id": "icon-cloud-snow-111-5567"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5565",
+      "source": "https://lucide.dev/icons/",
+      "component": "Cloud",
+      "componentName": "Cloud",
+      "id": "icon-cloud-111-5565"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5564",
+      "source": "https://lucide.dev/icons/",
+      "component": "Code",
+      "componentName": "Code",
+      "id": "icon-code-111-5564"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5562",
+      "source": "https://lucide.dev/icons/",
+      "component": "Codepen",
+      "componentName": "Codepen",
+      "id": "icon-codepen-111-5562"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5560",
+      "source": "https://lucide.dev/icons/",
+      "component": "Codesandbox",
+      "componentName": "Codesandbox",
+      "id": "icon-codesandbox-111-5560"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5640",
+      "source": "https://lucide.dev/icons/",
+      "component": "Coffee",
+      "componentName": "Coffee",
+      "id": "icon-coffee-111-5640"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5659",
+      "source": "https://lucide.dev/icons/",
+      "component": "Columns",
+      "componentName": "Columns",
+      "id": "icon-columns-111-5659"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5654",
+      "source": "https://lucide.dev/icons/",
+      "component": "Command",
+      "componentName": "Command",
+      "id": "icon-command-111-5654"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5644",
+      "source": "https://lucide.dev/icons/",
+      "component": "Compass",
+      "componentName": "Compass",
+      "id": "icon-compass-111-5644"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5583",
+      "source": "https://lucide.dev/icons/",
+      "component": "Copy",
+      "componentName": "Copy",
+      "id": "icon-copy-111-5583"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=5241-253375",
+      "source": "https://lucide.dev/icons/",
+      "component": "Expand",
+      "componentName": "Expand",
+      "id": "icon-expand-modal-5241-253375"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5558",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerDownLeft",
+      "componentName": "CornerDownLeft",
+      "id": "icon-corner-down-left-111-5558"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5624",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerDownRight",
+      "componentName": "CornerDownRight",
+      "id": "icon-corner-down-right-111-5624"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5628",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerLeftDown",
+      "componentName": "CornerLeftDown",
+      "id": "icon-corner-left-down-111-5628"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5615",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerLeftUp",
+      "componentName": "CornerLeftUp",
+      "id": "icon-corner-left-up-111-5615"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5557",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerRightDown",
+      "componentName": "CornerRightDown",
+      "id": "icon-corner-right-down-111-5557"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5555",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerRightUp",
+      "componentName": "CornerRightUp",
+      "id": "icon-corner-right-up-111-5555"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5553",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerUpLeft",
+      "componentName": "CornerUpLeft",
+      "id": "icon-corner-up-left-111-5553"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=4713-143068",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerUpLeft",
+      "componentName": "CornerUpLeft",
+      "id": "icon-corner-up-left-2-4713-143068"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5551",
+      "source": "https://lucide.dev/icons/",
+      "component": "CornerUpRight",
+      "componentName": "CornerUpRight",
+      "id": "icon-corner-up-right-111-5551"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=722-47992",
+      "source": "https://lucide.dev/icons/",
+      "component": "Undo2",
+      "componentName": "Undo2",
+      "id": "icon-undo-722-47992"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=1761-59571",
+      "source": "https://lucide.dev/icons/",
+      "component": "Link2",
+      "componentName": "Link2",
+      "id": "icon-related-1761-59571"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=1693-9695",
+      "source": "https://lucide.dev/icons/",
+      "component": "Merge",
+      "componentName": "Merge",
+      "id": "icon-merge-1693-9695"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5550",
+      "source": "https://lucide.dev/icons/",
+      "component": "Cpu",
+      "componentName": "Cpu",
+      "id": "icon-cpu-111-5550"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5545",
+      "source": "https://lucide.dev/icons/",
+      "component": "CreditCard",
+      "componentName": "CreditCard",
+      "id": "icon-credit-card-111-5545"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5549",
+      "source": "https://lucide.dev/icons/",
+      "component": "Crop",
+      "componentName": "Crop",
+      "id": "icon-crop-111-5549"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5575",
+      "source": "https://lucide.dev/icons/",
+      "component": "Crosshair",
+      "componentName": "Crosshair",
+      "id": "icon-crosshair-111-5575"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5606",
+      "source": "https://lucide.dev/icons/",
+      "component": "Database",
+      "componentName": "Database",
+      "id": "icon-database-111-5606"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5544",
+      "source": "https://lucide.dev/icons/",
+      "component": "Delete",
+      "componentName": "Delete",
+      "id": "icon-delete-111-5544"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5543",
+      "source": "https://lucide.dev/icons/",
+      "component": "Disc",
+      "componentName": "Disc",
+      "id": "icon-disc-111-5543"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5542",
+      "source": "https://lucide.dev/icons/",
+      "component": "DivideCircle",
+      "componentName": "DivideCircle",
+      "id": "icon-divide-circle-111-5542"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5541",
+      "source": "https://lucide.dev/icons/",
+      "component": "DivideSquare",
+      "componentName": "DivideSquare",
+      "id": "icon-divide-square-111-5541"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5540",
+      "source": "https://lucide.dev/icons/",
+      "component": "Divide",
+      "componentName": "Divide",
+      "id": "icon-divide-111-5540"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5539",
+      "source": "https://lucide.dev/icons/",
+      "component": "DollarSign",
+      "componentName": "DollarSign",
+      "id": "icon-dollar-sign-111-5539"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5538",
+      "source": "https://lucide.dev/icons/",
+      "component": "DownloadCloud",
+      "componentName": "DownloadCloud",
+      "id": "icon-download-cloud-111-5538"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5610",
+      "source": "https://lucide.dev/icons/",
+      "component": "Download",
+      "componentName": "Download",
+      "id": "icon-download-111-5610"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5620",
+      "source": "https://lucide.dev/icons/",
+      "component": "Dribbble",
+      "componentName": "Dribbble",
+      "id": "icon-dribbble-111-5620"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5537",
+      "source": "https://lucide.dev/icons/",
+      "component": "Droplet",
+      "componentName": "Droplet",
+      "id": "icon-droplet-111-5537"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5536",
+      "source": "https://lucide.dev/icons/",
+      "component": "Edit2",
+      "componentName": "Edit2",
+      "id": "icon-edit-2-111-5536"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5600",
+      "source": "https://lucide.dev/icons/",
+      "component": "Edit3",
+      "componentName": "Edit3",
+      "id": "icon-edit-3-111-5600"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5535",
+      "source": "https://lucide.dev/icons/",
+      "component": "Edit",
+      "componentName": "Edit",
+      "id": "icon-edit-111-5535"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5531",
+      "source": "https://lucide.dev/icons/",
+      "component": "Facebook",
+      "componentName": "Facebook",
+      "id": "icon-facebook-111-5531"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5530",
+      "source": "https://lucide.dev/icons/",
+      "component": "FastForward",
+      "componentName": "FastForward",
+      "id": "icon-fast-forward-111-5530"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5529",
+      "source": "https://lucide.dev/icons/",
+      "component": "Feather",
+      "componentName": "Feather",
+      "id": "icon-feather-111-5529"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5528",
+      "source": "https://lucide.dev/icons/",
+      "component": "Figma",
+      "componentName": "Figma",
+      "id": "icon-figma-111-5528"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5527",
+      "source": "https://lucide.dev/icons/",
+      "component": "FileMinus",
+      "componentName": "FileMinus",
+      "id": "icon-file-minus-111-5527"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5526",
+      "source": "https://lucide.dev/icons/",
+      "component": "FilePlus",
+      "componentName": "FilePlus",
+      "id": "icon-file-plus-111-5526"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5525",
+      "source": "https://lucide.dev/icons/",
+      "component": "FileText",
+      "componentName": "FileText",
+      "id": "icon-file-text-111-5525"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5524",
+      "source": "https://lucide.dev/icons/",
+      "component": "File",
+      "componentName": "File",
+      "id": "icon-file-111-5524"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5534",
+      "source": "https://lucide.dev/icons/",
+      "component": "ExternalLink",
+      "componentName": "ExternalLink",
+      "id": "icon-external-link-111-5534"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5533",
+      "source": "https://lucide.dev/icons/",
+      "component": "EyeOff",
+      "componentName": "EyeOff",
+      "id": "icon-eye-off-111-5533"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5532",
+      "source": "https://lucide.dev/icons/",
+      "component": "Eye",
+      "componentName": "Eye",
+      "id": "icon-eye-111-5532"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5523",
+      "source": "https://lucide.dev/icons/",
+      "component": "Film",
+      "componentName": "Film",
+      "id": "icon-film-111-5523"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5522",
+      "source": "https://lucide.dev/icons/",
+      "component": "Filter",
+      "componentName": "Filter",
+      "id": "icon-filter-111-5522"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5521",
+      "source": "https://lucide.dev/icons/",
+      "component": "Flag",
+      "componentName": "Flag",
+      "id": "icon-flag-111-5521"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5520",
+      "source": "https://lucide.dev/icons/",
+      "component": "FolderMinus",
+      "componentName": "FolderMinus",
+      "id": "icon-folder-minus-111-5520"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5519",
+      "source": "https://lucide.dev/icons/",
+      "component": "FolderPlus",
+      "componentName": "FolderPlus",
+      "id": "icon-folder-plus-111-5519"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5518",
+      "source": "https://lucide.dev/icons/",
+      "component": "Folder",
+      "componentName": "Folder",
+      "id": "icon-folder-111-5518"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5517",
+      "source": "https://lucide.dev/icons/",
+      "component": "Framer",
+      "componentName": "Framer",
+      "id": "icon-framer-111-5517"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5515",
+      "source": "https://lucide.dev/icons/",
+      "component": "Frown",
+      "componentName": "Frown",
+      "id": "icon-frown-111-5515"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5513",
+      "source": "https://lucide.dev/icons/",
+      "component": "Gift",
+      "componentName": "Gift",
+      "id": "icon-gift-111-5513"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5512",
+      "source": "https://lucide.dev/icons/",
+      "component": "GitBranch",
+      "componentName": "GitBranch",
+      "id": "icon-git-branch-111-5512"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5511",
+      "source": "https://lucide.dev/icons/",
+      "component": "GitCommit",
+      "componentName": "GitCommit",
+      "id": "icon-git-commit-111-5511"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5510",
+      "source": "https://lucide.dev/icons/",
+      "component": "GitMerge",
+      "componentName": "GitMerge",
+      "id": "icon-git-merge-111-5510"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5509",
+      "source": "https://lucide.dev/icons/",
+      "component": "GitPullRequest",
+      "componentName": "GitPullRequest",
+      "id": "icon-git-pull-request-111-5509"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5508",
+      "source": "https://lucide.dev/icons/",
+      "component": "Github",
+      "componentName": "Github",
+      "id": "icon-github-111-5508"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5507",
+      "source": "https://lucide.dev/icons/",
+      "component": "Gitlab",
+      "componentName": "Gitlab",
+      "id": "icon-gitlab-111-5507"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5506",
+      "source": "https://lucide.dev/icons/",
+      "component": "Globe",
+      "componentName": "Globe",
+      "id": "icon-globe-111-5506"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5505",
+      "source": "https://lucide.dev/icons/",
+      "component": "Grid",
+      "componentName": "Grid",
+      "id": "icon-grid-111-5505"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5504",
+      "source": "https://lucide.dev/icons/",
+      "component": "HardDrive",
+      "componentName": "HardDrive",
+      "id": "icon-hard-drive-111-5504"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5503",
+      "source": "https://lucide.dev/icons/",
+      "component": "Hash",
+      "componentName": "Hash",
+      "id": "icon-hash-111-5503"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5502",
+      "source": "https://lucide.dev/icons/",
+      "component": "Headphones",
+      "componentName": "Headphones",
+      "id": "icon-headphones-111-5502"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5501",
+      "source": "https://lucide.dev/icons/",
+      "component": "Heart",
+      "componentName": "Heart",
+      "id": "icon-heart-111-5501"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5500",
+      "source": "https://lucide.dev/icons/",
+      "component": "HelpCircle",
+      "componentName": "HelpCircle",
+      "id": "icon-help-circle-111-5500"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5499",
+      "source": "https://lucide.dev/icons/",
+      "component": "Hexagon",
+      "componentName": "Hexagon",
+      "id": "icon-hexagon-111-5499"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5498",
+      "source": "https://lucide.dev/icons/",
+      "component": "Home",
+      "componentName": "Home",
+      "id": "icon-home-111-5498"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5497",
+      "source": "https://lucide.dev/icons/",
+      "component": "Image",
+      "componentName": "Image",
+      "id": "icon-image-111-5497"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5496",
+      "source": "https://lucide.dev/icons/",
+      "component": "Inbox",
+      "componentName": "Inbox",
+      "id": "icon-inbox-111-5496"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5495",
+      "source": "https://lucide.dev/icons/",
+      "component": "Info",
+      "componentName": "Info",
+      "id": "icon-info-111-5495"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5494",
+      "source": "https://lucide.dev/icons/",
+      "component": "Instagram",
+      "componentName": "Instagram",
+      "id": "icon-instagram-111-5494"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5493",
+      "source": "https://lucide.dev/icons/",
+      "component": "Italic",
+      "componentName": "Italic",
+      "id": "icon-italic-111-5493"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5492",
+      "source": "https://lucide.dev/icons/",
+      "component": "Key",
+      "componentName": "Key",
+      "id": "icon-key-111-5492"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5491",
+      "source": "https://lucide.dev/icons/",
+      "component": "Menu",
+      "componentName": "Menu",
+      "id": "icon-menu-2-111-5491"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5489",
+      "source": "https://lucide.dev/icons/",
+      "component": "Layout",
+      "componentName": "Layout",
+      "id": "icon-layout-111-5489"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5488",
+      "source": "https://lucide.dev/icons/",
+      "component": "LifeBuoy",
+      "componentName": "LifeBuoy",
+      "id": "icon-life-buoy-111-5488"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5487",
+      "source": "https://lucide.dev/icons/",
+      "component": "Link2",
+      "componentName": "Link2",
+      "id": "icon-link-2-111-5487"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5485",
+      "source": "https://lucide.dev/icons/",
+      "component": "Link",
+      "componentName": "Link",
+      "id": "icon-link-111-5485"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5483",
+      "source": "https://lucide.dev/icons/",
+      "component": "Linkedin",
+      "componentName": "Linkedin",
+      "id": "icon-linkedin-111-5483"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5481",
+      "source": "https://lucide.dev/icons/",
+      "component": "List",
+      "componentName": "List",
+      "id": "icon-list-111-5481"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5479",
+      "source": "https://lucide.dev/icons/",
+      "component": "Loader",
+      "componentName": "Loader",
+      "id": "icon-loader-111-5479"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5478",
+      "source": "https://lucide.dev/icons/",
+      "component": "Lock",
+      "componentName": "Lock",
+      "id": "icon-lock-111-5478"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5477",
+      "source": "https://lucide.dev/icons/",
+      "component": "LogIn",
+      "componentName": "LogIn",
+      "id": "icon-log-in-111-5477"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5633",
+      "source": "https://lucide.dev/icons/",
+      "component": "LogOut",
+      "componentName": "LogOut",
+      "id": "icon-log-out-111-5633"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5476",
+      "source": "https://lucide.dev/icons/",
+      "component": "Mail",
+      "componentName": "Mail",
+      "id": "icon-mail-111-5476"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5547",
+      "source": "https://lucide.dev/icons/",
+      "component": "MapPin",
+      "componentName": "MapPin",
+      "id": "icon-map-pin-111-5547"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5604",
+      "source": "https://lucide.dev/icons/",
+      "component": "Map",
+      "componentName": "Map",
+      "id": "icon-map-111-5604"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5474",
+      "source": "https://lucide.dev/icons/",
+      "component": "Maximize2",
+      "componentName": "Maximize2",
+      "id": "icon-maximize-2-111-5474"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=4885-171218",
+      "source": "https://lucide.dev/icons/",
+      "component": "Expand",
+      "componentName": "Expand",
+      "id": "icon-expand-4885-171218"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5473",
+      "source": "https://lucide.dev/icons/",
+      "component": "Maximize",
+      "componentName": "Maximize",
+      "id": "icon-maximize-111-5473"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5472",
+      "source": "https://lucide.dev/icons/",
+      "component": "Meh",
+      "componentName": "Meh",
+      "id": "icon-meh-111-5472"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5470",
+      "source": "https://lucide.dev/icons/",
+      "component": "Menu",
+      "componentName": "Menu",
+      "id": "icon-menu-111-5470"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5468",
+      "source": "https://lucide.dev/icons/",
+      "component": "MessageCircle",
+      "componentName": "MessageCircle",
+      "id": "icon-message-circle-111-5468"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5592",
+      "source": "https://lucide.dev/icons/",
+      "component": "MessageSquare",
+      "componentName": "MessageSquare",
+      "id": "icon-message-square-111-5592"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5645",
+      "source": "https://lucide.dev/icons/",
+      "component": "MicOff",
+      "componentName": "MicOff",
+      "id": "icon-mic-off-111-5645"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5466",
+      "source": "https://lucide.dev/icons/",
+      "component": "Mic",
+      "componentName": "Mic",
+      "id": "icon-mic-111-5466"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5584",
+      "source": "https://lucide.dev/icons/",
+      "component": "Minimize2",
+      "componentName": "Minimize2",
+      "id": "icon-minimize-2-111-5584"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5475",
+      "source": "https://lucide.dev/icons/",
+      "component": "Minimize",
+      "componentName": "Minimize",
+      "id": "icon-minimize-111-5475"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5464",
+      "source": "https://lucide.dev/icons/",
+      "component": "MinusCircle",
+      "componentName": "MinusCircle",
+      "id": "icon-minus-circle-111-5464"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5552",
+      "source": "https://lucide.dev/icons/",
+      "component": "MinusSquare",
+      "componentName": "MinusSquare",
+      "id": "icon-minus-square-111-5552"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5631",
+      "source": "https://lucide.dev/icons/",
+      "component": "Minus",
+      "componentName": "Minus",
+      "id": "icon-minus-111-5631"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5586",
+      "source": "https://lucide.dev/icons/",
+      "component": "Monitor",
+      "componentName": "Monitor",
+      "id": "icon-monitor-111-5586"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5629",
+      "source": "https://lucide.dev/icons/",
+      "component": "Moon",
+      "componentName": "Moon",
+      "id": "icon-moon-111-5629"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5621",
+      "source": "https://lucide.dev/icons/",
+      "component": "MoreHorizontal",
+      "componentName": "MoreHorizontal",
+      "id": "icon-more-horizontal-111-5621"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5616",
+      "source": "https://lucide.dev/icons/",
+      "component": "MoreVertical",
+      "componentName": "MoreVertical",
+      "id": "icon-more-vertical-111-5616"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5641",
+      "source": "https://lucide.dev/icons/",
+      "component": "MousePointer",
+      "componentName": "MousePointer",
+      "id": "icon-mouse-pointer-111-5641"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5660",
+      "source": "https://lucide.dev/icons/",
+      "component": "Move",
+      "componentName": "Move",
+      "id": "icon-move-111-5660"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5588",
+      "source": "https://lucide.dev/icons/",
+      "component": "Music",
+      "componentName": "Music",
+      "id": "icon-music-111-5588"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5655",
+      "source": "https://lucide.dev/icons/",
+      "component": "Navigation2",
+      "componentName": "Navigation2",
+      "id": "icon-navigation-2-111-5655"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5463",
+      "source": "https://lucide.dev/icons/",
+      "component": "Navigation",
+      "componentName": "Navigation",
+      "id": "icon-navigation-111-5463"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5657",
+      "source": "https://lucide.dev/icons/",
+      "component": "Octagon",
+      "componentName": "Octagon",
+      "id": "icon-octagon-111-5657"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5618",
+      "source": "https://lucide.dev/icons/",
+      "component": "Package",
+      "componentName": "Package",
+      "id": "icon-package-111-5618"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5462",
+      "source": "https://lucide.dev/icons/",
+      "component": "Paperclip",
+      "componentName": "Paperclip",
+      "id": "icon-paperclip-111-5462"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5460",
+      "source": "https://lucide.dev/icons/",
+      "component": "PauseCircle",
+      "componentName": "PauseCircle",
+      "id": "icon-pause-circle-111-5460"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5459",
+      "source": "https://lucide.dev/icons/",
+      "component": "Pause",
+      "componentName": "Pause",
+      "id": "icon-pause-111-5459"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5458",
+      "source": "https://lucide.dev/icons/",
+      "component": "PenTool",
+      "componentName": "PenTool",
+      "id": "icon-pen-tool-111-5458"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5457",
+      "source": "https://lucide.dev/icons/",
+      "component": "Percent",
+      "componentName": "Percent",
+      "id": "icon-percent-111-5457"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5649",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneCall",
+      "componentName": "PhoneCall",
+      "id": "icon-phone-call-111-5649"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5456",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneForwarded",
+      "componentName": "PhoneForwarded",
+      "id": "icon-phone-forwarded-111-5456"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5651",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneIncoming",
+      "componentName": "PhoneIncoming",
+      "id": "icon-phone-incoming-111-5651"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5455",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneMissed",
+      "componentName": "PhoneMissed",
+      "id": "icon-phone-missed-111-5455"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5635",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneOff",
+      "componentName": "PhoneOff",
+      "id": "icon-phone-off-111-5635"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5611",
+      "source": "https://lucide.dev/icons/",
+      "component": "PhoneOutgoing",
+      "componentName": "PhoneOutgoing",
+      "id": "icon-phone-outgoing-111-5611"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5465",
+      "source": "https://lucide.dev/icons/",
+      "component": "Phone",
+      "componentName": "Phone",
+      "id": "icon-phone-111-5465"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5454",
+      "source": "https://lucide.dev/icons/",
+      "component": "PieChart",
+      "componentName": "PieChart",
+      "id": "icon-pie-chart-111-5454"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5453",
+      "source": "https://lucide.dev/icons/",
+      "component": "PlayCircle",
+      "componentName": "PlayCircle",
+      "id": "icon-play-circle-111-5453"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5590",
+      "source": "https://lucide.dev/icons/",
+      "component": "Play",
+      "componentName": "Play",
+      "id": "icon-play-111-5590"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5461",
+      "source": "https://lucide.dev/icons/",
+      "component": "PlusCircle",
+      "componentName": "PlusCircle",
+      "id": "icon-plus-circle-111-5461"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5607",
+      "source": "https://lucide.dev/icons/",
+      "component": "PlusSquare",
+      "componentName": "PlusSquare",
+      "id": "icon-plus-square-111-5607"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5601",
+      "source": "https://lucide.dev/icons/",
+      "component": "Plus",
+      "componentName": "Plus",
+      "id": "icon-plus-111-5601"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5452",
+      "source": "https://lucide.dev/icons/",
+      "component": "Pocket",
+      "componentName": "Pocket",
+      "id": "icon-pocket-111-5452"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5546",
+      "source": "https://lucide.dev/icons/",
+      "component": "Power",
+      "componentName": "Power",
+      "id": "icon-power-111-5546"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5451",
+      "source": "https://lucide.dev/icons/",
+      "component": "Printer",
+      "componentName": "Printer",
+      "id": "icon-printer-111-5451"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5450",
+      "source": "https://lucide.dev/icons/",
+      "component": "Radio",
+      "componentName": "Radio",
+      "id": "icon-radio-111-5450"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5449",
+      "source": "https://lucide.dev/icons/",
+      "component": "RefreshCcw",
+      "componentName": "RefreshCcw",
+      "id": "icon-refresh-ccw-111-5449"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5448",
+      "source": "https://lucide.dev/icons/",
+      "component": "RefreshCw",
+      "componentName": "RefreshCw",
+      "id": "icon-refresh-cw-111-5448"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5447",
+      "source": "https://lucide.dev/icons/",
+      "component": "Repeat",
+      "componentName": "Repeat",
+      "id": "icon-repeat-111-5447"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5446",
+      "source": "https://lucide.dev/icons/",
+      "component": "Rewind",
+      "componentName": "Rewind",
+      "id": "icon-rewind-111-5446"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5594",
+      "source": "https://lucide.dev/icons/",
+      "component": "RotateCcw",
+      "componentName": "RotateCcw",
+      "id": "icon-rotate-ccw-111-5594"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5445",
+      "source": "https://lucide.dev/icons/",
+      "component": "RotateCw",
+      "componentName": "RotateCw",
+      "id": "icon-rotate-cw-111-5445"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5444",
+      "source": "https://lucide.dev/icons/",
+      "component": "Rss",
+      "componentName": "Rss",
+      "id": "icon-rss-111-5444"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5443",
+      "source": "https://lucide.dev/icons/",
+      "component": "Save",
+      "componentName": "Save",
+      "id": "icon-save-111-5443"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5442",
+      "source": "https://lucide.dev/icons/",
+      "component": "Scissors",
+      "componentName": "Scissors",
+      "id": "icon-scissors-111-5442"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5441",
+      "source": "https://lucide.dev/icons/",
+      "component": "Search",
+      "componentName": "Search",
+      "id": "icon-search-111-5441"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5440",
+      "source": "https://lucide.dev/icons/",
+      "component": "Send",
+      "componentName": "Send",
+      "id": "icon-send-111-5440"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5439",
+      "source": "https://lucide.dev/icons/",
+      "component": "Server",
+      "componentName": "Server",
+      "id": "icon-server-111-5439"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5438",
+      "source": "https://lucide.dev/icons/",
+      "component": "Settings",
+      "componentName": "Settings",
+      "id": "icon-settings-111-5438"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5437",
+      "source": "https://lucide.dev/icons/",
+      "component": "Share2",
+      "componentName": "Share2",
+      "id": "icon-share-2-111-5437"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5435",
+      "source": "https://lucide.dev/icons/",
+      "component": "Share",
+      "componentName": "Share",
+      "id": "icon-share-111-5435"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5603",
+      "source": "https://lucide.dev/icons/",
+      "component": "ShieldOff",
+      "componentName": "ShieldOff",
+      "id": "icon-shield-off-111-5603"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5433",
+      "source": "https://lucide.dev/icons/",
+      "component": "Shield",
+      "componentName": "Shield",
+      "id": "icon-shield-111-5433"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5432",
+      "source": "https://lucide.dev/icons/",
+      "component": "ShoppingBag",
+      "componentName": "ShoppingBag",
+      "id": "icon-shopping-bag-111-5432"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5431",
+      "source": "https://lucide.dev/icons/",
+      "component": "ShoppingCart",
+      "componentName": "ShoppingCart",
+      "id": "icon-shopping-cart-111-5431"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5429",
+      "source": "https://lucide.dev/icons/",
+      "component": "Shuffle",
+      "componentName": "Shuffle",
+      "id": "icon-shuffle-111-5429"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5428",
+      "source": "https://lucide.dev/icons/",
+      "component": "Sidebar",
+      "componentName": "Sidebar",
+      "id": "icon-sidebar-111-5428"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5427",
+      "source": "https://lucide.dev/icons/",
+      "component": "SkipBack",
+      "componentName": "SkipBack",
+      "id": "icon-skip-back-111-5427"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5426",
+      "source": "https://lucide.dev/icons/",
+      "component": "SkipForward",
+      "componentName": "SkipForward",
+      "id": "icon-skip-forward-111-5426"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5425",
+      "source": "https://lucide.dev/icons/",
+      "component": "Slack",
+      "componentName": "Slack",
+      "id": "icon-slack-111-5425"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5424",
+      "source": "https://lucide.dev/icons/",
+      "component": "Slash",
+      "componentName": "Slash",
+      "id": "icon-slash-111-5424"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5423",
+      "source": "https://lucide.dev/icons/",
+      "component": "Sliders",
+      "componentName": "Sliders",
+      "id": "icon-sliders-111-5423"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5422",
+      "source": "https://lucide.dev/icons/",
+      "component": "Smartphone",
+      "componentName": "Smartphone",
+      "id": "icon-smartphone-111-5422"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5421",
+      "source": "https://lucide.dev/icons/",
+      "component": "Smile",
+      "componentName": "Smile",
+      "id": "icon-smile-111-5421"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5420",
+      "source": "https://lucide.dev/icons/",
+      "component": "Speaker",
+      "componentName": "Speaker",
+      "id": "icon-speaker-111-5420"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5418",
+      "source": "https://lucide.dev/icons/",
+      "component": "Star",
+      "componentName": "Star",
+      "id": "icon-star-111-5418"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5417",
+      "source": "https://lucide.dev/icons/",
+      "component": "StopCircle",
+      "componentName": "StopCircle",
+      "id": "icon-stop-circle-111-5417"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5430",
+      "source": "https://lucide.dev/icons/",
+      "component": "Sun",
+      "componentName": "Sun",
+      "id": "icon-sun-111-5430"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5416",
+      "source": "https://lucide.dev/icons/",
+      "component": "Sunrise",
+      "componentName": "Sunrise",
+      "id": "icon-sunrise-111-5416"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5415",
+      "source": "https://lucide.dev/icons/",
+      "component": "Sunset",
+      "componentName": "Sunset",
+      "id": "icon-sunset-111-5415"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5414",
+      "source": "https://lucide.dev/icons/",
+      "component": "Tablet",
+      "componentName": "Tablet",
+      "id": "icon-tablet-111-5414"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5413",
+      "source": "https://lucide.dev/icons/",
+      "component": "Tag",
+      "componentName": "Tag",
+      "id": "icon-tag-111-5413"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5548",
+      "source": "https://lucide.dev/icons/",
+      "component": "Target",
+      "componentName": "Target",
+      "id": "icon-target-111-5548"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5412",
+      "source": "https://lucide.dev/icons/",
+      "component": "Terminal",
+      "componentName": "Terminal",
+      "id": "icon-terminal-111-5412"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5411",
+      "source": "https://lucide.dev/icons/",
+      "component": "Thermometer",
+      "componentName": "Thermometer",
+      "id": "icon-thermometer-111-5411"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5410",
+      "source": "https://lucide.dev/icons/",
+      "component": "ThumbsDown",
+      "componentName": "ThumbsDown",
+      "id": "icon-thumbs-down-111-5410"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5409",
+      "source": "https://lucide.dev/icons/",
+      "component": "ThumbsUp",
+      "componentName": "ThumbsUp",
+      "id": "icon-thumbs-up-111-5409"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5408",
+      "source": "https://lucide.dev/icons/",
+      "component": "ToggleLeft",
+      "componentName": "ToggleLeft",
+      "id": "icon-toggle-left-111-5408"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5407",
+      "source": "https://lucide.dev/icons/",
+      "component": "ToggleRight",
+      "componentName": "ToggleRight",
+      "id": "icon-toggle-right-111-5407"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5405",
+      "source": "https://lucide.dev/icons/",
+      "component": "Trash2",
+      "componentName": "Trash2",
+      "id": "icon-trash-2-111-5405"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5404",
+      "source": "https://lucide.dev/icons/",
+      "component": "Trash",
+      "componentName": "Trash",
+      "id": "icon-trash-111-5404"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5403",
+      "source": "https://lucide.dev/icons/",
+      "component": "Trello",
+      "componentName": "Trello",
+      "id": "icon-trello-111-5403"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5402",
+      "source": "https://lucide.dev/icons/",
+      "component": "TrendingDown",
+      "componentName": "TrendingDown",
+      "id": "icon-trending-down-111-5402"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5401",
+      "source": "https://lucide.dev/icons/",
+      "component": "TrendingUp",
+      "componentName": "TrendingUp",
+      "id": "icon-trending-up-111-5401"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5434",
+      "source": "https://lucide.dev/icons/",
+      "component": "Triangle",
+      "componentName": "Triangle",
+      "id": "icon-triangle-111-5434"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5400",
+      "source": "https://lucide.dev/icons/",
+      "component": "Truck",
+      "componentName": "Truck",
+      "id": "icon-truck-111-5400"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5399",
+      "source": "https://lucide.dev/icons/",
+      "component": "Tv",
+      "componentName": "Tv",
+      "id": "icon-tv-111-5399"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5398",
+      "source": "https://lucide.dev/icons/",
+      "component": "Twitch",
+      "componentName": "Twitch",
+      "id": "icon-twitch-111-5398"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5397",
+      "source": "https://lucide.dev/icons/",
+      "component": "Twitter",
+      "componentName": "Twitter",
+      "id": "icon-twitter-111-5397"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5396",
+      "source": "https://lucide.dev/icons/",
+      "component": "Type",
+      "componentName": "Type",
+      "id": "icon-type-111-5396"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5395",
+      "source": "https://lucide.dev/icons/",
+      "component": "Umbrella",
+      "componentName": "Umbrella",
+      "id": "icon-umbrella-111-5395"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5394",
+      "source": "https://lucide.dev/icons/",
+      "component": "Underline",
+      "componentName": "Underline",
+      "id": "icon-underline-111-5394"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5484",
+      "source": "https://lucide.dev/icons/",
+      "component": "Unlock",
+      "componentName": "Unlock",
+      "id": "icon-unlock-111-5484"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5482",
+      "source": "https://lucide.dev/icons/",
+      "component": "UploadCloud",
+      "componentName": "UploadCloud",
+      "id": "icon-upload-cloud-111-5482"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5480",
+      "source": "https://lucide.dev/icons/",
+      "component": "Upload",
+      "componentName": "Upload",
+      "id": "icon-upload-111-5480"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5490",
+      "source": "https://lucide.dev/icons/",
+      "component": "UserCheck",
+      "componentName": "UserCheck",
+      "id": "icon-user-check-111-5490"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5516",
+      "source": "https://lucide.dev/icons/",
+      "component": "UserMinus",
+      "componentName": "UserMinus",
+      "id": "icon-user-minus-111-5516"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5514",
+      "source": "https://lucide.dev/icons/",
+      "component": "UserPlus",
+      "componentName": "UserPlus",
+      "id": "icon-user-plus-111-5514"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5393",
+      "source": "https://lucide.dev/icons/",
+      "component": "UserX",
+      "componentName": "UserX",
+      "id": "icon-user-x-111-5393"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5486",
+      "source": "https://lucide.dev/icons/",
+      "component": "User",
+      "componentName": "User",
+      "id": "icon-user-111-5486"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5471",
+      "source": "https://lucide.dev/icons/",
+      "component": "Users",
+      "componentName": "Users",
+      "id": "icon-users-111-5471"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5469",
+      "source": "https://lucide.dev/icons/",
+      "component": "VideoOff",
+      "componentName": "VideoOff",
+      "id": "icon-video-off-111-5469"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5467",
+      "source": "https://lucide.dev/icons/",
+      "component": "Video",
+      "componentName": "Video",
+      "id": "icon-video-111-5467"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5391",
+      "source": "https://lucide.dev/icons/",
+      "component": "Voicemail",
+      "componentName": "Voicemail",
+      "id": "icon-voicemail-111-5391"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5390",
+      "source": "https://lucide.dev/icons/",
+      "component": "Volume1",
+      "componentName": "Volume1",
+      "id": "icon-volume-1-111-5390"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5389",
+      "source": "https://lucide.dev/icons/",
+      "component": "Volume2",
+      "componentName": "Volume2",
+      "id": "icon-volume-2-111-5389"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5388",
+      "source": "https://lucide.dev/icons/",
+      "component": "VolumeX",
+      "componentName": "VolumeX",
+      "id": "icon-volume-x-111-5388"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5387",
+      "source": "https://lucide.dev/icons/",
+      "component": "Volume",
+      "componentName": "Volume",
+      "id": "icon-volume-111-5387"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5386",
+      "source": "https://lucide.dev/icons/",
+      "component": "Watch",
+      "componentName": "Watch",
+      "id": "icon-watch-111-5386"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5385",
+      "source": "https://lucide.dev/icons/",
+      "component": "WifiOff",
+      "componentName": "WifiOff",
+      "id": "icon-wifi-off-111-5385"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5384",
+      "source": "https://lucide.dev/icons/",
+      "component": "Wifi",
+      "componentName": "Wifi",
+      "id": "icon-wifi-111-5384"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5383",
+      "source": "https://lucide.dev/icons/",
+      "component": "Wind",
+      "componentName": "Wind",
+      "id": "icon-wind-111-5383"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5382",
+      "source": "https://lucide.dev/icons/",
+      "component": "XCircle",
+      "componentName": "XCircle",
+      "id": "icon-x-circle-111-5382"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5381",
+      "source": "https://lucide.dev/icons/",
+      "component": "XOctagon",
+      "componentName": "XOctagon",
+      "id": "icon-x-octagon-111-5381"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5436",
+      "source": "https://lucide.dev/icons/",
+      "component": "XSquare",
+      "componentName": "XSquare",
+      "id": "icon-x-square-111-5436"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5380",
+      "source": "https://lucide.dev/icons/",
+      "component": "X",
+      "componentName": "X",
+      "id": "icon-x-111-5380"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5379",
+      "source": "https://lucide.dev/icons/",
+      "component": "Youtube",
+      "componentName": "Youtube",
+      "id": "icon-youtube-111-5379"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5392",
+      "source": "https://lucide.dev/icons/",
+      "component": "ZapOff",
+      "componentName": "ZapOff",
+      "id": "icon-zap-off-111-5392"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5378",
+      "source": "https://lucide.dev/icons/",
+      "component": "Zap",
+      "componentName": "Zap",
+      "id": "icon-zap-111-5378"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5377",
+      "source": "https://lucide.dev/icons/",
+      "component": "ZoomIn",
+      "componentName": "ZoomIn",
+      "id": "icon-zoom-in-111-5377"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5376",
+      "source": "https://lucide.dev/icons/",
+      "component": "ZoomOut",
+      "componentName": "ZoomOut",
+      "id": "icon-zoom-out-111-5376"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5375",
+      "source": "https://lucide.dev/icons/",
+      "component": "Slash",
+      "componentName": "Slash",
+      "id": "icon-slash-divider-111-5375"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5374",
+      "source": "https://lucide.dev/icons/",
+      "component": "Layers2",
+      "componentName": "Layers2",
+      "id": "icon-2-layers-111-5374"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5373",
+      "source": "https://lucide.dev/icons/",
+      "component": "Layers3",
+      "componentName": "Layers3",
+      "id": "icon-3-layers-111-5373"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5371",
+      "source": "https://lucide.dev/icons/",
+      "component": "Coins",
+      "componentName": "Coins",
+      "id": "icon-coins-111-5371"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5370",
+      "source": "https://lucide.dev/icons/",
+      "component": "Coins",
+      "componentName": "Coins",
+      "id": "icon-coin-stack-111-5370"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5369",
+      "source": "https://lucide.dev/icons/",
+      "component": "Rocket",
+      "componentName": "Rocket",
+      "id": "icon-rocket-111-5369"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5419",
+      "source": "https://lucide.dev/icons/",
+      "component": "SquareCheck",
+      "componentName": "SquareCheck",
+      "id": "icon-checkbox-111-5419"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=223-26661",
+      "source": "https://lucide.dev/icons/",
+      "component": "Radio",
+      "componentName": "Radio",
+      "id": "icon-radio-223-26661"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-2829",
+      "source": "https://lucide.dev/icons/",
+      "component": "Wrench",
+      "componentName": "Wrench",
+      "id": "icon-tool-111-2829"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=4599-120769",
+      "source": "https://lucide.dev/icons/",
+      "component": "FileSignature",
+      "componentName": "FileSignature",
+      "id": "icon-file-sign-4599-120769"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=4594-120735",
+      "source": "https://lucide.dev/icons/",
+      "component": "StickyNote",
+      "componentName": "StickyNote",
+      "id": "icon-note-4594-120735"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=4891-128328",
+      "source": "https://lucide.dev/icons/",
+      "component": "Building2",
+      "componentName": "Building2",
+      "id": "icon-company-4891-128328"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=4998-237401",
+      "source": "https://lucide.dev/icons/",
+      "component": "Unlink",
+      "componentName": "Unlink",
+      "id": "icon-detach-4998-237401"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=4599-120759",
+      "source": "https://lucide.dev/icons/",
+      "component": "MailOpen",
+      "componentName": "MailOpen",
+      "id": "icon-mail-in-4599-120759"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5406",
+      "source": "https://lucide.dev/icons/",
+      "component": "Wrench",
+      "componentName": "Wrench",
+      "id": "icon-tool-111-5406"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=4501-102216",
+      "source": "https://lucide.dev/icons/",
+      "component": "CircleUser",
+      "componentName": "CircleUser",
+      "id": "icon-profile-4501-102216"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=111-5372",
+      "source": "https://lucide.dev/icons/",
+      "component": "ListFilter",
+      "componentName": "ListFilter",
+      "id": "icon-filters-lines-111-5372"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=1082-84481",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUpDown",
+      "componentName": "ArrowUpDown",
+      "id": "icon-sort-1082-84481"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=2883-47554",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowUpNarrowWide",
+      "componentName": "ArrowUpNarrowWide",
+      "id": "icon-sort-ascending-2883-47554"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=2883-47549",
+      "source": "https://lucide.dev/icons/",
+      "component": "ArrowDownWideNarrow",
+      "componentName": "ArrowDownWideNarrow",
+      "id": "icon-sort-descending-2883-47549"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=132-8361",
+      "source": "https://lucide.dev/icons/",
+      "component": "GripHorizontal",
+      "componentName": "GripHorizontal",
+      "id": "icon-draghoriz-132-8361"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=598-33331",
+      "source": "https://lucide.dev/icons/",
+      "component": "GripVertical",
+      "componentName": "GripVertical",
+      "id": "icon-dragvert-598-33331"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=2653-41148",
+      "source": "https://lucide.dev/icons/",
+      "component": "GripVertical",
+      "componentName": "GripVertical",
+      "id": "icon-dragvertshort-2653-41148"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=673-17963",
+      "source": "https://lucide.dev/icons/",
+      "component": "WandSparkles",
+      "componentName": "WandSparkles",
+      "id": "icon-magic-673-17963"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=2029-43678",
+      "source": "https://lucide.dev/icons/",
+      "component": "LoaderCircle",
+      "componentName": "LoaderCircle",
+      "id": "icon-loading-2029-43678"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=755-67996",
+      "source": "https://lucide.dev/icons/",
+      "component": "Pipette",
+      "componentName": "Pipette",
+      "id": "icon-color-pick-755-67996"
+    },
+    {
+      "url": "https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro?node-id=8488-53227",
+      "source": "https://lucide.dev/icons/",
+      "component": "Smile",
+      "componentName": "Smile",
+      "id": "icon-emoji-8488-53227"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+/* Generated from otp-slot.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-otp-slot[data-size="sm"] {
+  width: var(--otp-slot-size-sm, var(--space-2xl));
+  height: var(--otp-slot-size-sm, var(--space-2xl));
+  border-radius: var(--otp-slot-radius-sm, var(--shape-radius-md));
+  font-family: var(--otp-slot-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--otp-slot-text-style-sm-font-size, var(--font-size-body-md));
+  line-height: var(--otp-slot-text-style-sm-line-height, var(--font-line-height-body-md));
+  font-weight: var(--otp-slot-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-otp-slot[data-size="md"] {
+  width: var(--otp-slot-size-md, var(--size-lg));
+  height: var(--otp-slot-size-md, var(--size-lg));
+  border-radius: var(--otp-slot-radius-md, var(--shape-radius-md));
+  font-family: var(--otp-slot-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--otp-slot-text-style-md-font-size, var(--font-size-body-lg));
+  line-height: var(--otp-slot-text-style-md-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--otp-slot-text-style-md-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-otp-slot[data-size="lg"] {
+  width: var(--otp-slot-size-lg, var(--size-xl));
+  height: var(--otp-slot-size-lg, var(--size-xl));
+  border-radius: var(--otp-slot-radius-lg, var(--shape-radius-md));
+  font-family: var(--otp-slot-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--otp-slot-text-style-lg-font-size, var(--font-size-heading-sm));
+  line-height: var(--otp-slot-text-style-lg-line-height, var(--font-line-height-heading-sm));
+  font-weight: var(--otp-slot-text-style-lg-font-weight, var(--font-weight-heading-regular));
+}
+
+.ds-otp-slot {
+  border-width: var(--otp-slot-border-width, var(--size-border-regular));
+  background-color: var(--otp-slot-background-default, var(--color-background-neutral-primary));
+  color: var(--otp-slot-foreground-default, var(--color-foreground-neutral-primary));
+}
+
+.ds-otp-slot:not([data-invalid]) {
+  border-color: var(--otp-slot-border-color-valid-default, var(--color-border-interactive-default));
+  box-shadow: none;
+}
+
+.ds-otp-slot:hover:not([data-disabled]):not([data-focused]),
+.ds-otp-slot[data-preview-state="hover"] {
+  background-color: var(--otp-slot-background-hover, var(--color-background-neutral-primary));
+  color: var(--otp-slot-foreground-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-otp-slot:not([data-invalid]):hover:not([data-disabled]):not([data-focused]),
+.ds-otp-slot:not([data-invalid])[data-preview-state="hover"] {
+  border-color: var(--otp-slot-border-color-valid-hover, var(--color-border-interactive-hover));
+  box-shadow: none;
+}
+
+.ds-otp-slot[data-invalid] {
+  border-color: var(--otp-slot-border-color-invalid-default, var(--color-border-error));
+  box-shadow: none;
+}
+
+.ds-otp-slot[data-invalid]:hover:not([data-disabled]):not([data-focused]),
+.ds-otp-slot[data-invalid][data-preview-state="hover"] {
+  border-color: var(--otp-slot-border-color-invalid-hover, var(--color-border-error));
+  box-shadow: none;
+}
+
+.ds-otp-slot[data-focused],
+.ds-otp-slot[data-preview-state="focused"] {
+  background-color: var(--otp-slot-background-focused, var(--color-background-neutral-primary));
+  color: var(--otp-slot-foreground-focused, var(--color-foreground-neutral-primary));
+}
+
+.ds-otp-slot:not([data-invalid])[data-focused],
+.ds-otp-slot:not([data-invalid])[data-preview-state="focused"] {
+  border-color: var(--otp-slot-border-color-valid-focused, var(--color-border-interactive-selected));
+  box-shadow: var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-otp-slot[data-invalid][data-focused],
+.ds-otp-slot[data-invalid][data-preview-state="focused"] {
+  border-color: var(--otp-slot-border-color-invalid-focused, var(--color-border-error));
+  box-shadow: var(--effect-shadow-focus-ring-error);
+}
+
+.ds-otp-slot[data-disabled] {
+  background-color: var(--otp-slot-background-disabled, var(--color-background-interactive-disabled));
+  color: var(--otp-slot-foreground-disabled, var(--color-foreground-interactive-disabled));
+}
+
+.ds-otp-slot:not([data-invalid])[data-disabled] {
+  border-color: var(--otp-slot-border-color-valid-disabled, var(--color-border-interactive-disabled));
+  box-shadow: none;
+}

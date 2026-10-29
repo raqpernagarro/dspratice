@@ -1,0 +1,20 @@
+/* Generated from skeleton.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-skeleton {
+  background-color: var(--skeleton-background, var(--color-background-neutral-tertiary));
+}
+
+.ds-skeleton[data-shape="text"] {
+  border-radius: var(--skeleton-radius-text, var(--shape-radius-sm));
+  height: var(--skeleton-line-height, var(--size-2xs));
+}
+
+.ds-skeleton[data-shape="circle"] {
+  border-radius: var(--skeleton-radius-circle, var(--shape-radius-full));
+  width: var(--skeleton-circle-size, var(--size-lg));
+  height: var(--skeleton-circle-size, var(--size-lg));
+}
+
+.ds-skeleton[data-shape="block"] {
+  border-radius: var(--skeleton-radius-block, var(--shape-radius-md));
+}

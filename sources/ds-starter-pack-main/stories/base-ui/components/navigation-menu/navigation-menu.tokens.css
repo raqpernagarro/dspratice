@@ -1,0 +1,24 @@
+/* Generated from navigation-menu.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-navigation-menu .ds-navigation-menu__list {
+  gap: var(--navigation-menu-gap, var(--space-2xs));
+}
+
+.ds-navigation-menu__popup .ds-navigation-menu__content {
+  padding-inline: var(--navigation-menu-popup-space-x, var(--space-sm));
+  padding-block: var(--navigation-menu-popup-space-y, var(--space-sm));
+}
+
+.ds-navigation-menu__popup {
+  border-radius: var(--navigation-menu-popup-radius, var(--shape-radius-lg));
+  border-width: var(--navigation-menu-popup-border-width, var(--size-border-regular));
+  background-color: var(--navigation-menu-popup-background, var(--color-background-surface-medium));
+  border-color: var(--navigation-menu-popup-border-color, var(--color-border-neutral-subtle));
+  box-shadow: var(--effect-shadow-elevation-medium);
+}
+
+.ds-navigation-menu__popup .ds-navigation-menu__arrow::before {
+  border-width: var(--navigation-menu-popup-border-width, var(--size-border-regular));
+  background-color: var(--navigation-menu-popup-background, var(--color-background-surface-medium));
+  border-color: var(--navigation-menu-popup-border-color, var(--color-border-neutral-subtle));
+}

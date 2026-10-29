@@ -1,0 +1,74 @@
+{
+  "z-index": {
+    "sticky": {
+      "$type": "number",
+      "$value": 1020,
+      "$description": "Sticky or fixed headers and footers that should remain visible above page content",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336811"
+        }
+      }
+    },
+    "fixed": {
+      "$type": "number",
+      "$value": 1030,
+      "$description": "Position: fixed elements, like feedback toasts, floating widgets",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336812"
+        }
+      }
+    },
+    "modal-backdrop": {
+      "$type": "number",
+      "$value": 1040,
+      "$description": "Modal and drawer background",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336813"
+        }
+      }
+    },
+    "modal": {
+      "$type": "number",
+      "$value": 1050,
+      "$description": "Elements on top of overlay backgrounds, like modals or drawers",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336814"
+        }
+      }
+    },
+    "popover": {
+      "$type": "number",
+      "$value": 1060,
+      "$description": "Popover elements like popover menus, dropdowns, context menus",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336815"
+        }
+      }
+    },
+    "tooltip": {
+      "$type": "number",
+      "$value": 1070,
+      "$description": "Tooltip z-index to be above anything else on screen",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336816"
+        }
+      }
+    },
+    "toast": {
+      "$type": "number",
+      "$value": 1080,
+      "$description": "Toast z-index to be above anything else on screen",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336835"
+        }
+      }
+    }
+  }
+}

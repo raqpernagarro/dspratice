@@ -1,0 +1,13 @@
+/* Generated from otp-field.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-otp-field[data-size="sm"] {
+  gap: var(--otp-field-gap-sm, var(--space-xs));
+}
+
+.ds-otp-field[data-size="md"] {
+  gap: var(--otp-field-gap-md, var(--space-sm));
+}
+
+.ds-otp-field[data-size="lg"] {
+  gap: var(--otp-field-gap-lg, var(--space-sm));
+}

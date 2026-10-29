@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Guidelines/Welcome" />
+
+# DS-Nagarro
+
+A React component library built for AI-first development at Nagarro. Every structural and naming decision prioritises agent interpretability and accurate code generation.
+
+---
+
+## Where to find things
+
+| What | Where |
+|---|---|
+| Rules for consuming the library | [Consumer guide](?path=/docs/guidelines-consumer-guide--docs) |
+| Rules for building components | [Builder guide](?path=/docs/guidelines-builder-guide--docs) |
+| Design tokens reference | [Styleguide](?path=/docs/guidelines-styleguide--docs) |
+| Layout patterns | [Patterns](?path=/docs/patterns--docs) |
+| Component source of truth | [Figma](https://www.figma.com/design/9Lqv0lrj1pRM14NVs4TsSk/DS-Nagarro) |
+| Published Storybook | [GitHub Pages](https://nagarro-dv.github.io/DSN/) — rebuilt on every push to `main` |
+
+---
+
+## Key constraints
+
+- Library is consumed via `npm link` — no published package
+- AppShell main area has built-in padding — never add a wrapper inside it
+- Icons come from `lucide-react` — list it at the same version `ds-ngr` uses
+- Token alias chain must always be preserved: primitives → semantics → component tokens
+- Sentence case everywhere — labels, headings, actions
+
+Full rules in the [Consumer guide](?path=/docs/guidelines-consumer-guide--docs).

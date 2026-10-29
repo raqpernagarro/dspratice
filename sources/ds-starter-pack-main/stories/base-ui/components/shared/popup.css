@@ -1,0 +1,92 @@
+/*
+ * Layout shared by popups (Popover, Tooltip, Preview Card, Listbox, Navigation Menu's panel): the
+ * surface's box and open / close transition, and the arrow. Colors, spacing and radius come from
+ * each component's tokens.
+ */
+
+.ds-popup {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  outline: 0;
+  transform-origin: var(--transform-origin);
+  transition:
+    transform var(--motion-duration-fast) var(--motion-ease-decelerate),
+    opacity var(--motion-duration-fast) var(--motion-ease-decelerate);
+}
+
+.ds-popup[data-starting-style],
+.ds-popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.ds-popup[data-instant] {
+  transition: none;
+}
+
+/* A 12 × 6 window onto the top half of a bordered diamond (its ::before). */
+.ds-arrow {
+  display: block;
+  width: 12px;
+  height: 6px;
+  overflow: clip;
+}
+
+.ds-arrow[data-side='top'] {
+  bottom: -6px;
+  rotate: 180deg;
+}
+
+.ds-arrow[data-side='bottom'] {
+  top: -6px;
+}
+
+.ds-arrow[data-side='left'] {
+  right: -9px;
+  rotate: 90deg;
+}
+
+.ds-arrow[data-side='right'] {
+  left: -9px;
+  rotate: -90deg;
+}
+
+.ds-arrow::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  box-sizing: border-box;
+  width: calc(6px * sqrt(2));
+  height: calc(6px * sqrt(2));
+  border-style: solid;
+  transform: translate(-50%, 50%) rotate(45deg);
+}
+
+/* Static previews (docs, configurator): the arrow centred on the top edge, like Figma. */
+.ds-arrow[data-preview] {
+  position: absolute;
+  left: calc(50% - 6px);
+}
+
+/* Arrows on the side edges sit at the middle of that edge. */
+.ds-arrow[data-preview][data-side='left'],
+.ds-arrow[data-preview][data-side='right'] {
+  top: calc(50% - 3px);
+}
+
+.ds-arrow[data-preview][data-side='left'] {
+  left: auto;
+}
+
+.ds-arrow[data-preview][data-side='right'] {
+  left: -9px;
+}
+
+/* A preview popup is drawn in place, not positioned against a trigger. */
+.ds-popup[data-preview] {
+  position: relative;
+}

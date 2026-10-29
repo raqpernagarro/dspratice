@@ -1,0 +1,209 @@
+/* Generated from checkbox.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-checkbox[data-size="sm"] {
+  gap: var(--checkbox-gap-sm, var(--space-xs));
+}
+
+.ds-checkbox[data-size="md"] {
+  gap: var(--checkbox-gap-md, var(--space-sm));
+}
+
+.ds-checkbox[data-size="lg"] {
+  gap: var(--checkbox-gap-lg, var(--space-sm));
+}
+
+.ds-checkbox[data-size="sm"] .ds-checkbox__control {
+  width: var(--checkbox-control-size-sm, var(--size-2xs));
+  height: var(--checkbox-control-size-sm, var(--size-2xs));
+  border-radius: var(--checkbox-control-radius-sm, var(--shape-radius-sm));
+}
+
+.ds-checkbox[data-size="md"] .ds-checkbox__control {
+  width: var(--checkbox-control-size-md, var(--size-xs));
+  height: var(--checkbox-control-size-md, var(--size-xs));
+  border-radius: var(--checkbox-control-radius-md, var(--shape-radius-sm));
+}
+
+.ds-checkbox[data-size="lg"] .ds-checkbox__control {
+  width: var(--checkbox-control-size-lg, var(--size-sm));
+  height: var(--checkbox-control-size-lg, var(--size-sm));
+  border-radius: var(--checkbox-control-radius-lg, var(--shape-radius-sm));
+}
+
+.ds-checkbox .ds-checkbox__control {
+  border-width: var(--checkbox-control-border-width, var(--size-border-regular));
+}
+
+.ds-checkbox .ds-checkbox__control[data-unchecked] {
+  background-color: var(--checkbox-control-background-unchecked-default, var(--color-background-neutral-primary));
+  border-color: var(--checkbox-control-border-color-unchecked-default, var(--color-border-interactive-default));
+}
+
+.ds-checkbox .ds-checkbox__control[data-unchecked] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-unchecked-default, var(--color-foreground-on-accent-primary));
+}
+
+.ds-checkbox[data-size="sm"] .ds-checkbox__indicator {
+  width: var(--checkbox-indicator-size-sm, var(--space-md));
+  height: var(--checkbox-indicator-size-sm, var(--space-md));
+}
+
+.ds-checkbox[data-size="md"] .ds-checkbox__indicator {
+  width: var(--checkbox-indicator-size-md, var(--size-2xs));
+  height: var(--checkbox-indicator-size-md, var(--size-2xs));
+}
+
+.ds-checkbox[data-size="lg"] .ds-checkbox__indicator {
+  width: var(--checkbox-indicator-size-lg, var(--size-xs));
+  height: var(--checkbox-indicator-size-lg, var(--size-xs));
+}
+
+.ds-checkbox .ds-checkbox__label {
+  color: var(--checkbox-label-foreground-default, var(--color-foreground-neutral-primary));
+}
+
+.ds-checkbox[data-size="sm"] .ds-checkbox__label {
+  font-family: var(--checkbox-label-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--checkbox-label-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--checkbox-label-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--checkbox-label-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-checkbox[data-size="md"] .ds-checkbox__label {
+  font-family: var(--checkbox-label-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--checkbox-label-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--checkbox-label-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--checkbox-label-text-style-md-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-checkbox[data-size="lg"] .ds-checkbox__label {
+  font-family: var(--checkbox-label-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--checkbox-label-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--checkbox-label-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--checkbox-label-text-style-lg-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-checkbox:hover:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-unchecked],
+.ds-checkbox[data-preview-state="hover"] .ds-checkbox__control[data-unchecked] {
+  background-color: var(--checkbox-control-background-unchecked-hover, var(--color-background-neutral-primary));
+  border-color: var(--checkbox-control-border-color-unchecked-hover, var(--color-border-interactive-hover));
+}
+
+.ds-checkbox .ds-checkbox__control[data-checked] {
+  background-color: var(--checkbox-control-background-checked-default, var(--color-background-accent-default));
+  border-color: var(--checkbox-control-border-color-checked-default, var(--color-background-accent-default));
+}
+
+.ds-checkbox:hover:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-checked],
+.ds-checkbox[data-preview-state="hover"] .ds-checkbox__control[data-checked] {
+  background-color: var(--checkbox-control-background-checked-hover, var(--color-background-accent-hover));
+  border-color: var(--checkbox-control-border-color-checked-hover, var(--color-background-accent-hover));
+}
+
+.ds-checkbox:hover:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-unchecked] .ds-checkbox__indicator,
+.ds-checkbox[data-preview-state="hover"] .ds-checkbox__control[data-unchecked] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-unchecked-hover, var(--color-foreground-on-accent-primary));
+}
+
+.ds-checkbox .ds-checkbox__control[data-checked] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-checked-default, var(--color-foreground-on-accent-primary));
+}
+
+.ds-checkbox:hover:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-checked] .ds-checkbox__indicator,
+.ds-checkbox[data-preview-state="hover"] .ds-checkbox__control[data-checked] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-checked-hover, var(--color-foreground-on-accent-primary));
+}
+
+.ds-checkbox:hover:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__label,
+.ds-checkbox[data-preview-state="hover"] .ds-checkbox__label {
+  color: var(--checkbox-label-foreground-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-checkbox:active:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-unchecked],
+.ds-checkbox[data-preview-state="pressed"] .ds-checkbox__control[data-unchecked] {
+  background-color: var(--checkbox-control-background-unchecked-pressed, var(--color-background-neutral-primary));
+  border-color: var(--checkbox-control-border-color-unchecked-pressed, var(--color-border-interactive-pressed));
+}
+
+.ds-checkbox:active:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-checked],
+.ds-checkbox[data-preview-state="pressed"] .ds-checkbox__control[data-checked] {
+  background-color: var(--checkbox-control-background-checked-pressed, var(--color-background-accent-pressed));
+  border-color: var(--checkbox-control-border-color-checked-pressed, var(--color-background-accent-pressed));
+}
+
+.ds-checkbox .ds-checkbox__control[data-indeterminate] {
+  background-color: var(--checkbox-control-background-indeterminate-default, var(--color-background-accent-default));
+  border-color: var(--checkbox-control-border-color-indeterminate-default, var(--color-background-accent-default));
+}
+
+.ds-checkbox:hover:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-indeterminate],
+.ds-checkbox[data-preview-state="hover"] .ds-checkbox__control[data-indeterminate] {
+  background-color: var(--checkbox-control-background-indeterminate-hover, var(--color-background-accent-hover));
+  border-color: var(--checkbox-control-border-color-indeterminate-hover, var(--color-background-accent-hover));
+}
+
+.ds-checkbox:active:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-indeterminate],
+.ds-checkbox[data-preview-state="pressed"] .ds-checkbox__control[data-indeterminate] {
+  background-color: var(--checkbox-control-background-indeterminate-pressed, var(--color-background-accent-pressed));
+  border-color: var(--checkbox-control-border-color-indeterminate-pressed, var(--color-background-accent-pressed));
+}
+
+.ds-checkbox:active:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-unchecked] .ds-checkbox__indicator,
+.ds-checkbox[data-preview-state="pressed"] .ds-checkbox__control[data-unchecked] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-unchecked-pressed, var(--color-foreground-on-accent-primary));
+}
+
+.ds-checkbox:active:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-checked] .ds-checkbox__indicator,
+.ds-checkbox[data-preview-state="pressed"] .ds-checkbox__control[data-checked] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-checked-pressed, var(--color-foreground-on-accent-primary));
+}
+
+.ds-checkbox .ds-checkbox__control[data-indeterminate] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-indeterminate-default, var(--color-foreground-on-accent-primary));
+}
+
+.ds-checkbox:hover:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-indeterminate] .ds-checkbox__indicator,
+.ds-checkbox[data-preview-state="hover"] .ds-checkbox__control[data-indeterminate] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-indeterminate-hover, var(--color-foreground-on-accent-primary));
+}
+
+.ds-checkbox:active:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__control[data-indeterminate] .ds-checkbox__indicator,
+.ds-checkbox[data-preview-state="pressed"] .ds-checkbox__control[data-indeterminate] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-indeterminate-pressed, var(--color-foreground-on-accent-primary));
+}
+
+.ds-checkbox:active:not(:has(> .ds-checkbox__control[data-disabled])) .ds-checkbox__label,
+.ds-checkbox[data-preview-state="pressed"] .ds-checkbox__label {
+  color: var(--checkbox-label-foreground-pressed, var(--color-foreground-neutral-primary));
+}
+
+.ds-checkbox:has(> .ds-checkbox__control[data-disabled]) .ds-checkbox__control[data-unchecked] {
+  background-color: var(--checkbox-control-background-unchecked-disabled, var(--color-background-interactive-disabled));
+  border-color: var(--checkbox-control-border-color-unchecked-disabled, var(--color-border-interactive-disabled));
+}
+
+.ds-checkbox:has(> .ds-checkbox__control[data-disabled]) .ds-checkbox__control[data-checked] {
+  background-color: var(--checkbox-control-background-checked-disabled, var(--color-background-interactive-disabled));
+  border-color: var(--checkbox-control-border-color-checked-disabled, var(--color-border-interactive-disabled));
+}
+
+.ds-checkbox:has(> .ds-checkbox__control[data-disabled]) .ds-checkbox__control[data-indeterminate] {
+  background-color: var(--checkbox-control-background-indeterminate-disabled, var(--color-background-interactive-disabled));
+  border-color: var(--checkbox-control-border-color-indeterminate-disabled, var(--color-border-interactive-disabled));
+}
+
+.ds-checkbox:has(> .ds-checkbox__control[data-disabled]) .ds-checkbox__control[data-unchecked] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-unchecked-disabled, var(--color-foreground-neutral-tertiary));
+}
+
+.ds-checkbox:has(> .ds-checkbox__control[data-disabled]) .ds-checkbox__control[data-checked] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-checked-disabled, var(--color-foreground-neutral-tertiary));
+}
+
+.ds-checkbox:has(> .ds-checkbox__control[data-disabled]) .ds-checkbox__control[data-indeterminate] .ds-checkbox__indicator {
+  color: var(--checkbox-indicator-foreground-indeterminate-disabled, var(--color-foreground-neutral-tertiary));
+}
+
+.ds-checkbox:has(> .ds-checkbox__control[data-disabled]) .ds-checkbox__label {
+  color: var(--checkbox-label-foreground-disabled, var(--color-foreground-interactive-disabled));
+}

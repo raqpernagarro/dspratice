@@ -1,0 +1,25 @@
+/* Layout only. Colors, spacing and type come from card.tokens.css (generated from card.spec.ts). */
+
+.ds-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  min-width: 0;
+}
+
+.ds-card__header {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-card__title,
+.ds-card__description {
+  margin: 0;
+}
+
+.ds-card__footer {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,272 @@
+/* =============================================================================
+   Switcher
+   ─────────────────────────────────────────────────────────────────────────────
+   Namespaced with .dsn-switcher.
+
+   Sizes       (data-size):    md | sm
+   On/off      (data-checked): true | false
+
+   Structure:
+     <button role="switch" class="dsn-switcher">   ← handles focus, click, a11y
+       <span class="dsn-switcher-track">           ← visual pill (debossed/teal)
+         <span class="dsn-switcher-thumb" />       ← sliding white circle
+       </span>
+     </button>
+
+   The button carries outer padding (4px md / 2px sm) that creates breathing
+   room for the inset focus ring to be visible without being clipped.
+   The track and thumb are positioned absolutely within the button.
+   ============================================================================= */
+
+
+/* ── Reset ──────────────────────────────────────────────────────────────────── */
+
+.dsn-switcher {
+  /* Reset native <button> appearance */
+  appearance:  none;
+  border:      none;
+  background:  transparent;
+  margin:      0;
+
+  /* Layout — required for absolute track positioning */
+  position:    relative;
+  display:     inline-block;
+  flex-shrink: 0;
+  cursor:      pointer;
+  outline:     none;   /* focus state managed via :focus-visible on .dsn-switcher-track */
+  box-sizing:  border-box;
+  border-radius: var(--shape-radius-full);  /* 9999px — pill-shaped focus target */
+
+  /* ── md dimensions (default) ── */
+  /* Total: 48 × 32 px
+     Inner track area: 40 × 24 px (4px padding each side)
+  */
+  width:   48px;
+  height:  32px;
+  padding: 4px;
+}
+
+
+/* ── sm ─────────────────────────────────────────────────────────────────────── */
+
+/* Total: 36 × 24 px
+   Inner track area: 32 × 20 px (2px padding each side)
+*/
+.dsn-switcher[data-size="sm"] {
+  width:   36px;
+  height:  24px;
+  padding: 2px;
+}
+
+
+/* ── Track ──────────────────────────────────────────────────────────────────── */
+
+/*
+  The visual pill that fills the button's inner content area (after padding).
+  OFF: transparent dark overlay (debossed/sunken look).
+  ON:  solid teal fill.
+*/
+
+.dsn-switcher-track {
+  display:       block;
+  position:      relative;
+  width:         100%;
+  height:        100%;
+  border-radius: var(--shape-radius-full);
+
+  /* OFF surface + deboss effect */
+  background-color: var(--toggle-background-off);     /* rgba(0,0,0,0.05) */
+  box-shadow:       var(--switcher-shadow-track-off);
+
+  transition:
+    background-color var(--motion-transition-fast),
+    box-shadow       var(--motion-transition-fast);
+}
+
+
+/* ── Thumb ──────────────────────────────────────────────────────────────────── */
+
+/*
+  Floating white circle that slides left (off) ↔ right (on).
+  Positioned with top:2px / left:2px as the "inner padding" offset.
+*/
+
+.dsn-switcher-thumb {
+  display:       block;
+  position:      absolute;
+  top:           2px;
+  left:          2px;
+  border-radius: var(--shape-radius-full);
+  background:    var(--color-background-fixed-light-primary);  /* #fcfcfc — background/fixed/light/primary */
+  box-shadow:    var(--switcher-shadow-thumb);
+
+  /* md thumb: 20 × 20 px */
+  width:  20px;
+  height: 20px;
+
+  transition: transform var(--switcher-transition);
+}
+
+/* sm thumb: 16 × 16 px */
+.dsn-switcher[data-size="sm"] .dsn-switcher-thumb {
+  width:  16px;
+  height: 16px;
+}
+
+
+/* ── ON state ───────────────────────────────────────────────────────────────── */
+
+/* Track: switch to solid teal, remove deboss */
+.dsn-switcher[data-checked="true"] .dsn-switcher-track {
+  background-color: var(--toggle-background-on);  /* #0f766e */
+  box-shadow:       none;
+}
+
+/* Thumb translation when ON:
+   md: track inner = 40px, 2px left pad, 20px thumb → translateX(40 - 2 - 20 - 2) = 16px
+   sm: track inner = 32px, 2px left pad, 16px thumb → translateX(32 - 2 - 16 - 2) = 12px
+*/
+.dsn-switcher[data-checked="true"] .dsn-switcher-thumb {
+  transform: translateX(16px);
+}
+
+.dsn-switcher[data-size="sm"][data-checked="true"] .dsn-switcher-thumb {
+  transform: translateX(12px);
+}
+
+
+/* ── Hover ──────────────────────────────────────────────────────────────────── */
+
+/* OFF + hover: track darkens slightly (10% overlay) */
+.dsn-switcher:not([aria-disabled="true"]):hover .dsn-switcher-track {
+  background-color: var(--color-background-interactive-secondary-active);
+}
+
+/* ON + hover: teal lightens toward interactive CTA hover */
+.dsn-switcher[data-checked="true"]:not([aria-disabled="true"]):hover .dsn-switcher-track {
+  background-color: var(--color-background-interactive-primary-hover);  /* #0a7f76 */
+}
+
+
+/* ── Pressed / Active ───────────────────────────────────────────────────────── */
+
+/* OFF + pressed: track darkens further */
+.dsn-switcher:not([aria-disabled="true"]):active .dsn-switcher-track {
+  background-color: var(--toggle-background-off);
+  background-image: linear-gradient(var(--color-background-interactive-secondary-active) 0 0);
+}
+
+/* ON + pressed: deep teal */
+.dsn-switcher[data-checked="true"]:not([aria-disabled="true"]):active .dsn-switcher-track {
+  background-color: var(--color-background-interactive-primary-active);  /* #115e59 */
+  background-image: none;
+}
+
+
+/* ── Focused (keyboard) ─────────────────────────────────────────────────────── */
+
+/*
+  Focus ring is applied to the TRACK (not the outer button).
+  This places the teal/white inset double-ring around the visual pill.
+*/
+
+/* OFF focused: deboss + focus ring layered */
+.dsn-switcher:not([aria-disabled="true"]):focus-visible .dsn-switcher-track {
+  box-shadow:
+    var(--switcher-shadow-track-off),
+    var(--button-shadow-focus);
+}
+
+/* ON focused: no deboss, just focus ring on teal background */
+.dsn-switcher[data-checked="true"]:not([aria-disabled="true"]):focus-visible .dsn-switcher-track {
+  box-shadow: var(--button-shadow-focus);
+}
+
+
+/* ── Disabled ───────────────────────────────────────────────────────────────── */
+
+/*
+  Disabled switchers use aria-disabled="true" (not the native disabled attribute)
+  so they remain in the tab/reading order per the design spec.
+
+  Figma uses a semi-transparent overlay on both states — no explicit disabled
+  surface token exists. Opacity 0.4 faithfully matches the Figma rendering.
+*/
+.dsn-switcher[aria-disabled="true"] {
+  cursor:  not-allowed;
+  opacity: 0.4;
+}
+
+
+/* ── Track content (icon / label) ─────────────────────────────────────────────
+   Figma: `Show icon` / `Show label`. The track grows to fit the content and
+   the thumb swaps sides by flex order instead of translating.
+   ON:  [content][thumb]   OFF: [thumb][content]
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.dsn-switcher[data-has-content] {
+  width: auto;
+  display: inline-flex;
+}
+
+.dsn-switcher[data-has-content] .dsn-switcher-track {
+  display:     inline-flex;
+  align-items: center;
+  width:       auto;
+  padding-inline: var(--space-3xs);
+  box-sizing:  border-box;
+}
+
+.dsn-switcher[data-size="sm"][data-has-content] .dsn-switcher-track {
+  padding-inline: var(--size-border-sm);
+}
+
+.dsn-switcher[data-has-content] .dsn-switcher-thumb {
+  position:  static;
+  flex-shrink: 0;
+  transform: none;
+}
+
+/* Matches the specificity of the size-specific translate rules above */
+.dsn-switcher[data-has-content][data-checked="true"] .dsn-switcher-thumb {
+  order: 1;
+  transform: none;
+}
+
+.dsn-switcher-content {
+  display:     inline-flex;
+  align-items: center;
+  color:       var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-switcher[data-checked="true"] .dsn-switcher-content {
+  color: var(--color-background-fixed-light-primary);
+}
+
+.dsn-switcher-icon {
+  display:     inline-flex;
+  padding-inline: var(--space-3xs);
+}
+
+.dsn-switcher-label {
+  /* Figma: Micro/Micro-default/Regular */
+  font-family:    var(--font-family-default);
+  font-size:      var(--font-size-micro);
+  font-weight:    var(--font-weight-regular);
+  line-height:    var(--font-line-height-micro);
+  letter-spacing: var(--font-letter-spacing-tight);
+  white-space:    nowrap;
+  padding-inline: var(--space-2xs) var(--space-xs);
+}
+
+.dsn-switcher[data-checked="true"] .dsn-switcher-label {
+  padding-inline: var(--space-xs) var(--space-2xs);
+}
+
+.dsn-switcher[data-size="sm"] .dsn-switcher-label {
+  padding-inline: var(--space-3xs) var(--space-2xs);
+}
+
+.dsn-switcher[data-size="sm"][data-checked="true"] .dsn-switcher-label {
+  padding-inline: var(--space-2xs) var(--space-3xs);
+}

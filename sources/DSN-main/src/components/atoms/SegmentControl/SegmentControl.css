@@ -1,0 +1,99 @@
+.dsn-segment-control {
+  /* Grid with 1fr columns keeps every selector equal width — sized to the widest label when hugging,
+     or splitting the container evenly when full width. */
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: stretch;
+  gap: var(--space-2xs);
+  padding: var(--space-2xs);
+  border-radius: var(--shape-radius-control-md);
+  background: var(--input-background-default);
+  box-shadow: var(--input-shadow);
+}
+
+.dsn-segment-control[data-full-width='true'] {
+  width: 100%;
+}
+
+.dsn-segment-control[data-full-width='false'] {
+  width: max-content;
+}
+
+.dsn-segment-control-selector {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-height: var(--size-control-height-sm);
+  padding: var(--space-2xs);
+  border-radius: var(--shape-radius-control-sm);
+  background: transparent;
+  color: var(--color-foreground-neutral-secondary);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-transition-fast),
+    color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
+}
+
+.dsn-segment-control-selector:hover:not(:disabled):not([data-active]) {
+  background: var(--color-background-interactive-secondary-hover);
+}
+
+.dsn-segment-control-selector:active:not(:disabled):not([data-active]) {
+  background: var(--color-background-interactive-secondary-active);
+}
+
+.dsn-segment-control-selector[data-active] {
+  background: var(--color-background-elevated);
+  color: var(--color-foreground-neutral-primary);
+  box-shadow:
+    0 0 0 var(--primitive-size-1) var(--color-shadow-default),
+    0 var(--space-2xs) var(--space-xs) calc(-1 * var(--space-3xs)) var(--color-shadow-default);
+}
+
+.dsn-segment-control-selector:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-segment-control-selector[data-active]:focus-visible {
+  box-shadow:
+    var(--button-shadow-focus),
+    0 0 0 var(--primitive-size-1) var(--color-shadow-default),
+    0 var(--space-2xs) var(--space-xs) calc(-1 * var(--space-3xs)) var(--color-shadow-default);
+}
+
+.dsn-segment-control-selector:disabled {
+  color: var(--color-foreground-interactive-disabled);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.dsn-segment-control-selector-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dsn-segment-control-selector-label-wrap {
+  display: inline-flex;
+  padding-inline: var(--space-2xs);
+}
+
+.dsn-segment-control-selector-label {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  white-space: nowrap;
+}

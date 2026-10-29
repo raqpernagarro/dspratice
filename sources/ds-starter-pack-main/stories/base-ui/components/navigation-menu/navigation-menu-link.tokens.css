@@ -1,0 +1,30 @@
+/* Generated from navigation-menu-link.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-navigation-menu-link {
+  padding-inline: var(--navigation-menu-link-space-x, var(--space-sm));
+  padding-block: var(--navigation-menu-link-space-y, var(--space-sm));
+  gap: var(--navigation-menu-link-gap, var(--space-xs));
+  border-radius: var(--navigation-menu-link-radius, var(--shape-radius-md));
+  background-color: var(--navigation-menu-link-background-default, var(--color-background-interactive-subtle-default));
+}
+
+.ds-navigation-menu-link .ds-navigation-menu-link__title {
+  color: var(--navigation-menu-link-title-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--navigation-menu-link-title-text-style-font-family, var(--font-family-primary));
+  font-size: var(--navigation-menu-link-title-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--navigation-menu-link-title-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--navigation-menu-link-title-text-style-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-navigation-menu-link .ds-navigation-menu-link__description {
+  color: var(--navigation-menu-link-description-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--navigation-menu-link-description-text-style-font-family, var(--font-family-primary));
+  font-size: var(--navigation-menu-link-description-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--navigation-menu-link-description-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--navigation-menu-link-description-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-navigation-menu-link:hover,
+.ds-navigation-menu-link[data-preview-state="hover"] {
+  background-color: var(--navigation-menu-link-background-hover, var(--color-background-interactive-subtle-hover));
+}

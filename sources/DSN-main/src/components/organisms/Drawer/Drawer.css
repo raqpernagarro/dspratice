@@ -1,0 +1,180 @@
+.dsn-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-index-modal);
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: var(--space-md);
+  box-sizing: border-box;
+}
+
+.dsn-drawer-overlay[data-placement='left'] {
+  justify-content: flex-start;
+}
+
+.dsn-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--color-background-overlay-strong);
+  pointer-events: none;
+  animation: dsn-drawer-backdrop-fade-in var(--motion-transition-slow) both;
+}
+
+.dsn-drawer-overlay[data-state='closing'] .dsn-drawer-backdrop {
+  animation: dsn-drawer-backdrop-fade-out var(--motion-transition-slow) both;
+}
+
+.dsn-drawer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: var(--popover-width-lg, 320px);
+  max-width: 100%;
+  overflow: hidden;
+  background: var(--color-background-neutral-primary);
+  border-radius: var(--modal-radius);
+  box-shadow:
+    0 0 0 var(--primitive-size-1) var(--color-shadow-contrast-border),
+    0 2px 8px 1px var(--color-shadow-default),
+    0 16px 24px -8px var(--color-shadow-default);
+}
+
+.dsn-drawer[data-variant='stacked'] {
+  border-radius: 0;
+  box-shadow: none;
+  height: 100%;
+}
+
+/* Stacked: divider on the inner edge (facing main content). */
+.dsn-drawer[data-variant='stacked'][data-placement='right'] {
+  border-left: var(--size-border-sm) solid var(--color-border-neutral-primary);
+}
+
+.dsn-drawer[data-variant='stacked'][data-placement='left'] {
+  border-right: var(--size-border-sm) solid var(--color-border-neutral-primary);
+}
+
+.dsn-drawer-overlay[data-placement='right'] .dsn-drawer[data-variant='overlay'] {
+  animation: dsn-drawer-slide-in-right var(--motion-transition-slow) both;
+}
+
+.dsn-drawer-overlay[data-placement='left'] .dsn-drawer[data-variant='overlay'] {
+  animation: dsn-drawer-slide-in-left var(--motion-transition-slow) both;
+}
+
+.dsn-drawer-overlay[data-placement='right'][data-state='closing'] .dsn-drawer[data-variant='overlay'] {
+  animation: dsn-drawer-slide-out-right var(--motion-transition-slow) both;
+}
+
+.dsn-drawer-overlay[data-placement='left'][data-state='closing'] .dsn-drawer[data-variant='overlay'] {
+  animation: dsn-drawer-slide-out-left var(--motion-transition-slow) both;
+}
+
+
+
+.dsn-drawer-header,
+.dsn-drawer-bottom-bar {
+  flex-shrink: 0;
+}
+
+.dsn-drawer-content {
+  min-width: 0;
+  flex: 1 1 auto;
+  padding: 0;
+  overflow-y: auto;
+}
+
+/* Metadata lists are full-bleed; match SectionHeader / Toolbar horizontal inset. */
+.dsn-drawer-content .dsn-data-list-cell {
+  padding-inline: var(--space-md);
+}
+
+.dsn-drawer-title-assistive {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.dsn-drawer-header-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+/* Drawer header trailing controls can host multiple items (switch + close).
+   Override SectionHeader's single-control fixed size contract in this context. */
+.dsn-drawer .dsn-drawer-title .dsn-section-header-control {
+  width: auto;
+  height: auto;
+}
+
+@keyframes dsn-drawer-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(var(--space-lg));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dsn-drawer-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(calc(var(--space-lg) * -1));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dsn-drawer-backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dsn-drawer-backdrop-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dsn-drawer-slide-out-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(var(--space-lg));
+  }
+}
+
+@keyframes dsn-drawer-slide-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(calc(var(--space-lg) * -1));
+  }
+}

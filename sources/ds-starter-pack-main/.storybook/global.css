@@ -1,0 +1,6 @@
+@import '../stories/base-ui/tokens/ds-aliases.css';
+
+body,
+#storybook-root {
+  font-family: var(--ds-font-family, 'Hanken Grotesk', system-ui, sans-serif);
+}

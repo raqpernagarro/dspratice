@@ -1,0 +1,25 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Autocomplete.stories';
+import docs from './docs/autocomplete.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { autocompleteSpec } from './components/autocomplete/autocomplete.spec';
+
+<Meta of={Stories} />
+
+# Autocomplete
+
+<Canvas of={Stories.Default} />
+
+## As in Figma
+
+<Canvas of={Stories.Preview} />
+
+<SpecDocs spec={autocompleteSpec} />
+
+Autocomplete has no tokens of its own: the field is an **Input** and the suggestions a **Listbox** of **Options** (see Select), so it changes with them.
+
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={autocompleteSpec.docs.baseUi} />

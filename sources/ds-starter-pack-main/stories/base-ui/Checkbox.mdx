@@ -1,0 +1,29 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Checkbox.stories';
+import docs from './docs/checkbox.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { checkboxSpec } from './components/checkbox/checkbox.spec';
+
+<Meta of={Stories} />
+
+# {checkboxSpec.name}
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## Sizes
+
+<Canvas of={Stories.Sizes} />
+
+## All variants
+
+Every variant of the Figma component set, with hover and pressed shown statically.
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={checkboxSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={checkboxSpec.docs.baseUi} />

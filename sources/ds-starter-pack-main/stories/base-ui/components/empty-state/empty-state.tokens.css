@@ -1,0 +1,44 @@
+/* Generated from empty-state.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-empty-state {
+  padding-inline: var(--empty-state-space-x, var(--space-2xl));
+  padding-block: var(--empty-state-space-y, var(--space-3xl));
+  gap: var(--empty-state-gap, var(--space-lg));
+}
+
+.ds-empty-state .ds-empty-state__icon {
+  width: var(--empty-state-icon-size, var(--size-xl));
+  height: var(--empty-state-icon-size, var(--size-xl));
+  border-radius: var(--empty-state-icon-radius, var(--shape-radius-full));
+  background-color: var(--empty-state-icon-background, var(--color-background-neutral-tertiary));
+}
+
+.ds-empty-state .ds-empty-state__glyph {
+  color: var(--empty-state-icon-foreground, var(--color-foreground-neutral-secondary));
+  width: var(--empty-state-glyph-size, var(--size-sm));
+  height: var(--empty-state-glyph-size, var(--size-sm));
+}
+
+.ds-empty-state .ds-empty-state__text {
+  gap: var(--empty-state-text-gap, var(--space-xs));
+}
+
+.ds-empty-state .ds-empty-state__title {
+  color: var(--empty-state-title-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--empty-state-title-text-style-font-family, var(--font-family-primary));
+  font-size: var(--empty-state-title-text-style-font-size, var(--font-size-body-lg));
+  line-height: var(--empty-state-title-text-style-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--empty-state-title-text-style-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-empty-state .ds-empty-state__description {
+  color: var(--empty-state-description-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--empty-state-description-text-style-font-family, var(--font-family-primary));
+  font-size: var(--empty-state-description-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--empty-state-description-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--empty-state-description-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-empty-state .ds-empty-state__actions {
+  gap: var(--empty-state-actions-gap, var(--space-sm));
+}

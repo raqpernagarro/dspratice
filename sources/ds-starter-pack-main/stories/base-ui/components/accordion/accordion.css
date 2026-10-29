@@ -1,0 +1,85 @@
+/* Layout only. Colors, spacing and type come from accordion.tokens.css and accordion-item.tokens.css. */
+
+.ds-accordion {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  border-style: solid;
+}
+
+.ds-accordion-item {
+  border-style: solid;
+  border-width: 0;
+}
+
+/* The divider sits between items, not above the first. */
+.ds-accordion-item:first-child {
+  border-top-width: 0;
+}
+
+.ds-accordion-item__header {
+  margin: 0;
+  font: inherit;
+}
+
+.ds-accordion-item__trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  text-align: start;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-accordion-item__trigger:focus-visible {
+  position: relative;
+  z-index: 1;
+  box-shadow: inset var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-accordion-item__trigger[data-disabled] {
+  cursor: not-allowed;
+}
+
+.ds-accordion-item__label {
+  flex: 1;
+  min-width: 0;
+}
+
+.ds-accordion-item__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  transition: transform var(--motion-duration-fast) var(--motion-ease-decelerate);
+}
+
+.ds-accordion-item__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* The plus turns into a cross while open. */
+.ds-accordion-item__trigger[data-panel-open] .ds-accordion-item__icon {
+  transform: rotate(45deg);
+}
+
+.ds-accordion-item__panel {
+  overflow: hidden;
+  height: var(--accordion-panel-height);
+  transition: height var(--motion-duration-fast) var(--motion-ease-decelerate);
+}
+
+.ds-accordion-item__panel[data-starting-style],
+.ds-accordion-item__panel[data-ending-style] {
+  height: 0;
+}
+
+.ds-accordion-item__panel[data-preview] {
+  height: auto;
+}

@@ -1,0 +1,30 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './RadioGroup.stories';
+import docs from './docs/radio-group.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { radioGroupSpec } from './components/radio-group/radio-group.spec';
+import { radioSpec } from './components/radio/radio.spec';
+
+<Meta of={Stories} />
+
+# Radio Group
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+<Canvas of={Stories.GroupMatrix} />
+
+<SpecDocs spec={radioGroupSpec} />
+
+# Radio
+
+Every variant of the Figma component set.
+
+<Canvas of={Stories.RadioMatrix} />
+
+<SpecDocs spec={radioSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={radioGroupSpec.docs.baseUi} />

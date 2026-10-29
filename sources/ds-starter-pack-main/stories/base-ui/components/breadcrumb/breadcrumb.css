@@ -1,0 +1,42 @@
+/* Layout only. Colors, gaps and type come from breadcrumb(-item).tokens.css (generated from their specs). */
+
+.ds-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ds-breadcrumb-item__link {
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.ds-breadcrumb-item__link[href] {
+  cursor: pointer;
+}
+
+.ds-breadcrumb-item__link[href]:hover {
+  text-decoration-line: var(--effect-text-decoration-link, underline);
+}
+
+.ds-breadcrumb-item__link:focus-visible {
+  outline: 2px solid var(--color-shadow-focus-ring-primary);
+  outline-offset: 2px;
+}
+
+.ds-breadcrumb-item__separator {
+  display: inline-flex;
+}
+
+.ds-breadcrumb-item__separator svg {
+  width: 100%;
+  height: 100%;
+}

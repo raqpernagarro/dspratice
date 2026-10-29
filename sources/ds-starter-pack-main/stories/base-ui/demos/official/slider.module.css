@@ -1,0 +1,48 @@
+.Control {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 14rem;
+  padding-block: var(--space-md);
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.Track {
+  width: 100%;
+  height: 0.25rem;
+  background-color: var(--color-border-neutral-subtle);
+  -webkit-user-select: none;
+  user-select: none;
+
+  
+}
+
+.Indicator {
+  background-color: var(--color-background-accent-default);
+  -webkit-user-select: none;
+  user-select: none;
+
+  
+}
+
+.Thumb {
+  box-sizing: border-box;
+  width: var(--size-xs);
+  height: var(--size-xs);
+  border: 1px solid var(--color-border-interactive-default);
+  border-radius: var(--shape-radius-full);
+  background-color: var(--color-background-neutral-primary);
+  -webkit-user-select: none;
+  user-select: none;
+
+  
+
+  &:has(:focus-visible) {
+    outline: 2px solid var(--color-shadow-focus-ring-primary);
+    outline-offset: 2px;
+
+    
+  }
+}

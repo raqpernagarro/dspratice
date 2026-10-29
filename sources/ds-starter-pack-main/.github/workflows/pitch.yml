@@ -1,0 +1,67 @@
+# Rebuilds the pitch deck (pitch/story.md + pitch/roadmap.md + live facts) and attaches it to the
+# "Pitch deck (latest)" release. Runs when a pull request labelled `pitch` is merged into main, or
+# by hand: Actions → Pitch deck → Run workflow.
+name: Pitch deck
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, 'pitch'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # On the job, not the workflow: every merged PR starts this workflow, and a skipped run must
+    # not cancel a build in progress. Only real builds wait for each other.
+    concurrency:
+      group: pitch-deck
+      cancel-in-progress: false
+    permissions:
+      contents: write # only to update the release below
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0 # full history: the deck counts commits
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            variables-github-action/package-lock.json
+
+      - run: npm ci
+      - run: npm ci --prefix variables-github-action
+      - run: npx playwright install --with-deps chromium
+
+      - run: npm run pitch:build
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: pitch-deck
+          path: |
+            pitch/dist/pitch-deck.html
+            pitch/dist/pitch-deck.pdf
+          retention-days: 30
+
+      - name: Update the "Pitch deck (latest)" release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          notes="Built $(date -u +'%Y-%m-%d %H:%M UTC') from ${GITHUB_SHA::7}. Download pitch-deck.html and open it in a browser (arrow keys move between slides), or use the PDF."
+          if gh release view pitch-latest > /dev/null 2>&1; then
+            gh release edit pitch-latest --notes "$notes"
+            gh release upload pitch-latest pitch/dist/pitch-deck.html pitch/dist/pitch-deck.pdf --clobber
+          else
+            # A pre-release, so it never shows as the repository's "Latest" version.
+            gh release create pitch-latest pitch/dist/pitch-deck.html pitch/dist/pitch-deck.pdf \
+              --title "Pitch deck (latest)" --notes "$notes" --target main --prerelease
+          fi

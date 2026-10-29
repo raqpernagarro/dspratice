@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Base UI/Overview" />
+
+# Base UI Storybook
+
+This catalog documents all [Base UI](https://base-ui.com) components with live examples and synced official documentation.
+
+Component demos use the **CSS Modules examples from base-ui.com** — the same markup and styles shown in each component's live demo on the website.
+
+## Components
+
+37 unstyled React components — Accordion, Alert Dialog, Autocomplete, Avatar, Button, Checkbox, and more.
+
+## Utils
+
+4 utilities — CSP Provider, Direction Provider, `mergeProps`, and `useRender`.
+
+## Documentation source
+
+Each story page includes:
+
+- A **live example** using the official CSS Modules demo from base-ui.com
+- **Official docs** synced from [base-ui.com](https://base-ui.com) (Anatomy, Examples, API reference)
+
+To refresh docs from Base UI:
+
+```bash
+npm run sync:docs
+npm run generate:demos
+npm run generate:stories
+```

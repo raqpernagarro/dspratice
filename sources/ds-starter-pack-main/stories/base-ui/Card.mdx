@@ -1,0 +1,20 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Card.stories';
+import { SpecDocs } from './shared/SpecDocs';
+import { cardSpec } from './components/card/card.spec';
+
+<Meta of={Stories} />
+
+# Card
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={cardSpec} />
+
+## Not part of Base UI
+
+Card is built on the same tokens and spec system as the Base UI components, as a plain `<div>`: there is no Base UI part for it.

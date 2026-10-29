@@ -1,0 +1,213 @@
+.dsn-data-table-header-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  background: var(--color-background-neutral-primary);
+  color: var(--color-foreground-neutral-primary);
+  transition: background-color var(--motion-transition-fast);
+}
+
+.dsn-data-table-header-cell[data-state='hover'],
+.dsn-data-table-header-cell:hover {
+  background: var(--color-background-interactive-secondary-hover, var(--input-background-hover));
+}
+
+.dsn-data-table-header-cell[data-variant='title'] {
+  padding: var(--space-2xs) var(--space-2xs) var(--space-2xs) var(--space-md);
+  min-width: 96px;
+}
+
+.dsn-data-table-header-cell[data-variant='checkbox'] {
+  width: 40px;
+  justify-content: center;
+  padding: var(--space-xs);
+}
+
+.dsn-data-table-header-cell-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-width: 0;
+}
+
+.dsn-data-table-header-cell-main {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.dsn-data-table-header-cell-leading-accessory {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.dsn-data-table-header-cell-label {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dsn-data-table-header-cell-sort {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  transition: opacity var(--motion-transition-fast), color var(--motion-transition-fast);
+}
+
+/* Unsorted — hidden by default */
+.dsn-data-table-header-cell-sort[data-direction="none"] {
+  opacity: 0;
+  color: var(--color-foreground-neutral-secondary);
+}
+
+/* Unsorted — dim hint on hover */
+.dsn-data-table-header-cell:hover .dsn-data-table-header-cell-sort[data-direction="none"],
+.dsn-data-table-header-cell[data-state="hover"] .dsn-data-table-header-cell-sort[data-direction="none"] {
+  opacity: 0.35;
+}
+
+/* Actively sorted — full text color */
+.dsn-data-table-header-cell-sort[data-direction="asc"],
+.dsn-data-table-header-cell-sort[data-direction="desc"] {
+  opacity: 1;
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-data-table-header-cell-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  opacity: 0;
+  transition: opacity var(--motion-transition-fast);
+}
+
+.dsn-data-table-header-cell[data-state='hover'] .dsn-data-table-header-cell-controls,
+.dsn-data-table-header-cell:hover .dsn-data-table-header-cell-controls,
+.dsn-data-table-header-cell:focus-within .dsn-data-table-header-cell-controls {
+  opacity: 1;
+}
+
+.dsn-data-table-header-cell-options-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.dsn-data-table-header-cell-menu-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.dsn-data-table-header-drag-indicator {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  padding: 4px;
+  margin: -4px;
+  opacity: 0;
+  pointer-events: auto;
+  cursor: grab;
+  transition: opacity var(--motion-transition-fast);
+  z-index: 1;
+}
+
+.dsn-data-table-header-drag-indicator span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-foreground-neutral-tertiary);
+  flex-shrink: 0;
+}
+
+/* Cell hover — dots appear at 50% */
+.dsn-data-table-header-cell:hover .dsn-data-table-header-drag-indicator,
+.dsn-data-table-header-cell[data-state='hover'] .dsn-data-table-header-drag-indicator {
+  opacity: 0.5;
+}
+
+/* Dots hover — full opacity */
+.dsn-data-table-header-drag-indicator:hover {
+  opacity: 1;
+}
+
+/* Grabbing cursor on cell while dragging */
+.dsn-data-table-header-cell[data-dragging] {
+  cursor: grabbing;
+}
+
+/* =============================================================================
+   RESIZER — absolute right-edge, border-style resize affordance
+   ============================================================================= */
+
+.dsn-data-table-header-resizer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: col-resize;
+}
+
+/* Visible 2px line on the far-right edge */
+.dsn-data-table-header-resizer::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: transparent;
+  transition: background-color var(--motion-transition-fast);
+}
+
+/* Cell hover → dim separator */
+.dsn-data-table-header-cell:hover .dsn-data-table-header-resizer::after,
+.dsn-data-table-header-cell[data-state='hover'] .dsn-data-table-header-resizer::after {
+  background: var(--color-border-interactive-hover);
+}
+
+/* Resizer hover / active → accent color */
+.dsn-data-table-header-resizer:hover::after,
+.dsn-data-table-header-resizer:active::after {
+  background: var(--color-background-interactive-primary-default);
+}
+
+.dsn-data-table-header-resizer:focus-visible {
+  outline: none;
+}
+
+.dsn-data-table-header-resizer:focus-visible::after {
+  background: var(--color-background-interactive-primary-default);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-border-interactive-focus);
+}
+
+.dsn-data-table-header-cell-checkbox-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,29 @@
+/* Layout only. Colors, spacing and type come from menubar.tokens.css and menubar-item.tokens.css. */
+
+.ds-menubar {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  border-style: solid;
+}
+
+.ds-menubar-item {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  white-space: nowrap;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-menubar-item:focus-visible {
+  box-shadow: var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-menubar-item[data-disabled] {
+  cursor: not-allowed;
+}

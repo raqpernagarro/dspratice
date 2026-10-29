@@ -1,0 +1,253 @@
+/* =============================================================================
+   Carousel
+   ─────────────────────────────────────────────────────────────────────────────
+   Namespaced with .dsn-carousel.
+
+   Structure:
+     <section class="dsn-carousel" aria-roledescription="carousel">
+       <div class="dsn-aspect-ratio dsn-carousel-frame">          ← AspectRatio
+         <div class="dsn-aspect-ratio-content">
+           <div class="dsn-carousel-viewport">
+             <div class="dsn-carousel-track">                        ← translateX
+               <div class="dsn-carousel-slide" role="group">…</div>
+             </div>
+           </div>
+           <div class="dsn-carousel-arrow" data-side="previous|next"> Button </div>
+           <div class="dsn-carousel-dots"> button.dsn-carousel-dot × n </div>
+           <div class="dsn-carousel-counter">3 / 27</div>
+         </div>
+       </div>
+       <div class="dsn-carousel-live" aria-live="polite" />          ← visually hidden
+       <div class="dsn-carousel-thumbnails"> button × n </div>
+     </section>
+
+   Tokens used:
+     --color-background-inverse-primary / --color-foreground-inverse-primary  arrows, counter, dots pill
+     --color-background-inverse-secondary                               arrow hover
+     --color-foreground-inverse-tertiary                                      inactive dot
+   Arrows are not rendered at the ends: no previous on the first slide, no next on the last.
+     --color-border-interactive-primary-selected                                      selected thumbnail
+     --button-shadow-focus                                           arrow / dot / thumbnail focus ring
+     --motion-transition-normal                                          slide transition
+   ============================================================================= */
+
+
+/* ── Root ──────────────────────────────────────────────────────────────────── */
+
+.dsn-carousel {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-xs);
+  width:          100%;
+  min-width:      0;
+}
+
+
+/* ── Viewport + track ──────────────────────────────────────────────────────── */
+
+.dsn-carousel-viewport {
+  position:     absolute;
+  inset:        0;
+  overflow:     hidden;
+  touch-action: pan-y;   /* vertical page scroll stays native; horizontal is a swipe */
+}
+
+.dsn-carousel-track {
+  display:    flex;
+  height:     100%;
+  transition: transform var(--motion-transition-normal);
+}
+
+.dsn-carousel-slide {
+  position:    relative;
+  flex:        0 0 100%;
+  width:       100%;
+  height:      100%;
+  overflow:    hidden;
+}
+
+/* Images and video fill the slide (cover), like AspectRatio fit="cover". */
+.dsn-carousel-slide > img,
+.dsn-carousel-slide > video {
+  display:    block;
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+}
+
+
+/* A SkeletonLoading slide stands in for the whole frame while images load. */
+.dsn-carousel-slide > .dsn-skeleton-loading[data-type] {
+  width:         100%;
+  height:        100%;
+  border-radius: var(--shape-radius-none);
+}
+
+
+/* ── Arrows ────────────────────────────────────────────────────────────────── */
+
+/*
+  Overlay controls (arrows, dots, counter) share the inverted surface so they
+  read as one set on top of media in both themes.
+*/
+.dsn-carousel-arrow {
+  position:  absolute;
+  top:       50%;
+  transform: translateY(-50%);
+  z-index:   1;
+}
+
+.dsn-carousel-arrow[data-side='previous'] { left:  var(--space-xs); }
+.dsn-carousel-arrow[data-side='next']     { right: var(--space-xs); }
+
+.dsn-carousel-arrow-button {
+  display:          inline-flex;
+  align-items:      center;
+  justify-content:  center;
+  width:            var(--size-control-height-md);
+  height:           var(--size-control-height-md);
+  padding:          var(--space-none);
+  border:           none;
+  border-radius:    var(--shape-radius-full);
+  background-color: var(--color-background-inverse-primary);
+  color:            var(--color-foreground-inverse-primary);
+  cursor:           pointer;
+  transition:       background-color var(--motion-transition-fast);
+}
+
+.dsn-carousel-arrow-button:hover {
+  background-color: var(--color-background-inverse-secondary);
+}
+
+.dsn-carousel-arrow-button:focus-visible {
+  outline:    none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+
+/* ── Counter ───────────────────────────────────────────────────────────────── */
+
+.dsn-carousel-counter {
+  position:         absolute;
+  right:            var(--space-xs);
+  bottom:           var(--space-xs);
+  z-index:          1;
+  padding-block:    var(--space-3xs);
+  padding-inline:   var(--space-xs);
+  border-radius:    var(--shape-radius-full);
+  background-color: var(--color-background-inverse-primary);
+  color:            var(--color-foreground-inverse-primary);
+  font-family:      var(--font-family-default);
+  font-size:        var(--font-size-micro);
+  line-height:      var(--font-line-height-micro);
+  font-weight:      var(--font-weight-medium);
+  font-variant-numeric: tabular-nums;
+  white-space:      nowrap;
+}
+
+
+/* ── Dots ──────────────────────────────────────────────────────────────────── */
+
+.dsn-carousel-dots {
+  position:         absolute;
+  left:             50%;
+  bottom:           var(--space-xs);
+  z-index:          1;
+  transform:        translateX(-50%);
+  display:          flex;
+  align-items:      center;
+  padding-inline:   var(--space-2xs);
+  border-radius:    var(--shape-radius-full);
+  background-color: var(--color-background-inverse-primary);
+}
+
+/* 24px hit area (WCAG 2.5.8) around an 8px visual dot. */
+.dsn-carousel-dot {
+  position:   relative;
+  width:      var(--size-control-height-sm);
+  height:     var(--size-control-height-sm);
+  padding:    var(--space-none);
+  border:     none;
+  border-radius: var(--shape-radius-full);
+  background: none;
+  cursor:     pointer;
+}
+
+.dsn-carousel-dot::after {
+  content:          '';
+  position:         absolute;
+  inset:            0;
+  margin:           auto;
+  width:            var(--size-2xs);
+  height:           var(--size-2xs);
+  border-radius:    var(--shape-radius-full);
+  background-color: var(--color-foreground-inverse-tertiary);
+  transition:       background-color var(--motion-transition-fast);
+}
+
+.dsn-carousel-dot:hover::after {
+  background-color: var(--color-foreground-inverse-secondary);
+}
+
+.dsn-carousel-dot[aria-current='true']::after {
+  background-color: var(--color-foreground-inverse-primary);
+}
+
+.dsn-carousel-dot:focus-visible {
+  outline:    none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+
+/* ── Live region (visually hidden) ─────────────────────────────────────────── */
+
+.dsn-carousel-live {
+  position:    absolute;
+  width:       1px;
+  height:      1px;
+  padding:     0;
+  margin:      -1px;
+  overflow:    hidden;
+  clip:        rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border:      0;
+}
+
+
+/* ── Thumbnails ────────────────────────────────────────────────────────────── */
+
+.dsn-carousel-thumbnails {
+  display:         flex;
+  gap:             var(--space-xs);
+  overflow-x:      auto;
+  padding:         var(--space-3xs);  /* room for the selected ring */
+  scrollbar-width: thin;
+}
+
+.dsn-carousel-thumbnail {
+  flex:          0 0 var(--size-xl);
+  width:         var(--size-xl);
+  padding:       var(--space-none);
+  border:        none;
+  border-radius: var(--shape-radius-2xs);
+  background:    none;
+  overflow:      hidden;
+  cursor:        pointer;
+  transition:    box-shadow var(--motion-transition-fast);
+}
+
+.dsn-carousel-thumbnail .dsn-aspect-ratio-content > img {
+  display:    block;
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+}
+
+.dsn-carousel-thumbnail[aria-current='true'] {
+  box-shadow: 0 0 0 var(--size-border-focus) var(--color-border-interactive-primary-selected);
+}
+
+.dsn-carousel-thumbnail:focus-visible {
+  outline:    none;
+  box-shadow: var(--button-shadow-focus);
+}

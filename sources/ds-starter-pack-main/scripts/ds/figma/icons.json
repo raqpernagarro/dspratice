@@ -1,0 +1,40 @@
+{
+  "library": "Icons — Phosphor",
+  "variants": {
+    "default": "Format=Stroke, Weight=Fill",
+    "Check": "Format=Outline, Weight=Bold",
+    "Minus": "Format=Outline, Weight=Bold",
+    "line": "Format=Outline, Weight=Regular",
+    "Plus": "Format=Outline, Weight=Bold",
+    "X": "Format=Outline, Weight=Bold"
+  },
+  "sets": {
+    "Check": "c7f7c67c5d4d9e1090b13a965ac9ba8a45808999",
+    "Minus": "d7ee723a4f4e72c6903ef247ca87eff765a8485d",
+    "Plus": "1a3e2e450452fa97561b8c757f959958af7d15b6",
+    "CaretDown": "1e3e8e553dda50d9ca99bc7f81fa2cb11c3ff96e",
+    "CaretUpDown": "a8ce0a5e7ade2bfb164963ce57b68cd628c009fd",
+    "X": "14346afbb1ec5c530480eeda85cf884c36eede1a",
+    "MagnifyingGlass": "9bad2533e38e3d0010b6831b820ddfe18acad8b9",
+    "CaretRight": "2dc4d9a4f38bbbd65cb23a623850786402086148",
+    "Circle": "d19f8aabd16174d412bb6e316aa6213c25d18e5a",
+    "Heart": "25c508d5e1ef62d328941857c5f3d2e820130feb",
+    "TextAlignLeft": "53b21cb89d5519270bee6a9f2d0627a1ef442e6e",
+    "TextAlignCenter": "267170ea03f46310853fafd5ae76c47f379fee53",
+    "TextAlignRight": "856c257b056463a7e132a260420e6266868fd627",
+    "House": "29a676da5d0ecadd20c7d8e3a2449f2db7f2208c",
+    "Compass": "bf2f68d7ba428554fd51feb8c3abb1735075fa3a",
+    "BookOpen": "cf814c138f62834a33d1429b1e5b3a159691d799",
+    "ArrowArcLeft": "dba0311c910bfe234e77866b83d961df1e022fac",
+    "ArrowArcRight": "f06b7f7494d839ae85e97a335412d15f74db75cd",
+    "TextB": "412004cda00715674a2d6c84abca2e9c375edf26",
+    "TextItalic": "00df1bff049970726736c72443d1ce072396b278",
+    "Info": "09bca2f1587f18e9cea62845ae58399ae0320c8a",
+    "CheckCircle": "ebb4cf5ddea3c233a04519bc348ffce921c47e7b",
+    "Warning": "b0e12e57b86dba99a4d5b638af4e801433177c01",
+    "XCircle": "4199d8adb4933cd644ea13fbe38d6e977ad6ec6a",
+    "CaretLeft": "f35dff85982e39cc42273ea10ff511bfe844d191",
+    "FolderSimple": "3843d9e394d1e2fbdf05a1874415a5309a620525"
+  },
+  "note": "Fill everywhere, except Check / Minus / Plus / X, whose Fill forms are boxes: they use Bold. Stateful icons (toggles, navigation) use line (Regular) when off and Fill when on."
+}

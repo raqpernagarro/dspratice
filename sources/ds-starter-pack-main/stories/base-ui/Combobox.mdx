@@ -1,0 +1,25 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Combobox.stories';
+import docs from './docs/combobox.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { comboboxSpec } from './components/combobox/combobox.spec';
+
+<Meta of={Stories} />
+
+# Combobox
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={comboboxSpec} />
+
+The popup is a **Listbox** of **Options**, documented with Select.
+
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={comboboxSpec.docs.baseUi} />

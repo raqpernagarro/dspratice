@@ -1,0 +1,169 @@
+.Button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  height: var(--size-md);
+  padding: 0 var(--space-md);
+  margin: 0;
+  border: 1px solid var(--color-border-interactive-default);
+  border-radius: var(--shape-radius-md);
+  background-color: var(--color-background-neutral-primary);
+  font-family: inherit;
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-body-regular);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--color-foreground-neutral-primary);
+  -webkit-user-select: none;
+  user-select: none;
+
+  
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]) {
+      background-color: var(--color-background-interactive-subtle-hover);
+
+      
+    }
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: var(--color-background-interactive-subtle-pressed);
+
+    
+  }
+
+  &[data-disabled] {
+    color: var(--color-foreground-interactive-disabled);
+    border-color: var(--color-border-interactive-disabled);
+
+    
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-shadow-focus-ring-primary);
+    outline-offset: -1px;
+
+    
+  }
+}
+
+.Backdrop {
+  --backdrop-opacity: 1;
+  --bleed: 3rem;
+  position: fixed;
+  min-height: 100dvh;
+  inset: 0;
+  background-color: var(--color-background-overlay-regular);
+  opacity: calc(var(--backdrop-opacity) * (1 - var(--drawer-swipe-progress)));
+  transition-duration: var(--motion-duration-slow);
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* iOS 26+: Ensure the backdrop covers the entire visible viewport. */
+  @supports (-webkit-touch-callout: none) {
+    position: absolute;
+  }
+
+  
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+  }
+
+  &[data-swiping] {
+    transition-duration: 0ms;
+  }
+
+  &[data-ending-style] {
+    transition-duration: calc(var(--drawer-swipe-strength) * var(--motion-duration-slow));
+  }
+}
+
+.Viewport {
+  --viewport-padding: 0px;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--viewport-padding);
+
+  @supports (-webkit-touch-callout: none) {
+    --viewport-padding: var(--space-sm);
+  }
+}
+
+.Popup {
+  --bleed: 3rem;
+  box-sizing: border-box;
+  width: calc(20rem + var(--bleed));
+  max-width: calc(100vw - 3rem + var(--bleed));
+  height: 100%;
+  padding: var(--space-2xl);
+  padding-right: calc(var(--space-2xl) + var(--bleed));
+  margin-right: calc(-1 * var(--bleed));
+  border-left: 1px solid var(--color-border-neutral-subtle);
+  border-radius: var(--shape-radius-lg) 0 0 var(--shape-radius-lg);
+  background-color: var(--color-background-surface-high);
+  color: var(--color-foreground-neutral-primary);
+  outline: 0;
+  box-shadow: var(--effect-shadow-elevation-high);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: auto;
+  transition: transform var(--motion-duration-slow) cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: transform;
+  transform: translateX(var(--drawer-swipe-movement-x));
+
+  
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    transform: translateX(calc(100% - var(--bleed) + var(--viewport-padding) + 2px));
+  }
+
+  &[data-ending-style] {
+    transition-duration: calc(var(--drawer-swipe-strength) * var(--motion-duration-slow));
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    --bleed: 0px;
+    margin-right: 0;
+    border: 1px solid var(--color-border-neutral-subtle);
+    border-radius: var(--shape-radius-lg);
+
+    
+  }
+}
+
+.Content {
+  width: 100%;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.Title {
+  margin-top: 0;
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-body-lg);
+  line-height: var(--font-line-height-body-lg);
+  font-weight: var(--font-weight-body-strong);
+}
+
+.Description {
+  margin: 0 0 var(--space-2xl);
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  color: var(--color-foreground-neutral-secondary);
+
+  
+}
+
+.Actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-md);
+}

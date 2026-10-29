@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap');
+
+/* AppShell height chain reset — required for scroll isolation to work */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base reset — required for layout parity with Storybook (min-height + padding primitives) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base body styles using semantic tokens (import ds-ngr/tokens.css before this file) */
+body {
+  margin: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  color: var(--color-foreground-neutral-primary);
+  background-color: var(--color-background-neutral-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-family-default);
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Consistent focus outline — always use :focus-visible
+ * NOTE: --color-shadow-focus-inset is WHITE (#fcfcfc) — only used inside button's
+ * inset double-ring. Global outline uses --color-border-interactive-focus (teal).
+ */
+:focus-visible {
+  outline: var(--size-border-focus) solid var(--color-border-interactive-focus);
+  outline-offset: 2px;
+}
+
+/* Remove focus ring for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}

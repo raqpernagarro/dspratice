@@ -1,0 +1,51 @@
+/* Layout only. Colors, spacing and the scrollbar come from scroll-area.tokens.css (generated from scroll-area.spec.ts). */
+
+.ds-scroll-area {
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.ds-scroll-area__viewport {
+  box-sizing: border-box;
+  height: 100%;
+  border-style: solid;
+  outline: 0;
+}
+
+.ds-scroll-area__viewport:focus-visible {
+  box-shadow: inset var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-scroll-area__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-scroll-area__content p {
+  margin: 0;
+}
+
+/* Shown while hovering or scrolling. */
+.ds-scroll-area__scrollbar {
+  box-sizing: border-box;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-duration-fast);
+}
+
+.ds-scroll-area__scrollbar[data-hovering],
+.ds-scroll-area__scrollbar[data-scrolling],
+.ds-scroll-area__scrollbar[data-preview] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ds-scroll-area__scrollbar[data-scrolling] {
+  transition-duration: 0ms;
+}
+
+.ds-scroll-area__thumb {
+  width: 100%;
+}

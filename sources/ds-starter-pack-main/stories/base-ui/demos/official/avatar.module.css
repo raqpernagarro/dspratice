@@ -1,0 +1,34 @@
+.Root {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  border-radius: var(--shape-radius-full);
+  -webkit-user-select: none;
+  user-select: none;
+  font-weight: var(--font-weight-body-regular);
+  color: var(--color-foreground-neutral-primary);
+  background-color: var(--color-background-accent-selected);
+  font-size: var(--font-size-body-md);
+  line-height: 1;
+  overflow: hidden;
+  height: var(--size-md);
+  width: var(--size-md);
+
+  
+}
+
+.Image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.Fallback {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: var(--font-size-body-md);
+}

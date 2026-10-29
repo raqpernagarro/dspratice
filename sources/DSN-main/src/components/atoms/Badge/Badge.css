@@ -1,0 +1,105 @@
+/* =============================================================================
+   Badge
+   ─────────────────────────────────────────────────────────────────────────────
+   Namespaced with .dsn-badge.
+
+   Sizes    (data-size):    sm | dot
+   Variants (data-variant): highlight-soft | highlight-strong | informative | inverted | critical
+
+   All values via var() — no hardcoded colours or pixel literals.
+   ============================================================================= */
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+
+.dsn-badge {
+  display:     inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+
+/* ── Sizes ────────────────────────────────────────────────────────────────── */
+
+/* sm — transparent wrapper: padding-block via --inset-tiny (4px) gives a
+   24px total footprint while the visual pill stays at --primitive-size-16 (16px).
+   Grows horizontally for multi-digit counts. */
+.dsn-badge[data-size="sm"] {
+  padding-block: var(--space-2xs); /* 4px top + 4px bottom → 24px footprint */
+}
+
+.dsn-badge[data-size="sm"] .dsn-badge__pill {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+
+  height:         var(--size-xs);   /* 16px */
+  min-width:      var(--size-xs);   /* 16px — square minimum for single-digit */
+  padding-inline: var(--space-2xs); /* 4px — Figma: inset/tiny */
+  border-radius:  var(--shape-radius-control-sm);
+
+  font-family:    var(--font-family-default);
+  font-size:      var(--font-size-micro);           /* 0.75rem — Figma: font/size/micro */
+  font-weight:    var(--font-weight-medium);         /* 500 */
+  letter-spacing: var(--font-letter-spacing-tight);  /* -0.03em */
+
+  border:     var(--size-border-sm) solid var(--color-border-neutral-secondary);
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+/* Label text — trims font leading so cap-height is visually centred,
+   not the line box. line-height:1 collapses the line box to 1em;
+   margin-block then subtracts the half-leading (0.5lh − 0.5cap). */
+.dsn-badge__label {
+  line-height:  1;
+  margin-block: calc(0.5cap - 0.5lh);
+}
+
+/* dot — circle, no text */
+.dsn-badge[data-size="dot"] {
+  width:         var(--size-2xs);  /* 8px */
+  height:        var(--size-2xs);
+  min-width:     var(--size-2xs);
+  padding:       0;
+  border-radius: var(--shape-radius-full);
+  border:        var(--size-border-sm) solid var(--color-border-neutral-secondary);
+  box-sizing:    border-box;
+}
+
+
+/* ── Variants (sm pill + dot circle) ─────────────────────────────────────── */
+
+/* Highlight soft — light teal background, teal text */
+.dsn-badge[data-variant="highlight-soft"] .dsn-badge__pill,
+.dsn-badge[data-size="dot"][data-variant="highlight-soft"] {
+  background-color: var(--tag-background-progress);       /* Figma: surface/tag/progress */
+  color:            var(--color-foreground-interactive-primary-hover); /* Figma: text/interactive/cta/hover */
+}
+
+/* Highlight strong — filled teal background, white text */
+.dsn-badge[data-variant="highlight-strong"] .dsn-badge__pill,
+.dsn-badge[data-size="dot"][data-variant="highlight-strong"] {
+  background-color: var(--color-background-accent-strong-default);             /* Figma: background/accent */
+  color:            var(--color-foreground-inverse-primary);
+}
+
+/* Informative — neutral light-gray background, secondary text */
+.dsn-badge[data-variant="informative"] .dsn-badge__pill,
+.dsn-badge[data-size="dot"][data-variant="informative"] {
+  background-color: var(--tag-background-neutral);           /* Figma: surface/tag/neutral */
+  color:            var(--color-foreground-neutral-secondary);
+}
+
+/* Inverted — dark neutral background, white text */
+.dsn-badge[data-variant="inverted"] .dsn-badge__pill,
+.dsn-badge[data-size="dot"][data-variant="inverted"] {
+  background-color: var(--color-background-inverse-primary);
+  color:            var(--color-foreground-inverse-primary);
+}
+
+/* Critical — danger red background, white text (urgent/errors) */
+.dsn-badge[data-variant="critical"] .dsn-badge__pill,
+.dsn-badge[data-size="dot"][data-variant="critical"] {
+  background-color: var(--color-background-error-strong);
+  color:            var(--color-foreground-inverse-primary);
+}

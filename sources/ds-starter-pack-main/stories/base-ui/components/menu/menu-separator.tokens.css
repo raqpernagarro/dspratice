@@ -1,0 +1,8 @@
+/* Generated from menu-separator.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-menu-separator {
+  padding-inline: var(--menu-separator-space-x, var(--space-md));
+  padding-block: var(--menu-separator-space-y, var(--space-xs));
+  height: var(--menu-separator-width, var(--size-border-regular));
+  background-color: var(--menu-separator-color, var(--color-border-neutral-subtle));
+}

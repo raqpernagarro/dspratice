@@ -1,0 +1,41 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './NavigationMenu.stories';
+import docs from './docs/navigation-menu.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { navigationMenuSpec } from './components/navigation-menu/navigation-menu.spec';
+import { navigationMenuItemSpec } from './components/navigation-menu/navigation-menu-item.spec';
+import { navigationMenuLinkSpec } from './components/navigation-menu/navigation-menu-link.spec';
+
+<Meta of={Stories} />
+
+# Navigation Menu
+
+<Canvas of={Stories.Default} />
+
+## As in Figma
+
+<Canvas of={Stories.Preview} />
+
+<SpecDocs spec={navigationMenuSpec} />
+
+# Navigation Menu Item
+
+Icons are stateful: a line icon while inactive, a filled one on the current page or while its panel is open. Every variant of the Figma component set:
+
+<Canvas of={Stories.ItemMatrix} />
+
+<SpecDocs spec={navigationMenuItemSpec} />
+
+
+# Navigation Menu Link
+
+A link card for the panel's Links slot (in code, `NavigationMenu.Card`).
+
+<Canvas of={Stories.LinkMatrix} />
+
+<SpecDocs spec={navigationMenuLinkSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={navigationMenuSpec.docs.baseUi} />

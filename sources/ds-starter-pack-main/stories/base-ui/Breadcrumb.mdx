@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Breadcrumb.stories';
+import { SpecDocs } from './shared/SpecDocs';
+import { breadcrumbSpec } from './components/breadcrumb/breadcrumb.spec';
+import { breadcrumbItemSpec } from './components/breadcrumb/breadcrumb-item.spec';
+
+<Meta of={Stories} />
+
+# Breadcrumb
+
+<Canvas of={Stories.Default} />
+
+<SpecDocs spec={breadcrumbSpec} />
+
+## Breadcrumb Item
+
+<Canvas of={Stories.ItemMatrix} />
+
+<SpecDocs spec={breadcrumbItemSpec} />
+
+## Not part of Base UI
+
+Breadcrumb is built on the same tokens and spec system as the Base UI components, as a `<nav>` with an ordered list: there is no Base UI part for it.
+
+```tsx
+<Breadcrumb.Root>
+  <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+  <Breadcrumb.Item href="/projects">Projects</Breadcrumb.Item>
+  <Breadcrumb.Item current>Design system</Breadcrumb.Item>
+</Breadcrumb.Root>
+```

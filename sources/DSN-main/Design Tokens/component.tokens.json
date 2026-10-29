@@ -1,0 +1,691 @@
+{
+  "avatar": {
+    "background": {
+      "$type": "color",
+      "$value": "{color.background.neutral.strong}",
+      "$description": "Background color for avatar placeholders (when no image)",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336891"
+        }
+      }
+    },
+    "overlap": {
+      "$type": "number",
+      "$value": -4,
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336892"
+        }
+      }
+    },
+    "radius": {
+      "organization": {
+        "$type": "number",
+        "$value": "{shape.radius.xs}",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336893"
+          }
+        }
+      },
+      "user": {
+        "$type": "number",
+        "$value": "{shape.radius.full}",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336894"
+          }
+        }
+      }
+    }
+  },
+  "button": {
+    "background": {
+      "primary": {
+        "active": {
+          "$type": "color",
+          "$value": "{color.background.interactive.strong.active}",
+          "$description": "Background for primary buttons when pressed",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336898"
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.background.interactive.strong.default}",
+          "$description": "Default background for primary (CTA) buttons",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336899"
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.background.interactive.strong.hover}",
+          "$description": "Background for primary buttons on hover",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336900"
+            }
+          }
+        }
+      },
+      "secondary": {
+        "active": {
+          "$type": "color",
+          "$value": "{color.background.interactive.secondary.active}",
+          "$description": "Background for secondary buttons when pressed",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336901"
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.background.interactive.secondary.default}",
+          "$description": "Default background for secondary buttons",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336902"
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.background.interactive.secondary.hover}",
+          "$description": "Background for secondary buttons on hover",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336903"
+            }
+          }
+        }
+      },
+      "destructive": {
+        "active": {
+          "$type": "color",
+          "$value": "{color.background.interactive.destructive.active}",
+          "$description": "Background for destructive buttons when pressed. Aliases background/interactive/destructive/pressed.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336895"
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.background.interactive.destructive.default}",
+          "$description": "Default background for destructive buttons. Aliases background/interactive/destructive/default — use this component-scoped name inside button-specific definitions.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336896"
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.background.interactive.destructive.hover}",
+          "$description": "Background for destructive buttons on hover. Aliases background/interactive/destructive/hover.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336897"
+            }
+          }
+        }
+      }
+    },
+    "blur": {
+      "$type": "number",
+      "$value": "{effect.blur.sm}",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336904"
+        }
+      }
+    },
+    "border": {
+      "destructive": {
+        "$type": "color",
+        "$value": "{color.foreground.interactive.destructive.default}",
+        "$description": "Border color for divider lines and separators",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336905"
+          }
+        }
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "{color.border.interactive.strong}",
+        "$description": "Border color for divider lines and separators",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336906"
+          }
+        }
+      }
+    },
+    "foreground": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.foreground.inverse.primary}",
+        "$description": "Primary button label and icon. Aliases text/inverted/primary; theme configurator &quot;Exact color&quot; re-values it per brand.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336907"
+          }
+        }
+      }
+    }
+  },
+  "card": {
+    "radius": {
+      "$type": "number",
+      "$value": "{shape.radius.lg}",
+      "$description": "Outer radius for card containers. Aliases radius/outer-small — gives cards a soft, elevated feel consistent with other container surfaces.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336908"
+        }
+      }
+    }
+  },
+  "drawer": {
+    "transition": {
+      "$type": "string",
+      "$value": "{motion.duration.normal}",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336909"
+        }
+      }
+    }
+  },
+  "input": {
+    "background": {
+      "active": {
+        "$type": "color",
+        "$value": "{color.background.field.active}",
+        "$description": "Background for inputs when pressed/active",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336910"
+          }
+        }
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{color.background.field.default}",
+        "$description": "Default background for text inputs and form fields",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336911"
+          }
+        }
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.background.field.hover}",
+        "$description": "Background for inputs on hover",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336912"
+          }
+        }
+      }
+    },
+    "foreground": {
+      "placeholder": {
+        "$type": "color",
+        "$value": "{color.foreground.neutral.tertiary}",
+        "$description": "Color for placeholder text in empty inputs and non-interactive hint text. Never use for actual content — only for placeholders and empty state labels.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336913"
+          }
+        }
+      }
+    }
+  },
+  "menucell": {
+    "radius": {
+      "$type": "number",
+      "$value": "{shape.radius.control.md}",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336914"
+        }
+      }
+    }
+  },
+  "modal": {
+    "radius": {
+      "$type": "number",
+      "$value": "{shape.radius.xl}",
+      "$description": "Outer radius for modal dialogs. Aliases radius/outer-large — maintains visual harmony between the modal container and the controls inside it.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336915"
+        }
+      }
+    },
+    "transition": {
+      "$type": "string",
+      "$value": "{motion.duration.instant}",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336916"
+        }
+      }
+    },
+    "width": {
+      "max": {
+        "$type": "number",
+        "$value": "{size.container.xl}",
+        "$description": "Maximum width for modal dialogs (1024px). Modals should never exceed this — use a drawer or full-page view for larger content.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336917"
+          }
+        }
+      }
+    }
+  },
+  "popover": {
+    "radius": {
+      "$type": "number",
+      "$value": "{shape.radius.md}",
+      "$description": "Outer radius for popovers, dropdowns, context menus, and date pickers. Aliases radius/standard.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336918"
+        }
+      }
+    },
+    "transition": {
+      "$type": "string",
+      "$value": "{motion.duration.fast}",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336919"
+        }
+      }
+    },
+    "width": {
+      "lg": {
+        "$type": "number",
+        "$value": "{size.container.md}",
+        "$description": "Large popover width (320px) for complex content like rich menus, multi-column pickers, or side panels that stack with the page.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336920"
+          }
+        }
+      },
+      "max": {
+        "$type": "number",
+        "$value": "{size.container.lg}",
+        "$description": "Maximum allowed width for any popover (480px). Never exceed this — use a modal instead for larger content.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336921"
+          }
+        }
+      },
+      "md": {
+        "$type": "number",
+        "$value": "{size.container.sm}",
+        "$description": "Standard popover width. Dropdowns should have the same width as the selector size, but must respect the minimum width rule and the standard size is this one",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336922"
+          }
+        }
+      },
+      "min": {
+        "$type": "number",
+        "$value": "{size.container.xs}",
+        "$description": "Minimum width for any popover (192px). No popover should be narrower than this regardless of trigger element width.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336923"
+          }
+        }
+      }
+    }
+  },
+  "section-header": {
+    "height": {
+      "lg": {
+        "$type": "number",
+        "$value": "{size.xl}",
+        "$description": "Largest min-height for header bars, use it on modals and main page when there are multiple sections",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336924"
+          }
+        }
+      },
+      "md": {
+        "$type": "number",
+        "$value": "{size.lg}",
+        "$description": "Regular height of headers, section headers, popover topbars",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336925"
+          }
+        }
+      },
+      "sm": {
+        "$type": "number",
+        "$value": "{size.md}",
+        "$description": "Regular header size for popover menu sections",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336926"
+          }
+        }
+      },
+      "xs": {
+        "$type": "number",
+        "$value": "{size.sm}",
+        "$description": "Used in special cases when the section header is typically just a signifier. use it on the sidebar menu sections",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336927"
+          }
+        }
+      }
+    }
+  },
+  "sidebar": {
+    "width": {
+      "collapsed": {
+        "$type": "number",
+        "$value": "{size.lg}",
+        "$description": "Width of the sidebar in its collapsed (icon-only) state (48px). At this width only icons are visible — labels are hidden.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336928"
+          }
+        }
+      },
+      "expanded": {
+        "max": {
+          "$type": "number",
+          "$value": "{size.container.lg}",
+          "$description": "Maximum width of the sidebar in its expanded state (480px). The sidebar should never grow beyond this width when expanded and resizable.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336929"
+            }
+          }
+        },
+        "min": {
+          "$type": "number",
+          "$value": "{size.container.sm}",
+          "$description": "Minimum width of the sidebar in its expanded state (256px). The sidebar should never shrink below this width when expanded and resizable.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336930"
+            }
+          }
+        }
+      }
+    }
+  },
+  "switcher": {
+    "transition": {
+      "$type": "string",
+      "$value": "{motion.duration.fast}",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336931"
+        }
+      }
+    }
+  },
+  "tag": {
+    "background": {
+      "error": {
+        "$type": "color",
+        "$value": "{color.background.error.soft.default}",
+        "$description": "Background color for error tag",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336932"
+          }
+        }
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "{color.background.neutral.strong}",
+        "$description": "Background color for neutral tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336933"
+          }
+        }
+      },
+      "progress": {
+        "$type": "color",
+        "$value": "{color.background.info.soft}",
+        "$description": "Background color for progress tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336934"
+          }
+        }
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.background.success.soft.default}",
+        "$description": "Background color for success tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336935"
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.background.warning.soft.default}",
+        "$description": "Background color for warning tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336936"
+          }
+        }
+      }
+    },
+    "border": {
+      "error": {
+        "$type": "color",
+        "$value": "{color.border.error.soft}",
+        "$description": "Border color for error tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336937"
+          }
+        }
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "{color.border.neutral.secondary}",
+        "$description": "Border color for neutral tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336938"
+          }
+        }
+      },
+      "progress": {
+        "$type": "color",
+        "$value": "{color.border.info.soft}",
+        "$description": "Border color for progress/in-progress tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336939"
+          }
+        }
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.border.success.soft}",
+        "$description": "Border color for success tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336940"
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.border.warning.soft}",
+        "$description": "Border color for warning tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336941"
+          }
+        }
+      }
+    },
+    "foreground": {
+      "error": {
+        "$type": "color",
+        "$value": "{color.foreground.error.strong}",
+        "$description": "Text color for error tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336942"
+          }
+        }
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "{color.foreground.neutral.secondary}",
+        "$description": "Text color for neutral tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336943"
+          }
+        }
+      },
+      "progress": {
+        "$type": "color",
+        "$value": "{color.foreground.info.strong}",
+        "$description": "Text color for progress/in-progress tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336944"
+          }
+        }
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.foreground.success.strong}",
+        "$description": "Text color for success tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336945"
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.foreground.warning.strong}",
+        "$description": "Text color for warning tags",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336946"
+          }
+        }
+      }
+    },
+    "height": {
+      "$type": "number",
+      "$value": "{primitive.size.24}",
+      "$description": "Fixed height for tag components (24px). Matches the small/nested control height — keeps tags visually consistent with other inline elements.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336947"
+        }
+      }
+    },
+    "radius": {
+      "$type": "number",
+      "$value": "{shape.radius.md}",
+      "$description": "Radius for tag components. Aliases radius/standard, resulting in a pill shape given the tag&#39;s fixed height.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336948"
+        }
+      }
+    }
+  },
+  "toggle": {
+    "background": {
+      "off": {
+        "$type": "color",
+        "$value": "{color.background.neutral.soft}",
+        "$description": "Background color for toggle switches in OFF state. Switchers, checkboxes and radio",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336949"
+          }
+        }
+      },
+      "on": {
+        "$type": "color",
+        "$value": "{color.background.interactive.primary.selected}",
+        "$description": "Background color for toggle switches in ON state. Switchers, checkboxes and radio",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11058:336950"
+          }
+        }
+      }
+    }
+  },
+  "toolbar": {
+    "height": {
+      "$type": "number",
+      "$value": "{size.lg}",
+      "$description": "Default height of toolbars (filter bars, action bars). Fixed at 48px — content inside adapts to this height.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336951"
+        }
+      }
+    }
+  },
+  "tooltip": {
+    "radius": {
+      "$type": "number",
+      "$value": "{shape.radius.2xs}",
+      "$description": "Radius for tooltips. Aliases radius/xsmall — keeps tooltips compact and visually distinct from larger surfaces.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336952"
+        }
+      }
+    }
+  },
+  "topbar": {
+    "height": {
+      "$type": "number",
+      "$value": "{size.lg}",
+      "$description": "Default height of the top navigation bar. Can grow taller when a subtitle or breadcrumb is visible below the title.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11058:336953"
+        }
+      }
+    }
+  }
+}

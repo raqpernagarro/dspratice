@@ -1,0 +1,21 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './ContextMenu.stories';
+import docs from './docs/context-menu.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+
+<Meta of={Stories} />
+
+# Context Menu
+
+<Canvas of={Stories.Default} />
+
+A Context Menu is a **Menu** opened at the pointer: same popup, same Menu Items, same tokens and the same
+Figma components (Menu, Menu Item). Only the trigger differs: any area of the page, opened by right-click
+or long-press.
+
+- Offer shortcuts to actions that are also available elsewhere; a context menu is hidden by nature.
+- Keep it short and put the most frequent actions first.
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl="https://base-ui.com/react/components/context-menu" />

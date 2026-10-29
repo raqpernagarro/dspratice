@@ -1,0 +1,18 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Form.stories';
+import docs from './docs/form.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { formSpec } from './components/form/form.spec';
+
+<Meta of={Stories} />
+
+# Form
+
+<Canvas of={Stories.Default} />
+
+<SpecDocs spec={formSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={formSpec.docs.baseUi} />

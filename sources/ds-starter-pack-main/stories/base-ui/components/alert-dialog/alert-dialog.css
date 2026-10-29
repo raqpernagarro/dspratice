@@ -1,0 +1,77 @@
+/* Layout only. Colors, spacing and type come from alert-dialog.tokens.css (generated from alert-dialog.spec.ts). */
+
+.ds-alert-dialog__backdrop {
+  position: fixed;
+  inset: 0;
+  min-height: 100dvh;
+  transition: opacity var(--motion-duration-fast);
+}
+
+.ds-alert-dialog__backdrop[data-starting-style],
+.ds-alert-dialog__backdrop[data-ending-style] {
+  opacity: 0;
+}
+
+.ds-alert-dialog {
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 24rem;
+  max-width: calc(100vw - 3rem);
+  margin-top: calc(var(--space-3xl) * -1);
+  border-style: solid;
+  outline: 0;
+  transform: translate(-50%, -50%);
+  transition:
+    transform var(--motion-duration-fast) var(--motion-ease-decelerate),
+    opacity var(--motion-duration-fast) var(--motion-ease-decelerate);
+}
+
+.ds-alert-dialog[data-starting-style],
+.ds-alert-dialog[data-ending-style] {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.98);
+}
+
+/* A preview is drawn in place. */
+.ds-alert-dialog[data-preview] {
+  position: relative;
+  top: auto;
+  left: auto;
+  margin: 0;
+  transform: none;
+}
+
+.ds-alert-dialog__header {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-alert-dialog__title,
+.ds-alert-dialog__description {
+  margin: 0;
+}
+
+.ds-alert-dialog__body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* In the top corner; the header leaves room for it. */
+.ds-alert-dialog__close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+}
+
+.ds-alert-dialog:has(> .ds-alert-dialog__close) .ds-alert-dialog__header {
+  padding-right: var(--space-xl);
+}
+
+.ds-alert-dialog__actions {
+  display: flex;
+  justify-content: end;
+}

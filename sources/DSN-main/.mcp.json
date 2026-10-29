@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "dsn-storybook": {
+      "type": "http",
+      "url": "http://localhost:6006/mcp"
+    },
+    "ds-ngr": {
+      "type": "http",
+      "url": "http://localhost:3100/api/mcp"
+    }
+  }
+}

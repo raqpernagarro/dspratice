@@ -1,0 +1,267 @@
+/* ───────────────────────────────────────────────
+   Sidebar — matches Figma node 1359:12674
+   ─────────────────────────────────────────────── */
+
+.dsn-sidebar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-width-expanded-min);
+  min-width: 0;
+  min-height: 100%;
+  block-size: 100%;
+  max-block-size: 100%;
+  padding: var(--space-xs, 8px) 0;
+  background: var(--color-background-neutral-primary);
+  overflow: hidden;
+}
+
+/* ── Collapsed variant ── */
+.dsn-sidebar[data-collapsed] {
+  width: var(--sidebar-width-collapsed);
+  align-items: center;
+}
+
+.dsn-sidebar[data-collapsed] .dsn-sidebar-header,
+.dsn-sidebar[data-collapsed] .dsn-sidebar-nav,
+.dsn-sidebar[data-collapsed] .dsn-sidebar-bottom {
+  width: 100%;
+}
+
+/* ── Header (selector + search row) ── */
+.dsn-sidebar-header {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: var(--space-md, 16px);
+  padding: 0 0 var(--space-2xs, 4px);
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  background: var(--color-background-neutral-primary);
+  min-width: 0;
+}
+
+.dsn-sidebar-selector-row {
+  display: flex;
+  align-items: center;
+  padding: var(--space-xs, 8px) 0;
+}
+
+.dsn-sidebar-selector-slot {
+  flex: 1 0 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.dsn-sidebar-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs, 4px);
+  padding: 0 var(--space-xs, 8px);
+}
+
+.dsn-sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs, 4px);
+  padding: 0 var(--space-xs, 8px);
+  min-width: 0;
+}
+
+.dsn-sidebar-action-button {
+  inline-size: 100%;
+}
+
+.dsn-sidebar[data-collapsed] .dsn-sidebar-actions {
+  align-items: center;
+  padding-inline: var(--space-xs, 8px);
+}
+
+.dsn-sidebar-search > .dsn-search-bar {
+  flex: 1;
+  min-width: 0;
+  gap: 0;
+}
+
+.dsn-sidebar-search > .dsn-search-bar .dsn-search-bar-label,
+.dsn-sidebar-search > .dsn-search-bar .dsn-search-bar-meta {
+  display: none;
+}
+
+.dsn-sidebar[data-collapsed] .dsn-sidebar-search {
+  flex-direction: column;
+  padding: 0;
+}
+
+.dsn-sidebar[data-collapsed] .dsn-sidebar-selector-row {
+  justify-content: center;
+  padding-inline: 0;
+}
+
+.dsn-sidebar[data-collapsed] .dsn-sidebar-search > .dsn-search-bar {
+  display: none;
+}
+
+.dsn-sidebar[data-collapsed] .dsn-sidebar-nav .dsn-sidebar-selector[data-variant='icon'],
+.dsn-sidebar[data-collapsed] .dsn-sidebar-bottom .dsn-sidebar-selector[data-variant='icon'] {
+  width: 100%;
+  padding-inline: var(--space-xs, 8px);
+}
+
+.dsn-sidebar[data-collapsed] .dsn-sidebar-nav .dsn-sidebar-selector[data-variant='icon'] .dsn-sidebar-selector-container,
+.dsn-sidebar[data-collapsed] .dsn-sidebar-bottom .dsn-sidebar-selector[data-variant='icon'] .dsn-sidebar-selector-container {
+  width: 100%;
+}
+
+/* ── Navigation ── */
+.dsn-sidebar-nav {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  padding: var(--space-md, 16px) 0 var(--space-xs, 8px);
+  flex-direction: column;
+  gap: var(--space-md, 16px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* ── Sections ── */
+.dsn-sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.dsn-sidebar-section-toggle {
+  all: unset;
+  display: block;
+  inline-size: 100%;
+  min-width: 0;
+  cursor: pointer;
+  border-radius: var(--shape-radius-sm, 8px);
+}
+
+.dsn-sidebar-section-toggle:focus-visible {
+  box-shadow: var(--button-shadow-focus);
+}
+
+/*
+ * Override SectionHeader when used inside the sidebar.
+ * Specificity 0-3-0 beats SectionHeader's 0-2-0 (.dsn-section-header[data-size]).
+ * Uses logical properties only, avoiding the physical/logical cascade conflict.
+ *
+ * Alignment contract:
+ *   Menu-item icon starts at 8 (root) + 4 (container) + 4 (icon-wrap) = 16 px
+ *   Section-header leading control at padding-inline-start = 16 px  ✓
+ *   Menu-item label  starts at 8 + 4 + 24 + 4 = 40 px
+ *   Section-header title at 16 (padding) + 16 (chevron) + 8 (gap) = 40 px  ✓
+ */
+.dsn-sidebar .dsn-section-header.dsn-sidebar-section-header {
+  padding-block: var(--space-2xs, 4px);
+  padding-inline: var(--space-md, 16px);
+  gap: var(--space-xs, 8px);
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-sidebar-section-disclosure {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--color-foreground-neutral-secondary);
+  cursor: pointer;
+  border-radius: var(--shape-radius-sm, 8px);
+  transition: transform var(--motion-transition-normal);
+}
+
+.dsn-sidebar-section-disclosure[data-expanded] {
+  transform: rotate(90deg);
+}
+
+.dsn-sidebar-section-disclosure:focus-visible {
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-sidebar-section-toggle .dsn-sidebar-section-disclosure {
+  cursor: inherit;
+}
+
+/* Row layout when section has trailing action: whole title + chevron area is clickable */
+.dsn-sidebar-section-header-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs, 8px);
+  padding-block: var(--space-2xs, 4px);
+  padding-inline: var(--space-md, 16px);
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-sidebar-section-header-row .dsn-sidebar-section-toggle {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  align-items: center;
+  gap: var(--space-xs, 8px);
+  padding: 0;
+  inline-size: auto;
+  text-align: start;
+}
+
+.dsn-sidebar-section-toggle-static {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  align-items: center;
+  gap: var(--space-xs, 8px);
+  padding: 0;
+}
+
+.dsn-sidebar-section-toggle-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label, 14px);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: var(--font-line-height-label, 16px);
+  letter-spacing: var(--font-letter-spacing-tight, -0.3px);
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-sidebar-section-trailing {
+  flex-shrink: 0;
+}
+
+.dsn-sidebar-section-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+/* ── Separator ── */
+.dsn-sidebar-separator {
+  margin: var(--space-2xs, 4px) var(--space-xs, 8px);
+}
+
+/* ── Bottom section ── */
+.dsn-sidebar-bottom {
+  flex: 0 0 auto;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  padding-top: var(--space-2xs, 4px);
+  border-top: var(--size-border-sm, 1px) solid var(--color-border-neutral-primary);
+  position: sticky;
+  inset-block-end: 0;
+  z-index: 1;
+  background: var(--color-background-neutral-primary);
+}

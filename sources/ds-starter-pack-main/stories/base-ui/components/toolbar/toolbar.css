@@ -1,0 +1,13 @@
+/* Layout only. Spacing and colors come from toolbar.tokens.css; separators are Separators. */
+
+.ds-toolbar {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  border-style: solid;
+}
+
+.ds-toolbar__group {
+  display: flex;
+  align-items: center;
+}

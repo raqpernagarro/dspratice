@@ -1,0 +1,51 @@
+/* Generated from card.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-card[data-type="outline"] {
+  background-color: var(--card-background-outline, var(--color-background-surface-low));
+}
+
+.ds-card[data-type="elevated"] {
+  background-color: var(--card-background-elevated, var(--color-background-surface-medium));
+  box-shadow: var(--effect-shadow-elevation-low);
+}
+
+.ds-card {
+  border-color: var(--card-border-color, var(--color-border-neutral-subtle));
+  border-width: var(--card-border-width, var(--size-border-regular));
+  border-radius: var(--card-radius, var(--shape-radius-lg));
+  padding-inline: var(--card-space-x, var(--space-xl));
+  padding-block: var(--card-space-y, var(--space-xl));
+  gap: var(--card-gap, var(--space-lg));
+}
+
+.ds-card .ds-card__header {
+  gap: var(--card-header-gap, var(--space-xs));
+}
+
+.ds-card .ds-card__title {
+  color: var(--card-title-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--card-title-text-style-font-family, var(--font-family-primary));
+  font-size: var(--card-title-text-style-font-size, var(--font-size-body-lg));
+  line-height: var(--card-title-text-style-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--card-title-text-style-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-card .ds-card__description {
+  color: var(--card-description-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--card-description-text-style-font-family, var(--font-family-primary));
+  font-size: var(--card-description-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--card-description-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--card-description-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-card .ds-card__body {
+  color: var(--card-body-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--card-body-text-style-font-family, var(--font-family-primary));
+  font-size: var(--card-body-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--card-body-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--card-body-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-card .ds-card__footer {
+  gap: var(--card-footer-gap, var(--space-sm));
+}

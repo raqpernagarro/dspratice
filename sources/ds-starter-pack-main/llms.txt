@@ -1,0 +1,76 @@
+# Nagarro DS Starter Pack
+
+> A design system for client projects: every Base UI component as a React wrapper and a matching Figma component, on one semantic token system (same names in Figma and code). Each component is described once, in a spec; code, Figma, the configurator and these docs are generated from it. 49 components, 190 semantic variables.
+
+Generated from the specs by `npm run ds:ai-docs`. Do not edit. Before building UI with this system, read the rules, then look components and tokens up instead of guessing.
+
+## Docs
+
+- [Rules for AI agents](docs/ai/rules.md): do / don't when building UI, and how to change the system
+- [Components](docs/ai/components.md): every component in catalog order, with usage, code import, props, states, parts, Figma properties and tokens
+- [Design tokens](docs/ai/tokens.md): the semantic token vocabulary, naming grammar, text and shadow styles
+
+## Components
+
+- [Button](docs/ai/components.md#button): Triggers an action. Four types set its emphasis; destructive marks actions that delete or can’t be undone.
+- [Icon Button](docs/ai/components.md#icon-button): A button that shows only an icon. Same types, sizes and states as Button.
+- [Toggle](docs/ai/components.md#toggle): A two-state button: on or off. Its icon is drawn as a line while off and filled while on.
+- [Toggle Group](docs/ai/components.md#toggle-group): A set of toggles for related options, such as text alignment or formatting.
+- [Toolbar](docs/ai/components.md#toolbar): Groups the controls of an editor or a view (formatting, alignment, zoom) in one strip.
+- [Input](docs/ai/components.md#input): A single-line text field with an optional leading icon. Use it inside Field to get a label, description and validation message.
+- [Field](docs/ai/components.md#field): Labels a control and shows its help text and validation message. Wraps Input, and other Base UI controls.
+- [Fieldset](docs/ai/components.md#fieldset): A group of related fields with a legend, e.g. “Billing details”.
+- [Form](docs/ai/components.md#form): A form that validates its fields and shows their errors, laid out with consistent spacing.
+- [Checkbox](docs/ai/components.md#checkbox): Lets people turn a single option on or off, or pick several options from a list.
+- [Checkbox Group](docs/ai/components.md#checkbox-group): A set of checkboxes sharing one value (an array), optionally with a “select all” parent.
+- [Radio](docs/ai/components.md#radio): One option in a Radio Group: pick exactly one of several.
+- [Radio Group](docs/ai/components.md#radio-group): A set of radios where exactly one can be selected.
+- [Switch](docs/ai/components.md#switch): Turns a setting on or off, with immediate effect.
+- [Slider](docs/ai/components.md#slider): Picks a value, or a range, by dragging along a track.
+- [Number Field](docs/ai/components.md#number-field): A numeric input with − / + steppers. Same box as Input, so it lines up with other controls.
+- [OTP Field](docs/ai/components.md#otp-field): A one-time-code input: one box per character, with paste, auto-advance and backspace across boxes.
+- [OTP Slot](docs/ai/components.md#otp-slot): One character box of an OTP Field.
+- [Select](docs/ai/components.md#select): Picks one value from a list. A field box (like Input) that opens a Listbox of Options.
+- [Combobox](docs/ai/components.md#combobox): A text field that filters a list as the user types, then picks one of its options.
+- [Autocomplete](docs/ai/components.md#autocomplete): A text input with suggestions. The user can pick one or keep typing their own text.
+- [Listbox](docs/ai/components.md#listbox): The list that opens from a Select, Combobox or Autocomplete: a surface of Options.
+- [Option](docs/ai/components.md#option): A row in a Listbox: the options of a Select, Combobox or Autocomplete.
+- [Menu](docs/ai/components.md#menu): A list of actions or options that opens from a button. Built from Menu Items, Menu Group Labels and Menu Separators.
+- [Menu Item](docs/ai/components.md#menu-item): A row in a Menu: an action, a checkbox or radio option, or the trigger of a submenu.
+- [Menu Group Label](docs/ai/components.md#menu-group-label): Names a group of items in a Menu (or Context Menu, Menubar menu).
+- [Menu Separator](docs/ai/components.md#menu-separator): A line between groups of items in a Menu.
+- [Menubar](docs/ai/components.md#menubar): A row of menus, like a desktop app’s File / Edit / View bar.
+- [Menubar Item](docs/ai/components.md#menubar-item): One entry of a Menubar: a trigger that opens a Menu.
+- [Navigation Menu](docs/ai/components.md#navigation-menu): Site navigation: a row of links and triggers whose panels list a section’s pages.
+- [Navigation Menu Item](docs/ai/components.md#navigation-menu-item): An entry of a Navigation Menu: a link to a page, or a trigger that opens a panel of links.
+- [Navigation Menu Link](docs/ai/components.md#navigation-menu-link): A link card in a Navigation Menu panel.
+- [Tabs](docs/ai/components.md#tabs): Switches between views of related content, one panel at a time.
+- [Tab](docs/ai/components.md#tab): One tab of a Tabs list.
+- [Popover](docs/ai/components.md#popover): A floating panel anchored to a trigger, for extra information or controls that don’t need a full dialog.
+- [Tooltip](docs/ai/components.md#tooltip): A short label that appears when a control is hovered or focused, usually to name an icon button.
+- [Preview Card](docs/ai/components.md#preview-card): A preview of a link’s destination, shown while the link is hovered or focused.
+- [Dialog](docs/ai/components.md#dialog): A window over the page for a focused task: a form, details, a decision. The page behind is inert until it closes.
+- [Alert Dialog](docs/ai/components.md#alert-dialog): A dialog that asks the user to confirm or cancel an important action. It can’t be dismissed by clicking outside.
+- [Drawer](docs/ai/components.md#drawer): A panel that slides in from the edge of the screen, for secondary tasks and details without leaving the page.
+- [Toast](docs/ai/components.md#toast): A brief message about something that just happened, shown in a corner without interrupting.
+- [Progress](docs/ai/components.md#progress): Shows how far a task has got: an upload, an export, a multi-step process.
+- [Meter](docs/ai/components.md#meter): Shows a measurement within a known range: storage used, a password’s strength, a battery level.
+- [Accordion](docs/ai/components.md#accordion): A stack of sections that open and close, to keep long pages scannable.
+- [Accordion Item](docs/ai/components.md#accordion-item): One section of an Accordion: a heading that opens and closes its content.
+- [Collapsible](docs/ai/components.md#collapsible): A single section that shows or hides its content.
+- [Separator](docs/ai/components.md#separator): A thin line that separates groups of content, horizontally or vertically.
+- [Scroll Area](docs/ai/components.md#scroll-area): A scrolling region with a slim, styled scrollbar that appears while hovering or scrolling.
+- [Avatar](docs/ai/components.md#avatar): A person’s picture, or their initials when there is no picture.
+
+## Source
+
+- [Component wrappers](stories/base-ui/components/): one folder per component (React wrapper, spec, layout CSS, generated token CSS)
+- [Spec types](stories/base-ui/spec/types.ts): what a component spec holds (axes, parts, bindings, Figma properties, docs)
+- [All specs](stories/base-ui/spec/index.ts): the list every generator reads
+- [Categories](stories/base-ui/spec/categories.ts): catalog order and categories
+- [Semantic tokens CSS](stories/base-ui/tokens/figma-semantic.css): the token custom properties, per mode and brand
+
+## Optional
+
+- [README](README.md): what the starter pack is, quick start, layout
+- [Design tokens and Figma sync](docs/DESIGN_TOKENS_AND_FIGMA_SYNC.md): the full reference (token model, specs, configurator, Figma sync)

@@ -1,0 +1,220 @@
+{
+  "size": {
+    "control": {
+      "height": {
+        "md": {
+          "$type": "number",
+          "$value": "{size.md}",
+          "$description": "Height of standard-size controls: buttons, inputs, selects, chips, and similar interactive elements.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8590:20041"
+            }
+          }
+        },
+        "sm": {
+          "$type": "number",
+          "$value": "{size.sm}",
+          "$description": "Height of small/nested controls: secondary buttons, compact inputs, chips inside other controls.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8590:20042"
+            }
+          }
+        }
+      }
+    },
+    "border": {
+      "sm": {
+        "$type": "number",
+        "$value": "{primitive.size.1}",
+        "$description": "Default border thickness (1px) for all UI borders — inputs, cards, dividers, and interactive elements. Use a different value only in exceptional cases.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:111:5775"
+          }
+        }
+      },
+      "icon": {
+        "$type": "number",
+        "$value": 1.25,
+        "$description": "Standard line thickness for UI icons",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:111:3138"
+          }
+        }
+      }
+    },
+    "breakpoint": {
+      "sm": {
+        "$type": "number",
+        "$value": 480,
+        "$description": "Max-width breakpoint for mobile layouts (≤480px). Apply mobile-specific layout rules when the viewport width is at or below this value.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:4816:137013"
+          }
+        }
+      },
+      "md": {
+        "$type": "number",
+        "$value": 768,
+        "$description": "Max-width breakpoint for tablet layouts (≤768px). Apply tablet-specific layout rules when the viewport width is at or below this value.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:4816:137014"
+          }
+        }
+      },
+      "lg": {
+        "$type": "number",
+        "$value": 1280,
+        "$description": "Min-width breakpoint for standard desktop layouts (≥1280px). Apply desktop layout rules when the viewport width meets or exceeds this value.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:4816:137015"
+          }
+        }
+      },
+      "xl": {
+        "$type": "number",
+        "$value": 1440,
+        "$description": "Min-width breakpoint for large desktop layouts (≥1440px). Apply wide-screen layout rules when the viewport width meets or exceeds this value.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:4816:137016"
+          }
+        }
+      }
+    },
+    "container": {
+      "xs": {
+        "$type": "number",
+        "$value": "{primitive.size.192}",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11046:11083"
+          }
+        }
+      },
+      "sm": {
+        "$type": "number",
+        "$value": "{primitive.size.256}",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11046:11084"
+          }
+        }
+      },
+      "md": {
+        "$type": "number",
+        "$value": "{primitive.size.320}",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11046:11085"
+          }
+        }
+      },
+      "lg": {
+        "$type": "number",
+        "$value": "{primitive.size.480}",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11046:11086"
+          }
+        }
+      },
+      "xl": {
+        "$type": "number",
+        "$value": "{primitive.size.1024}",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11046:11087"
+          }
+        }
+      },
+      "height": {
+        "min": {
+          "$type": "number",
+          "$value": "{primitive.size.256}",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11046:11088"
+            }
+          }
+        }
+      }
+    },
+    "2xs": {
+      "$type": "number",
+      "$value": "{primitive.size.8}",
+      "$description": "Size ladder · 8px. Fixed element dimensions (dots).",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11056:336844"
+        }
+      }
+    },
+    "xs": {
+      "$type": "number",
+      "$value": "{primitive.size.16}",
+      "$description": "Size ladder · 16px.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11056:336845"
+        }
+      }
+    },
+    "sm": {
+      "$type": "number",
+      "$value": "{primitive.size.24}",
+      "$description": "Size ladder · 24px. Small control height.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11056:336846"
+        }
+      }
+    },
+    "md": {
+      "$type": "number",
+      "$value": "{primitive.size.32}",
+      "$description": "Size ladder · 32px. Default control height.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11056:336847"
+        }
+      }
+    },
+    "lg": {
+      "$type": "number",
+      "$value": "{primitive.size.48}",
+      "$description": "Size ladder · 48px. Bars (topbar, toolbar).",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11056:336848"
+        }
+      }
+    },
+    "xl": {
+      "$type": "number",
+      "$value": "{primitive.size.64}",
+      "$description": "Size ladder · 64px.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11056:336849"
+        }
+      }
+    },
+    "2xl": {
+      "$type": "number",
+      "$value": "{primitive.size.128}",
+      "$description": "Size ladder · 128px.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11056:336850"
+        }
+      }
+    }
+  }
+}

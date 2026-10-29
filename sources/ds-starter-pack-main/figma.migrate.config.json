@@ -1,0 +1,12 @@
+{
+  "codeConnect": {
+    "parser": "react",
+    "include": [
+      "stories/base-ui/components/**/*.tsx"
+    ],
+    "label": "React",
+    "importPaths": {
+      "base-ui/components/*": "nagarro-ds-starter-pack"
+    }
+  }
+}

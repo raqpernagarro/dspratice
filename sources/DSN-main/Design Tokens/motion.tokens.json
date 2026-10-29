@@ -1,0 +1,61 @@
+{
+  "motion": {
+    "duration": {
+      "instant": {
+        "$type": "string",
+        "$value": 0,
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:9512:56372"
+          }
+        }
+      },
+      "fast": {
+        "$type": "string",
+        "$value": 0.15000000596046448,
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:9512:56373"
+          }
+        }
+      },
+      "normal": {
+        "$type": "string",
+        "$value": 0.25,
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:9512:56374"
+          }
+        }
+      },
+      "slow": {
+        "$type": "string",
+        "$value": 0.4000000059604645,
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:9512:56375"
+          }
+        }
+      }
+    },
+    "ease": {
+      "smooth": {
+        "$type": "string",
+        "$value": {
+          "easingType": 7,
+          "bezierValues": {
+            "p1x": 0.25,
+            "p1y": 0.10000000149011612,
+            "p2x": 0.25,
+            "p2y": 1
+          }
+        },
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:9512:56381"
+          }
+        }
+      }
+    }
+  }
+}

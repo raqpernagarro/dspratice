@@ -1,0 +1,79 @@
+/**
+ * Shortcut — component styles
+ *
+ * All values reference tokens.css via var(). No new tokens defined here.
+ * Figma source: DS-Ngr / Shortcut (node 8508-59670)
+ *
+ * Structure:
+ *   1. Outer wrapper  .dsn-shortcut
+ *   2. Inner pill     .dsn-shortcut-content
+ *   3. Color variants [data-color="default|inverted"] — applied to BOTH elements
+ */
+
+/* =============================================================================
+   1. OUTER WRAPPER
+   Non-interactive 4px padding shell, no fill. Keeps the badge separated from adjacent content.
+   ============================================================================= */
+
+.dsn-shortcut {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xs); /* 4px */
+  border-radius: var(--shape-radius-2xs);
+  /* Non-interactive — never receives pointer events or selection */
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =============================================================================
+   2. INNER PILL (visible badge)
+   <kbd> reset + padding, 4px keycap radius, 8% currentColor tint, typography.
+   Figma: contentWrapper — px-[4px] py-[0px] rounded-full.
+   ============================================================================= */
+
+.dsn-shortcut-content {
+  /* Reset <kbd> browser defaults */
+  font-style: normal;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xs) calc(var(--space-2xs) + var(--space-3xs)); /* 2px 6px — 20px tall */
+  border-radius: var(--shape-radius-2xs);
+  /* Borderless — a faint tint of the text colour separates the pill from the
+     surface. Derived from currentColor so it adapts to any surface and theme. */
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+
+  /* Typography — Micro/Regular (smaller glyphs give the pill breathing room) */
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-micro);             /* 12px */
+  font-weight: var(--font-weight-regular);       /* 400 */
+  line-height: var(--font-line-height-micro);    /* 16px */
+  letter-spacing: var(--font-letter-spacing-tight); /* -0.3px */
+}
+
+/* =============================================================================
+   3. COLOR VARIANTS — outer wrapper
+   ============================================================================= */
+
+.dsn-shortcut[data-color="default"],
+.dsn-shortcut[data-color="inverted"] {
+  background-color: transparent;
+}
+
+/* =============================================================================
+   4. COLOR VARIANTS — inner pill
+   ============================================================================= */
+
+/* Default — full-strength primary text. Use on light surfaces. */
+.dsn-shortcut-content[data-color="default"] {
+  color: var(--color-foreground-neutral-primary);
+}
+
+/* Inverted — matches the filled surface's own text colour (text/inverted/primary)
+   so the badge reads with the same contrast as the button label. */
+.dsn-shortcut-content[data-color="inverted"] {
+  color: var(--color-foreground-inverse-primary);
+}

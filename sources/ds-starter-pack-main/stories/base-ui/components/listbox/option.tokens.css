@@ -1,0 +1,52 @@
+/* Generated from option.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-option {
+  padding-inline: var(--option-space-x, var(--space-md));
+  padding-block: var(--option-space-y, var(--space-sm));
+  gap: var(--option-gap, var(--space-sm));
+  border-radius: var(--option-radius, var(--shape-radius-sm));
+  background-color: var(--option-background-default, var(--color-background-interactive-subtle-default));
+}
+
+.ds-option .ds-option__indicator {
+  width: var(--option-indicator-size, var(--size-xs));
+  height: var(--option-indicator-size, var(--size-xs));
+}
+
+.ds-option .ds-option__icon {
+  width: var(--size-xs);
+  height: var(--size-xs);
+  color: var(--option-indicator-foreground-default, var(--color-foreground-neutral-primary));
+}
+
+.ds-option .ds-option__label {
+  color: var(--option-label-foreground-default, var(--color-foreground-neutral-primary));
+  font-family: var(--option-label-text-style-font-family, var(--font-family-primary));
+  font-size: var(--option-label-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--option-label-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--option-label-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-option[data-highlighted] {
+  background-color: var(--option-background-highlighted, var(--color-background-interactive-subtle-hover));
+}
+
+.ds-option[data-highlighted] .ds-option__icon {
+  color: var(--option-indicator-foreground-highlighted, var(--color-foreground-neutral-primary));
+}
+
+.ds-option[data-highlighted] .ds-option__label {
+  color: var(--option-label-foreground-highlighted, var(--color-foreground-neutral-primary));
+}
+
+.ds-option[data-disabled] {
+  background-color: var(--option-background-disabled, var(--color-background-interactive-subtle-default));
+}
+
+.ds-option[data-disabled] .ds-option__icon {
+  color: var(--option-indicator-foreground-disabled, var(--color-foreground-interactive-disabled));
+}
+
+.ds-option[data-disabled] .ds-option__label {
+  color: var(--option-label-foreground-disabled, var(--color-foreground-interactive-disabled));
+}

@@ -1,0 +1,46 @@
+/**
+ * BulkActionBar — component styles
+ *
+ * Molecule: contextual floating bar that appears when items are selected in a
+ * table, list, or grid. Left: isolated count button with chevron. Right:
+ * action buttons (Email, Add to team, Delete, …) plus dismiss (X) icon button.
+ *
+ * Structure:
+ *   .dsn-bulk-action-bar              — root (toolbar role), no visual styling
+ *   .dsn-bulk-action-bar-container    — visible pill card with Elevation/3 shadow
+ */
+
+/* =============================================================================
+   ROOT
+   ============================================================================= */
+
+.dsn-bulk-action-bar {
+  display: inline-flex;
+}
+
+/* =============================================================================
+   CONTAINER — pill card
+   ============================================================================= */
+
+.dsn-bulk-action-bar-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs );       /* 8px — between count button and action group */
+  padding: var(--space-xs);      /* 8px */
+  border-radius: var(--shape-radius-full);
+  background: var(--color-background-neutral-primary);
+  overflow: clip;
+
+  /*
+   * Elevation/3 composite shadow:
+   *   1px all-around border (contrast)
+   *   8px soft elevation
+   *   24px large ambient shadow
+   *   1px inset emboss highlight
+   */
+  box-shadow:
+    0 0 0 1px var(--color-shadow-default),
+    0 2px 8px 1px var(--color-shadow-default),
+    0 16px 24px -8px var(--color-shadow-default),
+    inset 0 0 0 1px var(--color-shadow-separator-emboss-light);
+}

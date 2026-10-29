@@ -1,0 +1,84 @@
+.dsn-chart {
+  width: 100%;
+  min-width: 0;
+}
+
+.dsn-chart-surface {
+  width: 100%;
+  min-width: 0;
+  /* No border/background: the plot sits directly on its container so a
+     chart inside ChartCard never reads as a nested card. */
+}
+
+.dsn-chart-state {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-foreground-dataviz-label);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body-sm);
+  line-height: var(--font-line-height-body-sm);
+}
+
+.dsn-chart-state--loading {
+  padding: var(--space-xs);
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+.dsn-chart-loading-skeleton {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  display: flex;
+}
+
+/* Fill the chart plot (full width and height), not a centered square. */
+.dsn-chart-state--loading .dsn-skeleton-loading[data-type='card'] {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  aspect-ratio: auto;
+  border-radius: var(--shape-radius-lg);
+}
+
+.dsn-chart-legend {
+  margin: var(--space-xs) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.dsn-chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.dsn-chart-legend-swatch {
+  width: var(--space-xs);
+  height: var(--space-xs);
+  border-radius: var(--shape-radius-full);
+  border: var(--size-border-sm) solid var(--color-border-dataviz-grid);
+}
+
+.dsn-chart-legend-label {
+  color: var(--color-foreground-dataviz-label);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body-sm);
+  line-height: var(--font-line-height-body-sm);
+}
+
+.dsn-chart-card .dsn-card-content {
+  padding: var(--space-lg);
+}
+
+.dsn-chart-card-content {
+  width: 100%;
+}

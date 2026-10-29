@@ -1,0 +1,44 @@
+# Version updates, once a month, grouped so each folder gets one pull request instead of dozens.
+# Only minor and patch versions: a major version (TypeScript 5 → 7, Jest 29 → 30) can change
+# behavior, so those are upgraded on purpose, one at a time.
+# Security updates are separate (Settings → Advanced Security) and arrive as soon as a fix exists,
+# majors included: this ignore rule doesn't apply to them.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      dev-dependencies:
+        dependency-type: development
+      dependencies:
+        dependency-type: production
+
+  - package-ecosystem: npm
+    directory: /variables-github-action
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      all:
+        patterns: ["*"]
+
+  # Keeps the commit SHAs that the workflows pin up to date.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      actions:
+        patterns: ["*"]

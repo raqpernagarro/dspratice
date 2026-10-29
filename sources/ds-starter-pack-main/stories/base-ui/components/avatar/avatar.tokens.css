@@ -1,0 +1,46 @@
+/* Generated from avatar.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-avatar[data-size="sm"] {
+  width: var(--avatar-size-sm, var(--space-2xl));
+  height: var(--avatar-size-sm, var(--space-2xl));
+}
+
+.ds-avatar[data-size="md"] {
+  width: var(--avatar-size-md, var(--size-lg));
+  height: var(--avatar-size-md, var(--size-lg));
+}
+
+.ds-avatar[data-size="lg"] {
+  width: var(--avatar-size-lg, var(--size-xl));
+  height: var(--avatar-size-lg, var(--size-xl));
+}
+
+.ds-avatar {
+  border-radius: var(--avatar-radius, var(--shape-radius-full));
+  background-color: var(--avatar-background, var(--color-background-accent-selected));
+}
+
+.ds-avatar .ds-avatar__fallback {
+  color: var(--avatar-foreground, var(--color-foreground-on-accent-primary));
+}
+
+.ds-avatar[data-size="sm"] .ds-avatar__fallback {
+  font-family: var(--avatar-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--avatar-text-style-sm-font-size, var(--font-size-caption-md));
+  line-height: var(--avatar-text-style-sm-line-height, var(--font-line-height-caption-md));
+  font-weight: var(--avatar-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-avatar[data-size="md"] .ds-avatar__fallback {
+  font-family: var(--avatar-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--avatar-text-style-md-font-size, var(--font-size-body-sm));
+  line-height: var(--avatar-text-style-md-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--avatar-text-style-md-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-avatar[data-size="lg"] .ds-avatar__fallback {
+  font-family: var(--avatar-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--avatar-text-style-lg-font-size, var(--font-size-body-md));
+  line-height: var(--avatar-text-style-lg-line-height, var(--font-line-height-body-md));
+  font-weight: var(--avatar-text-style-lg-font-weight, var(--font-weight-body-strong));
+}

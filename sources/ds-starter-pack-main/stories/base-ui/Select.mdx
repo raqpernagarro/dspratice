@@ -1,0 +1,41 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Select.stories';
+import docs from './docs/select.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { selectSpec } from './components/select/select.spec';
+import { listboxSpec } from './components/listbox/listbox.spec';
+import { optionSpec } from './components/listbox/option.spec';
+
+<Meta of={Stories} />
+
+# Select
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={selectSpec} />
+
+# Listbox
+
+The popup of Select, Combobox and Autocomplete.
+
+<Canvas of={Stories.Listbox} />
+
+<SpecDocs spec={listboxSpec} />
+
+# Option
+
+A row of a Listbox. Every variant of the Figma component set:
+
+<Canvas of={Stories.OptionMatrix} />
+
+<SpecDocs spec={optionSpec} />
+
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={selectSpec.docs.baseUi} />

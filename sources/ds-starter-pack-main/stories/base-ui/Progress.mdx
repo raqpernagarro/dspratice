@@ -1,0 +1,30 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Progress.stories';
+import docs from './docs/progress.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { progressSpec } from './components/progress/progress.spec';
+
+<Meta of={Stories} />
+
+# Progress
+
+<Canvas of={Stories.Default} />
+
+## Indeterminate
+
+<Canvas of={Stories.Indeterminate} />
+
+## As in Figma
+
+<Canvas of={Stories.Preview} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={progressSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={progressSpec.docs.baseUi} />

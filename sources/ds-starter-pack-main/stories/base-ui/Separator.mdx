@@ -1,0 +1,22 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Separator.stories';
+import docs from './docs/separator.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { separatorSpec } from './components/separator/separator.spec';
+
+<Meta of={Stories} />
+
+# Separator
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={separatorSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={separatorSpec.docs.baseUi} />

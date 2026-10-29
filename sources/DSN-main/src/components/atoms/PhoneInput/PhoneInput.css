@@ -1,0 +1,203 @@
+.dsn-phone-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.dsn-phone-input-label {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+  padding-block-end: var(--space-2xs);
+}
+
+.dsn-phone-input-optional {
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-phone-input[data-error] .dsn-phone-input-label {
+  color: var(--color-foreground-interactive-destructive-default);
+}
+
+.dsn-phone-input[data-disabled] .dsn-phone-input-label {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-phone-input-control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  height: var(--size-control-height-md);
+  padding: var(--space-2xs);
+  background-color: var(--input-background-default);
+  border-radius: var(--shape-radius-control-md);
+  box-shadow: var(--input-shadow);
+  transition:
+    border-color var(--motion-transition-fast),
+    border-width var(--motion-transition-fast),
+    background-color var(--motion-transition-fast);
+}
+
+.dsn-phone-input:not([data-disabled]) .dsn-phone-input-control:hover {
+  background-color: var(--input-background-hover);
+}
+
+.dsn-phone-input:not([data-disabled]) .dsn-phone-input-control:focus-within {
+  border-color: var(--color-border-interactive-focus);
+  border-width: var(--size-border-md);
+  background-color: var(--input-background-default);
+  outline: none;
+}
+
+.dsn-phone-input[data-error] .dsn-phone-input-control {
+  border-color: var(--input-border-error);
+  border-width: var(--size-border-md);
+}
+
+.dsn-phone-input[data-disabled] .dsn-phone-input-control {
+  background-color: var(--color-background-interactive-disabled);
+  border-color: var(--color-border-interactive-disabled);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.dsn-phone-input-country-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.dsn-phone-input-country-visual {
+  box-sizing: border-box;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  height: 24px;
+  padding: 0 var(--space-2xs);
+  border-radius: var(--shape-radius-control-sm);
+  background-color: var(--button-background-secondary-default);
+  color: var(--color-foreground-neutral-primary);
+  box-shadow: var(--button-shadow-secondary-default);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast),
+    color var(--motion-transition-fast);
+}
+
+.dsn-phone-input-country-visual:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-phone-input-country-code {
+  display: inline-flex;
+  align-items: center;
+  line-height: var(--font-line-height-label);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--font-letter-spacing-tight);
+}
+
+.dsn-phone-input-country-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.dsn-phone-input-country-visual:disabled {
+  cursor: not-allowed;
+  background-color: var(--color-background-interactive-disabled);
+  color: var(--color-foreground-interactive-disabled);
+  box-shadow: none;
+}
+
+.dsn-phone-input-country-popover {
+  z-index: 3;
+}
+
+.dsn-phone-input-country-popover-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.dsn-phone-input-country-option {
+  width: 100%;
+}
+
+.dsn-phone-input-country-option .dsn-menu-cell-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dsn-phone-input-field {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  line-height: var(--font-line-height-label);
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-phone-input-field::placeholder {
+  color: var(--input-foreground-placeholder);
+}
+
+.dsn-phone-input-field:disabled {
+  cursor: not-allowed;
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-phone-input-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+}
+
+.dsn-phone-input-helper-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3xs);
+  min-width: 0;
+}
+
+.dsn-phone-input-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-phone-input-helper {
+  margin: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-micro);
+  line-height: var(--font-line-height-micro);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-phone-input[data-error] .dsn-phone-input-helper {
+  color: var(--color-foreground-interactive-destructive-default);
+}
+
+.dsn-phone-input[data-disabled] .dsn-phone-input-icon,
+.dsn-phone-input[data-disabled] .dsn-phone-input-helper {
+  color: var(--color-foreground-interactive-disabled);
+}

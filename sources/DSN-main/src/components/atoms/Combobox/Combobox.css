@@ -1,0 +1,289 @@
+.dsn-combobox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.dsn-combobox-label {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+  padding-block-end: var(--space-2xs);
+}
+
+.dsn-combobox-optional {
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-combobox[data-error] .dsn-combobox-label {
+  color: var(--color-foreground-interactive-destructive-default);
+}
+
+.dsn-combobox[data-disabled] .dsn-combobox-label {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-combobox-control-wrap {
+  position: relative;
+}
+
+.dsn-combobox-control {
+  width: 100%;
+  height: var(--size-control-height-md);
+  border-radius: var(--shape-radius-control-md);
+  background: var(--input-background-default);
+  box-shadow:
+    inset 0 0 0 var(--primitive-size-1) var(--color-shadow-inner-dark-soft),
+    inset 0 var(--size-border-sm) 1px 0 var(--color-shadow-inner-dark-soft),
+    0 var(--size-border-sm) 0 0 var(--color-shadow-inner-light-strong);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: 0 var(--space-xs);
+  transition:
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
+}
+
+.dsn-combobox-input-row {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.dsn-combobox-chip-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.dsn-combobox-chip-stack .dsn-chip {
+  max-width: 100%;
+}
+
+.dsn-combobox:not([data-disabled]) .dsn-combobox-control:hover {
+  background: var(--input-background-hover);
+}
+
+.dsn-combobox[data-open]:not([data-disabled]) .dsn-combobox-control {
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-combobox[data-error] .dsn-combobox-control {
+  box-shadow:
+    inset 0 0 0 var(--primitive-size-1) var(--input-border-error),
+    inset 0 var(--size-border-sm) 1px 0 var(--color-shadow-inner-dark-soft),
+    0 var(--size-border-sm) 0 0 var(--color-shadow-inner-light-strong);
+}
+
+.dsn-combobox[data-disabled] .dsn-combobox-control {
+  background: var(--color-background-interactive-disabled);
+  box-shadow: none;
+}
+
+.dsn-combobox-input {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-combobox-value-wrap {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  flex: 1 0 0;
+  padding: 0 var(--space-2xs);
+}
+
+.dsn-combobox-input::placeholder {
+  color: var(--input-foreground-placeholder);
+}
+
+.dsn-combobox[data-disabled] .dsn-combobox-input,
+.dsn-combobox[data-disabled] .dsn-combobox-input::placeholder {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-combobox-clear,
+.dsn-combobox-chevron {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  padding: var(--space-2xs, var(--space-2xs));
+  flex-shrink: 0;
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-combobox-clear {
+  border: none;
+  background: transparent;
+  border-radius: var(--shape-radius-sm);
+  cursor: pointer;
+}
+
+.dsn-combobox-clear:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-combobox[data-disabled] .dsn-combobox-chevron {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-combobox-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+}
+
+.dsn-combobox-meta-icon-wrap {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  min-height: 16px;
+}
+
+.dsn-combobox-meta-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-combobox-helper {
+  margin: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-micro);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-combobox[data-error] .dsn-combobox-helper,
+.dsn-combobox[data-error] .dsn-combobox-meta-icon {
+  color: var(--color-foreground-interactive-destructive-default);
+}
+
+.dsn-combobox[data-disabled] .dsn-combobox-helper,
+.dsn-combobox[data-disabled] .dsn-combobox-meta-icon {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-combobox-popover {
+  z-index: 3;
+}
+
+.dsn-combobox-popover .dsn-popover-wrapper-content-slot,
+.dsn-combobox-popover .dsn-combobox-popover-stack {
+  padding: var(--space-xs);
+}
+
+.dsn-combobox-popover-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.dsn-combobox-popover-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dsn-combobox-option {
+  width: 100%;
+}
+
+.dsn-combobox-multi-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dsn-combobox-multi-option {
+  width: 100%;
+}
+
+/* Keyboard-active option (when focus is still on input): only one row shows highlight */
+.dsn-combobox-multi-options:not(:focus-within) .dsn-combobox-multi-option--active .dsn-checkbox {
+  background: var(--color-background-interactive-secondary-hover, var(--input-background-hover));
+}
+
+/* When an option has focus, show highlight there; avoid second highlight from hover */
+.dsn-combobox-multi-option:focus-visible .dsn-checkbox {
+  background: var(--color-background-interactive-secondary-hover, var(--input-background-hover));
+}
+
+.dsn-combobox-multi-option:focus-visible {
+  outline: none;
+}
+
+/* When list has focus (user arrowed/clicked an option), only the focused option is highlighted — suppress hover on others */
+.dsn-combobox-multi-options:focus-within .dsn-combobox-multi-option:not(:focus-within) .dsn-checkbox:hover {
+  background: var(--color-background-neutral-primary);
+}
+
+/* When list has no focus (focus on input), only the active row is highlighted — suppress hover on non-active rows */
+.dsn-combobox-multi-options:not(:focus-within) .dsn-combobox-multi-option:not(.dsn-combobox-multi-option--active) .dsn-checkbox:hover {
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-combobox-multi-option .dsn-checkbox:focus-visible {
+  outline: none;
+  box-shadow: none;
+  background: var(--color-background-interactive-secondary-hover, var(--input-background-hover));
+}
+
+.dsn-combobox-multi-option .dsn-checkbox {
+  width: 100%;
+}
+
+.dsn-combobox-empty {
+  padding: var(--space-xs);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+/* Visually hidden but accessible to screen readers — used for live selected-value announcements. */
+.dsn-combobox-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

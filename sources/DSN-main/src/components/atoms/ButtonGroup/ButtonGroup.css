@@ -1,0 +1,47 @@
+.dsn-button-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.dsn-button-group[data-size='sm'] {
+  gap: var(--space-2xs);
+}
+
+/* Glued mode (Space between = false): buttons touch and share edge radii */
+.dsn-button-group:not([data-space-between]) {
+  gap: 0;
+}
+
+.dsn-button-group:not([data-space-between]) > .dsn-button {
+  border-radius: 0;
+}
+
+.dsn-button-group:not([data-space-between]) > .dsn-button:first-child {
+  border-top-left-radius: var(--shape-radius-control-md);
+  border-bottom-left-radius: var(--shape-radius-control-md);
+}
+
+.dsn-button-group[data-size='sm']:not([data-space-between]) > .dsn-button:first-child {
+  border-top-left-radius: var(--shape-radius-control-sm);
+  border-bottom-left-radius: var(--shape-radius-control-sm);
+}
+
+.dsn-button-group:not([data-space-between]) > .dsn-button:last-child {
+  border-top-right-radius: var(--shape-radius-control-md);
+  border-bottom-right-radius: var(--shape-radius-control-md);
+}
+
+.dsn-button-group[data-size='sm']:not([data-space-between]) > .dsn-button:last-child {
+  border-top-right-radius: var(--shape-radius-control-sm);
+  border-bottom-right-radius: var(--shape-radius-control-sm);
+}
+
+/* Preserve regular radius when there is only one button */
+.dsn-button-group:not([data-space-between]) > .dsn-button:only-child {
+  border-radius: var(--shape-radius-control-md);
+}
+
+.dsn-button-group[data-size='sm']:not([data-space-between]) > .dsn-button:only-child {
+  border-radius: var(--shape-radius-control-sm);
+}

@@ -1,0 +1,29 @@
+/* Generated from menubar-item.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-menubar-item {
+  height: var(--menubar-item-height, var(--size-md));
+  padding-inline: var(--menubar-item-space-x, var(--space-md));
+  border-radius: var(--menubar-item-radius, var(--shape-radius-sm));
+  background-color: var(--menubar-item-background-default, var(--color-background-interactive-subtle-default));
+  color: var(--menubar-item-foreground-default, var(--color-foreground-neutral-primary));
+  font-family: var(--menubar-item-text-style-font-family, var(--font-family-primary));
+  font-size: var(--menubar-item-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--menubar-item-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--menubar-item-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-menubar-item:hover:not([data-disabled]):not([data-popup-open]),
+.ds-menubar-item[data-preview-state="hover"] {
+  background-color: var(--menubar-item-background-hover, var(--color-background-interactive-subtle-hover));
+  color: var(--menubar-item-foreground-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-menubar-item[data-popup-open] {
+  background-color: var(--menubar-item-background-open, var(--color-background-interactive-subtle-selected));
+  color: var(--menubar-item-foreground-open, var(--color-foreground-neutral-primary));
+}
+
+.ds-menubar-item[data-disabled] {
+  background-color: var(--menubar-item-background-disabled, var(--color-background-interactive-subtle-default));
+  color: var(--menubar-item-foreground-disabled, var(--color-foreground-interactive-disabled));
+}

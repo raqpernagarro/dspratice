@@ -1,0 +1,279 @@
+{
+  "_about": "Figma node id and own text layers of each component set, read from the file through the desktop bridge (see npm run ds:code-connect).",
+  "fileKey": "0lCfWZBgpscbrOKQ7iIRi8",
+  "nodes": {
+    "Button": {
+      "id": "221:2",
+      "text": [
+        "label"
+      ]
+    },
+    "Icon Button": {
+      "id": "261:1993",
+      "text": []
+    },
+    "Toggle": {
+      "id": "2056:4303",
+      "text": []
+    },
+    "Toggle Group": {
+      "id": "2059:6607",
+      "text": []
+    },
+    "Toolbar": {
+      "id": "2059:7453",
+      "text": []
+    },
+    "Input": {
+      "id": "2056:1470",
+      "text": [
+        "value"
+      ]
+    },
+    "Field": {
+      "id": "2059:6330",
+      "text": [
+        "label",
+        "description",
+        "error"
+      ]
+    },
+    "Fieldset": {
+      "id": "2059:6412",
+      "text": [
+        "legend"
+      ]
+    },
+    "Form": {
+      "id": "2059:6413",
+      "text": []
+    },
+    "Checkbox": {
+      "id": "2056:1742",
+      "text": [
+        "label"
+      ]
+    },
+    "Checkbox Group": {
+      "id": "2059:6558",
+      "text": [
+        "label"
+      ]
+    },
+    "Radio": {
+      "id": "2056:2255",
+      "text": [
+        "label"
+      ]
+    },
+    "Radio Group": {
+      "id": "2059:6503",
+      "text": [
+        "label"
+      ]
+    },
+    "Switch": {
+      "id": "2056:2156",
+      "text": [
+        "label"
+      ]
+    },
+    "Slider": {
+      "id": "2056:4113",
+      "text": []
+    },
+    "Number Field": {
+      "id": "2056:4522",
+      "text": [
+        "value"
+      ]
+    },
+    "OTP Field": {
+      "id": "2056:4062",
+      "text": []
+    },
+    "OTP Slot": {
+      "id": "2056:4021",
+      "text": [
+        "value"
+      ]
+    },
+    "Select": {
+      "id": "2057:5008",
+      "text": [
+        "value"
+      ]
+    },
+    "Combobox": {
+      "id": "2057:5305",
+      "text": [
+        "value"
+      ]
+    },
+    "Autocomplete": {
+      "id": "2059:6709",
+      "text": []
+    },
+    "Listbox": {
+      "id": "2059:6685",
+      "text": [
+        "text"
+      ]
+    },
+    "Option": {
+      "id": "2057:4750",
+      "text": [
+        "label"
+      ]
+    },
+    "Menu": {
+      "id": "2059:6224",
+      "text": []
+    },
+    "Menu Item": {
+      "id": "2056:1906",
+      "text": [
+        "label"
+      ]
+    },
+    "Menu Group Label": {
+      "id": "2059:6217",
+      "text": [
+        "text"
+      ]
+    },
+    "Menu Separator": {
+      "id": "2059:6221",
+      "text": []
+    },
+    "Menubar": {
+      "id": "2059:6608",
+      "text": []
+    },
+    "Menubar Item": {
+      "id": "2057:5316",
+      "text": [
+        "label"
+      ]
+    },
+    "Navigation Menu": {
+      "id": "2059:6757",
+      "text": []
+    },
+    "Navigation Menu Item": {
+      "id": "2057:5425",
+      "text": [
+        "label"
+      ]
+    },
+    "Navigation Menu Link": {
+      "id": "2059:6755",
+      "text": [
+        "title",
+        "description"
+      ]
+    },
+    "Tabs": {
+      "id": "2059:7273",
+      "text": []
+    },
+    "Tab": {
+      "id": "2059:7242",
+      "text": [
+        "label"
+      ]
+    },
+    "Popover": {
+      "id": "2059:6642",
+      "text": [
+        "title",
+        "description"
+      ]
+    },
+    "Tooltip": {
+      "id": "2059:6659",
+      "text": [
+        "label"
+      ]
+    },
+    "Preview Card": {
+      "id": "2059:6684",
+      "text": [
+        "title",
+        "summary"
+      ]
+    },
+    "Dialog": {
+      "id": "2059:6798",
+      "text": [
+        "title",
+        "description"
+      ]
+    },
+    "Alert Dialog": {
+      "id": "2059:6908",
+      "text": [
+        "title",
+        "description"
+      ]
+    },
+    "Drawer": {
+      "id": "2059:7066",
+      "text": [
+        "title",
+        "description"
+      ]
+    },
+    "Toast": {
+      "id": "2059:7205",
+      "text": [
+        "title",
+        "description"
+      ]
+    },
+    "Progress": {
+      "id": "2059:7098",
+      "text": [
+        "label",
+        "value"
+      ]
+    },
+    "Meter": {
+      "id": "2059:7304",
+      "text": [
+        "label",
+        "value"
+      ]
+    },
+    "Accordion": {
+      "id": "2059:7503",
+      "text": []
+    },
+    "Accordion Item": {
+      "id": "2059:7353",
+      "text": [
+        "label"
+      ]
+    },
+    "Collapsible": {
+      "id": "2059:7452",
+      "text": [
+        "label"
+      ]
+    },
+    "Separator": {
+      "id": "2059:6215",
+      "text": []
+    },
+    "Scroll Area": {
+      "id": "2059:7496",
+      "text": []
+    },
+    "Avatar": {
+      "id": "2058:5716",
+      "text": [
+        "fallback"
+      ]
+    }
+  }
+}

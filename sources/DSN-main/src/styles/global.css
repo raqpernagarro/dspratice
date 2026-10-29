@@ -1,0 +1,3 @@
+/* Import all design tokens as CSS custom properties */
+@import '../../tokens.css';
+@import './global-consumer.css';

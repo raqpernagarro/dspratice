@@ -1,0 +1,35 @@
+/* Layout only. Colors and sizes come from slider.tokens.css (generated from slider.spec.ts). */
+
+.ds-slider__root {
+  display: block;
+  width: 14rem;
+}
+
+.ds-slider {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-slider__track {
+  position: relative;
+  width: 100%;
+}
+
+.ds-slider__indicator {
+  height: 100%;
+}
+
+.ds-slider__thumb {
+  box-sizing: border-box;
+  border-style: solid;
+  outline: 0;
+}
+
+.ds-slider[data-disabled] {
+  cursor: not-allowed;
+}

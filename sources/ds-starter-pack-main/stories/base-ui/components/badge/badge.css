@@ -1,0 +1,11 @@
+/* Layout only. Colors, size and type come from badge.tokens.css (generated from badge.spec.ts). */
+
+.ds-badge {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-style: solid;
+  white-space: nowrap;
+  vertical-align: middle;
+}

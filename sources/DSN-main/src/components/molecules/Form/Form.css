@@ -1,0 +1,10 @@
+.dsn-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.dsn-form [aria-invalid='true'] {
+  scroll-margin-top: var(--space-md);
+}

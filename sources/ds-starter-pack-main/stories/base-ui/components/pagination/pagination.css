@@ -1,0 +1,23 @@
+/* Layout only. Gaps, widths and the ellipsis come from pagination.tokens.css; the buttons style themselves. */
+
+.ds-pagination__list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-pagination__list > li {
+  display: flex;
+}
+
+.ds-pagination__page {
+  justify-content: center;
+}
+
+.ds-pagination__ellipsis {
+  justify-content: center;
+  -webkit-user-select: none;
+  user-select: none;
+}

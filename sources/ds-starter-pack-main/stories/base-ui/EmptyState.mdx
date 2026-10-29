@@ -1,0 +1,20 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './EmptyState.stories';
+import { SpecDocs } from './shared/SpecDocs';
+import { emptyStateSpec } from './components/empty-state/empty-state.spec';
+
+<Meta of={Stories} />
+
+# Empty State
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={emptyStateSpec} />
+
+## Not part of Base UI
+
+Empty State is built on the same tokens and spec system as the Base UI components, as a plain `<div>`: there is no Base UI part for it.

@@ -1,0 +1,1806 @@
+{
+  "color": {
+    "background": {
+      "accent": {
+        "strong": {
+          "default": {
+            "$type": "color",
+            "$value": "{primitive.accent.600}",
+            "$description": "Primary accent color — single source of truth for all accent-colored elements. Referenced by background/accent, text/accent, borders/selected/strong, and all CTA interactive states.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:9022:505226",
+                "lastSyncedAt": "2026-10-13T09:45:57.050Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.accent.600}",
+                  "dark": "{primitive.accent.300}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.accent.300}"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{primitive.accent.500}",
+            "$description": "Accent color in hover state — slightly lighter than accent in dark mode, slightly darker in light mode. Referenced by all CTA hover states.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:9022:505227",
+                "lastSyncedAt": "2026-10-13T09:45:57.051Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.accent.500}",
+                  "dark": "{primitive.accent.200}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.accent.200}"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{primitive.accent.700}",
+            "$description": "Accent color in pressed state — strongest accent contrast. Referenced by all CTA pressed states.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:9022:505228",
+                "lastSyncedAt": "2026-10-13T09:45:57.051Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.accent.700}",
+                  "dark": "{primitive.accent.400}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.accent.400}"
+              }
+            }
+          }
+        }
+      },
+      "neutral": {
+        "primary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.50}",
+          "$description": "Primary page and surface background. Most common background in the UI — used for main content areas, cards, and default surface backgrounds.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:111:468",
+              "lastSyncedAt": "2026-10-13T09:45:57.051Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.50}",
+                "dark": "{primitive.neutral.900}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.900}"
+            }
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.100}",
+          "$description": "Used as the second level of colors, like a layer below the primary",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:126:6957",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.100}",
+                "dark": "{primitive.neutral.950}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.950}"
+            }
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.200}",
+          "$description": "Deepest background level — below primary and secondary. Use for the outermost page container, app shell background, or any surface that sits behind all other layers.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:6050:2203568",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.200}",
+                "dark": "{primitive.neutral.black}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.black}"
+            }
+          }
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.5}",
+          "$description": "Translucent neutral wash — off toggle track.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11056:336851",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.alpha-dark.5}",
+                "dark": "{primitive.alpha-light.10}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.alpha-light.10}"
+            }
+          }
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{primitive.neutral.250}",
+          "$description": "Solid neutral fill that stands out from the page in both modes — avatars, neutral tags.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11056:336852",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.250}",
+                "dark": "{primitive.neutral.750}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.750}"
+            }
+          }
+        }
+      },
+      "elevated": {
+        "$type": "color",
+        "$value": "{color.background.neutral.primary}",
+        "$description": "Surface color for elevated elements that float above the base layer — context menus, popovers, modals, tooltips, and dropdowns.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:8428:6116",
+            "lastSyncedAt": "2026-10-13T09:45:57.051Z",
+            "lastSyncedValue": {
+              "light": "{color.background.neutral.primary}",
+              "dark": "{primitive.neutral.800}"
+            }
+          },
+          "modes": {
+            "dark": "{primitive.neutral.800}"
+          }
+        }
+      },
+      "overlay": {
+        "soft": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.10}",
+          "$description": "Subtle semi-transparent overlay (10% opacity). Use for hover state washes, row highlights, or lightweight surface tints.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8494:20293"
+            }
+          }
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.80}",
+          "$description": "Near-opaque overlay (80% opacity). Use for modal scrims, drawer backdrops, or strong surface overlays that obscure content behind them.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8494:20296"
+            }
+          }
+        }
+      },
+      "inverse": {
+        "primary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.900}",
+          "$description": "Primary inverted background (opposite of main background)",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8427:26843",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.900}",
+                "dark": "{primitive.neutral.50}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.50}"
+            }
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.950}",
+          "$description": "Second-level background on inverted (dark) surfaces — slightly lighter than the primary inverted background. Use for nested layers or secondary panels inside dark surfaces.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:1229:17137",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.950}",
+                "dark": "{primitive.neutral.100}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.100}"
+            }
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.black}",
+          "$description": "Third-level background on inverted (dark) surfaces — the deepest/darkest layer. Use for the outermost container inside inverted sections.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8427:26840",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.black}",
+                "dark": "{primitive.neutral.200}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.200}"
+            }
+          }
+        }
+      },
+      "interactive": {
+        "disabled": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.2}",
+          "$description": "Background of a disabled element",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8515:44099",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.alpha-dark.2}",
+                "dark": "{primitive.alpha-light.5}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.alpha-light.5}"
+            }
+          }
+        },
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.background.accent.strong.default}",
+            "$description": "Default background for call-to-action (primary) buttons",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8428:6098"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.background.accent.strong.hover}",
+            "$description": "Background for CTA buttons on hover",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8428:6099"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{color.background.accent.strong.active}",
+            "$description": "Background for CTA buttons when pressed",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8428:6100"
+              }
+            }
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.background.accent.strong.default}",
+            "$description": "Strong selection background (full accent color)",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:703:27177"
+              }
+            }
+          }
+        },
+        "secondary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.background.neutral.primary}",
+            "$description": "Default background for secondary/ghost interactive elements",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8428:6113"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{primitive.alpha-dark.5}",
+            "$description": "Background for secondary interactive elements on hover",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8428:6114",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.alpha-dark.5}",
+                  "dark": "{primitive.alpha-light.5}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.alpha-light.5}"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{primitive.alpha-dark.10}",
+            "$description": "Background for secondary interactive elements when pressed",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8428:6115",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.alpha-dark.10}",
+                  "dark": "{primitive.alpha-dark.90}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.alpha-dark.90}"
+              }
+            }
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{primitive.accent.50}",
+            "$description": "Subtle selection background (light accent tint)",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:204:18228",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.accent.50}",
+                  "dark": "{primitive.accent.950}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.accent.950}"
+              }
+            }
+          }
+        },
+        "destructive": {
+          "default": {
+            "$type": "color",
+            "$value": "{primitive.red.600}",
+            "$description": "Default background for destructive (danger) buttons",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8428:6107",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.red.600}",
+                  "dark": "{primitive.red.400}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.red.400}"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{primitive.red.500}",
+            "$description": "Background for destructive buttons on hover",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8428:6108",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.red.500}",
+                  "dark": "{primitive.red.300}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.red.300}"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{primitive.red.700}",
+            "$description": "Background for destructive buttons when pressed",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8428:6109",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.red.700}",
+                  "dark": "{primitive.red.500}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.red.500}"
+              }
+            }
+          }
+        },
+        "strong": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.background.fixed.dark.primary}",
+            "$description": "Strongest interactive fill — the primary button. Ink in light, accent in dark. The theme configurator re-points it.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11058:336866",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{color.background.fixed.dark.primary}",
+                  "dark": "{color.background.interactive.primary.default}"
+                }
+              },
+              "modes": {
+                "dark": "{color.background.interactive.primary.default}"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.background.fixed.dark.secondary}",
+            "$description": "Strongest interactive fill — the primary button. Ink in light, accent in dark. The theme configurator re-points it.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11058:336867",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{color.background.fixed.dark.secondary}",
+                  "dark": "{color.background.interactive.primary.hover}"
+                }
+              },
+              "modes": {
+                "dark": "{color.background.interactive.primary.hover}"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{color.background.fixed.dark.tertiary}",
+            "$description": "Strongest interactive fill — the primary button. Ink in light, accent in dark. The theme configurator re-points it.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11058:336868",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{color.background.fixed.dark.tertiary}",
+                  "dark": "{color.background.interactive.primary.active}"
+                }
+              },
+              "modes": {
+                "dark": "{color.background.interactive.primary.active}"
+              }
+            }
+          }
+        }
+      },
+      "fixed": {
+        "light": {
+          "primary": {
+            "$type": "color",
+            "$value": "{primitive.neutral.50}",
+            "$description": "Always light background (never changes in light/dark mode) - primary level",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:6013:1995899"
+              }
+            }
+          },
+          "secondary": {
+            "$type": "color",
+            "$value": "{primitive.neutral.100}",
+            "$description": "Always light background (never changes in light/dark mode) - secondary level",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:6050:2508791"
+              }
+            }
+          },
+          "tertiary": {
+            "$type": "color",
+            "$value": "{primitive.neutral.200}",
+            "$description": "Always light background (never changes in light/dark mode) - tertiary level",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:6050:2508793"
+              }
+            }
+          }
+        },
+        "dark": {
+          "primary": {
+            "$type": "color",
+            "$value": "{primitive.neutral.900}",
+            "$description": "Always dark background (never changes in light/dark mode) - primary level",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:6013:1995900"
+              }
+            }
+          },
+          "secondary": {
+            "$type": "color",
+            "$value": "{primitive.neutral.950}",
+            "$description": "Always dark background (never changes in light/dark mode) - secondary level",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:6050:2508792"
+              }
+            }
+          },
+          "tertiary": {
+            "$type": "color",
+            "$value": "{primitive.neutral.black}",
+            "$description": "Always dark background (never changes in light/dark mode) - tertiary level",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:6050:2508794"
+              }
+            }
+          }
+        }
+      },
+      "error": {
+        "soft": {
+          "default": {
+            "$type": "color",
+            "$value": "{primitive.red.100}",
+            "$description": "Subtle error background color for alerts and error states",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:1132:17428",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.red.100}",
+                  "dark": "{primitive.red.950}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.red.950}"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{primitive.red.200}",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11046:11054",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.red.200}",
+                  "dark": "{primitive.red.900}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.red.900}"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{primitive.red.300}",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11046:11055",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.red.300}",
+                  "dark": "{primitive.red.800}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.red.800}"
+              }
+            }
+          }
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{primitive.red.600}",
+          "$description": "Strong background color for critical error alerts and destructive actions.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8488:60634",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.red.600}",
+                "dark": "{primitive.red.500}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.red.500}"
+            }
+          }
+        }
+      },
+      "success": {
+        "soft": {
+          "default": {
+            "$type": "color",
+            "$value": "{primitive.green.100}",
+            "$description": "Subtle success background for success states and confirmations",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:1132:17429",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.green.100}",
+                  "dark": "{primitive.green.950}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.green.950}"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{primitive.green.200}",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11046:11056",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.green.200}",
+                  "dark": "{primitive.green.900}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.green.900}"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{primitive.green.300}",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11046:11057",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.green.300}",
+                  "dark": "{primitive.green.800}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.green.800}"
+              }
+            }
+          }
+        }
+      },
+      "warning": {
+        "soft": {
+          "default": {
+            "$type": "color",
+            "$value": "{primitive.yellow.100}",
+            "$description": "Subtle warning background for warning states and alerts",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:1132:17430",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.yellow.100}",
+                  "dark": "{primitive.yellow.950}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.yellow.950}"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{primitive.yellow.200}",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11046:11058",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.yellow.200}",
+                  "dark": "{primitive.yellow.900}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.yellow.900}"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{primitive.yellow.300}",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11046:11059",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.yellow.300}",
+                  "dark": "{primitive.yellow.800}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.yellow.800}"
+              }
+            }
+          }
+        }
+      },
+      "transparent": {
+        "$type": "color",
+        "$value": "{primitive.alpha-light.0}",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11046:11060"
+          }
+        }
+      },
+      "field": {
+        "default": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.2}",
+          "$description": "Input field fill.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11056:336853",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.alpha-dark.2}",
+                "dark": "{primitive.alpha-dark.90}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.alpha-dark.90}"
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.5}",
+          "$description": "Input field fill on hover.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11056:336854",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.alpha-dark.5}",
+                "dark": "{primitive.alpha-light.5}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.alpha-light.5}"
+            }
+          }
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.10}",
+          "$description": "Input field fill when active.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11056:336855",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.alpha-dark.10}",
+                "dark": "{primitive.alpha-light.10}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.alpha-light.10}"
+            }
+          }
+        }
+      },
+      "info": {
+        "soft": {
+          "$type": "color",
+          "$value": "{primitive.violet.100}",
+          "$description": "Info / in-progress state background.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11056:336856",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.violet.100}",
+                "dark": "{primitive.violet.950}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.violet.950}"
+            }
+          }
+        }
+      }
+    },
+    "foreground": {
+      "inverse": {
+        "primary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.50}",
+          "$description": "Primary text color on inverted (or CTA) backgrounds",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:111:465",
+              "lastSyncedAt": "2026-10-13T09:45:57.051Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.50}",
+                "dark": "{primitive.neutral.950}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.950}"
+            }
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.300}",
+          "$description": "Secondary text color on inverted backgrounds (less emphasis)",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8428:6118",
+              "lastSyncedAt": "2026-10-13T09:45:57.051Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.300}",
+                "dark": "{primitive.neutral.600}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.600}"
+            }
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.400}",
+          "$description": "Least prominent text on dark/inverted surfaces. Use for metadata, captions, or disabled-adjacent hints where primary and secondary inverted text would be too strong",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8428:6119",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.400}",
+                "dark": "{primitive.neutral.500}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.500}"
+            }
+          }
+        }
+      },
+      "fixed": {
+        "light": {
+          "primary": {
+            "$type": "color",
+            "$value": "{primitive.neutral.50}",
+            "$description": "Primary text color that always uses the light-mode value, regardless of the current theme. Use on surfaces with a forced light background (e.g. always-light cards or illustrations).",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:6050:2508798"
+              }
+            }
+          }
+        },
+        "dark": {
+          "primary": {
+            "$type": "color",
+            "$value": "{primitive.neutral.950}",
+            "$description": "Primary text color that always uses the dark-mode value, regardless of the current theme. Use on surfaces with a forced dark background (e.g. always-dark overlays, dark hero sections).",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8428:50320"
+              }
+            }
+          }
+        }
+      },
+      "interactive": {
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.foreground.accent.strong}",
+            "$description": "Text/icon color for primary call-to-action links and buttons",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:126:7077"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.background.accent.strong.hover}",
+            "$description": "CTA text/icon color on hover",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:568:15095",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{color.background.accent.strong.hover}",
+                  "dark": "{primitive.accent.200}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.accent.200}"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{primitive.accent.700}",
+            "$description": "CTA text/icon color when pressed",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:568:15096",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.accent.700}",
+                  "dark": "{primitive.accent.400}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.accent.400}"
+              }
+            }
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.foreground.accent.strong}",
+            "$description": "Text/icon color for selected items",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8441:153403"
+              }
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{primitive.neutral.300}",
+          "$description": "Text and icon color for disabled elements. Apply to labels, icons, and any foreground content inside a disabled component.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:126:6786",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.300}",
+                "dark": "{primitive.neutral.500}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.500}"
+            }
+          }
+        },
+        "secondary": {
+          "default": {
+            "$type": "color",
+            "$value": "{primitive.neutral.700}",
+            "$description": "Default text/icon color for secondary interactive elements",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8508:69390"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.foreground.interactive.primary.hover}",
+            "$description": "Secondary interactive text/icon color on hover",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8508:69391"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{color.foreground.interactive.primary.active}",
+            "$description": "Secondary interactive text/icon color when pressed",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8508:69392"
+              }
+            }
+          }
+        },
+        "destructive": {
+          "default": {
+            "$type": "color",
+            "$value": "{primitive.red.600}",
+            "$description": "Text/icon color for destructive actions and dangerous links",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8508:69387",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.red.600}",
+                  "dark": "{primitive.red.400}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.red.400}"
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{primitive.red.500}",
+            "$description": "Danger text/icon color on hover",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8508:69388",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.red.500}",
+                  "dark": "{primitive.red.300}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.red.300}"
+              }
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{primitive.red.700}",
+            "$description": "Danger text/icon color when pressed",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8508:69389",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.red.700}",
+                  "dark": "{primitive.red.500}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.red.500}"
+              }
+            }
+          }
+        }
+      },
+      "neutral": {
+        "primary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.950}",
+          "$description": "Primary text and icon color for all body content, headings, and labels. Default for any text element unless a more specific token applies.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:111:462",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.950}",
+                "dark": "{primitive.neutral.50}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.50}"
+            }
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.700}",
+          "$description": "Secondary text color for less emphasized content",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:111:463",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.700}",
+                "dark": "{primitive.neutral.300}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.300}"
+            }
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.600}",
+          "$description": "Tertiary text color for subtle, de-emphasized content",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:111:5773",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.600}",
+                "dark": "{primitive.neutral.400}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.400}"
+            }
+          }
+        }
+      },
+      "accent": {
+        "strong": {
+          "$type": "color",
+          "$value": "{color.background.accent.strong.default}",
+          "$description": "Accent color for highlighted or interactive text and icons — links, active tab labels, selected menu items. Distinct from text/interactive which is for actionable elements.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8441:153406"
+            }
+          }
+        }
+      },
+      "warning": {
+        "strong": {
+          "$type": "color",
+          "$value": "{primitive.yellow.700}",
+          "$description": "Text color for warning messages and warning states",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:1132:10434",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.yellow.700}",
+                "dark": "{primitive.yellow.200}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.yellow.200}"
+            }
+          }
+        }
+      },
+      "success": {
+        "strong": {
+          "$type": "color",
+          "$value": "{primitive.green.800}",
+          "$description": "Text color for success messages and success states",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:1132:10433",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.green.800}",
+                "dark": "{primitive.green.300}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.green.300}"
+            }
+          }
+        }
+      },
+      "error": {
+        "strong": {
+          "$type": "color",
+          "$value": "{primitive.red.700}",
+          "$description": "Text color for error messages and error states",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:111:526",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.red.700}",
+                "dark": "{primitive.red.300}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.red.300}"
+            }
+          }
+        }
+      },
+      "info": {
+        "strong": {
+          "$type": "color",
+          "$value": "{primitive.violet.900}",
+          "$description": "Info / in-progress state text.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11056:336857",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.violet.900}",
+                "dark": "{primitive.violet.200}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.violet.200}"
+            }
+          }
+        }
+      }
+    },
+    "border": {
+      "neutral": {
+        "primary": {
+          "$type": "color",
+          "$value": "{primitive.neutral.200}",
+          "$description": "Default border color for UI elements that have a visible boundary — inputs, cards, containers, and dividers in their resting state.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:111:471",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.200}",
+                "dark": "{primitive.neutral.800}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.800}"
+            }
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.5}",
+          "$description": "Semi-transparent border with subtle opacity",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:132:8445",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.alpha-dark.5}",
+                "dark": "{primitive.alpha-light.10}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.alpha-light.10}"
+            }
+          }
+        }
+      },
+      "interactive": {
+        "hover": {
+          "$type": "color",
+          "$value": "{primitive.neutral.300}",
+          "$description": "Border color for hovered elements that use the default border. Apply as the hover state of borders/default.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:179:5011",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.300}",
+                "dark": "{primitive.neutral.700}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.700}"
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{primitive.neutral.100}",
+          "$description": "Border color for disabled components. Apply to the border of inputs, buttons, cards, and any bordered element in a disabled state.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8604:13408",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.neutral.100}",
+                "dark": "{primitive.neutral.900}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.neutral.900}"
+            }
+          }
+        },
+        "secondary": {
+          "selected": {
+            "$type": "color",
+            "$value": "{primitive.accent.100}",
+            "$description": "Subtle selection border for lightly selected items — rows, chips, or cards in a soft selected state. Less prominent than borders/selected/strong.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:4687:201714",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.accent.100}",
+                  "dark": "{primitive.accent.800}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.accent.800}"
+              }
+            }
+          }
+        },
+        "primary": {
+          "selected": {
+            "$type": "color",
+            "$value": "{color.background.accent.strong.default}",
+            "$description": "Strong selection border color for actively selected rows, cards, or list items. Indicates selection state, not elevation.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:703:27176"
+              }
+            }
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": "{color.border.interactive.primary.selected}",
+          "$description": "Outer focus ring color (brand accent for visual emphasis)",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:703:27175"
+            }
+          }
+        },
+        "destructive": {
+          "focus": {
+            "$type": "color",
+            "$value": "{color.border.error.strong}",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11046:11051"
+              }
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.border.neutral.primary}",
+          "$description": "Resting border of an interactive control (input, select, checkbox). Pairs with interactive-hover, -disabled, -focus. Use neutral-primary for non-interactive borders.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11054:336841"
+            }
+          }
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.background.interactive.strong.default}",
+          "$description": "Edge of the strong fill in light; blends into the surface in dark.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11058:336869",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{color.background.interactive.strong.default}",
+                "dark": "{color.background.interactive.secondary.default}"
+              }
+            },
+            "modes": {
+              "dark": "{color.background.interactive.secondary.default}"
+            }
+          }
+        }
+      },
+      "error": {
+        "soft": {
+          "$type": "color",
+          "$value": "{primitive.red.200}",
+          "$description": "Soft border color for inputs and form fields in an error state. Use alongside background/feedback/error/default for error form fields.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:1132:17441",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.red.200}",
+                "dark": "{primitive.red.900}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.red.900}"
+            }
+          }
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{primitive.red.600}",
+          "$description": "Strong error border for error inputs and critical states",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:111:527",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.red.600}",
+                "dark": "{primitive.red.400}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.red.400}"
+            }
+          }
+        }
+      },
+      "success": {
+        "soft": {
+          "$type": "color",
+          "$value": "{primitive.green.200}",
+          "$description": "Soft border color for inputs and form fields in a success state. Use alongside background/feedback/success/default for validated form fields.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:1132:17443",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.green.200}",
+                "dark": "{primitive.green.900}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.green.900}"
+            }
+          }
+        }
+      },
+      "warning": {
+        "soft": {
+          "$type": "color",
+          "$value": "{primitive.yellow.200}",
+          "$description": "Soft border color for inputs and form fields in a warning state. Use alongside background/feedback/warning/default for warning form fields.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:1132:17444",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.yellow.200}",
+                "dark": "{primitive.yellow.900}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.yellow.900}"
+            }
+          }
+        }
+      },
+      "info": {
+        "soft": {
+          "$type": "color",
+          "$value": "{primitive.violet.200}",
+          "$description": "Info / in-progress state border.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11056:336858",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.violet.200}",
+                "dark": "{primitive.violet.900}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.violet.900}"
+            }
+          }
+        }
+      }
+    },
+    "shadow": {
+      "outer": {
+        "soft": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.5}",
+          "$description": "Soft outer shadow color for subtle elevation",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8430:50309",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.alpha-dark.5}",
+                "dark": "{primitive.alpha-dark.80}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.alpha-dark.80}"
+            }
+          }
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.10}",
+          "$description": "Strong outer shadow color for prominent elevation",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:8430:50311",
+              "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+              "lastSyncedValue": {
+                "light": "{primitive.alpha-dark.10}",
+                "dark": "{primitive.alpha-dark.90}"
+              }
+            },
+            "modes": {
+              "dark": "{primitive.alpha-dark.90}"
+            }
+          }
+        }
+      },
+      "inner": {
+        "light": {
+          "soft": {
+            "$type": "color",
+            "$value": "{primitive.alpha-light.20}",
+            "$description": "Soft light inner shadow color (for highlights/emboss)",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8430:50299"
+              }
+            }
+          },
+          "strong": {
+            "$type": "color",
+            "$value": "{primitive.neutral.white}",
+            "$description": "Strong light inner shadow color for pronounced highlight effects — embossed surfaces, pressed states, or surfaces needing a bright inner edge.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8430:50300",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.neutral.white}",
+                  "dark": "{primitive.alpha-light.5}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.alpha-light.5}"
+              }
+            }
+          }
+        },
+        "dark": {
+          "soft": {
+            "$type": "color",
+            "$value": "{primitive.alpha-dark.5}",
+            "$description": "Soft dark inner shadow color (for debossed/inset effects)",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8430:50303",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.alpha-dark.5}",
+                  "dark": "{primitive.alpha-dark.20}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.alpha-dark.20}"
+              }
+            }
+          },
+          "strong": {
+            "$type": "color",
+            "$value": "{primitive.alpha-dark.90}",
+            "$description": "Strong dark inner shadow color for pronounced inset/debossed effects — deep pressed states or surfaces needing a heavy inner shadow.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:8430:50304",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.alpha-dark.90}",
+                  "dark": "{primitive.neutral.black}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.neutral.black}"
+              }
+            }
+          }
+        }
+      },
+      "focus": {
+        "inset": {
+          "$type": "color",
+          "$value": "{color.background.neutral.primary}",
+          "$description": "Inner focus ring color (provides contrast against all backgrounds)",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:126:6777"
+            }
+          }
+        }
+      },
+      "emboss": {
+        "button": {
+          "primary": {
+            "top": {
+              "$type": "color",
+              "$value": "{color.shadow.inner.light.soft}",
+              "$extensions": {
+                "figma-console-mcp": {
+                  "variableId": "VariableID:11046:11068"
+                }
+              }
+            },
+            "bottom": {
+              "$type": "color",
+              "$value": "{color.shadow.inner.dark.soft}",
+              "$extensions": {
+                "figma-console-mcp": {
+                  "variableId": "VariableID:11046:11069"
+                }
+              }
+            }
+          },
+          "secondary": {
+            "top": {
+              "$type": "color",
+              "$value": "{color.shadow.inner.light.strong}",
+              "$extensions": {
+                "figma-console-mcp": {
+                  "variableId": "VariableID:11046:11070",
+                  "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                  "lastSyncedValue": {
+                    "light": "{color.shadow.inner.light.strong}",
+                    "dark": "{primitive.alpha-light.10}"
+                  }
+                },
+                "modes": {
+                  "dark": "{primitive.alpha-light.10}"
+                }
+              }
+            },
+            "bottom": {
+              "$type": "color",
+              "$value": "{color.shadow.inner.dark.soft}",
+              "$extensions": {
+                "figma-console-mcp": {
+                  "variableId": "VariableID:11046:11071",
+                  "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                  "lastSyncedValue": {
+                    "light": "{color.shadow.inner.dark.soft}",
+                    "dark": "{primitive.alpha-dark.90}"
+                  }
+                },
+                "modes": {
+                  "dark": "{primitive.alpha-dark.90}"
+                }
+              }
+            }
+          },
+          "tertiary": {
+            "top": {
+              "$type": "color",
+              "$value": "{color.shadow.inner.light.soft}",
+              "$extensions": {
+                "figma-console-mcp": {
+                  "variableId": "VariableID:11046:11072"
+                }
+              }
+            },
+            "bottom": {
+              "$type": "color",
+              "$value": "{color.shadow.inner.dark.soft}",
+              "$extensions": {
+                "figma-console-mcp": {
+                  "variableId": "VariableID:11046:11073"
+                }
+              }
+            }
+          }
+        }
+      },
+      "elevation": {
+        "sm": {
+          "$type": "color",
+          "$value": "{color.shadow.outer.soft}",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11046:11076"
+            }
+          }
+        },
+        "md": {
+          "$type": "color",
+          "$value": "{color.shadow.outer.soft}",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11046:11077"
+            }
+          }
+        },
+        "lg": {
+          "$type": "color",
+          "$value": "{color.shadow.outer.strong}",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11046:11078"
+            }
+          }
+        }
+      },
+      "separator": {
+        "emboss": {
+          "light": {
+            "$type": "color",
+            "$value": "{primitive.neutral.white}",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11049:336778",
+                "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                "lastSyncedValue": {
+                  "light": "{primitive.neutral.white}",
+                  "dark": "{primitive.alpha-light.10}"
+                }
+              },
+              "modes": {
+                "dark": "{primitive.alpha-light.10}"
+              }
+            }
+          }
+        }
+      },
+      "switcher": {
+        "thumb": {
+          "outline": {
+            "$type": "color",
+            "$value": "{primitive.alpha-dark.5}",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11050:336783"
+              }
+            }
+          },
+          "outer": {
+            "$type": "color",
+            "$value": "{primitive.alpha-dark.5}",
+            "$extensions": {
+              "figma-console-mcp": {
+                "variableId": "VariableID:11050:336784"
+              }
+            }
+          },
+          "inner": {
+            "top": {
+              "$type": "color",
+              "$value": "{primitive.neutral.white}",
+              "$extensions": {
+                "figma-console-mcp": {
+                  "variableId": "VariableID:11050:336785",
+                  "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                  "lastSyncedValue": {
+                    "light": "{primitive.neutral.white}",
+                    "dark": "{primitive.alpha-light.20}"
+                  }
+                },
+                "modes": {
+                  "dark": "{primitive.alpha-light.20}"
+                }
+              }
+            },
+            "bottom": {
+              "$type": "color",
+              "$value": "{primitive.neutral.100}",
+              "$extensions": {
+                "figma-console-mcp": {
+                  "variableId": "VariableID:11050:336786",
+                  "lastSyncedAt": "2026-10-13T09:45:57.052Z",
+                  "lastSyncedValue": {
+                    "light": "{primitive.neutral.100}",
+                    "dark": "{primitive.alpha-dark.30}"
+                  }
+                },
+                "modes": {
+                  "dark": "{primitive.alpha-dark.30}"
+                }
+              }
+            }
+          }
+        }
+      },
+      "outline": {
+        "soft": {
+          "$type": "color",
+          "$value": "{primitive.alpha-dark.5}",
+          "$description": "Hairline outline shadow colour.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:11056:336859"
+            }
+          }
+        }
+      }
+    }
+  }
+}

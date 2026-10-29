@@ -1,0 +1,103 @@
+.Container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.ToggleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.Label {
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  color: var(--color-foreground-neutral-primary);
+
+  
+}
+
+.Toggle {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-md);
+  height: var(--size-md);
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: var(--shape-radius-md);
+  background-color: transparent;
+  color: var(--color-foreground-neutral-primary);
+  -webkit-user-select: none;
+  user-select: none;
+
+  
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]) {
+      background-color: var(--color-background-interactive-subtle-hover);
+
+      
+    }
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: var(--color-background-interactive-subtle-pressed);
+
+    
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-shadow-focus-ring-primary);
+    outline-offset: -1px;
+
+    
+  }
+}
+
+.Button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--size-md);
+  padding: 0 var(--space-md);
+  margin: 0;
+  border: 1px solid var(--color-border-interactive-default);
+  border-radius: var(--shape-radius-md);
+  background-color: var(--color-background-neutral-primary);
+  font-family: inherit;
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-body-regular);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--color-foreground-neutral-primary);
+  -webkit-user-select: none;
+  user-select: none;
+
+  
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-background-interactive-subtle-hover);
+
+      
+    }
+  }
+
+  &:active {
+    background-color: var(--color-background-interactive-subtle-pressed);
+
+    
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-shadow-focus-ring-primary);
+    outline-offset: -1px;
+
+    
+  }
+}

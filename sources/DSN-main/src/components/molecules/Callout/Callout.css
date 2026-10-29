@@ -1,0 +1,99 @@
+.dsn-callout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: var(--size-border-sm) solid var(--color-border-neutral-secondary);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-callout-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+  padding: var(--space-xs);
+}
+
+.dsn-callout-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  padding: var(--space-2xs);
+}
+
+.dsn-callout-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-2xs);
+}
+
+.dsn-callout-title,
+.dsn-callout-description {
+  margin: 0;
+}
+
+.dsn-callout-title {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-callout-description {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-callout-dismiss {
+  flex-shrink: 0;
+}
+
+.dsn-callout-content {
+  padding: 0 var(--space-xs);
+}
+
+.dsn-callout[data-severity='success'] {
+  background: var(--tag-background-success);
+  border-color: var(--tag-border-success);
+}
+
+.dsn-callout[data-severity='success'] .dsn-callout-title,
+.dsn-callout[data-severity='success'] .dsn-callout-description,
+.dsn-callout[data-severity='success'] .dsn-callout-icon {
+  color: var(--tag-foreground-success);
+}
+
+.dsn-callout[data-severity='warning'] {
+  background: var(--tag-background-warning);
+  border-color: var(--tag-border-warning);
+}
+
+.dsn-callout[data-severity='warning'] .dsn-callout-title,
+.dsn-callout[data-severity='warning'] .dsn-callout-description,
+.dsn-callout[data-severity='warning'] .dsn-callout-icon {
+  color: var(--tag-foreground-warning);
+}
+
+.dsn-callout[data-severity='error'] {
+  background: var(--tag-background-error);
+  border-color: var(--tag-border-error);
+}
+
+.dsn-callout[data-severity='error'] .dsn-callout-title,
+.dsn-callout[data-severity='error'] .dsn-callout-description,
+.dsn-callout[data-severity='error'] .dsn-callout-icon {
+  color: var(--tag-foreground-error);
+}

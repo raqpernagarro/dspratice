@@ -1,0 +1,10 @@
+/* Generated from form.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-form {
+  gap: var(--form-gap, var(--space-lg));
+}
+
+.ds-form .ds-form__actions {
+  gap: var(--form-actions-gap, var(--space-sm));
+  padding-block: var(--form-actions-space-y, var(--space-xs));
+}

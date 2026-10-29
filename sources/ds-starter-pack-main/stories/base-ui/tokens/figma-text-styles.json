@@ -1,0 +1,114 @@
+[
+ {
+  "name": "Heading/XL",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/heading/xl",
+  "lineHeight": "font/line-height/heading/xl",
+  "fontWeight": "font/weight/heading/strong"
+ },
+ {
+  "name": "Heading/XL Regular",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/heading/xl",
+  "lineHeight": "font/line-height/heading/xl",
+  "fontWeight": "font/weight/heading/regular"
+ },
+ {
+  "name": "Heading/LG",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/heading/lg",
+  "lineHeight": "font/line-height/heading/lg",
+  "fontWeight": "font/weight/heading/strong"
+ },
+ {
+  "name": "Heading/LG Regular",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/heading/lg",
+  "lineHeight": "font/line-height/heading/lg",
+  "fontWeight": "font/weight/heading/regular"
+ },
+ {
+  "name": "Heading/MD",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/heading/md",
+  "lineHeight": "font/line-height/heading/md",
+  "fontWeight": "font/weight/heading/strong"
+ },
+ {
+  "name": "Heading/MD Regular",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/heading/md",
+  "lineHeight": "font/line-height/heading/md",
+  "fontWeight": "font/weight/heading/regular"
+ },
+ {
+  "name": "Heading/SM",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/heading/sm",
+  "lineHeight": "font/line-height/heading/sm",
+  "fontWeight": "font/weight/heading/strong"
+ },
+ {
+  "name": "Heading/SM Regular",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/heading/sm",
+  "lineHeight": "font/line-height/heading/sm",
+  "fontWeight": "font/weight/heading/regular"
+ },
+ {
+  "name": "Body/LG",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/body/lg",
+  "lineHeight": "font/line-height/body/lg",
+  "fontWeight": "font/weight/body/regular"
+ },
+ {
+  "name": "Body/LG Strong",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/body/lg",
+  "lineHeight": "font/line-height/body/lg",
+  "fontWeight": "font/weight/body/strong"
+ },
+ {
+  "name": "Body/MD",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/body/md",
+  "lineHeight": "font/line-height/body/md",
+  "fontWeight": "font/weight/body/regular"
+ },
+ {
+  "name": "Body/MD Strong",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/body/md",
+  "lineHeight": "font/line-height/body/md",
+  "fontWeight": "font/weight/body/strong"
+ },
+ {
+  "name": "Body/SM",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/body/sm",
+  "lineHeight": "font/line-height/body/sm",
+  "fontWeight": "font/weight/body/regular"
+ },
+ {
+  "name": "Body/SM Strong",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/body/sm",
+  "lineHeight": "font/line-height/body/sm",
+  "fontWeight": "font/weight/body/strong"
+ },
+ {
+  "name": "Caption/MD",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/caption/md",
+  "lineHeight": "font/line-height/caption/md",
+  "fontWeight": "font/weight/body/regular"
+ },
+ {
+  "name": "Caption/SM",
+  "fontFamily": "font/family/primary",
+  "fontSize": "font/size/caption/sm",
+  "lineHeight": "font/line-height/caption/sm",
+  "fontWeight": "font/weight/body/regular"
+ }
+]

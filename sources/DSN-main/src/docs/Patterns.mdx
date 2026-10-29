@@ -1,0 +1,221 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Patterns" />
+
+# Patterns
+
+Patterns are decision rules that govern which component to use and how to configure it based on context, data characteristics, and interaction model. They sit above component-level documentation.
+
+> These patterns are derived from `AGENTS.md` (builder-side component rules) and, where a pattern governs how consuming apps compose components, from `AI.md` (e.g. EmptyState button/sizing rules, Tabs vs SegmentControl selection criteria). This page is the human-readable Storybook rendering of those rules — it is not a 1:1 derivation of `AGENTS.md` alone.
+
+---
+
+## 1. Single select
+
+Use whenever the user must select **one value** from a set of options.
+
+### Does the selection require explicit confirmation before taking effect?
+
+**Yes — user must confirm (e.g. form submitted separately):**
+→ Use **Radio**
+
+**No — selection takes effect immediately:**
+
+| Option count | Component |
+|---|---|
+| 2–3 options | **SegmentControl** |
+| 4+ options | **Select** (search appears automatically above 10 options) |
+
+Never pass `searchable={false}` to a `Select` with more than 10 options. Use **Combobox** for free-text or async option sets.
+
+---
+
+## 2. Multi select
+
+Use whenever the user must select **one or more values** from a set.
+
+| Option count | Component |
+|---|---|
+| Up to 3 options | **Chips** (shown upfront) |
+| 4+ options in a form | **Checkbox** list |
+| Large or dynamic set | **AutocompleteMulti** |
+| Toolbar multi-value filter (status, assignee, etc.) | **PopoverMenu** rich variant with checkbox-cell items and Cancel/Confirm — the MultiSelectAnchored pattern |
+
+`Select` is single-value only. Never model a multi-value filter as a `Select` with an "All" sentinel option — an empty checkbox selection means no filter is applied.
+
+---
+
+## 3. Binary (on/off)
+
+Use whenever the user is making a **two-state choice**.
+
+| Context | Component |
+|---|---|
+| Toolbar or icon-only, immediate effect | **Toggle button** + Tooltip |
+| Form, confirmed on submit | **Checkbox** |
+| Settings, labeled, immediate effect | **Switcher** |
+
+---
+
+## 4. Filter bar
+
+| Filter value count | Pattern |
+|---|---|
+| 1 value | **Toggle button** |
+| 2–5 values | **Chips** in a horizontal bar |
+| 6–12 values | Per-dimension filter triggers → **PopoverMenu** (MultiSelectAnchored pattern) |
+| 13+ values | "Filters" button → drawer |
+
+Always show active state. Provide "Clear all" when any filter is active.
+
+---
+
+## 5. Pagination vs infinite scroll
+
+| Content type | Pattern |
+|---|---|
+| Data tables | **Pagination** |
+| Feeds | **Infinite scroll** |
+
+Never mix both in the same view.
+
+---
+
+## 6. Loading state
+
+### Is the shape of the loading content known?
+
+**Yes — content shape is predictable:**
+→ Use **SkeletonLoading**
+
+**No — shape is unknown:**
+→ Use **ProgressRing**
+
+### Scope
+
+| Scope | Component |
+|---|---|
+| Full page navigation | **LoadingBar** |
+| Full page or panel content | SkeletonLoading or ProgressRing (xl/xxl) |
+| Section or card within a page | SkeletonLoading or ProgressRing (lg) |
+| Inline inside a button | Button `loading` prop — button disabled while loading. Never mount ProgressRing inside a button |
+| Background task | No indicator — Toast on completion |
+
+---
+
+## 7. Overlay
+
+### Does the user need to take an action before continuing?
+
+**Yes — interaction is mandatory before proceeding:**
+
+| Type | Component |
+|---|---|
+| Destructive confirmation or critical warning | **Alert dialog** |
+| Any other task or form | **Modal** |
+
+**No — the overlay is non-blocking:**
+
+| Anchored to an element? | Component |
+|---|---|
+| Yes | **Popover** or **Tooltip** |
+| No | **Toast** or **Drawer** |
+
+---
+
+## 8. Empty state
+
+An empty state appears when a list, table, or content area has no items to display.
+
+| Context | Size | Notes |
+|---|---|---|
+| Primary content area of a page | `default` | Illustration + title + description + optional CTA |
+| Card, panel, or board column | `small` | Icon + title + description + optional CTA. `hasIcon={false}` when no icon |
+
+### Content by situation
+
+| Situation | Pattern |
+|---|---|
+| First use | Invite to create the first item |
+| No results | "No results for '[query]'" + Clear filters CTA |
+| Permission error | Explain the restriction |
+| Load error | Retry CTA |
+
+Always use `showMainCta` for the primary button and `showSecondaryOption` for the secondary button — never mount a separate `Button` beside `EmptyState` only to change variant.
+
+For secondary-only CTAs: `showMainCta={false}`, `showSecondaryOption`, `secondaryOptionLabel`, `onSecondaryOptionClick`.
+
+In flex column parents (board columns, card bodies), set `min-width: 0` on the column and `min-width: 0` plus `max-width: 100%` on the `EmptyState` root. Never reimplement board or in-column empty layouts with custom wrappers.
+
+---
+
+## 9. Error feedback
+
+| Scope | Pattern |
+|---|---|
+| Single form field | Inline validation message |
+| Section within a page | Inline error pattern |
+| Entire page blocked | Error screen |
+
+---
+
+## 10. Success feedback
+
+| Situation | Pattern |
+|---|---|
+| Routine action (save, delete) | Toast — success variant, auto-dismiss 4–5s |
+| Significant milestone | Success screen |
+
+---
+
+## 11. Tabs vs SegmentControl
+
+| Question | Answer | Component |
+|---|---|---|
+| Does each option have a distinct content panel? | Yes | **Tabs** |
+| Does switching change how the same content is rendered? | Yes | **SegmentControl** |
+| Could each option be its own sub-route? | Yes | **Tabs** |
+| Is it a display preference, not an architecture decision? | Yes | **SegmentControl** |
+
+---
+
+## 12. Progress feedback
+
+```
+Duration/context:
+  Instant to ~300ms              → No indicator (avoid flicker)
+  ~300ms to ~3s, within component → ProgressRing inline or Button `loading`
+  ~3s+, within page section      → SkeletonLoading (shape known) or ProgressRing (lg/xl)
+  Long async, user can leave     → Progress screen
+  Page navigation                → LoadingBar
+```
+
+**Progress screen** — use when the operation is long-running and the wait is a meaningful moment in the flow.
+- Illustration: conveys activity in progress — in motion, not static or broken
+- Title: present tense, active. "Sending your money." No punctuation at end.
+- Description: what's happening and what to expect next. Full stop at end.
+- Primary button: where to go while waiting, or acknowledgement. 1–3 words.
+- Never show for operations under ~3 seconds.
+- If completion time is known, state it: "This usually takes 1–2 minutes."
+- On completion → transition to **Success screen**. On failure → transition to **Error screen**.
+
+---
+
+## Component decision table
+
+| Situation | Component |
+|---|---|
+| Toggle between 2–5 mutually exclusive views | **SegmentControl** — never plain text or custom buttons |
+| Each option has a distinct content panel | **Tabs** |
+| User selects or filters with a toggleable option | **Chip** |
+| Non-interactive status or category label | **Tag** |
+| User clicks a table row to see details | **Drawer** |
+| User must complete a task before continuing | **Modal** |
+| Jump to a page, record or action by typing its name (site search, ⌘K palette) | **CommandDialog** — never Combobox (that picks a form value) |
+| Numeric count on a nav icon | **Badge** |
+| List needing sorting, filtering, or pagination | **DataTable** |
+| Month, week, day, or list scheduling calendar | **CalendarView** — never a custom calendar grid |
+| Picking a date or range in a form | **DateTimePicker** (single or range) — not CalendarView |
+| No results or first-time empty section | **EmptyState** |
+| Content loading, shape is known | **SkeletonLoading** |
+| Content loading, shape is unknown | **ProgressRing** |

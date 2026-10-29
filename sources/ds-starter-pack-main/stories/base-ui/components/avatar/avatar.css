@@ -1,0 +1,26 @@
+/* Layout only. Size, colors and type come from avatar.tokens.css (generated from avatar.spec.ts). */
+
+.ds-avatar {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-avatar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ds-avatar__fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}

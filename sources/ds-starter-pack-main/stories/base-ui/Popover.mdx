@@ -1,0 +1,27 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Popover.stories';
+import docs from './docs/popover.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { popoverSpec } from './components/popover/popover.spec';
+
+<Meta of={Stories} />
+
+# Popover
+
+<Canvas of={Stories.Default} />
+
+## As in Figma
+
+<Canvas of={Stories.Preview} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={popoverSpec} />
+
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={popoverSpec.docs.baseUi} />

@@ -1,0 +1,23 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Toggle.stories';
+import docs from './docs/toggle.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { toggleSpec } from './components/toggle/toggle.spec';
+
+<Meta of={Stories} />
+
+# Toggle
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={toggleSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={toggleSpec.docs.baseUi} />

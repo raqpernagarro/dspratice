@@ -1,0 +1,34 @@
+/* Generated from popover.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-popover {
+  padding-inline: var(--popover-space-x, var(--space-md));
+  padding-block: var(--popover-space-y, var(--space-md));
+  gap: var(--popover-gap, var(--space-xs));
+  border-radius: var(--popover-radius, var(--shape-radius-lg));
+  border-width: var(--popover-border-width, var(--size-border-regular));
+  background-color: var(--popover-background, var(--color-background-surface-medium));
+  border-color: var(--popover-border-color, var(--color-border-neutral-subtle));
+  box-shadow: var(--effect-shadow-elevation-medium);
+}
+
+.ds-popover .ds-popover__arrow::before {
+  border-width: var(--popover-border-width, var(--size-border-regular));
+  background-color: var(--popover-background, var(--color-background-surface-medium));
+  border-color: var(--popover-border-color, var(--color-border-neutral-subtle));
+}
+
+.ds-popover .ds-popover__title {
+  color: var(--popover-title-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--popover-title-text-style-font-family, var(--font-family-primary));
+  font-size: var(--popover-title-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--popover-title-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--popover-title-text-style-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-popover .ds-popover__description {
+  color: var(--popover-description-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--popover-description-text-style-font-family, var(--font-family-primary));
+  font-size: var(--popover-description-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--popover-description-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--popover-description-text-style-font-weight, var(--font-weight-body-regular));
+}

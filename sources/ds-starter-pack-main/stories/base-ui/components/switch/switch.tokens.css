@@ -1,0 +1,170 @@
+/* Generated from switch.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-switch[data-size="sm"] {
+  gap: var(--switch-gap-sm, var(--space-xs));
+}
+
+.ds-switch[data-size="md"] {
+  gap: var(--switch-gap-md, var(--space-sm));
+}
+
+.ds-switch[data-size="lg"] {
+  gap: var(--switch-gap-lg, var(--space-sm));
+}
+
+.ds-switch[data-size="sm"] .ds-switch__control {
+  width: var(--switch-track-width-sm, var(--size-md));
+}
+
+.ds-switch[data-size="md"] .ds-switch__control {
+  width: var(--switch-track-width-md, var(--size-lg));
+}
+
+.ds-switch[data-size="lg"] .ds-switch__control {
+  width: var(--switch-track-width-lg, var(--size-xl));
+}
+
+.ds-switch .ds-switch__control {
+  padding-inline: var(--switch-track-space-x, var(--space-2xs));
+  padding-block: var(--switch-track-space-y, var(--space-2xs));
+  border-radius: var(--switch-track-radius, var(--shape-radius-full));
+  border-width: var(--switch-track-border-width, var(--size-border-regular));
+}
+
+.ds-switch .ds-switch__control[data-unchecked] {
+  background-color: var(--switch-track-background-off-default, var(--color-background-neutral-primary));
+  border-color: var(--switch-track-border-color-off-default, var(--color-border-interactive-default));
+}
+
+.ds-switch[data-size="sm"] .ds-switch__thumb {
+  width: var(--switch-thumb-size-sm, var(--space-md));
+  height: var(--switch-thumb-size-sm, var(--space-md));
+}
+
+.ds-switch[data-size="md"] .ds-switch__thumb {
+  width: var(--switch-thumb-size-md, var(--size-2xs));
+  height: var(--switch-thumb-size-md, var(--size-2xs));
+}
+
+.ds-switch[data-size="lg"] .ds-switch__thumb {
+  width: var(--switch-thumb-size-lg, var(--size-xs));
+  height: var(--switch-thumb-size-lg, var(--size-xs));
+}
+
+.ds-switch .ds-switch__thumb {
+  border-radius: var(--switch-thumb-radius, var(--shape-radius-full));
+}
+
+.ds-switch .ds-switch__control[data-unchecked] .ds-switch__thumb {
+  background-color: var(--switch-thumb-background-off-default, var(--color-border-interactive-default));
+}
+
+.ds-switch .ds-switch__label {
+  color: var(--switch-label-foreground-default, var(--color-foreground-neutral-primary));
+}
+
+.ds-switch[data-size="sm"] .ds-switch__label {
+  font-family: var(--switch-label-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--switch-label-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--switch-label-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--switch-label-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-switch[data-size="md"] .ds-switch__label {
+  font-family: var(--switch-label-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--switch-label-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--switch-label-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--switch-label-text-style-md-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-switch[data-size="lg"] .ds-switch__label {
+  font-family: var(--switch-label-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--switch-label-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--switch-label-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--switch-label-text-style-lg-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-switch:hover:not(:has(> .ds-switch__control[data-disabled])) .ds-switch__control[data-unchecked],
+.ds-switch[data-preview-state="hover"] .ds-switch__control[data-unchecked] {
+  background-color: var(--switch-track-background-off-hover, var(--color-background-neutral-primary));
+  border-color: var(--switch-track-border-color-off-hover, var(--color-border-interactive-hover));
+}
+
+.ds-switch .ds-switch__control[data-checked] {
+  background-color: var(--switch-track-background-on-default, var(--color-background-accent-default));
+  border-color: var(--switch-track-border-color-on-default, var(--color-background-accent-default));
+}
+
+.ds-switch:hover:not(:has(> .ds-switch__control[data-disabled])) .ds-switch__control[data-checked],
+.ds-switch[data-preview-state="hover"] .ds-switch__control[data-checked] {
+  background-color: var(--switch-track-background-on-hover, var(--color-background-accent-hover));
+  border-color: var(--switch-track-border-color-on-hover, var(--color-background-accent-hover));
+}
+
+.ds-switch:hover:not(:has(> .ds-switch__control[data-disabled])) .ds-switch__control[data-unchecked] .ds-switch__thumb,
+.ds-switch[data-preview-state="hover"] .ds-switch__control[data-unchecked] .ds-switch__thumb {
+  background-color: var(--switch-thumb-background-off-hover, var(--color-border-interactive-hover));
+}
+
+.ds-switch .ds-switch__control[data-checked] .ds-switch__thumb {
+  background-color: var(--switch-thumb-background-on-default, var(--color-foreground-on-accent-primary));
+}
+
+.ds-switch:hover:not(:has(> .ds-switch__control[data-disabled])) .ds-switch__control[data-checked] .ds-switch__thumb,
+.ds-switch[data-preview-state="hover"] .ds-switch__control[data-checked] .ds-switch__thumb {
+  background-color: var(--switch-thumb-background-on-hover, var(--color-foreground-on-accent-primary));
+}
+
+.ds-switch:hover:not(:has(> .ds-switch__control[data-disabled])) .ds-switch__label,
+.ds-switch[data-preview-state="hover"] .ds-switch__label {
+  color: var(--switch-label-foreground-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-switch:active:not(:has(> .ds-switch__control[data-disabled])) .ds-switch__control[data-unchecked],
+.ds-switch[data-preview-state="pressed"] .ds-switch__control[data-unchecked] {
+  background-color: var(--switch-track-background-off-pressed, var(--color-background-neutral-primary));
+  border-color: var(--switch-track-border-color-off-pressed, var(--color-border-interactive-pressed));
+}
+
+.ds-switch:active:not(:has(> .ds-switch__control[data-disabled])) .ds-switch__control[data-checked],
+.ds-switch[data-preview-state="pressed"] .ds-switch__control[data-checked] {
+  background-color: var(--switch-track-background-on-pressed, var(--color-background-accent-pressed));
+  border-color: var(--switch-track-border-color-on-pressed, var(--color-background-accent-pressed));
+}
+
+.ds-switch:active:not(:has(> .ds-switch__control[data-disabled])) .ds-switch__control[data-unchecked] .ds-switch__thumb,
+.ds-switch[data-preview-state="pressed"] .ds-switch__control[data-unchecked] .ds-switch__thumb {
+  background-color: var(--switch-thumb-background-off-pressed, var(--color-border-interactive-pressed));
+}
+
+.ds-switch:active:not(:has(> .ds-switch__control[data-disabled])) .ds-switch__control[data-checked] .ds-switch__thumb,
+.ds-switch[data-preview-state="pressed"] .ds-switch__control[data-checked] .ds-switch__thumb {
+  background-color: var(--switch-thumb-background-on-pressed, var(--color-foreground-on-accent-primary));
+}
+
+.ds-switch:active:not(:has(> .ds-switch__control[data-disabled])) .ds-switch__label,
+.ds-switch[data-preview-state="pressed"] .ds-switch__label {
+  color: var(--switch-label-foreground-pressed, var(--color-foreground-neutral-primary));
+}
+
+.ds-switch:has(> .ds-switch__control[data-disabled]) .ds-switch__control[data-unchecked] {
+  background-color: var(--switch-track-background-off-disabled, var(--color-background-interactive-disabled));
+  border-color: var(--switch-track-border-color-off-disabled, var(--color-border-interactive-disabled));
+}
+
+.ds-switch:has(> .ds-switch__control[data-disabled]) .ds-switch__control[data-checked] {
+  background-color: var(--switch-track-background-on-disabled, var(--color-background-interactive-disabled));
+  border-color: var(--switch-track-border-color-on-disabled, var(--color-border-interactive-disabled));
+}
+
+.ds-switch:has(> .ds-switch__control[data-disabled]) .ds-switch__control[data-unchecked] .ds-switch__thumb {
+  background-color: var(--switch-thumb-background-off-disabled, var(--color-foreground-neutral-tertiary));
+}
+
+.ds-switch:has(> .ds-switch__control[data-disabled]) .ds-switch__control[data-checked] .ds-switch__thumb {
+  background-color: var(--switch-thumb-background-on-disabled, var(--color-foreground-neutral-tertiary));
+}
+
+.ds-switch:has(> .ds-switch__control[data-disabled]) .ds-switch__label {
+  color: var(--switch-label-foreground-disabled, var(--color-foreground-interactive-disabled));
+}

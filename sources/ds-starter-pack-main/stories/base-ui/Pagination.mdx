@@ -1,0 +1,25 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Pagination.stories';
+import { SpecDocs } from './shared/SpecDocs';
+import { paginationSpec } from './components/pagination/pagination.spec';
+
+<Meta of={Stories} />
+
+# Pagination
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={paginationSpec} />
+
+## Not part of Base UI
+
+Pagination is built from the system’s own Button and Icon Button, on the same tokens and spec system as the Base UI components: there is no Base UI part for it.
+
+```tsx
+const [page, setPage] = useState(1)
+<Pagination pageCount={20} page={page} onPageChange={setPage} />
+```

@@ -1,0 +1,394 @@
+{
+  "$comment": "Exceptions for scripts/sync-components.mjs. Only add entries for genuinely different names or intentional gaps — never to silence real drift. Every non-obvious entry needs a reason in $reasons.",
+  "components": {
+    "Breadcrumb item": null,
+    "Button group / Inline": "ButtonGroup",
+    "Button group / Vertical": "ButtonGroupVertical",
+    "Card container": "Card",
+    "Data list cell / Editable": "DataListCell",
+    "Data list cell / Info": "DataListCell",
+    "Data table / Cell / Header cell": "DataTableHeaderCell",
+    "Data table / Cell / Table cell": "DataTableCell",
+    "Date and time picker": "DateTimePicker",
+    "Date and time picker (popover)": "DateTimePicker",
+    "Input / Combobox multi": "Combobox",
+    "Input / Date picker": "DateTimePicker",
+    "Input / File upload": "AttachmentField",
+    "Input / Phone number": "PhoneInput",
+    "Input / Search": "SearchBar",
+    "Input / Search ghost": "SearchBar",
+    "Loading / Spinner": "ProgressRing",
+    "Nav bar": "Navbar",
+    "Pattern / Empty space content": "EmptyState",
+    "Selectors / Segment control selector": null,
+    "Selectors / Sidebar selector (icon)": "SidebarMenuSelector",
+    "Selectors / Sidebar selector (label)": "SidebarMenuSelector",
+    "Tab / Navigation tab": null,
+    "Toast / Inline toast": "Toast",
+    "Toast / Rich toast": "Toast",
+    "Scrollbar": null,
+    "Tab / Custom view tab": null
+  },
+  "props": {
+    "*": {
+      "Label": [
+        "label",
+        "children"
+      ],
+      "Value": [
+        "value",
+        "placeholder"
+      ],
+      "Selected": [
+        "selected",
+        "checked"
+      ],
+      "Help text": [
+        "helperText",
+        "helpText"
+      ],
+      "Show help text": [
+        "showHelpText",
+        "showHelper",
+        "helperText"
+      ],
+      "Dismiss button": [
+        "dismissible"
+      ],
+      "Leading icon": [
+        "leadingIcon",
+        "icon"
+      ],
+      "Icon": [
+        "icon",
+        "iconSlot"
+      ],
+      "Disclosure": [
+        "disclosure",
+        "showDisclosure"
+      ],
+      "Border": [
+        "bordered"
+      ],
+      "Open": [
+        "expanded",
+        "open"
+      ],
+      "Mode": [
+        "mode",
+        "selectionMode",
+        "variant"
+      ],
+      "Type": [
+        "type",
+        "variant"
+      ],
+      "Appearance": [
+        "contentColor",
+        "variant"
+      ],
+      "Metadata": [
+        "metaData",
+        "metadata"
+      ]
+    },
+    "Avatar": {
+      "Initials": "initials"
+    },
+    "Badge": {
+      "Label": "count"
+    },
+    "Toolbar": {
+      "Left stack": "leftActions",
+      "Right stack": "rightActions"
+    },
+    "Choice list": {
+      "itemStack": "sections"
+    },
+    "Card container": {
+      "Swap content": "children"
+    },
+    "Drawer": {
+      "Replace content": "children",
+      "Has header": "showHeader",
+      "Has bottom bar": "showBottomBar"
+    },
+    "Slider": {
+      "Type": "mode"
+    },
+    "Attachment / Attachment chip": {
+      "Label": "fileName",
+      "Metadata": "fileSize"
+    },
+    "File row": {
+      "Size": "fileSize",
+      "Type": "fileType"
+    },
+    "Attachment / Attachment card": {
+      "Show button on hover": "showActionOnHover"
+    },
+    "Callout": {
+      "Leading icon": "icon"
+    },
+    "Toast / Inline toast": {
+      "Leading icon": "icon",
+      "Show action": "actionLabel"
+    },
+    "Toast / Rich toast": {
+      "Leading icon": "icon"
+    },
+    "Data table / Cell / Header cell": {
+      "Sorted": "sortable",
+      "Draggable": "reorderable",
+      "Type": "variant"
+    },
+    "Data table / Cell / Table cell": {
+      "Field type": "fieldType"
+    },
+    "Input / OTP": {
+      "State": "status"
+    },
+    "Date and time picker": {
+      "Mode": "selectionMode",
+      "Show time": "withTime"
+    },
+    "Date and time picker (popover)": {
+      "Mode": "selectionMode"
+    },
+    "Alert dialog": {
+      "Type": "variant"
+    },
+    "Shortcut": {
+      "Appearance": "contentColor"
+    },
+    "Nav bar": {
+      "Mode": "variant"
+    }
+  },
+  "values": {
+    "xxSmall": "xxs",
+    "xSmall": "xs",
+    "Small": "sm",
+    "Medium": "md",
+    "Large": "lg",
+    "xLarge": "xl",
+    "xxLarge": "xxl",
+    "Standard": "sm",
+    "Empty": "idle",
+    "Partially filled": "idle",
+    "Max value": "single",
+    "Text field (single line)": "text",
+    "Text field (long text)": "long-text",
+    "Phone number": "phone",
+    "Date and time": "datetime",
+    "Month and year": "month-year",
+    "Single user or team": "single-user",
+    "Multiple users or teams": "multi-user",
+    "URL read-only": "url-readonly",
+    "Tags single choice": "tags-single",
+    "Tags multi choice": "tags-multi",
+    "Tags read-only": "tags-readonly",
+    "Contacts (description list)": "contacts-list"
+  },
+  "ignore": {
+    "*": {
+      "figma": [
+        "Show scroll bar (horizontal)",
+        "Show scroll bar (vertical)",
+        "Has scroll bar"
+      ],
+      "code": [
+        "open",
+        "defaultOpen",
+        "closeOnOverlayClick",
+        "closeOnEscape",
+        "autoDismiss",
+        "decorative",
+        "noRole",
+        "responsiveCollapse",
+        "showPanels",
+        "searchable",
+        "multiple",
+        "fullWidth"
+      ]
+    },
+    "Toast / Inline toast": {
+      "code": [
+        "variant"
+      ]
+    },
+    "Toast / Rich toast": {
+      "code": [
+        "variant"
+      ]
+    },
+    "Input / Search": {
+      "code": [
+        "variant"
+      ],
+      "figma": [
+        "Show actions"
+      ]
+    },
+    "Input / Search ghost": {
+      "code": [
+        "variant"
+      ],
+      "figma": [
+        "Show actions"
+      ]
+    },
+    "Selectors / Sidebar selector (icon)": {
+      "code": [
+        "variant"
+      ]
+    },
+    "Selectors / Sidebar selector (label)": {
+      "code": [
+        "variant"
+      ]
+    },
+    "Input / Combobox": {
+      "code": [
+        "selectionMode"
+      ],
+      "figma": [
+        "Show actions"
+      ]
+    },
+    "Input / Combobox multi": {
+      "code": [
+        "selectionMode"
+      ],
+      "figma": [
+        "Show actions"
+      ]
+    },
+    "Date and time picker": {
+      "code": [
+        "displayMode"
+      ]
+    },
+    "Date and time picker (popover)": {
+      "code": [
+        "displayMode"
+      ]
+    },
+    "Input / Date picker": {
+      "code": [
+        "displayMode",
+        "selectionMode"
+      ],
+      "figma": [
+        "Show clear button"
+      ]
+    },
+    "Button": {
+      "code": [
+        "type"
+      ]
+    },
+    "Data table / Cell / Header cell": {
+      "figma": [
+        "Sort direction"
+      ],
+      "code": [
+        "sortDirection",
+        "canMoveReorderLeft",
+        "canMoveReorderRight",
+        "checkboxChecked",
+        "checkboxIndeterminate"
+      ]
+    },
+    "Choice list": {
+      "code": [
+        "enableMenuKeyboardNavigation"
+      ]
+    },
+    "Data table / Cell / Table cell": {
+      "code": [
+        "revealActionsOnHover"
+      ],
+      "figma": [
+        "Address",
+        "Date",
+        "Empty placeholder",
+        "Label",
+        "Link",
+        "Month Year",
+        "Number",
+        "Range"
+      ]
+    },
+    "Toolbar": {
+      "code": [
+        "singleActionFullWidth"
+      ]
+    },
+    "Menu cell": {
+      "code": [
+        "switcherChecked"
+      ]
+    },
+    "Button group / Inline": {
+      "figma": [
+        "Amount"
+      ]
+    },
+    "Button group / Vertical": {
+      "figma": [
+        "Amount"
+      ]
+    },
+    "Input / Horizontal input": {
+      "figma": [
+        "Change input type"
+      ]
+    },
+    "Input / Text input": {
+      "figma": [
+        "Show actions",
+        "Show clear button"
+      ]
+    },
+    "Input / Text area": {
+      "figma": [
+        "Show actions"
+      ]
+    },
+    "Input / Password": {
+      "figma": [
+        "Show actions",
+        "Show clear button"
+      ]
+    },
+    "Input / Phone number": {
+      "figma": [
+        "Show clear button"
+      ]
+    }
+  },
+  "$reasons": {
+    "ignore.*.code": "Behaviour-only props (open state, dismissal, a11y role tweaks, layout stretch) with no visual counterpart in a Figma component.",
+    "ignore.<split set>.code": "Figma splits one code component into several sets (Inline/Rich toast, Search/Search ghost, Combobox/Combobox multi, Sidebar selector icon/label, Date picker popover/inline). The discriminating code prop is the set itself.",
+    "components.Scrollbar": "Native/OS scrollbar styling only — no React component.",
+    "props.Badge.Label": "Badge renders a numeric `count`; Figma's Label text is that count.",
+    "ignore.Button.code": "`type` is the native HTML button type (submit/reset), not a visual variant.",
+    "components.<item sets>": "Breadcrumb item, Segment control selector, Navigation tab and Custom view tab are single items; in code they are entries of the parent's items/options/tabs array, whose item types are not extracted into ds-index.json. Check these by hand.",
+    "values.Standard": "Badge: Figma \"Standard\" is the numeric badge, code size `sm` (the other size is `dot`).",
+    "values.Empty / Partially filled": "OTPInput: Figma shows empty and partly-typed states; in code both are status `idle` (fill comes from `value`).",
+    "values.Max value": "Slider: Figma \"Max value\" is the single-thumb slider, code mode `single`.",
+    "values.<Field type labels>": "DataTableCell: Figma uses descriptive field-type labels (Phone number, Tags read-only…); code uses short kebab ids (phone, tags-readonly…).",
+    "ignore.Data table / Cell / Header cell": "Figma sets sort direction by swapping the arrow icon instance (INSTANCE_SWAP); code has a `sortDirection` union that renders that icon. Same concept, different modelling.",
+    "ignore.Choice list.code": "`enableMenuKeyboardNavigation` is keyboard behaviour only.",
+    "ignore.Data table / Cell / Header cell.code (reorder, checkbox)": "`canMoveReorderLeft/Right` only enable column-menu items; `checkboxChecked/Indeterminate` set the nested Checkbox instance, which Figma configures on the instance itself.",
+    "ignore.Data table / Cell / Table cell.code": "`revealActionsOnHover` is hover behaviour; Figma shows the revealed state via the cell variant.",
+    "ignore.Toolbar.code": "`singleActionFullWidth` is a layout stretch, same as the global `fullWidth` ignore.",
+    "ignore.Menu cell.code": "`switcherChecked` sets the nested Switcher instance, which Figma configures on the instance itself.",
+    "ignore.*.figma (scroll bars)": "Figma draws scroll bars as toggleable layers to mock overflow; code uses native overflow scrolling (see components.Scrollbar).",
+    "ignore.Button group.figma": "`Amount` previews 2/3/4+ buttons; in code the count is the number of children.",
+    "ignore.Input / Horizontal input.figma": "`Change input type` swaps the nested input instance; in code the input is passed as a child.",
+    "ignore.Data table / Cell / Table cell.figma": "TEXT properties are per-field-type content placeholders; code renders `value`/children.",
+    "ignore.<inputs>.figma (Show actions / Show clear button)": "Design-time affordances on input sets: trailing actions and the clear button are composed by the consumer in code (e.g. passed as `trailingIcon`), not toggled by a boolean prop. Decided 2026-10-15 in /ds-component-sync."
+  }
+}

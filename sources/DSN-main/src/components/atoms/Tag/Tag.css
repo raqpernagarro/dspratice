@@ -1,0 +1,108 @@
+/* =============================================================================
+   Tag
+   ─────────────────────────────────────────────────────────────────────────────
+   Namespaced with .dsn-tag.
+
+   Variants (data-variant): highlight | warning | error | success | neutral
+
+   No interactive states — Tags are purely informational (non-clickable).
+   Icons: optional Lucide icons on left and/or right via .dsn-tag-icon-left / .dsn-tag-icon-right.
+   ============================================================================= */
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+
+.dsn-tag {
+  display:         inline-flex;
+  align-items:     center;
+  height:          var(--tag-height, 24px);
+  padding:         0 var(--space-2xs);
+  border:          var(--size-border-sm) solid;
+  border-radius:   var(--tag-radius);         /* 16px — Figma: tag/radius = 16 */
+  box-sizing:      border-box;
+  white-space:     nowrap;
+  user-select:     none;
+
+  /* Typography — Figma: Micro/Micro-default/Regular (weight=400, size=12px) */
+  font-family:    var(--font-family-default);
+  font-size:      var(--font-size-micro);           /* 12px */
+  font-weight:    var(--font-weight-regular);        /* 400 — Regular (not Medium!) */
+  line-height:    var(--font-line-height-micro);     /* 16px */
+  letter-spacing: var(--font-letter-spacing-tight);  /* -0.3px */
+}
+
+/* ── Variants ─────────────────────────────────────────────────────────────── */
+
+/* Highlight — light teal bg, teal text, teal border */
+.dsn-tag[data-variant="highlight"] {
+  background-color: var(--tag-background-progress);   /* #f0fdfa */
+  color:            var(--tag-foreground-progress);       /* #0f766e */
+  border-color:     var(--tag-border-progress);    /* #99f6e4 */
+}
+
+/* Warning — light yellow bg, dark amber text, yellow border */
+.dsn-tag[data-variant="warning"] {
+  background-color: var(--tag-background-warning);     /* #fefce8 */
+  color:            var(--tag-foreground-warning);         /* #854d0e */
+  border-color:     var(--tag-border-warning);      /* #fef08a */
+}
+
+/* Error — light red bg, dark red text, red border */
+.dsn-tag[data-variant="error"] {
+  background-color: var(--tag-background-error);       /* #fef3f2 */
+  color:            var(--tag-foreground-error);           /* #b42318 */
+  border-color:     var(--tag-border-error);        /* #fecdca */
+}
+
+/* Success — light green bg, dark green text, green border */
+.dsn-tag[data-variant="success"] {
+  background-color: var(--tag-background-success);     /* #f0fdf4 */
+  color:            var(--tag-foreground-success);         /* #15803d */
+  border-color:     var(--tag-border-success);      /* #bbf7d0 */
+}
+
+/* Neutral — gray bg, secondary text, near-transparent border */
+.dsn-tag[data-variant="neutral"] {
+  background-color: var(--tag-background-neutral);     /* #f6f6f6 */
+  color:            var(--tag-foreground-neutral);         /* #565860 */
+  border-color:     var(--tag-border-neutral);      /* rgba(0,0,0,0.05) */
+}
+
+
+/* ── Icon wrappers (left and/or right) ─────────────────────────────────────── */
+
+.dsn-tag-icon {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           16px;
+  height:          16px;
+  flex-shrink:     0;
+}
+
+
+
+/* ── Label ───────────────────────────────────────────────────────────────── */
+
+/*
+  The label text wrapper carries the inset/label-wrapper/standard horizontal padding.
+  This matches the Figma structure:
+    outer tag padding: 4px (tag/inset)
+    label wrapper padding: 0 4px (inset/label-wrapper/standard)
+*/
+.dsn-tag-label {
+  padding: 0 var(--space-2xs);  /* 0 4px */
+}
+
+/* ── Sizes ────────────────────────────────────────────────────────────────── */
+
+/* sm — dense layouts, multiple tags per item */
+.dsn-tag[data-size="sm"] {
+  height:       var(--tag-height);
+  font-size:    var(--font-size-micro);          /* stays 12px */
+  line-height:  var(--font-line-height-micro);   /* stays 16px */
+}
+
+.dsn-tag[data-size="sm"] .dsn-tag-icon {
+  width:  14px;
+  height: 14px;
+}

@@ -1,0 +1,35 @@
+---
+description: Default response structure—concise, scannable; longer only for complex task reports
+alwaysApply: true
+---
+
+# Response style
+
+## Default (most turns)
+
+- **Structured**: short sections or bullets; one idea per line. Do not bury the answer in prose.
+- **Concise**: answer the question first, then only what’s needed to act. Skip preamble, recap, and “optional next steps” unless the user asked.
+- **Fluid back-and-forth**: prefer a few tight paragraphs or a small list over long essays. If the user needs depth, they will ask.
+
+## When to go longer
+
+Use a fuller write-up only after **non-trivial executed work** (multi-step implementation, Figma/repo migration, debugging with many moving parts) where the user must understand **what changed, where, and how to verify**.
+
+Even then:
+
+- Lead with a **3–5 line summary**.
+- Use **sections** (What / Why / How to verify)—not one wall of text.
+- Put detail in lists or tables; avoid repeating the same point in summary and body.
+
+## Avoid
+
+- Restating the user’s question at length.
+- Duplicate headings that say the same thing.
+- Long tables or architecture essays for simple yes/no or “what is X?” questions.
+- Engagement bait (“let me know if you want…”); ask one direct follow-up only when blocked.
+
+## Examples
+
+**Simple question** → 2–6 sentences or a tiny bullet list.
+
+**Complex task done** → Summary → What changed (files/areas) → How to verify → One caveat if any.

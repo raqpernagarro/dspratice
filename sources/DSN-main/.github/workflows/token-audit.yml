@@ -1,0 +1,103 @@
+name: Token audit
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'scripts/audit-stories.mjs'
+      - 'tokens.css'
+      - 'Design Tokens/**'
+      - 'scripts/lib/**'
+      - 'scripts/audit-tokens.mjs'
+      - 'scripts/audit-token-drift.mjs'
+      - 'scripts/audit-token-collisions.mjs'
+      - 'ds-index.json'
+      - 'scripts/generate-index.mjs'
+      - 'scripts/check-index.mjs'
+      - 'skills/**'
+      - 'scripts/sync-skills.mjs'
+      - 'scripts/check-skills.mjs'
+      - 'src/index.ts'
+      - 'src/**/*.ts'
+      - 'src/**/*.tsx'
+      - 'src/**/*.css'
+  pull_request:
+    paths:
+      - 'scripts/audit-stories.mjs'
+      - 'tokens.css'
+      - 'Design Tokens/**'
+      - 'scripts/lib/**'
+      - 'scripts/audit-tokens.mjs'
+      - 'scripts/audit-token-drift.mjs'
+      - 'scripts/audit-token-collisions.mjs'
+      - 'ds-index.json'
+      - 'scripts/generate-index.mjs'
+      - 'scripts/check-index.mjs'
+      - 'skills/**'
+      - 'scripts/sync-skills.mjs'
+      - 'scripts/check-skills.mjs'
+      - 'src/index.ts'
+      - 'src/**/*.ts'
+      - 'src/**/*.tsx'
+      - 'src/**/*.css'
+
+jobs:
+  audit-tokens:
+    name: Token chain integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run token audit (grammar, layers, references)
+        run: node scripts/audit-tokens.mjs --verbose
+
+      - name: Check tokens.css matches Design Tokens/*.json
+        run: node scripts/audit-token-drift.mjs
+
+      - name: Check tokens that must differ never resolve to the same value
+        run: node scripts/audit-token-collisions.mjs
+
+  audit-stories:
+    name: Story contract
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check every story file follows AGENTS.md Rule 7
+        run: node scripts/audit-stories.mjs
+
+  check-index:
+    name: ds-index.json integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify ds-index.json matches public API
+        run: node scripts/check-index.mjs
+
+  check-skills:
+    name: Agent skills sync integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sync and verify agent skills
+        run: |
+          node scripts/sync-skills.mjs
+          node scripts/check-skills.mjs

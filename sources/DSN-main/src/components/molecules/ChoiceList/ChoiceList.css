@@ -1,0 +1,33 @@
+.dsn-choice-list {
+  border-radius: var(--shape-radius-control-md);
+  overflow: hidden;
+  background: var(--color-background-neutral-primary);
+  box-shadow: var(--input-shadow);
+}
+
+.dsn-choice-list-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.dsn-choice-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--color-background-neutral-primary);
+  padding: var(--space-xs) 0;
+}
+
+.dsn-choice-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-inline: var(--space-xs);
+}
+
+.dsn-choice-list-item > .dsn-menu-cell,
+.dsn-choice-list-item > .dsn-checkbox,
+.dsn-choice-list-item > .dsn-radio {
+  width: 100%;
+}

@@ -1,0 +1,27 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './NumberField.stories';
+import docs from './docs/number-field.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { numberFieldSpec } from './components/number-field/number-field.spec';
+
+<Meta of={Stories} />
+
+# Number Field
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## In a Field
+
+<Canvas of={Stories.InField} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={numberFieldSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={numberFieldSpec.docs.baseUi} />

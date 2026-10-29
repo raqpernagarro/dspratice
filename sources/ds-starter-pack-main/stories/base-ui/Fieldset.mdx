@@ -1,0 +1,22 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Fieldset.stories';
+import docs from './docs/fieldset.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { fieldsetSpec } from './components/fieldset/fieldset.spec';
+
+<Meta of={Stories} />
+
+# Fieldset
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={fieldsetSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={fieldsetSpec.docs.baseUi} />

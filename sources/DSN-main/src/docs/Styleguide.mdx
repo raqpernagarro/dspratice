@@ -1,0 +1,385 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { ThemeToggle } from './ThemeToggle';
+
+<Meta title="Guidelines/Styleguide" />
+
+# Styleguide
+
+This page provides a visual overview of the core design tokens that power DS-Ngr. These values are automatically synchronized from Figma via Style Dictionary.
+
+---
+
+## 🎨 Colors
+
+Our color system is built on a semantic layer that resolves to primitive values. This ensures consistency across themes and provides clear intent for every color role.
+
+<ThemeToggle>
+
+### Background Colors
+Used for page surfaces, component containers, and interactive backgrounds.
+
+<ColorPalette>
+  <ColorItem
+    title="Page"
+    subtitle="Main surfaces"
+    colors={{ 
+      'page/default': 'var(--color-background-neutral-primary)', 
+      'page/lower': 'var(--color-background-neutral-secondary)' 
+    }}
+  />
+  <ColorItem
+    title="Surface Hierarchy"
+    subtitle="Semantic roles"
+    colors={{ 
+      'primary': 'var(--color-background-neutral-primary)', 
+      'secondary': 'var(--color-background-neutral-secondary)', 
+      'tertiary': 'var(--color-background-neutral-tertiary)' 
+    }}
+  />
+  <ColorItem
+    title="Interactive (CTA)"
+    subtitle="Buttons and primary actions"
+    colors={{ 
+      'cta/default': 'var(--color-background-interactive-primary-default)', 
+      'cta/hover': 'var(--color-background-interactive-primary-hover)',
+      'cta/pressed': 'var(--color-background-interactive-primary-active)'
+    }}
+  />
+  <ColorItem
+    title="Interactive (Default)"
+    subtitle="Standard actions"
+    colors={{ 
+      'default/default': 'var(--color-background-interactive-secondary-default)',
+      'default/hover': 'var(--color-background-interactive-secondary-hover)', 
+      'default/pressed': 'var(--color-background-interactive-secondary-active)'
+    }}
+  />
+  <ColorItem
+    title="Interactive (Danger)"
+    subtitle="Destructive actions"
+    colors={{ 
+      'danger/default': 'var(--color-background-interactive-destructive-default)', 
+      'danger/hover': 'var(--color-background-interactive-destructive-hover)',
+      'danger/pressed': 'var(--color-background-interactive-destructive-active)'
+    }}
+  />
+</ColorPalette>
+
+### Text Colors
+Every text token must meet WCAG contrast guidelines against its intended background.
+
+<ColorPalette>
+  <ColorItem
+    title="Core Typography"
+    subtitle="Standard content roles"
+    colors={{ 
+      'text/primary': 'var(--color-foreground-neutral-primary)', 
+      'text/secondary': 'var(--color-foreground-neutral-secondary)',
+      'text/tertiary': 'var(--color-foreground-neutral-tertiary)',
+      'text/disabled': 'var(--color-foreground-interactive-disabled)',
+      'text/placeholder': 'var(--input-foreground-placeholder)'
+    }}
+  />
+  <ColorItem
+    title="Interactive & Accent"
+    subtitle="Actions and branding"
+    colors={{ 
+      'text/accent': 'var(--color-foreground-accent-strong)', 
+      'text/danger': 'var(--color-foreground-interactive-destructive-default)',
+      'text/cta/hover': 'var(--color-foreground-interactive-primary-hover)',
+      'text/cta/pressed': 'var(--color-foreground-interactive-primary-active)'
+    }}
+  />
+  <ColorItem
+    title="Feedback Text"
+    subtitle="Status signaling"
+    colors={{ 
+      'text/error': 'var(--color-foreground-error-strong)',
+      'text/success': 'var(--color-foreground-success-strong)',
+      'text/warning': 'var(--color-foreground-warning-strong)'
+    }}
+  />
+  <ColorItem
+    title="Inverted"
+    subtitle="On dark/accent backgrounds"
+    colors={{ 
+      'inverted/primary': 'var(--color-foreground-inverse-primary)', 
+      'inverted/secondary': 'var(--color-foreground-inverse-secondary)',
+      'inverted/tertiary': 'var(--color-foreground-inverse-tertiary)'
+    }}
+  />
+</ColorPalette>
+
+### Feedback Colors
+Informational backgrounds used for semantic signaling.
+
+<ColorPalette>
+  <ColorItem
+    title="Success"
+    subtitle="Positive outcomes"
+    colors={{ 
+      'success/default': 'var(--color-background-success-soft-default)'
+    }}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="Attention required"
+    colors={{ 
+      'warning/default': 'var(--color-background-warning-soft-default)'
+    }}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="Critical issues"
+    colors={{ 
+      'error/default': 'var(--color-background-error-soft-default)', 
+      'error/critical': 'var(--color-background-error-strong)'
+    }}
+  />
+</ColorPalette>
+
+</ThemeToggle>
+
+---
+
+## 🔡 Typography
+
+We use `var(--font-family-default)` across all components. Hierarchy is established through the font scale and weight tokens.
+
+### Font Scale
+
+Pick a row by eye, then use the `font/size/*` and `var(--font-size-*)` / `var(--font-line-height-*)` values below each preview in your component styles.
+
+<div
+  style={{
+    display: 'flex',
+    flexDirection: 'column',
+    border: '1px solid var(--color-border-neutral-primary)',
+    borderRadius: 'var(--shape-radius-sm)',
+    overflow: 'hidden',
+    marginTop: '1rem',
+  }}
+>
+  {[
+    'micro',
+    'label',
+    'body-sm',
+    'body-md',
+    'display-sm',
+    'display-md',
+    'display-lg',
+    'display-xl',
+    'display-2xl',
+    'display-3xl',
+  ].map((name, index, all) => (
+    <div
+      key={name}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'stretch',
+        gap: 'var(--space-xs)',
+        padding: 'var(--space-md)',
+        borderBottom:
+          index < all.length - 1 ? '1px solid var(--color-border-neutral-primary)' : undefined,
+      }}
+    >
+      <p
+        style={{
+          margin: 0,
+          width: '100%',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          color: 'var(--color-foreground-neutral-primary)',
+          fontFamily: 'var(--font-family-default)',
+          fontSize: `var(--font-size-${name})`,
+          lineHeight: `var(--font-line-height-${name})`,
+          fontWeight: 'var(--font-weight-regular)',
+        }}
+      >
+        The quick brown fox jumps over the lazy dog
+      </p>
+      <div
+        style={{
+          fontFamily: 'monospace',
+          fontSize: 'var(--font-size-micro)',
+          lineHeight: 'var(--font-line-height-micro)',
+          color: 'var(--color-foreground-neutral-secondary)',
+        }}
+      >
+        <div style={{ marginBottom: 'var(--space-2xs)' }}>font/size/{name}</div>
+        <div>var(--font-size-{name})</div>
+        <div>var(--font-line-height-{name})</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+### Weights
+
+<div style={{ display: 'flex', gap: '2rem', marginTop: '1rem' }}>
+  <div style={{ textAlign: 'center' }}>
+    <div style={{ fontSize: '2rem', fontWeight: 'var(--font-weight-regular)' }}>Aa</div>
+    <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>Regular</div>
+  </div>
+  <div style={{ textAlign: 'center' }}>
+    <div style={{ fontSize: '2rem', fontWeight: 'var(--font-weight-medium)' }}>Aa</div>
+    <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>Medium</div>
+  </div>
+  <div style={{ textAlign: 'center' }}>
+    <div style={{ fontSize: '2rem', fontWeight: 'var(--font-weight-semibold)' }}>Aa</div>
+    <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>Semibold</div>
+  </div>
+</div>
+
+---
+
+## 📏 Spacing & Layout
+
+Spacing tokens are used to create rhythm and relationship between elements.
+
+### Space
+One scale for padding, margin, and gap — `--space-{none|3xs|2xs|xs|sm|md|lg|xl|2xl|3xl}`.
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+  {[
+    { name: '3xs', val: 'var(--space-3xs)' },
+    { name: '2xs', val: 'var(--space-2xs)' },
+    { name: 'xs', val: 'var(--space-xs)' },
+    { name: 'sm', val: 'var(--space-sm)' },
+    { name: 'md', val: 'var(--space-md)' },
+    { name: 'lg', val: 'var(--space-lg)' },
+    { name: 'xl', val: 'var(--space-xl)' },
+    { name: '2xl', val: 'var(--space-2xl)' },
+    { name: '3xl', val: 'var(--space-3xl)' }
+  ].map(s => (
+    <div key={s.name} style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+      <div style={{ width: s.val, height: '24px', background: 'var(--color-background-accent-strong-default)', borderRadius: '2px' }} />
+      <span style={{ fontSize: '0.8rem', fontFamily: 'monospace', color: 'var(--color-foreground-neutral-secondary)' }}>--space-{s.name}</span>
+    </div>
+  ))}
+</div>
+
+### Padding
+Padding uses the same `--space-*` scale (there is no separate inset scale).
+
+<div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+  {[
+    { name: '3xs', val: 'var(--space-3xs)' },
+    { name: '2xs', val: 'var(--space-2xs)' },
+    { name: 'xs', val: 'var(--space-xs)' },
+    { name: 'md', val: 'var(--space-md)' },
+    { name: 'lg', val: 'var(--space-lg)' }
+  ].map(s => (
+    <div key={s.name} style={{ 
+      padding: s.val, 
+      background: 'var(--color-background-neutral-secondary)',
+      border: '1px solid var(--color-border-neutral-primary)',
+      borderRadius: 'var(--shape-radius-md)',
+      display: 'inline-block'
+    }}>
+      <div style={{ width: '40px', height: '40px', background: 'var(--color-background-accent-strong-default)', opacity: 0.15, border: '1px dashed var(--color-background-accent-strong-default)' }} />
+      <div style={{ fontSize: '0.7rem', marginTop: '6px', textAlign: 'center', color: 'var(--color-foreground-neutral-secondary)' }}>--space-{s.name}</div>
+    </div>
+  ))}
+</div>
+
+---
+
+## 📐 Radius (shape tier)
+
+Defines the rounding of corners for consistent component shape. Tokens use the `--shape-radius-*` prefix (`shape` tier — split from `size` because radius is an independently themeable dial).
+
+<div style={{ display: 'flex', gap: '2.5rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+  {[
+    { name: 'none', val: 'var(--shape-radius-none)' },
+    { name: 'small', val: 'var(--shape-radius-sm)' },
+    { name: 'medium', val: 'var(--shape-radius-md)' },
+    { name: 'large', val: 'var(--shape-radius-lg)' },
+    { name: 'xlarge', val: 'var(--shape-radius-xl)' },
+    { name: 'full', val: 'var(--shape-radius-full)' }
+  ].map(r => (
+    <div key={r.name} style={{ textAlign: 'center' }}>
+      <div style={{ 
+        width: '100px', 
+        height: '100px', 
+        background: 'var(--color-background-neutral-secondary)', 
+        border: '2px solid var(--color-background-accent-strong-default)', 
+        borderRadius: r.val 
+      }} />
+      <div style={{ fontSize: '0.8rem', marginTop: '8px', color: 'var(--color-foreground-neutral-primary)', fontWeight: 'bold' }}>{r.name}</div>
+      <div style={{ fontSize: '0.7rem', color: 'var(--color-foreground-neutral-secondary)' }}>{r.val}</div>
+    </div>
+  ))}
+</div>
+
+---
+
+## Elevation (effect tier)
+
+Elevation communicates Z-axis hierarchy through `box-shadow`. Tokens use the `--color-shadow-elevation-*` prefix (`effect` tier — shadow color is separate from the spatial `size` tokens that define offset, blur, and spread).
+
+<ThemeToggle>
+
+<div
+  style={{
+    display: 'flex',
+    gap: 'var(--space-lg)',
+    alignItems: 'flex-start',
+    flexWrap: 'wrap',
+    padding: 'var(--space-xl)',
+    background: 'var(--color-background-neutral-secondary)',
+    borderRadius: 'var(--shape-radius-sm)',
+    overflow: 'visible',
+  }}
+>
+  {[
+    {
+      name: 'sm',
+      figma: 'color/shadow/elevation/sm',
+      token: 'var(--color-shadow-elevation-sm)',
+      use: 'Cards, chips',
+      shadow:
+        '0 var(--primitive-size-1) var(--effect-blur-sm) var(--primitive-size-negative-1) var(--color-shadow-elevation-sm)',
+    },
+    {
+      name: 'md',
+      figma: 'color/shadow/elevation/md',
+      token: 'var(--color-shadow-elevation-md)',
+      use: 'Dropdowns, tooltips',
+      shadow:
+        '0 var(--primitive-size-4) var(--effect-blur-md) var(--primitive-size-negative-2) var(--color-shadow-elevation-md)',
+    },
+    {
+      name: 'lg',
+      figma: 'color/shadow/elevation/lg',
+      token: 'var(--color-shadow-elevation-lg)',
+      use: 'Modals, popovers',
+      shadow:
+        '0 var(--primitive-size-16) var(--effect-blur-lg) var(--primitive-size-negative-3) var(--color-shadow-elevation-lg)',
+    },
+  ].map(tier => (
+    <div key={tier.name} style={{ textAlign: 'center', flex: '0 0 auto' }}>
+      <div
+        style={{
+          width: '140px',
+          height: '100px',
+          background: 'var(--color-background-neutral-primary)',
+          borderRadius: 'var(--shape-radius-lg)',
+          boxShadow: tier.shadow,
+        }}
+      />
+      <div style={{ fontSize: '0.8rem', marginTop: '12px', color: 'var(--color-foreground-neutral-primary)', fontWeight: 'bold' }}>
+        {tier.name}
+      </div>
+      <div style={{ fontSize: '0.7rem', marginTop: '4px', color: 'var(--color-foreground-neutral-secondary)' }}>{tier.figma}</div>
+      <div style={{ fontSize: '0.7rem', marginTop: '2px', color: 'var(--color-foreground-neutral-secondary)', fontFamily: 'monospace' }}>
+        {tier.token}
+      </div>
+      <div style={{ fontSize: '0.7rem', marginTop: '6px', color: 'var(--color-foreground-neutral-tertiary)' }}>{tier.use}</div>
+    </div>
+  ))}
+</div>
+
+</ThemeToggle>

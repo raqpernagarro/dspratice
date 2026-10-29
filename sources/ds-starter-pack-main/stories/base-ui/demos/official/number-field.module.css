@@ -1,0 +1,117 @@
+.Field {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--space-xs);
+}
+
+.ScrubArea {
+  cursor: ew-resize;
+  font-weight: var(--font-weight-body-strong);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ScrubAreaCursor {
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 50%));
+}
+
+.Label {
+  cursor: ew-resize;
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  font-weight: var(--font-weight-body-strong);
+  color: var(--color-foreground-neutral-primary);
+
+  
+}
+
+.Group {
+  display: flex;
+  height: var(--size-md);
+}
+
+.Input {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 var(--space-sm);
+  border: 1px solid var(--color-border-interactive-default);
+  border-radius: var(--shape-radius-md);
+  width: 7ch;
+  height: 100%;
+  font-family: inherit;
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  font-weight: var(--font-weight-body-regular);
+  background-color: var(--color-background-neutral-primary);
+  color: var(--color-foreground-neutral-primary);
+
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+
+  @media (any-pointer: coarse) {
+    font-size: var(--font-size-body-lg);
+    line-height: var(--font-line-height-body-lg);
+  }
+
+  
+
+  &:focus {
+    z-index: 1;
+    outline: 2px solid var(--color-shadow-focus-ring-primary);
+    outline-offset: -1px;
+
+    
+  }
+}
+
+.Decrement,
+.Increment {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-md);
+  height: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  border: 1px solid var(--color-border-interactive-default);
+  border-radius: var(--shape-radius-md);
+  background-color: var(--color-background-neutral-primary);
+  background-clip: padding-box;
+  color: var(--color-foreground-neutral-primary);
+  -webkit-user-select: none;
+  user-select: none;
+
+  
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]) {
+      background-color: var(--color-background-interactive-subtle-hover);
+
+      
+    }
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: var(--color-background-interactive-subtle-pressed);
+
+    
+  }
+
+  &[data-disabled] {
+    color: var(--color-foreground-interactive-disabled);
+    border-color: var(--color-border-interactive-disabled);
+
+    
+  }
+}
+
+.Decrement {
+  border-right: 0;
+}
+
+.Increment {
+  border-left: 0;
+}

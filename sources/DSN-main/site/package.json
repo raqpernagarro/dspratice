@@ -1,0 +1,43 @@
+{
+  "name": "ds-ngr-site",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "predev": "node ../scripts/generate-index.mjs && node ../scripts/build-starter-assets.mjs && node ../scripts/build-cli-assets.mjs --dev && node ../scripts/sync-site-storybook.mjs",
+    "dev": "next dev --port 3100",
+    "prebuild": "node ../scripts/generate-index.mjs && node ../scripts/build-starter-assets.mjs && node ../scripts/build-cli-assets.mjs",
+    "build": "next build",
+    "build:full": "npm run build-storybook --prefix .. -- -o site/public/storybook && npm run build",
+    "start": "next start --port 3100",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.79",
+    "@ai-sdk/google": "^4.0.94",
+    "@ai-sdk/openai": "^4.0.92",
+    "@ai-sdk/react": "^4.0.141",
+    "@babel/parser": "^7.29.2",
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "@openrouter/ai-sdk-provider": "^3.1.0",
+    "ai": "^7.0.138",
+    "fflate": "^0.8.3",
+    "lucide-react": "^0.575.0",
+    "next": "16.4.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "server-only": "^0.0.1",
+    "styled-components": "^6.4.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.29.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.7.2"
+  }
+}

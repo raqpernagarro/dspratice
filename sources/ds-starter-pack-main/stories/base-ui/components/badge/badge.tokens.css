@@ -1,0 +1,54 @@
+/* Generated from badge.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-badge[data-type="neutral"] {
+  background-color: var(--badge-background-neutral, var(--color-background-neutral-tertiary));
+  border-color: var(--badge-border-color-neutral, var(--color-border-neutral-subtle));
+  color: var(--badge-foreground-neutral, var(--color-foreground-neutral-secondary));
+}
+
+.ds-badge[data-type="info"] {
+  background-color: var(--badge-background-info, var(--color-background-info-subtle));
+  border-color: var(--badge-border-color-info, var(--color-border-info));
+  color: var(--badge-foreground-info, var(--color-foreground-info));
+}
+
+.ds-badge[data-type="success"] {
+  background-color: var(--badge-background-success, var(--color-background-success-subtle));
+  border-color: var(--badge-border-color-success, var(--color-border-success));
+  color: var(--badge-foreground-success, var(--color-foreground-success));
+}
+
+.ds-badge[data-type="warning"] {
+  background-color: var(--badge-background-warning, var(--color-background-warning-subtle));
+  border-color: var(--badge-border-color-warning, var(--color-border-warning));
+  color: var(--badge-foreground-warning, var(--color-foreground-warning));
+}
+
+.ds-badge[data-type="error"] {
+  background-color: var(--badge-background-error, var(--color-background-error-subtle));
+  border-color: var(--badge-border-color-error, var(--color-border-error));
+  color: var(--badge-foreground-error, var(--color-foreground-error));
+}
+
+.ds-badge {
+  border-width: var(--badge-border-width, var(--size-border-regular));
+  border-radius: var(--badge-radius, var(--shape-radius-full));
+}
+
+.ds-badge[data-size="sm"] {
+  height: var(--badge-height-sm, var(--size-sm));
+  padding-inline: var(--badge-space-x-sm, var(--space-sm));
+  font-family: var(--badge-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--badge-text-style-sm-font-size, var(--font-size-caption-md));
+  line-height: var(--badge-text-style-sm-line-height, var(--font-line-height-caption-md));
+  font-weight: var(--badge-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-badge[data-size="md"] {
+  height: var(--badge-height-md, var(--space-2xl));
+  padding-inline: var(--badge-space-x-md, var(--space-md));
+  font-family: var(--badge-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--badge-text-style-md-font-size, var(--font-size-body-sm));
+  line-height: var(--badge-text-style-md-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--badge-text-style-md-font-weight, var(--font-weight-body-strong));
+}

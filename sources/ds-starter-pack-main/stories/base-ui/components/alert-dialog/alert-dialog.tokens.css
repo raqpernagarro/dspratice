@@ -1,0 +1,44 @@
+/* Generated from alert-dialog.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-alert-dialog {
+  padding-inline: var(--alert-dialog-space-x, var(--space-lg));
+  padding-block: var(--alert-dialog-space-y, var(--space-lg));
+  gap: var(--alert-dialog-gap, var(--space-lg));
+  border-radius: var(--alert-dialog-radius, var(--shape-radius-lg));
+  border-width: var(--alert-dialog-border-width, var(--size-border-regular));
+  background-color: var(--alert-dialog-background, var(--color-background-surface-high));
+  border-color: var(--alert-dialog-border-color, var(--color-border-neutral-subtle));
+  box-shadow: var(--effect-shadow-elevation-high);
+}
+
+.ds-alert-dialog__backdrop {
+  background-color: var(--alert-dialog-backdrop, var(--color-background-overlay-regular));
+}
+
+.ds-alert-dialog .ds-alert-dialog__header {
+  gap: var(--alert-dialog-header-gap, var(--space-xs));
+}
+
+.ds-alert-dialog .ds-alert-dialog__title {
+  color: var(--alert-dialog-title-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--alert-dialog-title-text-style-font-family, var(--font-family-primary));
+  font-size: var(--alert-dialog-title-text-style-font-size, var(--font-size-body-lg));
+  line-height: var(--alert-dialog-title-text-style-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--alert-dialog-title-text-style-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-alert-dialog .ds-alert-dialog__description {
+  color: var(--alert-dialog-description-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--alert-dialog-description-text-style-font-family, var(--font-family-primary));
+  font-size: var(--alert-dialog-description-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--alert-dialog-description-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--alert-dialog-description-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-alert-dialog .ds-alert-dialog__body {
+  gap: var(--alert-dialog-body-gap, var(--space-md));
+}
+
+.ds-alert-dialog .ds-alert-dialog__actions {
+  gap: var(--alert-dialog-actions-gap, var(--space-md));
+}

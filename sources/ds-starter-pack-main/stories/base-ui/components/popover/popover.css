@@ -1,0 +1,14 @@
+/* Layout only (the surface and arrow are in shared/popup.css). Colors, spacing and type come from popover.tokens.css. */
+
+.ds-popover__positioner {
+  max-width: var(--available-width);
+}
+
+.ds-popover {
+  max-width: 500px;
+}
+
+.ds-popover__title,
+.ds-popover__description {
+  margin: 0;
+}

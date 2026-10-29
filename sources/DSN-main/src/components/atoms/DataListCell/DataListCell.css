@@ -1,0 +1,148 @@
+.dsn-data-list-cell {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding-inline: var(--space-xs);
+  background: var(--color-background-neutral-primary);
+  border-bottom: var(--size-border-sm) solid var(--color-border-neutral-primary);
+}
+
+.dsn-data-list-cell[data-alignment='inline'] {
+  display: grid;
+  grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
+  align-items: start;
+  min-height: calc(var(--size-control-height-md) + var(--space-xs));
+}
+
+.dsn-data-list-cell[data-alignment='inline'][data-variant='just-icon'] {
+  display: flex;
+  align-items: stretch;
+}
+
+.dsn-data-list-cell[data-alignment='vertical'] {
+  flex-direction: column;
+  gap: var(--space-none);
+  padding-block: var(--space-xs);
+}
+
+.dsn-data-list-cell-title-description-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.dsn-data-list-cell-title-wrapper {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+  padding-block: var(--space-xs);
+}
+
+.dsn-data-list-cell[data-alignment='inline'] .dsn-data-list-cell-title-wrapper {
+  grid-column: 1;
+  align-items: start;
+}
+
+.dsn-data-list-cell[data-variant='just-icon'] .dsn-data-list-cell-title-wrapper {
+  flex: 0 0 auto;
+  gap: var(--space-none);
+  padding-right: var(--space-none);
+}
+
+.dsn-data-list-cell-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--avatar-size-2xs);
+  height: var(--avatar-size-2xs);
+  color: var(--color-foreground-neutral-tertiary);
+  flex-shrink: 0;
+}
+
+.dsn-data-list-cell-title,
+.dsn-data-list-cell-description {
+  margin: 0;
+  min-width: 0;
+}
+
+.dsn-data-list-cell-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-foreground-neutral-tertiary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+}
+
+.dsn-data-list-cell-text-block {
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  padding: var(--space-2xs) var(--space-xs);
+}
+
+.dsn-data-list-cell[data-alignment='inline'] .dsn-data-list-cell-text-block {
+  grid-column: 2;
+  align-items: start;
+}
+
+.dsn-data-list-cell[data-alignment='inline'][data-variant='just-icon'] .dsn-data-list-cell-text-block {
+  grid-column: auto;
+  flex: 1 1 auto;
+}
+
+.dsn-data-list-cell[data-alignment='vertical'] .dsn-data-list-cell-text-block {
+  width: 100%;
+  padding-inline: var(--space-none);
+}
+
+.dsn-data-list-cell-description {
+  width: 100%;
+  color: var(--color-foreground-neutral-secondary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-body-md);
+  letter-spacing: var(--font-letter-spacing-tight);
+}
+
+.dsn-data-list-cell-interactive-content {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  min-height: var(--size-control-height-md);
+}
+
+.dsn-data-list-cell-actions {
+  position: absolute;
+  top: var(--space-none);
+  right: var(--space-none);
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--space-xs);
+}
+
+.dsn-data-list-cell[data-alignment='inline'][data-state='hover'] .dsn-data-list-cell-text-block,
+.dsn-data-list-cell[data-alignment='inline']:hover .dsn-data-list-cell-text-block {
+  padding-right: calc(var(--size-control-height-md) + var(--space-md));
+}
+
+.dsn-data-list-cell[data-alignment='vertical'][data-state='hover'] .dsn-data-list-cell-title-description-wrapper,
+.dsn-data-list-cell[data-alignment='vertical']:hover .dsn-data-list-cell-title-description-wrapper {
+  padding-right: calc(var(--size-control-height-md) + var(--space-md));
+}
+
+.dsn-data-list-cell[data-state='hover'] .dsn-data-list-cell-actions,
+.dsn-data-list-cell:hover .dsn-data-list-cell-actions {
+  display: inline-flex;
+}

@@ -1,0 +1,27 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './CheckboxGroup.stories';
+import docs from './docs/checkbox-group.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { checkboxGroupSpec } from './components/checkbox-group/checkbox-group.spec';
+
+<Meta of={Stories} />
+
+# Checkbox Group
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## Select all
+
+<Canvas of={Stories.SelectAll} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={checkboxGroupSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={checkboxGroupSpec.docs.baseUi} />

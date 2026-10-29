@@ -1,0 +1,384 @@
+.dsn-date-time-picker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.dsn-date-time-picker-label {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+  padding-block-end: var(--space-2xs);
+}
+
+.dsn-date-time-picker-optional {
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-date-time-picker-control-wrap {
+  position: relative;
+}
+
+.dsn-date-time-picker-control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  height: var(--size-control-height-md);
+  padding: var(--space-2xs);
+  border-radius: var(--shape-radius-control-md);
+  background-color: var(--input-background-default);
+  box-shadow: var(--input-shadow);
+  transition:
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
+}
+
+.dsn-date-time-picker-leading-icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-foreground-neutral-secondary);
+  flex-shrink: 0;
+}
+
+.dsn-date-time-picker-control-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-date-time-picker-control-input::placeholder {
+  color: var(--input-foreground-placeholder);
+}
+
+.dsn-date-time-picker-control-input:focus-visible {
+  outline: none;
+}
+
+.dsn-date-time-picker-clear-button {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--shape-radius-control-sm);
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-foreground-neutral-secondary);
+  cursor: pointer;
+}
+
+.dsn-date-time-picker-clear-button:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-date-time-picker:not([data-disabled]) .dsn-date-time-picker-control:hover {
+  background: var(--input-background-hover);
+}
+
+.dsn-date-time-picker:not([data-disabled]) .dsn-date-time-picker-control:focus-within {
+  background: var(--input-background-default);
+  box-shadow:
+    inset 0 0 0 1px var(--color-border-interactive-focus),
+    inset 0 0 0 2px var(--color-shadow-focus-inset);
+}
+
+.dsn-date-time-picker-range-fields {
+  display: flex;
+  gap: var(--space-2xs);
+}
+
+.dsn-date-time-picker-range-field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.dsn-date-time-picker-range-field-label {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+  padding-block-end: var(--space-2xs);
+}
+
+.dsn-date-time-picker-popover {
+  z-index: 3;
+}
+
+.dsn-date-time-picker-popover-content {
+  width: 100%;
+}
+
+.dsn-date-time-picker-presets {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  padding: var(--space-xs);
+}
+
+.dsn-date-time-picker-panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-background-neutral-primary);
+  padding: var(--space-2xs);
+}
+
+.dsn-date-time-picker-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2xs);
+}
+
+.dsn-date-time-picker-calendar-title-wrap {
+  display: inline-flex;
+  gap: var(--space-2xs);
+  align-items: center;
+}
+
+.dsn-date-time-picker-calendar-title {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-date-time-picker-weekday-row {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  padding: var(--space-2xs);
+}
+
+.dsn-date-time-picker-weekday {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: var(--size-control-height-sm);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-micro);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-date-time-picker-days-grid {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--space-2xs) var(--space-2xs);
+}
+
+.dsn-date-time-picker-days-grid [role='row'] {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.dsn-date-time-picker-day {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  min-height: 40px;
+  padding: var(--space-2xs);
+  border-radius: 0;
+  color: var(--color-foreground-neutral-secondary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+}
+
+.dsn-date-time-picker-day::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--space-2xs);
+  bottom: var(--space-2xs);
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dsn-date-time-picker-day-inner {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--shape-radius-control-md);
+}
+
+.dsn-date-time-picker-day[data-outside-month] {
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-date-time-picker-day[data-in-range] {
+  background: transparent;
+  color: var(--color-foreground-interactive-primary-selected);
+}
+
+.dsn-date-time-picker-day[data-in-range]::before {
+  background: var(--color-background-interactive-secondary-selected);
+}
+
+.dsn-date-time-picker-day[data-range-start][data-selected] {
+  background: transparent;
+}
+
+.dsn-date-time-picker-day[data-range-end][data-selected] {
+  background: transparent;
+}
+
+.dsn-date-time-picker-day[data-range-start][data-selected]::before {
+  left: 50%;
+  background: var(--color-background-interactive-secondary-selected);
+}
+
+.dsn-date-time-picker-day[data-range-end][data-selected]::before {
+  right: 50%;
+  background: var(--color-background-interactive-secondary-selected);
+}
+
+.dsn-date-time-picker-day[data-selected] {
+  background: transparent;
+  color: var(--color-foreground-inverse-primary);
+}
+
+.dsn-date-time-picker-day[data-selected] .dsn-date-time-picker-day-inner {
+  background: var(--color-background-interactive-primary-selected);
+}
+
+.dsn-date-time-picker-day[data-today]:not([data-selected]):not([data-within-range]) {
+  background: transparent;
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-date-time-picker-day[data-today]:not([data-selected]):not([data-within-range])
+  .dsn-date-time-picker-day-inner {
+  background: var(--color-background-neutral-secondary);
+  box-shadow: var(--input-shadow);
+}
+
+.dsn-date-time-picker-day:not([data-selected]):hover .dsn-date-time-picker-day-inner {
+  background: var(--input-background-hover);
+}
+
+.dsn-date-time-picker-day:not([data-selected]):active .dsn-date-time-picker-day-inner {
+  background: var(--input-background-active);
+}
+
+.dsn-date-time-picker-day:focus-visible {
+  outline: none;
+}
+
+.dsn-date-time-picker-day:focus-visible .dsn-date-time-picker-day-inner {
+  box-shadow:
+    inset 0 0 0 1px var(--color-border-interactive-focus),
+    inset 0 0 0 2px var(--color-shadow-focus-inset);
+}
+
+.dsn-date-time-picker-time-bar {
+  padding: var(--space-2xs);
+  display: flex;
+  gap: var(--space-2xs);
+  align-items: center;
+}
+
+.dsn-date-time-picker-time-hour {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Time dropdown must stack above the date picker popover when open */
+.dsn-date-time-picker-time-combobox .dsn-combobox-popover {
+  z-index: 1001;
+}
+
+/* Match standalone Combobox: same padding around list and menu cells */
+.dsn-date-time-picker-time-combobox .dsn-combobox-popover .dsn-popover-wrapper-content-slot,
+.dsn-date-time-picker-time-combobox .dsn-combobox-popover .dsn-combobox-popover-stack {
+  padding: var(--space-xs);
+}
+
+.dsn-date-time-picker-time-meridiem {
+  flex: 0 0 auto;
+  display: inline-flex;
+}
+
+.dsn-date-time-picker-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+}
+
+.dsn-date-time-picker-meta-icon {
+  color: var(--color-foreground-neutral-secondary);
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+}
+
+.dsn-date-time-picker-helper {
+  margin: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-micro);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-date-time-picker[data-disabled] .dsn-date-time-picker-label,
+.dsn-date-time-picker[data-disabled] .dsn-date-time-picker-control-input,
+.dsn-date-time-picker[data-disabled] .dsn-date-time-picker-leading-icon,
+.dsn-date-time-picker[data-disabled] .dsn-date-time-picker-helper {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-date-time-picker[data-disabled] .dsn-date-time-picker-control {
+  background: var(--color-background-interactive-disabled);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.dsn-date-time-picker[data-error] .dsn-date-time-picker-control {
+  box-shadow:
+    inset 0 0 0 var(--size-border-md) var(--input-border-error),
+    var(--input-shadow);
+}
+
+.dsn-date-time-picker[data-error] .dsn-date-time-picker-range-field-label,
+.dsn-date-time-picker[data-error] .dsn-date-time-picker-label,
+.dsn-date-time-picker[data-error] .dsn-date-time-picker-helper {
+  color: var(--color-foreground-interactive-destructive-default);
+}
+

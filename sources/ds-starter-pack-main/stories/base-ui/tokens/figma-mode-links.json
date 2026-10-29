@@ -1,0 +1,272 @@
+{
+  "VariableID:228:2142": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:363"
+  },
+  "VariableID:2:96": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:351"
+  },
+  "VariableID:2:97": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:369"
+  },
+  "VariableID:2:98": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:367"
+  },
+  "VariableID:2:99": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:373"
+  },
+  "VariableID:2:100": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:365"
+  },
+  "VariableID:2:101": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:155:2"
+  },
+  "VariableID:228:456": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:361"
+  },
+  "VariableID:2:102": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:371"
+  },
+  "VariableID:2:103": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:371"
+  },
+  "VariableID:2:104": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:353"
+  },
+  "VariableID:2:105": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:375"
+  },
+  "VariableID:2:106": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:351"
+  },
+  "VariableID:2:107": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:369"
+  },
+  "VariableID:237:7248": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:366"
+  },
+  "VariableID:237:7249": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:368"
+  },
+  "VariableID:2:108": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:2:109": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:2:110": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:2:111": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:354"
+  },
+  "VariableID:2:112": "Hanken Grotesk",
+  "VariableID:2:113": "Hanken Grotesk",
+  "VariableID:2:114": "Hanken Grotesk",
+  "VariableID:2:115": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:410"
+  },
+  "VariableID:2:116": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:411"
+  },
+  "VariableID:2:117": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:415"
+  },
+  "VariableID:2:118": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:416"
+  },
+  "VariableID:2:119": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:409"
+  },
+  "VariableID:2:120": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:413"
+  },
+  "VariableID:2:121": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:412"
+  },
+  "VariableID:2:122": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:412"
+  },
+  "VariableID:2:123": 10,
+  "VariableID:2:124": 700,
+  "VariableID:2:125": 400,
+  "VariableID:2:126": 600,
+  "VariableID:2:127": 400,
+  "VariableID:2:128": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:372"
+  },
+  "VariableID:2:129": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:355"
+  },
+  "VariableID:2:130": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:368"
+  },
+  "VariableID:2:131": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:367"
+  },
+  "VariableID:2:132": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:366"
+  },
+  "VariableID:2:133": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:369"
+  },
+  "VariableID:2:134": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:351"
+  },
+  "VariableID:2:135": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:351"
+  },
+  "VariableID:2:136": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:363"
+  },
+  "VariableID:2:152": "2px dashed",
+  "VariableID:2:153": "2px solid",
+  "VariableID:2:154": "underline",
+  "VariableID:2:155": "disc",
+  "VariableID:2:158": 100,
+  "VariableID:2:159": 200,
+  "VariableID:2:160": 400,
+  "VariableID:2:161": "cubic-bezier(0.4, 0, 0.2, 1)",
+  "VariableID:2:162": "cubic-bezier(0, 0, 0.2, 1)",
+  "VariableID:2:163": "cubic-bezier(0.4, 0, 1, 1)",
+  "VariableID:153:2": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:3": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:155:2"
+  },
+  "VariableID:153:4": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:371"
+  },
+  "VariableID:153:5": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:6": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:7": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:361"
+  },
+  "VariableID:153:8": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:353"
+  },
+  "VariableID:153:9": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:155:4"
+  },
+  "VariableID:153:10": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:11": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:371"
+  },
+  "VariableID:153:12": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:366"
+  },
+  "VariableID:153:13": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:155:5"
+  },
+  "VariableID:153:14": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:15": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:16": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:17": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:361"
+  },
+  "VariableID:153:18": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:19": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:155:2"
+  },
+  "VariableID:153:20": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:361"
+  },
+  "VariableID:153:21": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:22": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:23": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:155:2"
+  },
+  "VariableID:153:24": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:361"
+  },
+  "VariableID:153:25": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:374"
+  },
+  "VariableID:153:26": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:353"
+  },
+  "VariableID:153:27": {
+    "type": "VARIABLE_ALIAS",
+    "id": "VariableID:1:366"
+  }
+}

@@ -1,0 +1,46 @@
+.dsn-attachment-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  width: 100%;
+}
+
+.dsn-attachment-field-label {
+  margin: 0;
+  padding-block-end: var(--space-2xs);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-attachment-field-control {
+  display: flex;
+  align-items: flex-start;
+}
+
+.dsn-attachment-field-native {
+  display: none;
+}
+
+.dsn-attachment-field-helper {
+  margin: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-micro);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-attachment-field[data-error] .dsn-attachment-field-label,
+.dsn-attachment-field[data-error] .dsn-attachment-field-helper {
+  color: var(--color-foreground-interactive-destructive-default);
+}
+
+.dsn-attachment-field[data-disabled] .dsn-attachment-field-label,
+.dsn-attachment-field[data-disabled] .dsn-attachment-field-helper {
+  color: var(--color-foreground-interactive-disabled);
+}

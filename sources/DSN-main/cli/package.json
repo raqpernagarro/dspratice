@@ -1,0 +1,22 @@
+{
+  "name": "ds-ngr-cli",
+  "version": "0.1.0",
+  "description": "DS-Ngr from the terminal: scaffold a themed app, add page templates, read component docs, connect your AI.",
+  "type": "module",
+  "bin": {
+    "ds-ngr": "bin/ds-ngr.mjs"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

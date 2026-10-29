@@ -1,0 +1,22 @@
+/* Generated from tooltip.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-tooltip {
+  padding-inline: var(--tooltip-space-x, var(--space-sm));
+  padding-block: var(--tooltip-space-y, var(--space-xs));
+  border-radius: var(--tooltip-radius, var(--shape-radius-lg));
+  border-width: var(--tooltip-border-width, var(--size-border-regular));
+  background-color: var(--tooltip-background, var(--color-background-surface-medium));
+  border-color: var(--tooltip-border-color, var(--color-border-neutral-subtle));
+  box-shadow: var(--effect-shadow-elevation-medium);
+  color: var(--tooltip-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--tooltip-text-style-font-family, var(--font-family-primary));
+  font-size: var(--tooltip-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--tooltip-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--tooltip-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-tooltip .ds-tooltip__arrow::before {
+  border-width: var(--tooltip-border-width, var(--size-border-regular));
+  background-color: var(--tooltip-background, var(--color-background-surface-medium));
+  border-color: var(--tooltip-border-color, var(--color-border-neutral-subtle));
+}

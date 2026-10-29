@@ -1,0 +1,273 @@
+{
+  "$description": "DS-Ngr token grammar. Closed word lists: a word that is not listed here is a fabrication. Checked by scripts/audit-tokens.mjs (grammar section). Edit this file first, then the tokens.",
+  "layers": {
+    "primitive": {
+      "prefix": "primitive",
+      "pattern": "primitive-<ramp>-<step>",
+      "use": "Raw values only. Never consumed outside tokens.css.",
+      "ramps": [
+        "neutral",
+        "accent",
+        "violet",
+        "red",
+        "green",
+        "yellow",
+        "teal",
+        "alpha-dark",
+        "alpha-light",
+        "size",
+        "font-size"
+      ]
+    },
+    "semantic": {
+      "pattern": "<tier>-<aspect>-<role|step>[-<prominence>][-<state>]",
+      "use": "What components and apps consume."
+    },
+    "component": {
+      "pattern": "<component>-<property>[-<variant>][-<state>]",
+      "use": "Library-internal. Only the named component's own styles may consume it. Apps never do.",
+      "components": [
+        "avatar",
+        "button",
+        "input",
+        "tag",
+        "toggle",
+        "switcher",
+        "card",
+        "modal",
+        "popover",
+        "tooltip",
+        "menucell",
+        "drawer",
+        "section-header",
+        "sidebar",
+        "topbar",
+        "toolbar"
+      ],
+      "properties": [
+        "background",
+        "foreground",
+        "border",
+        "shadow",
+        "blur",
+        "radius",
+        "height",
+        "width",
+        "size",
+        "overlap",
+        "transition"
+      ]
+    }
+  },
+  "ladder": {
+    "$description": "The one scale ladder (handbook T9). Every ordered size, duration, blur or elevation uses these words in this order. Extend with numbers (4xl), never repeated letters (xxl).",
+    "steps": [
+      "none",
+      "3xs",
+      "2xs",
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl",
+      "3xl",
+      "full"
+    ]
+  },
+  "tiers": {
+    "color": {
+      "aspects": [
+        "background",
+        "foreground",
+        "border",
+        "shadow"
+      ],
+      "roles": [
+        "neutral",
+        "inverse",
+        "interactive",
+        "accent",
+        "success",
+        "error",
+        "warning",
+        "info",
+        "field",
+        "overlay",
+        "elevated",
+        "transparent",
+        "fixed-dark",
+        "fixed-light",
+        "dataviz"
+      ],
+      "prominence": {
+        "ranks": [
+          "primary",
+          "secondary",
+          "tertiary"
+        ],
+        "intensity": [
+          "soft",
+          "strong"
+        ],
+        "interactive": [
+          "primary",
+          "secondary",
+          "destructive",
+          "strong"
+        ],
+        "neutral": [
+          "primary",
+          "secondary",
+          "tertiary",
+          "soft",
+          "strong"
+        ]
+      },
+      "prominenceByRole": {
+        "neutral": "neutral",
+        "inverse": "ranks",
+        "fixed-dark": "ranks",
+        "fixed-light": "ranks",
+        "interactive": "interactive",
+        "accent": "intensity",
+        "success": "intensity",
+        "error": "intensity",
+        "warning": "intensity",
+        "overlay": "intensity",
+        "info": "intensity"
+      }
+    },
+    "font": {
+      "aspects": [
+        "family",
+        "size",
+        "weight",
+        "line-height",
+        "letter-spacing"
+      ],
+      "roles": [
+        "default",
+        "micro",
+        "label",
+        "body",
+        "display"
+      ],
+      "words": [
+        "regular",
+        "medium",
+        "semibold",
+        "tight",
+        "normal",
+        "wide"
+      ]
+    },
+    "space": {
+      "aspects": [],
+      "steps": "ladder"
+    },
+    "size": {
+      "steps": "ladder",
+      "aspects": [
+        "control",
+        "container",
+        "border",
+        "breakpoint"
+      ],
+      "words": [
+        "height",
+        "min",
+        "focus",
+        "icon"
+      ]
+    },
+    "shape": {
+      "aspects": [
+        "radius"
+      ],
+      "words": [
+        "control"
+      ]
+    },
+    "effect": {
+      "aspects": [
+        "shadow",
+        "blur",
+        "border",
+        "opacity"
+      ],
+      "words": []
+    },
+    "motion": {
+      "aspects": [
+        "duration",
+        "ease",
+        "transition"
+      ],
+      "words": [
+        "smooth"
+      ],
+      "speeds": [
+        "instant",
+        "fast",
+        "normal",
+        "slow"
+      ]
+    },
+    "z-index": {
+      "aspects": [],
+      "roles": [
+        "sticky",
+        "fixed",
+        "modal-backdrop",
+        "modal",
+        "popover",
+        "tooltip",
+        "toast"
+      ]
+    }
+  },
+  "states": {
+    "$description": "Interaction states. Always the last word. A family with any state also has -default (handbook T7, T8).",
+    "words": [
+      "default",
+      "hover",
+      "active",
+      "focus",
+      "disabled",
+      "selected"
+    ]
+  },
+  "banned": {
+    "$description": "Synonyms that must never appear in a token name (handbook T6). Left: banned word. Right: the word to use.",
+    "words": {
+      "pressed": "active",
+      "danger": "error (status) or destructive (interactive prominence)",
+      "critical": "error-strong",
+      "feedback": "success | error | warning",
+      "inverted": "inverse",
+      "palette": "primitive",
+      "standard": "md",
+      "small": "sm",
+      "large": "lg",
+      "xsmall": "xs",
+      "xlarge": "xl",
+      "xxs": "2xs",
+      "xxl": "2xl",
+      "subtle": "soft or sm",
+      "cta": "interactive-primary",
+      "bg": "background",
+      "text": "foreground",
+      "spacing": "space"
+    }
+  },
+  "never-tokenized": [
+    "display",
+    "position",
+    "flex",
+    "grid",
+    "overflow",
+    "transform",
+    "cursor"
+  ]
+}

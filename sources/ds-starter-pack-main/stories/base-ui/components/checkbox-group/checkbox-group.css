@@ -1,0 +1,7 @@
+/* Layout only. Spacing and type come from checkbox-group.tokens.css (generated from checkbox-group.spec.ts). */
+
+.ds-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

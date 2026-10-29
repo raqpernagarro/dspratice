@@ -1,0 +1,55 @@
+[
+  {
+    "slug": "dashboard",
+    "title": "Dashboard",
+    "category": "Dashboard",
+    "description": "KPI cards, chart cards and a recent-activity table under a period switcher.",
+    "pattern": "dashboard"
+  },
+  {
+    "slug": "data-page",
+    "title": "Data page",
+    "category": "Table",
+    "description": "Record list with a filter bar, view switcher and a DataTable with rich cells.",
+    "pattern": "data-page"
+  },
+  {
+    "slug": "kanban-board",
+    "title": "Kanban board",
+    "category": "Board",
+    "description": "Status columns tinted with tag tokens, task cards and a compact empty column.",
+    "pattern": "kanban-board"
+  },
+  {
+    "slug": "detail-drawer",
+    "title": "Detail drawer",
+    "category": "Table",
+    "description": "A data page with a row's details open in a Drawer of DataListCell rows.",
+    "pattern": "detail-drawer"
+  },
+  {
+    "slug": "form-page",
+    "title": "Form page",
+    "category": "Form",
+    "description": "New-record form split into Card sections, with the submit in the last card's bottom bar.",
+    "pattern": "form-page"
+  },
+  {
+    "slug": "settings",
+    "title": "Settings",
+    "category": "Settings",
+    "description": "Centred settings column with tabs, a profile form and immediate-effect switches."
+  },
+  {
+    "slug": "login",
+    "title": "Sign in",
+    "category": "Auth",
+    "description": "Centred sign-in card with email, password, remember-me and single sign-on."
+  },
+  {
+    "slug": "ai-chat",
+    "title": "AI chat",
+    "category": "AI",
+    "description": "Assistant thread with attachments, tool steps, PromptInput and a document side panel."
+  }
+]

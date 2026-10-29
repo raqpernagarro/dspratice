@@ -1,0 +1,58 @@
+/*
+ * Layout only (the surface is in shared/popup.css). Colors, spacing and type come from
+ * listbox.tokens.css and option.tokens.css.
+ */
+
+.ds-listbox__positioner {
+  outline: 0;
+  z-index: 10;
+}
+
+.ds-listbox {
+  min-width: var(--anchor-width);
+  max-height: min(22.5rem, var(--available-height));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.ds-listbox[data-side='none'] {
+  /* Select opens over its trigger, shifted to align the options with the value: cover the trigger. */
+  min-width: calc(var(--anchor-width) + 1.75rem);
+}
+
+.ds-listbox__list {
+  display: flex;
+  flex-direction: column;
+  outline: 0;
+}
+
+.ds-option {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  outline: 0;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-option__indicator {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.ds-option__icon {
+  display: inline-flex;
+}
+
+.ds-option svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ds-option__label {
+  flex: 1;
+  min-width: 0;
+}

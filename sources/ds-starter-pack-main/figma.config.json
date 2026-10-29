@@ -1,0 +1,6 @@
+{
+  "codeConnect": {
+    "include": ["stories/base-ui/components/**/*.figma.js"],
+    "label": "React"
+  }
+}

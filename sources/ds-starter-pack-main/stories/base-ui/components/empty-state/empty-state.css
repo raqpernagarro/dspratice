@@ -1,0 +1,42 @@
+/* Layout only. Spacing, colors and type come from empty-state.tokens.css (generated from empty-state.spec.ts). */
+
+.ds-empty-state {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ds-empty-state__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ds-empty-state__glyph {
+  display: inline-flex;
+}
+
+.ds-empty-state__glyph svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ds-empty-state__text {
+  display: flex;
+  flex-direction: column;
+  max-width: 40ch;
+}
+
+.ds-empty-state__title,
+.ds-empty-state__description {
+  margin: 0;
+}
+
+.ds-empty-state__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

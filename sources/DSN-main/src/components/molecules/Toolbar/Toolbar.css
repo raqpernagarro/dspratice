@@ -1,0 +1,71 @@
+.dsn-toolbar {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--color-background-elevated);
+  box-shadow:
+    inset 0 var(--size-border-sm) 0 0 var(--color-shadow-separator-emboss-light),
+    0 -1px var(--effect-blur-sm) 0 var(--color-shadow-elevation-md);
+}
+
+.dsn-toolbar[data-size='lg'] {
+  padding: var(--space-md);
+}
+
+.dsn-toolbar[data-size='md'] {
+  padding: var(--space-xs);
+}
+
+.dsn-toolbar[data-size='sm'] {
+  padding: var(--space-xs);
+}
+
+/* Filter bar = bottom bar chrome (background, padding, row height) without the upward shadow. */
+.dsn-toolbar[data-variant='filter-bar'] {
+  box-shadow: none;
+}
+
+.dsn-toolbar[data-variant='plain'] {
+  background: transparent;
+  box-shadow: none;
+}
+
+.dsn-toolbar-side {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+  flex: 1 0 0;
+}
+
+.dsn-toolbar-side-left {
+  justify-content: flex-start;
+}
+
+.dsn-toolbar-side-right {
+  justify-content: flex-end;
+}
+
+/* Single-action bar: one full-width row — hide the empty left/right slot so the
+   action is not trapped in half the bar (common for Card bottomBarRightActions-only). */
+.dsn-toolbar[data-single-action] {
+  gap: 0;
+}
+
+.dsn-toolbar[data-single-action] .dsn-toolbar-side:empty {
+  display: none;
+}
+
+.dsn-toolbar[data-single-action] .dsn-toolbar-side {
+  flex: 1 1 auto;
+  width: 100%;
+  justify-content: stretch;
+}
+
+.dsn-toolbar[data-single-action] :has(:is(button, a[href], [role='button'])),
+.dsn-toolbar[data-single-action] :is(button, a[href], [role='button']) {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+}

@@ -1,0 +1,18 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Toolbar.stories';
+import docs from './docs/toolbar.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { toolbarSpec } from './components/toolbar/toolbar.spec';
+
+<Meta of={Stories} />
+
+# Toolbar
+
+<Canvas of={Stories.Default} />
+
+<SpecDocs spec={toolbarSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={toolbarSpec.docs.baseUi} />

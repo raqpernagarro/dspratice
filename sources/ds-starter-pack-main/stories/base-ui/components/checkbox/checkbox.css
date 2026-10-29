@@ -1,0 +1,46 @@
+/* Layout only. Colors, sizes and type come from checkbox.tokens.css (generated from checkbox.spec.ts). */
+
+.ds-checkbox {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-checkbox:has(> .ds-checkbox__control[data-disabled]) {
+  cursor: not-allowed;
+}
+
+.ds-checkbox__control {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+  outline: 0;
+}
+
+.ds-checkbox__control:focus-visible {
+  outline: 2px solid var(--color-shadow-focus-ring-primary);
+  outline-offset: 2px;
+}
+
+.ds-checkbox__indicator {
+  display: flex;
+}
+
+.ds-checkbox__indicator svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* One indicator, two glyphs: a check, or a dash while indeterminate. */
+.ds-checkbox__control[data-indeterminate] .ds-checkbox__check,
+.ds-checkbox__control:not([data-indeterminate]) .ds-checkbox__dash {
+  display: none;
+}

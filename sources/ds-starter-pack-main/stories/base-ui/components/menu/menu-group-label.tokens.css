@@ -1,0 +1,11 @@
+/* Generated from menu-group-label.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-menu-group-label {
+  padding-inline: var(--menu-group-label-space-x, var(--space-md));
+  padding-block: var(--menu-group-label-space-y, var(--space-xs));
+  color: var(--menu-group-label-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--menu-group-label-text-style-font-family, var(--font-family-primary));
+  font-size: var(--menu-group-label-text-style-font-size, var(--font-size-caption-md));
+  line-height: var(--menu-group-label-text-style-line-height, var(--font-line-height-caption-md));
+  font-weight: var(--menu-group-label-text-style-font-weight, var(--font-weight-body-regular));
+}

@@ -1,0 +1,183 @@
+/* Generated from input.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-input[data-size="sm"] {
+  height: var(--input-height-sm, var(--space-2xl));
+  padding-inline: var(--input-space-x-sm, var(--space-sm));
+  gap: var(--input-gap-sm, var(--space-xs));
+  border-radius: var(--input-radius-sm, var(--shape-radius-md));
+}
+
+.ds-input[data-size="md"] {
+  height: var(--input-height-md, var(--size-lg));
+  padding-inline: var(--input-space-x-md, var(--space-md));
+  gap: var(--input-gap-md, var(--space-sm));
+  border-radius: var(--input-radius-md, var(--shape-radius-md));
+}
+
+.ds-input[data-size="lg"] {
+  height: var(--input-height-lg, var(--size-xl));
+  padding-inline: var(--input-space-x-lg, var(--space-lg));
+  gap: var(--input-gap-lg, var(--space-sm));
+  border-radius: var(--input-radius-lg, var(--shape-radius-md));
+}
+
+.ds-input {
+  border-width: var(--input-border-width, var(--size-border-regular));
+  background-color: var(--input-background-default, var(--color-background-neutral-primary));
+}
+
+.ds-input:has(.ds-input__value:not([data-invalid])) {
+  border-color: var(--input-border-color-valid-default, var(--color-border-interactive-default));
+  box-shadow: none;
+}
+
+.ds-input[data-size="sm"] .ds-input__icon {
+  width: var(--input-icon-size-sm, var(--size-2xs));
+  height: var(--input-icon-size-sm, var(--size-2xs));
+}
+
+.ds-input[data-size="md"] .ds-input__icon {
+  width: var(--input-icon-size-md, var(--size-xs));
+  height: var(--input-icon-size-md, var(--size-xs));
+}
+
+.ds-input[data-size="lg"] .ds-input__icon {
+  width: var(--input-icon-size-lg, var(--size-sm));
+  height: var(--input-icon-size-lg, var(--size-sm));
+}
+
+.ds-input .ds-input__icon {
+  color: var(--input-icon-foreground-default, var(--color-foreground-neutral-secondary));
+}
+
+.ds-input .ds-input__value:not([data-filled]) {
+  color: var(--input-foreground-placeholder-default, var(--color-foreground-neutral-secondary));
+}
+
+.ds-input[data-size="sm"] .ds-input__value {
+  font-family: var(--input-text-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--input-text-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--input-text-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--input-text-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-input[data-size="md"] .ds-input__value {
+  font-family: var(--input-text-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--input-text-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--input-text-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--input-text-text-style-md-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-input[data-size="lg"] .ds-input__value {
+  font-family: var(--input-text-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--input-text-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--input-text-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--input-text-text-style-lg-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-input:hover:not(:has(> .ds-input__value[data-disabled])):not(:focus-within),
+.ds-input[data-preview-state="hover"] {
+  background-color: var(--input-background-hover, var(--color-background-neutral-primary));
+}
+
+.ds-input:hover:not(:has(> .ds-input__value[data-disabled])):not(:focus-within):has(.ds-input__value:not([data-invalid])),
+.ds-input[data-preview-state="hover"]:has(.ds-input__value:not([data-invalid])) {
+  border-color: var(--input-border-color-valid-hover, var(--color-border-interactive-hover));
+  box-shadow: none;
+}
+
+.ds-input:has(.ds-input__value[data-invalid]) {
+  border-color: var(--input-border-color-invalid-default, var(--color-border-error));
+  box-shadow: none;
+}
+
+.ds-input:hover:not(:has(> .ds-input__value[data-disabled])):not(:focus-within):has(.ds-input__value[data-invalid]),
+.ds-input[data-preview-state="hover"]:has(.ds-input__value[data-invalid]) {
+  border-color: var(--input-border-color-invalid-hover, var(--color-border-error));
+  box-shadow: none;
+}
+
+.ds-input:hover:not(:has(> .ds-input__value[data-disabled])):not(:focus-within) .ds-input__icon,
+.ds-input[data-preview-state="hover"] .ds-input__icon {
+  color: var(--input-icon-foreground-hover, var(--color-foreground-neutral-secondary));
+}
+
+.ds-input:hover:not(:has(> .ds-input__value[data-disabled])):not(:focus-within) .ds-input__value:not([data-filled]),
+.ds-input[data-preview-state="hover"] .ds-input__value:not([data-filled]) {
+  color: var(--input-foreground-placeholder-hover, var(--color-foreground-neutral-secondary));
+}
+
+.ds-input .ds-input__value[data-filled],
+.ds-input .ds-input__value:not(:placeholder-shown) {
+  color: var(--input-foreground-filled-default, var(--color-foreground-neutral-primary));
+}
+
+.ds-input:hover:not(:has(> .ds-input__value[data-disabled])):not(:focus-within) .ds-input__value[data-filled],
+.ds-input:hover:not(:has(> .ds-input__value[data-disabled])):not(:focus-within) .ds-input__value:not(:placeholder-shown),
+.ds-input[data-preview-state="hover"] .ds-input__value[data-filled],
+.ds-input[data-preview-state="hover"] .ds-input__value:not(:placeholder-shown) {
+  color: var(--input-foreground-filled-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-input:has(> .ds-input__value[data-focused]),
+.ds-input:focus-within,
+.ds-input[data-preview-state="focused"] {
+  background-color: var(--input-background-focused, var(--color-background-neutral-primary));
+}
+
+.ds-input:has(> .ds-input__value[data-focused]):has(.ds-input__value:not([data-invalid])),
+.ds-input:focus-within:has(.ds-input__value:not([data-invalid])),
+.ds-input[data-preview-state="focused"]:has(.ds-input__value:not([data-invalid])) {
+  border-color: var(--input-border-color-valid-focused, var(--color-border-interactive-selected));
+  box-shadow: var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-input:has(> .ds-input__value[data-focused]):has(.ds-input__value[data-invalid]),
+.ds-input:focus-within:has(.ds-input__value[data-invalid]),
+.ds-input[data-preview-state="focused"]:has(.ds-input__value[data-invalid]) {
+  border-color: var(--input-border-color-invalid-focused, var(--color-border-error));
+  box-shadow: var(--effect-shadow-focus-ring-error);
+}
+
+.ds-input:has(> .ds-input__value[data-focused]) .ds-input__icon,
+.ds-input:focus-within .ds-input__icon,
+.ds-input[data-preview-state="focused"] .ds-input__icon {
+  color: var(--input-icon-foreground-focused, var(--color-foreground-neutral-secondary));
+}
+
+.ds-input:has(> .ds-input__value[data-focused]) .ds-input__value:not([data-filled]),
+.ds-input:focus-within .ds-input__value:not([data-filled]),
+.ds-input[data-preview-state="focused"] .ds-input__value:not([data-filled]) {
+  color: var(--input-foreground-placeholder-focused, var(--color-foreground-neutral-secondary));
+}
+
+.ds-input:has(> .ds-input__value[data-focused]) .ds-input__value[data-filled],
+.ds-input:has(> .ds-input__value[data-focused]) .ds-input__value:not(:placeholder-shown),
+.ds-input:focus-within .ds-input__value[data-filled],
+.ds-input:focus-within .ds-input__value:not(:placeholder-shown),
+.ds-input[data-preview-state="focused"] .ds-input__value[data-filled],
+.ds-input[data-preview-state="focused"] .ds-input__value:not(:placeholder-shown) {
+  color: var(--input-foreground-filled-focused, var(--color-foreground-neutral-primary));
+}
+
+.ds-input:has(> .ds-input__value[data-disabled]) {
+  background-color: var(--input-background-disabled, var(--color-background-interactive-disabled));
+}
+
+.ds-input:has(> .ds-input__value[data-disabled]):has(.ds-input__value:not([data-invalid])) {
+  border-color: var(--input-border-color-valid-disabled, var(--color-border-interactive-disabled));
+  box-shadow: none;
+}
+
+.ds-input:has(> .ds-input__value[data-disabled]) .ds-input__icon {
+  color: var(--input-icon-foreground-disabled, var(--color-foreground-interactive-disabled));
+}
+
+.ds-input:has(> .ds-input__value[data-disabled]) .ds-input__value:not([data-filled]) {
+  color: var(--input-foreground-placeholder-disabled, var(--color-foreground-interactive-disabled));
+}
+
+.ds-input:has(> .ds-input__value[data-disabled]) .ds-input__value[data-filled],
+.ds-input:has(> .ds-input__value[data-disabled]) .ds-input__value:not(:placeholder-shown) {
+  color: var(--input-foreground-filled-disabled, var(--color-foreground-interactive-disabled));
+}

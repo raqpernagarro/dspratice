@@ -1,0 +1,13 @@
+/* Generated from separator.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-separator[data-orientation="horizontal"] {
+  height: var(--separator-thickness, var(--size-border-regular));
+}
+
+.ds-separator {
+  background-color: var(--separator-color, var(--color-border-neutral-subtle));
+}
+
+.ds-separator[data-orientation="vertical"] {
+  width: var(--separator-thickness, var(--size-border-regular));
+}

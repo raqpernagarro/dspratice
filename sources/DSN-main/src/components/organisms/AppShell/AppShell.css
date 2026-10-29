@@ -1,0 +1,210 @@
+.dsn-app-shell-skip-link {
+  position: absolute;
+  inset-block-start: var(--space-2xs);
+  inset-inline-start: var(--space-2xs);
+  z-index: 9999;
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-background-neutral-primary);
+  color: var(--color-foreground-neutral-primary);
+  border-radius: var(--shape-radius-control-md);
+  box-shadow: var(--input-shadow);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.1s;
+}
+
+.dsn-app-shell-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-app-shell {
+  display: flex;
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 100vh;
+  background: var(--color-background-neutral-primary);
+  color: var(--color-foreground-neutral-primary);
+  overflow: hidden;
+}
+
+.dsn-app-shell-sidebar-column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  min-block-size: 0;
+  overflow: visible;
+}
+
+.dsn-app-shell-sidebar {
+  display: flex;
+  flex: 1 1 auto;
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 0;
+  border-inline-end: var(--size-border-sm) solid var(--color-border-neutral-primary);
+}
+
+/*
+ * Sidebar has standalone fixed-width defaults. Inside AppShell, force it to
+ * stretch with the resizable sidebar column instead.
+ */
+.dsn-app-shell-sidebar > .dsn-sidebar,
+.dsn-app-shell-sidebar > .dsn-sidebar[data-collapsed] {
+  inline-size: 100%;
+  width: 100%;
+  block-size: 100%;
+  max-block-size: 100%;
+  min-block-size: 0;
+  padding-block-start: 0;
+}
+
+.dsn-app-shell-sidebar-resize-handle {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  transform: translateX(50%);
+  inline-size: 14px;
+  block-size: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  opacity: 1;
+  pointer-events: auto;
+  cursor: ew-resize;
+  touch-action: none;
+  overflow: visible;
+  transition: opacity var(--motion-transition-normal);
+  z-index: 2;
+}
+
+.dsn-app-shell-sidebar-resize-handle::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  inline-size: var(--size-border-sm);
+  background: var(--color-border-neutral-primary);
+  transition: background-color var(--motion-transition-normal);
+}
+
+.dsn-app-shell-sidebar-resize-handle::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+  inline-size: 4px;
+  block-size: 32px;
+  border: var(--size-border-sm) solid var(--color-border-neutral-primary);
+  border-radius: var(--shape-radius-full);
+  background: var(--color-border-neutral-primary);
+  opacity: 0;
+  transition:
+    opacity var(--motion-transition-normal),
+    border-color var(--motion-transition-normal),
+    background-color var(--motion-transition-normal);
+}
+
+.dsn-app-shell-sidebar-resize-handle:hover::before,
+.dsn-app-shell-sidebar-resize-handle:focus-visible::before {
+  background: var(--color-border-interactive-hover);
+}
+
+.dsn-app-shell-sidebar-column:hover .dsn-app-shell-sidebar-resize-handle::after,
+.dsn-app-shell[data-sidebar-resizing] .dsn-app-shell-sidebar-resize-handle::after {
+  opacity: 1;
+}
+
+.dsn-app-shell-sidebar-resize-handle:hover::after,
+.dsn-app-shell-sidebar-resize-handle:focus-visible::after,
+.dsn-app-shell[data-sidebar-resizing] .dsn-app-shell-sidebar-resize-handle::after {
+  border-color: var(--color-border-interactive-hover);
+  background: var(--color-border-interactive-hover);
+}
+
+.dsn-app-shell-sidebar-resize-handle[data-edge-hot]::before,
+.dsn-app-shell[data-sidebar-resizing] .dsn-app-shell-sidebar-resize-handle::before {
+  background: var(--color-background-accent-strong-default);
+}
+
+.dsn-app-shell-sidebar-resize-handle[data-edge-hot]::after,
+.dsn-app-shell[data-sidebar-resizing] .dsn-app-shell-sidebar-resize-handle::after {
+  border-color: var(--color-background-accent-strong-default);
+  background: var(--color-background-accent-strong-default);
+}
+
+.dsn-app-shell-sidebar-resize-handle:active,
+.dsn-app-shell-sidebar-resize-handle[data-resizing],
+.dsn-app-shell[data-sidebar-resizing] .dsn-app-shell-sidebar-resize-handle {
+  cursor: ew-resize;
+}
+
+.dsn-app-shell-sidebar-resize-handle:focus-visible {
+  outline: none;
+}
+
+.dsn-app-shell-sidebar-resize-handle:focus-visible::after {
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-app-shell-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-inline-size: 0;
+  min-block-size: 100%;
+}
+
+.dsn-app-shell-header {
+  flex: 0 0 auto;
+  border-block-end: var(--size-border-sm) solid var(--color-border-neutral-primary);
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-app-shell-body-header {
+  flex: 0 0 auto;
+  border-block-end: var(--size-border-sm) solid var(--color-border-neutral-primary);
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-app-shell-content-row {
+  display: flex;
+  flex: 1 1 auto;
+  min-block-size: 0;
+  min-inline-size: 0;
+}
+
+.dsn-app-shell-main {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  min-block-size: 0;
+  overflow: auto;
+  padding: var(--space-md);
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-app-shell-right-panel {
+  flex: 0 0 auto;
+  min-inline-size: 0;
+  border-inline-start: var(--size-border-sm) solid var(--color-border-neutral-primary);
+  background: var(--color-background-neutral-primary);
+  overflow: auto;
+}
+
+.dsn-app-shell-footer {
+  flex: 0 0 auto;
+  border-block-start: var(--size-border-sm) solid var(--color-border-neutral-primary);
+  background: var(--color-background-neutral-primary);
+}
+
+@media (max-width: 640px) {
+  .dsn-app-shell-main {
+    padding: var(--space-xs);
+  }
+}

@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Patterns/App Shell" />
+
+# App Shell
+
+Use `AppShell` as the canonical page starter so every new route begins from the same layout contract.
+
+## Start Here
+
+- Open the starter story: [Layout/App Shell](?path=/story/layout-app-shell--playground)
+- Copy the structure from `Default` or `ContentOnly`, then replace only the page content area.
+- Keep route-specific business logic outside the shell component.
+
+## Layout Contract
+
+`AppShell` exposes composition slots:
+
+- `header` for top navigation and global actions (typically `Navbar`)
+- `sidebar` for primary navigation (typically `Sidebar`)
+- `children` for page content (required)
+- `rightPanel` for secondary contextual content
+- `footer` for persistent bottom actions
+
+## Recommended Storybook Usage
+
+- Use `Layout/App Shell` stories as scaffolds for new page stories.
+- Keep component-level behavior in each component's own story; keep cross-component page composition in `AppShell` stories.
+- For mobile navigation, use a `Drawer` pattern (`MobileWithDrawer` story) instead of a persistent sidebar.

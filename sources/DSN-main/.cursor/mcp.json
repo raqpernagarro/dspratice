@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "dsn-storybook": {
+      "url": "http://localhost:6006/mcp"
+    }
+  }
+}

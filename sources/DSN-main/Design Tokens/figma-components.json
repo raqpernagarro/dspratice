@@ -1,0 +1,2663 @@
+{
+  "fileKey": "9Lqv0lrj1pRM14NVs4TsSk",
+  "lastModified": "2026-10-15T07:58:01Z",
+  "sets": {
+    "Accordion": {
+      "nodeId": "8246:322090",
+      "props": {
+        "Border": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Disclosure": {
+          "type": "VARIANT",
+          "values": [
+            "Left",
+            "Right"
+          ]
+        },
+        "Open": {
+          "type": "VARIANT",
+          "values": [
+            "True",
+            "False"
+          ]
+        }
+      }
+    },
+    "Alert dialog": {
+      "nodeId": "4552:110701",
+      "props": {
+        "Type": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Danger"
+          ]
+        }
+      }
+    },
+    "Attachment / Attachment card": {
+      "nodeId": "4529:112526",
+      "props": {
+        "Description position": {
+          "type": "VARIANT",
+          "values": [
+            "Inside",
+            "Outside"
+          ]
+        },
+        "Has metadata": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Loading": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Metadata": {
+          "type": "TEXT",
+          "default": "Meta data"
+        },
+        "Show button on hover": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show description": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover"
+          ]
+        },
+        "Title": {
+          "type": "TEXT",
+          "default": "Title"
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Picture",
+            "File"
+          ]
+        }
+      }
+    },
+    "Attachment / Attachment chip": {
+      "nodeId": "4533:107444",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Loading": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Metadata": {
+          "type": "TEXT",
+          "default": "10 Mb"
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show metadata": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        }
+      }
+    },
+    "Avatar": {
+      "nodeId": "111:5684",
+      "props": {
+        "Fill": {
+          "type": "VARIANT",
+          "values": [
+            "Initials",
+            "Picture",
+            "Icon"
+          ]
+        },
+        "Initials": {
+          "type": "TEXT",
+          "default": "AA"
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "xxSmall",
+            "xSmall",
+            "Small",
+            "Medium",
+            "Large",
+            "xLarge",
+            "xxLarge"
+          ]
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Organization",
+            "Profile"
+          ]
+        }
+      }
+    },
+    "Avatar group": {
+      "nodeId": "3058:116174",
+      "props": {
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Show button": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "xxSmall",
+            "xSmall",
+            "Small"
+          ]
+        }
+      }
+    },
+    "Badge": {
+      "nodeId": "642:18316",
+      "props": {
+        "Label": {
+          "type": "TEXT",
+          "default": "1"
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Standard",
+            "Dot"
+          ]
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Critical",
+            "Highlight soft",
+            "Highlight strong",
+            "Informative"
+          ]
+        }
+      }
+    },
+    "Breadcrumb item": {
+      "nodeId": "4095:182336",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Disclosure": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        },
+        "Title": {
+          "type": "TEXT",
+          "default": "Title"
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Current",
+            "Previous",
+            "Ellipsis"
+          ]
+        }
+      }
+    },
+    "Button": {
+      "nodeId": "19:574",
+      "props": {
+        "Destructive": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Button"
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Loading": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Shortcut": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Primary",
+            "Secondary",
+            "Ghost",
+            "Plain"
+          ]
+        }
+      }
+    },
+    "Button / Toggle button": {
+      "nodeId": "8412:66648",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Button"
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        }
+      }
+    },
+    "Button / Vertical button": {
+      "nodeId": "107:87",
+      "props": {
+        "Badge": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Button"
+        },
+        "Loading": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Primary",
+            "Secondary",
+            "Ghost"
+          ]
+        }
+      }
+    },
+    "Button group / Inline": {
+      "nodeId": "947:10906",
+      "props": {
+        "Amount": {
+          "type": "VARIANT",
+          "values": [
+            "2",
+            "3",
+            "4+"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        },
+        "Space between": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        }
+      }
+    },
+    "Button group / Vertical": {
+      "nodeId": "8488:52442",
+      "props": {
+        "Amount": {
+          "type": "VARIANT",
+          "values": [
+            "2",
+            "3",
+            "4+"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        },
+        "Space between": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        }
+      }
+    },
+    "Callout": {
+      "nodeId": "8683:47493",
+      "props": {
+        "Content": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Description": {
+          "type": "TEXT",
+          "default": "Description"
+        },
+        "Dismiss button": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Severity": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Success",
+            "Warning",
+            "Error"
+          ]
+        },
+        "Show content": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show description": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show header": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show title": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Title": {
+          "type": "TEXT",
+          "default": "Title"
+        }
+      }
+    },
+    "Card container": {
+      "nodeId": "8949:22777",
+      "props": {
+        "Swap content": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Header and bottom bar",
+            "Just header",
+            "Just bottom bar",
+            "Just content"
+          ]
+        }
+      }
+    },
+    "Checkbox": {
+      "nodeId": "8441:154815",
+      "props": {
+        "Description": {
+          "type": "TEXT",
+          "default": "Description"
+        },
+        "Description right": {
+          "type": "TEXT",
+          "default": "Assist label"
+        },
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show avatar": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show badge": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show buttons": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show content": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show description": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show description right": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show switcher right": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show tag": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Focused",
+            "Pressed"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        }
+      }
+    },
+    "Chip": {
+      "nodeId": "1544:19006",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show avatar": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        }
+      }
+    },
+    "Choice list": {
+      "nodeId": "8572:15962",
+      "props": {
+        "itemStack": {
+          "type": "SLOT"
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Switchers",
+            "Checkbox",
+            "Radio"
+          ]
+        }
+      }
+    },
+    "Data list cell / Editable": {
+      "nodeId": "2311:43294",
+      "props": {
+        "Alignment": {
+          "type": "VARIANT",
+          "values": [
+            "Inline",
+            "Vertical"
+          ]
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Show icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Title": {
+          "type": "TEXT",
+          "default": "Title"
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "With title",
+            "Just icon"
+          ]
+        }
+      }
+    },
+    "Data list cell / Info": {
+      "nodeId": "1719:67872",
+      "props": {
+        "Alignment": {
+          "type": "VARIANT",
+          "values": [
+            "Inline",
+            "Vertical"
+          ]
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Show actions": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover"
+          ]
+        },
+        "Title": {
+          "type": "TEXT",
+          "default": "Title"
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "With title",
+            "Just icon"
+          ]
+        }
+      }
+    },
+    "Data table / Cell / Header cell": {
+      "nodeId": "179:2156",
+      "props": {
+        "Draggable": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Show icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Sort direction": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Sorted": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover"
+          ]
+        },
+        "Type": {
+          "type": "VARIANT",
+          "values": [
+            "Title",
+            "Checkbox"
+          ]
+        }
+      }
+    },
+    "Data table / Cell / Table cell": {
+      "nodeId": "179:2495",
+      "props": {
+        "Address": {
+          "type": "TEXT",
+          "default": "12345 Broadway Avenue, Los Angeles, California, USA"
+        },
+        "Date": {
+          "type": "TEXT",
+          "default": "11/1/2018 10:45:03 PM"
+        },
+        "Empty placeholder": {
+          "type": "TEXT",
+          "default": "Add [field name]"
+        },
+        "Field type": {
+          "type": "VARIANT",
+          "values": [
+            "String",
+            "Main",
+            "Icon",
+            "Text field (single line)",
+            "Text field (long text)",
+            "Email",
+            "Phone number",
+            "Address",
+            "Contact",
+            "Date and time",
+            "Date",
+            "Month and year",
+            "Number",
+            "Range",
+            "Single choice",
+            "Multi choice",
+            "Single user or team",
+            "Multiple users or teams",
+            "URL",
+            "URL read-only",
+            "Boolean",
+            "Buttons",
+            "Tags single choice",
+            "Tags multi choice",
+            "Tags read-only",
+            "File (single)",
+            "Checkbox (row selection)",
+            "Contacts (table)",
+            "Contacts (description list)",
+            "Empty",
+            "Expand"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Link": {
+          "type": "TEXT",
+          "default": "https://link.com"
+        },
+        "Loading": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Month Year": {
+          "type": "TEXT",
+          "default": "January 2025"
+        },
+        "Number": {
+          "type": "TEXT",
+          "default": "12345"
+        },
+        "Range": {
+          "type": "TEXT",
+          "default": "123 — 123"
+        },
+        "Show avatar": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover"
+          ]
+        }
+      }
+    },
+    "Date and time picker": {
+      "nodeId": "1697:33038",
+      "props": {
+        "Mode": {
+          "type": "VARIANT",
+          "values": [
+            "Date range",
+            "Single date"
+          ]
+        },
+        "Show quick selection": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show time": {
+          "type": "BOOLEAN",
+          "default": true
+        }
+      }
+    },
+    "Date and time picker (popover)": {
+      "nodeId": "8567:40254",
+      "props": {
+        "Mode": {
+          "type": "VARIANT",
+          "values": [
+            "Date range",
+            "Single date"
+          ]
+        }
+      }
+    },
+    "Drawer": {
+      "nodeId": "8784:10454",
+      "props": {
+        "Has bottom bar": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Has header": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Has scroll bar": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Replace content": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Overlay",
+            "Stacked"
+          ]
+        }
+      }
+    },
+    "File row": {
+      "nodeId": "4540:121392",
+      "props": {
+        "File name": {
+          "type": "TEXT",
+          "default": "File name"
+        },
+        "Size": {
+          "type": "TEXT",
+          "default": "10 Mb"
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Uploading"
+          ]
+        },
+        "Type": {
+          "type": "TEXT",
+          "default": "PDF"
+        }
+      }
+    },
+    "Input / Combobox": {
+      "nodeId": "8822:61813",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show actions": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show clear button": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show scroll bar (horizontal)": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show scroll bar (vertical)": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Filled",
+            "Error",
+            "Hover",
+            "Focused",
+            "Active",
+            "Empty"
+          ]
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "Placeholder"
+        }
+      }
+    },
+    "Input / Combobox multi": {
+      "nodeId": "1548:22387",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show actions": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show clear button": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show scroll bar (horizontal)": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show scroll bar (vertical)": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Filled",
+            "Error",
+            "Hover",
+            "Focused",
+            "Active",
+            "Empty"
+          ]
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "Add"
+        }
+      }
+    },
+    "Input / Date picker": {
+      "nodeId": "8794:56699",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show actions": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show clear button": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show scroll bar (horizontal)": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show scroll bar (vertical)": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Filled",
+            "Error",
+            "Hover",
+            "Focused",
+            "Active"
+          ]
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "MM-DD-YYY 00:00 AM"
+        }
+      }
+    },
+    "Input / File upload": {
+      "nodeId": "8772:601900",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Empty",
+            "File uploaded",
+            "Uploaded",
+            "Error"
+          ]
+        }
+      }
+    },
+    "Input / Horizontal input": {
+      "nodeId": "5190:212002",
+      "props": {
+        "Change input type": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Description": {
+          "type": "TEXT",
+          "default": "Description"
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Show description": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Error"
+          ]
+        }
+      }
+    },
+    "Input / Number input": {
+      "nodeId": "1613:49241",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Empty",
+            "Hover",
+            "Active",
+            "Filled",
+            "Focused",
+            "Error"
+          ]
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "123"
+        }
+      }
+    },
+    "Input / OTP": {
+      "nodeId": "8572:19405",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Empty",
+            "Partially filled",
+            "Verifying",
+            "Correct",
+            "Error"
+          ]
+        }
+      }
+    },
+    "Input / Password": {
+      "nodeId": "8572:18974",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Show actions": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show clear button": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show password requirements": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Empty",
+            "Hover",
+            "Active",
+            "Filled",
+            "Revealed",
+            "Focused",
+            "Error"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "••••••••"
+        }
+      }
+    },
+    "Input / Phone number": {
+      "nodeId": "487:38022",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show clear button": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show right button": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Empty",
+            "Hover",
+            "Active",
+            "Filled",
+            "Focused",
+            "Error"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "1234567890"
+        }
+      }
+    },
+    "Input / Search": {
+      "nodeId": "390:24397",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show actions": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Empty",
+            "Hover",
+            "Active",
+            "Filled",
+            "Focused",
+            "Error"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "Search"
+        }
+      }
+    },
+    "Input / Search ghost": {
+      "nodeId": "1218:10394",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show actions": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Empty",
+            "Hover",
+            "Filled",
+            "Error",
+            "Unfilled Focused",
+            "Typing"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "Search"
+        }
+      }
+    },
+    "Input / Select": {
+      "nodeId": "409:9847",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Show avatar": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show remove button": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show tag": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused",
+            "Error"
+          ]
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "Placeholder"
+        }
+      }
+    },
+    "Input / Text area": {
+      "nodeId": "390:23634",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Show actions": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Empty",
+            "Hover",
+            "Active",
+            "Filled",
+            "Focused",
+            "Error"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "Placeholder"
+        }
+      }
+    },
+    "Input / Text input": {
+      "nodeId": "109:381",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Show actions": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show clear button": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Empty",
+            "Hover",
+            "Active",
+            "Filled",
+            "Focused",
+            "Error"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Value": {
+          "type": "TEXT",
+          "default": "Placeholder"
+        }
+      }
+    },
+    "Input / Upload area": {
+      "nodeId": "8586:53892",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Empty",
+            "Hover",
+            "Focused",
+            "Dropping"
+          ]
+        }
+      }
+    },
+    "Loading / Skeleton loading": {
+      "nodeId": "4016:242608",
+      "props": {
+        "Type": {
+          "type": "VARIANT",
+          "values": [
+            "Pill",
+            "Avatar",
+            "Image",
+            "Card"
+          ]
+        }
+      }
+    },
+    "Loading / Spinner": {
+      "nodeId": "8570:51697",
+      "props": {
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Small",
+            "Large",
+            "xLarge",
+            "xxLarge"
+          ]
+        }
+      }
+    },
+    "Menu cell": {
+      "nodeId": "204:19436",
+      "props": {
+        "Description": {
+          "type": "TEXT",
+          "default": "Description"
+        },
+        "Description right": {
+          "type": "TEXT",
+          "default": "Description"
+        },
+        "Destructive": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Shortcut": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show avatar": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show badge": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show buttons": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show description": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show description right": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show tag": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Focused",
+            "Pressed"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Switcher"
+          ]
+        }
+      }
+    },
+    "Nav bar": {
+      "nodeId": "8620:54668",
+      "props": {
+        "Mode": {
+          "type": "VARIANT",
+          "values": [
+            "Title",
+            "Breadcrumbs"
+          ]
+        },
+        "Show description": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show nav buttons": {
+          "type": "BOOLEAN",
+          "default": true
+        }
+      }
+    },
+    "Pattern / Empty space content": {
+      "nodeId": "8512:21029",
+      "props": {
+        "Has Actions": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Has icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Has subtitle": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Has title": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Help text": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Link": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Property 2": {
+          "type": "VARIANT",
+          "values": [
+            "Empty space content"
+          ]
+        },
+        "Property 3": {
+          "type": "VARIANT",
+          "values": [
+            "Large"
+          ]
+        },
+        "Secondary option": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show main CTA": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Pattern"
+          ]
+        },
+        "Subtitle": {
+          "type": "TEXT",
+          "default": "Subtitle."
+        },
+        "Tertiary option": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Title": {
+          "type": "TEXT",
+          "default": "Title"
+        }
+      }
+    },
+    "Prompt input": {
+      "nodeId": "9180:10128",
+      "props": {
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Variant2"
+          ]
+        }
+      }
+    },
+    "Radio": {
+      "nodeId": "8442:6760",
+      "props": {
+        "Description": {
+          "type": "TEXT",
+          "default": "Description"
+        },
+        "Description right": {
+          "type": "TEXT",
+          "default": "Assist label"
+        },
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show avatar": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show badge": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show buttons": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show content": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show description": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show description right": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show switcher right": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show tag": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Focused",
+            "Pressed"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        }
+      }
+    },
+    "Scrollbar": {
+      "nodeId": "2357:37127",
+      "props": {
+        "Direction": {
+          "type": "VARIANT",
+          "values": [
+            "Vertical",
+            "Horizontal"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover"
+          ]
+        }
+      }
+    },
+    "Section header": {
+      "nodeId": "345:20068",
+      "props": {
+        "Checkbox": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Description": {
+          "type": "TEXT",
+          "default": "Description"
+        },
+        "Disclosure left": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Disclosure right": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Show avatar": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show buttons right": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show description": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show switcher right": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "xSmall",
+            "Small",
+            "Medium",
+            "Large"
+          ]
+        },
+        "Title": {
+          "type": "TEXT",
+          "default": "Title"
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        }
+      }
+    },
+    "Selectors / Segment control selector": {
+      "nodeId": "236:8414",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        }
+      }
+    },
+    "Selectors / Sidebar selector (icon)": {
+      "nodeId": "8113:185712",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show avatar": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show badge": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        }
+      }
+    },
+    "Selectors / Sidebar selector (label)": {
+      "nodeId": "126:6836",
+      "props": {
+        "Avatar": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Badge": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Disclosure": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Right button": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        }
+      }
+    },
+    "Separator": {
+      "nodeId": "6006:357608",
+      "props": {
+        "Direction": {
+          "type": "VARIANT",
+          "values": [
+            "Vertical",
+            "Horizontal"
+          ]
+        }
+      }
+    },
+    "Shortcut": {
+      "nodeId": "8508:59670",
+      "props": {
+        "Appearance": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Inverted"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "⌘ ↵"
+        }
+      }
+    },
+    "Sidebar": {
+      "nodeId": "1359:12674",
+      "props": {
+        "Collapsed": {
+          "type": "VARIANT",
+          "values": [
+            "True",
+            "False"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Hover",
+            "Default"
+          ]
+        }
+      }
+    },
+    "Slider": {
+      "nodeId": "2514:45982",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show input": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Stack": {
+          "type": "VARIANT",
+          "values": [
+            "Horizontal",
+            "Vertical"
+          ]
+        },
+        "Type": {
+          "type": "VARIANT",
+          "values": [
+            "Max value",
+            "Range"
+          ]
+        }
+      }
+    },
+    "Split button": {
+      "nodeId": "5772:189085",
+      "props": {
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        }
+      }
+    },
+    "Stat": {
+      "nodeId": "8821:61808",
+      "props": {
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Card"
+          ]
+        }
+      }
+    },
+    "Switcher": {
+      "nodeId": "204:18242",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Show label": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Medium",
+            "Small"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        }
+      }
+    },
+    "Tab / Custom view tab": {
+      "nodeId": "132:7427",
+      "props": {
+        "Icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Filter tab"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        }
+      }
+    },
+    "Tab / Navigation tab": {
+      "nodeId": "132:8663",
+      "props": {
+        "Disabled": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Tab"
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "values": [
+            "False",
+            "True"
+          ]
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "State": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Hover",
+            "Pressed",
+            "Focused"
+          ]
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        }
+      }
+    },
+    "Tag": {
+      "nodeId": "184:9584",
+      "props": {
+        "Disclosure": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Label"
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show trailing icon": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Trailing icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Variant": {
+          "type": "VARIANT",
+          "values": [
+            "Neutral",
+            "Error",
+            "Warning",
+            "Success",
+            "Highlight"
+          ]
+        }
+      }
+    },
+    "Toast / Inline toast": {
+      "nodeId": "2884:87110",
+      "props": {
+        "Description": {
+          "type": "TEXT",
+          "default": "Description"
+        },
+        "Dismiss button": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Severity": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Success",
+            "Warning",
+            "Error"
+          ]
+        },
+        "Show action": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show description": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show title": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Title": {
+          "type": "TEXT",
+          "default": "Title"
+        }
+      }
+    },
+    "Toast / Rich toast": {
+      "nodeId": "2911:73678",
+      "props": {
+        "Content": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Description": {
+          "type": "TEXT",
+          "default": "Description"
+        },
+        "Dismiss button": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Leading icon": {
+          "type": "INSTANCE_SWAP"
+        },
+        "Severity": {
+          "type": "VARIANT",
+          "values": [
+            "Default",
+            "Success",
+            "Warning",
+            "Error"
+          ]
+        },
+        "Show content": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show description": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show header": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show leading icon": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show title": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Title": {
+          "type": "TEXT",
+          "default": "Title"
+        }
+      }
+    },
+    "Toolbar": {
+      "nodeId": "725:48320",
+      "props": {
+        "Left stack": {
+          "type": "SLOT"
+        },
+        "Right stack": {
+          "type": "SLOT"
+        },
+        "Size": {
+          "type": "VARIANT",
+          "values": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      }
+    }
+  }
+}

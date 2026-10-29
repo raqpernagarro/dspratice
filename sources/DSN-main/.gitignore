@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+storybook-static/
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment
+.env
+.env.save
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vitest
+coverage/
+# .claude/ is local agent state (settings, worktrees). Command definitions are
+# derived from skills/ via npm run sync:skills — do not track .claude/commands/.
+.claude/
+
+src/stories/generated
+.story-ui-history/
+
+# Baked by scripts/build-cli-assets.mjs
+cli/lib/config.json
+
+# Logs (contain local paths)
+*.log

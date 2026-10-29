@@ -1,0 +1,25 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './IconButton.stories';
+import docs from './docs/button.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { iconButtonSpec } from './components/icon-button/icon-button.spec';
+
+<Meta of={Stories} />
+
+# {iconButtonSpec.name}
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## All variants
+
+Every variant of the Figma component set, with hover and pressed shown statically.
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={iconButtonSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={iconButtonSpec.docs.baseUi} />

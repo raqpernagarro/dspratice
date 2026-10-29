@@ -1,0 +1,128 @@
+.dsn-data-table {
+  width: 100%;
+  overflow: auto;
+  border: var(--size-border-sm) solid var(--color-border-neutral-primary);
+  border-radius: var(--shape-radius-sm);
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-data-table-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.dsn-data-table-table thead tr,
+.dsn-data-table-table tbody tr {
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-data-table-table tbody tr:hover > td {
+  background: var(--color-background-interactive-secondary-hover, var(--input-background-hover));
+}
+
+.dsn-data-table-table tbody tr.dsn-data-table-empty-row:hover > td {
+  background: transparent;
+}
+
+.dsn-data-table-table th,
+.dsn-data-table-table td {
+  padding: 0;
+  vertical-align: middle;
+  position: relative;
+  border-bottom: var(--size-border-sm) solid var(--color-border-neutral-primary);
+  border-right: var(--size-border-sm) solid var(--color-border-neutral-primary);
+}
+
+.dsn-data-table-table th:last-child,
+.dsn-data-table-table td:last-child {
+  border-right: none;
+}
+
+.dsn-data-table-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.dsn-data-table[data-resizing] {
+  user-select: none;
+  cursor: col-resize;
+}
+
+.dsn-data-table-table th.dsn-data-table-sticky-column,
+.dsn-data-table-table td.dsn-data-table-sticky-column {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-data-table-table td.dsn-data-table-sticky-cell {
+  z-index: 1;
+}
+
+/* Sticky cell hover: keep opaque base so scrolled content doesn't bleed through */
+.dsn-data-table-table tbody tr:hover > td.dsn-data-table-sticky-column {
+  background-color: var(--color-background-neutral-primary);
+  background-image: linear-gradient(
+    var(--color-background-interactive-secondary-hover, var(--input-background-hover)),
+    var(--color-background-interactive-secondary-hover, var(--input-background-hover))
+  );
+}
+
+.dsn-data-table-table th[data-drag-over] {
+  box-shadow: inset -1px 0 0 var(--color-border-interactive-hover);
+}
+
+/* First-column padding: equal X/Y for checkbox balance. */
+.dsn-data-table-table th[data-first-column] .dsn-data-table-header-cell[data-variant='title'],
+.dsn-data-table-table td[data-first-column] .dsn-data-table-cell {
+  padding-inline: var(--space-xs);
+  padding-block: var(--space-xs);
+}
+
+/* DataTable first-column checkbox flattening (selection accessory only). */
+.dsn-data-table-table th[data-first-column] .dsn-checkbox,
+.dsn-data-table-table td[data-first-column] .dsn-checkbox {
+  min-height: 16px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.dsn-data-table-table th[data-first-column] .dsn-checkbox:not([data-disabled]):hover,
+.dsn-data-table-table th[data-first-column] .dsn-checkbox:not([data-disabled]):active,
+.dsn-data-table-table td[data-first-column] .dsn-checkbox:not([data-disabled]):hover,
+.dsn-data-table-table td[data-first-column] .dsn-checkbox:not([data-disabled]):active {
+  background: transparent;
+}
+
+.dsn-data-table-table th[data-first-column] .dsn-checkbox:focus-visible,
+.dsn-data-table-table td[data-first-column] .dsn-checkbox:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-data-table-table th[data-first-column] .dsn-checkbox-indicator-wrap,
+.dsn-data-table-table td[data-first-column] .dsn-checkbox-indicator-wrap {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+}
+
+.dsn-data-table-table th[data-first-column] .dsn-checkbox-indicator,
+.dsn-data-table-table td[data-first-column] .dsn-checkbox-indicator {
+  box-shadow: var(--input-shadow);
+}
+
+.dsn-data-table-reorder-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

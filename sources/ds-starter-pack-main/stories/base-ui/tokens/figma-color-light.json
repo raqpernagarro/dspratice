@@ -1,0 +1,225 @@
+{
+  "color/background/neutral/primary": "#ffffff",
+  "color/background/neutral/secondary": "#fcfcfc",
+  "color/background/neutral/tertiary": "#f7f6f9",
+  "color/background/inverted/primary": "#06041f",
+  "color/background/inverted/secondary": "#100e23",
+  "color/background/inverted/tertiary": "#1b1b33",
+  "color/background/accent/default": "#ffffff",
+  "color/background/accent/hover": "#fcfcfc",
+  "color/background/accent/pressed": "#f7f6f9",
+  "color/background/dark": "#06041f",
+  "color/background/light": "#ffffff",
+  "color/background/positive/default": "#ffffff",
+  "color/background/positive/hover": "#fcfcfc",
+  "color/background/positive/pressed": "#f7f6f9",
+  "color/background/positive/disabled": "#efeffa",
+  "color/background/warning/default": "#ffffff",
+  "color/background/warning/hover": "#fcfcfc",
+  "color/background/warning/pressed": "#f7f6f9",
+  "color/background/warning/disabled": "#efeffa",
+  "color/background/danger/default": "#bf4059",
+  "color/background/danger/hover": "#940929",
+  "color/background/danger/pressed": "#7e0823",
+  "color/background/danger/disabled": "#efeffa",
+  "color/background/critical/default": "#ffffff",
+  "color/background/critical/hover": "#fcfcfc",
+  "color/background/critical/pressed": "#f7f6f9",
+  "color/background/critical/disabled": "#efeffa",
+  "color/background/interactive/primary/default": "#ffffff",
+  "color/background/interactive/primary/hover": "#fcfcfc",
+  "color/background/interactive/primary/pressed": "#f7f6f9",
+  "color/background/interactive/primary/selected": "#f7f6f9",
+  "color/background/interactive/secondary/default": "#ffffff",
+  "color/background/interactive/secondary/hover": "#fcfcfc",
+  "color/background/interactive/secondary/pressed": "#f7f6f9",
+  "color/background/interactive/secondary/selected": "#f7f6f9",
+  "color/background/interactive/disabled": "#ffffff",
+  "color/background/elevation/low": "#ffffff",
+  "color/background/elevation/medium": "#ffffff",
+  "color/background/elevation/high": "#ffffff",
+  "color/background/overlay/regular": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:241"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:14"
+    }
+  },
+  "color/background/overlay/subtle": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:241"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:9"
+    }
+  },
+  "color/background/overlay/strong": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:241"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:16"
+    }
+  },
+  "color/foreground/neutral/primary": "#06041f",
+  "color/foreground/neutral/secondary": "#4e4e67",
+  "color/foreground/neutral/tertiary": "#757590",
+  "color/foreground/inverted/primary": "#ffffff",
+  "color/foreground/inverted/secondary": "#b4b3d1",
+  "color/foreground/inverted/tertiary": "#757590",
+  "color/foreground/accent": "#06041f",
+  "color/foreground/on-accent/primary": "#06041f",
+  "color/foreground/on-accent/secondary": "#4e4e67",
+  "color/foreground/on-accent/tertiary": "#757590",
+  "color/foreground/on-light/primary": "#06041f",
+  "color/foreground/on-light/secondary": "#4e4e67",
+  "color/foreground/on-light/tertiary": "#757590",
+  "color/foreground/on-dark/primary": "#ffffff",
+  "color/foreground/on-dark/secondary": "#b4b3d1",
+  "color/foreground/on-dark/tertiary": "#757590",
+  "color/foreground/on-positive/primary": "#06041f",
+  "color/foreground/on-positive/secondary": "#4e4e67",
+  "color/foreground/on-warning/primary": "#06041f",
+  "color/foreground/on-warning/secondary": "#4e4e67",
+  "color/foreground/on-danger/primary": "#ffffff",
+  "color/foreground/on-danger/secondary": "#4e4e67",
+  "color/foreground/on-critical/primary": "#06041f",
+  "color/foreground/on-critical/secondary": "#4e4e67",
+  "color/foreground/on-interactive/primary": "#100e23",
+  "color/foreground/on-interactive/secondary": "#4e4e67",
+  "color/foreground/interactive/default": "#06041f",
+  "color/foreground/interactive/hover": "#06041f",
+  "color/foreground/interactive/pressed": "#06041f",
+  "color/foreground/interactive/visited": "#06041f",
+  "color/foreground/interactive/disabled": "#757590",
+  "color/border/neutral/regular": "#06041f",
+  "color/border/neutral/strong": "#06041f",
+  "color/border/interactive/default": "#06041f",
+  "color/border/interactive/hover": "#06041f",
+  "color/border/interactive/pressed": "#06041f",
+  "color/border/interactive/disabled": "#757590",
+  "color/border/interactive/selected": "#06041f",
+  "color/shadow/elevation/low": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:241"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:8"
+    }
+  },
+  "color/shadow/elevation/medium": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:241"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:9"
+    }
+  },
+  "color/shadow/elevation/high": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:241"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:10"
+    }
+  },
+  "color/shadow/focus-ring/primary": "#06041f",
+  "color/shadow/focus-ring/danger": "#06041f",
+  "color/shadow/emboss-top/subtle": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:283"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:8"
+    }
+  },
+  "color/shadow/emboss-top/strong": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:283"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:10"
+    }
+  },
+  "color/shadow/emboss-bottom/subtle": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:241"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:7"
+    }
+  },
+  "color/shadow/emboss-bottom/strong": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:241"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:8"
+    }
+  },
+  "color/shadow/deboss-top/subtle": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:241"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:7"
+    }
+  },
+  "color/shadow/deboss-top/strong": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:241"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:8"
+    }
+  },
+  "color/shadow/deboss-bottom/subtle": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:283"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:7"
+    }
+  },
+  "color/shadow/deboss-bottom/strong": {
+    "color": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:1:283"
+    },
+    "opacity": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:155:8"
+    }
+  },
+  "color/foreground/danger/default": "#940929",
+  "color/foreground/danger/hover": "#7e0823",
+  "color/foreground/danger/pressed": "#4e0717",
+  "color/foreground/danger/disabled": "#757590"
+}

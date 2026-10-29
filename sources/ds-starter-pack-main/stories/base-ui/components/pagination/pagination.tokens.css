@@ -1,0 +1,45 @@
+/* Generated from pagination.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-pagination .ds-pagination__list {
+  gap: var(--pagination-gap, var(--space-xs));
+}
+
+.ds-pagination[data-size="sm"] .ds-pagination__page {
+  min-width: var(--pagination-page-min-width-sm, var(--space-2xl));
+}
+
+.ds-pagination[data-size="md"] .ds-pagination__page {
+  min-width: var(--pagination-page-min-width-md, var(--size-lg));
+}
+
+.ds-pagination[data-size="lg"] .ds-pagination__page {
+  min-width: var(--pagination-page-min-width-lg, var(--size-xl));
+}
+
+.ds-pagination[data-size="sm"] .ds-pagination__ellipsis {
+  min-width: var(--pagination-ellipsis-min-width-sm, var(--space-2xl));
+  font-family: var(--pagination-ellipsis-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--pagination-ellipsis-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--pagination-ellipsis-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--pagination-ellipsis-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-pagination[data-size="md"] .ds-pagination__ellipsis {
+  min-width: var(--pagination-ellipsis-min-width-md, var(--size-lg));
+  font-family: var(--pagination-ellipsis-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--pagination-ellipsis-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--pagination-ellipsis-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--pagination-ellipsis-text-style-md-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-pagination[data-size="lg"] .ds-pagination__ellipsis {
+  min-width: var(--pagination-ellipsis-min-width-lg, var(--size-xl));
+  font-family: var(--pagination-ellipsis-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--pagination-ellipsis-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--pagination-ellipsis-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--pagination-ellipsis-text-style-lg-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-pagination .ds-pagination__ellipsis {
+  color: var(--pagination-ellipsis-foreground, var(--color-foreground-neutral-tertiary));
+}

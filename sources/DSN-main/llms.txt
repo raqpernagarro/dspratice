@@ -1,0 +1,25 @@
+# DS-Ngr
+
+> Nagarro's design system: React components, design tokens and usage rules. Never write a token, component or prop you have not seen in the inventory below. A name that fits the grammar is not proof that it exists.
+
+## Inventory (read first)
+
+- [ds-index.json](ds-index.json): generated inventory — every component with its props, every token by layer, and `tokens.absences` (names the grammar implies that do not exist)
+- [tokens.css](tokens.css): every token definition, light and dark
+- [Design Tokens/vocabulary.json](Design%20Tokens/vocabulary.json): the closed word lists every token name is built from, plus the banned synonyms
+
+## Instructions
+
+- [AI.md](AI.md): rules for apps that consume DS-Ngr — components, layout, tokens, navigation
+- [AI-short.md](AI-short.md): the same rules, condensed
+- [AGENTS.md](AGENTS.md): rules for working inside this repo — structure, token system, component generation
+
+## Specs
+
+- [specs/foundations/foundations.md](specs/foundations/foundations.md): color, typography, spacing, radius, sizing, effects, focus, motion
+- [specs/patterns/README.md](specs/patterns/README.md): page patterns (dashboard, data page, form page, detail drawer, kanban board)
+- `src/components/<tier>/<Name>/<Name>.spec.md`: per-component use cases, anti-patterns and spatial contract
+
+## When the inventory doesn't have it
+
+Stop and ask. Say: "This token follows the grammar, but I cannot verify that it exists."

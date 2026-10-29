@@ -1,0 +1,21 @@
+node_modules
+storybook-static
+.env
+variables-github-action/.env
+variables-github-action/tokens_new
+variables-github-action/tokens-variable-test
+semantic-editor/dist
+scripts/ds/.out
+
+# OS / logs / build output
+.DS_Store
+*.log
+figma-plugin/dist
+
+# Pitch deck build output
+pitch/dist
+pitch/.cache
+semantic-editor/dist-docs
+
+# Configurator reset (npm run ds:reset)
+.ds-reset

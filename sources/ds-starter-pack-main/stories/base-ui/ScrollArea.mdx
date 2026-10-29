@@ -1,0 +1,18 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './ScrollArea.stories';
+import docs from './docs/scroll-area.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { scrollAreaSpec } from './components/scroll-area/scroll-area.spec';
+
+<Meta of={Stories} />
+
+# Scroll Area
+
+<Canvas of={Stories.Default} />
+
+<SpecDocs spec={scrollAreaSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={scrollAreaSpec.docs.baseUi} />

@@ -1,0 +1,11 @@
+/* Generated from menubar.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-menubar {
+  padding-inline: var(--menubar-space-x, var(--space-2xs));
+  padding-block: var(--menubar-space-y, var(--space-2xs));
+  gap: var(--menubar-gap, var(--space-2xs));
+  border-radius: var(--menubar-radius, var(--shape-radius-md));
+  border-width: var(--menubar-border-width, var(--size-border-regular));
+  background-color: var(--menubar-background, var(--color-background-neutral-secondary));
+  border-color: var(--menubar-border-color, var(--color-border-neutral-subtle));
+}

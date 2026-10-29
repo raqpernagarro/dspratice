@@ -1,0 +1,90 @@
+.dsn-popover-wrapper {
+  --dsn-popover-gap: var(--space-2xs);
+  --dsn-popover-viewport-margin: var(--space-md);
+
+  display: flex;
+  flex-direction: column;
+  width: var(--popover-width-md);
+  overflow: hidden;
+  border-radius: var(--shape-radius-control-md);
+  background: var(--color-background-elevated);
+  box-shadow:
+    0 0 0 var(--primitive-size-1) var(--color-shadow-default),
+    0 2px 8px var(--color-shadow-default),
+    0 16px 24px -8px var(--color-shadow-default);
+}
+
+.dsn-popover-wrapper[data-placement='bottom'] {
+  transform-origin: top center;
+}
+
+.dsn-popover-wrapper[data-placement='top'] {
+  transform-origin: bottom center;
+}
+
+.dsn-popover-wrapper[data-placement='right'] {
+  transform-origin: top left;
+}
+
+.dsn-popover-wrapper-header,
+.dsn-popover-wrapper-segment,
+.dsn-popover-wrapper-search {
+  border-bottom: 1px solid var(--color-border-neutral-primary);
+}
+
+/* Header, segment, search and bottom bar stay pinned; only the content scrolls once
+   the panel hits its max-height (min(--popover-height-max, space on that side)). */
+.dsn-popover-wrapper-header,
+.dsn-popover-wrapper-segment,
+.dsn-popover-wrapper-search,
+.dsn-popover-wrapper-bottom-bar {
+  flex: 0 0 auto;
+}
+
+.dsn-popover-wrapper-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--color-background-elevated);
+}
+
+/* Popover surface is elevated; menu rows default to neutral-primary. In dark mode
+   those differ (800 vs 900), so rounded cells + content padding show a scalloped
+   elevated fill between rows. Rows inherit the panel surface; hover/active tokens
+   still apply on interaction. */
+.dsn-popover-wrapper .dsn-menu-cell,
+.dsn-popover-wrapper .dsn-choice-list-item > .dsn-checkbox,
+.dsn-popover-wrapper .dsn-choice-list-item > .dsn-radio {
+  background: transparent;
+}
+
+.dsn-popover-wrapper .dsn-choice-list,
+.dsn-popover-wrapper .dsn-choice-list-section {
+  background: transparent;
+  box-shadow: none;
+}
+
+.dsn-popover-wrapper[data-content-padding='small'] .dsn-popover-wrapper-content-slot {
+  padding: var(--space-xs);
+}
+
+.dsn-popover-wrapper[data-content-padding='none'] .dsn-popover-wrapper-content-slot {
+  padding: 0;
+}
+
+.dsn-popover-wrapper-bottom-bar {
+  border-top: 1px solid var(--color-border-neutral-primary);
+}
+
+/* Single-action bottom bar: the one action is always full width. Every wrapper
+   between the bar and the action (Toolbar slots, ButtonGroup, plain divs) is
+   stretched too, so consumer nesting and justify-content cannot shrink it. */
+.dsn-popover-wrapper-bottom-bar[data-single-action] :has(:is(button, a[href], [role='button'])),
+.dsn-popover-wrapper-bottom-bar[data-single-action] :is(button, a[href], [role='button']) {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+}

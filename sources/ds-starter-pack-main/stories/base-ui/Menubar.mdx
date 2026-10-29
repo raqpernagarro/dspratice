@@ -1,0 +1,34 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Menubar.stories';
+import docs from './docs/menubar.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { menubarSpec } from './components/menubar/menubar.spec';
+import { menubarItemSpec } from './components/menubar/menubar-item.spec';
+
+<Meta of={Stories} />
+
+# Menubar
+
+<Canvas of={Stories.Default} />
+
+## As in Figma
+
+<Canvas of={Stories.Preview} />
+
+<SpecDocs spec={menubarSpec} />
+
+# Menubar Item
+
+Every variant of the Figma component set:
+
+<Canvas of={Stories.ItemMatrix} />
+
+<SpecDocs spec={menubarItemSpec} />
+
+The menus are ordinary **Menus** (popup and Menu Items).
+
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={menubarSpec.docs.baseUi} />

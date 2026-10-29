@@ -1,0 +1,54 @@
+/* Generated from tab.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-tab[data-size="sm"] {
+  height: var(--tab-height-sm, var(--space-2xl));
+  padding-inline: var(--tab-space-x-sm, var(--space-sm));
+  font-family: var(--tab-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--tab-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--tab-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--tab-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-tab[data-size="md"] {
+  height: var(--tab-height-md, var(--size-lg));
+  padding-inline: var(--tab-space-x-md, var(--space-md));
+  font-family: var(--tab-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--tab-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--tab-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--tab-text-style-md-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-tab[data-size="lg"] {
+  height: var(--tab-height-lg, var(--size-xl));
+  padding-inline: var(--tab-space-x-lg, var(--space-md));
+  font-family: var(--tab-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--tab-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--tab-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--tab-text-style-lg-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-tab:not([data-active]) {
+  color: var(--tab-foreground-unselected-default, var(--color-foreground-neutral-secondary));
+}
+
+.ds-tab:not([data-active]):hover:not([data-disabled]),
+.ds-tab:not([data-active])[data-preview-state="hover"] {
+  color: var(--tab-foreground-unselected-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-tab[data-active] {
+  color: var(--tab-foreground-selected-default, var(--color-foreground-neutral-primary));
+}
+
+.ds-tab[data-active]:hover:not([data-disabled]),
+.ds-tab[data-active][data-preview-state="hover"] {
+  color: var(--tab-foreground-selected-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-tab:not([data-active])[data-disabled] {
+  color: var(--tab-foreground-unselected-disabled, var(--color-foreground-interactive-disabled));
+}
+
+.ds-tab[data-active][data-disabled] {
+  color: var(--tab-foreground-selected-disabled, var(--color-foreground-interactive-disabled));
+}

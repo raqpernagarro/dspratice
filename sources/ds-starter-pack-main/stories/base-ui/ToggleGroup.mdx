@@ -1,0 +1,27 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './ToggleGroup.stories';
+import docs from './docs/toggle-group.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { toggleGroupSpec } from './components/toggle-group/toggle-group.spec';
+
+<Meta of={Stories} />
+
+# Toggle Group
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## Multiple
+
+<Canvas of={Stories.Multiple} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={toggleGroupSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={toggleGroupSpec.docs.baseUi} />

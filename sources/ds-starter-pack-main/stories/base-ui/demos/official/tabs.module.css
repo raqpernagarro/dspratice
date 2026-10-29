@@ -1,0 +1,127 @@
+.Root {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.List {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  gap: var(--space-xs);
+  margin-bottom: -1px;
+}
+
+.Tab {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  background: none;
+  color: var(--color-foreground-neutral-secondary);
+  font-family: inherit;
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  font-weight: var(--font-weight-body-regular);
+  -webkit-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  word-break: keep-all;
+  padding-inline: var(--space-sm);
+  padding-block: 0;
+  height: calc(var(--size-md) + 1px);
+
+  
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color-foreground-neutral-primary);
+
+      
+    }
+  }
+
+  &[data-active] {
+    color: var(--color-foreground-neutral-primary);
+
+    
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-shadow-focus-ring-primary);
+    outline-offset: -1px;
+
+    
+  }
+}
+
+.Indicator {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  translate: var(--active-tab-left);
+  width: var(--active-tab-width);
+  height: 100%;
+  transition-property: translate, width;
+  transition-duration: var(--motion-duration-fast);
+  transition-timing-function: var(--motion-ease-regular);
+  border-top: 1px solid var(--color-border-neutral-subtle);
+  border-radius: var(--shape-radius-md) var(--shape-radius-md) 0 0;
+  border-inline: 1px solid var(--color-border-neutral-subtle);
+  background-color: var(--color-background-neutral-primary);
+
+  
+}
+
+.PanelViewport {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  min-height: 8rem;
+  border-inline: 1px solid var(--color-border-neutral-subtle);
+  border-radius: var(--shape-radius-lg);
+  border-block: 1px solid var(--color-border-neutral-subtle);
+
+  
+}
+
+.Panel {
+  box-sizing: border-box;
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-lg);
+
+  outline: 0;
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  text-align: center;
+  color: var(--color-foreground-neutral-primary);
+  background-color: var(--color-background-neutral-primary);
+
+  
+
+  &:focus-visible {
+    outline: 2px solid var(--color-shadow-focus-ring-primary);
+    outline-offset: -1px;
+    z-index: 1;
+
+    
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.Paragraph {
+  margin: 0;
+}

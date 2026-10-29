@@ -1,0 +1,36 @@
+{
+  "effect": {
+    "blur": {
+      "sm": {
+        "$type": "number",
+        "$value": "{primitive.size.2}",
+        "$description": "Blur radius for subtly elevated surfaces (2px). Apply on elements with minimal visual lift, like inline cards or hover overlays. Part of elevation tier 1 — pair with effects/offset/1 and effects/spread/negative/1.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11051:336793"
+          }
+        }
+      },
+      "md": {
+        "$type": "number",
+        "$value": "{primitive.size.8}",
+        "$description": "Blur radius for elevated surfaces (8px). Apply on elements with clear visual lift, like dropdowns or floating panels. Part of elevation tier 2 — pair with effects/offset/2 and effects/spread/negative/2.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11051:336794"
+          }
+        }
+      },
+      "lg": {
+        "$type": "number",
+        "$value": "{primitive.size.16}",
+        "$description": "Blur radius for highly elevated surfaces (16px). Apply on elements that float above most content, like modals or drawers. Part of elevation tier 3 — pair with effects/offset/3 and effects/spread/negative/3.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:11051:336795"
+          }
+        }
+      }
+    }
+  }
+}

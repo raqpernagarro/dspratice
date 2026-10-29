@@ -1,0 +1,104 @@
+{
+  "space": {
+    "none": {
+      "$type": "number",
+      "$value": "{primitive.size.0}",
+      "$description": "No distance between sibling elements",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336829"
+        }
+      }
+    },
+    "3xs": {
+      "$type": "number",
+      "$value": "{primitive.size.2}",
+      "$description": "Hairline gap reserved for elements that must read as visually fused — e.g. a control and its focus outline.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336834"
+        }
+      }
+    },
+    "2xs": {
+      "$type": "number",
+      "$value": "{primitive.size.4}",
+      "$description": "Tight gap between closely related sibling elements — e.g. icon and label, badge and text, stacked action buttons.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336825"
+        }
+      }
+    },
+    "xs": {
+      "$type": "number",
+      "$value": "{primitive.size.8}",
+      "$description": "Comfortable space between sibling elements",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336826"
+        }
+      }
+    },
+    "sm": {
+      "$type": "number",
+      "$value": "{primitive.size.12}",
+      "$description": "Slightly wider than a tight gap — for grouped elements that need a touch more room than tiny but less than a full gutter.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336832"
+        }
+      }
+    },
+    "md": {
+      "$type": "number",
+      "$value": "{primitive.size.16}",
+      "$description": "Standard gutter between larger sibling elements",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336827"
+        }
+      }
+    },
+    "lg": {
+      "$type": "number",
+      "$value": "{primitive.size.24}",
+      "$description": "Wider gutter than the standard — for sibling sections that need more separation than medium provides.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336833"
+        }
+      }
+    },
+    "xl": {
+      "$type": "number",
+      "$value": "{primitive.size.32}",
+      "$description": "Large distance between sibling elements",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336828"
+        }
+      }
+    },
+    "2xl": {
+      "$type": "number",
+      "$value": "{primitive.size.48}",
+      "$description": "Generous distance for separating clearly distinct regions of a layout — more than spacious, short of the maximum.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336830"
+        }
+      }
+    },
+    "3xl": {
+      "$type": "number",
+      "$value": "{primitive.size.64}",
+      "$description": "Maximum distance reserved for separating top-level page sections.",
+      "$extensions": {
+        "figma-console-mcp": {
+          "variableId": "VariableID:11051:336831"
+        }
+      }
+    }
+  }
+}

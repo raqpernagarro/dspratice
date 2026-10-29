@@ -1,0 +1,966 @@
+/**
+ * DS-Ngr — Design Tokens
+ *
+ * EIGHT TIERS — every token is --<tier>-<aspect>-<name>
+ * ─────────────────────────────────────────────────────────────────────────────
+ * color    background | foreground | border | shadow   (+ palette = Layer 1)
+ * font     family | size | weight | line-height | letter-spacing
+ * space    one scale: none 3xs 2xs xs sm md lg xl 2xl 3xl
+ * size     component dimensions, border (width), container, breakpoint, raw --size-<n>
+ * shape    radius
+ * effect   shadow | blur | border (style) | opacity
+ * motion   duration | ease | transition
+ * z-index  roles directly
+ * Old → new names: scripts/token-tier-map.mjs
+ *
+ * THREE-LAYER ARCHITECTURE
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Layer 1 — Primitives   Raw values only. Never use in components directly.
+ *                        Defined once, never overridden in dark mode.
+ *
+ * Layer 2 — Semantics    Intent-named tokens. Reference primitives via var().
+ *                        Dark mode block re-points these to different primitives.
+ *
+ * Layer 3 — References   Alias tokens that reference other semantic tokens
+ *                        via var(). No overrides ever needed — they follow
+ *                        their parent automatically.
+ *
+ * ALIAS CHAIN EXAMPLE
+ * ─────────────────────────────────────────────────────────────────────────────
+ *   In components:        var(--button-background-primary-default)
+ *     Light mode:         var(--color-background-fixed-dark-primary)
+ *                         → var(--primitive-neutral-900) → #100E23
+ *     Dark mode:          var(--color-background-interactive-primary-default)
+ *                         → var(--color-background-accent-strong-default)
+ *                         → var(--primitive-accent-300) → #47D7AC
+ *
+ * RULE: Raw hex values appear ONLY in Layer 1. Everywhere else uses var().
+ *
+ * SOURCES
+ * ─────────────────────────────────────────────────────────────────────────────
+ * color-light_tokens.json  — semantic layer, light mode (alias targets)
+ * color-dark_tokens.json   — semantic layer, dark mode (alias targets)
+ * Figma MCP extraction     — primitive collection, synced 2026-04-16
+ *
+ * PRIMITIVE LAYER CHANGELOG — 2026-04-17
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Green        All stops 100–950 replaced — now Ngr Mint Green brand ramp.
+ *              (was generic Tailwind green)
+ * Yellow       Stop 100 updated to Ngr Vanilla Yellow lightest (#FDF4DC).
+ *              Stop 700 updated to #863854 — WCAG AA compliant warning text.
+ * Red          Stops 100–300 replaced — now Ngr Sunset Pink light ramp.
+ *              Stops 600, 700, 950 replaced — Sunset Pink dark ramp.
+ *              (was generic Tailwind red)
+ *
+ * PRIMITIVE LAYER CHANGELOG — 2026-04-16
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Neutral      All 11 stops updated — brand now uses violet-tinted neutrals.
+ *              neutral/400 corrected to #9696AD (was duplicate of 500).
+ * Accent       300 + 400 updated to match Figma. 100 + 200 minor update.
+ * Violet       Expanded from 2 stops (300,400) to full 25→950 scale.
+ * Red          All values replaced — new brand-aligned red palette.
+ *              New stops added: 25, 300, 900.
+ * Green        New stops added: 25, 600, 900. Existing values unchanged.
+ * Yellow       New stops added: 25, 600, 700. Values 800/900/950 updated.
+ * Alpha dark   Base updated from pure black → brand dark rgba(6,4,31,*).
+ *              New stops added: 30, 40, 50, 60.
+ * Alpha light  Expanded from 3 stops (5,10,20) to full 0→90 scale.
+ * Teal compat  Unchanged — manually maintained, not sourced from Figma.
+ */
+
+
+/* =============================================================================
+   LAYER 1 — PRIMITIVES
+   Raw values only. Single source of truth for every color in the system.
+   Never referenced directly in components.
+   Naming: --color-palette-{scale}-{step}
+   ============================================================================= */
+
+   :root {
+
+    /* ── Neutral scale ──────────────────────────────────────────────────────── */
+    /* Source: Figma primitive collection · synced 2026-04-16                   */
+    /* Full violet-tinted brand neutral. neutral/400 corrected (#9696AD).       */
+    --primitive-neutral-white:  #FFFFFF;
+    --primitive-neutral-50:     #FCFCFC;
+    --primitive-neutral-100:    #F7F6F9;
+    --primitive-neutral-200:    #EFEFFA;
+    --primitive-neutral-250:    #E3E2F0;
+    --primitive-neutral-300:    #B4B3D1;
+    --primitive-neutral-400:    #9696AD;
+    --primitive-neutral-500:    #757590;
+    --primitive-neutral-600:    #61617B;
+    --primitive-neutral-700:    #4E4E67;
+    --primitive-neutral-750:    #2A2A45;
+    --primitive-neutral-800:    #1B1B33;
+    --primitive-neutral-900:    #100E23;
+    --primitive-neutral-950:    #06041F;
+    --primitive-neutral-black:  #000000;
+
+    /* ── Accent scale (teal — brand color) ─────────────────────────────────── */
+    /* Source: Figma primitive collection · synced 2026-04-16                   */
+    --primitive-accent-25:      #F0FDFA;
+    --primitive-accent-50:      #E0FFF8;
+    --primitive-accent-100:     #9AFEDB;
+    --primitive-accent-200:     #5FECC0;
+    --primitive-accent-300:     #47D7AC;
+    --primitive-accent-400:     #0CAA83;
+    --primitive-accent-500:     #0A7F76;
+    --primitive-accent-600:     #0F766E;
+    --primitive-accent-700:     #115E59;
+    --primitive-accent-800:     #134E4A;
+    --primitive-accent-900:     #042E2D;
+    --primitive-accent-950:     #022827;
+
+    /* ── Teal scale (compatibility primitives — not in Figma, manually maintained) */
+    --primitive-teal-300:       #5EEAD4; /* css-only */
+    --primitive-teal-400:       #2DD4BF; /* css-only */
+    --primitive-teal-600:       #0D9488; /* css-only */
+
+    /* ── Violet scale ───────────────────────────────────────────────────────── */
+    /* Source: Figma primitive collection · full scale added 2026-04-16         */
+    --primitive-violet-25:      #F7F6FE;
+    --primitive-violet-50:      #F5F3FF;
+    --primitive-violet-100:     #EDE9FE;
+    --primitive-violet-200:     #DDD6FE;
+    --primitive-violet-300:     #C4B5FD;
+    --primitive-violet-400:     #A78BFA;
+    --primitive-violet-500:     #8B5CF6;
+    --primitive-violet-600:     #7C3AED;
+    --primitive-violet-700:     #6D28D9;
+    --primitive-violet-800:     #5B21B6;
+    --primitive-violet-900:     #4C1D95;
+    --primitive-violet-950:     #2E1065;
+
+    /* ── Red scale ──────────────────────────────────────────────────────────── */
+    /* Source: Figma primitive collection · Ngr Sunset Pink · 2026-04-17    */
+    /* Stops 100–300 = light pink tints. 400 = brand Sunset Pink primary.       */
+    /* Stops 600–950 = dark plum range for accessible text & backgrounds.       */
+    --primitive-red-25:         #FFFBFA;
+    --primitive-red-50:         #FFF4F4;
+    --primitive-red-100:        #FCD0D7;
+    --primitive-red-200:        #FEBBC4;
+    --primitive-red-300:        #F97586;
+    --primitive-red-400:        #F8485E;
+    --primitive-red-500:        #E02F4C;
+    --primitive-red-600:        #BF4059;
+    --primitive-red-700:        #940929;
+    --primitive-red-800:        #7E0823;
+    --primitive-red-900:        #4E0717;
+    --primitive-red-950:        #280F1A;
+
+    /* ── Green scale ────────────────────────────────────────────────────────── */
+    /* Source: Figma primitive collection · Ngr Mint Green · 2026-04-17     */
+    /* Full ramp from brand Mint Green (#47D7AC at 400).                        */
+    --primitive-green-25:       #F7FFFA;
+    --primitive-green-50:       #F0FDF4;
+    --primitive-green-100:      #D1F5EA;
+    --primitive-green-200:      #A3EBD5;
+    --primitive-green-300:      #75E1C1;
+    --primitive-green-400:      #47D7AC;
+    --primitive-green-500:      #3AAB94;
+    --primitive-green-600:      #2D807B;
+    --primitive-green-700:      #205463;
+    --primitive-green-800:      #1C5F51;
+    --primitive-green-900:      #103931;
+    --primitive-green-950:      #06231D;
+
+    /* ── Yellow scale ───────────────────────────────────────────────────────── */
+    /* Source: Figma primitive collection · Ngr Vanilla Yellow · 2026-04-17 */
+    /* 100 = lightest tint. 400 = brand Vanilla Yellow primary (#FBD872≈400).   */
+    /* 700 = #863854 — dark plum, WCAG AA compliant on yellow tint backgrounds. */
+    --primitive-yellow-25:      #FFFEF3;
+    --primitive-yellow-50:      #FEFCE8;
+    --primitive-yellow-100:     #FDF4DC;
+    --primitive-yellow-200:     #FEF08A;
+    --primitive-yellow-300:     #FDE047;
+    --primitive-yellow-400:     #FACC15;
+    --primitive-yellow-500:     #EAB308;
+    --primitive-yellow-600:     #7D5F02;
+    --primitive-yellow-700:     #664F11;
+    --primitive-yellow-800:     #453406;
+    --primitive-yellow-900:     #352805;
+    --primitive-yellow-950:     #241A02;
+
+    /* ── Alpha dark (brand dark #06041F with opacity) ───────────────────────── */
+    /* Source: Figma primitive collection · base updated from black → #06041F   */
+    /* Format: rgba() kept for CSS readability and tooling compatibility         */
+    --primitive-alpha-dark-0:   rgba(6, 4, 31, 0);
+    --primitive-alpha-dark-2:   rgba(6, 4, 31, 0.02);
+    --primitive-alpha-dark-5:   rgba(6, 4, 31, 0.05);
+    --primitive-alpha-dark-10:  rgba(6, 4, 31, 0.10);
+    --primitive-alpha-dark-20:  rgba(6, 4, 31, 0.20);
+    --primitive-alpha-dark-30:  rgba(6, 4, 31, 0.30);
+    --primitive-alpha-dark-40:  rgba(6, 4, 31, 0.40);
+    --primitive-alpha-dark-50:  rgba(6, 4, 31, 0.50);
+    --primitive-alpha-dark-60:  rgba(6, 4, 31, 0.60);
+    --primitive-alpha-dark-70:  rgba(6, 4, 31, 0.70);
+    --primitive-alpha-dark-80:  rgba(6, 4, 31, 0.80);
+    --primitive-alpha-dark-90:  rgba(6, 4, 31, 0.90);
+
+    /* ── Alpha light (white with opacity) ──────────────────────────────────── */
+    /* Source: Figma primitive collection · full scale added 2026-04-16         */
+    --primitive-alpha-light-0:  rgba(255, 255, 255, 0);
+    --primitive-alpha-light-2:  rgba(255, 255, 255, 0.02);
+    --primitive-alpha-light-5:  rgba(255, 255, 255, 0.05);
+    --primitive-alpha-light-10: rgba(255, 255, 255, 0.10);
+    --primitive-alpha-light-20: rgba(255, 255, 255, 0.20);
+    --primitive-alpha-light-30: rgba(255, 255, 255, 0.30);
+    --primitive-alpha-light-40: rgba(255, 255, 255, 0.40);
+    --primitive-alpha-light-50: rgba(255, 255, 255, 0.50);
+    --primitive-alpha-light-60: rgba(255, 255, 255, 0.60);
+    --primitive-alpha-light-70: rgba(255, 255, 255, 0.70);
+    --primitive-alpha-light-80: rgba(255, 255, 255, 0.80);
+    --primitive-alpha-light-90: rgba(255, 255, 255, 0.90);
+
+    /* =============================================================================
+     LAYER 1 — SCALE PRIMITIVES
+     Raw multiplied values. Never use directly in components.
+     Naming mirrors Figma: scale/{n} where value = n × 4px
+     ============================================================================= */
+
+     --primitive-size-0:   0px;
+     --primitive-size-1:    1px;
+     --primitive-size-2:     2px;
+     --primitive-size-4:      4px;
+     --primitive-size-8:      8px;
+     --primitive-size-12:      12px;
+     --primitive-size-16:      16px;
+     --primitive-size-24:      24px;
+     --primitive-size-32:      32px;
+     --primitive-size-48:     48px;
+     --primitive-size-64:     64px;
+     --primitive-size-128:     128px;
+     --primitive-size-192:     192px;
+     --primitive-size-256:     256px;   
+     --primitive-size-320:     320px;
+     --primitive-size-480:    480px;
+     --primitive-size-512:    512px;
+     --primitive-size-768:    768px;
+     --primitive-size-1024:    1024px;
+     --primitive-size-full:   9999px;
+
+
+     /* =============================================================================
+     LAYER 2 — SIZE SEMANTIC TOKENS
+     Reference scale primitives via var(). Named by their px value.
+     Mirrors Figma: size/{px-value}
+     ============================================================================= */
+
+
+
+  /* =============================================================================
+     LAYER 2 — SEMANTIC TOKENS (light mode)
+     All values reference primitives via var(). No raw values here.
+     Source: color-light_tokens.json alias targets.
+     Dark mode block below re-points these to different primitives.
+     ============================================================================= */
+
+    /* ── Background ─────────────────────────────────────────────────────────── */
+    --color-background-neutral-primary:                         var(--primitive-neutral-50);
+    --color-background-neutral-secondary:                       var(--primitive-neutral-100);
+    --color-background-neutral-tertiary:                        var(--primitive-neutral-200);
+    --color-background-neutral-soft:                            var(--primitive-alpha-dark-5);
+    --color-background-neutral-strong:                          var(--primitive-neutral-250);
+    /* ── Accent — single source of truth for all CTA states ────────────────── */
+    /* Figma: color/accent/default, hover, pressed                               */
+    --color-background-accent-strong-default:                             var(--primitive-accent-600);
+    --color-background-accent-strong-hover:                               var(--primitive-accent-500);
+    --color-background-accent-strong-active:                             var(--primitive-accent-700);
+
+    --color-background-interactive-disabled:                        var(--primitive-alpha-dark-2);
+
+    --color-background-interactive-primary-default:   var(--color-background-accent-strong-default);
+    --color-background-interactive-primary-hover:     var(--color-background-accent-strong-hover);
+    --color-background-interactive-primary-active:   var(--color-background-accent-strong-active);
+    /* Strongest interactive fill — the primary button. Ink in light, accent in dark;
+       the theme configurator re-points it ("brand" / "exact" primary button). */
+    --color-background-interactive-strong-default:   var(--color-background-fixed-dark-primary);
+    --color-background-interactive-strong-hover:     var(--color-background-fixed-dark-secondary);
+    --color-background-interactive-strong-active:    var(--color-background-fixed-dark-tertiary);
+    --color-background-interactive-secondary-default: var(--color-background-neutral-primary);
+    --color-background-interactive-secondary-hover:   var(--primitive-alpha-dark-5);
+    --color-background-interactive-secondary-active: var(--primitive-alpha-dark-10);
+
+    --color-foreground-interactive-primary-default:         var(--color-foreground-accent-strong);
+    --color-foreground-interactive-primary-hover:           var(--color-background-accent-strong-hover);
+    --color-foreground-interactive-primary-active:         var(--primitive-accent-700);
+
+    --color-background-interactive-destructive-default: var(--primitive-red-600);
+    --color-background-interactive-destructive-hover:   var(--primitive-red-500);
+    --color-background-interactive-destructive-active: var(--primitive-red-700);
+
+    --color-background-inverse-primary:                var(--primitive-neutral-900);
+    --color-background-inverse-secondary:              var(--primitive-neutral-950);
+    --color-background-inverse-tertiary:               var(--primitive-neutral-black);
+
+    --color-background-interactive-secondary-selected:                   var(--primitive-accent-50);
+
+    --color-background-error-soft-default:          var(--primitive-red-100);
+    --color-background-error-strong:         var(--primitive-red-600);
+    --color-background-success-soft-default:        var(--primitive-green-100);
+    --color-background-warning-soft-default:        var(--primitive-yellow-100);
+    --color-background-field-default:               var(--primitive-alpha-dark-2);
+    --color-background-field-hover:                 var(--primitive-alpha-dark-5);
+    --color-background-field-active:                var(--primitive-alpha-dark-10);
+    --color-background-info-soft:                   var(--primitive-violet-100);
+
+    --color-background-overlay-soft:                  var(--primitive-alpha-dark-10);
+    --color-background-overlay-strong:           var(--primitive-alpha-dark-80);
+
+    /* Fixed tokens — same in both modes, never overridden */
+    --color-background-fixed-dark-primary:              var(--primitive-neutral-900);
+    --color-background-fixed-dark-secondary:            var(--primitive-neutral-950);
+    --color-background-fixed-dark-tertiary:             var(--primitive-neutral-black);
+    --color-background-fixed-light-primary:             var(--primitive-neutral-50);
+    --color-background-fixed-light-secondary:           var(--primitive-neutral-100);
+    --color-background-fixed-light-tertiary:            var(--primitive-neutral-200);
+
+    /* ── Foreground ──────────────────────────────────────────────────────────── */
+    --color-foreground-neutral-primary:                               var(--primitive-neutral-950);
+    --color-foreground-neutral-secondary:                             var(--primitive-neutral-700);
+    --color-foreground-neutral-tertiary:                              var(--primitive-neutral-600);
+    --color-foreground-interactive-disabled:                              var(--primitive-neutral-300);
+    --input-foreground-placeholder:                           var(--color-foreground-neutral-tertiary);
+
+    --color-foreground-interactive-destructive-default:            var(--primitive-red-600);
+    --color-foreground-interactive-destructive-hover:              var(--primitive-red-500);
+    --color-foreground-interactive-destructive-active:            var(--primitive-red-700);
+
+    --color-foreground-inverse-primary:                      var(--primitive-neutral-50);
+    --color-foreground-inverse-secondary:                    var(--primitive-neutral-300);
+    --color-foreground-inverse-tertiary:                     var(--primitive-neutral-400);
+
+    --color-foreground-error-strong:                        var(--primitive-red-700);
+    --color-foreground-success-strong:                      var(--primitive-green-800);
+    --color-foreground-warning-strong:                      var(--primitive-yellow-700);
+    --color-foreground-info-strong:                         var(--primitive-violet-900);
+
+    /* Fixed foreground — same in both modes, never overridden */
+    --color-foreground-fixed-dark-primary:                    var(--primitive-neutral-950);
+    --color-foreground-fixed-light-primary:                   var(--primitive-neutral-50);
+
+    /* ── Border ──────────────────────────────────────────────────────────────── */
+    --color-border-neutral-primary:                             var(--primitive-neutral-200);
+    --color-border-interactive-default:                             var(--color-border-neutral-primary);
+    --color-border-interactive-hover:                               var(--primitive-neutral-300);
+    --color-border-interactive-disabled:                            var(--primitive-neutral-100);
+    --color-border-neutral-secondary:                               var(--primitive-alpha-dark-5);
+    --color-border-interactive-secondary-selected:                       var(--primitive-accent-100);
+    --color-border-error-soft:                          var(--primitive-red-200);
+    --color-border-error-strong:                        var(--primitive-red-600);
+    --color-border-success-soft:                        var(--primitive-green-200);
+    --color-border-warning-soft:                        var(--primitive-yellow-200);
+    --color-border-info-soft:                           var(--primitive-violet-200);
+
+    /* ── Background — component fills (formerly color/surface) ──────────────── */
+    --avatar-background:                     var(--color-background-neutral-strong);
+    --input-background-default:                      var(--color-background-field-default);
+    --input-background-hover:                        var(--color-background-field-hover);
+    --input-background-active:                      var(--color-background-field-active);
+    --tag-background-neutral:                        var(--color-background-neutral-strong);
+    --tag-background-progress:                       var(--color-background-info-soft);
+    --toggle-background-off:                         var(--color-background-neutral-soft);
+
+    /* ── Shadow colors ───────────────────────────────────────────────────────── */
+    --color-shadow-outer-soft:                 var(--primitive-alpha-dark-5);
+    --color-shadow-outer-strong:               var(--primitive-alpha-dark-10);
+    --color-shadow-inner-light-soft:            var(--primitive-alpha-light-20);
+    --color-shadow-inner-light-strong:          var(--primitive-neutral-white);
+    --color-shadow-inner-dark-soft:             var(--primitive-alpha-dark-5);
+    --color-shadow-inner-dark-strong:           var(--primitive-alpha-dark-90);
+
+
+  /* =============================================================================
+     LAYER 3 — ALIAS / REFERENCE TOKENS
+     These reference other semantic tokens via var().
+     They require NO dark mode overrides — they update automatically
+     when their referenced semantic token is overridden above.
+     ============================================================================= */
+
+    /* Background aliases */
+    --color-background-interactive-primary-selected:                 var(--color-background-accent-strong-default);
+
+    /* Foreground aliases */
+    --color-foreground-accent-strong:                                var(--color-background-accent-strong-default);
+    --color-foreground-interactive-secondary-default:                   var(--primitive-neutral-700);
+    --color-foreground-interactive-secondary-hover:                     var(--color-foreground-interactive-primary-hover);
+    --color-foreground-interactive-secondary-active:                   var(--color-foreground-interactive-primary-active);
+    --color-foreground-interactive-primary-selected:                      var(--color-foreground-accent-strong);
+    --tag-foreground-neutral:                           var(--color-foreground-neutral-secondary);
+    --tag-foreground-error:                             var(--color-foreground-error-strong);
+    --tag-foreground-success:                           var(--color-foreground-success-strong);
+    --tag-foreground-warning:                           var(--color-foreground-warning-strong);
+    --tag-foreground-progress:                          var(--color-foreground-info-strong);
+
+    /* Border aliases */
+    --color-border-interactive-primary-selected:                     var(--color-background-accent-strong-default);
+    --color-shadow-focus-inset:                       var(--color-background-neutral-primary);
+    --color-border-interactive-focus:                     var(--color-border-interactive-primary-selected);
+    --color-border-interactive-strong:                    var(--color-background-interactive-strong-default); /* edge of the strong fill */
+    --color-border-interactive-destructive-focus:                   var(--color-border-error-strong);
+    --tag-border-neutral:                         var(--color-border-neutral-secondary);
+    --tag-border-error:                           var(--color-border-error-soft);
+    --tag-border-success:                         var(--color-border-success-soft);
+    --tag-border-warning:                         var(--color-border-warning-soft);
+    --tag-border-progress:                        var(--color-border-info-soft);
+    --button-border-primary:                      var(--color-border-interactive-strong);
+    --button-border-destructive:                       var(--color-foreground-interactive-destructive-default);
+
+    /* Component background aliases */
+    --color-background-elevated:                           var(--color-background-neutral-primary);
+    --toggle-background-on:                          var(--color-background-interactive-primary-selected);
+    --tag-background-error:                          var(--color-background-error-soft-default);
+    --tag-background-success:                        var(--color-background-success-soft-default);
+    --tag-background-warning:                        var(--color-background-warning-soft-default);
+
+    /* Button backgrounds — full alias chain preserved from Figma */
+    /* Primary: light mode uses fixed/dark (brand navy); dark mode stays on CTA chain */
+    --button-background-primary-default:             var(--color-background-interactive-strong-default);
+    --button-background-primary-hover:               var(--color-background-interactive-strong-hover);
+    --button-background-primary-active:             var(--color-background-interactive-strong-active);
+    --button-foreground-primary:                     var(--color-foreground-inverse-primary); /* theme configurator "Exact color" re-values it */
+    --button-background-secondary-default:           var(--color-background-interactive-secondary-default);
+    --button-background-secondary-hover:             var(--color-background-interactive-secondary-hover);
+    --button-background-secondary-active:           var(--color-background-interactive-secondary-active);
+    --button-background-destructive-default:         var(--color-background-interactive-destructive-default);
+    --button-background-destructive-hover:           var(--color-background-interactive-destructive-hover);
+    --button-background-destructive-active:         var(--color-background-interactive-destructive-active);
+
+    /* Shadow colors — elevation aliases --color-shadow-outer-soft (Figma: color/shadow/outer-soft).
+       Dark mode remaps outer-soft to alpha-dark/80 — primitives here would stay at 5% and vanish on dark surfaces. */
+    --color-shadow-default:                    var(--color-shadow-outer-soft); /* css-only */
+    --color-shadow-contrast-border: var(--color-shadow-outer-soft); /* css-only */
+    --color-shadow-separator-emboss-light:            var(--primitive-neutral-white); /* css-only */
+    --color-shadow-emboss-button-secondary-top:        var(--color-shadow-inner-light-strong);
+    --color-shadow-emboss-button-secondary-bottom:     var(--color-shadow-inner-dark-soft);
+    --color-shadow-switcher-thumb-outline:             var(--primitive-alpha-dark-5);
+    --color-shadow-switcher-thumb-outer:               var(--primitive-alpha-dark-5);
+    --color-shadow-outline-soft:                       var(--primitive-alpha-dark-5);
+    --color-shadow-switcher-thumb-inner-top:           var(--primitive-neutral-white);
+    --color-shadow-switcher-thumb-inner-bottom:        var(--primitive-neutral-100);
+
+    /* Effect — shadow geometry and blur (same both modes) */
+    --effect-blur-sm:                        var(--primitive-size-2);
+    --effect-blur-md:           var(--primitive-size-8);
+    --effect-blur-lg:           var(--primitive-size-16);
+    --primitive-size-negative-1:     -1px;
+    --primitive-size-negative-2:     -2px;
+    --primitive-size-negative-3:     -3px;
+
+    /* ── Composite box-shadow tokens (effect tier) ─────────────────────────────
+       Built from the sub-tokens above. In dark mode, only the color sub-tokens
+       change — these composites automatically produce correct dark shadows. */
+
+    --button-blur:                    var(--effect-blur-sm);
+
+    --button-shadow-primary-default:
+      inset 0 var(--size-border-sm) 0 0 var(--color-shadow-inner-light-soft),
+      inset 0 calc(var(--size-border-sm) * -1) 0 0 var(--color-shadow-inner-dark-soft),
+      0 0 0 var(--size-border-sm) var(--button-border-primary),
+      0 var(--size-border-sm) var(--effect-blur-sm) 0 var(--color-shadow-outer-soft);
+
+    --button-shadow-primary-hover:
+      inset 0 var(--size-border-sm) 0 0 var(--color-shadow-inner-light-soft),
+      inset 0 calc(var(--size-border-sm) * -1) 0 0 var(--color-shadow-inner-dark-soft),
+      0 0 0 var(--size-border-sm) var(--button-border-primary),
+      0 2px var(--effect-blur-sm) 0 var(--color-shadow-outer-soft);
+
+    --button-shadow-active:
+      0 var(--size-border-sm) 0 0 var(--color-shadow-separator-emboss-light),
+      inset 0 0 0 var(--size-border-sm) var(--color-shadow-default);
+
+    --button-shadow-secondary-default:
+      inset 0 var(--size-border-sm) 0 0 var(--color-shadow-emboss-button-secondary-top),
+      inset 0 calc(var(--size-border-sm) * -1) 0 0 var(--color-shadow-emboss-button-secondary-bottom),
+      0 0 0 var(--size-border-sm) var(--color-shadow-outer-soft),
+      0 var(--size-border-sm) var(--effect-blur-sm) 0 var(--color-shadow-emboss-button-secondary-bottom);
+
+    --button-shadow-secondary-hover:
+      inset 0 var(--size-border-sm) 0 0 var(--color-shadow-emboss-button-secondary-top),
+      inset 0 calc(var(--size-border-sm) * -1) 0 0 var(--color-shadow-emboss-button-secondary-bottom),
+      0 0 0 var(--size-border-sm) var(--color-shadow-outer-soft),
+      0 var(--size-border-sm) var(--effect-blur-sm) 0 var(--color-shadow-outer-soft);
+
+    --button-shadow-destructive-default:
+      inset 0 var(--size-border-sm) 0 0 var(--color-shadow-inner-light-soft),
+      inset 0 calc(var(--size-border-sm) * -1) 0 0 var(--color-shadow-inner-dark-soft),
+      0 0 0 var(--size-border-sm) var(--button-border-destructive),
+      0 var(--size-border-sm) var(--effect-blur-sm) 0 var(--color-shadow-outer-soft);
+
+    --button-shadow-destructive-hover:
+      inset 0 var(--size-border-sm) 0 0 var(--color-shadow-inner-light-soft),
+      inset 0 calc(var(--size-border-sm) * -1) 0 0 var(--color-shadow-inner-dark-soft),
+      0 0 0 var(--size-border-sm) var(--button-border-destructive),
+      0 2px var(--effect-blur-sm) 0 var(--color-shadow-outer-soft);
+
+    --button-shadow-focus:
+      inset 0 0 0 1px var(--color-border-interactive-focus),
+      inset 0 0 0 2px var(--color-shadow-focus-inset);
+
+    --button-shadow-destructive-focus:
+      inset 0 0 0 1px var(--color-border-interactive-destructive-focus),
+      inset 0 0 0 2px var(--color-shadow-focus-inset);
+
+    --button-shadow-group:
+      0 0 0 1px var(--color-shadow-outline-soft),
+      0 1px 2px 0 var(--color-shadow-outline-soft);
+
+    --switcher-shadow-track-off:
+      0px 1px 0px 0px var(--color-shadow-inner-light-strong),
+      inset 0px 0px 0px 1px var(--color-shadow-outline-soft),
+      inset 0px 1px 1px 0px var(--color-shadow-outline-soft); /* css-only — composite shadow, pending effect tokens */
+
+    --switcher-shadow-thumb:
+      0px 0px 0px 1px var(--color-shadow-switcher-thumb-outline),
+      0px 2px 8px 0px var(--color-shadow-switcher-thumb-outer),
+      inset 0px 1px 0px 0px var(--color-shadow-switcher-thumb-inner-top),
+      inset 0px -1px 0px 0px var(--color-shadow-switcher-thumb-inner-bottom);
+
+    /* Backward-compat aliases used by existing input components */
+    --color-foreground-neutral-primary:             var(--primitive-neutral-950);
+    --color-foreground-neutral-secondary:           var(--primitive-neutral-700);
+    --color-foreground-neutral-tertiary:            var(--primitive-neutral-600);
+    --color-foreground-interactive-disabled:            var(--primitive-neutral-300);
+    --input-border-error:       var(--color-border-error-strong); /* css-only */
+    --input-border-default: var(--color-border-neutral-primary); /* css-only */
+
+    --input-shadow:
+      0px 1px 0px 0px var(--color-shadow-separator-emboss-light),
+      inset 0px 0px 0px 1px var(--color-shadow-outer-soft),
+      inset 0px 1px 1px 0px var(--color-shadow-inner-dark-soft); /* css-only — composite shadow, pending effect tokens */
+
+
+  /* =============================================================================
+     TYPOGRAPHY — not mode-dependent, defined once
+     ============================================================================= */
+
+    --font-family-default:        'Equip', 'Geist Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    --font-size-micro:            0.75rem;
+    --font-size-label:            0.875rem;
+    --font-size-body-sm:           0.875rem;
+    --font-size-body-md:           1rem;
+    --font-size-display-sm:        1.5rem;
+    --font-size-display-md:        2rem;
+    --font-size-display-lg:        2.5rem;
+    --font-size-display-xl:       3rem;
+    --font-size-display-2xl:      3.25rem;
+    --font-size-display-3xl:      3.75rem;
+
+    --font-line-height-micro:     1rem;
+    --font-line-height-label:     1rem;
+    --font-line-height-body-sm:    1.25rem;
+    --font-line-height-body-md:    1.5rem;
+    --font-line-height-display-sm:   2rem;
+    --font-line-height-display-md:   2.5rem;
+    --font-line-height-display-lg:   3rem;
+    --font-line-height-display-xl:  3.5rem;
+    --font-line-height-display-2xl: 4rem;
+    --font-line-height-display-3xl: 4.5rem;
+
+    --font-weight-regular:        400;
+    --font-weight-medium:         500;
+    --font-weight-semibold:       600;
+
+    --font-letter-spacing-tight:   -0.03em;
+    --font-letter-spacing-normal:   0em;
+    --font-letter-spacing-display: -0.01em;
+    --font-letter-spacing-wide:     0em;
+
+
+  /* =============================================================================
+     SPACING — not mode-dependent
+     Space/ = gaps, margins between elements
+     Inset/ = internal padding inside components
+     ============================================================================= */
+
+    --space-none:        var(--primitive-size-0);
+    --space-3xs:       var(--primitive-size-2);
+    --space-2xs:        var(--primitive-size-4);
+    --space-xs:       var(--primitive-size-8);
+    --space-sm:     var(--primitive-size-12);
+    --space-md:      var(--primitive-size-16);
+    --space-lg:       var(--primitive-size-24);
+    --space-xl:    var(--primitive-size-32);
+    --space-2xl:       var(--primitive-size-48);
+    --space-3xl:       var(--primitive-size-64);
+
+
+
+
+  /* =============================================================================
+     SIZING, SHAPE, BORDER WIDTH — not mode-dependent
+     ===== ======================================================================== */
+
+    /* Size ladder — fixed element dimensions (icons, avatars, controls, bars).
+       Same role as the space ladder: components alias these, never primitive-size-*. */
+    --size-2xs:             var(--primitive-size-8);
+    --size-xs:              var(--primitive-size-16);
+    --size-sm:              var(--primitive-size-24);
+    --size-md:              var(--primitive-size-32);
+    --size-lg:              var(--primitive-size-48);
+    --size-xl:              var(--primitive-size-64);
+    --size-2xl:             var(--primitive-size-128);
+
+    --size-control-height-md:      var(--size-md);
+    --size-control-height-sm:          var(--size-sm);
+    --shape-radius-control-md:      var(--shape-radius-md);
+    --shape-radius-control-sm:         var(--shape-radius-sm);
+
+    /* Avatar sizing scale */
+    --avatar-size-2xs:              var(--size-xs); /* css-only */
+    --avatar-size-xs:               var(--size-sm); /* css-only */
+    --avatar-size-sm:               var(--size-md); /* css-only */
+    --avatar-size-lg:               var(--size-lg); /* css-only */
+    --avatar-size-xl:               var(--size-xl); /* css-only */
+    --avatar-size-2xl:              var(--size-2xl); /* css-only */
+    --avatar-overlap:             calc(var(--space-2xs) * -1);
+
+    /* Button token aliases expected by existing component CSS */
+    
+
+    --topbar-height:             var(--size-lg);
+    --toolbar-height:            var(--size-lg);
+
+    --shape-radius-none:                    var(--primitive-size-0);
+    --shape-radius-2xs:                  var(--primitive-size-4);
+    --shape-radius-xs:                  var(--primitive-size-8);
+    --shape-radius-sm:                   var(--primitive-size-12);
+    --shape-radius-md:                var(--primitive-size-16);
+    --shape-radius-lg:                   var(--primitive-size-24);
+    --shape-radius-xl:                  var(--primitive-size-32);
+    --shape-radius-full:                    var(--primitive-size-full);
+
+
+    --tooltip-radius:         var(--shape-radius-2xs);
+    --popover-radius:         var(--shape-radius-md);
+    --card-radius:            var(--shape-radius-lg);
+    --modal-radius:           var(--shape-radius-xl);
+    --avatar-radius-user:         var(--shape-radius-full);
+    --avatar-radius-organization: var(--shape-radius-xs);
+    --modal-width-max:        var(--size-container-xl);
+
+
+    --popover-width-min:      var(--size-container-xs);
+    --popover-width-md: var(--size-container-sm);
+    --popover-width-lg:    var(--size-container-md);
+    --popover-width-max:      var(--size-container-lg);
+    --popover-height-max:     var(--size-container-md); /* css-only */
+
+    --size-border-sm:          1px; /* css-only */
+    --size-border-md:           1.5px; /* css-only */
+    --size-border-lg:            2px; /* css-only */
+    --size-border-focus:            2px; /* css-only */
+
+    /* Compatibility aliases used by Tag/Chip/CustomViewTab */
+    --tag-height:               var(--size-control-height-sm); /* css-only */
+    --tag-radius:                    var(--shape-radius-control-md);
+    --size-border-icon:                1.25px;
+
+    /* =============================================================================
+     NAV — Source: Figma size collection → nav/*
+     ============================================================================= */
+
+     --section-header-height-xs:      var(--size-sm);
+     --section-header-height-sm:       var(--size-md);
+     --section-header-height-md:    var(--size-lg);
+     --section-header-height-lg:       var(--size-xl);
+   
+   
+   
+     --sidebar-width-collapsed:    var(--size-lg);
+     --sidebar-width-expanded-min: var(--size-container-sm);
+     --sidebar-width-expanded-max: var(--size-container-lg);
+
+    /* =============================================================================
+     GRID — Source: Figma size collection → grid/*
+     ============================================================================= */
+
+
+  /* =============================================================================
+     Z-INDEX — Source: Figma size collection → z-index/*
+     ============================================================================= */
+
+     --z-index-sticky:         1020;
+     --z-index-fixed:          1030;
+     --z-index-modal-backdrop: 1040;
+     --z-index-modal:          1050;
+     --z-index-popover:        1060;
+     --z-index-tooltip:        1070;
+     --z-index-toast:          1080;
+
+     /* =============================================================================
+     BREAKPOINTS — Source: Figma size collection → breakpoints/*
+     ============================================================================= */
+
+    --size-breakpoint-sm:         480px;
+    --size-breakpoint-md:         768px;
+    --size-breakpoint-lg:        1280px;
+    --size-breakpoint-xl:  1440px;
+
+  /* =============================================================================
+     TRANSITIONS — not mode-dependent
+     ============================================================================= */
+
+     --motion-duration-instant:             0ms;
+     --motion-duration-fast:                150ms;
+     --motion-duration-normal:              250ms;
+     --motion-duration-slow:                400ms;
+     --motion-ease-smooth:                     ease;
+
+     --motion-transition-instant:  var(--motion-duration-instant) var(--motion-ease-smooth); /* css-only */
+     --motion-transition-fast:     var(--motion-duration-fast) var(--motion-ease-smooth); /* css-only */
+     --motion-transition-normal:   var(--motion-duration-normal) var(--motion-ease-smooth); /* css-only */
+     --motion-transition-slow:     var(--motion-duration-slow) var(--motion-ease-smooth); /* css-only */
+     --popover-transition:  var(--motion-duration-fast) var(--motion-ease-smooth);
+     --switcher-transition:   var(--motion-duration-fast) var(--motion-ease-smooth);
+     --drawer-transition:     var(--motion-duration-normal) var(--motion-ease-smooth);
+     --modal-transition:    var(--motion-duration-instant) var(--motion-ease-smooth);
+
+  /* =============================================================================
+     TABLE — Source: Figma table collection → table/cell/*
+     ============================================================================= */
+
+
+
+
+  /* =============================================================================
+     NEW SEMANTIC TOKENS — added 2026-06-12
+     ============================================================================= */
+
+    /* Background — new states */
+    --color-background-error-soft-hover:                     var(--primitive-red-200);
+    --color-background-error-soft-active:                   var(--primitive-red-300);
+    --color-background-success-soft-hover:                   var(--primitive-green-200);
+    --color-background-success-soft-active:                 var(--primitive-green-300);
+    --color-background-warning-soft-hover:                   var(--primitive-yellow-200);
+    --color-background-warning-soft-active:                 var(--primitive-yellow-300);
+    --color-background-transparent:                     var(--primitive-alpha-light-0);
+
+    /* Component backgrounds */
+
+    /* Foreground — new states */
+
+    /* Shadow colors — emboss/deboss/elevation */
+    --color-shadow-emboss-button-primary-top:          var(--color-shadow-inner-light-soft);
+    --color-shadow-emboss-button-primary-bottom:       var(--color-shadow-inner-dark-soft);
+    --color-shadow-emboss-button-tertiary-top:         var(--color-shadow-inner-light-soft);
+    --color-shadow-emboss-button-tertiary-bottom:      var(--color-shadow-inner-dark-soft);
+    --color-shadow-elevation-sm:                    var(--color-shadow-outer-soft);
+    --color-shadow-elevation-md:                   var(--color-shadow-outer-soft);
+    --color-shadow-elevation-lg:                     var(--color-shadow-outer-strong);
+
+    /* Sizing — new tokens */
+    --menucell-radius:                    var(--shape-radius-control-md);
+    --size-container-xs:              var(--primitive-size-192);
+    --size-container-sm:               var(--primitive-size-256);
+    --size-container-md:               var(--primitive-size-320);
+    --size-container-lg:              var(--primitive-size-480);
+    --size-container-xl:             var(--primitive-size-1024);
+    --size-container-height-min:            var(--primitive-size-256);
+
+} /* end :root */
+
+  /* =============================================================================
+     MOTION REDUCTION — global override, not mode-dependent
+     Components consume --motion-transition-* tokens via var() and never need
+     their own reduced-motion logic; this is the single point of control.
+     ============================================================================= */
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --motion-transition-instant:  0ms;
+      --motion-transition-fast:     0ms;
+      --motion-transition-normal:   0ms;
+      --motion-transition-slow:     0ms;
+      --popover-transition:  0ms;
+      --switcher-transition: 0ms;
+      --drawer-transition:   0ms;
+      --modal-transition:    0ms;
+    }
+  }
+
+
+  /* =============================================================================
+     DARK MODE — [data-theme="dark"]
+     Source: color-dark_tokens.json
+     Only Layer 2 semantic tokens are overridden here — re-pointed to different
+     primitives. Layer 1 (primitives) and Layer 3 (aliases) require no overrides.
+     ============================================================================= */
+
+  [data-theme="dark"] {
+
+    /* ── Background ─────────────────────────────────────────────────── */
+    --color-background-neutral-primary:                         var(--primitive-neutral-900);
+    --color-background-neutral-secondary:                       var(--primitive-neutral-950);
+    --color-background-neutral-tertiary:                        var(--primitive-neutral-black);
+    --color-background-neutral-soft:                            var(--primitive-alpha-light-10);
+    --color-background-neutral-strong:                          var(--primitive-neutral-750);
+    --color-background-accent-strong-default:                             var(--primitive-accent-300);
+    --color-background-accent-strong-hover:                               var(--primitive-accent-200);
+    --color-background-accent-strong-active:                             var(--primitive-accent-400);
+    --color-background-elevated:                           var(--primitive-neutral-800);
+
+    --color-background-interactive-disabled:                        var(--primitive-alpha-light-5);
+
+    --color-background-interactive-primary-default:   var(--color-background-accent-strong-default);
+    --color-background-interactive-primary-hover:     var(--color-background-accent-strong-hover);
+    --color-background-interactive-primary-active:   var(--color-background-accent-strong-active);
+    --color-background-interactive-strong-default:   var(--color-background-interactive-primary-default);
+    --color-background-interactive-strong-hover:     var(--color-background-interactive-primary-hover);
+    --color-background-interactive-strong-active:    var(--color-background-interactive-primary-active);
+    --color-background-interactive-secondary-default: var(--color-background-neutral-primary);
+    --color-background-interactive-secondary-hover:   var(--primitive-alpha-light-5);
+    --color-background-interactive-secondary-active: var(--primitive-alpha-dark-90);
+
+    --color-foreground-interactive-primary-default:         var(--color-foreground-accent-strong);
+    --color-foreground-interactive-primary-hover:           var(--primitive-accent-200);
+    --color-foreground-interactive-primary-active:         var(--primitive-accent-400);
+
+    --color-background-interactive-destructive-default: var(--primitive-red-400);
+    --color-background-interactive-destructive-hover:   var(--primitive-red-300);
+    --color-background-interactive-destructive-active: var(--primitive-red-500);
+
+    --color-background-inverse-primary:                var(--primitive-neutral-50);
+    --color-background-inverse-secondary:              var(--primitive-neutral-100);
+    --color-background-inverse-tertiary:               var(--primitive-neutral-200);
+
+    --color-background-interactive-secondary-selected:                   var(--primitive-accent-950);
+
+    --color-background-error-soft-default:          var(--primitive-red-950);
+    --color-background-error-soft-hover:            var(--primitive-red-900);
+    --color-background-error-soft-active:           var(--primitive-red-800);
+    --color-background-error-strong:         var(--primitive-red-500);
+    --color-background-success-soft-default:        var(--primitive-green-950);
+    --color-background-success-soft-hover:          var(--primitive-green-900);
+    --color-background-success-soft-active:         var(--primitive-green-800);
+    --color-background-warning-soft-default:        var(--primitive-yellow-950);
+    --color-background-warning-soft-hover:          var(--primitive-yellow-900);
+    --color-background-warning-soft-active:         var(--primitive-yellow-800);
+    --color-background-field-default:               var(--primitive-alpha-dark-90);
+    --color-background-field-hover:                 var(--primitive-alpha-light-5);
+    --color-background-field-active:                var(--primitive-alpha-light-10);
+    --color-background-info-soft:                   var(--primitive-violet-950);
+
+    /* ── Text ────────────────────────────────────────────────────────── */
+    --color-foreground-neutral-primary:                               var(--primitive-neutral-50);
+    --color-foreground-neutral-secondary:                             var(--primitive-neutral-300);
+    --color-foreground-neutral-tertiary:                              var(--primitive-neutral-400);
+    --color-foreground-interactive-disabled:                              var(--primitive-neutral-500);
+
+    --color-foreground-interactive-destructive-default:            var(--primitive-red-400);
+    --color-foreground-interactive-destructive-hover:              var(--primitive-red-300);
+    --color-foreground-interactive-destructive-active:            var(--primitive-red-500);
+
+    --color-foreground-inverse-primary:                      var(--primitive-neutral-950);
+    --color-foreground-inverse-secondary:                    var(--primitive-neutral-600);
+    --color-foreground-inverse-tertiary:                     var(--primitive-neutral-500);
+
+    --color-foreground-error-strong:                        var(--primitive-red-300);
+    --color-foreground-success-strong:                      var(--primitive-green-300);
+    --color-foreground-warning-strong:                      var(--primitive-yellow-200);
+    --color-foreground-info-strong:                         var(--primitive-violet-200);
+
+    /* ── Border ─────────────────────────────────────────────────────── */
+    --color-border-neutral-primary:                             var(--primitive-neutral-800);
+    --color-border-interactive-hover:                               var(--primitive-neutral-700);
+    --color-border-interactive-disabled:                            var(--primitive-neutral-900);
+    --color-border-neutral-secondary:                               var(--primitive-alpha-light-10);
+    --color-border-interactive-secondary-selected:                       var(--primitive-accent-800);
+    --color-border-error-soft:                          var(--primitive-red-900);
+    --color-border-error-strong:                        var(--primitive-red-400);
+    --color-border-success-soft:                        var(--primitive-green-900);
+    --color-border-warning-soft:                        var(--primitive-yellow-900);
+    --color-border-interactive-strong:                    var(--color-background-interactive-secondary-default); /* blends into the surface */
+    --color-border-info-soft:                           var(--primitive-violet-900);
+
+    /* ── Surface ─────────────────────────────────────────────────────── */
+    --color-shadow-emboss-button-secondary-top:        var(--primitive-alpha-light-10);
+    --color-shadow-emboss-button-secondary-bottom:     var(--primitive-alpha-dark-90);
+
+    /* ── Effects — shadow color sub-tokens only ──────────────────────── */
+    /* Composite box-shadows auto-update because they reference these via var() */
+    --color-shadow-outer-soft:                 var(--primitive-alpha-dark-80);
+    --color-shadow-outer-strong:               var(--primitive-alpha-dark-10);
+    --color-shadow-inner-dark-soft:             var(--primitive-alpha-dark-20);
+    --color-shadow-inner-dark-strong:           var(--primitive-neutral-black);
+    --color-shadow-inner-light-strong:          var(--primitive-alpha-light-5);
+    --color-shadow-separator-emboss-light:            var(--primitive-alpha-light-10); /* css-only */
+    --color-shadow-switcher-thumb-inner-top:          var(--primitive-alpha-light-20);
+    --color-shadow-switcher-thumb-inner-bottom:       var(--primitive-alpha-dark-30);
+
+    --color-shadow-outer-strong:               var(--primitive-alpha-dark-90);
+
+    --switcher-shadow-track-off:
+    0px 1px 0px 0px var(--color-shadow-inner-light-soft),
+    inset 0px 0px 0px 1px var(--color-shadow-outline-soft),
+    inset 0px 1px 1px 0px var(--color-shadow-outline-soft); /* css-only — composite shadow, pending effect tokens */
+
+
+    --input-shadow:
+    0px 1px 0px 0px var(--color-shadow-separator-emboss-light),
+    inset 0px 0px 0px 1px var(--color-shadow-outer-soft),
+    inset 0px 1px 1px 0px var(--color-shadow-inner-dark-strong); /* css-only — composite shadow, pending effect tokens */
+} 
+/* end [data-theme="dark"] */
+
+  /* =============================================================================
+     DATAVIZ TOKENS — theme-scoped chart palette
+     Added as standalone tokens to avoid changing existing semantic aliases.
+     ============================================================================= */
+
+  /* ── Dataviz tokens · Light (default) ────────────── */
+  /* :root makes light the default when <html> has no data-theme attribute.
+     :root and [data-theme="dark"] have equal specificity (0,1,0); the dark
+     block below wins because it comes later in source order. Keep it last. */
+  :root, [data-theme="light"] {
+    /* Categorical series — rooted in Ngr brand palette */
+    --color-background-dataviz-1: #47D7AC; /* Mint Green — brand primary */ /* css-only */
+    --color-background-dataviz-2: #13294B; /* Nightfall Blue — brand primary */ /* css-only */
+    --color-background-dataviz-3: #6240A8; /* Lavender Purple Light — brand secondary */ /* css-only */
+    --color-background-dataviz-4: #F8485E; /* Sunset Pink — brand secondary */ /* css-only */
+    --color-background-dataviz-5: #FAB46D; /* Vanilla Yellow Dark — brand secondary */ /* css-only */
+    --color-background-dataviz-6: #2D807B; /* Mint Green Darker — brand ramp */ /* css-only */
+    --color-background-dataviz-7: #9680C5; /* Heather — brand purple ramp */ /* css-only */
+    --color-background-dataviz-8: #FBA3AF; /* Sunset Pink Lighter — brand ramp */ /* css-only */
+
+    /* Semantic states — follow the feedback ramps, so a theme's Feedback choice reaches charts */
+    --color-background-dataviz-positive: var(--primitive-green-600); /* css-only */
+    --color-background-dataviz-negative: var(--primitive-red-500); /* css-only */
+    --color-background-dataviz-warning: var(--primitive-yellow-400); /* css-only */
+    --color-background-dataviz-neutral: #8893A5; /* css-only */
+
+    /* Chart structure */
+    --color-border-dataviz-grid: var(--primitive-neutral-200); /* css-only */
+    --color-border-dataviz-axis: var(--primitive-neutral-500); /* css-only */
+    --color-foreground-dataviz-label: var(--primitive-neutral-600); /* css-only */
+    --color-background-dataviz-tooltip: var(--primitive-neutral-white); /* css-only */
+    --color-border-dataviz-tooltip: var(--primitive-neutral-200); /* css-only */
+  }
+
+  /* ── Dataviz tokens · Dark ───────────────────────── */
+  [data-theme="dark"] {
+    /* Categorical series — lightened for dark (Petrol Blue) backgrounds */
+    --color-background-dataviz-1: #75E1C1; /* Mint Green Light — brand ramp */ /* css-only */
+    --color-background-dataviz-2: #6240A8; /* Lavender Purple Light — brand secondary */ /* css-only */
+    --color-background-dataviz-3: #F8485E; /* Sunset Pink — brand secondary */ /* css-only */
+    --color-background-dataviz-4: #F97586; /* Sunset Pink Light — brand ramp */ /* css-only */
+    --color-background-dataviz-5: #FCE195; /* Vanilla Yellow Light — brand ramp */ /* css-only */
+    --color-background-dataviz-6: #3AAB94; /* Mint Green Dark — brand ramp */ /* css-only */
+    --color-background-dataviz-7: #B8A8D8; /* Heather Light — brand ramp interpolated */ /* css-only */
+    --color-background-dataviz-8: #FCD0D7; /* Sunset Pink Lightest — brand ramp */ /* css-only */
+
+    /* Semantic states — follow the feedback ramps, so a theme's Feedback choice reaches charts */
+    --color-background-dataviz-positive: var(--primitive-green-400); /* css-only */
+    --color-background-dataviz-negative: var(--primitive-red-400); /* css-only */
+    --color-background-dataviz-warning: var(--primitive-yellow-300); /* css-only */
+    --color-background-dataviz-neutral: #4E5E78; /* css-only */
+
+    /* Chart structure */
+    --color-border-dataviz-grid: var(--primitive-neutral-800); /* css-only */
+    --color-border-dataviz-axis: var(--primitive-neutral-600); /* css-only */
+    --color-foreground-dataviz-label: var(--primitive-neutral-400); /* css-only */
+    --color-background-dataviz-tooltip: var(--primitive-neutral-800); /* css-only */
+    --color-border-dataviz-tooltip: var(--primitive-neutral-700); /* css-only */
+  }

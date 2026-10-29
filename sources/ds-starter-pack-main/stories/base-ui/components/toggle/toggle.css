@@ -1,0 +1,41 @@
+/* Layout only. Colors and sizes come from toggle.tokens.css (generated from toggle.spec.ts). */
+
+.ds-toggle {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-toggle:disabled,
+.ds-toggle[data-disabled] {
+  cursor: not-allowed;
+}
+
+.ds-toggle:focus-visible {
+  outline: 2px solid var(--color-shadow-focus-ring-primary);
+  outline-offset: -1px;
+}
+
+.ds-toggle__icon {
+  display: inline-flex;
+}
+
+.ds-toggle__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Line while off, filled while on. */
+.ds-toggle[data-pressed] .ds-toggle__icon--off,
+.ds-toggle:not([data-pressed]) .ds-toggle__icon--on {
+  display: none;
+}

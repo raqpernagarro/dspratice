@@ -1,0 +1,8 @@
+/* Generated from accordion.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-accordion {
+  border-radius: var(--accordion-radius, var(--shape-radius-lg));
+  border-width: var(--accordion-border-width, var(--size-border-regular));
+  border-color: var(--accordion-border-color, var(--color-border-neutral-subtle));
+  background-color: var(--accordion-background, var(--color-background-neutral-primary));
+}

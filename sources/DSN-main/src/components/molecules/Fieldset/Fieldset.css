@@ -1,0 +1,38 @@
+.dsn-fieldset {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.dsn-fieldset-legend {
+  padding: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-fieldset-optional {
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-fieldset-description {
+  margin: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body-sm);
+  line-height: var(--font-line-height-body-sm);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-fieldset-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-block-start: var(--space-xs);
+  width: 100%;
+}

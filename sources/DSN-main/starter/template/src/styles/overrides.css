@@ -1,0 +1,21 @@
+/**
+ * Your token overrides. This file is yours: re-exporting the theme or
+ * updating DS-Ngr never touches it.
+ *
+ * It loads after the theme, so anything here wins. Re-value existing tokens
+ * only — the full list is in node_modules/ds-ngr/dist/tokens.css.
+ *
+ *   - One-off change: re-value a semantic token (--color-*, --space-*, …).
+ *   - Whole colour ramp: re-value the --primitive-* steps.
+ *   - Dark mode only: use the :root[data-theme="dark"] block.
+ *
+ * Example:
+ *
+ *   :root {
+ *     --color-foreground-interactive-primary-selected: var(--primitive-accent-700);
+ *   }
+ *
+ *   :root[data-theme="dark"] {
+ *     --color-foreground-interactive-primary-selected: var(--primitive-accent-200);
+ *   }
+ */

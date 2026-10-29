@@ -1,0 +1,56 @@
+name: Update ds-index.json
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/components/**'
+      - 'src/index.ts'
+      - 'tokens.css'
+      - 'specs/**'
+      - 'AI.md'
+      - 'AGENTS.md'
+      - 'scripts/generate-index.mjs'
+  pull_request:
+    paths:
+      - 'src/components/**'
+      - 'src/index.ts'
+      - 'tokens.css'
+      - 'specs/**'
+      - 'AI.md'
+      - 'AGENTS.md'
+      - 'scripts/generate-index.mjs'
+
+jobs:
+  regenerate-index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Use a PAT or the default token — fetch-depth 0 lets auto-commit push
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate ds-index.json
+        run: node scripts/generate-index.mjs
+
+      - name: Commit updated index (push to main only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: regenerate ds-index.json [skip ci]'
+          file_pattern: ds-index.json
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com

@@ -1,0 +1,49 @@
+/* Generated from navigation-menu-item.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-navigation-menu-item {
+  height: var(--navigation-menu-item-height, var(--size-lg));
+  padding-inline: var(--navigation-menu-item-space-x, var(--space-md));
+  gap: var(--navigation-menu-item-gap, var(--space-xs));
+  border-radius: var(--navigation-menu-item-radius, var(--shape-radius-md));
+}
+
+.ds-navigation-menu-item:not([data-active]):not([data-popup-open]) {
+  background-color: var(--navigation-menu-item-background-inactive-default, var(--color-background-interactive-subtle-default));
+}
+
+.ds-navigation-menu-item .ds-navigation-menu-item__icon {
+  width: var(--navigation-menu-item-icon-size, var(--size-xs));
+  height: var(--navigation-menu-item-icon-size, var(--size-xs));
+  color: var(--navigation-menu-item-icon-foreground, var(--color-foreground-neutral-primary));
+}
+
+.ds-navigation-menu-item .ds-navigation-menu-item__label {
+  color: var(--navigation-menu-item-label-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--navigation-menu-item-label-text-style-font-family, var(--font-family-primary));
+  font-size: var(--navigation-menu-item-label-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--navigation-menu-item-label-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--navigation-menu-item-label-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-navigation-menu-item .ds-navigation-menu-item__caret {
+  width: var(--navigation-menu-item-caret-size, var(--size-2xs));
+  height: var(--navigation-menu-item-caret-size, var(--size-2xs));
+  color: var(--navigation-menu-item-caret-foreground, var(--color-foreground-neutral-secondary));
+}
+
+.ds-navigation-menu-item:not([data-active]):not([data-popup-open]):hover,
+.ds-navigation-menu-item:not([data-active]):not([data-popup-open])[data-preview-state="hover"] {
+  background-color: var(--navigation-menu-item-background-inactive-hover, var(--color-background-interactive-subtle-hover));
+}
+
+.ds-navigation-menu-item[data-active],
+.ds-navigation-menu-item[data-popup-open] {
+  background-color: var(--navigation-menu-item-background-active-default, var(--color-background-interactive-subtle-selected));
+}
+
+.ds-navigation-menu-item[data-active]:hover,
+.ds-navigation-menu-item[data-active][data-preview-state="hover"],
+.ds-navigation-menu-item[data-popup-open]:hover,
+.ds-navigation-menu-item[data-popup-open][data-preview-state="hover"] {
+  background-color: var(--navigation-menu-item-background-active-hover, var(--color-background-interactive-subtle-hover));
+}

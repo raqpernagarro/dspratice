@@ -1,0 +1,32 @@
+/* Generated from progress.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-progress {
+  gap: var(--progress-gap, var(--space-sm));
+}
+
+.ds-progress .ds-progress__label {
+  color: var(--progress-label-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--progress-label-text-style-font-family, var(--font-family-primary));
+  font-size: var(--progress-label-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--progress-label-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--progress-label-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-progress .ds-progress__value {
+  color: var(--progress-value-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--progress-value-text-style-font-family, var(--font-family-primary));
+  font-size: var(--progress-value-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--progress-value-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--progress-value-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-progress .ds-progress__track {
+  height: var(--progress-track-height, var(--space-xs));
+  border-radius: var(--progress-track-radius, var(--shape-radius-full));
+  background-color: var(--progress-track-background, var(--color-border-neutral-subtle));
+}
+
+.ds-progress .ds-progress__indicator {
+  border-radius: var(--progress-track-radius, var(--shape-radius-full));
+  background-color: var(--progress-indicator-background, var(--color-background-accent-default));
+}

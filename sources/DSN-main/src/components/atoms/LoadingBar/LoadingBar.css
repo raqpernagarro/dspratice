@@ -1,0 +1,93 @@
+/* =============================================================================
+   LoadingBar
+   ─────────────────────────────────────────────────────────────────────────────
+   Namespaced with .dsn-loading-bar.
+
+   Modes (data-mode):
+     indeterminate — animated segment sweeps left → right indefinitely
+     determinate   — fill width driven by inline style (value%)
+
+   Structure:
+     <div role="progressbar" class="dsn-loading-bar" data-mode="…">
+       <div class="dsn-loading-bar-fill" style="width: N%" />
+     </div>
+
+   Positioning:
+     Fixed to top of the viewport. Must be mounted at a portal/root level
+     by the consuming application. z-index: 9999 places it above all content.
+
+   Tokens used:
+     --color-background-neutral-secondary: #f6f6f6   (track background)
+     --color-background-accent-strong-default:    #0f766e   (teal fill)
+     --radius-full:          9999px
+     --transition-medium:    150ms ease
+   ============================================================================= */
+
+
+/* ── Keyframes ───────────────────────────────────────────────────────────────── */
+
+/*
+  Single 30%-wide fill segment traverses the full track width:
+    Start: translateX(-100%)  → fill at [-30%, 0%]   (off-screen left)
+    End:   translateX(430%)   → fill at [129%, 159%]  (off-screen right)
+  overflow: hidden on the root clips both extremes cleanly.
+*/
+@keyframes dsn-loading-bar-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(430%);  }
+}
+
+
+/* ── Root ────────────────────────────────────────────────────────────────────── */
+
+.dsn-loading-bar {
+  position:         fixed;
+  top:              0;
+  left:             0;
+  right:            0;
+  height:           3px;
+  background-color: var(--color-background-neutral-secondary);
+  overflow:         hidden;
+  z-index:          9999;
+}
+
+
+/* ── Fill ────────────────────────────────────────────────────────────────────── */
+
+.dsn-loading-bar-fill {
+  position:         absolute;
+  top:              0;
+  left:             0;
+  bottom:           0;
+  background-color: var(--color-background-accent-strong-default);
+  border-radius:    var(--shape-radius-full);
+}
+
+
+/* ── Determinate mode ────────────────────────────────────────────────────────── */
+
+/*
+  Width is set via inline style by the component.
+  Smooth width transition as value changes.
+*/
+.dsn-loading-bar[data-mode="determinate"] .dsn-loading-bar-fill {
+  transition: width var(--motion-transition-fast);
+}
+
+
+/* ── Indeterminate mode ──────────────────────────────────────────────────────── */
+
+.dsn-loading-bar[data-mode="indeterminate"] .dsn-loading-bar-fill {
+  width:     30%;
+  animation: dsn-loading-bar-sweep 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+/* ── Reduced motion ──────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .dsn-loading-bar[data-mode="indeterminate"] .dsn-loading-bar-fill {
+    /* Slow to a near-static pulse instead of sweeping */
+    animation-duration: 4s;
+  }
+}

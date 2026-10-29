@@ -1,0 +1,77 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "configurator",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "vite",
+        "--config",
+        "semantic-editor/vite.config.ts",
+        "--port",
+        "4185",
+        "--strictPort",
+        "--open",
+        "false"
+      ],
+      "port": 4185
+    },
+    {
+      "name": "configurator-build",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "vite",
+        "preview",
+        "--config",
+        "semantic-editor/vite.config.ts",
+        "--port",
+        "4186",
+        "--strictPort"
+      ],
+      "port": 4186
+    },
+    {
+      "name": "storybook",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "storybook",
+        "dev",
+        "-p",
+        "6006",
+        "--no-open",
+        "--ci"
+      ],
+      "port": 6006
+    },
+    {
+      "name": "pitch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "vite",
+        "pitch/dist",
+        "--port",
+        "4190",
+        "--strictPort",
+        "--open",
+        "false"
+      ],
+      "port": 4190
+    },
+    {
+      "name": "docs-build",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "vite",
+        "preview",
+        "--config",
+        "semantic-editor/vite.config.ts",
+        "--outDir",
+        "dist-docs",
+        "--port",
+        "4191",
+        "--strictPort"
+      ],
+      "port": 4191
+    }
+  ]
+}

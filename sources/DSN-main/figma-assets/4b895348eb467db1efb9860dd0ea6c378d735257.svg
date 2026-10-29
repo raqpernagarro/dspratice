@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 4 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="scrollBarHandler">
+<path d="M0 2C0 0.895429 0.895431 0 2 0V0C3.10457 0 4 0.89543 4 2V98C4 99.1046 3.10457 100 2 100V100C0.895431 100 0 99.1046 0 98V2Z" fill="var(--fill-0, black)" fill-opacity="0.1"/>
+<path d="M2 0.5C2.82843 0.5 3.5 1.17157 3.5 2V98C3.5 98.8284 2.82843 99.5 2 99.5C1.17157 99.5 0.5 98.8284 0.5 98V2C0.5 1.17157 1.17157 0.5 2 0.5Z" stroke="var(--stroke-0, black)" stroke-opacity="0.05"/>
+<g id="edge1">
+</g>
+<g id="edge2">
+</g>
+</g>
+</svg>

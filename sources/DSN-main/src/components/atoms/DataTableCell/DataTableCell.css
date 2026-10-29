@@ -1,0 +1,320 @@
+.dsn-data-table-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  padding: var(--space-xs) var(--space-md);
+  color: var(--color-foreground-neutral-primary);
+  background: transparent;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dsn-data-table-cell-content {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dsn-data-table-cell-actions {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dsn-data-table-cell-leading-accessory {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dsn-data-table-cell[data-state='hover'] {
+  background: var(--color-background-interactive-secondary-hover);
+}
+
+.dsn-data-table-cell[data-align='right'] {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/* Numeric and date columns always align digits vertically as values change — no opt-out. */
+.dsn-data-table-cell[data-field-type='number'],
+.dsn-data-table-cell[data-field-type='date'],
+.dsn-data-table-cell[data-field-type='datetime'],
+.dsn-data-table-cell[data-field-type='month-year'],
+.dsn-data-table-cell[data-field-type='range'],
+.dsn-data-table-cell[data-field-type='phone'] {
+  font-variant-numeric: tabular-nums;
+}
+
+.dsn-data-table-cell[data-align='right'] .dsn-data-table-cell-content {
+  text-align: right;
+}
+
+.dsn-data-table-cell[data-align='center'] {
+  justify-content: center;
+  text-align: center;
+}
+
+.dsn-data-table-cell[data-align='center'] .dsn-data-table-cell-content {
+  text-align: center;
+}
+
+.dsn-data-table-cell-tags {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.dsn-data-table-cell-user {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.dsn-data-table-cell-link {
+  color: var(--color-foreground-neutral-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.dsn-data-table-cell-empty {
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-data-table-cell-skeleton {
+  width: 72%;
+  height: 12px;
+  border-radius: var(--shape-radius-full);
+  background: var(--input-background-active);
+}
+
+.dsn-data-table-cell-tags-overflow-trigger {
+  flex: 0 0 auto;
+  display: inline-flex;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.dsn-data-table-cell-tags-overflow-trigger:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+  border-radius: var(--shape-radius-control-sm);
+}
+
+.dsn-data-table-cell-tags-measure {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  inset: -9999px auto auto -9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  white-space: nowrap;
+}
+
+.dsn-data-table-cell-tags-popover-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+/* Checkbox / expand / icon cells center a single control without clipping it. */
+.dsn-data-table-cell[data-field-type='checkbox'],
+.dsn-data-table-cell[data-field-type='expand'],
+.dsn-data-table-cell[data-field-type='icon'] {
+  justify-content: center;
+}
+
+.dsn-data-table-cell[data-field-type='checkbox'] .dsn-data-table-cell-content,
+.dsn-data-table-cell[data-field-type='expand'] .dsn-data-table-cell-content,
+.dsn-data-table-cell[data-field-type='icon'] .dsn-data-table-cell-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+/* DataTable-specific checkbox: remove outer shell/halo, keep only the indicator. */
+.dsn-data-table-cell[data-field-type='checkbox'] .dsn-checkbox {
+  min-height: 16px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.dsn-data-table-cell[data-field-type='checkbox'] .dsn-checkbox:not([data-disabled]):hover,
+.dsn-data-table-cell[data-field-type='checkbox'] .dsn-checkbox:not([data-disabled]):active {
+  background: transparent;
+}
+
+.dsn-data-table-cell[data-field-type='checkbox'] .dsn-checkbox-indicator-wrap {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+}
+
+.dsn-data-table-cell[data-field-type='checkbox'] .dsn-checkbox-indicator {
+  box-shadow: var(--input-shadow);
+}
+
+.dsn-data-table-cell[data-field-type='checkbox'] .dsn-checkbox:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+/* ─── Hover-revealed actions (DataTable) ─────────────────────────────────── */
+.dsn-data-table-cell[data-reveal-actions]:hover,
+.dsn-data-table-cell[data-reveal-actions]:focus-within {
+  background: var(--color-background-interactive-secondary-hover);
+}
+
+.dsn-data-table-cell[data-reveal-actions]:not([data-state='hover']):not(:hover):not(:focus-within) .dsn-data-table-cell-actions {
+  display: none;
+}
+
+/* Visible actions: inset from the right edge matches the top/bottom inset. */
+.dsn-data-table-cell[data-state='hover']:has(> .dsn-data-table-cell-actions),
+.dsn-data-table-cell[data-reveal-actions]:is(:hover, :focus-within):has(> .dsn-data-table-cell-actions) {
+  padding-inline-end: var(--space-xs);
+}
+
+/* ─── Field-type content ─────────────────────────────────────────────────── */
+.dsn-data-table-cell-main-label {
+  font-weight: var(--font-weight-semibold);
+}
+
+.dsn-data-table-cell-truncate {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dsn-data-table-cell-user,
+.dsn-data-table-cell-file {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dsn-data-table-cell-file {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.dsn-data-table-cell-file-icon {
+  flex: 0 0 auto;
+  color: var(--color-foreground-error-strong);
+}
+
+.dsn-data-table-cell[data-field-type='range'] .dsn-data-table-cell-content {
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-data-table-cell[data-field-type='address'][data-state='hover'] .dsn-data-table-cell-content,
+.dsn-data-table-cell[data-field-type='address']:hover .dsn-data-table-cell-content {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.dsn-data-table-cell-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  flex: 0 0 auto;
+  max-width: 100%;
+  padding: var(--space-3xs) var(--space-xs) var(--space-3xs) var(--space-3xs);
+  border-radius: var(--shape-radius-full);
+  background: var(--tag-background-neutral);
+}
+
+.dsn-data-table-cell-pill-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dsn-data-table-cell-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+}
+
+.dsn-data-table-cell[data-field-type='contacts-list'] {
+  align-items: flex-end;
+  padding-block: var(--space-sm);
+}
+
+.dsn-data-table-cell[data-field-type='contacts-list'] .dsn-data-table-cell-content {
+  align-self: flex-start;
+}
+
+.dsn-data-table-cell-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.dsn-data-table-cell-expand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--shape-radius-control-sm);
+  background: transparent;
+  color: var(--color-foreground-neutral-primary);
+  cursor: pointer;
+}
+
+.dsn-data-table-cell-expand svg {
+  transition: transform var(--motion-duration-fast) ease;
+}
+
+.dsn-data-table-cell-expand[aria-expanded='true'] svg {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dsn-data-table-cell-expand svg {
+    transition: none;
+  }
+}
+
+.dsn-data-table-cell-expand:hover {
+  background: var(--color-background-interactive-secondary-hover);
+}
+
+.dsn-data-table-cell-expand:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+/* The first contact pill shrinks (ellipsis) when it is the only one that fits. */
+.dsn-data-table-cell-tags > .dsn-data-table-cell-pill:first-child {
+  flex-shrink: 1;
+  min-width: 0;
+}

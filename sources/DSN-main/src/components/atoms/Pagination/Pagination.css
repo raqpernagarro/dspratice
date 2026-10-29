@@ -1,0 +1,63 @@
+.dsn-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  padding: var(--space-md) 0;
+}
+
+/* ── Left meta section: rows-per-page + summary ───────────────────────────── */
+
+.dsn-pagination-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.dsn-pagination-rows {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.dsn-pagination-rows-trigger {
+  position: relative;
+}
+
+
+.dsn-pagination-rows-label {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  line-height: var(--font-line-height-label);
+  color: var(--color-foreground-neutral-secondary);
+  white-space: nowrap;
+}
+
+.dsn-pagination-summary {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  line-height: var(--font-line-height-label);
+  color: var(--color-foreground-neutral-secondary);
+  white-space: nowrap;
+  margin-right: var(--space-xs);
+}
+
+/* ── Right controls section: summary + prev / pages / next ────────────────── */
+
+.dsn-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.dsn-pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+/* Ellipsis ghost button — remove horizontal padding so it looks narrower */
+.dsn-pagination-ellipsis {
+  min-width: 32px;
+}

@@ -1,0 +1,80 @@
+/* Generated from toggle.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-toggle[data-size="sm"] {
+  height: var(--toggle-size-sm, var(--space-2xl));
+  min-width: var(--space-2xl);
+  border-radius: var(--toggle-radius-sm, var(--shape-radius-sm));
+}
+
+.ds-toggle[data-size="md"] {
+  height: var(--toggle-size-md, var(--size-lg));
+  min-width: var(--size-lg);
+  border-radius: var(--toggle-radius-md, var(--shape-radius-sm));
+}
+
+.ds-toggle[data-size="lg"] {
+  height: var(--toggle-size-lg, var(--size-xl));
+  min-width: var(--size-xl);
+  border-radius: var(--toggle-radius-lg, var(--shape-radius-sm));
+}
+
+.ds-toggle:not([data-pressed]) {
+  background-color: var(--toggle-background-off-default, var(--color-background-interactive-subtle-default));
+  color: var(--toggle-foreground-off-default, var(--color-foreground-neutral-secondary));
+}
+
+.ds-toggle[data-size="sm"] .ds-toggle__icon {
+  width: var(--toggle-icon-size-sm, var(--size-2xs));
+  height: var(--toggle-icon-size-sm, var(--size-2xs));
+}
+
+.ds-toggle[data-size="md"] .ds-toggle__icon {
+  width: var(--toggle-icon-size-md, var(--size-xs));
+  height: var(--toggle-icon-size-md, var(--size-xs));
+}
+
+.ds-toggle[data-size="lg"] .ds-toggle__icon {
+  width: var(--toggle-icon-size-lg, var(--size-sm));
+  height: var(--toggle-icon-size-lg, var(--size-sm));
+}
+
+.ds-toggle:not([data-pressed]):hover:not(:disabled):not([data-disabled]),
+.ds-toggle:not([data-pressed])[data-preview-state="hover"] {
+  background-color: var(--toggle-background-off-hover, var(--color-background-interactive-subtle-hover));
+  color: var(--toggle-foreground-off-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-toggle[data-pressed] {
+  background-color: var(--toggle-background-on-default, var(--color-background-interactive-subtle-selected));
+  color: var(--toggle-foreground-on-default, var(--color-foreground-neutral-primary));
+}
+
+.ds-toggle[data-pressed]:hover:not(:disabled):not([data-disabled]),
+.ds-toggle[data-pressed][data-preview-state="hover"] {
+  background-color: var(--toggle-background-on-hover, var(--color-background-interactive-subtle-selected));
+  color: var(--toggle-foreground-on-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-toggle:not([data-pressed]):active:not(:disabled):not([data-disabled]),
+.ds-toggle:not([data-pressed])[data-preview-state="pressed"] {
+  background-color: var(--toggle-background-off-pressed, var(--color-background-interactive-subtle-pressed));
+  color: var(--toggle-foreground-off-pressed, var(--color-foreground-neutral-primary));
+}
+
+.ds-toggle[data-pressed]:active:not(:disabled):not([data-disabled]),
+.ds-toggle[data-pressed][data-preview-state="pressed"] {
+  background-color: var(--toggle-background-on-pressed, var(--color-background-interactive-subtle-pressed));
+  color: var(--toggle-foreground-on-pressed, var(--color-foreground-neutral-primary));
+}
+
+.ds-toggle:not([data-pressed]):disabled,
+.ds-toggle:not([data-pressed])[data-disabled] {
+  background-color: var(--toggle-background-off-disabled, var(--color-background-interactive-subtle-default));
+  color: var(--toggle-foreground-off-disabled, var(--color-foreground-interactive-disabled));
+}
+
+.ds-toggle[data-pressed]:disabled,
+.ds-toggle[data-pressed][data-disabled] {
+  background-color: var(--toggle-background-on-disabled, var(--color-background-interactive-subtle-selected));
+  color: var(--toggle-foreground-on-disabled, var(--color-foreground-interactive-disabled));
+}

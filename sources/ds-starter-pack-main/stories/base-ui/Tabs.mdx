@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Tabs.stories';
+import docs from './docs/tabs.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { tabsSpec } from './components/tabs/tabs.spec';
+import { tabSpec } from './components/tabs/tab.spec';
+
+<Meta of={Stories} />
+
+# Tabs
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={tabsSpec} />
+
+# Tab
+
+Every variant of the Figma component set:
+
+<Canvas of={Stories.TabMatrix} />
+
+<SpecDocs spec={tabSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={tabsSpec.docs.baseUi} />

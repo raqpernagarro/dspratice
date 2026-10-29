@@ -1,0 +1,8 @@
+/* Layout only. Colors and spacing come from toggle-group.tokens.css (generated from toggle-group.spec.ts). */
+
+.ds-toggle-group {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  border-style: solid;
+}

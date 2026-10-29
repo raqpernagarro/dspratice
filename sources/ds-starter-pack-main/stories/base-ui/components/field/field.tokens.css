@@ -1,0 +1,88 @@
+/* Generated from field.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-field[data-size="sm"] {
+  gap: var(--field-gap-sm, var(--space-xs));
+}
+
+.ds-field[data-size="md"] {
+  gap: var(--field-gap-md, var(--space-xs));
+}
+
+.ds-field[data-size="lg"] {
+  gap: var(--field-gap-lg, var(--space-sm));
+}
+
+.ds-field .ds-field__label {
+  color: var(--field-label-foreground, var(--color-foreground-neutral-primary));
+}
+
+.ds-field[data-size="sm"] .ds-field__label {
+  font-family: var(--field-label-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--field-label-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--field-label-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--field-label-text-style-sm-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-field[data-size="md"] .ds-field__label {
+  font-family: var(--field-label-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--field-label-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--field-label-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--field-label-text-style-md-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-field[data-size="lg"] .ds-field__label {
+  font-family: var(--field-label-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--field-label-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--field-label-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--field-label-text-style-lg-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-field .ds-field__description {
+  color: var(--field-description-foreground, var(--color-foreground-neutral-secondary));
+}
+
+.ds-field[data-size="sm"] .ds-field__description {
+  font-family: var(--field-description-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--field-description-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--field-description-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--field-description-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-field[data-size="md"] .ds-field__description {
+  font-family: var(--field-description-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--field-description-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--field-description-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--field-description-text-style-md-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-field[data-size="lg"] .ds-field__description {
+  font-family: var(--field-description-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--field-description-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--field-description-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--field-description-text-style-lg-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-field .ds-field__error {
+  color: var(--field-error-foreground, var(--color-foreground-error));
+}
+
+.ds-field[data-size="sm"] .ds-field__error {
+  font-family: var(--field-error-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--field-error-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--field-error-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--field-error-text-style-sm-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-field[data-size="md"] .ds-field__error {
+  font-family: var(--field-error-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--field-error-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--field-error-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--field-error-text-style-md-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-field[data-size="lg"] .ds-field__error {
+  font-family: var(--field-error-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--field-error-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--field-error-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--field-error-text-style-lg-font-weight, var(--font-weight-body-regular));
+}

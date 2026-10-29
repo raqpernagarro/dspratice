@@ -1,0 +1,41 @@
+/* Layout only. Colors, sizes and type come from switch.tokens.css (generated from switch.spec.ts). */
+
+.ds-switch {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-switch:has(> .ds-switch__control[data-disabled]) {
+  cursor: not-allowed;
+}
+
+/* The track hugs the thumb; the thumb sits at the start, and at the end while checked. */
+.ds-switch__control {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  border-style: solid;
+  outline: 0;
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-regular);
+}
+
+.ds-switch__control[data-checked] {
+  justify-content: flex-end;
+}
+
+.ds-switch__control:focus-visible {
+  outline: 2px solid var(--color-shadow-focus-ring-primary);
+  outline-offset: 2px;
+}
+
+.ds-switch__thumb {
+  display: block;
+  flex-shrink: 0;
+}

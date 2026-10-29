@@ -1,0 +1,57 @@
+/* Layout only. Colors, sizes and type come from combobox.tokens.css (generated from combobox.spec.ts). */
+
+.ds-combobox {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  border-style: solid;
+}
+
+/* The input itself is bare: the box draws surface, border and focus ring. */
+.ds-combobox__value {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.ds-combobox__value::placeholder {
+  color: inherit;
+  opacity: 1;
+}
+
+.ds-combobox__value:disabled {
+  cursor: not-allowed;
+}
+
+.ds-combobox__clear,
+.ds-combobox__trigger {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: default;
+}
+
+.ds-combobox__clear:focus-visible,
+.ds-combobox__trigger:focus-visible {
+  outline: 0;
+  border-radius: var(--shape-radius-sm);
+  box-shadow: var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-combobox svg {
+  width: 100%;
+  height: 100%;
+}

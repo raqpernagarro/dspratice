@@ -1,0 +1,44 @@
+/* Generated from dialog.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-dialog {
+  padding-inline: var(--dialog-space-x, var(--space-lg));
+  padding-block: var(--dialog-space-y, var(--space-lg));
+  gap: var(--dialog-gap, var(--space-lg));
+  border-radius: var(--dialog-radius, var(--shape-radius-lg));
+  border-width: var(--dialog-border-width, var(--size-border-regular));
+  background-color: var(--dialog-background, var(--color-background-surface-high));
+  border-color: var(--dialog-border-color, var(--color-border-neutral-subtle));
+  box-shadow: var(--effect-shadow-elevation-high);
+}
+
+.ds-dialog__backdrop {
+  background-color: var(--dialog-backdrop, var(--color-background-overlay-regular));
+}
+
+.ds-dialog .ds-dialog__header {
+  gap: var(--dialog-header-gap, var(--space-xs));
+}
+
+.ds-dialog .ds-dialog__title {
+  color: var(--dialog-title-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--dialog-title-text-style-font-family, var(--font-family-primary));
+  font-size: var(--dialog-title-text-style-font-size, var(--font-size-body-lg));
+  line-height: var(--dialog-title-text-style-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--dialog-title-text-style-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-dialog .ds-dialog__description {
+  color: var(--dialog-description-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--dialog-description-text-style-font-family, var(--font-family-primary));
+  font-size: var(--dialog-description-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--dialog-description-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--dialog-description-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-dialog .ds-dialog__body {
+  gap: var(--dialog-body-gap, var(--space-md));
+}
+
+.ds-dialog .ds-dialog__actions {
+  gap: var(--dialog-actions-gap, var(--space-md));
+}

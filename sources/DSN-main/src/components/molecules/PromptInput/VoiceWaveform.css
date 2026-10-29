@@ -1,0 +1,45 @@
+.dsn-voice-waveform {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: var(--space-3xs);
+  flex: 1;
+  min-width: 0;
+  min-height: var(--size-control-height-md);
+}
+
+.dsn-voice-waveform-bar {
+  display: block;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: var(--space-2xs);
+  border-radius: var(--shape-radius-full);
+  background: var(--color-foreground-neutral-tertiary);
+  transform-origin: center bottom;
+}
+
+.dsn-voice-waveform[data-active] .dsn-voice-waveform-bar {
+  animation: dsn-voice-waveform-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes dsn-voice-waveform-pulse {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dsn-voice-waveform[data-active] .dsn-voice-waveform-bar {
+    animation: none;
+    transform: scaleY(0.65);
+    opacity: 0.75;
+  }
+}

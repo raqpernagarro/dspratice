@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["vitest.config.mts", "semantic-editor/vite.config.ts", "semantic-editor/bridge", ".storybook/main.ts"]
+}

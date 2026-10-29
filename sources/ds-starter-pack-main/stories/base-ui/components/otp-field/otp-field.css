@@ -1,0 +1,20 @@
+/* Layout only. Spacing, colors and type come from otp-field.tokens.css and otp-slot.tokens.css. */
+
+.ds-otp-field {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ds-otp-slot {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+  outline: 0;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-otp-slot[data-disabled] {
+  cursor: not-allowed;
+}

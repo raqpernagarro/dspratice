@@ -1,0 +1,20 @@
+/* Layout only. Colors, sizes and type come from field.tokens.css (generated from field.spec.ts). */
+
+.ds-field {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.ds-field__label,
+.ds-field__description,
+.ds-field__error {
+  margin: 0;
+}
+
+/* While invalid, the error message takes the description's place. */
+.ds-field[data-invalid] .ds-field__description {
+  display: none;
+}

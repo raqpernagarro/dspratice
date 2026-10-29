@@ -1,0 +1,82 @@
+{
+  "color": {
+    "background": {
+      "transparent": {
+        "$type": "color",
+        "$value": "{color/foreground/interactive/default}",
+        "$description": "Composite with opacity {opacity/0}",
+        "$extensions": {
+          "com.figma": {},
+          "com.nagarro.ds": {
+            "compositeOpacity": "{opacity/0}"
+          }
+        }
+      },
+      "interactive": {
+        "overlay": {
+          "hover": {
+            "$type": "color",
+            "$value": "{color/foreground/interactive/default}",
+            "$description": "Composite with opacity {opacity/10}",
+            "$extensions": {
+              "com.figma": {},
+              "com.nagarro.ds": {
+                "compositeOpacity": "{opacity/10}"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color/foreground/interactive/default}",
+            "$description": "Composite with opacity {opacity/15}",
+            "$extensions": {
+              "com.figma": {},
+              "com.nagarro.ds": {
+                "compositeOpacity": "{opacity/15}"
+              }
+            }
+          }
+        }
+      },
+      "danger": {
+        "overlay": {
+          "hover": {
+            "$type": "color",
+            "$value": "{color/background/danger/default}",
+            "$description": "Composite with opacity {opacity/10}",
+            "$extensions": {
+              "com.figma": {},
+              "com.nagarro.ds": {
+                "compositeOpacity": "{opacity/10}"
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color/background/danger/default}",
+            "$description": "Composite with opacity {opacity/20}",
+            "$extensions": {
+              "com.figma": {},
+              "com.nagarro.ds": {
+                "compositeOpacity": "{opacity/20}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "border": {
+      "transparent": {
+        "$type": "color",
+        "$value": "{color/foreground/interactive/default}",
+        "$description": "Composite with opacity {opacity/0}",
+        "$extensions": {
+          "com.figma": {},
+          "com.nagarro.ds": {
+            "compositeOpacity": "{opacity/0}"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+/* =============================================================================
+   AspectRatio
+   ─────────────────────────────────────────────────────────────────────────────
+   Namespaced with .dsn-aspect-ratio.
+
+   Ratios  (data-ratio):  1:1 | 4:3 | 3:2 | 16:9 | 21:9 | 3:4 | 9:16
+   Shapes  (data-shape):  rectangle | rounded | ellipse
+   Fit     (data-fit):    cover | contain | center   (absent → child styles itself)
+
+   Structure:
+     <div class="dsn-aspect-ratio" data-ratio="16:9" data-shape="rectangle">
+       <div class="dsn-aspect-ratio-content">{child}</div>
+     </div>
+
+   Ratios are class-level declarations (never inline) so consuming apps can
+   override aspect-ratio under their own @media / @container rules.
+
+   Token used:
+     --shape-radius-md  (Figma: size/radius/standard) — rounded shape
+   ============================================================================= */
+
+
+/* ── Ratio box ─────────────────────────────────────────────────────────────── */
+
+.dsn-aspect-ratio {
+  position:   relative;
+  display:    block;
+  width:      100%;
+  overflow:   hidden;
+  box-sizing: border-box;
+}
+
+.dsn-aspect-ratio[data-ratio='1:1']  { aspect-ratio: 1 / 1; }
+.dsn-aspect-ratio[data-ratio='4:3']  { aspect-ratio: 4 / 3; }
+.dsn-aspect-ratio[data-ratio='3:2']  { aspect-ratio: 3 / 2; }
+.dsn-aspect-ratio[data-ratio='16:9'] { aspect-ratio: 16 / 9; }
+.dsn-aspect-ratio[data-ratio='21:9'] { aspect-ratio: 21 / 9; }
+.dsn-aspect-ratio[data-ratio='3:4']  { aspect-ratio: 3 / 4; }
+.dsn-aspect-ratio[data-ratio='9:16'] { aspect-ratio: 9 / 16; }
+
+
+/* ── Shape ─────────────────────────────────────────────────────────────────── */
+
+.dsn-aspect-ratio[data-shape='rounded'] {
+  border-radius: var(--shape-radius-md);
+}
+
+/*
+  50% is geometry, not a design value: it produces an oval on any ratio
+  (a circle at 1:1). --shape-radius-full would produce a pill instead.
+*/
+.dsn-aspect-ratio[data-shape='ellipse'] {
+  border-radius: 50%;
+}
+
+
+/* ── Content slot ──────────────────────────────────────────────────────────── */
+
+.dsn-aspect-ratio-content {
+  position: absolute;
+  inset:    0;
+}
+
+
+/* ── Fit ───────────────────────────────────────────────────────────────────── */
+
+.dsn-aspect-ratio[data-fit='cover'] .dsn-aspect-ratio-content > *,
+.dsn-aspect-ratio[data-fit='contain'] .dsn-aspect-ratio-content > * {
+  display:    block;
+  width:      100%;
+  height:     100%;
+  box-sizing: border-box;
+}
+
+.dsn-aspect-ratio[data-fit='cover'] .dsn-aspect-ratio-content > * {
+  object-fit: cover;
+}
+
+.dsn-aspect-ratio[data-fit='contain'] .dsn-aspect-ratio-content > * {
+  object-fit: contain;
+}
+
+.dsn-aspect-ratio[data-fit='center'] .dsn-aspect-ratio-content {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+}

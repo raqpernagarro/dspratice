@@ -1,0 +1,41 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Menu.stories';
+import docs from './docs/menu.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { menuSpec } from './components/menu/menu.spec';
+import { menuItemSpec } from './components/menu/menu-item.spec';
+import { menuGroupLabelSpec } from './components/menu/menu-group-label.spec';
+import { menuSeparatorSpec } from './components/menu/menu-separator.spec';
+
+<Meta of={Stories} />
+
+# Menu
+
+<Canvas of={Stories.Default} />
+
+## Popup
+
+<Canvas of={Stories.Popup} />
+
+<SpecDocs spec={menuSpec} />
+
+# Menu Item
+
+Every variant of the Figma component set.
+
+<Canvas of={Stories.ItemMatrix} />
+
+<SpecDocs spec={menuItemSpec} />
+
+# Menu Group Label and Menu Separator
+
+Building blocks for the Menu's Items slot (in code, `Menu.GroupLabel` and `Menu.Separator`).
+
+<SpecDocs spec={menuGroupLabelSpec} />
+
+<SpecDocs spec={menuSeparatorSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={menuSpec.docs.baseUi} />

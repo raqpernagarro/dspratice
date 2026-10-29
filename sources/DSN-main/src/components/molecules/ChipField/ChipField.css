@@ -1,0 +1,83 @@
+.dsn-chip-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.dsn-chip-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.dsn-chip-field-label {
+  display: block;
+  margin: 0 0 var(--space-xs);
+  padding: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-chip-field-optional {
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-chip-field[data-error] .dsn-chip-field-label {
+  color: var(--color-foreground-interactive-destructive-default);
+}
+
+.dsn-chip-field[data-disabled] .dsn-chip-field-label {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-chip-field-group {
+  width: 100%;
+}
+
+.dsn-chip-field-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+}
+
+.dsn-chip-field-meta-icon-wrap {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  min-height: 16px;
+}
+
+.dsn-chip-field-meta-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-chip-field-helper {
+  margin: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-micro);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-chip-field[data-error] .dsn-chip-field-helper,
+.dsn-chip-field[data-error] .dsn-chip-field-meta-icon {
+  color: var(--color-foreground-interactive-destructive-default);
+}
+
+.dsn-chip-field[data-disabled] .dsn-chip-field-helper,
+.dsn-chip-field[data-disabled] .dsn-chip-field-meta-icon {
+  color: var(--color-foreground-neutral-secondary);
+}

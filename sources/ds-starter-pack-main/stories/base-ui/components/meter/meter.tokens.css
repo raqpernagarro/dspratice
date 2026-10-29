@@ -1,0 +1,32 @@
+/* Generated from meter.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-meter {
+  gap: var(--meter-gap, var(--space-sm));
+}
+
+.ds-meter .ds-meter__label {
+  color: var(--meter-label-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--meter-label-text-style-font-family, var(--font-family-primary));
+  font-size: var(--meter-label-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--meter-label-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--meter-label-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-meter .ds-meter__value {
+  color: var(--meter-value-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--meter-value-text-style-font-family, var(--font-family-primary));
+  font-size: var(--meter-value-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--meter-value-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--meter-value-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-meter .ds-meter__track {
+  height: var(--meter-track-height, var(--space-md));
+  border-radius: var(--meter-track-radius, var(--shape-radius-full));
+  background-color: var(--meter-track-background, var(--color-border-neutral-subtle));
+}
+
+.ds-meter .ds-meter__indicator {
+  border-radius: var(--meter-track-radius, var(--shape-radius-full));
+  background-color: var(--meter-indicator-background, var(--color-background-accent-default));
+}

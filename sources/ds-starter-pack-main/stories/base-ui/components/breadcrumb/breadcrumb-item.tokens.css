@@ -1,0 +1,36 @@
+/* Generated from breadcrumb-item.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-breadcrumb-item {
+  gap: var(--breadcrumb-item-gap, var(--space-xs));
+}
+
+.ds-breadcrumb-item .ds-breadcrumb-item__link:not([aria-current]) {
+  color: var(--breadcrumb-item-foreground-default, var(--color-foreground-neutral-secondary));
+  font-family: var(--breadcrumb-item-text-style-default-font-family, var(--font-family-primary));
+  font-size: var(--breadcrumb-item-text-style-default-font-size, var(--font-size-body-sm));
+  line-height: var(--breadcrumb-item-text-style-default-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--breadcrumb-item-text-style-default-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-breadcrumb-item .ds-breadcrumb-item__separator {
+  color: var(--breadcrumb-item-separator-foreground, var(--color-foreground-neutral-tertiary));
+  width: var(--breadcrumb-item-separator-size, var(--size-2xs));
+  height: var(--breadcrumb-item-separator-size, var(--size-2xs));
+}
+
+.ds-breadcrumb-item .ds-breadcrumb-item__link:hover:not([aria-current]),
+.ds-breadcrumb-item .ds-breadcrumb-item__link[data-preview-state="hover"] {
+  color: var(--breadcrumb-item-foreground-hover, var(--color-foreground-neutral-primary));
+  font-family: var(--breadcrumb-item-text-style-hover-font-family, var(--font-family-primary));
+  font-size: var(--breadcrumb-item-text-style-hover-font-size, var(--font-size-body-sm));
+  line-height: var(--breadcrumb-item-text-style-hover-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--breadcrumb-item-text-style-hover-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-breadcrumb-item .ds-breadcrumb-item__link[aria-current="page"] {
+  color: var(--breadcrumb-item-foreground-current, var(--color-foreground-neutral-primary));
+  font-family: var(--breadcrumb-item-text-style-current-font-family, var(--font-family-primary));
+  font-size: var(--breadcrumb-item-text-style-current-font-size, var(--font-size-body-sm));
+  line-height: var(--breadcrumb-item-text-style-current-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--breadcrumb-item-text-style-current-font-weight, var(--font-weight-body-strong));
+}

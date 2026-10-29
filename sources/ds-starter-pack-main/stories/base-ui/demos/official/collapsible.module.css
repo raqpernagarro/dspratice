@@ -1,0 +1,97 @@
+.Collapsible {
+  display: flex;
+  width: 12rem;
+  min-height: 9rem;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-foreground-neutral-primary);
+
+  
+}
+
+.Icon {
+  transition: transform var(--motion-duration-fast) var(--motion-ease-decelerate);
+}
+
+.Trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  height: var(--size-md);
+  padding: 0 var(--space-sm) 0 var(--space-md);
+  margin: 0;
+  border: 1px solid var(--color-border-interactive-default);
+  border-radius: var(--shape-radius-md);
+  background-color: var(--color-background-neutral-primary);
+  color: var(--color-foreground-neutral-primary);
+  font-family: inherit;
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-body-regular);
+  line-height: 1;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+
+  
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]) {
+      background-color: var(--color-background-interactive-subtle-hover);
+
+      
+    }
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: var(--color-background-interactive-subtle-pressed);
+
+    
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-shadow-focus-ring-primary);
+    outline-offset: -1px;
+
+    
+  }
+
+  &[data-panel-open] .Icon {
+    transform: rotate(90deg);
+  }
+
+  &[data-disabled] {
+    color: var(--color-foreground-interactive-disabled);
+    border-color: var(--color-border-interactive-disabled);
+
+    
+  }
+}
+
+.Panel {
+  display: flex;
+  height: var(--collapsible-panel-height);
+  flex-direction: column;
+  justify-content: end;
+  overflow: hidden;
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  transition: height var(--motion-duration-fast) var(--motion-ease-decelerate);
+
+  &[hidden]:not([hidden='until-found']) {
+    display: none;
+  }
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    height: 0;
+  }
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+}

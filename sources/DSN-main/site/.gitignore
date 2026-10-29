@@ -1,0 +1,13 @@
+.next/
+next-env.d.ts
+public/storybook/
+.vercel
+
+# Local prototype store (dev)
+.data/
+
+# Packed ds-ngr for starter pack downloads (scripts/build-starter-assets.mjs)
+.starter/
+
+# Packed ds-ngr CLI (scripts/build-cli-assets.mjs)
+public/cli/

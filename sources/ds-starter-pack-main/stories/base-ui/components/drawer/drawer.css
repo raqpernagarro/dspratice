@@ -1,0 +1,124 @@
+/* Layout only. Colors, spacing, type and the side-facing border / corners come from drawer.tokens.css. */
+
+.ds-drawer__backdrop {
+  position: fixed;
+  inset: 0;
+  min-height: 100dvh;
+  opacity: calc(1 - var(--drawer-swipe-progress, 0));
+  transition: opacity var(--motion-duration-slow) cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.ds-drawer__backdrop[data-starting-style],
+.ds-drawer__backdrop[data-ending-style] {
+  opacity: 0;
+}
+
+.ds-drawer__backdrop[data-swiping] {
+  transition-duration: 0ms;
+}
+
+.ds-drawer__viewport {
+  position: fixed;
+  inset: 0;
+  display: flex;
+}
+
+.ds-drawer__viewport[data-side='right'] {
+  justify-content: flex-end;
+}
+
+.ds-drawer__viewport[data-side='left'] {
+  justify-content: flex-start;
+}
+
+.ds-drawer__viewport[data-side='bottom'] {
+  align-items: flex-end;
+}
+
+.ds-drawer {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-width: 0;
+  outline: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transition: transform var(--motion-duration-slow) cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: transform;
+}
+
+.ds-drawer[data-side='right'],
+.ds-drawer[data-side='left'] {
+  width: 20rem;
+  max-width: calc(100vw - 3rem);
+  height: 100%;
+  transform: translateX(var(--drawer-swipe-movement-x, 0));
+}
+
+.ds-drawer[data-side='bottom'] {
+  width: 100%;
+  max-height: calc(100dvh - 3rem);
+  transform: translateY(var(--drawer-swipe-movement-y, 0));
+}
+
+.ds-drawer[data-side='right'][data-starting-style],
+.ds-drawer[data-side='right'][data-ending-style] {
+  transform: translateX(100%);
+}
+
+.ds-drawer[data-side='left'][data-starting-style],
+.ds-drawer[data-side='left'][data-ending-style] {
+  transform: translateX(-100%);
+}
+
+.ds-drawer[data-side='bottom'][data-starting-style],
+.ds-drawer[data-side='bottom'][data-ending-style] {
+  transform: translateY(100%);
+}
+
+.ds-drawer[data-swiping] {
+  transition-duration: 0ms;
+}
+
+/* A preview is drawn in place. */
+.ds-drawer[data-preview] {
+  transform: none;
+  max-width: none;
+}
+
+/* The content is laid out by the panel (its gap and padding). */
+.ds-drawer__content {
+  display: contents;
+}
+
+.ds-drawer__header {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-drawer__title,
+.ds-drawer__description {
+  margin: 0;
+}
+
+.ds-drawer__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-drawer__close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+}
+
+.ds-drawer:has(> .ds-drawer__close) .ds-drawer__header {
+  padding-right: var(--space-xl);
+}
+
+.ds-drawer__actions {
+  display: flex;
+  justify-content: end;
+}

@@ -1,0 +1,13 @@
+/* Layout only. Spacing comes from form.tokens.css (generated from form.spec.ts). */
+
+.ds-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.ds-form__actions {
+  display: flex;
+  align-items: center;
+}

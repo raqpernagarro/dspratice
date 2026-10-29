@@ -1,0 +1,225 @@
+/**
+ * NotificationCenter — component styles
+ *
+ * All values reference tokens.css via var(). No new tokens defined here.
+ * Composed from Button, Badge, Avatar, SegmentControl, SkeletonLoading,
+ * EmptyState and PopoverWrapper — this file only lays them out.
+ */
+
+/* =============================================================================
+   1. TRIGGER
+   ============================================================================= */
+
+.dsn-notification-center {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Bell + badge share a positioned box so the badge stays on the bell even
+   when a flex parent stretches the root. Also the panel's anchor. */
+.dsn-notification-center-anchor {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Unread count overlays the top-right corner of the bell button. */
+.dsn-notification-center-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(25%, -25%);
+  pointer-events: none;
+  line-height: 0;
+}
+
+/* =============================================================================
+   2. PANEL
+   ============================================================================= */
+
+.dsn-notification-center-panel {
+  max-width: calc(100vw - 2 * var(--space-md));
+}
+
+.dsn-notification-center-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-md) var(--space-xs);
+}
+
+.dsn-notification-center-title {
+  margin: 0;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--font-line-height-body-md);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-notification-center-filter {
+  padding: var(--space-xs);
+}
+
+/* The segment's trailing slot is a fixed 16px icon box — let it grow to fit the
+   unread Badge pill (2 digits, 99+). */
+.dsn-notification-center-filter .dsn-segment-control-selector-icon:has(.dsn-badge) {
+  width: auto;
+}
+
+.dsn-notification-center-content {
+  max-height: var(--popover-width-lg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.dsn-notification-center-footer {
+  display: flex;
+  padding: var(--space-xs);
+}
+
+/* =============================================================================
+   3. LIST + ITEM
+   ============================================================================= */
+
+.dsn-notification-center-list {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-2xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+.dsn-notification-center-list-item {
+  margin: 0;
+}
+
+.dsn-notification-center-item {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-xs);
+  border-radius: var(--shape-radius-control-sm);
+  background: transparent;
+  text-align: left;
+  font-family: var(--font-family-default);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
+}
+
+.dsn-notification-center-item[data-unread] {
+  background: var(--color-background-interactive-secondary-selected);
+}
+
+.dsn-notification-center-item:hover {
+  background: var(--color-background-interactive-secondary-hover);
+}
+
+.dsn-notification-center-item:active {
+  background: var(--color-background-interactive-secondary-active);
+}
+
+.dsn-notification-center-item:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-notification-center-item-avatar {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.dsn-notification-center-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  flex: 1;
+  min-width: 0;
+}
+
+.dsn-notification-center-item-title {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-notification-center-item[data-unread] .dsn-notification-center-item-title {
+  font-weight: var(--font-weight-medium);
+}
+
+.dsn-notification-center-item-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-notification-center-item-time {
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-micro);
+  color: var(--color-foreground-neutral-tertiary);
+}
+
+.dsn-notification-center-item-indicator {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: var(--font-line-height-label);
+}
+
+/* =============================================================================
+   4. LOADING + EMPTY
+   ============================================================================= */
+
+.dsn-notification-center-skeleton {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-xs);
+}
+
+.dsn-notification-center-skeleton-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  flex: 1;
+}
+
+.dsn-notification-center-empty {
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* =============================================================================
+   5. UTILITIES
+   ============================================================================= */
+
+.dsn-notification-center-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

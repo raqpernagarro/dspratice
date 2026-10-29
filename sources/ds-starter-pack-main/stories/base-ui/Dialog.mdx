@@ -1,0 +1,23 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Dialog.stories';
+import docs from './docs/dialog.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { dialogSpec } from './components/dialog/dialog.spec';
+
+<Meta of={Stories} />
+
+# Dialog
+
+<Canvas of={Stories.Default} />
+
+## As in Figma
+
+<Canvas of={Stories.Preview} />
+
+<SpecDocs spec={dialogSpec} />
+
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={dialogSpec.docs.baseUi} />

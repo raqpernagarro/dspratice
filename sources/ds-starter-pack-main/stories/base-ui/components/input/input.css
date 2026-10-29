@@ -1,0 +1,49 @@
+/* Layout only. Colors, sizes and type come from input.tokens.css (generated from input.spec.ts). */
+
+.ds-input {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  border-style: solid;
+  cursor: text;
+}
+
+.ds-input:has(> .ds-input__value[data-disabled]) {
+  cursor: not-allowed;
+}
+
+.ds-input__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.ds-input__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* The input itself is bare: the box draws surface, border and focus ring. */
+.ds-input__value {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+/* The placeholder takes the input's color, which the tokens set per Filled state. */
+.ds-input__value::placeholder {
+  color: inherit;
+  opacity: 1;
+}
+
+.ds-input__value:disabled {
+  cursor: not-allowed;
+}

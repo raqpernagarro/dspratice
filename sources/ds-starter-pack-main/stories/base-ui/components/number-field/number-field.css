@@ -1,0 +1,63 @@
+/* Layout only. Colors, sizes and type come from number-field.tokens.css (generated from number-field.spec.ts). */
+
+.ds-number-field__root {
+  display: inline-flex;
+}
+
+.ds-number-field {
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  width: 8rem;
+  overflow: hidden;
+  border-style: solid;
+}
+
+.ds-number-field__decrement,
+.ds-number-field__increment {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.ds-number-field__decrement {
+  border-right-style: solid;
+}
+
+.ds-number-field__increment {
+  border-left-style: solid;
+}
+
+.ds-number-field__decrement[data-disabled],
+.ds-number-field__increment[data-disabled] {
+  cursor: not-allowed;
+}
+
+.ds-number-field__decrement-icon,
+.ds-number-field__increment-icon {
+  display: inline-flex;
+}
+
+.ds-number-field svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ds-number-field__value {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}

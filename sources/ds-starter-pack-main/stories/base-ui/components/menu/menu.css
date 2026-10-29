@@ -1,0 +1,72 @@
+/*
+ * Layout only. Colors, spacing and type come from the generated menu, menu-item, menu-group-label
+ * and menu-separator token stylesheets.
+ */
+
+.ds-menu__positioner {
+  outline: 0;
+}
+
+.ds-menu {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 12rem;
+  border-style: solid;
+  outline: 0;
+  transform-origin: var(--transform-origin);
+  transition:
+    transform var(--motion-duration-fast) var(--motion-ease-decelerate),
+    opacity var(--motion-duration-fast) var(--motion-ease-decelerate);
+}
+
+.ds-menu[data-starting-style],
+.ds-menu[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.ds-menu-group-label {
+  margin: 0;
+}
+
+/* The line is the content box: padding keeps it inset from the popup's edges. */
+.ds-menu-separator {
+  box-sizing: content-box;
+  flex-shrink: 0;
+  margin: 0;
+  border: 0;
+  background-clip: content-box;
+}
+
+.ds-menu-item {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  outline: 0;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-menu-item__label {
+  flex: 1;
+  min-width: 0;
+}
+
+.ds-menu-item__indicator,
+.ds-menu-item__caret {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.ds-menu-item__icon {
+  display: inline-flex;
+}
+
+.ds-menu-item svg {
+  width: 100%;
+  height: 100%;
+}

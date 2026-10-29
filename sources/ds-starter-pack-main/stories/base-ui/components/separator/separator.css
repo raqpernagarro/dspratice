@@ -1,0 +1,12 @@
+/* Layout only. Thickness (by orientation) and color come from separator.tokens.css. */
+
+.ds-separator {
+  flex-shrink: 0;
+  align-self: stretch;
+  margin: 0;
+  border: 0;
+}
+
+.ds-separator[data-orientation='vertical'] {
+  height: auto;
+}

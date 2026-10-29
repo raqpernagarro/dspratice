@@ -1,0 +1,15 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './DirectionProvider.stories';
+import docs from './docs/direction-provider.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+
+<Meta of={Stories} />
+
+## Live example
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## Documentation
+
+<BaseUiMarkdown content={docs} sourceUrl="https://base-ui.com/react/utils/direction-provider" />

@@ -1,0 +1,60 @@
+/* Generated from drawer.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-drawer {
+  padding-inline: var(--drawer-space-x, var(--space-2xl));
+  padding-block: var(--drawer-space-y, var(--space-2xl));
+  gap: var(--drawer-gap, var(--space-2xl));
+  background-color: var(--drawer-background, var(--color-background-surface-high));
+  border-color: var(--drawer-border-color, var(--color-border-neutral-subtle));
+  box-shadow: var(--effect-shadow-elevation-high);
+}
+
+.ds-drawer[data-side="right"] {
+  border-top-left-radius: var(--drawer-radius, var(--shape-radius-lg));
+  border-bottom-left-radius: var(--drawer-radius, var(--shape-radius-lg));
+  border-left-width: var(--drawer-border-width, var(--size-border-regular));
+}
+
+.ds-drawer[data-side="left"] {
+  border-top-right-radius: var(--drawer-radius, var(--shape-radius-lg));
+  border-bottom-right-radius: var(--drawer-radius, var(--shape-radius-lg));
+  border-right-width: var(--drawer-border-width, var(--size-border-regular));
+}
+
+.ds-drawer[data-side="bottom"] {
+  border-top-left-radius: var(--drawer-radius, var(--shape-radius-lg));
+  border-top-right-radius: var(--drawer-radius, var(--shape-radius-lg));
+  border-top-width: var(--drawer-border-width, var(--size-border-regular));
+}
+
+.ds-drawer__backdrop {
+  background-color: var(--drawer-backdrop, var(--color-background-overlay-regular));
+}
+
+.ds-drawer .ds-drawer__header {
+  gap: var(--drawer-header-gap, var(--space-xs));
+}
+
+.ds-drawer .ds-drawer__title {
+  color: var(--drawer-title-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--drawer-title-text-style-font-family, var(--font-family-primary));
+  font-size: var(--drawer-title-text-style-font-size, var(--font-size-body-lg));
+  line-height: var(--drawer-title-text-style-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--drawer-title-text-style-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-drawer .ds-drawer__description {
+  color: var(--drawer-description-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--drawer-description-text-style-font-family, var(--font-family-primary));
+  font-size: var(--drawer-description-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--drawer-description-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--drawer-description-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-drawer .ds-drawer__body {
+  gap: var(--drawer-body-gap, var(--space-md));
+}
+
+.ds-drawer .ds-drawer__actions {
+  gap: var(--drawer-actions-gap, var(--space-md));
+}

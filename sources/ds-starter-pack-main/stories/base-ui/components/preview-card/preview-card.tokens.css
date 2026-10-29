@@ -1,0 +1,39 @@
+/* Generated from preview-card.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-preview-card {
+  padding-inline: var(--preview-card-space-x, var(--space-sm));
+  padding-block: var(--preview-card-space-y, var(--space-sm));
+  gap: var(--preview-card-gap, var(--space-sm));
+  border-radius: var(--preview-card-radius, var(--shape-radius-lg));
+  border-width: var(--preview-card-border-width, var(--size-border-regular));
+  background-color: var(--preview-card-background, var(--color-background-surface-medium));
+  border-color: var(--preview-card-border-color, var(--color-border-neutral-subtle));
+  box-shadow: var(--effect-shadow-elevation-medium);
+}
+
+.ds-preview-card .ds-preview-card__arrow::before {
+  border-width: var(--preview-card-border-width, var(--size-border-regular));
+  background-color: var(--preview-card-background, var(--color-background-surface-medium));
+  border-color: var(--preview-card-border-color, var(--color-border-neutral-subtle));
+}
+
+.ds-preview-card .ds-preview-card__image {
+  background-color: var(--preview-card-image-background, var(--color-background-neutral-tertiary));
+  border-radius: var(--preview-card-image-radius, var(--shape-radius-md));
+}
+
+.ds-preview-card .ds-preview-card__title {
+  color: var(--preview-card-title-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--preview-card-title-text-style-font-family, var(--font-family-primary));
+  font-size: var(--preview-card-title-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--preview-card-title-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--preview-card-title-text-style-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-preview-card .ds-preview-card__summary {
+  color: var(--preview-card-summary-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--preview-card-summary-text-style-font-family, var(--font-family-primary));
+  font-size: var(--preview-card-summary-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--preview-card-summary-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--preview-card-summary-text-style-font-weight, var(--font-weight-body-regular));
+}

@@ -1,0 +1,106 @@
+.dsn-file-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  width: 100%;
+  min-height: 48px;
+}
+
+.dsn-file-row-thumbnail {
+  flex-shrink: 0;
+}
+
+.dsn-file-row-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 48px;
+  min-width: 0;
+}
+
+.dsn-file-row-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 24px;
+  gap: var(--space-xs);
+}
+
+.dsn-file-row-title {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-foreground-neutral-secondary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-body-md);
+  letter-spacing: var(--font-letter-spacing-tight);
+}
+
+.dsn-file-row[data-state='hover'] .dsn-file-row-title {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-file-row:hover .dsn-file-row-title,
+.dsn-file-row:focus-within .dsn-file-row-title {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-file-row-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: var(--space-none) 0;
+  min-height: 24px;
+  color: var(--color-foreground-neutral-tertiary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-micro);
+  letter-spacing: var(--font-letter-spacing-tight);
+}
+
+.dsn-file-row-actions {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  overflow: hidden;
+  border-radius: var(--shape-radius-control-sm);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  height: 0;
+  transition: opacity var(--motion-transition-fast);
+}
+
+/* Actions replace the meta line on hover — only when the row has actions */
+.dsn-file-row[data-has-actions][data-state='hover'] .dsn-file-row-meta,
+.dsn-file-row[data-has-actions]:hover .dsn-file-row-meta,
+.dsn-file-row[data-has-actions]:focus-within .dsn-file-row-meta {
+  display: none;
+}
+
+.dsn-file-row[data-state='hover'] .dsn-file-row-actions,
+.dsn-file-row:hover .dsn-file-row-actions,
+.dsn-file-row:focus-within .dsn-file-row-actions {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  height: 24px;
+}
+
+.dsn-file-row-action-btn {
+  flex-shrink: 0;
+}
+
+.dsn-file-row-progress {
+  width: 100%;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+}

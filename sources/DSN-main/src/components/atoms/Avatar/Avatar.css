@@ -1,0 +1,240 @@
+/**
+ * Avatar + AvatarGroup — component styles
+ *
+ * All values reference tokens.css via var(). No new tokens defined here.
+ * Figma sources:
+ *   Avatar      — DS-Ngr / Avatar (node 111:5684)
+ *   AvatarGroup — DS-Ngr / Avatar group (node 3058:116174)
+ *
+ * Structure:
+ *   1. Base                — .dsn-avatar
+ *   2. Size overrides      — [data-size="xxs|xs|sm|lg|xl|xxl"]
+ *   3. Variant shapes      — [data-variant="profile|organization"]
+ *   4. Fill: picture       — .dsn-avatar-image
+ *   5. Fill: icon          — .dsn-avatar-icon
+ *   6. AvatarGroup         — .dsn-avatar-group, .dsn-avatar-group-overflow
+ */
+
+/* =============================================================================
+   1. BASE
+   ============================================================================= */
+
+.dsn-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+
+  /* Default size — sm */
+  width:  var(--avatar-size-sm);   /* 32px */
+  height: var(--avatar-size-sm);
+
+  /* Surface */
+  background-color: var(--avatar-background);   /* #f6f6f6 */
+  border: var(--size-border-sm) solid var(--color-border-neutral-secondary); /* 1px rgba(0,0,0,.05) */
+
+  /* Default shape — profile (circle). Overridden by [data-variant] below. */
+  border-radius: var(--avatar-radius-user);
+
+  /* Typography — initials */
+  color:           var(--color-foreground-neutral-primary);
+  font-family:     var(--font-family-default);
+  font-size:       var(--font-size-micro);   /* 10px — sm default */
+  font-weight:     var(--font-weight-regular);
+  line-height:     1;
+  letter-spacing:  var(--font-letter-spacing-tight);
+
+  user-select: none;
+  box-sizing: border-box;
+}
+
+
+/* =============================================================================
+   2. SIZE OVERRIDES
+   Each size sets: width, height, font-size.
+   xxs + xs also bump font-weight to medium for legibility at small scale.
+   (Figma: xxs/xs use font/weight/medium; sm+ use font/weight/regular)
+   ============================================================================= */
+
+.dsn-avatar[data-size="xxs"] {
+  width:       var(--avatar-size-2xs);    /* 16px */
+  height:      var(--avatar-size-2xs);
+  font-size:   6px;
+  font-weight: var(--font-weight-regular);
+}
+
+.dsn-avatar[data-size="xs"] {
+  width:       var(--avatar-size-xs);     /* 24px */
+  height:      var(--avatar-size-xs);
+  font-size:   8px;
+  font-weight: var(--font-weight-regular);
+}
+
+.dsn-avatar[data-size="sm"] {
+  width:     var(--avatar-size-sm);   /* 32px */
+  height:    var(--avatar-size-sm);
+  font-size: var(--font-size-micro);  /* 10px — Figma: font/size/micro */
+}
+
+.dsn-avatar[data-size="lg"] {
+  width:     var(--avatar-size-lg);    /* 48px */
+  height:    var(--avatar-size-lg);
+  font-size: var(--font-size-body-sm);  /* 14px — Figma: font/size/body-s */
+}
+
+.dsn-avatar[data-size="xl"] {
+  width:     var(--avatar-size-xl);       /* 64px */
+  height:    var(--avatar-size-xl);
+  font-size: var(--font-size-display-sm);  /* 18px — Figma: font/size/display-s */
+}
+
+.dsn-avatar[data-size="xxl"] {
+  width:     var(--avatar-size-2xl);       /* 128px */
+  height:    var(--avatar-size-2xl);
+  font-size: var(--font-size-display-xl);  /* 30px — Figma: font/size/display-xl */
+}
+
+
+/* =============================================================================
+   3. VARIANT SHAPES
+   Profile      → perfect circle (--avatar-radius-user)
+   Organization → rounded square (--avatar-radius-organization, 8px)
+   ============================================================================= */
+
+.dsn-avatar[data-variant="profile"] {
+  border-radius: var(--avatar-radius-user);
+}
+
+.dsn-avatar[data-variant="organization"] {
+  border-radius: var(--avatar-radius-organization);
+}
+
+
+/* =============================================================================
+   4. FILL: PICTURE
+   The image fills the entire shape; border-radius clips it.
+   ============================================================================= */
+
+.dsn-avatar-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* =============================================================================
+   5. FILL: ICON
+   Icon container is 50% of avatar dimensions so there's breathing room.
+   Accepts any SVG child; SVG scales to fill the container.
+   ============================================================================= */
+
+.dsn-avatar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+  color: inherit;
+}
+
+.dsn-avatar-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+
+/* =============================================================================
+   6. AVATAR GROUP
+   Stacks avatars with a fixed −4px overlap (Figma: Gap/gap-negative-4 = -4).
+   A 1.25px solid ring (Figma: border/ui-icon = 1.25) in the page background
+   colour creates visual separation between overlapping avatars.
+   ============================================================================= */
+
+.dsn-avatar-group {
+  display: inline-flex;
+  align-items: center;
+  overflow: visible;
+}
+
+/* Ring separator — implemented as box-shadow so it doesn't affect layout */
+.dsn-avatar-group .dsn-avatar,
+.dsn-avatar-group .dsn-avatar-group-overflow {
+  position: relative;
+  box-shadow: 0 0 0 var(--size-border-icon) var(--color-background-neutral-primary);
+  /* 0 0 0 1.25px #fcfcfc — "cuts" through neighbours visually */
+
+  /* Distance-falloff hover lift. --dsn-avatar-* are runtime animation
+     state set by AvatarGroup, not design tokens. Duration comes from
+     --motion-transition-slow so prefers-reduced-motion zeroes it globally. */
+  transform-origin: center;
+  transform: translateY(var(--dsn-avatar-shift, 0px)) scale(var(--dsn-avatar-scale, 1));
+  transition: transform var(--motion-transition-slow);
+}
+
+/* Overlap: every avatar after the first (and the overflow chip) pulls left */
+.dsn-avatar-group .dsn-avatar + .dsn-avatar,
+.dsn-avatar-group .dsn-avatar-group-overflow {
+  margin-left: var(--avatar-overlap);  /* −4px — Figma: size/avatar/overlap */
+}
+
+/* ── Overflow "+N" counter ─────────────────────────────────────────────────── */
+
+.dsn-avatar-group-overflow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  background-color: var(--color-background-neutral-tertiary);  /* neutral fill */
+  border: var(--size-border-sm) solid var(--color-border-neutral-secondary);
+  border-radius: var(--shape-radius-full);  /* always circular */
+
+  color:          var(--color-foreground-neutral-secondary);    /* Figma: text/secondary = #565860 */
+  font-family:    var(--font-family-default);
+  font-size:      var(--font-size-micro);   /* 10px */
+  font-weight:    var(--font-weight-regular);
+  line-height:    1;
+  letter-spacing: var(--font-letter-spacing-tight);
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* Size the overflow chip to match its group's avatar size */
+.dsn-avatar-group[data-size="xxs"] .dsn-avatar-group-overflow {
+  width:  var(--avatar-size-2xs);   /* 16px */
+  height: var(--avatar-size-2xs);
+  font-size: 6px;
+}
+
+.dsn-avatar-group[data-size="xs"] .dsn-avatar-group-overflow {
+  width:  var(--avatar-size-xs);    /* 24px */
+  height: var(--avatar-size-xs);
+}
+
+.dsn-avatar-group[data-size="sm"] .dsn-avatar-group-overflow {
+  width:  var(--avatar-size-sm);    /* 32px */
+  height: var(--avatar-size-sm);
+}
+
+
+/* ── Add button + label (Figma: Show button / Show label) ─────────────────── */
+
+.dsn-avatar-group-button {
+  margin-left: var(--space-2xs);
+}
+
+.dsn-avatar-group-label {
+  margin-left: var(--space-xs);
+  color:          var(--color-foreground-neutral-secondary);
+  font-family:    var(--font-family-default);
+  font-size:      var(--font-size-label);
+  font-weight:    var(--font-weight-regular);
+  line-height:    var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  white-space:    nowrap;
+}

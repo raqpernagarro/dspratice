@@ -1,0 +1,7 @@
+/* Layout only. Spacing and type come from radio-group.tokens.css (generated from radio-group.spec.ts). */
+
+.ds-radio-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

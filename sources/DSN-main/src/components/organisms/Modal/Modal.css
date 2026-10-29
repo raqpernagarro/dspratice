@@ -1,0 +1,61 @@
+.dsn-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-index-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  box-sizing: border-box;
+}
+
+.dsn-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--color-background-overlay-strong);
+  pointer-events: none;
+}
+
+.dsn-modal {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 768px;
+  max-height: 100%;
+  overflow: hidden;
+  background: var(--color-background-neutral-primary);
+  border-radius: var(--modal-radius);
+  box-shadow:
+    0 0 0 var(--primitive-size-1) var(--color-shadow-contrast-border),
+    0 2px 8px 1px var(--color-shadow-default),
+    0 16px 24px -8px var(--color-shadow-default);
+}
+
+.dsn-modal-header {
+  width: 100%;
+}
+
+.dsn-modal-content {
+  width: 100%;
+  min-width: 0;
+  padding: 0 var(--space-md);
+  overflow-y: auto;
+}
+
+.dsn-modal-bottom-bar {
+  width: 100%;
+}
+
+.dsn-modal-title-assistive {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(50%);
+  overflow: hidden;
+}

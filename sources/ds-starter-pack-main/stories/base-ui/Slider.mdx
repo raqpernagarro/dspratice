@@ -1,0 +1,27 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Slider.stories';
+import docs from './docs/slider.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { sliderSpec } from './components/slider/slider.spec';
+
+<Meta of={Stories} />
+
+# Slider
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## Range
+
+<Canvas of={Stories.Range} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={sliderSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={sliderSpec.docs.baseUi} />

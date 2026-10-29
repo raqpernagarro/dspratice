@@ -1,0 +1,63 @@
+.dsn-custom-view-tabs-bar-story {
+  inline-size: 100%;
+  overflow: hidden;
+}
+
+.dsn-custom-view-tabs-bar-story .dsn-custom-view-tabs {
+  overflow: hidden;
+}
+
+/* Header: owns the full-width bottom border so it spans both the
+   scrollable tablist and the sticky add button */
+.dsn-custom-view-tabs-bar-story .dsn-custom-view-tabs-header {
+  border-block-end: var(--size-border-sm) solid var(--color-border-neutral-primary);
+  align-items: flex-end;
+}
+
+.dsn-custom-view-tabs-bar-story .dsn-custom-view-tabs-list {
+  flex-wrap: nowrap;
+  padding-block-start: var(--space-xs);
+  padding-inline-start: var(--space-xs);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-gutter: stable;
+}
+
+.dsn-custom-view-tabs-bar-story .dsn-custom-view-tabs-item {
+  flex: 0 0 auto;
+}
+
+.dsn-custom-view-tabs-bar-story .dsn-custom-view-tabs-item[data-selected] {
+  position: relative;
+  z-index: 2;
+  margin-block-end: calc(var(--size-border-sm) * -1);
+  border-block-end-color: transparent;
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-custom-view-tabs-bar-story .dsn-custom-view-tabs-item[data-selected]::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: calc(var(--size-border-sm) * -1);
+  block-size: var(--size-border-sm);
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-custom-view-tabs-bar-story .dsn-custom-view-tabs-item[data-selected][data-sticky-edge='left'] {
+  position: sticky;
+  inset-inline-start: 0;
+}
+
+.dsn-custom-view-tabs-bar-story .dsn-custom-view-tabs-item[data-selected][data-sticky-edge='right'] {
+  position: sticky;
+  inset-inline-end: 0;
+}
+
+.dsn-custom-view-tabs-bar-story .dsn-custom-view-tabs-add-wrap {
+  flex: 0 0 auto;
+}
+
+.dsn-custom-view-tabs-bar-story .dsn-custom-view-tabs-add-button .dsn-button-label {
+  display: none;
+}

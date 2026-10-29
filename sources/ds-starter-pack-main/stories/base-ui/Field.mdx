@@ -1,0 +1,25 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Field.stories';
+import docs from './docs/field.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { fieldSpec } from './components/field/field.spec';
+
+<Meta of={Stories} />
+
+# {fieldSpec.name}
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## All variants
+
+Every variant of the Figma component set, with interaction states shown statically.
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={fieldSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={fieldSpec.docs.baseUi} />

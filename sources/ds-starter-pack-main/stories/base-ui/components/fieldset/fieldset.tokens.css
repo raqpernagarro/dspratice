@@ -1,0 +1,38 @@
+/* Generated from fieldset.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-fieldset[data-size="sm"] {
+  gap: var(--fieldset-gap-sm, var(--space-sm));
+}
+
+.ds-fieldset[data-size="md"] {
+  gap: var(--fieldset-gap-md, var(--space-md));
+}
+
+.ds-fieldset[data-size="lg"] {
+  gap: var(--fieldset-gap-lg, var(--space-lg));
+}
+
+.ds-fieldset .ds-fieldset__legend {
+  color: var(--fieldset-legend-foreground, var(--color-foreground-neutral-primary));
+}
+
+.ds-fieldset[data-size="sm"] .ds-fieldset__legend {
+  font-family: var(--fieldset-legend-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--fieldset-legend-text-style-sm-font-size, var(--font-size-body-md));
+  line-height: var(--fieldset-legend-text-style-sm-line-height, var(--font-line-height-body-md));
+  font-weight: var(--fieldset-legend-text-style-sm-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-fieldset[data-size="md"] .ds-fieldset__legend {
+  font-family: var(--fieldset-legend-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--fieldset-legend-text-style-md-font-size, var(--font-size-body-lg));
+  line-height: var(--fieldset-legend-text-style-md-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--fieldset-legend-text-style-md-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-fieldset[data-size="lg"] .ds-fieldset__legend {
+  font-family: var(--fieldset-legend-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--fieldset-legend-text-style-lg-font-size, var(--font-size-heading-sm));
+  line-height: var(--fieldset-legend-text-style-lg-line-height, var(--font-line-height-heading-sm));
+  font-weight: var(--fieldset-legend-text-style-lg-font-weight, var(--font-weight-heading-strong));
+}

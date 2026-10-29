@@ -1,0 +1,43 @@
+/**
+ * SplitButton — component styles
+ *
+ * All values reference tokens.css via var(). No new tokens defined here.
+ * Figma source: DS-Ngr / Split button (node 5772:189085)
+ *
+ * Structure:
+ *   1. Wrapper
+ *   2. Size override  [data-size="sm"]
+ *   3. Inner button overrides
+ */
+
+/* =============================================================================
+   1. WRAPPER
+   Provides outer border-radius, clip, and group-level shadow.
+   Individual button shadows create the visual divider at the junction.
+   ============================================================================= */
+
+.dsn-split-button {
+  display: inline-flex;
+  gap: 0;
+  border-radius: var(--shape-radius-control-md); /* 16px — md default */
+  overflow: clip;
+  box-shadow: var(--button-shadow-group);
+}
+
+/* =============================================================================
+   2. SIZE OVERRIDE — sm
+   ============================================================================= */
+
+.dsn-split-button[data-size="sm"] {
+  border-radius: var(--shape-radius-control-sm); /* 12px */
+}
+
+/* =============================================================================
+   3. INNER BUTTON OVERRIDES
+   The container handles all corner rounding via overflow: clip.
+   Individual buttons must have no border-radius of their own.
+   ============================================================================= */
+
+.dsn-split-button .dsn-button {
+  border-radius: 0;
+}

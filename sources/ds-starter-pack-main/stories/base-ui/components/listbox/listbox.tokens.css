@@ -1,0 +1,21 @@
+/* Generated from listbox.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-listbox {
+  padding-inline: var(--listbox-space-x, var(--space-xs));
+  padding-block: var(--listbox-space-y, var(--space-xs));
+  border-radius: var(--listbox-radius, var(--shape-radius-lg));
+  border-width: var(--listbox-border-width, var(--size-border-regular));
+  background-color: var(--listbox-background, var(--color-background-surface-medium));
+  border-color: var(--listbox-border-color, var(--color-border-neutral-subtle));
+  box-shadow: var(--effect-shadow-elevation-medium);
+}
+
+.ds-listbox .ds-listbox__empty {
+  padding-inline: var(--listbox-empty-space-x, var(--space-md));
+  padding-block: var(--listbox-empty-space-y, var(--space-sm));
+  color: var(--listbox-empty-foreground, var(--color-foreground-neutral-secondary));
+  font-family: var(--listbox-empty-text-style-font-family, var(--font-family-primary));
+  font-size: var(--listbox-empty-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--listbox-empty-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--listbox-empty-text-style-font-weight, var(--font-weight-body-regular));
+}

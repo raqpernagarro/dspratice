@@ -1,0 +1,23 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './AlertDialog.stories';
+import docs from './docs/alert-dialog.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { alertDialogSpec } from './components/alert-dialog/alert-dialog.spec';
+
+<Meta of={Stories} />
+
+# Alert Dialog
+
+<Canvas of={Stories.Default} />
+
+## As in Figma
+
+<Canvas of={Stories.Preview} />
+
+<SpecDocs spec={alertDialogSpec} />
+
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={alertDialogSpec.docs.baseUi} />

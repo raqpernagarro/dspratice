@@ -1,0 +1,82 @@
+.base-ui-docs {
+  line-height: 1.6;
+}
+
+.base-ui-docs pre {
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin: 16px 0;
+  overflow-x: auto;
+  padding: 16px;
+}
+
+.base-ui-docs pre code {
+  background: transparent;
+  border: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding: 0;
+}
+
+.base-ui-docs :not(pre) > code {
+  background: #f3f4f6;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: 0.875em;
+  padding: 0.15em 0.35em;
+}
+
+.base-ui-docs table {
+  border-collapse: collapse;
+  display: block;
+  margin: 16px 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.base-ui-docs th,
+.base-ui-docs td {
+  border: 1px solid #e5e7eb;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.base-ui-docs th {
+  background: #f9fafb;
+}
+
+.base-ui-docs blockquote {
+  border-left: 4px solid #e5e7eb;
+  color: #4b5563;
+  margin: 16px 0;
+  padding-left: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .base-ui-docs pre {
+    background: #111827;
+    border-color: #374151;
+  }
+
+  .base-ui-docs :not(pre) > code {
+    background: #1f2937;
+  }
+
+  .base-ui-docs th,
+  .base-ui-docs td {
+    border-color: #374151;
+  }
+
+  .base-ui-docs th {
+    background: #1f2937;
+  }
+
+  .base-ui-docs blockquote {
+    border-color: #374151;
+    color: #d1d5db;
+  }
+}

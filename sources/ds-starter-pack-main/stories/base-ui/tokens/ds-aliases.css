@@ -1,0 +1,36 @@
+/*
+ * Legacy --ds-* names used by the Base UI demo CSS modules, mapped onto the semantic layer
+ * (Tokens-semantic-v2). Demos keep working while they migrate to semantic names directly.
+ * Load after figma-semantic.css.
+ */
+:root,
+.theme-scope {
+  --ds-bg-canvas: var(--color-background-neutral-primary);
+  --ds-bg-surface: var(--color-background-neutral-secondary);
+  --ds-fg-default: var(--color-foreground-neutral-primary);
+  --ds-fg-muted: var(--color-foreground-neutral-secondary);
+  --ds-border-default: var(--color-border-neutral-regular);
+
+  --ds-control-bg: var(--color-background-neutral-primary);
+  --ds-control-fg: var(--color-foreground-neutral-primary);
+  --ds-control-border: var(--color-border-interactive-default);
+  --ds-control-bg-hover: var(--color-background-interactive-subtle-hover);
+  --ds-control-bg-active: var(--color-background-interactive-subtle-pressed);
+  --ds-control-fg-disabled: var(--color-foreground-interactive-disabled);
+  --ds-control-border-disabled: var(--color-border-interactive-disabled);
+  --ds-focus-ring: var(--color-shadow-focus-ring-primary);
+  --ds-popup-bg: var(--color-background-surface-medium);
+  --ds-popup-fg: var(--color-foreground-neutral-primary);
+  --ds-track-bg: var(--color-border-neutral-subtle);
+  --ds-indicator: var(--color-foreground-accent);
+  --ds-color-error: var(--color-foreground-error);
+
+  --ds-font-family: var(--font-family-primary), system-ui, sans-serif;
+  --ds-font-size-sm: var(--font-size-body-sm);
+  --ds-font-size-md: var(--font-size-body-md);
+  --ds-font-size-lg: var(--font-size-body-lg);
+  --ds-font-weight-regular: var(--font-weight-body-regular);
+  --ds-font-weight-strong: var(--font-weight-body-strong);
+
+  --ds-radius-control: var(--shape-radius-md);
+}

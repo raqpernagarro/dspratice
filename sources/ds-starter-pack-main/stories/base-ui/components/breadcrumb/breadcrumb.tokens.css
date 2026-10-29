@@ -1,0 +1,5 @@
+/* Generated from breadcrumb.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-breadcrumb .ds-breadcrumb__list {
+  gap: var(--breadcrumb-gap, var(--space-xs));
+}

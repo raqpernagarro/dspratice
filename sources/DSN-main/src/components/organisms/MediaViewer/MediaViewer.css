@@ -1,0 +1,416 @@
+/* =============================================================================
+   MediaViewer
+   ─────────────────────────────────────────────────────────────────────────────
+   Namespaced with .dsn-media-viewer. Portaled to document.body.
+
+   Structure:
+     <div class="dsn-media-viewer" role="dialog" aria-modal="true">
+       <header class="dsn-media-viewer-topbar">
+         <div class="dsn-media-viewer-info"> Avatar · title · Tag · size · meta </div>
+         <div class="dsn-media-viewer-controls"> ButtonGroup(actions) · ButtonGroup(zoom) · close </div>
+       </header>
+       <div class="dsn-media-viewer-stage">
+         <div class="dsn-media-viewer-track">                        ← translateX, like Carousel
+           <div class="dsn-media-viewer-item" role="group"> img | video | iframe | fallback </div> × n
+         </div>
+         <div class="dsn-media-viewer-arrow" data-side="previous|next"> button </div>
+         <div class="dsn-media-viewer-counter">3 / 27</div>
+       </div>
+       <div class="dsn-media-viewer-live" aria-live="polite" />   ← visually hidden
+       <div class="dsn-media-viewer-thumbnails"> button × n </div>
+     </div>
+
+   Tokens used:
+     --color-background-neutral-primary                                          top bar (themed, so DS Buttons render as designed)
+     --color-background-fixed-dark-primary / -secondary                  stage + thumbnail strip (dark in both themes)
+     --color-background-fixed-light-primary / --color-foreground-fixed-dark-primary arrows, counter (light pills on the always-dark stage)
+     --color-background-fixed-dark-tertiary / --color-foreground-fixed-light-primary file-type thumbnails
+     --color-border-interactive-primary-selected                                      selected thumbnail
+     --button-shadow-focus                                           focus ring
+     --z-index-modal                                                     stacking
+     --motion-transition-normal                                          slide transition
+   ============================================================================= */
+
+
+/* ── Root ──────────────────────────────────────────────────────────────────── */
+
+.dsn-media-viewer {
+  position:         fixed;
+  inset:            0;
+  z-index:          var(--z-index-modal);
+  display:          flex;
+  flex-direction:   column;
+  background-color: var(--color-background-fixed-dark-primary);
+  font-family:      var(--font-family-default);
+}
+
+.dsn-media-viewer:focus-visible {
+  outline: none;
+}
+
+
+/* ── Top bar ───────────────────────────────────────────────────────────────── */
+
+.dsn-media-viewer-topbar {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  gap:              var(--space-md);
+  flex-shrink:      0;
+  padding-block:    var(--space-xs);
+  padding-inline:   var(--space-md);
+  background-color: var(--color-background-neutral-primary);
+  border-bottom:    var(--size-border-sm) solid var(--color-border-neutral-primary);
+}
+
+.dsn-media-viewer-info {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-xs);
+  min-width:   0;
+}
+
+.dsn-media-viewer-avatar {
+  flex-shrink: 0;
+}
+
+.dsn-media-viewer-text {
+  display:        flex;
+  flex-direction: column;
+  min-width:      0;
+}
+
+.dsn-media-viewer-title-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-xs);
+  min-width:   0;
+}
+
+.dsn-media-viewer-title {
+  margin:        0;
+  min-width:     0;
+  overflow:      hidden;
+  text-overflow: ellipsis;
+  white-space:   nowrap;
+  color:         var(--color-foreground-neutral-primary);
+  font-size:     var(--font-size-body-sm);
+  line-height:   var(--font-line-height-body-sm);
+  font-weight:   var(--font-weight-semibold);
+}
+
+.dsn-media-viewer-type {
+  flex-shrink: 0;
+}
+
+.dsn-media-viewer-size,
+.dsn-media-viewer-meta {
+  color:       var(--color-foreground-neutral-secondary);
+  font-size:   var(--font-size-micro);
+  line-height: var(--font-line-height-micro);
+  white-space: nowrap;
+}
+
+.dsn-media-viewer-size {
+  flex-shrink:          0;
+  font-variant-numeric: tabular-nums;
+}
+
+.dsn-media-viewer-meta {
+  display:       flex;
+  gap:           var(--space-xs);
+  overflow:      hidden;
+  text-overflow: ellipsis;
+}
+
+.dsn-media-viewer-controls {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-xs);
+  flex-shrink: 0;
+}
+
+/* Keeps the zoom group from jumping width as the percentage changes. */
+.dsn-media-viewer-zoom-value {
+  min-width:            var(--size-xl);
+  justify-content:      center;
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* ── Stage ─────────────────────────────────────────────────────────────────── */
+
+.dsn-media-viewer-stage {
+  position:     relative;
+  flex:         1 1 auto;
+  min-height:   0;
+  overflow:     hidden;
+  touch-action: pan-y;
+}
+
+.dsn-media-viewer-track {
+  position:   absolute;
+  inset:      0;
+  display:    flex;
+  transition: transform var(--motion-transition-normal);
+}
+
+.dsn-media-viewer-item {
+  position:        relative;
+  flex:            0 0 100%;
+  width:           100%;
+  height:          100%;
+  box-sizing:      border-box;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         var(--space-md);
+  overflow:        hidden;
+}
+
+/* Images, PDFs and video are shown whole (contain), never cropped. */
+.dsn-media-viewer-zoom,
+.dsn-media-viewer-zoom-content {
+  width:  100% !important;
+  height: 100% !important;
+}
+
+.dsn-media-viewer-zoom-content {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+}
+
+.dsn-media-viewer-image {
+  display:     block;
+  max-width:   100%;
+  max-height:  100%;
+  object-fit:  contain;
+  user-select: none;
+}
+
+.dsn-media-viewer-video {
+  display:          block;
+  max-width:        100%;
+  max-height:       100%;
+  background-color: var(--color-background-fixed-dark-primary);
+}
+
+.dsn-media-viewer-video:focus-visible,
+.dsn-media-viewer-pdf:focus-visible {
+  outline:    none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+/* Room on both sides for the arrows. */
+.dsn-media-viewer-pdf {
+  width:            100%;
+  max-width:        var(--size-container-xl);
+  height:           100%;
+  border:           none;
+  border-radius:    var(--shape-radius-sm);
+  background-color: var(--color-background-fixed-light-primary);
+}
+
+
+/* ── No-preview fallback ───────────────────────────────────────────────────── */
+
+.dsn-media-viewer-fallback {
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  gap:              var(--space-xs);
+  max-width:        var(--size-container-md);
+  padding:          var(--space-lg);
+  border:           var(--size-border-sm) solid var(--color-border-neutral-primary);
+  border-radius:    var(--shape-radius-md);
+  background-color: var(--color-background-neutral-primary);
+  text-align:       center;
+}
+
+.dsn-media-viewer-fallback-title {
+  margin:        0;
+  max-width:     100%;
+  overflow:      hidden;
+  text-overflow: ellipsis;
+  white-space:   nowrap;
+  color:         var(--color-foreground-neutral-primary);
+  font-size:     var(--font-size-body-sm);
+  line-height:   var(--font-line-height-body-sm);
+  font-weight:   var(--font-weight-semibold);
+}
+
+.dsn-media-viewer-fallback-text {
+  margin:      0;
+  color:       var(--color-foreground-neutral-secondary);
+  font-size:   var(--font-size-body-sm);
+  line-height: var(--font-line-height-body-sm);
+}
+
+.dsn-media-viewer-fallback-link {
+  color:         var(--color-foreground-interactive-primary-default);
+  font-size:     var(--font-size-body-sm);
+  line-height:   var(--font-line-height-body-sm);
+  font-weight:   var(--font-weight-medium);
+  border-radius: var(--shape-radius-2xs);
+}
+
+.dsn-media-viewer-fallback-link:hover {
+  color: var(--color-foreground-interactive-primary-hover);
+}
+
+.dsn-media-viewer-fallback-link:focus-visible {
+  outline:    none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+
+/* ── Arrows + counter ──────────────────────────────────────────────────────── */
+
+.dsn-media-viewer-arrow {
+  position:  absolute;
+  top:       50%;
+  transform: translateY(-50%);
+  z-index:   1;
+}
+
+.dsn-media-viewer-arrow[data-side='previous'] { left:  var(--space-md); }
+.dsn-media-viewer-arrow[data-side='next']     { right: var(--space-md); }
+
+.dsn-media-viewer-arrow-button {
+  display:          inline-flex;
+  align-items:      center;
+  justify-content:  center;
+  width:            var(--size-control-height-md);
+  height:           var(--size-control-height-md);
+  padding:          var(--space-none);
+  border:           none;
+  border-radius:    var(--shape-radius-full);
+  background-color: var(--color-background-fixed-light-primary);
+  color:            var(--color-foreground-fixed-dark-primary);
+  cursor:           pointer;
+  transition:       background-color var(--motion-transition-fast);
+}
+
+.dsn-media-viewer-arrow-button:hover {
+  background-color: var(--color-background-fixed-light-secondary);
+}
+
+.dsn-media-viewer-arrow-button:focus-visible {
+  outline:    none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-media-viewer-counter {
+  position:         absolute;
+  left:             50%;
+  bottom:           var(--space-md);
+  z-index:          1;
+  transform:        translateX(-50%);
+  padding-block:    var(--space-3xs);
+  padding-inline:   var(--space-xs);
+  border-radius:    var(--shape-radius-full);
+  background-color: var(--color-background-fixed-light-primary);
+  color:            var(--color-foreground-fixed-dark-primary);
+  font-size:        var(--font-size-micro);
+  line-height:      var(--font-line-height-micro);
+  font-weight:      var(--font-weight-medium);
+  font-variant-numeric: tabular-nums;
+  white-space:      nowrap;
+  pointer-events:   none;
+}
+
+
+/* ── Live region (visually hidden) ─────────────────────────────────────────── */
+
+.dsn-media-viewer-live {
+  position:    absolute;
+  width:       1px;
+  height:      1px;
+  padding:     0;
+  margin:      -1px;
+  overflow:    hidden;
+  clip:        rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border:      0;
+}
+
+
+/* ── Thumbnails ────────────────────────────────────────────────────────────── */
+
+.dsn-media-viewer-thumbnails {
+  display:          flex;
+  justify-content:  safe center;
+  gap:              var(--space-xs);
+  flex-shrink:      0;
+  overflow-x:       auto;
+  padding:          var(--space-xs);
+  background-color: var(--color-background-fixed-dark-secondary);
+  scrollbar-width:  thin;
+}
+
+.dsn-media-viewer-thumbnail {
+  display:          inline-flex;
+  align-items:      center;
+  justify-content:  center;
+  flex:             0 0 var(--size-lg);
+  width:            var(--size-lg);
+  height:           var(--size-lg);
+  padding:          var(--space-none);
+  border:           none;
+  border-radius:    var(--shape-radius-2xs);
+  background-color: var(--color-background-fixed-dark-tertiary);
+  color:            var(--color-foreground-fixed-light-primary);
+  overflow:         hidden;
+  cursor:           pointer;
+  transition:       box-shadow var(--motion-transition-fast);
+}
+
+.dsn-media-viewer-thumbnail > img {
+  display:    block;
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+}
+
+.dsn-media-viewer-thumbnail[aria-current='true'] {
+  box-shadow: 0 0 0 var(--size-border-focus) var(--color-border-interactive-primary-selected);
+}
+
+.dsn-media-viewer-thumbnail:focus-visible {
+  outline:    none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+
+/* ── Small screens ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .dsn-media-viewer-topbar {
+    padding-inline: var(--space-md);
+  }
+
+  /* Title only — owner, date, type and size drop out. */
+  .dsn-media-viewer-avatar,
+  .dsn-media-viewer-type,
+  .dsn-media-viewer-size,
+  .dsn-media-viewer-meta {
+    display: none;
+  }
+
+  .dsn-media-viewer-item {
+    padding: var(--space-none);
+  }
+
+  .dsn-media-viewer-arrow[data-side='previous'] { left:  var(--space-xs); }
+  .dsn-media-viewer-arrow[data-side='next']     { right: var(--space-xs); }
+}
+
+
+/* ── Reduced motion ────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .dsn-media-viewer-track {
+    transition: none;
+  }
+}

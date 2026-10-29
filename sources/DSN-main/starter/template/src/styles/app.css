@@ -1,0 +1,13 @@
+/* Host-app CSS required by AppShell (see node_modules/ds-ngr/AI.md → Setup). */
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}

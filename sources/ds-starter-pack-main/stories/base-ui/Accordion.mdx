@@ -1,0 +1,27 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Accordion.stories';
+import docs from './docs/accordion.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { accordionSpec } from './components/accordion/accordion.spec';
+import { accordionItemSpec } from './components/accordion/accordion-item.spec';
+
+<Meta of={Stories} />
+
+# Accordion
+
+<Canvas of={Stories.Default} />
+
+<SpecDocs spec={accordionSpec} />
+
+# Accordion Item
+
+Every variant of the Figma component set:
+
+<Canvas of={Stories.ItemMatrix} />
+
+<SpecDocs spec={accordionItemSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={accordionSpec.docs.baseUi} />

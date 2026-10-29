@@ -1,0 +1,73 @@
+/* Generated from collapsible.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-collapsible {
+  gap: var(--collapsible-gap, var(--space-xs));
+}
+
+.ds-collapsible .ds-collapsible__trigger {
+  height: var(--collapsible-trigger-height, var(--size-lg));
+  padding-inline: var(--collapsible-trigger-space-x, var(--space-md));
+  gap: var(--collapsible-trigger-gap, var(--space-sm));
+  border-radius: var(--collapsible-trigger-radius, var(--shape-radius-md));
+  border-width: var(--collapsible-trigger-border-width, var(--size-border-regular));
+  background-color: var(--collapsible-trigger-background-default, var(--color-background-neutral-primary));
+  border-color: var(--collapsible-trigger-border-color-default, var(--color-border-interactive-default));
+  color: var(--collapsible-label-foreground-default, var(--color-foreground-neutral-primary));
+  font-family: var(--collapsible-label-text-style-font-family, var(--font-family-primary));
+  font-size: var(--collapsible-label-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--collapsible-label-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--collapsible-label-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-collapsible .ds-collapsible__icon {
+  width: var(--collapsible-icon-size, var(--size-xs));
+  height: var(--collapsible-icon-size, var(--size-xs));
+  color: var(--collapsible-icon-foreground-default, var(--color-foreground-neutral-primary));
+}
+
+.ds-collapsible .ds-collapsible__content {
+  padding-inline: var(--collapsible-panel-space-x, var(--space-md));
+  padding-block: var(--collapsible-panel-space-y, var(--space-sm));
+  gap: var(--collapsible-panel-gap, var(--space-sm));
+  color: var(--collapsible-panel-foreground, var(--color-foreground-neutral-primary));
+  font-family: var(--collapsible-panel-text-style-font-family, var(--font-family-primary));
+  font-size: var(--collapsible-panel-text-style-font-size, var(--font-size-body-md));
+  line-height: var(--collapsible-panel-text-style-line-height, var(--font-line-height-body-md));
+  font-weight: var(--collapsible-panel-text-style-font-weight, var(--font-weight-body-regular));
+}
+
+.ds-collapsible .ds-collapsible__trigger:hover:not(:disabled):not([data-disabled]),
+.ds-collapsible .ds-collapsible__trigger[data-preview-state="hover"] {
+  background-color: var(--collapsible-trigger-background-hover, var(--color-background-interactive-subtle-hover));
+  border-color: var(--collapsible-trigger-border-color-hover, var(--color-border-interactive-default));
+  color: var(--collapsible-label-foreground-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-collapsible .ds-collapsible__trigger:hover:not(:disabled):not([data-disabled]) .ds-collapsible__icon,
+.ds-collapsible .ds-collapsible__trigger[data-preview-state="hover"] .ds-collapsible__icon {
+  color: var(--collapsible-icon-foreground-hover, var(--color-foreground-neutral-primary));
+}
+
+.ds-collapsible .ds-collapsible__trigger:active:not(:disabled):not([data-disabled]),
+.ds-collapsible .ds-collapsible__trigger[data-preview-state="pressed"] {
+  background-color: var(--collapsible-trigger-background-pressed, var(--color-background-interactive-subtle-pressed));
+  border-color: var(--collapsible-trigger-border-color-pressed, var(--color-border-interactive-default));
+  color: var(--collapsible-label-foreground-pressed, var(--color-foreground-neutral-primary));
+}
+
+.ds-collapsible .ds-collapsible__trigger:active:not(:disabled):not([data-disabled]) .ds-collapsible__icon,
+.ds-collapsible .ds-collapsible__trigger[data-preview-state="pressed"] .ds-collapsible__icon {
+  color: var(--collapsible-icon-foreground-pressed, var(--color-foreground-neutral-primary));
+}
+
+.ds-collapsible .ds-collapsible__trigger:disabled,
+.ds-collapsible .ds-collapsible__trigger[data-disabled] {
+  background-color: var(--collapsible-trigger-background-disabled, var(--color-background-neutral-primary));
+  border-color: var(--collapsible-trigger-border-color-disabled, var(--color-border-interactive-disabled));
+  color: var(--collapsible-label-foreground-disabled, var(--color-foreground-interactive-disabled));
+}
+
+.ds-collapsible .ds-collapsible__trigger:disabled .ds-collapsible__icon,
+.ds-collapsible .ds-collapsible__trigger[data-disabled] .ds-collapsible__icon {
+  color: var(--collapsible-icon-foreground-disabled, var(--color-foreground-interactive-disabled));
+}

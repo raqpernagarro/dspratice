@@ -1,0 +1,23 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Switch.stories';
+import docs from './docs/switch.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { switchSpec } from './components/switch/switch.spec';
+
+<Meta of={Stories} />
+
+# Switch
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={switchSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={switchSpec.docs.baseUi} />

@@ -1,0 +1,27 @@
+.dsn-popover-menu-segment,
+.dsn-popover-menu-search {
+  padding: var(--space-xs);
+}
+
+.dsn-popover-menu-lists {
+  display: flex;
+  flex-direction: column;
+}
+
+.dsn-popover-menu .dsn-popover-menu-choice-list {
+  width: 100%;
+  border-top: 1px solid var(--color-border-neutral-primary);
+  box-shadow: none;
+}
+
+.dsn-popover-menu .dsn-popover-menu-choice-list:first-child {
+  border-top: none;
+}
+
+.dsn-popover-menu .dsn-choice-list-sections {
+  padding: 0;
+  gap: 0;
+  border-top: none;
+}
+
+

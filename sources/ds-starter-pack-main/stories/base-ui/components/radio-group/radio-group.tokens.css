@@ -1,0 +1,38 @@
+/* Generated from radio-group.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-radio-group[data-size="sm"] {
+  gap: var(--radio-group-gap-sm, var(--space-xs));
+}
+
+.ds-radio-group[data-size="md"] {
+  gap: var(--radio-group-gap-md, var(--space-xs));
+}
+
+.ds-radio-group[data-size="lg"] {
+  gap: var(--radio-group-gap-lg, var(--space-sm));
+}
+
+.ds-radio-group .ds-radio-group__label {
+  color: var(--radio-group-label-foreground, var(--color-foreground-neutral-primary));
+}
+
+.ds-radio-group[data-size="sm"] .ds-radio-group__label {
+  font-family: var(--radio-group-label-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--radio-group-label-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--radio-group-label-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--radio-group-label-text-style-sm-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-radio-group[data-size="md"] .ds-radio-group__label {
+  font-family: var(--radio-group-label-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--radio-group-label-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--radio-group-label-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--radio-group-label-text-style-md-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-radio-group[data-size="lg"] .ds-radio-group__label {
+  font-family: var(--radio-group-label-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--radio-group-label-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--radio-group-label-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--radio-group-label-text-style-lg-font-weight, var(--font-weight-body-strong));
+}

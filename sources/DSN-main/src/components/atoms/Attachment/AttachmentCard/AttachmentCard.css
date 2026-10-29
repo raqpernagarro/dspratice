@@ -1,0 +1,157 @@
+.dsn-attachment-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 128px;
+  max-width: 192px;
+}
+
+.dsn-attachment-card-thumbnail {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  height: 128px;
+  border: var(--size-border-sm) solid var(--color-border-neutral-secondary);
+  border-radius: var(--shape-radius-control-md);
+  background: var(--color-background-neutral-secondary);
+  overflow: hidden;
+}
+
+.dsn-attachment-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dsn-attachment-card-file-icon {
+  display: inline-flex;
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-attachment-card-loading {
+  display: inline-flex;
+}
+
+.dsn-attachment-card-action {
+  position: absolute;
+  top: var(--space-2xs);
+  right: var(--space-2xs);
+  opacity: 1;
+  transition: opacity var(--motion-transition-fast);
+}
+
+.dsn-attachment-card[data-show-action-on-hover]:not([data-loading]) .dsn-attachment-card-action {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.dsn-attachment-card[data-show-action-on-hover]:hover .dsn-attachment-card-action,
+.dsn-attachment-card[data-show-action-on-hover]:focus-within .dsn-attachment-card-action {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.dsn-attachment-card[data-description-position='inside'] .dsn-attachment-card-thumbnail {
+  height: 48px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--space-xs);
+  gap: var(--space-xs);
+  overflow: visible;
+}
+
+.dsn-attachment-card[data-description-position='inside'] .dsn-attachment-card-file-icon,
+.dsn-attachment-card[data-description-position='inside'] .dsn-attachment-card-loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.dsn-attachment-card[data-description-position='inside'] .dsn-attachment-card-file-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.dsn-attachment-card[data-description-position='inside'] .dsn-attachment-card-image {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--shape-radius-control-sm);
+  border: var(--size-border-sm) solid var(--color-border-neutral-secondary);
+  flex-shrink: 0;
+}
+
+.dsn-attachment-card-info {
+  min-width: 0;
+}
+
+.dsn-attachment-card-info--outside {
+  padding-bottom: var(--space-2xs);
+}
+
+.dsn-attachment-card-info--inside {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-md);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--color-background-neutral-secondary) 45%
+  );
+}
+
+.dsn-attachment-card[data-description-position='inside'] .dsn-attachment-card-info--inside {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  background: none;
+}
+
+.dsn-attachment-card[data-description-position='inside'] .dsn-attachment-card-action {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.dsn-attachment-card-title {
+  margin: 0;
+  color: var(--color-foreground-neutral-secondary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dsn-attachment-card-meta {
+  margin: 0;
+  color: var(--color-foreground-neutral-secondary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-micro);
+  letter-spacing: var(--font-letter-spacing-tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dsn-attachment-card:hover .dsn-attachment-card-title,
+.dsn-attachment-card:focus-within .dsn-attachment-card-title,
+.dsn-attachment-card[data-loading] .dsn-attachment-card-title {
+  color: var(--color-foreground-neutral-primary);
+}

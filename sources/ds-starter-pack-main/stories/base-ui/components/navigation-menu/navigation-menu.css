@@ -1,0 +1,127 @@
+/*
+ * Layout only (the panel's surface and arrow are in shared/popup.css). Colors, spacing and type
+ * come from navigation-menu.tokens.css and navigation-menu-item.tokens.css.
+ */
+
+.ds-navigation-menu {
+  min-width: max-content;
+}
+
+.ds-navigation-menu__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* --------------------------------------------------------------- items */
+
+.ds-navigation-menu-item {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-navigation-menu-item:focus-visible {
+  box-shadow: var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-navigation-menu-item__icon,
+.ds-navigation-menu-item__caret {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.ds-navigation-menu-item svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Line icon while inactive, filled while active (current page / open panel). */
+.ds-navigation-menu-item__icon--on,
+.ds-navigation-menu-item:is([data-active], [data-popup-open]) .ds-navigation-menu-item__icon--off {
+  display: none;
+}
+
+.ds-navigation-menu-item:is([data-active], [data-popup-open]) .ds-navigation-menu-item__icon--on {
+  display: inline-flex;
+}
+
+.ds-navigation-menu-item__caret {
+  transition: transform var(--motion-duration-medium) var(--motion-ease-regular);
+}
+
+.ds-navigation-menu-item__caret[data-popup-open] {
+  transform: rotate(180deg);
+}
+
+/* --------------------------------------------------------------- panel */
+
+.ds-navigation-menu__positioner {
+  box-sizing: border-box;
+  width: var(--positioner-width);
+  height: var(--positioner-height);
+  max-width: var(--available-width);
+  transition-property: top, left, right, bottom;
+  transition-duration: var(--motion-duration-slow);
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ds-navigation-menu__positioner[data-instant] {
+  transition: none;
+}
+
+.ds-navigation-menu__popup {
+  width: var(--popup-width);
+  height: var(--popup-height);
+  transition-property: opacity, transform, width, height;
+  transition-duration: var(--motion-duration-slow);
+}
+
+.ds-navigation-menu__popup[data-preview] {
+  width: max-content;
+  height: auto;
+}
+
+.ds-navigation-menu__viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.ds-navigation-menu__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  max-width: 400px;
+  height: 100%;
+  transition: opacity calc(var(--motion-duration-slow) * 0.5) var(--motion-ease-regular);
+}
+
+.ds-navigation-menu__content[data-starting-style],
+.ds-navigation-menu__content[data-ending-style] {
+  opacity: 0;
+}
+
+.ds-navigation-menu-link {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  outline: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.ds-navigation-menu-link:focus-visible {
+  box-shadow: var(--effect-shadow-focus-ring-primary);
+}

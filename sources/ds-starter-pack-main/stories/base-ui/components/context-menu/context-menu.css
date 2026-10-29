@@ -1,0 +1,6 @@
+/* The trigger is your own content; it only stops the browser selecting text on long-press. */
+.ds-context-menu__trigger {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}

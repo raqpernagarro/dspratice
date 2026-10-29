@@ -1,0 +1,178 @@
+.dsn-prompt-input {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: var(--shape-radius-lg);
+  background: var(--color-background-neutral-secondary);
+  border: var(--size-border-sm) solid var(--color-border-neutral-primary);
+  box-shadow:
+    0 var(--space-md) var(--space-lg) calc(-1 * var(--space-xs)) var(--color-shadow-default),
+    0 var(--space-2xs) var(--space-xs) var(--space-3xs) var(--color-shadow-default),
+    0 1px 1px 0px var(--color-shadow-outer-soft),
+    inset 0 0 0 var(--size-border-sm) var(--color-shadow-separator-emboss-light);
+}
+
+.dsn-prompt-input[data-disabled] {
+  cursor: not-allowed;
+}
+
+.dsn-prompt-input-quick-actions {
+  display: flex;
+  padding: var(--space-xs);
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+.dsn-prompt-input-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+  padding: var(--space-xs);
+  border-radius: var(--shape-radius-lg);
+  background: var(--color-background-neutral-primary);
+}
+
+.dsn-prompt-input-field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: var(--space-xs);
+  border: none;
+  resize: none;
+  overflow: hidden;
+  background: transparent;
+  color: var(--color-foreground-neutral-primary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-line-height-body-md);
+  letter-spacing: var(--font-letter-spacing-tight);
+  /* One line of text + vertical padding (border-box) */
+  min-height: calc(var(--font-line-height-body-md) + 2 * var(--space-xs));
+  field-sizing: content;
+}
+
+.dsn-prompt-input-field::placeholder {
+  color: var(--input-foreground-placeholder);
+}
+
+.dsn-prompt-input-field:focus,
+.dsn-prompt-input-field:focus-visible {
+  outline: none;
+}
+
+.dsn-prompt-input-field:disabled {
+  color: var(--color-foreground-interactive-disabled);
+  cursor: not-allowed;
+}
+
+.dsn-prompt-input-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+.dsn-prompt-input-footer {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.dsn-prompt-input-footer-start,
+.dsn-prompt-input-footer-end {
+  flex-shrink: 0;
+}
+
+.dsn-prompt-input-footer-center {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.dsn-prompt-input[data-dictating] .dsn-prompt-input-footer-center {
+  width: 100%;
+}
+
+.dsn-prompt-input-primary-cta .dsn-button {
+  border-radius: var(--shape-radius-full);
+  min-width: var(--size-control-height-md);
+  min-height: var(--size-control-height-md);
+  padding: var(--space-xs);
+}
+
+.dsn-prompt-input-model-selector {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.dsn-prompt-input-model-selector-trigger {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  max-width: 100%;
+  min-height: var(--size-control-height-md);
+  margin: 0;
+  padding: var(--space-xs);
+  border: none;
+  border-radius: var(--shape-radius-control-md);
+  background: transparent;
+  color: var(--color-foreground-neutral-secondary);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-label);
+  letter-spacing: var(--font-letter-spacing-tight);
+  cursor: pointer;
+  transition: background-color var(--motion-transition-fast);
+}
+
+.dsn-prompt-input-model-selector-trigger:hover:not(:disabled) {
+  background: var(--color-background-interactive-secondary-hover);
+}
+
+.dsn-prompt-input-model-selector-trigger:focus-visible {
+  outline: none;
+  box-shadow: var(--button-shadow-focus);
+}
+
+.dsn-prompt-input-model-selector-trigger:disabled {
+  color: var(--color-foreground-interactive-disabled);
+  cursor: not-allowed;
+}
+
+.dsn-prompt-input-model-selector-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dsn-prompt-input-model-selector-popover {
+  z-index: var(--z-index-popover);
+}
+
+.dsn-prompt-input-model-selector-menu {
+  display: flex;
+  flex-direction: column;
+  min-width: var(--size-container-xs);
+}
+
+.dsn-prompt-input-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

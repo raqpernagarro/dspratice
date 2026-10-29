@@ -1,0 +1,38 @@
+.Container {
+  display: flex;
+  gap: var(--space-lg);
+  text-wrap: nowrap;
+}
+
+.Separator {
+  width: 1px;
+  background-color: var(--color-border-neutral-subtle);
+
+  
+}
+
+.Link {
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  color: var(--color-foreground-neutral-primary);
+  text-decoration-color: var(--color-border-neutral-subtle);
+  text-decoration-thickness: 1px;
+  text-decoration-line: none;
+  text-underline-offset: 2px;
+
+  
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration-line: underline;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-shadow-focus-ring-primary);
+    outline-offset: 2px;
+    text-decoration-line: none;
+
+    
+  }
+}

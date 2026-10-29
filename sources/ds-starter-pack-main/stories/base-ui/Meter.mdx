@@ -1,0 +1,22 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Meter.stories';
+import docs from './docs/meter.md?raw';
+import { BaseUiMarkdown } from './shared/BaseUiMarkdown';
+import { SpecDocs } from './shared/SpecDocs';
+import { meterSpec } from './components/meter/meter.spec';
+
+<Meta of={Stories} />
+
+# Meter
+
+<Canvas of={Stories.Default} />
+
+## All variants
+
+<Canvas of={Stories.Matrix} />
+
+<SpecDocs spec={meterSpec} />
+
+## Behavior and API (Base UI)
+
+<BaseUiMarkdown content={docs} sourceUrl={meterSpec.docs.baseUi} />

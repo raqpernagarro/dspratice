@@ -1,0 +1,173 @@
+import type { StageId, ThemeProposal } from './themeAgent'
+
+/**
+ * Hand-made looks that run without an API key: the same progress UI, scripted.
+ * Each one commits to a character: colour, type, shape, and the extras the sliders can't reach.
+ */
+export interface ThemePreset {
+  id: string
+  name: string
+  blurb: string
+  steps: Partial<Record<StageId, string>>
+  proposal: ThemeProposal
+}
+
+const NO_STATUS = { info: null, success: null, warning: null, error: null }
+
+export const THEME_PRESETS: ThemePreset[] = [
+  {
+    id: 'playful',
+    name: 'Playful cartoon',
+    blurb: 'Bold ink outlines, sticker shadows, bouncy type.',
+    steps: {
+      understand: 'Cartoon means graphic: thick outlines, flat bright colour, shapes that look hand-inked.',
+      color: 'A punchy electric blue for actions, hot pink for highlights, crisp white surfaces.',
+      type: 'Fredoka for chunky, rounded headlines and Nunito for friendly body text.',
+      shape: 'Big 16px corners and pill buttons, like stickers.',
+      space: 'A little extra room so the heavy outlines can breathe.',
+      depth: 'Hard offset shadows with no blur: every card sits on the page like a cut-out.',
+      check: '2px ink outlines on all controls keep edges clear; blue is dark enough for white button text.',
+    },
+    proposal: {
+      summary: 'A loud, graphic cartoon system: ink outlines, sticker shadows, electric blue and pink.',
+      appearance: 'light',
+      main: { h: 262, c: 0.24, l: 0.52 },
+      accent: '#ff3e9d',
+      neutralTint: 0.12,
+      rampContrast: 1.3,
+      status: NO_STATUS,
+      bodyFont: 'Nunito',
+      headingFont: 'Fredoka',
+      baseSize: 16,
+      scale: 1.3,
+      radius: 16,
+      density: 1.1,
+      depth: null,
+      extras: { borderWidth: 2, borderColor: 'ink', shadow: 'hard', buttonShape: 'pill', headingWeight: 700 },
+    },
+  },
+  {
+    id: 'calm',
+    name: 'Calm healthcare',
+    blurb: 'Clean, airy, soft teal. Nothing shouts.',
+    steps: {
+      understand: 'Healthcare needs calm and trust: clean surfaces, soft colour, plenty of air.',
+      color: 'A muted teal-blue brand and almost pure greys, so the interface feels clinical-clean, not cold.',
+      type: 'Figtree throughout, with lighter 600 headings for a gentler voice.',
+      shape: '12px corners and pill buttons: approachable without being cute.',
+      space: 'Generous spacing to lower the visual load.',
+      depth: 'Barely-there shadows, just enough to lift cards.',
+      check: 'Every text pair passes AA; the teal stays dark enough for white text.',
+    },
+    proposal: {
+      summary: 'A clean, airy healthcare system in soft teal with gentle type.',
+      appearance: 'light',
+      main: { h: 200, c: 0.085, l: 0.5 },
+      accent: null,
+      neutralTint: 0.03,
+      rampContrast: 0.85,
+      status: NO_STATUS,
+      bodyFont: 'Figtree',
+      headingFont: null,
+      baseSize: 16,
+      scale: 1.2,
+      radius: 12,
+      density: 1.2,
+      depth: 0.15,
+      extras: { borderWidth: 1, borderColor: 'default', shadow: 'default', buttonShape: 'pill', headingWeight: 600 },
+    },
+  },
+  {
+    id: 'fintech',
+    name: 'Sharp fintech',
+    blurb: 'Dense, precise, deep indigo.',
+    steps: {
+      understand: 'Precise and data-heavy: lots on screen, nothing wasted.',
+      color: 'Deep indigo brand, neutral greys, crisp contrast, emerald for positive numbers.',
+      type: 'Inter for text, Space Grotesk for headings and figures.',
+      shape: 'Tight 4px corners.',
+      space: 'Compact density for tables and dashboards.',
+      depth: 'Flat surfaces; structure comes from hairlines, not shadows.',
+      check: 'Small text kept at 14px for readability.',
+    },
+    proposal: {
+      summary: 'A compact, precise indigo system for data-heavy screens.',
+      appearance: 'light',
+      main: { h: 275, c: 0.17, l: 0.45 },
+      accent: '#10b981',
+      neutralTint: 0.05,
+      rampContrast: 1.1,
+      status: NO_STATUS,
+      bodyFont: 'Inter',
+      headingFont: 'Space Grotesk',
+      baseSize: 14,
+      scale: 1.15,
+      radius: 4,
+      density: 0.85,
+      depth: null,
+      extras: { borderWidth: 1, borderColor: 'default', shadow: 'none', buttonShape: 'default', headingWeight: 600 },
+    },
+  },
+  {
+    id: 'editorial',
+    name: 'Editorial',
+    blurb: 'Serif headlines, ink hairlines, warm paper.',
+    steps: {
+      understand: 'Elegant and reading-first, like a well-set magazine page.',
+      color: 'A deep oxblood ink as the brand, on warm paper-toned greys.',
+      type: 'Playfair Display headlines at a refined 500 weight, Source Serif 4 for long reading.',
+      shape: 'Square corners: print has no rounded edges.',
+      space: 'Comfortable spacing and a dramatic size scale for real hierarchy.',
+      depth: 'No shadows at all. Thin ink rules separate content instead.',
+      check: 'Body text at 18px keeps long reads comfortable; ink on paper passes AAA.',
+    },
+    proposal: {
+      summary: 'An elegant editorial system: serif type, ink hairlines, warm paper, no shadows.',
+      appearance: 'light',
+      main: { h: 22, c: 0.11, l: 0.38 },
+      accent: null,
+      neutralTint: 0.2,
+      rampContrast: 0.9,
+      status: NO_STATUS,
+      bodyFont: 'Source Serif 4',
+      headingFont: 'Playfair Display',
+      baseSize: 18,
+      scale: 1.333,
+      radius: 0,
+      density: 1.1,
+      depth: 0,
+      extras: { borderWidth: 1, borderColor: 'ink', shadow: 'none', buttonShape: 'default', headingWeight: 500 },
+    },
+  },
+  {
+    id: 'neon',
+    name: 'Neon night',
+    blurb: 'Hot magenta, acid lime, glowing outlines.',
+    steps: {
+      understand: 'Loud, electric, after-dark: the screen should feel like a sign at night.',
+      color: 'Hot magenta on deep purple-black, acid lime for highlights, neon status colors.',
+      type: 'Orbitron at 800 for sci-fi headlines, Space Grotesk for readable body text.',
+      shape: 'Tight 4px corners, sharp like light tubes.',
+      space: 'Default spacing so the glow has room.',
+      depth: 'Shadows become a magenta glow; outlines are 2px in the brand color.',
+      check: 'Magenta lifted in brightness so it reads on the dark surfaces.',
+    },
+    proposal: {
+      summary: 'An electric neon system: magenta glow, acid lime, sci-fi headlines.',
+      appearance: 'dark',
+      main: { h: 328, c: 0.3, l: 0.66 },
+      accent: '#c6ff00',
+      neutralTint: 0.7,
+      rampContrast: 1.3,
+      status: { info: '#00e5ff', success: '#39ff14', warning: '#ffe600', error: '#ff2d55' },
+      bodyFont: 'Space Grotesk',
+      headingFont: 'Orbitron',
+      baseSize: 15,
+      scale: 1.28,
+      radius: 4,
+      density: 1,
+      depth: null,
+      extras: { borderWidth: 2, borderColor: 'brand', shadow: 'glow', buttonShape: 'default', headingWeight: 800 },
+    },
+  },
+]

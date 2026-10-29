@@ -1,0 +1,38 @@
+/* Generated from checkbox-group.spec.ts by `npm run ds:generate`. Do not edit. */
+
+.ds-checkbox-group[data-size="sm"] {
+  gap: var(--checkbox-group-gap-sm, var(--space-xs));
+}
+
+.ds-checkbox-group[data-size="md"] {
+  gap: var(--checkbox-group-gap-md, var(--space-xs));
+}
+
+.ds-checkbox-group[data-size="lg"] {
+  gap: var(--checkbox-group-gap-lg, var(--space-sm));
+}
+
+.ds-checkbox-group .ds-checkbox-group__label {
+  color: var(--checkbox-group-label-foreground, var(--color-foreground-neutral-primary));
+}
+
+.ds-checkbox-group[data-size="sm"] .ds-checkbox-group__label {
+  font-family: var(--checkbox-group-label-text-style-sm-font-family, var(--font-family-primary));
+  font-size: var(--checkbox-group-label-text-style-sm-font-size, var(--font-size-body-sm));
+  line-height: var(--checkbox-group-label-text-style-sm-line-height, var(--font-line-height-body-sm));
+  font-weight: var(--checkbox-group-label-text-style-sm-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-checkbox-group[data-size="md"] .ds-checkbox-group__label {
+  font-family: var(--checkbox-group-label-text-style-md-font-family, var(--font-family-primary));
+  font-size: var(--checkbox-group-label-text-style-md-font-size, var(--font-size-body-md));
+  line-height: var(--checkbox-group-label-text-style-md-line-height, var(--font-line-height-body-md));
+  font-weight: var(--checkbox-group-label-text-style-md-font-weight, var(--font-weight-body-strong));
+}
+
+.ds-checkbox-group[data-size="lg"] .ds-checkbox-group__label {
+  font-family: var(--checkbox-group-label-text-style-lg-font-family, var(--font-family-primary));
+  font-size: var(--checkbox-group-label-text-style-lg-font-size, var(--font-size-body-lg));
+  line-height: var(--checkbox-group-label-text-style-lg-line-height, var(--font-line-height-body-lg));
+  font-weight: var(--checkbox-group-label-text-style-lg-font-weight, var(--font-weight-body-strong));
+}

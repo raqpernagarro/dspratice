@@ -1,0 +1,57 @@
+/* =============================================================================
+   Separator
+   ─────────────────────────────────────────────────────────────────────────────
+   Namespaced with .dsn-separator.
+
+   Directions   (data-direction):  horizontal | vertical
+
+   Structure:
+     Horizontal:
+       <hr class="dsn-separator" data-direction="horizontal" />
+     Vertical:
+       <div role="separator" class="dsn-separator" data-direction="vertical" />
+
+   Token used:
+     --color-border-neutral-primary: #efefef  (Figma: border/divider)
+   ============================================================================= */
+
+
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+
+.dsn-separator {
+  /* Reset browser defaults for <hr> */
+  margin:      0;
+  padding:     var(--space-none);
+  border:      none;
+  box-sizing:  border-box;
+  flex-shrink: 0;
+}
+
+
+/* ── Horizontal ─────────────────────────────────────────────────────────────── */
+
+/*
+  Rendered as <hr>.
+  A 1px top-border line spanning the full width of its container.
+*/
+.dsn-separator[data-direction="horizontal"] {
+  display:     block;
+  width:       100%;
+  height:      0;
+  border-top:  1px solid var(--color-border-neutral-primary);
+}
+
+
+/* ── Vertical ───────────────────────────────────────────────────────────────── */
+
+/*
+  Rendered as <div role="separator" aria-orientation="vertical">.
+  A 1px wide bar stretching the full height of its flex/grid container.
+*/
+.dsn-separator[data-direction="vertical"] {
+  display:          inline-block;
+  width:            1px;
+  height:           100%;
+  align-self:       stretch;
+  background-color: var(--color-border-neutral-primary);
+}

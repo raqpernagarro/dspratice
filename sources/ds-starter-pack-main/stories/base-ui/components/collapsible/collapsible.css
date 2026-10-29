@@ -1,0 +1,71 @@
+/* Layout only. Colors, sizes and type come from collapsible.tokens.css (generated from collapsible.spec.ts). */
+
+.ds-collapsible {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 12rem;
+}
+
+.ds-collapsible__trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  border-style: solid;
+  outline: 0;
+  text-align: start;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-collapsible__trigger:focus-visible {
+  box-shadow: var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-collapsible__trigger:disabled {
+  cursor: not-allowed;
+}
+
+.ds-collapsible__label {
+  flex: 1;
+  min-width: 0;
+}
+
+.ds-collapsible__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  transition: transform var(--motion-duration-fast) var(--motion-ease-decelerate);
+}
+
+.ds-collapsible__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* The caret turns down while open. */
+.ds-collapsible__trigger[data-panel-open] .ds-collapsible__icon {
+  transform: rotate(90deg);
+}
+
+.ds-collapsible__panel {
+  overflow: hidden;
+  height: var(--collapsible-panel-height);
+  transition: height var(--motion-duration-fast) var(--motion-ease-decelerate);
+}
+
+.ds-collapsible__panel[hidden]:not([hidden='until-found']) {
+  display: none;
+}
+
+.ds-collapsible__panel[data-starting-style],
+.ds-collapsible__panel[data-ending-style] {
+  height: 0;
+}
+
+.ds-collapsible__content {
+  display: flex;
+  flex-direction: column;
+}

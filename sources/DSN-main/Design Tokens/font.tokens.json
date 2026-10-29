@@ -1,0 +1,302 @@
+{
+  "font": {
+    "family": {
+      "default": {
+        "$type": "string",
+        "$value": "Equip",
+        "$description": "Primary typeface for the entire UI. Apply to all text elements unless a specific exception is documented.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:431:37045"
+          }
+        }
+      }
+    },
+    "size": {
+      "micro": {
+        "$type": "number",
+        "$value": "{primitive.font-size.12}",
+        "$description": "Smallest text size (micro). Use for timestamps, footnotes, legal text, and metadata that is secondary to the main content.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:442:38221"
+          }
+        }
+      },
+      "label": {
+        "$type": "number",
+        "$value": "{primitive.font-size.14}",
+        "$description": "Label text size. Use for form labels, input helper text, tags, badges, and short UI labels inside controls.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:442:38224"
+          }
+        }
+      },
+      "display": {
+        "sm": {
+          "$type": "number",
+          "$value": "{primitive.font-size.24}",
+          "$description": "Small display text size. Use for minor headings, section titles, card titles, and subheadings.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:442:38228"
+            }
+          }
+        },
+        "md": {
+          "$type": "number",
+          "$value": "{primitive.font-size.32}",
+          "$description": "Medium display text size. Use for page-level section headings and modal titles.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:442:38229"
+            }
+          }
+        },
+        "lg": {
+          "$type": "number",
+          "$value": "{primitive.font-size.40}",
+          "$description": "Large display text size. Use for primary page headings and prominent feature titles.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:442:38230"
+            }
+          }
+        },
+        "xl": {
+          "$type": "number",
+          "$value": "{primitive.font-size.48}",
+          "$description": "Extra large display text size. Use for hero headings and high-impact marketing titles.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:442:38235"
+            }
+          }
+        },
+        "2xl": {
+          "$type": "number",
+          "$value": "{primitive.font-size.52}",
+          "$description": "Double extra large display text size. Use for large hero sections and major landing page headlines.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:442:38236"
+            }
+          }
+        },
+        "3xl": {
+          "$type": "number",
+          "$value": "{primitive.font-size.60}",
+          "$description": "Triple extra large display text size. Largest available size — use for full-screen hero text or splash screens only.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:442:38237"
+            }
+          }
+        }
+      },
+      "body": {
+        "sm": {
+          "$type": "number",
+          "$value": "{primitive.font-size.14}",
+          "$description": "Small body text size. Use for secondary body copy, compact lists, and supporting content in dense layouts.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:442:38225"
+            }
+          }
+        },
+        "md": {
+          "$type": "number",
+          "$value": "{primitive.font-size.16}",
+          "$description": "Large body text size. Default for primary body copy, descriptions, and paragraph content.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:442:38226"
+            }
+          }
+        }
+      }
+    },
+    "line-height": {
+      "micro": {
+        "$type": "number",
+        "$value": "{primitive.font-size.16}",
+        "$description": "Line height for micro text. Tight leading for small labels and metadata where vertical space is limited.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:467:18994"
+          }
+        }
+      },
+      "label": {
+        "$type": "number",
+        "$value": "{primitive.font-size.16}",
+        "$description": "Line height for label text. Compact leading for UI labels, tags, and control text.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:467:18996"
+          }
+        }
+      },
+      "display": {
+        "sm": {
+          "$type": "number",
+          "$value": "{primitive.font-size.32}",
+          "$description": "Line height for small display headings. Slightly tighter leading appropriate for heading sizes.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:467:18999"
+            }
+          }
+        },
+        "md": {
+          "$type": "number",
+          "$value": "{primitive.font-size.40}",
+          "$description": "Line height for medium display headings. Tight leading for mid-size headings to maintain visual density.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:467:19000"
+            }
+          }
+        },
+        "lg": {
+          "$type": "number",
+          "$value": "{primitive.font-size.48}",
+          "$description": "Line height for large display headings. Tight leading for large headings — prevents excessive whitespace between lines.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:467:19001"
+            }
+          }
+        },
+        "xl": {
+          "$type": "number",
+          "$value": "{primitive.font-size.56}",
+          "$description": "Line height for extra large display text. Very tight leading for hero-scale headings.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:467:19002"
+            }
+          }
+        },
+        "2xl": {
+          "$type": "number",
+          "$value": "{primitive.font-size.64}",
+          "$description": "Line height for 2XL display text. Near-1:1 leading for very large display headings.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:467:19003"
+            }
+          }
+        },
+        "3xl": {
+          "$type": "number",
+          "$value": "{primitive.font-size.72}",
+          "$description": "Line height for 3XL display text. Minimal leading for the largest text sizes — lines sit very close together.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:467:19004"
+            }
+          }
+        }
+      },
+      "body": {
+        "sm": {
+          "$type": "number",
+          "$value": "{primitive.font-size.20}",
+          "$description": "Line height for small body text. Comfortable reading rhythm for secondary body copy.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:467:18997"
+            }
+          }
+        },
+        "md": {
+          "$type": "number",
+          "$value": "{primitive.font-size.24}",
+          "$description": "Line height for large body text. Optimal reading rhythm for primary paragraph content.",
+          "$extensions": {
+            "figma-console-mcp": {
+              "variableId": "VariableID:467:18998"
+            }
+          }
+        }
+      }
+    },
+    "weight": {
+      "regular": {
+        "$type": "string",
+        "$value": "Regular",
+        "$description": "Regular font weight (400). Default weight for body text, descriptions, and secondary content.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:433:37046"
+          }
+        }
+      },
+      "medium": {
+        "$type": "string",
+        "$value": "Medium",
+        "$description": "Medium font weight (500). Use for labels, interactive element text, navigation items, and UI controls.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:433:37047"
+          }
+        }
+      },
+      "semibold": {
+        "$type": "string",
+        "$value": "Semibold",
+        "$description": "Semibold font weight (600). Use for headings, section titles, and content that needs strong visual emphasis.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:433:37048"
+          }
+        }
+      }
+    },
+    "letter-spacing": {
+      "tight": {
+        "$type": "number",
+        "$value": -0.30000001192092896,
+        "$description": "Tighter letter spacing applied to medium and semibold UI labels to counteract optical spread at smaller sizes.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:8484:92608"
+          }
+        }
+      },
+      "normal": {
+        "$type": "number",
+        "$value": 0,
+        "$description": "Default letter spacing for body text and most content — no tracking adjustment needed.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:8484:92609"
+          }
+        }
+      },
+      "wide": {
+        "$type": "number",
+        "$value": 0,
+        "$description": "Reserved for future use on uppercase labels or small caps — currently matches normal tracking, not yet differentiated.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:8484:92610"
+          }
+        }
+      },
+      "display": {
+        "$type": "number",
+        "$value": -0.5,
+        "$description": "Tighter letter spacing applied to large display headings to improve visual cohesion at large sizes.",
+        "$extensions": {
+          "figma-console-mcp": {
+            "variableId": "VariableID:8484:92611"
+          }
+        }
+      }
+    }
+  }
+}

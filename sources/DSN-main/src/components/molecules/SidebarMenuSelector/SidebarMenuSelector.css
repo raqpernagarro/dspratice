@@ -1,0 +1,198 @@
+/* ───────────────────────────────────────────────────
+   SidebarMenuSelector — matches Figma node 126:6836
+   ─────────────────────────────────────────────────── */
+
+/* Outer wrapper — holds the rail indicator position context */
+.dsn-sidebar-selector {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 0 var(--space-xs, 8px);
+}
+
+/* Inner clickable container */
+.dsn-sidebar-selector-container {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  min-height: 0;
+  min-width: 0;
+  gap: 0;
+  padding: var(--space-2xs, 4px);
+  border-radius: var(--menucell-radius, 16px);
+  overflow: clip;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast),
+    color var(--motion-transition-fast);
+}
+
+/* ── Interactive states ── */
+.dsn-sidebar-selector-container:hover:not(:disabled) {
+  background: var(--input-background-hover);
+}
+
+.dsn-sidebar-selector-container:active:not(:disabled) {
+  background: var(--input-background-active);
+  box-shadow:
+    inset 0 0 0 1px var(--color-shadow-default, rgba(0, 0, 0, 0.05));
+}
+
+.dsn-sidebar-selector-container:focus-visible {
+  box-shadow:
+    inset 0 0 0 1px var(--color-border-interactive-focus),
+    inset 0 0 0 2px var(--color-shadow-focus-inset);
+}
+
+.dsn-sidebar-selector-container:disabled {
+  cursor: not-allowed;
+}
+
+/* ── Icon wrapper ── */
+.dsn-sidebar-selector-icon-wrap {
+  display: flex;
+  align-items: center;
+  padding: var(--space-2xs, 4px);
+  flex-shrink: 0;
+  color: var(--color-foreground-neutral-secondary);
+}
+
+/* ── Avatar wrapper ── */
+.dsn-sidebar-selector-avatar-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Label wrapper ── */
+.dsn-sidebar-selector-label-wrap {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  min-width: 0;
+  padding: var(--space-2xs, 4px);
+}
+
+.dsn-sidebar-selector-label {
+  flex: 1 0 0;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-family-default);
+  font-weight: var(--font-weight-medium, 500);
+  font-size: var(--font-size-label, 14px);
+  line-height: var(--font-line-height-label, 16px);
+  letter-spacing: var(--font-letter-spacing-tight, -0.3px);
+  color: var(--color-foreground-neutral-secondary);
+}
+
+/* Label colors per state */
+.dsn-sidebar-selector-container:hover:not(:disabled) .dsn-sidebar-selector-label,
+.dsn-sidebar-selector-container:active:not(:disabled) .dsn-sidebar-selector-label {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-sidebar-selector-container:hover:not(:disabled) .dsn-sidebar-selector-icon-wrap,
+.dsn-sidebar-selector-container:active:not(:disabled) .dsn-sidebar-selector-icon-wrap {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-sidebar-selector-container:disabled .dsn-sidebar-selector-label {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+.dsn-sidebar-selector-container:disabled .dsn-sidebar-selector-icon-wrap {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+/* Selected state colors */
+.dsn-sidebar-selector[data-selected] .dsn-sidebar-selector-label {
+  color: var(--color-foreground-interactive-primary-selected);
+}
+
+.dsn-sidebar-selector[data-selected] .dsn-sidebar-selector-icon-wrap {
+  color: var(--color-foreground-interactive-primary-selected);
+}
+
+.dsn-sidebar-selector[data-selected] .dsn-sidebar-selector-container:hover:not(:disabled),
+.dsn-sidebar-selector[data-selected] .dsn-sidebar-selector-container:active:not(:disabled) {
+  background: transparent;
+}
+
+.dsn-sidebar-selector[data-selected] .dsn-sidebar-selector-container:hover:not(:disabled) .dsn-sidebar-selector-label,
+.dsn-sidebar-selector[data-selected] .dsn-sidebar-selector-container:active:not(:disabled) .dsn-sidebar-selector-label,
+.dsn-sidebar-selector[data-selected] .dsn-sidebar-selector-container:hover:not(:disabled) .dsn-sidebar-selector-icon-wrap,
+.dsn-sidebar-selector[data-selected] .dsn-sidebar-selector-container:active:not(:disabled) .dsn-sidebar-selector-icon-wrap,
+.dsn-sidebar-selector[data-selected] .dsn-sidebar-selector-container:hover:not(:disabled) .dsn-sidebar-selector-disclosure,
+.dsn-sidebar-selector[data-selected] .dsn-sidebar-selector-container:active:not(:disabled) .dsn-sidebar-selector-disclosure {
+  color: var(--color-foreground-interactive-primary-selected);
+}
+
+/* ── Badge wrapper ── */
+.dsn-sidebar-selector-badge-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--space-2xs, 4px);
+  flex-shrink: 0;
+}
+
+/* ── Disclosure (chevrons up-down) ── */
+.dsn-sidebar-selector-disclosure {
+  display: flex;
+  align-items: center;
+  padding: var(--space-2xs, 4px);
+  flex-shrink: 0;
+  color: var(--color-foreground-neutral-secondary);
+}
+
+.dsn-sidebar-selector-container:hover:not(:disabled) .dsn-sidebar-selector-disclosure,
+.dsn-sidebar-selector-container:active:not(:disabled) .dsn-sidebar-selector-disclosure {
+  color: var(--color-foreground-neutral-primary);
+}
+
+.dsn-sidebar-selector-container:disabled .dsn-sidebar-selector-disclosure {
+  color: var(--color-foreground-interactive-disabled);
+}
+
+/* ── Right button / action wrapper ── */
+.dsn-sidebar-selector-action-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Selected indicator rail ── */
+.dsn-sidebar-selector-rail {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 24px;
+  border-radius: 0 var(--shape-radius-2xs) var(--shape-radius-2xs) 0;
+  background: var(--color-foreground-interactive-primary-selected);
+  pointer-events: none;
+}
+
+/* ── Icon-only variant ── */
+.dsn-sidebar-selector[data-variant='icon'] {
+  padding: 0 var(--space-2xs, 4px);
+  justify-content: center;
+}
+
+.dsn-sidebar-selector[data-variant='icon'] .dsn-sidebar-selector-container {
+  justify-content: center;
+  width: auto;
+  flex: 0 0 auto;
+}

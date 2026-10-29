@@ -1,0 +1,60 @@
+@keyframes dsn-skeleton-loading-shimmer {
+  0% {
+    left: -96px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.dsn-skeleton-loading {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-background-interactive-disabled);
+}
+
+.dsn-skeleton-loading[data-type='avatar'] {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--shape-radius-control-md);
+}
+
+.dsn-skeleton-loading[data-type='pill'] {
+  width: 282px;
+  height: 16px;
+  border-radius: var(--shape-radius-control-md);
+}
+
+.dsn-skeleton-loading[data-type='image'] {
+  width: 192px;
+  height: 108px;
+}
+
+.dsn-skeleton-loading[data-type='card'] {
+  width: 256px;
+  height: 256px;
+  border-radius: var(--shape-radius-control-md);
+}
+
+.dsn-skeleton-loading-glow {
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  left: -96px;
+  width: 96px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-background-neutral-primary) 50%,
+    transparent 100%
+  );
+  filter: blur(12px);
+  animation: dsn-skeleton-loading-shimmer 1.4s linear infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dsn-skeleton-loading-glow {
+    animation-duration: 3.5s;
+  }
+}

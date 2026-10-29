@@ -1,0 +1,69 @@
+/* Layout only. Sizes, colors and type come from tabs.tokens.css and tab.tokens.css. */
+
+.ds-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Above the panel, overlapping its top border so the selected tab joins it. */
+.ds-tabs__list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  margin-bottom: calc(-1 * var(--tabs-border-width, var(--size-border-regular)));
+}
+
+.ds-tabs__indicator {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: var(--active-tab-width);
+  height: 100%;
+  border-style: solid;
+  border-bottom-width: 0;
+  translate: var(--active-tab-left);
+  transition-property: translate, width;
+  transition-duration: var(--motion-duration-fast);
+  transition-timing-function: var(--motion-ease-regular);
+}
+
+.ds-tab {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ds-tab:focus-visible {
+  border-radius: var(--shape-radius-sm);
+  box-shadow: var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-tab[data-disabled] {
+  cursor: not-allowed;
+}
+
+.ds-tabs__panel {
+  box-sizing: border-box;
+  border-style: solid;
+  outline: 0;
+}
+
+.ds-tabs__panel:focus-visible {
+  box-shadow: var(--effect-shadow-focus-ring-primary);
+}
+
+.ds-tabs__panel[hidden] {
+  display: none;
+}

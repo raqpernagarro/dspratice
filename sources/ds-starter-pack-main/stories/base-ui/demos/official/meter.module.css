@@ -1,0 +1,41 @@
+.Meter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: var(--space-sm);
+  width: 15rem;
+  max-width: 100%;
+}
+
+.Label {
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  font-weight: var(--font-weight-body-regular);
+  color: var(--color-foreground-neutral-primary);
+
+  
+}
+
+.Value {
+  font-size: var(--font-size-body-md);
+  line-height: var(--font-line-height-body-md);
+  color: var(--color-foreground-neutral-primary);
+  text-align: right;
+
+  
+}
+
+.Track {
+  grid-column: 1 / 3;
+  overflow: hidden;
+  height: 0.75rem;
+  background-color: var(--color-border-neutral-subtle);
+
+  
+}
+
+.Indicator {
+  background-color: var(--color-background-accent-default);
+  transition: width var(--motion-duration-slow);
+
+  
+}
