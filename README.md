@@ -30,9 +30,26 @@ npm run dev
 open http://localhost:4300
 ```
 
-`npm run setup` checks Node 20+, installs dependencies and creates `.env.local` from the example. Everything runs on your machine. Sample clients and their figures are fictional.
+`npm run setup` checks Node, installs dependencies and creates `.env.local` from the example. Everything runs on your machine. Sample clients and their figures are fictional.
 
 For every command, optional key and integration, see the [tool guide](docs/tool-guide.md). For how the client demo works, see [docs/client-demo.md](docs/client-demo.md).
+
+## For Nuno and Rui: run it and try it
+
+The repository holds everything the workspace needs, including the practice tools: DSN and the DS Starter Pack in `sources/`, Presentation Studio and the Marketing Studio installer in `tool-copies/`. They are snapshots of your repositories; yours stay the source of truth.
+
+1. **Node 22 or newer** ([nodejs.org](https://nodejs.org)). The workspace runs on 20, but the DS Configurator needs 22.
+2. Clone, then `npm run setup` and `npm run dev`. Open <http://localhost:4300>.
+3. Start a tool when a journey asks for it, for example the DS Configurator:
+
+   ```bash
+   npm run tools -- start starter
+   ```
+
+   `starter`, `dsn` or `studio`; the first start installs that tool's dependencies. `npm run tools` shows where each one runs from and whether it is up.
+4. Follow [docs/try-it.md](docs/try-it.md): fifteen minutes, and what kind of feedback helps.
+
+Optional: an `ANTHROPIC_API_KEY` in `.env.local` for AI drafts (without it, drafts are template-based and say so); the Claude CLI, signed in, only for generating decks in Presentation Studio; Microsoft Edge only for `npm run e2e`; Docker only for Marketing Studio's TryPost board. The DS Prototyping Tooling (ASSA ABLOY) is client material and is not in the repository; its page in the workspace says so.
 
 ## Contributing
 

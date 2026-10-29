@@ -14,17 +14,13 @@ npm run dev
 
 Then open <http://localhost:4300>. Everything runs on your machine; sample clients and figures are fictional.
 
-The practice tools open from their journeys when they run. If you want to try them too:
-
-```bash
-npm run tools -- copy all
-```
+The practice tools are in the repository (DSN and the Starter Pack in `sources/`, Presentation Studio in `tool-copies/`) and open from their journeys when they run. To try one:
 
 ```bash
 npm run tools -- start starter
 ```
 
-(`starter`, `dsn`, `studio` or `prototyping`; a tool page says how to start it when it isn't running.)
+(`starter`, `dsn` or `studio`; the first start installs its dependencies. A tool page says how to start it when it isn't running. The DS Prototyping Tooling is client material and not in the repository, so its page says it is not on this machine.)
 
 ## What to try
 

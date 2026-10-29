@@ -64,6 +64,12 @@ function parseManifest(text) {
 }
 
 const write = process.argv.includes('--write')
+if (!existsSync(resolve(APP_ROOT, '..', 'demo tools'))) {
+  // A clone of the repository: the tools run from the vendored copies in sources/ and tool-copies/,
+  // and the read-only originals only exist on the machine they were collected on.
+  console.log('check-sources: ../demo tools is not on this machine, so there are no read-only originals to check.')
+  process.exit(0)
+}
 const current = snapshot()
 
 if (write) {

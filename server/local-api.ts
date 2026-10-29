@@ -59,6 +59,8 @@ export class ApiError extends Error {
 }
 
 export const DEFAULT_ROOTS = ['gtm', 'product-scoping', 'demo tools/ds-starter-pack-main', 'demo tools/DSN-main']
+/** Roots inside the app folder: the vendored DSN and Starter Pack, so "Read again" works on a clone. */
+export const APP_ROOTS = ['sources/ds-starter-pack-main', 'sources/DSN-main']
 export const DEFAULT_FILES = ['AI-Ready-Design-Systems-Offering 3.html']
 const TEXT_EXT = new Set(['.md', '.mdx', '.txt', '.json', '.html'])
 
@@ -70,7 +72,7 @@ export function envFrom(raw: Record<string, string | undefined>, workspaceRoot: 
     fallbacks: (raw.ANTHROPIC_FALLBACKS ?? 'default').trim() !== 'off',
     figmaToken: raw.FIGMA_TOKEN?.trim() || undefined,
     workspaceRoot,
-    roots: [...DEFAULT_ROOTS, ...(raw.KNOWLEDGE_ROOTS ?? '').split(',').map((s) => s.trim()).filter(Boolean)],
+    roots: [...DEFAULT_ROOTS, ...(appRoot ? APP_ROOTS.map((r) => resolve(appRoot, r)) : []), ...(raw.KNOWLEDGE_ROOTS ?? '').split(',').map((s) => s.trim()).filter(Boolean)],
     files: DEFAULT_FILES,
     studioFolders: parseFolders(raw.MARKETING_STUDIO_FOLDERS),
   }

@@ -10,8 +10,6 @@ test-results/
 
 # local-only material: never commit
 .env.local
-sources/
-tool-copies/
 dist-demo/
 playwright-report/
 knowledge-local/
@@ -19,3 +17,20 @@ knowledge-local/
 
 # filmed social cuts (npm run clips): large files, shared by hand
 media/
+
+# practice tools vendored in sources/ (DSN, DS Starter Pack) and tool-copies/ (Presentation Studio,
+# Marketing Studio). Their own .gitignore files cover node_modules; this covers build caches and
+# what each tool writes when used (see "writes" in src/fixtures/tool-servers.json).
+**/.next/
+**/storybook-static/
+sources/ds-starter-pack-main/ds.project.json
+sources/DSN-main/ds-index.json
+sources/DSN-main/site/.data/
+tool-copies/deckgenerator-platform-main/product/data/
+tool-copies/deckgenerator-platform-main/assets/uploads/
+tool-copies/Install-Marketing-Studio/marketing-studio.zip
+# local copies made by `npm run tools -- copy` before the tools were vendored, and the ASSA ABLOY
+# prototyping tool (client material, never committed)
+tool-copies/DSN-main/
+tool-copies/ds-starter-pack-main/
+tool-copies/ASSA-ABLOY-DS-prototyping-v5/

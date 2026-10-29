@@ -32,7 +32,7 @@ open http://localhost:4300
 |---|---|---|
 | `ANTHROPIC_API_KEY` in `.env.local` | Drafts come from the template composer, labelled "Template draft (no model)". The generation packet still lets you use any Claude or ChatGPT chat | Add the key. Only the local dev server reads it |
 | `FIGMA_TOKEN` in `.env.local` | Figma sources refresh through the knowledge plugin or figma-cli instead | A personal access token with `file_content:read` and `projects:read` |
-| DSN and DS Starter Pack sources (`../demo tools/*` or `./sources/*`) | System previews of their real components show "Library source not installed"; everything else works | `npm run setup -- --clone-sources` (needs access to the private repos) |
+| DSN and DS Starter Pack sources (`./sources/*`, vendored in the repository) | System previews of their real components show "Library source not installed"; everything else works | Already there in a clone. `npm run setup -- --clone-sources` fetches the owners' repositories instead (needs access to them) |
 
 ## Commands
 
@@ -52,7 +52,7 @@ open http://localhost:4300
 | `npm run slides:sync -- <folder> --version <id>` | Update the vendored Nagarro Master Slides engine from a downloaded copy |
 | `npm run tokens:sync` | Regenerate `src/styles/brand-tokens.css` from the engine's `tokens.json` |
 | `npm run tools` | Where each practice tool runs from and whether it is running (see *Practice tools* below) |
-| `npm run tools -- copy <tool\|all>` | Copy a tool out of `../demo tools` into `tool-copies/`, once (an APFS clone on a Mac: about 40s for all three) |
+| `npm run tools -- copy <tool\|all>` | Copy a tool out of `../demo tools` into `tool-copies/`, once. Only for tools not vendored in the repository (today: the DS Prototyping Tooling, on Raquel's machine) |
 | `npm run tools -- start <tool…\|all>` | Start tools from your clone or copy; Ctrl+C stops them |
 
 ## Practice tools
@@ -66,9 +66,9 @@ The workspace opens the practice's own tools instead of copying them: journeys l
 | `studio` · Presentation Studio | Carolina Baptista | <http://localhost:4600> | `product/data`, `assets/uploads` |
 | `prototyping` · DS Prototyping Tooling (ASSA ABLOY) | Raquel Pereira | <http://localhost:4321> | `prototyping/v1/…`, `prototyping/dist` |
 
-**Marketing Studio** (Hugo França) is Python plus a local TryPost board in Docker, so it is not one of these: install it from `../demo tools/Install-Marketing-Studio` (its INSTALL.md) and Engagement checks whether TryPost answers on <http://localhost:8000>.
+**Marketing Studio** (Hugo França) is Python plus a local TryPost board in Docker, so it is not one of these: install it from `tool-copies/Install-Marketing-Studio` (its INSTALL.md) and Engagement checks whether TryPost answers on <http://localhost:8000>.
 
-Because every tool writes into its own folder, none runs from `../demo tools` (read-only; `scripts/check-sources.mjs` checks all four). A tool runs from your own clone in `sources/` if there is one, else from a copy in `tool-copies/` (git-ignored, outside Vite's file watcher). Addresses can be changed per browser in **Settings › Integrations**. The page checks every few seconds while a tool is down, so starting it in the terminal is enough. Tools on this machine are checked by the local API (`GET /api/tools/probe`), so a stopped tool leaves nothing in the browser console.
+The tools are vendored in the repository: DSN and the DS Starter Pack in `sources/` (Vite also imports them for the live previews), Presentation Studio and Marketing Studio in `tool-copies/` (outside Vite's file watcher). The owners' repositories stay the source of truth; a vendored copy is a snapshot, replaced by hand. The DS Prototyping Tooling (ASSA ABLOY) is client material and is not in the repository: on Raquel's machine it is copied out of `../demo tools` with `npm run tools -- copy prototyping`, elsewhere its page says it is not on this machine. Because every tool writes into its own folder (the paths are git-ignored), none runs from `../demo tools` (read-only; `scripts/check-sources.mjs` checks the originals where they exist). Addresses can be changed per browser in **Settings › Integrations**. The page checks every few seconds while a tool is down, so starting it in the terminal is enough. Tools on this machine are checked by the local API (`GET /api/tools/probe`), so a stopped tool leaves nothing in the browser console.
 
 ## What works, what needs a key, what is simulated
 
@@ -164,4 +164,4 @@ e2e/            Playwright specs for Edge
 - Health, readiness, accessibility, eval and usage figures in the samples are illustrative, not measured client results. The demo labels them "sample".
 - The template composer quotes the best-matching passage from an approved or draft source. It is a first draft, not an answer: a person must check that each quote answers the question before anything is published.
 - Seed approvals follow recorded verdicts only: the offer deck, the case studies index and the big idea line. Everything else starts as a draft with its owner. See [docs/knowledge-library.md](knowledge-library.md).
-- The three source projects (`../demo tools/*`) and the font folders were only read. `node scripts/check-sources.mjs` verifies they are unchanged.
+- The source projects in `../demo tools/*` (on Raquel's machine) and the font folders were only read. `node scripts/check-sources.mjs` verifies they are unchanged; the copies in `sources/` and `tool-copies/` were taken from them without build output or dependencies.

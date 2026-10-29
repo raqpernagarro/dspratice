@@ -11,7 +11,7 @@ npm run build:demo
 npm run e2e
 ```
 
-`npm run e2e` runs in Microsoft Edge and needs the demo build. Do not edit anything under `../demo tools/` or `public/vendor/nagarro-master-slides/`.
+`npm run e2e` runs in Microsoft Edge and needs the demo build. Do not edit anything under `../demo tools/` or `public/vendor/nagarro-master-slides/`. The vendored tools in `sources/` and `tool-copies/` are snapshots of their owners' repositories (see [LICENSES.md](LICENSES.md)): change them there, then replace the snapshot.
 
 ## Add a practice source to the bundled library
 
@@ -34,7 +34,7 @@ Client material never goes into the bundled library. Users add it in the app as 
   - its server in `src/fixtures/tool-servers.json`: owner, folder name, version checked, default port, a fast probe path, the start and install commands, what it needs and what it writes into its own folder (the reason it runs from a copy);
   - one experience per page in `src/fixtures/experiences.ts`: the path, what you do and get, `frame` or `tab`, and the token grammar if it produces tokens.
 
-  `npm run tools`, the local API and the tool pages all read these files; a journey in `src/fixtures/journeys.ts` links to the tool. A tool that writes into its folder never runs from `../demo tools`: add the folder to `scripts/check-sources.mjs` and run it with `--write` once.
+  `npm run tools`, the local API and the tool pages all read these files; a journey in `src/fixtures/journeys.ts` links to the tool. Vendor the tool in `sources/` (if Vite imports it) or `tool-copies/`, without `node_modules` or build output, add what it writes to `.gitignore`, and give it a row in `LICENSES.md`. A tool that writes into its folder never runs from `../demo tools`: add the folder to `scripts/check-sources.mjs` and run it with `--write` once.
 - **A new journey** gets a card on Home only when real use shows the need (see `docs/writing.md`, *Journey*).
 - **Demos** are listed under `DEMOS` in the same file, with:
   - the duration and what it shows;

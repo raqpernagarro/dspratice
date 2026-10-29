@@ -3,13 +3,15 @@
 // Studio) on this machine, so the hub can open them. You run it; the hub never starts anything.
 //
 //   npm run tools                         where each tool is, and whether it is running
-//   npm run tools -- copy <tool|all>      copy a tool out of ../demo tools, once
+//   npm run tools -- copy <tool|all>      copy a tool out of ../demo tools, once (only for tools
+//                                         that are not vendored in the repository)
 //   npm run tools -- start <tool…|all>    start tools; Ctrl+C stops them
 //
-// Tools: starter, dsn, studio, prototyping (src/fixtures/tool-servers.json). Every tool writes into its own
-// folder when used, so it runs from your clone in sources/ or a copy in tool-copies/, never from
-// ../demo tools (read-only; scripts/check-sources.mjs proves it). On a Mac the copy is an APFS
-// clone: under a minute for all three, and no extra disk until files change.
+// Tools: starter, dsn, studio, prototyping (src/fixtures/tool-servers.json). DSN and the Starter Pack
+// are vendored in sources/, Presentation Studio in tool-copies/, so a clone has them. Every tool
+// writes into its own folder when used, so none runs from ../demo tools (read-only;
+// scripts/check-sources.mjs proves it). On a Mac a copy is an APFS clone: no extra disk until files
+// change.
 import { constants, cpSync, existsSync, mkdirSync } from 'node:fs'
 import { spawn, spawnSync } from 'node:child_process'
 import { connect } from 'node:net'
@@ -52,11 +54,11 @@ function copy(list) {
   for (const s of list) {
     const loc = locations(appRoot, s)
     if (existsSync(resolve(loc.sources, 'package.json'))) {
-      console.log(`${s.id}: runs from your clone in ${rel(loc.sources)}; no copy needed.`)
+      console.log(`${s.id}: already in the repository, ${rel(loc.sources)}; no copy needed.`)
       continue
     }
     if (existsSync(resolve(loc.copy, 'package.json'))) {
-      console.log(`${s.id}: already copied to ${rel(loc.copy)}. Delete that folder first to start from a fresh copy.`)
+      console.log(`${s.id}: already in the repository, ${rel(loc.copy)}; no copy needed.`)
       continue
     }
     if (!existsSync(resolve(loc.original, 'package.json'))) {

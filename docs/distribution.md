@@ -19,16 +19,18 @@ npm run dev
 1. Create a private repository in the Nagarro GitHub organisation (for example `nagarro-dv/ds-hub`).
 2. Push this folder, with `README.md`, `docs/` and `CONTRIBUTING.md` at the root.
 3. Give the practice read access. Give owners (Nuno, Rui, Carolina) write access to their areas.
-4. Optional: grant colleagues access to the DSN and Starter Pack repos, so that `npm run setup -- --clone-sources` can add the real component previews.
+4. The DSN and Starter Pack snapshots in `sources/` give everyone the real component previews and the tools. Colleagues with access to the owners' repositories can replace a snapshot with their own clone (`npm run setup -- --clone-sources` into `sources/`).
 
 ## What is committed, and what never is
 
 | Committed | Never committed (`.gitignore`) |
 |---|---|
 | Source, docs, tests, scripts | `.env.local` (keys) |
-| The bundled knowledge snapshot (`src/fixtures/knowledge/docs/`): practice material only | `sources/` (cloned private repos) |
+| The bundled knowledge snapshot (`src/fixtures/knowledge/docs/`): practice material only | `node_modules`, `.next/`, `storybook-static/` anywhere, including inside the vendored tools |
 | Carolina's engine (pinned, credited) | `dist/`, `dist-demo/`, `test-results/`, `playwright-report/` |
 | The Equip web fonts, for internal use under Nagarro's licence | `.cache/` (raw Figma captures), `knowledge-local/` |
+| The practice tools: DSN and the Starter Pack in `sources/`, Presentation Studio and the Marketing Studio installer in `tool-copies/` (snapshots, see [LICENSES.md](../LICENSES.md)) | What the tools write when used (`ds.project.json`, `site/.data`, Studio's `product/data`) |
+| | The ASSA ABLOY DS Prototyping Tooling: client material |
 | | Anything a user uploads or creates: it lives in their browser |
 
 Before the first push, run these checks:
