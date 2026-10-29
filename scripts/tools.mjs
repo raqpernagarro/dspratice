@@ -42,7 +42,7 @@ async function status() {
   console.log('\nPractice tools · where each one runs from\n')
   for (const s of servers) {
     const { runFrom, dir } = runDirFor(appRoot, s)
-    const where = { sources: `your clone, ${rel(dir)}`, copy: `copy, ${rel(dir)}`, original: 'only the read-only original: run copy first', missing: `not on this machine: ask ${s.owner} for ${s.repo}` }[runFrom]
+    const where = { sources: () => `your clone, ${rel(dir)}`, copy: () => `copy, ${rel(dir)}`, original: () => 'only the read-only original: run copy first', missing: () => `not on this machine: ask ${s.owner} for ${s.repo}` }[runFrom]()
     const installed = dir && runFrom !== 'original' ? (existsSync(resolve(dir, 'node_modules')) ? 'installed' : 'installs on first start') : ''
     const up = (await listening(s.port)) ? 'running' : 'not running'
     console.log(`  ${s.id.padEnd(8)} ${s.name.padEnd(20)} ${`http://localhost:${s.port}`.padEnd(24)} ${up.padEnd(12)} ${where}${installed ? ` · ${installed}` : ''}`)
