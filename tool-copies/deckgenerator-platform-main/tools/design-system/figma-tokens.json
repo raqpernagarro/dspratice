@@ -1,0 +1,267 @@
+{
+ "source": "Figma 'Master Slides' (a8tRnxbxuYhzjckmcDzPPw), variables read 2026-10-13 via Figma Desktop Bridge",
+ "note": "Theme (Light, Dark; the Client mode is left out) and Colors collections. Figma names with '/' become '-'. Refresh this file when the Figma variables change.",
+ "theme": [
+  {
+   "name": "fg-100",
+   "light": "{black-100}",
+   "dark": "{white-100}"
+  },
+  {
+   "name": "fg-75",
+   "light": "{black-75}",
+   "dark": "{white-75}"
+  },
+  {
+   "name": "fg-60",
+   "light": "{black-60}",
+   "dark": "{white-60}"
+  },
+  {
+   "name": "fg-50",
+   "light": "{black-50}",
+   "dark": "{white-50}"
+  },
+  {
+   "name": "fg-30",
+   "light": "{black-30}",
+   "dark": "{white-30}"
+  },
+  {
+   "name": "fg-25",
+   "light": "{black-25}",
+   "dark": "{white-25}"
+  },
+  {
+   "name": "fg-20",
+   "light": "{black-20}",
+   "dark": "{white-20}"
+  },
+  {
+   "name": "fg-10",
+   "light": "{black-10}",
+   "dark": "{white-10}"
+  },
+  {
+   "name": "fg-5",
+   "light": "{black-5}",
+   "dark": "{white-5}"
+  },
+  {
+   "name": "fg-muted",
+   "light": "#8893a5",
+   "dark": "#a0aab9"
+  },
+  {
+   "name": "bg-primary",
+   "light": "{white-100}",
+   "dark": "{black-100}"
+  },
+  {
+   "name": "bg-secondary",
+   "light": "{white-5}",
+   "dark": "{black-5}"
+  },
+  {
+   "name": "bg-overlay-50",
+   "light": "{white-50}",
+   "dark": "{black-50}"
+  },
+  {
+   "name": "bg-overlay-25",
+   "light": "{white-25}",
+   "dark": "{black-25}"
+  },
+  {
+   "name": "bg-overlay-10",
+   "light": "{white-10}",
+   "dark": "{black-10}"
+  },
+  {
+   "name": "border-default",
+   "light": "{black-75}",
+   "dark": "{white-75}"
+  },
+  {
+   "name": "accent-primary",
+   "light": "#47d7ac",
+   "dark": "#47d7ac"
+  },
+  {
+   "name": "accent-dark",
+   "light": "#205463",
+   "dark": "#47d7ac"
+  },
+  {
+   "name": "accent-surface",
+   "light": "#d1f5ea",
+   "dark": "#205463"
+  }
+ ],
+ "colors": [
+  {
+   "name": "black-100",
+   "value": "#010716"
+  },
+  {
+   "name": "black-75",
+   "value": "#010716bf"
+  },
+  {
+   "name": "black-60",
+   "value": "#01071699"
+  },
+  {
+   "name": "black-50",
+   "value": "#01071680"
+  },
+  {
+   "name": "black-30",
+   "value": "#0107164d"
+  },
+  {
+   "name": "black-25",
+   "value": "#01071640"
+  },
+  {
+   "name": "black-20",
+   "value": "#01071633"
+  },
+  {
+   "name": "black-10",
+   "value": "#0107161a"
+  },
+  {
+   "name": "black-5",
+   "value": "#0107160d"
+  },
+  {
+   "name": "white-100",
+   "value": "#ffffff"
+  },
+  {
+   "name": "white-75",
+   "value": "#ffffffbf"
+  },
+  {
+   "name": "white-60",
+   "value": "#ffffff99"
+  },
+  {
+   "name": "white-50",
+   "value": "#ffffff80"
+  },
+  {
+   "name": "white-30",
+   "value": "#ffffff4d"
+  },
+  {
+   "name": "white-25",
+   "value": "#ffffff40"
+  },
+  {
+   "name": "white-20",
+   "value": "#ffffff33"
+  },
+  {
+   "name": "white-15",
+   "value": "#ffffff26"
+  },
+  {
+   "name": "white-10",
+   "value": "#ffffff1a"
+  },
+  {
+   "name": "white-5",
+   "value": "#ffffff0d"
+  },
+  {
+   "name": "mint-darker",
+   "value": "#2d807b"
+  },
+  {
+   "name": "mint-dark",
+   "value": "#3aab94"
+  },
+  {
+   "name": "mint-100",
+   "value": "#47d7ac"
+  },
+  {
+   "name": "mint-light",
+   "value": "#75e1c1"
+  },
+  {
+   "name": "mint-lighter",
+   "value": "#a3ebd5"
+  },
+  {
+   "name": "mint-75",
+   "value": "#47d7acbf"
+  },
+  {
+   "name": "mint-50",
+   "value": "#47d7ac80"
+  },
+  {
+   "name": "mint-25",
+   "value": "#47d7ac40"
+  },
+  {
+   "name": "mint-10",
+   "value": "#47d7ac1a"
+  },
+  {
+   "name": "mint-5",
+   "value": "#47d7ac0d"
+  },
+  {
+   "name": "gray-1",
+   "value": "#6f7378"
+  },
+  {
+   "name": "gray-2",
+   "value": "#868a91"
+  },
+  {
+   "name": "gray-3",
+   "value": "#b2b4b9"
+  },
+  {
+   "name": "gray-4",
+   "value": "#cccdd1"
+  },
+  {
+   "name": "gray-5",
+   "value": "#d5d5d5"
+  },
+  {
+   "name": "gray-6",
+   "value": "#e1e1e1"
+  },
+  {
+   "name": "gray-7",
+   "value": "#dfe2ea"
+  },
+  {
+   "name": "gray-75",
+   "value": "#b0b2b8bf"
+  },
+  {
+   "name": "gray-50",
+   "value": "#b0b2b880"
+  },
+  {
+   "name": "gray-25",
+   "value": "#b0b2b840"
+  },
+  {
+   "name": "gray-10",
+   "value": "#b0b2b81a"
+  },
+  {
+   "name": "blue-100",
+   "value": "#0098fd"
+  }
+ ]
+}

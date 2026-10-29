@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentations — Nagarro Presentations</title>
+
+  <!--
+    Presentation Library — Milestone M6 (Phase 3 §04, Phase 4 M6).
+
+    Backend is entirely M3/M4's — list/search/sort/duplicate/archive/delete
+    all already existed. M6 is the UI Layer only (Phase 4's own File Impact
+    table for M6: "Allowed to change: None expected").
+
+    Card rendering, the action menu, Rename, and the Delete confirmation
+    modal moved into lib/presentation-card.js at M15 Phase 4 Slice 2 — that
+    module injects its own toast region / card menu / modals into
+    document.body, so this page no longer declares them itself. Rename is
+    now reachable from the shared card menu (Slice 2 supersedes M6 decision
+    B). Status filtering is limited to Ready/Archived — the only two states
+    this system can currently produce (approved decision C).
+  -->
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/primitives.css" />
+  <link rel="stylesheet" href="/css/deck.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <link rel="stylesheet" href="app.css" />
+  <script>
+    // Applied before first paint so a stored choice never flashes the wrong
+    // theme. Absent attribute = auto (app.css follows the OS).
+    try { var t = localStorage.getItem("nps:theme");
+          if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body class="dashboard product">
+  <main class="page">
+    <header class="page-head">
+      <h1>Presentations</h1>
+      <p>Browse, search, and manage every presentation in your workspace.</p>
+    </header>
+
+    <div class="lib-toolbar" id="lib-toolbar">
+      <div class="lib-toolbar__row">
+        <div class="lib-search" role="search">
+          <input type="search" id="search-input" placeholder="Search by title"
+                 aria-label="Search presentations" autocomplete="off" />
+        </div>
+        <button type="button" class="btn btn--ghost lib-filters-toggle" id="filters-toggle"
+                aria-expanded="false" aria-controls="lib-filters">Filters</button>
+      </div>
+
+      <div class="lib-filters" id="lib-filters">
+        <button type="button" class="chip" id="chip-archived" aria-pressed="false">Archived</button>
+        <label class="lib-sort">
+          <span>Sort</span>
+          <select id="sort-select" aria-label="Sort presentations">
+            <option value="updatedAt">Most recently updated</option>
+            <option value="title">Title A–Z</option>
+          </select>
+        </label>
+        <div class="lib-toolbar__spacer"></div>
+        <button type="button" class="btn btn--ghost" id="upload-pptx-btn">Upload PPTX</button>
+        <input type="file" id="upload-pptx-input" accept=".pptx" hidden />
+        <a class="btn btn--primary" href="index.html">New presentation</a>
+      </div>
+    </div>
+
+    <div id="list-banner" hidden></div>
+
+    <p class="lib-count" id="lib-count" aria-live="polite"></p>
+
+    <div class="dash-grid" id="lib-grid"></div>
+
+    <div class="lib-more" id="lib-more" hidden>
+      <button type="button" class="btn btn--ghost" id="load-more">Load more</button>
+    </div>
+  </main>
+
+  <script type="module" src="presentations.js"></script>
+</body>
+</html>

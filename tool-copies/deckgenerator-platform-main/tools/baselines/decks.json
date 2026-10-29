@@ -1,0 +1,24 @@
+{
+  "tool": "decks",
+  "note": "Known findings. Re-record with --record-baseline after fixing some.",
+  "findings": [
+    "content-loss|Clearing the Elective Backlog|4|finance/statement-dots shows # characters against # of speaker notes",
+    "content-loss|Design and Engineering, Under One Roof|5|main/text# shows # characters against # of speaker notes",
+    "content-loss|From Scheduled to Predicted|4|main/text# shows # characters against # of speaker notes",
+    "content-loss|Half-Year Financial Review — H1 2026|8|finance/statement-dots shows # characters against # of speaker notes",
+    "content-loss|Predictive Maintenance for Rolling Stock|4|main/text# shows # characters against # of speaker notes",
+    "content-loss|Recovering the Theatre Capacity You|5|main/text# shows # characters against # of speaker notes",
+    "content-loss|Supply Interruptions: FY26 Operations Update|5|finance/dotted-line shows # characters against # of speaker notes",
+    "content-loss|Supply Interruptions: Where We Stand and What We Need|3|finance/statement-dots shows # characters against # of speaker notes",
+    "placeholder|Automating the Meridian DC|4|planning/data# · phases[#].label still holds the example's \"Phase #\"",
+    "placeholder|Build or Buy: The Customer Data Platform Decision|1|core/cover-single · project still holds the example's \"Project\"",
+    "placeholder|Design and Engineering, Under One Roof|6|portfolio/grid# · meta_items[#].value still holds the example's \"#\"",
+    "placeholder|Untitled presentation|1|core/cover-single · company still holds the example's \"Company\"",
+    "placeholder|Untitled presentation|1|core/cover-single · date still holds the example's \"Date\"",
+    "placeholder|Untitled presentation|1|core/cover-single · project still holds the example's \"Project\"",
+    "placeholder|export v1 2|2|core/content-twocol · intro → \"Project Name\" in …cale. Digital Design Strategy Project Name Month Year © #…",
+    "placeholder|export v1 2|2|portfolio/grid# · body → \"Lorem\" in …Lorem ipsum dolor sit ame…",
+    "placeholder|export v1 2|3|core/content-twocol · intro → \"Project Name\" in …tegy. Digital Design Strategy Project Name Month Year © #…",
+    "repeated-photo|New York City|2|##_Nagarro_#.jpg appears on slides #, #, #, #, #, #, #, #"
+  ]
+}

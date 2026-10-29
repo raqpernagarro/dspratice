@@ -1,0 +1,5 @@
+{
+  "tool": "decks-corpus",
+  "note": "Known findings. Re-record with --record-baseline after fixing some.",
+  "findings": []
+}

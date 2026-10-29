@@ -1,0 +1,8 @@
+# Runtime data and secrets produced by the Product Layer.
+# Nothing in here is source; all of it is machine-local.
+#
+# infrastructure/identity/store/ holds password hashes — it must never be
+# committed under any circumstances, which is why it is listed explicitly
+# rather than relying on the data/ rule alone.
+data/
+infrastructure/identity/store/

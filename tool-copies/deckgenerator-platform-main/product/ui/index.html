@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create — Nagarro Presentations</title>
+
+  <!--
+    Create — one composer, one uninterrupted flow.
+
+    Iteration 4 strips the composer bar to two controls: "+" (opens the file
+    picker immediately — no menu, since upload is the only supported action)
+    and Generate. A staged attachment renders as a compact inline chip next
+    to "+", not a separate section above it. The Claude CLI status readout
+    is gone — the composer is about creating presentations, not provider
+    plumbing. The greeting above is computed on the client from the same
+    recents request the rail already makes — no extra call, no AI,
+    deterministic.
+
+    Backend untouched: still POST /api/generations, POST /api/generations/:id
+    /approve and POST /api/presentations/import.
+  -->
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/primitives.css" />
+  <link rel="stylesheet" href="/css/deck.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <link rel="stylesheet" href="app.css" />
+  <script>
+    // Applied before first paint so a stored choice never flashes the wrong
+    // theme. Absent attribute = auto (app.css follows the OS).
+    try { var t = localStorage.getItem("nps:theme");
+          if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body class="dashboard product">
+  <!-- Runs before the composer below is painted. Arriving with `?id=` means
+       the destination is a presentation, not Create — flagging the body here
+       keeps Create hidden from the very first frame, so the deep link never
+       flashes the wrong screen on its way to the document. home.js owns this
+       class from then on. -->
+  <script>
+    if (new URLSearchParams(location.search).get("id")) {
+      document.body.classList.add("has-workspace");
+    }
+  </script>
+
+  <main class="create">
+    <!-- The thread: greeting, the first message, the guide and the build
+         progress. Scrolls on its own above the docked composer. -->
+    <div class="create__thread" id="create-thread">
+    <div class="create__inner">
+      <header class="create__head">
+        <!-- Height is reserved so resolving the greeting never shifts the
+             composer; the text fades in once computed. -->
+        <h1 class="create__title" id="create-title" aria-live="polite"></h1>
+        <p class="create__sub">Generate, import or edit presentations.</p>
+      </header>
+
+        <!-- The assistant's first message (product/ui/starters.js): the twelve
+             points a good prompt covers, and "Start from this list". How it
+             works, figures, pictures and the look live in the guide's tabs.
+             Filled by JS; hidden until then so nothing flashes. -->
+        <section class="intro" id="intro" aria-labelledby="intro-title" hidden></section>
+
+        <section class="guide-panel" id="guide-panel" role="region" aria-labelledby="guide-title" hidden></section>
+
+        <!-- Live build view — replaces the bare "Building…" spinner once the
+             server reports `progress` on the generation record. A vertical
+             checklist: each stage carries a drawn state marker (pending ring,
+             pulsing active dot, mint check when passed) joined by a hairline
+             rail, and the live detail line rides WITH the active stage rather
+             than floating loose below. Hidden while talking to an older server
+             whose records carry no `progress` — the submit button's busy label
+             is the fallback then. -->
+        <section class="build" id="build-view" hidden aria-live="polite">
+          <ol class="build__stages" id="build-stages">
+            <li class="build__stage" data-stage="understanding">
+              <span class="build__mark" aria-hidden="true"></span>
+              <span class="build__label">Understanding your content</span>
+              <span class="build__meta"></span>
+            </li>
+            <li class="build__stage" data-stage="story">
+              <span class="build__mark" aria-hidden="true"></span>
+              <span class="build__label">Shaping the story</span>
+              <span class="build__meta"></span>
+            </li>
+            <li class="build__stage" data-stage="drafting">
+              <span class="build__mark" aria-hidden="true"></span>
+              <span class="build__label">Drafting the slides</span>
+              <span class="build__meta"></span>
+            </li>
+            <li class="build__stage" data-stage="analyzing">
+              <span class="build__mark" aria-hidden="true"></span>
+              <span class="build__label">Sorting the slides</span>
+              <span class="build__meta"></span>
+            </li>
+            <li class="build__stage" data-stage="planning">
+              <span class="build__mark" aria-hidden="true"></span>
+              <span class="build__label">Planning sections</span>
+              <span class="build__meta"></span>
+            </li>
+            <li class="build__stage" data-stage="choosing">
+              <span class="build__mark" aria-hidden="true"></span>
+              <span class="build__label">Choosing layouts</span>
+              <span class="build__meta"></span>
+            </li>
+            <li class="build__stage" data-stage="writing">
+              <span class="build__mark" aria-hidden="true"></span>
+              <span class="build__label">Writing slides</span>
+              <span class="build__meta"></span>
+            </li>
+            <li class="build__stage" data-stage="voice">
+              <span class="build__mark" aria-hidden="true"></span>
+              <span class="build__label">Polishing the voice</span>
+              <span class="build__meta"></span>
+            </li>
+            <li class="build__stage" data-stage="reviewing">
+              <span class="build__mark" aria-hidden="true"></span>
+              <span class="build__label">Reviewing the result</span>
+              <span class="build__meta"></span>
+            </li>
+            <li class="build__stage" data-stage="assembling">
+              <span class="build__mark" aria-hidden="true"></span>
+              <span class="build__label">Assembling the deck</span>
+              <span class="build__meta"></span>
+            </li>
+          </ol>
+        </section>
+    </div>
+  </div>
+
+  <!-- The dock: pinned to the bottom of the screen like a chat composer.
+       The thread above scrolls on its own; nothing here moves with it. -->
+  <div class="create__dock">
+      <div class="composer-wrap" id="field-prompt">
+
+        <!-- Prompt starters: two or three words each; a click puts the full
+             prompt in the box. Hidden while a .pptx is staged or the coach is open. -->
+        <ul class="starters" id="starters" aria-label="Example prompts"></ul>
+
+        <!-- Coach v2 — the question form at every prompt-path Generate
+             (product/ui/coach.js). Sits just above the composer, which stays
+             visible. One question at a time; every question can be skipped
+             and "Generate now" is always enabled; Esc closes. Model-written
+             text is set with textContent only. References are attached
+             INSIDE the form — the composer's "+" stays the .pptx import. -->
+        <section class="coach2" id="coach" hidden aria-labelledby="coach-question">
+          <div class="coach2__top">
+            <span class="coach2__eyebrow">A few questions before we build</span>
+            <span class="coach2__progress" data-coach="progress" aria-live="polite"></span>
+            <button type="button" class="coach2__close" data-coach="close" aria-label="Close questions">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+            </button>
+          </div>
+          <h2 class="coach2__q" id="coach-question" data-coach="question" tabindex="-1"></h2>
+          <p class="coach2__why" data-coach="why" hidden></p>
+          <div class="coach2__options" data-coach="options"></div>
+          <div class="ref-panel" data-coach="refs" hidden>
+            <div class="ref-paste" data-coach="paste" hidden>
+              <label class="sr-only" for="ref-paste-text">Paste reference text</label>
+              <textarea class="ref-paste__text" id="ref-paste-text" data-coach="paste-text" rows="4"
+                        placeholder="Paste notes, a report or an email…"></textarea>
+              <button type="button" class="ref-paste__add" data-coach="paste-add">Add text</button>
+            </div>
+            <ul class="ref-list" data-coach="ref-list" aria-label="Attached references" hidden></ul>
+            <p class="ref-error" data-coach="ref-error" role="alert" hidden></p>
+            <input type="file" data-coach="file" multiple hidden />
+          </div>
+          <input type="text" class="coach2__text" data-coach="text" autocomplete="off" hidden />
+          <div class="coach2__actions">
+            <button type="button" class="coach2__back" data-coach="back">Back</button>
+            <span class="coach2__spacer"></span>
+            <button type="button" class="coach2__skip" data-coach="skip">Skip</button>
+            <button type="button" class="coach2__next" data-coach="next">Next</button>
+            <button type="button" class="coach2__go" data-coach="go">Generate now</button>
+          </div>
+        </section>
+
+        <form id="create-form" class="composer" novalidate>
+          <label class="sr-only" for="prompt">Describe the presentation you want to create</label>
+          <textarea id="prompt" name="prompt" class="composer__input" rows="1" autocomplete="off"
+                    placeholder="Describe the presentation you want to create..."></textarea>
+
+          <div class="composer__bar">
+            <button type="button" class="composer__plus" id="attach-btn" aria-label="Attach a PowerPoint file">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+            </button>
+
+            <!-- Attachment chip — inline, same row as "+", the way a chat
+                 composer shows a staged file. Present only while a file is
+                 staged; nothing is created or imported yet. Named
+                 .attach-chip (not .chip) — that class already belongs to
+                 Library's filter-toggle pill, an unrelated component. -->
+            <span class="attach-chip" id="composer-attachments" hidden>
+              <span class="attach-chip__row">
+                <span class="attach-chip__name" id="attachment-name"></span>
+                <button type="button" class="attach-chip__remove" id="attachment-remove"
+                        aria-label="Remove attachment">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                       stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+                </button>
+              </span>
+              <label class="attachment-images-toggle">
+                <input type="checkbox" id="attachment-brand-images" />
+                Use brand photography instead of the file's images
+              </label>
+            </span>
+
+            <span class="composer__bar-spacer"></span>
+
+            <button type="submit" class="composer__send" id="create-submit" disabled>
+              <span id="create-submit-label">Generate</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h13" /><path d="m12 5 7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <!-- Getting-started guide (product/ui/guide.js). An inline, dismissable
+             region — never a modal; the composer stays usable while it is open. -->
+        <p class="guide-row">
+          <button type="button" class="guide-link" id="guide-link">New here? How to get a great deck</button>
+        </p>
+
+        <p class="composer__error" id="composer-error" role="alert" hidden></p>
+
+      </div>
+
+      <input type="file" id="upload-pptx-input" accept=".pptx" hidden />
+    </div>
+  </main>
+
+  <!-- The workspace is mounted by home.js into .shell__main, as a sibling of
+       <main class="create"> — NOT here in <body>. The rail's mountAppShell()
+       moves only <main> into that column, so anything left behind in <body>
+       would become a grid item of the body itself and land under the rail. -->
+
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+
+  <!-- Delete confirmation — the same two-step "type to confirm" pattern the
+       Library uses. -->
+  <div class="modal-overlay" id="ws-delete-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ws-delete-title">
+      <h2 id="ws-delete-title">Delete presentation</h2>
+      <p id="ws-delete-body"></p>
+      <div class="field">
+        <label for="ws-delete-input">Type the title to confirm</label>
+        <input type="text" id="ws-delete-input" autocomplete="off" />
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn--ghost" id="ws-delete-cancel">Cancel</button>
+        <button type="button" class="btn btn--danger" id="ws-delete-confirm" disabled>Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="home.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nagarro deck</title>
+<!--
+  Nagarro Master Slides — deck starter.
+  Keep this file in kit/ next to components/, fonts/ and media/ (the design system's folder layout).
+  Edit the `deck` and `slides` objects below, then open the file in a browser.
+  Fields per template: the design system's Slide catalog sections, or NagarroSlides.get(name).schema.
+-->
+<link rel="stylesheet" href="../components/bundle.css">
+<style>
+  @font-face { font-family: "Equip"; src: url("../fonts/Equip-Light.woff2") format("woff2"); font-weight: 300; font-display: swap; }
+  @font-face { font-family: "Equip"; src: url("../fonts/Equip-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Equip"; src: url("../fonts/Equip-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+  @font-face { font-family: "Equip"; src: url("../fonts/Equip-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+  @font-face { font-family: "Equip Extended"; src: url("../fonts/EquipExtended-Light.woff2") format("woff2"); font-weight: 300; font-display: swap; }
+  @font-face { font-family: "Equip Extended"; src: url("../fonts/EquipExtended-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Equip Extended"; src: url("../fonts/EquipExtended-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+  @font-face { font-family: "Equip Extended"; src: url("../fonts/EquipExtended-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+  html, body { margin: 0; background: #05070d; color: #c4c9d2; font-family: "Equip", system-ui, sans-serif; }
+  .kit-bar { position: sticky; top: 0; z-index: 2; display: flex; gap: 16px; align-items: center; padding: 12px 24px; background: #05070d; font-size: 14px; }
+  .kit-bar button { font: inherit; color: #ffffff; background: transparent; border: 0.5px solid #c4c9d2; border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+  .kit-list { display: flex; flex-direction: column; align-items: center; gap: 32px; padding: 24px; }
+  .kit-present { position: fixed; inset: 0; z-index: 3; background: #05070d; display: none; align-items: center; justify-content: center; }
+  .kit-present.on { display: flex; }
+</style>
+</head>
+<body>
+<div class="kit-bar"><span id="kit-title"></span><button type="button" id="kit-play">Present</button><span>← → to move · F for fullscreen · Esc to leave</span></div>
+<div class="kit-list" id="kit-list"></div>
+<div class="kit-present" id="kit-present" tabindex="-1"></div>
+<script src="../components/bundle.js"></script>
+<script>
+  // ---- Edit from here ---------------------------------------------------------
+  const deck = {
+    title: "Claims platform modernisation",
+    studio: "Product Studio",
+    footer: { col1: "Claims platform modernisation", col2: "Prepared for [Client]", col3: "", copyright: "© 2026" },
+  };
+  const slides = [
+    { template: "main/cover-01", theme: "dark", title: "Modernising the claims platform", subtitle: "Discovery findings and delivery plan" },
+    { template: "main/index-01", title: "Contents", items: [
+      { number: "01", label: "Where you are today" }, { number: "02", label: "What we heard" },
+      { number: "03", label: "Our approach" }, { number: "04", label: "Plan and team" } ] },
+    { template: "main/section-cover-01", theme: "dark", number: "01", title: "Where you are today" },
+    { template: "core/quote-single", quote: "We spend more time **moving data between screens** than talking to the people who made the claim.", attribution: "Claims handler, regional office" },
+    { template: "core/cards-row-4", caption: "Approach", title: "Four moves, in order", subtitle: "Each one pays for the next", cards: [
+      { title: "Map", body: "Two weeks with handlers and engineers to map every system a claim touches." },
+      { title: "Automate", body: "Remove re-keying between intake, policy and payment systems first." },
+      { title: "Modernise", body: "Move the claim record to one service with an event history." },
+      { title: "Scale", body: "Roll out region by region, measuring handling time at each step." } ] },
+    { template: "main/closing-01", theme: "dark", title: "Imagine what we can do together!" },
+  ];
+  // ---- to here ----------------------------------------------------------------
+
+  NagarroSlides.config({ assetBase: "../media/" });
+  const html = NagarroSlides.renderDeck(slides, deck);
+  document.title = deck.title;
+  document.getElementById("kit-title").textContent = deck.title + " · " + slides.length + " slides";
+  const view = (h, w) => { const s = w / 1920; return `<div class="ns-viewport" style="width:${w}px;height:${Math.round(1080 * s)}px"><div class="ns-scaler" style="transform:scale(${s})">${h}</div></div>`; };
+  const list = document.getElementById("kit-list");
+  const draw = () => { const w = Math.min(1280, window.innerWidth - 48); list.innerHTML = html.map((h) => view(h, w)).join(""); };
+  draw(); window.addEventListener("resize", draw);
+
+  const pres = document.getElementById("kit-present"); let i = 0;
+  const show = () => { const w = Math.min(window.innerWidth, window.innerHeight * 16 / 9); pres.innerHTML = view(html[i], Math.floor(w)); };
+  document.getElementById("kit-play").onclick = () => { i = 0; pres.classList.add("on"); show(); pres.focus(); };
+  window.addEventListener("resize", () => pres.classList.contains("on") && show());
+  document.addEventListener("keydown", (e) => {
+    if (!pres.classList.contains("on")) return;
+    if (e.key === "ArrowRight" || e.key === " ") { i = Math.min(html.length - 1, i + 1); show(); }
+    else if (e.key === "ArrowLeft") { i = Math.max(0, i - 1); show(); }
+    else if (e.key === "Escape") { pres.classList.remove("on"); }
+    else if (e.key.toLowerCase() === "f" && document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(() => {});
+  });
+</script>
+</body>
+</html>

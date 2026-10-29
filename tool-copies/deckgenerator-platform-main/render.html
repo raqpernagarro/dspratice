@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engine Gateway — Nagarro</title>
+
+  <!--
+    Engine Gateway (Milestone M1 — Phase 4 §02).
+
+    This page renders a deck object built in js/render-gateway.js instead of
+    one resolved from js/decks/index.js. It exists to prove that
+    buildStage() — the Rendering Engine's one public export — renders a
+    runtime-constructed {meta, slides} object exactly as it renders a
+    statically-registered one, with no engine file modified to make it work.
+
+    Same CSS chain as deck.html, because this page reuses the exact same
+    canvas, theme, and chrome rules deck.html does — nothing here re-declares
+    or overrides them.
+  -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/primitives.css" />
+  <link rel="stylesheet" href="css/deck.css" />
+
+  <style>
+    /* M1 has no navigation chrome (nav-pill, edges, keyboard) — that's
+       js/engine.js's job, out of scope for a bare rendering proof. A small
+       fixed label is the only thing this page adds, so a human can tell what
+       they're looking at while comparing it against deck.html. */
+    .proof-label {
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      z-index: 50;
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: .02em;
+      color: var(--color-white);
+      background: rgba(12, 17, 30, .72);
+      border: 0.5px solid rgba(196, 201, 210, .22);
+      border-radius: 8px;
+      padding: 8px 12px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .proof-label b { color: var(--mint-green); font-weight: var(--w-medium); }
+  </style>
+</head>
+<body>
+  <div class="deck" id="deck">
+    <div class="viewport" id="viewport"></div>
+  </div>
+
+  <div class="proof-label" id="proof-label" aria-live="polite"></div>
+
+  <script type="module" src="js/render-gateway.js"></script>
+</body>
+</html>

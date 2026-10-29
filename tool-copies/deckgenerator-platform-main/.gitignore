@@ -1,0 +1,30 @@
+# Dependencies — reinstalled with `npm install`, never committed.
+# These were tracked (6,114 files) because this repo had no .gitignore at all,
+# which is most of why a checkout was multi-gigabyte.
+node_modules/
+
+# Generated exports. Produced by the Export button in the editor; the two files
+# once committed here were 148 MB of build output.
+outputs/
+
+# Everyone's own work. It lives INSIDE the app folder deliberately (see
+# product/infrastructure/user-data.js) so the folder can be copied, backed up
+# and handed to someone as one thing — which means these must never be
+# committed. product/data/ covers presentations, generations and exported files.
+product/data/
+product/infrastructure/identity/store/
+assets/uploads/
+
+# Source material for past decks (input only, never served). Now lives in
+# Deprecated/deck-source/generate/ and is not distributed.
+generate/
+Deprecated/deck-source/
+
+# macOS
+.DS_Store
+
+# Agent/session scratch
+.claude/worktrees/
+
+# Design-system build output (tools/design-system/build.mjs)
+tools/design-system/.build/

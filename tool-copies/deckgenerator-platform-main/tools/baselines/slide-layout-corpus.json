@@ -1,0 +1,9 @@
+{
+  "tool": "slide-layout-corpus",
+  "note": "Known findings. Re-record with --record-baseline after fixing some.",
+  "findings": [
+    "blank-region|Overlong|2|planning/grid# · div.v#f-pl-scell draws #px of nothing",
+    "overflow|Overlong|2|planning/grid# · div.v#f-pl-headL clipped #px down — “# · GOVERNANCE\n      Operated as a service\n  …”",
+    "overflow|Overlong|3|core/cards-row# · div.v#f-heading clipped #px down — “Current state\n      Single point of contact: a…”"
+  ]
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Export Runtime capture surface — Nagarro Presentation (Product-owned)</title>
+
+  <!--
+    Export Gateway — Export Runtime (Milestone M10, ADR-0008/ADR-0009).
+
+    This is a Product-owned capture surface, NOT export.html. It exists
+    because export.html/js/export.js are immutable (ADR-0008 §09) and
+    resolve their content exclusively through js/decks/index.js's static
+    registry, which structurally cannot hold a runtime Presentation
+    (Rule 30). This page mounts a slide handed to it directly by the
+    orchestrator (index.mjs), via buildStage() — the one sanctioned reuse
+    seam — never via getDeck().
+
+    The capture CSS below is a verbatim port of export.html's own
+    invariants (tools/EXPORT-NOTES.md's documented, previously-fixed
+    bugs): transparent background (Playwright omitBackground only yields
+    transparency with no opaque page background), the reveal animation
+    frozen, transitions disabled, and the cap-on/cap-plate/cap-graphic
+    isolation classes used to screenshot one element without overlapping
+    siblings bleeding in. None of this is invented — it is copied because
+    it is load-bearing, exactly as ADR-0008 §4 requires of the ported
+    logic.
+
+    WP7 finding resolution: ~48 templates (js/templates/*.js) reference
+    their own graphics with a PAGE-relative URL, e.g.
+    slide-91-closing.js's `"assets/figma/91/nagarro-logo-mint-shadows.png"`.
+    export.html lives at the site root, so that resolves to
+    "/assets/...". This page lives at /product/export-runtime/capture.html
+    — two segments deeper — so the identical string would otherwise
+    resolve to "/product/export-runtime/assets/...", 404. `buildStage()`
+    (the immutable Rendering Layer) returns these as literal HTML strings
+    (e.g. `<img src="${GRAPHIC}">`), so the browser resolves them against
+    the document's base URL at parse time — exactly what `<base>` governs.
+    Setting it to root gives this page the SAME effective resolution base
+    export.html already has, with no template file touched, no new
+    architectural layer, and no effect on the already-absolute
+    stylesheet/script references below (a `<base>` never overrides a URL
+    that already starts with "/"). Fonts referenced from
+    css/tokens.css's own `url(...)` are unaffected too — CSS resolves
+    those relative to the stylesheet file's own location, not the
+    document's base URL, regardless of this tag.
+  -->
+  <base href="/" />
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/primitives.css" />
+  <link rel="stylesheet" href="/css/deck.css" />
+
+  <style>
+    html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+    #export-root {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+    }
+    #export-root .stage { opacity: 1 !important; visibility: visible !important; }
+    #export-root .stage .reveal { animation: none !important; translate: none !important; }
+    #export-root .stage, #export-root .stage * { transition: none !important; }
+    #export-root .stage.cap-on { visibility: hidden !important; }
+    #export-root .cap-plate { visibility: visible !important; color: transparent !important; }
+    #export-root .cap-plate > * { visibility: hidden !important; }
+    #export-root .cap-graphic { visibility: visible !important; }
+  </style>
+</head>
+<body>
+  <div id="export-root"></div>
+  <script type="module" src="/product/export-runtime/capture.js"></script>
+</body>
+</html>

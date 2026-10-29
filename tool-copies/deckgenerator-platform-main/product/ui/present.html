@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Present — Nagarro Presentations</title>
+
+  <!--
+    Fullscreen Presentation Mode — MVP Sprint 1.
+
+    Deliberately the SAME markup/classes as the engine's own deck.html
+    Viewer (.deck/.viewport/.edge/.nav-pill/.counter) — that page already
+    has a complete, polished fullscreen slideshow (keyboard nav, mouse edge
+    clicks, touch swipe, idle auto-hide chrome, progress counter, F to
+    toggle browser fullscreen). It just can't be reused directly because it
+    only knows the static js/decks registry; this page renders a real
+    product Presentation instead. present.js reimplements the identical
+    navigation behavior (not a redesign) against api.getDeck(), and reuses
+    buildStage() exactly as every other product screen does. No editor
+    chrome, no nav bar — a deliberately bare, full-bleed page.
+  -->
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/primitives.css" />
+  <link rel="stylesheet" href="/css/deck.css" />
+  <script>
+    // Applied before first paint so a stored choice never flashes the wrong
+    // theme. Absent attribute = auto (app.css follows the OS).
+    try { var t = localStorage.getItem("nps:theme");
+          if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="deck" id="deck">
+    <div class="viewport" id="viewport"></div>
+
+    <div class="edge left" aria-hidden="true"></div>
+    <div class="edge right" aria-hidden="true"></div>
+
+    <nav class="nav-pill" aria-label="Slide navigation">
+      <a class="nav-home" id="nav-home" href="#" aria-label="Exit presentation" title="Exit presentation (Esc)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </a>
+      <span class="nav-pill__sep" aria-hidden="true"></span>
+      <button id="prev" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="counter" id="counter">01 / 01</div>
+      <button id="next" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Speaker notes. Off by default — this view is projected — and toggled
+       with N. They have existed on every slide since generation and import
+       were built, and until now nothing anywhere displayed them. -->
+  <aside class="pv-notes" id="pv-notes" hidden aria-live="polite">
+    <p class="pv-notes__label">Speaker notes · press N to hide</p>
+    <p class="pv-notes__body" id="pv-notes-body"></p>
+  </aside>
+
+  <div id="present-message" class="hint" style="position:fixed; inset:0; display:none; align-items:center; justify-content:center; color:#fff; font-family:sans-serif;"></div>
+
+  <script type="module" src="present.js"></script>
+</body>
+</html>

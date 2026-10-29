@@ -1,0 +1,206 @@
+/* =============================================================================
+   Nagarro Presentation System — Dashboard (deck gallery)
+   On-brand dark surface, Equip Extended display, mint-green accents.
+   ========================================================================== */
+
+/* Match the canvas behind the scroll area so no seam shows past the content. */
+html:has(body.dashboard) { background: var(--petrol-black); }
+
+body.dashboard {
+  overflow: auto;
+  min-height: 100vh;
+  color: var(--color-white);
+  background:
+    radial-gradient(120% 80% at 85% -10%, rgba(71, 215, 172, .10) 0%, transparent 45%),
+    radial-gradient(90% 70% at 0% 0%, #0b1430 0%, transparent 55%),
+    var(--petrol-black);
+  /* Anchor the gradients to the viewport so scrolling reveals a flat base, not a second tone. */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ---- Header -------------------------------------------------------------- */
+.dash-header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 72px 64px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.dash-brand {
+  color: var(--color-white);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.dash-help {
+  font-family: var(--font-display); font-size: 14px; letter-spacing: .02em;
+  color: var(--navy-500-on-dark); text-decoration: none; transition: color .2s ease;
+}
+.dash-help:hover { color: var(--mint-green); }
+.dash-logo { display: inline-block; width: 150px; height: 36px; }
+.dash-logo svg { width: 100%; height: 100%; }
+
+.dash-title h1 {
+  font-family: var(--font-display);
+  font-weight: var(--w-bold);
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: .98;
+  letter-spacing: var(--ls-1);
+}
+.dash-sub {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--navy-500-on-dark);
+}
+.dash-sub #deck-count {
+  color: var(--mint-green);
+  font-family: var(--font-display);
+}
+
+/* ---- Sections + grid ---------------------------------------------------- */
+.dash-main { max-width: 1400px; margin: 0 auto; padding-bottom: 32px; }
+.dash-section { padding: 8px 64px 40px; }
+.dash-section[hidden] { display: none; }
+.dash-section + .dash-section {
+  border-top: 0.5px solid rgba(196, 201, 210, .14);
+  padding-top: 40px;
+}
+.dash-section__title {
+  font-family: var(--font-display); font-weight: var(--w-medium);
+  font-size: 22px; letter-spacing: -.4px; color: var(--color-white);
+}
+.dash-section__sub {
+  margin: 6px 0 28px;
+  font-family: var(--font-body); font-size: 15px; color: var(--navy-500-on-dark);
+}
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 36px 32px;
+}
+
+/* ---- Deck card ---------------------------------------------------------- */
+.deck-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .025);
+  border: 1px solid rgba(196, 201, 210, .14);
+  transition: transform .35s cubic-bezier(.16,.84,.3,1),
+              border-color .35s ease, box-shadow .35s ease, background .35s ease;
+  will-change: transform;
+}
+.deck-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(71, 215, 172, .55);
+  background: rgba(255, 255, 255, .04);
+  box-shadow: 0 24px 60px -28px rgba(0, 0, 0, .8),
+              0 0 0 1px rgba(71, 215, 172, .12);
+}
+.deck-card:focus-visible {
+  outline: 2px solid var(--mint-green);
+  outline-offset: 3px;
+}
+
+/* Thumbnail: a real 1920×1080 first-slide stage scaled to fit. */
+.deck-card__thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-white);
+}
+.deck-card__thumb[data-theme="dark"] { background: var(--color-black); }
+.deck-card__frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: top left;
+}
+/* Thumbnail stages render statically (no fade/animation). */
+.deck-card__frame .stage.is-thumb {
+  opacity: 1;
+  visibility: visible;
+  transition: none;
+}
+.deck-card__frame .stage.is-thumb .reveal { animation: none; }
+
+/* slight zoom on hover for life */
+.deck-card__thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 70%, rgba(6, 4, 31, .12));
+  pointer-events: none;
+}
+
+.deck-card__meta { padding: 22px 24px 24px; }
+.deck-card__title {
+  font-family: var(--font-display);
+  font-weight: var(--w-medium);
+  font-size: 24px;
+  letter-spacing: -.6px;
+  line-height: 1.1;
+  /* An unbroken title (no spaces) has no normal wrap opportunity and forces
+     the grid track — and the page — wider than the viewport. overflow-wrap
+     only takes effect as a last resort, after ordinary space-based wrapping
+     has already been tried, so normal titles are unaffected. */
+  overflow-wrap: break-word;
+}
+.deck-card__desc {
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--navy-500-on-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.deck-card__foot {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: .02em;
+  color: var(--navy-500-on-dark);
+}
+.deck-card__count {
+  color: var(--mint-green);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(71, 215, 172, .1);
+}
+
+/* ---- Footer ------------------------------------------------------------- */
+.dash-foot {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 28px 64px 56px;
+  border-top: 0.5px solid rgba(196, 201, 210, .14);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--navy-500-on-dark);
+}
+.dash-foot a { color: var(--mint-green); text-decoration: none; }
+.dash-foot a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .dash-header { padding: 48px 28px 28px; }
+  .dash-section { padding: 8px 28px 32px; }
+  .dash-grid { grid-template-columns: 1fr; }
+  .dash-foot { padding: 24px 28px 40px; }
+}

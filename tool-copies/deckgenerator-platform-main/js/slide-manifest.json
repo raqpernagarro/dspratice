@@ -1,0 +1,7501 @@
+[
+  {
+    "slug": "main/cover-01",
+    "slide": -88,
+    "family": "main",
+    "role": "cover",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "The opening cover of a deck: a large presentation title with a subtitle beneath it.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "subtitle",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37102"
+  },
+  {
+    "slug": "main/cover-02",
+    "slide": -87,
+    "family": "main",
+    "role": "cover",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A bold cover: an oversized presentation title at top-left with the subtitle set in the bottom-right corner.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "subtitle",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37107"
+  },
+  {
+    "slug": "main/index-01",
+    "slide": -86,
+    "family": "main",
+    "role": "toc",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "An agenda / index: a heading on the left and a numbered list of up to nine sections on the right.",
+    "capacity": {
+      "items": 9,
+      "min": 4,
+      "max": 9
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "list": 9,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37111"
+  },
+  {
+    "slug": "main/index-02",
+    "slide": -85,
+    "family": "main",
+    "role": "toc",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "An index that lists a few major sections with their page-ranges, anchored to the bottom of the slide.",
+    "capacity": {
+      "items": 6,
+      "min": 3,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "list": 6,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37152"
+  },
+  {
+    "slug": "main/index-03",
+    "slide": -84,
+    "family": "main",
+    "role": "toc",
+    "shape": "grid",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "An index laid out as a two-column grid of numbered sections, each with a title and a one-line description.",
+    "capacity": {
+      "items": 10,
+      "min": 4,
+      "max": 10
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "list": 10,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37177"
+  },
+  {
+    "slug": "main/index-04",
+    "slide": -83,
+    "family": "main",
+    "role": "toc",
+    "shape": "grid",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "An index as a two-column grid of numbered section titles, each row divided by a hairline.",
+    "capacity": {
+      "items": 8,
+      "min": 3,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "list": 8,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37243"
+  },
+  {
+    "slug": "main/section-cover-01",
+    "slide": -82,
+    "family": "main",
+    "role": "divider",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A chapter / section divider: a large section number and title marking a new part of the deck.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "number",
+      "title",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37268"
+  },
+  {
+    "slug": "main/text-01",
+    "slide": -81,
+    "family": "main",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A large statement title with a section number below it, centred on the slide.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "number",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37272"
+  },
+  {
+    "slug": "main/confidentiality-01",
+    "slide": -80,
+    "family": "main",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A confidentiality / legal statement anchored to the bottom of the slide.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37281"
+  },
+  {
+    "slug": "main/confidentiality-02",
+    "slide": -79,
+    "family": "main",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A confidentiality / legal statement centred on the slide.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37286"
+  },
+  {
+    "slug": "main/confidentiality-03",
+    "slide": -78,
+    "family": "main",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A confidentiality / legal statement with the heading at the top and the paragraph at the bottom.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37291"
+  },
+  {
+    "slug": "main/overview-01",
+    "slide": -77,
+    "family": "main",
+    "role": "content",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A text-heavy overview: a heading and subtitle above a couple of body paragraphs in the left column.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "subtitle",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37299"
+  },
+  {
+    "slug": "main/summary-01",
+    "slide": -76,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "An executive summary: a heading on the left with the summary text set in two columns on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37307"
+  },
+  {
+    "slug": "main/summary-02",
+    "slide": -75,
+    "family": "main",
+    "role": "content",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "An executive summary with the heading on top and the summary text flowing across three columns.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37315"
+  },
+  {
+    "slug": "main/summary-03",
+    "slide": -74,
+    "family": "main",
+    "role": "content",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "An executive summary with the heading on top and the summary text as full-width paragraphs below.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37323"
+  },
+  {
+    "slug": "main/summary-04",
+    "slide": -73,
+    "family": "main",
+    "role": "content",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "An executive summary with the heading centred in the upper area and the summary anchored to the bottom.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37328"
+  },
+  {
+    "slug": "main/note-01",
+    "slide": -72,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A cover letter / note to the client: a heading on the left with the message set in two columns on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 5,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37334"
+  },
+  {
+    "slug": "main/note-02",
+    "slide": -71,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A cover letter / note to the client: a heading on the left with a single wide column of text, vertically centred.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 4,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37342"
+  },
+  {
+    "slug": "main/note-03",
+    "slide": -70,
+    "family": "main",
+    "role": "content",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A cover letter / note to the client: a heading with the full message set as a single block below it.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 5,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37348"
+  },
+  {
+    "slug": "main/note-04",
+    "slide": -69,
+    "family": "main",
+    "role": "content",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A cover letter / note to the client: a heading at the top with the message centred in the space below.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 5,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37353"
+  },
+  {
+    "slug": "main/note-05",
+    "slide": -68,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A cover letter / note to the client alongside a full-height team photo on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 5,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37361"
+  },
+  {
+    "slug": "main/quote-01",
+    "slide": -67,
+    "family": "main",
+    "role": "quote",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A full-page statement or pull-quote, left-aligned, with an attribution.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "quote",
+      "name",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37369"
+  },
+  {
+    "slug": "main/quote-02",
+    "slide": -66,
+    "family": "main",
+    "role": "quote",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A statement or pull-quote indented from the left margin, with an attribution.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "quote",
+      "name",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "415:29863"
+  },
+  {
+    "slug": "main/quote-03",
+    "slide": -65,
+    "family": "main",
+    "role": "quote",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A statement or pull-quote on a mint-green background, indented from the left.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "quote",
+      "name",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37381"
+  },
+  {
+    "slug": "main/quote-04",
+    "slide": -64,
+    "family": "main",
+    "role": "quote",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A centred statement quote in two sizes — a smaller lead line above a larger emphasised line — with an attribution.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 2,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "lead",
+      "main",
+      "name",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37386"
+  },
+  {
+    "slug": "main/quote-05",
+    "slide": -63,
+    "family": "main",
+    "role": "quote",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A statement quote alongside a square photo on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "quote",
+      "name",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37404"
+  },
+  {
+    "slug": "main/quote-06",
+    "slide": -62,
+    "family": "main",
+    "role": "quote",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A statement quote alongside a full-height photo on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "quote",
+      "name",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37410"
+  },
+  {
+    "slug": "main/data-01",
+    "slide": -61,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A positioning statement with an intro on the left and a two-column grid of headline figures on the right.",
+    "capacity": {
+      "items": 8,
+      "min": 4,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 2,
+      "stats": 8,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "stats",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37419"
+  },
+  {
+    "slug": "main/about-01",
+    "slide": -60,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A bold heading on the left with supporting grey body paragraphs on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 3,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37450"
+  },
+  {
+    "slug": "main/about-02",
+    "slide": -59,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A heading with two grey text columns across the top and a full-width photo below.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37455"
+  },
+  {
+    "slug": "main/about-03",
+    "slide": -58,
+    "family": "main",
+    "role": "content",
+    "shape": "grid",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "icon"
+    ],
+    "use": "A full-width heading over three value cards, each with a mint icon, a title and body.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 3
+    },
+    "fields": [
+      "title",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37466"
+  },
+  {
+    "slug": "main/data-02",
+    "slide": -57,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A short section label on the left paired with a large grey impact statement on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "statement",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37473"
+  },
+  {
+    "slug": "main/split-01",
+    "slide": -56,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A bold heading with a grey supporting caption on the left, alongside a full-height photo on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "caption",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37478"
+  },
+  {
+    "slug": "main/split-02",
+    "slide": -55,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A grey lead heading and a bold closing heading on the left, with a three-photo mosaic on the right.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 2,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "lead",
+      "title",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37486"
+  },
+  {
+    "slug": "main/data-03",
+    "slide": -54,
+    "family": "main",
+    "role": "content",
+    "shape": "full",
+    "count": null,
+    "theme": "dark",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-bleed team photo with a teal veil and a cluster of translucent headline-figure bubbles.",
+    "capacity": {
+      "items": 6,
+      "min": 3,
+      "max": 6
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 0,
+      "stats": 6,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "image",
+      "bubbles",
+      "meta"
+    ],
+    "figmaNode": "342:37500"
+  },
+  {
+    "slug": "main/grid-01",
+    "slide": -53,
+    "family": "main",
+    "role": "content",
+    "shape": "grid",
+    "count": null,
+    "theme": "dark",
+    "media": [
+      "icon"
+    ],
+    "use": "The seven Nagarro caring values as mint line icons under a scripted 'Our caring values' heading, on petrol black.",
+    "capacity": {
+      "items": 7,
+      "min": 7,
+      "max": 7
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 7
+    },
+    "fields": [
+      "values",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37540"
+  },
+  {
+    "slug": "main/grid-02",
+    "slide": -52,
+    "family": "main",
+    "role": "content",
+    "shape": "grid",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "icon"
+    ],
+    "use": "A dense icon grid of service offerings / capabilities — the 'what we do' wall.",
+    "capacity": {
+      "items": 30,
+      "min": 12,
+      "max": 30
+    },
+    "slots": {
+      "images": 0,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 30
+    },
+    "fields": [
+      "services",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37605"
+  },
+  {
+    "slug": "main/grid-03",
+    "slide": -51,
+    "family": "main",
+    "role": "content",
+    "shape": "grid",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A three-phase process comparison with bullet benefits, tool chips, and stat callouts.",
+    "capacity": {
+      "items": 3,
+      "min": 2,
+      "max": 3
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 3,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "phases",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37692"
+  },
+  {
+    "slug": "main/grid-04",
+    "slide": -50,
+    "family": "main",
+    "role": "content",
+    "shape": "grid",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "icon"
+    ],
+    "use": "A single-phase deep dive: challenges vs. AI acceleration, tool rows, impact stats, and a Transformation callout.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 4,
+      "stats": 3,
+      "icons": 3
+    },
+    "fields": [
+      "title",
+      "intro",
+      "leftTitle",
+      "challenges",
+      "toolsTitle",
+      "toolRows",
+      "rightTitle",
+      "accelerates",
+      "impactTitle",
+      "impacts",
+      "transformStat",
+      "transformText",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37728"
+  },
+  {
+    "slug": "main/grid-05",
+    "slide": -49,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A large question/heading on the left with two columns of bold-led explanatory paragraphs.",
+    "capacity": {
+      "items": 8,
+      "min": 2,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 8,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "columns",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37729"
+  },
+  {
+    "slug": "main/grid-06",
+    "slide": -48,
+    "family": "main",
+    "role": "content",
+    "shape": "grid",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A full-width heading over three columns of bold-led explanatory paragraphs.",
+    "capacity": {
+      "items": 9,
+      "min": 3,
+      "max": 9
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 9,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "columns",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "431:30203"
+  },
+  {
+    "slug": "main/logos-01",
+    "slide": -47,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "logo"
+    ],
+    "use": "A 'trusted by' client logo wall — heading left, 3×4 logo grid right.",
+    "capacity": {
+      "items": 12,
+      "min": 6,
+      "max": 12
+    },
+    "slots": {
+      "images": 12,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "subtitle",
+      "logos",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37760"
+  },
+  {
+    "slug": "main/logos-02",
+    "slide": -46,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "logo"
+    ],
+    "use": "A dense 'trusted by' client logo wall — heading left, 3×7 logo grid right.",
+    "capacity": {
+      "items": 21,
+      "min": 9,
+      "max": 24
+    },
+    "slots": {
+      "images": 21,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "subtitle",
+      "logos",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "431:30269"
+  },
+  {
+    "slug": "main/logos-03",
+    "slide": -45,
+    "family": "main",
+    "role": "content",
+    "shape": "grid",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "logo"
+    ],
+    "use": "A headingless full-width client logo wall — a 4×5 grid of logos.",
+    "capacity": {
+      "items": 20,
+      "min": 8,
+      "max": 24
+    },
+    "slots": {
+      "images": 20,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "logos",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "431:30969"
+  },
+  {
+    "slug": "main/logos-04",
+    "slide": -44,
+    "family": "main",
+    "role": "content",
+    "shape": "grid",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "logo"
+    ],
+    "use": "An industry-segmented client logo wall — categories in two columns, each a labelled row of logos.",
+    "capacity": {
+      "items": 10,
+      "min": 4,
+      "max": 12
+    },
+    "slots": {
+      "images": 40,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "columns",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:38507"
+  },
+  {
+    "slug": "main/logos-05",
+    "slide": -43,
+    "family": "main",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "dark",
+    "media": [
+      "logo"
+    ],
+    "use": "A dark regional client logo wall — eyebrow + heading left, 4×5 logo grid right on petrol-black.",
+    "capacity": {
+      "items": 20,
+      "min": 8,
+      "max": 24
+    },
+    "slots": {
+      "images": 20,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "eyebrow",
+      "title",
+      "logos",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:37762"
+  },
+  {
+    "slug": "main/grid-07",
+    "slide": -42,
+    "family": "main",
+    "role": "content",
+    "shape": "grid",
+    "count": null,
+    "theme": "dark",
+    "media": [
+      "logo"
+    ],
+    "use": "A dark capability overview — a client logo wall beside two 'bubble chain' panels (areas, technology).",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 12,
+      "titles": 4,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "clientsLabel",
+      "areasLabel",
+      "techLabel",
+      "clientsImage",
+      "areas",
+      "tech",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "436:29923"
+  },
+  {
+    "slug": "main/text-02",
+    "slide": -41,
+    "family": "main",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "dark",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-bleed photo statement — one large white sentence over a full-page image.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "342:39596"
+  },
+  {
+    "slug": "main/text-03",
+    "slide": -40,
+    "family": "main",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "dark",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-bleed photo statement with a longer, two-line white sentence.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "442:29547"
+  },
+  {
+    "slug": "main/text-04",
+    "slide": -39,
+    "family": "main",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "dark",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-bleed photo statement — a wide image (e.g. a paired landmark shot) with one white sentence overlaid.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "442:29602"
+  },
+  {
+    "slug": "main/text-05",
+    "slide": -38,
+    "family": "main",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "dark",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-bleed photo statement — one large white sentence over a full-page image.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "442:29644"
+  },
+  {
+    "slug": "main/text-06",
+    "slide": -37,
+    "family": "main",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A results/proof-point statement over a full-bleed product-collage image (device mockup + screenshots).",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "442:29686"
+  },
+  {
+    "slug": "main/text-07",
+    "slide": -36,
+    "family": "main",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "dark",
+    "media": [],
+    "use": "A co-brand partnership slide — a partner wordmark + nagarro lockup on a dark gradient, with a tagline.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "partner",
+      "partnerLogo",
+      "tagline",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "442:29728"
+  },
+  {
+    "slug": "core/cover-single",
+    "slide": 1,
+    "family": "core",
+    "role": "cover",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "The opening cover of a deck: presentation title and subtitle, with company / date / project details.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "subtitle",
+      "company",
+      "date",
+      "project",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:4893"
+  },
+  {
+    "slug": "core/toc-split-9",
+    "slide": 2,
+    "family": "core",
+    "role": "toc",
+    "shape": "split",
+    "count": 9,
+    "theme": "light",
+    "media": [],
+    "use": "Table of contents / agenda: a heading and intro on the left, a numbered list of up to nine sections with page numbers on the right.",
+    "capacity": {
+      "items": 9,
+      "min": 4,
+      "max": 9
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "list": 9,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "lead",
+      "boxLabel",
+      "items",
+      "footer"
+    ],
+    "figmaNode": "109:4911"
+  },
+  {
+    "slug": "core/toc-list-5",
+    "slide": 3,
+    "family": "core",
+    "role": "toc",
+    "shape": "list",
+    "count": 5,
+    "theme": "light",
+    "media": [],
+    "use": "A bold table of contents / agenda: up to five sections as large numbered rows.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 0,
+      "body": 0,
+      "list": 5,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:4900"
+  },
+  {
+    "slug": "core/divider-single",
+    "slide": 4,
+    "family": "core",
+    "role": "divider",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A chapter / section divider: a large section number and title marking a new part of the deck.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "number",
+      "title",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:4908"
+  },
+  {
+    "slug": "core/toc-grid-6",
+    "slide": 5,
+    "family": "core",
+    "role": "toc",
+    "shape": "grid",
+    "count": 6,
+    "theme": "light",
+    "media": [],
+    "use": "A detailed table of contents: a heading on the left and a 2×3 grid of up to six numbered sections, each with sub-items.",
+    "capacity": {
+      "items": 6,
+      "min": 4,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "list": 6,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "sections",
+      "meta"
+    ],
+    "figmaNode": "109:4928"
+  },
+  {
+    "slug": "core/gallery-mosaic-5-photo",
+    "slide": 5,
+    "family": "core",
+    "role": "gallery",
+    "shape": "mosaic",
+    "count": 5,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A photo mosaic of five images — a 2×2 grid on the left plus one tall image on the right — under a section header. Visual, image-led.",
+    "capacity": {
+      "items": 5,
+      "min": 5,
+      "max": 5
+    },
+    "slots": {
+      "images": 5,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5047"
+  },
+  {
+    "slug": "core/content-twocol",
+    "slide": 6,
+    "family": "core",
+    "role": "content",
+    "shape": "twocol",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A text-only content slide: a section heading on the left and an intro paragraph on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:4983"
+  },
+  {
+    "slug": "core/content-single-photo",
+    "slide": 7,
+    "family": "core",
+    "role": "content",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A header with title and body, plus one full-width image below. Text-led with a supporting visual.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:4986"
+  },
+  {
+    "slug": "core/content-row-2-photo",
+    "slide": 8,
+    "family": "core",
+    "role": "content",
+    "shape": "row",
+    "count": 2,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A header with intro, then two large photos side by side. Text-led with two supporting visuals.",
+    "capacity": {
+      "items": 2,
+      "min": 2,
+      "max": 2
+    },
+    "slots": {
+      "images": 2,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:4990"
+  },
+  {
+    "slug": "core/content-row-3-photo",
+    "slide": 9,
+    "family": "core",
+    "role": "content",
+    "shape": "row",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A header with intro, then three photos side by side. Text-led with three supporting visuals.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:4996"
+  },
+  {
+    "slug": "core/content-grid-6-photo",
+    "slide": 10,
+    "family": "core",
+    "role": "content",
+    "shape": "grid",
+    "count": 4,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A header with intro, then a photo mosaic — a narrow column of two stacked images beside two larger images.",
+    "capacity": {
+      "items": 4,
+      "min": 4,
+      "max": 4
+    },
+    "slots": {
+      "images": 4,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5003"
+  },
+  {
+    "slug": "core/content-grid-6-photo-alt",
+    "slide": 11,
+    "family": "core",
+    "role": "content",
+    "shape": "grid",
+    "count": 5,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Mirror of content-grid-6-photo — two large images beside a narrow stacked column, header with intro above.",
+    "capacity": {
+      "items": 5,
+      "min": 4,
+      "max": 5
+    },
+    "slots": {
+      "images": 5,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5012"
+  },
+  {
+    "slug": "core/content-split-photo",
+    "slide": 12,
+    "family": "core",
+    "role": "content",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A dense photo wall: eight images in a 4×2 grid filling the slide. Purely visual.",
+    "capacity": {
+      "items": 8,
+      "min": 6,
+      "max": 8
+    },
+    "slots": {
+      "images": 8,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5183"
+  },
+  {
+    "slug": "core/content-split-2-photo",
+    "slide": 13,
+    "family": "core",
+    "role": "content",
+    "shape": "split",
+    "count": 8,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Eight photo cards in a 4×2 grid, each with a title and short caption. A dense catalogue or highlights wall.",
+    "capacity": {
+      "items": 8,
+      "min": 6,
+      "max": 8
+    },
+    "slots": {
+      "images": 8,
+      "titles": 8,
+      "body": 8,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5159"
+  },
+  {
+    "slug": "core/content-split-photo-alt",
+    "slide": 14,
+    "family": "core",
+    "role": "content",
+    "shape": "split",
+    "count": 2,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A mirrored split: two stacked photos on the left, a heading and paragraph on the right.",
+    "capacity": {
+      "items": 2,
+      "min": 2,
+      "max": 2
+    },
+    "slots": {
+      "images": 2,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5338"
+  },
+  {
+    "slug": "core/content-split-3-photo",
+    "slide": 15,
+    "family": "core",
+    "role": "content",
+    "shape": "split",
+    "count": 4,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A split layout: a heading and paragraph on the left, a 2×2 grid of photos on the right.",
+    "capacity": {
+      "items": 4,
+      "min": 4,
+      "max": 4
+    },
+    "slots": {
+      "images": 4,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5383"
+  },
+  {
+    "slug": "core/cards-row-3-photo",
+    "slide": 16,
+    "family": "core",
+    "role": "cards",
+    "shape": "row",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Three image cards in a row — each with a photo, title, subtitle and short body. Services, values or highlights.",
+    "capacity": {
+      "items": 3,
+      "min": 2,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 3,
+      "subtitles": 3,
+      "body": 3,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5073"
+  },
+  {
+    "slug": "core/team-row-3-photo",
+    "slide": 17,
+    "family": "core",
+    "role": "team",
+    "shape": "row",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Three portrait photos with a name and role beneath each. A team or leadership row.",
+    "capacity": {
+      "items": 3,
+      "min": 2,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 3,
+      "subtitles": 3,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "people",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5079"
+  },
+  {
+    "slug": "core/content-split-4-photo",
+    "slide": 18,
+    "family": "core",
+    "role": "content",
+    "shape": "split",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A split layout: a heading and paragraph on the left, three photos on the right.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5395"
+  },
+  {
+    "slug": "core/content-twocol-photo",
+    "slide": 19,
+    "family": "core",
+    "role": "content",
+    "shape": "twocol",
+    "count": 1,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "One large photo beside a text column with a heading and paragraph. Balanced image + copy.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "body",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5421"
+  },
+  {
+    "slug": "core/content-twocol-photo-alt",
+    "slide": 20,
+    "family": "core",
+    "role": "content",
+    "shape": "twocol",
+    "count": 1,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Mirror of content-twocol-photo — a text column on the left and one large photo on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "body",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5427"
+  },
+  {
+    "slug": "core/content-list-3",
+    "slide": 21,
+    "family": "core",
+    "role": "content",
+    "shape": "list",
+    "count": 3,
+    "theme": "light",
+    "media": [],
+    "use": "A header, then up to three rows each pairing a short title with an explanatory paragraph.",
+    "capacity": {
+      "items": 3,
+      "min": 2,
+      "max": 3
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 3,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5481"
+  },
+  {
+    "slug": "core/cards-single-photo",
+    "slide": 22,
+    "family": "core",
+    "role": "cards",
+    "shape": "single",
+    "count": 1,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A heading and paragraph on the left beside one large photo on the right. A single featured card.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "body",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5367"
+  },
+  {
+    "slug": "core/cards-row-4-photo",
+    "slide": 23,
+    "family": "core",
+    "role": "cards",
+    "shape": "row",
+    "count": 4,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Four photo cards in a row — each with a photo, title, subtitle and short body.",
+    "capacity": {
+      "items": 4,
+      "min": 3,
+      "max": 4
+    },
+    "slots": {
+      "images": 4,
+      "titles": 4,
+      "subtitles": 4,
+      "body": 4,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5085"
+  },
+  {
+    "slug": "core/cards-row-5-photo",
+    "slide": 24,
+    "family": "core",
+    "role": "cards",
+    "shape": "row",
+    "count": 5,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Five photo cards in a row — each with a photo, title, subtitle and short body.",
+    "capacity": {
+      "items": 5,
+      "min": 4,
+      "max": 5
+    },
+    "slots": {
+      "images": 5,
+      "titles": 5,
+      "subtitles": 5,
+      "body": 5,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5099"
+  },
+  {
+    "slug": "core/cards-grid-6-photo",
+    "slide": 25,
+    "family": "core",
+    "role": "cards",
+    "shape": "grid",
+    "count": 6,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A header with intro, then a 2×3 grid of six photos.",
+    "capacity": {
+      "items": 6,
+      "min": 5,
+      "max": 6
+    },
+    "slots": {
+      "images": 6,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5023"
+  },
+  {
+    "slug": "core/cards-grid-8-photo",
+    "slide": 26,
+    "family": "core",
+    "role": "cards",
+    "shape": "grid",
+    "count": 8,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A header with intro, then a 4×2 grid of eight photos.",
+    "capacity": {
+      "items": 8,
+      "min": 6,
+      "max": 8
+    },
+    "slots": {
+      "images": 8,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5059"
+  },
+  {
+    "slug": "core/cards-grid-8-photo-alt",
+    "slide": 27,
+    "family": "core",
+    "role": "cards",
+    "shape": "grid",
+    "count": 8,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A header with intro, then a 4×2 grid of eight photo cards, each with a title and short caption.",
+    "capacity": {
+      "items": 8,
+      "min": 6,
+      "max": 8
+    },
+    "slots": {
+      "images": 8,
+      "titles": 8,
+      "subtitles": 8,
+      "body": 8,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5196"
+  },
+  {
+    "slug": "core/cards-grid-9-photo",
+    "slide": 28,
+    "family": "core",
+    "role": "cards",
+    "shape": "grid",
+    "count": 9,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A header with intro, then a 3×3 grid of nine photos.",
+    "capacity": {
+      "items": 9,
+      "min": 7,
+      "max": 9
+    },
+    "slots": {
+      "images": 9,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5277"
+  },
+  {
+    "slug": "core/cards-mosaic-5-photo",
+    "slide": 29,
+    "family": "core",
+    "role": "cards",
+    "shape": "mosaic",
+    "count": 6,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A header, then a grid of photos each with a short caption and a number badge overlaid — a ranked or numbered set.",
+    "capacity": {
+      "items": 6,
+      "min": 4,
+      "max": 6
+    },
+    "slots": {
+      "images": 6,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 6,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5035"
+  },
+  {
+    "slug": "core/cards-split-3-photo",
+    "slide": 30,
+    "family": "core",
+    "role": "cards",
+    "shape": "split",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A staggered three-column layout mixing three photos with two text cards. Editorial, magazine-like.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 2,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5131"
+  },
+  {
+    "slug": "core/cards-split-2-photo",
+    "slide": 31,
+    "family": "core",
+    "role": "cards",
+    "shape": "split",
+    "count": 2,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A two-column layout: one large photo beside a text card and a second photo. Editorial split.",
+    "capacity": {
+      "items": 2,
+      "min": 2,
+      "max": 2
+    },
+    "slots": {
+      "images": 2,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "card",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5150"
+  },
+  {
+    "slug": "core/cards-split-3-photo-alt",
+    "slide": 32,
+    "family": "core",
+    "role": "cards",
+    "shape": "split",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Mirror of cards-split-3-photo — a staggered three-column layout mixing three photos with two text cards.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 2,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5292"
+  },
+  {
+    "slug": "core/cards-split-2-photo-alt",
+    "slide": 33,
+    "family": "core",
+    "role": "cards",
+    "shape": "split",
+    "count": 2,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Mirror of cards-split-2-photo — a text card and photo beside one large photo.",
+    "capacity": {
+      "items": 2,
+      "min": 2,
+      "max": 2
+    },
+    "slots": {
+      "images": 2,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "card",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5316"
+  },
+  {
+    "slug": "core/cards-split-6",
+    "slide": 34,
+    "family": "core",
+    "role": "cards",
+    "shape": "split",
+    "count": 6,
+    "theme": "light",
+    "media": [],
+    "use": "An intro panel with category pills on the left beside a 2×3 grid of six tinted text cards. No imagery.",
+    "capacity": {
+      "items": 6,
+      "min": 4,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 6,
+      "body": 6,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "pills",
+      "paragraphs",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5433"
+  },
+  {
+    "slug": "core/cards-split-6-alt",
+    "slide": 35,
+    "family": "core",
+    "role": "cards",
+    "shape": "split",
+    "count": 6,
+    "theme": "light",
+    "media": [],
+    "use": "Mirror of cards-split-6 — a 2×3 grid of six tinted text cards beside an intro panel on the right.",
+    "capacity": {
+      "items": 6,
+      "min": 4,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 6,
+      "body": 6,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "pills",
+      "paragraphs",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5452"
+  },
+  {
+    "slug": "core/cards-grid-6",
+    "slide": 36,
+    "family": "core",
+    "role": "cards",
+    "shape": "grid",
+    "count": 6,
+    "theme": "light",
+    "media": [],
+    "use": "A header, then a 2×3 grid of six text cards — each a title with a short paragraph. No imagery.",
+    "capacity": {
+      "items": 6,
+      "min": 5,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 6,
+      "body": 6,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5495"
+  },
+  {
+    "slug": "core/cards-row-4",
+    "slide": 37,
+    "family": "core",
+    "role": "cards",
+    "shape": "row",
+    "count": 4,
+    "theme": "light",
+    "media": [],
+    "use": "A header, then four text cards in a row — each a title with a short paragraph. No imagery.",
+    "capacity": {
+      "items": 4,
+      "min": 3,
+      "max": 4
+    },
+    "slots": {
+      "images": 0,
+      "titles": 4,
+      "body": 4,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5515"
+  },
+  {
+    "slug": "core/cards-row-5",
+    "slide": 38,
+    "family": "core",
+    "role": "cards",
+    "shape": "row",
+    "count": 5,
+    "theme": "light",
+    "media": [],
+    "use": "A header, then five text cards in a row — each a title with a short paragraph. No imagery.",
+    "capacity": {
+      "items": 5,
+      "min": 4,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 5,
+      "body": 5,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "632:27683"
+  },
+  {
+    "slug": "core/gallery-grid-6-photo",
+    "slide": 41,
+    "family": "core",
+    "role": "gallery",
+    "shape": "grid",
+    "count": 6,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A photo wall: six images in a 2×3 grid filling the slide.",
+    "capacity": {
+      "items": 6,
+      "min": 5,
+      "max": 6
+    },
+    "slots": {
+      "images": 6,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5215"
+  },
+  {
+    "slug": "core/gallery-grid-8-photo",
+    "slide": 42,
+    "family": "core",
+    "role": "gallery",
+    "shape": "grid",
+    "count": 8,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A photo wall: eight images in a 4×2 grid filling the slide.",
+    "capacity": {
+      "items": 8,
+      "min": 6,
+      "max": 8
+    },
+    "slots": {
+      "images": 8,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5234"
+  },
+  {
+    "slug": "core/gallery-grid-18-photo",
+    "slide": 43,
+    "family": "core",
+    "role": "gallery",
+    "shape": "grid",
+    "count": 18,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A dense photo wall: eighteen images in a 6×3 grid. A contact sheet or large gallery.",
+    "capacity": {
+      "items": 18,
+      "min": 12,
+      "max": 18
+    },
+    "slots": {
+      "images": 18,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5253"
+  },
+  {
+    "slug": "core/gallery-single-photo",
+    "slide": 44,
+    "family": "core",
+    "role": "gallery",
+    "shape": "single",
+    "count": 1,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "One large photo filling the slide body between the top bar and footer.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5555"
+  },
+  {
+    "slug": "core/gallery-fullbleed-photo",
+    "slide": 45,
+    "family": "core",
+    "role": "gallery",
+    "shape": "fullbleed",
+    "count": 1,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A single photo bleeding edge to edge, no logo or footer. Maximum visual impact.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "image"
+    ],
+    "figmaNode": "109:5552"
+  },
+  {
+    "slug": "core/gallery-mosaic-3-photo",
+    "slide": 46,
+    "family": "core",
+    "role": "gallery",
+    "shape": "mosaic",
+    "count": 4,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A photo mosaic: one large image on the left, a wide image and a pair of images on the right.",
+    "capacity": {
+      "items": 4,
+      "min": 4,
+      "max": 4
+    },
+    "slots": {
+      "images": 4,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5115"
+  },
+  {
+    "slug": "core/gallery-mosaic-4-photo",
+    "slide": 47,
+    "family": "core",
+    "role": "gallery",
+    "shape": "mosaic",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A photo mosaic: one wide image beside two tall images.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5124"
+  },
+  {
+    "slug": "core/gallery-split-4-photo",
+    "slide": 48,
+    "family": "core",
+    "role": "gallery",
+    "shape": "split",
+    "count": 6,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A photo wall: six images in a 3×2 grid filling the slide.",
+    "capacity": {
+      "items": 6,
+      "min": 5,
+      "max": 6
+    },
+    "slots": {
+      "images": 6,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5373"
+  },
+  {
+    "slug": "core/gallery-split-4-photo-alt",
+    "slide": 49,
+    "family": "core",
+    "role": "gallery",
+    "shape": "split",
+    "count": 6,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A photo wall variant: six images in a 2×3 grid of taller tiles.",
+    "capacity": {
+      "items": 6,
+      "min": 5,
+      "max": 6
+    },
+    "slots": {
+      "images": 6,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5415"
+  },
+  {
+    "slug": "core/gallery-split-photo",
+    "slide": 50,
+    "family": "core",
+    "role": "gallery",
+    "shape": "split",
+    "count": 1,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A heading and paragraph on the left beside one large photo on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "body",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5349"
+  },
+  {
+    "slug": "core/gallery-split-photo-alt",
+    "slide": 51,
+    "family": "core",
+    "role": "gallery",
+    "shape": "split",
+    "count": 1,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Mirror of gallery-split-photo — one large photo on the left, a heading and paragraph on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "body",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5405"
+  },
+  {
+    "slug": "core/gallery-split-3-photo",
+    "slide": 52,
+    "family": "core",
+    "role": "gallery",
+    "shape": "split",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A staggered three-column layout mixing three photos and two text blocks under a heading. Editorial gallery.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 2,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "images",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5140"
+  },
+  {
+    "slug": "core/gallery-split-3-photo-alt",
+    "slide": 53,
+    "family": "core",
+    "role": "gallery",
+    "shape": "split",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Mirror of gallery-split-3-photo — a staggered three-column layout of three photos and two text blocks.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 2,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "images",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5304"
+  },
+  {
+    "slug": "core/gallery-split-2-photo",
+    "slide": 54,
+    "family": "core",
+    "role": "gallery",
+    "shape": "split",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A heading and paragraph on the left beside a photo stack — one wide image over a pair.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5172"
+  },
+  {
+    "slug": "core/gallery-split-2-photo-alt",
+    "slide": 55,
+    "family": "core",
+    "role": "gallery",
+    "shape": "split",
+    "count": 3,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Mirror of gallery-split-2-photo — a photo stack on the left, a heading and paragraph on the right.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5327"
+  },
+  {
+    "slug": "core/gallery-twocol-photo",
+    "slide": 56,
+    "family": "core",
+    "role": "gallery",
+    "shape": "twocol",
+    "count": 1,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A text column (heading, paragraphs, category pills) beside one large photo with a caption underneath.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "subtitle",
+      "title",
+      "paragraphs",
+      "pills",
+      "image",
+      "caption",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5359"
+  },
+  {
+    "slug": "core/team-row-4-photo",
+    "slide": 57,
+    "family": "core",
+    "role": "team",
+    "shape": "row",
+    "count": 4,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Four portrait photos with a name and role beneath each. A team or leadership row.",
+    "capacity": {
+      "items": 4,
+      "min": 3,
+      "max": 4
+    },
+    "slots": {
+      "images": 4,
+      "titles": 4,
+      "subtitles": 4,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "people",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5092"
+  },
+  {
+    "slug": "core/team-row-5-photo",
+    "slide": 58,
+    "family": "core",
+    "role": "team",
+    "shape": "row",
+    "count": 5,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Five portrait photos with a name and role beneath each. A team or leadership row.",
+    "capacity": {
+      "items": 5,
+      "min": 4,
+      "max": 5
+    },
+    "slots": {
+      "images": 5,
+      "titles": 5,
+      "subtitles": 5,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "intro",
+      "people",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5107"
+  },
+  {
+    "slug": "core/quote-split",
+    "slide": 59,
+    "family": "core",
+    "role": "quote",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A heading with context and category pills on the left beside a large quotation on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "pills",
+      "paragraphs",
+      "quote",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5471"
+  },
+  {
+    "slug": "core/quote-single",
+    "slide": 60,
+    "family": "core",
+    "role": "quote",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A full-page quotation or statement, set large in quotation marks.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "quote",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5524"
+  },
+  {
+    "slug": "core/quote-fullbleed",
+    "slide": 61,
+    "family": "core",
+    "role": "quote",
+    "shape": "fullbleed",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A full-page quotation set large (Heading1 scale), attributed to a person — name, title and company.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "quote",
+      "name",
+      "title",
+      "company",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5536"
+  },
+  {
+    "slug": "core/quote-split-photo",
+    "slide": 62,
+    "family": "core",
+    "role": "quote",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A supporting photo on the left beside a large quotation on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "quote",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5527"
+  },
+  {
+    "slug": "core/quote-split-photo-alt",
+    "slide": 63,
+    "family": "core",
+    "role": "quote",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Mirror of quote-split-photo — a large quotation on the left beside a supporting photo on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "quote",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5543"
+  },
+  {
+    "slug": "core/table-rows-3",
+    "slide": 63.5,
+    "family": "core",
+    "role": "table",
+    "shape": "rows",
+    "count": 3,
+    "theme": "light",
+    "media": [],
+    "use": "A header, then up to three rows each with a title and two text columns — a simple comparison or spec table.",
+    "capacity": {
+      "items": 3,
+      "min": 2,
+      "max": 3
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 6,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5488"
+  },
+  {
+    "slug": "core/closing-single",
+    "slide": 64,
+    "family": "core",
+    "role": "closing",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "The closing slide: a large thank-you headline and contact details (email, website).",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "contactLabel",
+      "email",
+      "website",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:5558"
+  },
+  {
+    "slug": "portfolio/cover",
+    "slide": 65,
+    "family": "portfolio",
+    "role": "cover",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "Portfolio opening cover: a top info row (role / specialised in / contact / about) with a large display title pinned bottom-left.",
+    "capacity": {
+      "items": 4,
+      "min": 1,
+      "max": 4
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "subtitle",
+      "info",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10025"
+  },
+  {
+    "slug": "portfolio/grid-02",
+    "slide": 66,
+    "family": "portfolio",
+    "role": "cover",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Portfolio cover variant: cover info + display title on the left, a full-height photo on the right.",
+    "capacity": {
+      "items": 3,
+      "min": 1,
+      "max": 3
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "subtitle",
+      "image",
+      "info",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10041"
+  },
+  {
+    "slug": "portfolio/split-01",
+    "slide": 67,
+    "family": "portfolio",
+    "role": "statement",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A big centered statement with an inline photo chip embedded in the sentence.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "pre",
+      "image",
+      "post",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10056"
+  },
+  {
+    "slug": "portfolio/index",
+    "slide": 68,
+    "family": "portfolio",
+    "role": "index",
+    "shape": "list",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "Portfolio index / table of contents: sections with right-aligned page numbers.",
+    "capacity": {
+      "items": 6,
+      "min": 2,
+      "max": 9
+    },
+    "slots": {
+      "images": 0,
+      "titles": 0,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10066"
+  },
+  {
+    "slug": "portfolio/index-02",
+    "slide": 69,
+    "family": "portfolio",
+    "role": "index",
+    "shape": "list",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "Portfolio table of contents with right-aligned page ranges.",
+    "capacity": {
+      "items": 6,
+      "min": 2,
+      "max": 9
+    },
+    "slots": {
+      "images": 0,
+      "titles": 0,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10080"
+  },
+  {
+    "slug": "portfolio/grid-03",
+    "slide": 70,
+    "family": "portfolio",
+    "role": "cv",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "CV/about page: a full-height photo on the left, an About paragraph and an Experience list on the right.",
+    "capacity": {
+      "items": 8,
+      "min": 3,
+      "max": 8
+    },
+    "slots": {
+      "images": 1,
+      "titles": 2,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "image",
+      "about",
+      "experience",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10094"
+  },
+  {
+    "slug": "portfolio/grid-04",
+    "slide": 71,
+    "family": "portfolio",
+    "role": "cv",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "CV/about page: a photo + About paragraph on the left, an Experience list on the right.",
+    "capacity": {
+      "items": 8,
+      "min": 3,
+      "max": 8
+    },
+    "slots": {
+      "images": 1,
+      "titles": 2,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "image",
+      "about",
+      "experience",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10130"
+  },
+  {
+    "slug": "portfolio/text-01",
+    "slide": 72,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "row",
+    "count": 2,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A page header (title + intro) above two large side-by-side photos.",
+    "capacity": {
+      "items": 2,
+      "min": 2,
+      "max": 2
+    },
+    "slots": {
+      "images": 2,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "intro",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10167"
+  },
+  {
+    "slug": "portfolio/text-02",
+    "slide": 73,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A bio column (heading + short entries + traits) beside a full-height photo.",
+    "capacity": {
+      "items": 8,
+      "min": 2,
+      "max": 10
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "lines",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10175"
+  },
+  {
+    "slug": "portfolio/grid-05",
+    "slide": 74,
+    "family": "portfolio",
+    "role": "services",
+    "shape": "grid",
+    "count": 9,
+    "theme": "light",
+    "media": [],
+    "use": "A grid of labelled service tiles beside a heading + paragraph.",
+    "capacity": {
+      "items": 9,
+      "min": 3,
+      "max": 9
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 9,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "services",
+      "title",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10181"
+  },
+  {
+    "slug": "portfolio/grid-06",
+    "slide": 75,
+    "family": "portfolio",
+    "role": "skills",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A skills eyebrow + numbered skills list at the bottom-left, beside a full-height photo.",
+    "capacity": {
+      "items": 5,
+      "min": 2,
+      "max": 8
+    },
+    "slots": {
+      "images": 1,
+      "titles": 0,
+      "subtitles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "eyebrow",
+      "skills",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10205"
+  },
+  {
+    "slug": "portfolio/grid-07",
+    "slide": 76,
+    "family": "portfolio",
+    "role": "skills",
+    "shape": "cols",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A skills eyebrow + two plain columns of skills, vertically centered.",
+    "capacity": {
+      "items": 12,
+      "min": 2,
+      "max": 14
+    },
+    "slots": {
+      "images": 0,
+      "titles": 0,
+      "subtitles": 2,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "eyebrow",
+      "colA",
+      "colB",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10216"
+  },
+  {
+    "slug": "portfolio/text-03",
+    "slide": 77,
+    "family": "portfolio",
+    "role": "divider",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A section divider: one oversized muted word, vertically centered.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "word",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10232"
+  },
+  {
+    "slug": "portfolio/grid-08",
+    "slide": 78,
+    "family": "portfolio",
+    "role": "index",
+    "shape": "grid",
+    "count": 12,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A visual table of contents: a numbered project list beside a grid of project thumbnails.",
+    "capacity": {
+      "items": 12,
+      "min": 4,
+      "max": 12
+    },
+    "slots": {
+      "images": 12,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "projects",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10240"
+  },
+  {
+    "slug": "portfolio/data-03",
+    "slide": 79,
+    "family": "portfolio",
+    "role": "data",
+    "shape": "row",
+    "count": 4,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Four project columns, each a heading, a list of services, and a photo below.",
+    "capacity": {
+      "items": 4,
+      "min": 2,
+      "max": 4
+    },
+    "slots": {
+      "images": 4,
+      "titles": 4,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "projects",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10273"
+  },
+  {
+    "slug": "portfolio/data-04",
+    "slide": 80,
+    "family": "portfolio",
+    "role": "data",
+    "shape": "row",
+    "count": 5,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "Five project columns, each a heading, a list of services, and a photo below.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 5
+    },
+    "slots": {
+      "images": 5,
+      "titles": 5,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "projects",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10285"
+  },
+  {
+    "slug": "portfolio/text-04",
+    "slide": 81,
+    "family": "portfolio",
+    "role": "divider",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A project divider: one oversized muted word, vertically centered.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "word",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10298"
+  },
+  {
+    "slug": "portfolio/grid-09",
+    "slide": 82,
+    "family": "portfolio",
+    "role": "brief",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A project brief: a heading + paragraph at the top, a Year / Category / Link meta row at the bottom.",
+    "capacity": {
+      "items": 3,
+      "min": 1,
+      "max": 4
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 3,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta_items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10306"
+  },
+  {
+    "slug": "portfolio/text-05",
+    "slide": 83,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A heading top-left + paragraph bottom-left, beside a full-height photo.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10321"
+  },
+  {
+    "slug": "portfolio/grid-10",
+    "slide": 84,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A heading + paragraph on the left, a two-column photo collage on the right.",
+    "capacity": {
+      "items": 6,
+      "min": 2,
+      "max": 6
+    },
+    "slots": {
+      "images": 6,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10327"
+  },
+  {
+    "slug": "portfolio/grid-11",
+    "slide": 85,
+    "family": "portfolio",
+    "role": "detail",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A project detail: title + client + meta on the left, two columns of body copy on the right.",
+    "capacity": {
+      "items": 2,
+      "min": 1,
+      "max": 2
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 3,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "client",
+      "meta_items",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10340"
+  },
+  {
+    "slug": "portfolio/text-06",
+    "slide": 86,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A project intro: title / client / year + two columns of body copy above a full-width photo.",
+    "capacity": {
+      "items": 2,
+      "min": 1,
+      "max": 2
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "client",
+      "year",
+      "body",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10360"
+  },
+  {
+    "slug": "portfolio/split-02",
+    "slide": 87,
+    "family": "portfolio",
+    "role": "showcase",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A small project header above a large full-width photo.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "client",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10384"
+  },
+  {
+    "slug": "portfolio/split-03",
+    "slide": 88,
+    "family": "portfolio",
+    "role": "gallery",
+    "shape": "grid",
+    "count": 4,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-frame 2×2 collage of project photos.",
+    "capacity": {
+      "items": 4,
+      "min": 2,
+      "max": 4
+    },
+    "slots": {
+      "images": 4,
+      "titles": 0,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10391"
+  },
+  {
+    "slug": "portfolio/text-07",
+    "slide": 89,
+    "family": "portfolio",
+    "role": "results",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-height photo on the left, a Results heading + headline stats on the right.",
+    "capacity": {
+      "items": 4,
+      "min": 1,
+      "max": 6
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 4,
+      "icons": 0
+    },
+    "fields": [
+      "image",
+      "title",
+      "stats",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10401"
+  },
+  {
+    "slug": "portfolio/text-08",
+    "slide": 90,
+    "family": "portfolio",
+    "role": "quote",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A heading on the left, a large testimonial quote with attribution on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "quote",
+      "attribution",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10409"
+  },
+  {
+    "slug": "portfolio/text-09",
+    "slide": 91,
+    "family": "portfolio",
+    "role": "divider",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A project divider: one oversized muted word, vertically centered.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "word",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10415"
+  },
+  {
+    "slug": "portfolio/split-04",
+    "slide": 92,
+    "family": "portfolio",
+    "role": "brief",
+    "shape": "rows",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "Two stacked sections, each a heading on the left and a body paragraph on the right.",
+    "capacity": {
+      "items": 2,
+      "min": 2,
+      "max": 2
+    },
+    "slots": {
+      "images": 0,
+      "titles": 2,
+      "subtitles": 0,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "sections",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10423"
+  },
+  {
+    "slug": "portfolio/grid-12",
+    "slide": 93,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A heading + paragraph on a narrow left column, a 3-column grid of photos on the right.",
+    "capacity": {
+      "items": 9,
+      "min": 3,
+      "max": 9
+    },
+    "slots": {
+      "images": 9,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10431"
+  },
+  {
+    "slug": "portfolio/text-10",
+    "slide": 94,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A project header (title / client / year + body columns) above a row of photos.",
+    "capacity": {
+      "items": 7,
+      "min": 3,
+      "max": 7
+    },
+    "slots": {
+      "images": 7,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "client",
+      "year",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10449"
+  },
+  {
+    "slug": "portfolio/text-11",
+    "slide": 95,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A grid of photos on top, a project header (title / client + body columns) below.",
+    "capacity": {
+      "items": 6,
+      "min": 2,
+      "max": 6
+    },
+    "slots": {
+      "images": 6,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images",
+      "title",
+      "client",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10474"
+  },
+  {
+    "slug": "portfolio/grid-13",
+    "slide": 96,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A narrow project detail on the left, a collage of photos filling the right.",
+    "capacity": {
+      "items": 3,
+      "min": 1,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "client",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10493"
+  },
+  {
+    "slug": "portfolio/content-01",
+    "slide": 97,
+    "family": "portfolio",
+    "role": "content",
+    "shape": "fullbleed",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-bleed photo wall — a brick-offset grid of images running off every edge, no chrome.",
+    "capacity": {
+      "items": 13,
+      "min": 8,
+      "max": 13
+    },
+    "slots": {
+      "images": 13,
+      "titles": 0,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images"
+    ],
+    "figmaNode": "109:10503"
+  },
+  {
+    "slug": "portfolio/split-05",
+    "slide": 98,
+    "family": "portfolio",
+    "role": "gallery",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-bleed pairing: one large photo on the left, a 2×2 grid of photos on the right.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 5
+    },
+    "slots": {
+      "images": 5,
+      "titles": 0,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images"
+    ],
+    "figmaNode": "109:10521"
+  },
+  {
+    "slug": "portfolio/split-06",
+    "slide": 99,
+    "family": "portfolio",
+    "role": "gallery",
+    "shape": "collage",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-bleed photo collage of six photos in two columns.",
+    "capacity": {
+      "items": 6,
+      "min": 4,
+      "max": 6
+    },
+    "slots": {
+      "images": 6,
+      "titles": 0,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images"
+    ],
+    "figmaNode": "109:10531"
+  },
+  {
+    "slug": "portfolio/text-12",
+    "slide": 100,
+    "family": "portfolio",
+    "role": "divider",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A project divider: one oversized muted word, vertically centered.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "word",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10545"
+  },
+  {
+    "slug": "portfolio/grid-14",
+    "slide": 101,
+    "family": "portfolio",
+    "role": "brief",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A project brief: a heading + paragraph at the top, a Year / Category / Link meta row at the bottom.",
+    "capacity": {
+      "items": 3,
+      "min": 1,
+      "max": 4
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 3,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "meta_items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10553"
+  },
+  {
+    "slug": "portfolio/grid-15",
+    "slide": 102,
+    "family": "portfolio",
+    "role": "casestudy",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A project case study: header + intro on top, then a photo beside Approach / Outcomes write-ups.",
+    "capacity": {
+      "items": 2,
+      "min": 1,
+      "max": 2
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 3,
+      "stats": 3,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "client",
+      "year",
+      "meta_items",
+      "intro",
+      "image",
+      "approach",
+      "outcomes",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10568"
+  },
+  {
+    "slug": "portfolio/text-13",
+    "slide": 103,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A project header (title / client / year + body columns) above a row of photos.",
+    "capacity": {
+      "items": 3,
+      "min": 1,
+      "max": 3
+    },
+    "slots": {
+      "images": 3,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "client",
+      "year",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10593"
+  },
+  {
+    "slug": "portfolio/grid-16",
+    "slide": 104,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A project name / client + body on a narrow left column, a 3-column grid of photos on the right.",
+    "capacity": {
+      "items": 9,
+      "min": 3,
+      "max": 9
+    },
+    "slots": {
+      "images": 9,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "client",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10614"
+  },
+  {
+    "slug": "portfolio/grid-17",
+    "slide": 105,
+    "family": "portfolio",
+    "role": "stories",
+    "shape": "row",
+    "count": 6,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A project header, a row of tall story-format photos, and a meta row.",
+    "capacity": {
+      "items": 6,
+      "min": 3,
+      "max": 6
+    },
+    "slots": {
+      "images": 6,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 0,
+      "stats": 3,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "client",
+      "images",
+      "meta_items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10636"
+  },
+  {
+    "slug": "portfolio/split-07",
+    "slide": 106,
+    "family": "portfolio",
+    "role": "gallery",
+    "shape": "collage",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A full-bleed pairing: one large photo on the left, a wide photo over two photos on the right.",
+    "capacity": {
+      "items": 4,
+      "min": 3,
+      "max": 4
+    },
+    "slots": {
+      "images": 4,
+      "titles": 0,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "images"
+    ],
+    "figmaNode": "109:10656"
+  },
+  {
+    "slug": "portfolio/grid-18",
+    "slide": 107,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A heading + paragraph on a narrow left column, a centered 3×3 grid of square thumbnails on the right.",
+    "capacity": {
+      "items": 9,
+      "min": 3,
+      "max": 9
+    },
+    "slots": {
+      "images": 9,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "body",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10665"
+  },
+  {
+    "slug": "portfolio/text-14",
+    "slide": 108,
+    "family": "portfolio",
+    "role": "text",
+    "shape": "grid",
+    "count": 8,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A header (title + intro) above a 4-column grid of photos.",
+    "capacity": {
+      "items": 8,
+      "min": 4,
+      "max": 8
+    },
+    "slots": {
+      "images": 8,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "intro",
+      "images",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10683"
+  },
+  {
+    "slug": "portfolio/grid-19",
+    "slide": 109,
+    "family": "portfolio",
+    "role": "quote",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A heading on the left, a stack of short testimonial quotes with attribution on the right.",
+    "capacity": {
+      "items": 3,
+      "min": 2,
+      "max": 4
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 3,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "quotes",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10696"
+  },
+  {
+    "slug": "portfolio/text-15",
+    "slide": 110,
+    "family": "portfolio",
+    "role": "quote",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A heading + supporting photo on the left, a large testimonial quote on the right.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "image",
+      "quote",
+      "attribution",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10704"
+  },
+  {
+    "slug": "portfolio/grid-20",
+    "slide": 111,
+    "family": "portfolio",
+    "role": "index",
+    "shape": "list",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A heading above a list of awards / recognitions with years.",
+    "capacity": {
+      "items": 10,
+      "min": 3,
+      "max": 12
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10711"
+  },
+  {
+    "slug": "portfolio/grid-21",
+    "slide": 112,
+    "family": "portfolio",
+    "role": "awards",
+    "shape": "cols",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A heading above two columns of award names with count numbers in brand accent colours.",
+    "capacity": {
+      "items": 12,
+      "min": 2,
+      "max": 14
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 12,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "colA",
+      "colB",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10725"
+  },
+  {
+    "slug": "portfolio/grid-22",
+    "slide": 113,
+    "family": "portfolio",
+    "role": "press",
+    "shape": "split",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A heading + a list of press mentions on the left, a full-height photo on the right.",
+    "capacity": {
+      "items": 4,
+      "min": 1,
+      "max": 8
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 4,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "press",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10741"
+  },
+  {
+    "slug": "portfolio/grid-23",
+    "slide": 114,
+    "family": "portfolio",
+    "role": "table",
+    "shape": "rows",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A heading above a table of projects (Project / Client / Service / Comments / Link).",
+    "capacity": {
+      "items": 8,
+      "min": 1,
+      "max": 10
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "columns",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10751"
+  },
+  {
+    "slug": "portfolio/grid-24",
+    "slide": 115,
+    "family": "portfolio",
+    "role": "contact",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A closing contact slide: big heading + a photo, phone / web, and a table of social handles.",
+    "capacity": {
+      "items": 4,
+      "min": 1,
+      "max": 6
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 4,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "image",
+      "phone",
+      "web",
+      "socials",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10864"
+  },
+  {
+    "slug": "portfolio/text-16",
+    "slide": 116,
+    "family": "portfolio",
+    "role": "closing",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "The closing: an oversized muted sign-off, vertically centered.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "word",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:10884"
+  },
+  {
+    "slug": "finance/cover",
+    "slide": 117,
+    "family": "finance",
+    "role": "cover",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "The opening cover of a financial report: a bold report title + muted subtitle, with a company / date sign-off.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "subtitles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "subtitle",
+      "company",
+      "date",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18191"
+  },
+  {
+    "slug": "finance/disclaimer",
+    "slide": 118,
+    "family": "finance",
+    "role": "content",
+    "shape": "fineprint",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A legal / disclaimer page: a big muted heading plus dense labelled fine-print (safe-harbor, non-GAAP, trademarks) in a panel.",
+    "capacity": {
+      "items": 8,
+      "min": 3,
+      "max": 10
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 8,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "sections",
+      "company",
+      "date",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18196"
+  },
+  {
+    "slug": "finance/statement-list",
+    "slide": 119,
+    "family": "finance",
+    "role": "content",
+    "shape": "list",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "image"
+    ],
+    "use": "A header, then a short stack of headline statements (each a bold metric sentence), with a supporting image alongside.",
+    "capacity": {
+      "items": 3,
+      "min": 2,
+      "max": 4
+    },
+    "slots": {
+      "images": 1,
+      "titles": 1,
+      "body": 3,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "items",
+      "image",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18224"
+  },
+  {
+    "slug": "finance/highlights",
+    "slide": 120,
+    "family": "finance",
+    "role": "cards",
+    "shape": "wall",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A highlights wall: press quotes and headline stats as dark / grey cards in a three-column masonry — an at-a-glance proof grid.",
+    "capacity": {
+      "items": 6,
+      "min": 4,
+      "max": 7
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 6,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "lead",
+      "col2",
+      "col3",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18234"
+  },
+  {
+    "slug": "finance/statement-area",
+    "slide": 121,
+    "family": "finance",
+    "role": "chart",
+    "shape": "area",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A headline growth metric in words, proven by a filled area / line chart of the trend over time.",
+    "capacity": {
+      "items": 6,
+      "min": 3,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 6,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "statement",
+      "points",
+      "chartCaption",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18247"
+  },
+  {
+    "slug": "finance/statement-split",
+    "slide": 122,
+    "family": "finance",
+    "role": "chart",
+    "shape": "proportion",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A headline metric in words with a supporting paragraph, plus a stacked proportion bar showing a split (e.g. revenue by channel).",
+    "capacity": {
+      "items": 4,
+      "min": 2,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 2,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "statement",
+      "intro",
+      "legend",
+      "segments",
+      "chartCaption",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18269"
+  },
+  {
+    "slug": "finance/statement-bars",
+    "slide": 123,
+    "family": "finance",
+    "role": "chart",
+    "shape": "bars",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A headline metric stated in words, proven by a vertical bar chart of the trend across periods.",
+    "capacity": {
+      "items": 9,
+      "min": 4,
+      "max": 12
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 9,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "statement",
+      "bars",
+      "chartCaption",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18282"
+  },
+  {
+    "slug": "finance/statement-dots",
+    "slide": 124,
+    "family": "finance",
+    "role": "chart",
+    "shape": "waffle",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A headline count in words, illustrated by two dot-waffle cards where each dot represents one unit (deals, customers, wins).",
+    "capacity": {
+      "items": 2,
+      "min": 2,
+      "max": 2
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 2,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "statement",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18309"
+  },
+  {
+    "slug": "finance/stacked-bars",
+    "slide": 125,
+    "family": "finance",
+    "role": "chart",
+    "shape": "stacked-bars",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A stacked bar chart breaking each period's total into segments (e.g. revenue by geography), with the total called out above each bar.",
+    "capacity": {
+      "items": 9,
+      "min": 3,
+      "max": 12
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 9,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "legend",
+      "bars",
+      "chartCaption",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18316"
+  },
+  {
+    "slug": "finance/segment-table",
+    "slide": 126,
+    "family": "finance",
+    "role": "table",
+    "shape": "table",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A grouped financial table where each group of metric rows is followed by a dark Total summary band.",
+    "capacity": {
+      "items": 8,
+      "min": 2,
+      "max": 10
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "columns",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18393"
+  },
+  {
+    "slug": "finance/stacked-bars-pct",
+    "slide": 127,
+    "family": "finance",
+    "role": "chart",
+    "shape": "stacked-bars",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A stacked bar chart of percentage composition per period (e.g. expense ratios), panelled with a legend.",
+    "capacity": {
+      "items": 9,
+      "min": 3,
+      "max": 12
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 9,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "legend",
+      "bars",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18497"
+  },
+  {
+    "slug": "finance/dotted-line",
+    "slide": 128,
+    "family": "finance",
+    "role": "chart",
+    "shape": "dotted-line",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A dotted-line trend chart in a panel — a soft way to show a fairly flat metric (e.g. gross margin) holding steady over time.",
+    "capacity": {
+      "items": 6,
+      "min": 3,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 6,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "points",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18564"
+  },
+  {
+    "slug": "finance/line-split",
+    "slide": 129,
+    "family": "finance",
+    "role": "chart",
+    "shape": "line-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A narrative on the left with a multi-line trend chart on the right — e.g. actual revenue vs. projection over several years.",
+    "capacity": {
+      "items": 2,
+      "min": 1,
+      "max": 3
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "series",
+      "yTicks",
+      "xLabels",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18585"
+  },
+  {
+    "slug": "finance/pie-split",
+    "slide": 130,
+    "family": "finance",
+    "role": "chart",
+    "shape": "pie-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A narrative on the left with a pie chart on the right — a revenue / share breakdown across a handful of partners or segments.",
+    "capacity": {
+      "items": 4,
+      "min": 2,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "segments",
+      "legend",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18610"
+  },
+  {
+    "slug": "finance/radar-split",
+    "slide": 131,
+    "family": "finance",
+    "role": "chart",
+    "shape": "radar-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A narrative on the left with a radar chart on the right — comparing performance across several products or dimensions at a glance.",
+    "capacity": {
+      "items": 8,
+      "min": 3,
+      "max": 10
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "axes",
+      "values",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18629"
+  },
+  {
+    "slug": "finance/stacked-split",
+    "slide": 132,
+    "family": "finance",
+    "role": "chart",
+    "shape": "stacked-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A narrative + legend on the left with a two-segment stacked bar chart on the right — total sales split by segment across periods.",
+    "capacity": {
+      "items": 4,
+      "min": 2,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 4,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "legend",
+      "body",
+      "bars",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18650"
+  },
+  {
+    "slug": "finance/line-markers",
+    "slide": 133,
+    "family": "finance",
+    "role": "chart",
+    "shape": "line-markers",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A headline metric (title + a supporting statement) beside a line chart with labelled point markers and a trend line.",
+    "capacity": {
+      "items": 4,
+      "min": 2,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 4,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "statement",
+      "series",
+      "yTicks",
+      "xLabels",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18680"
+  },
+  {
+    "slug": "finance/bars-compare",
+    "slide": 134,
+    "family": "finance",
+    "role": "chart",
+    "shape": "bars-compare",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A statement beside two small stacked bar charts side by side — comparing two related measures (e.g. cash from operations vs. adjusted free cash flow) over two periods.",
+    "capacity": {
+      "items": 2,
+      "min": 2,
+      "max": 2
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 8,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "statement",
+      "charts",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18715"
+  },
+  {
+    "slug": "finance/holdings-table",
+    "slide": 135,
+    "family": "finance",
+    "role": "table",
+    "shape": "table",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A wide holdings / positions table — symbol, name and a row of numeric columns — closed by a bold portfolio summary row.",
+    "capacity": {
+      "items": 6,
+      "min": 2,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "columns",
+      "labelHead",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18750"
+  },
+  {
+    "slug": "finance/bars-duo-titled",
+    "slide": 136,
+    "family": "finance",
+    "role": "chart",
+    "shape": "duo",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A titled slide with two bar-chart panels side by side (small multiples) — the same measure across two cuts.",
+    "capacity": {
+      "items": 2,
+      "min": 2,
+      "max": 2
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 8,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "panels",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18832"
+  },
+  {
+    "slug": "finance/bars-duo",
+    "slide": 137,
+    "family": "finance",
+    "role": "chart",
+    "shape": "duo",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "Two bar charts side by side (small multiples) — e.g. a commercial vs total view — each panelled with its own title.",
+    "capacity": {
+      "items": 2,
+      "min": 2,
+      "max": 2
+    },
+    "slots": {
+      "images": 0,
+      "titles": 2,
+      "body": 0,
+      "stats": 8,
+      "icons": 0
+    },
+    "fields": [
+      "panels",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18867"
+  },
+  {
+    "slug": "finance/divider",
+    "slide": 138,
+    "family": "finance",
+    "role": "divider",
+    "shape": "single",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A minimal section break: one large bold word (e.g. Appendix) marking a new part of the report.",
+    "capacity": {
+      "items": 1,
+      "min": 1,
+      "max": 1
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "title",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18900"
+  },
+  {
+    "slug": "finance/data-table",
+    "slide": 139,
+    "family": "finance",
+    "role": "table",
+    "shape": "table",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A dense appendix table: named metric rows across many period columns (e.g. RPO, stock-based compensation by quarter).",
+    "capacity": {
+      "items": 4,
+      "min": 1,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "columns",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "110:18904"
+  },
+  {
+    "slug": "strategy/cover",
+    "slide": 140,
+    "family": "strategy",
+    "role": "cards",
+    "shape": "row",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A propositions / options wall: a caption+title head over up to five parallel text cards, one of which can be highlighted as the chosen option.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8785"
+  },
+  {
+    "slug": "strategy/data-02",
+    "slide": 141,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "quadrant",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A strategy map / positioning canvas: four labelled quadrants of guiding questions meeting at a central proposition pill.",
+    "capacity": {
+      "items": 4,
+      "min": 4,
+      "max": 4
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "center",
+      "quadrants",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8794"
+  },
+  {
+    "slug": "strategy/grid-01",
+    "slide": 142,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "timeline",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A long-range outlook: a row of horizon markers (Today → future years) drawn as boxes that grow with distance, introduced by a title + body paragraph.",
+    "capacity": {
+      "items": 4,
+      "min": 3,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "items",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8805"
+  },
+  {
+    "slug": "strategy/grid-02",
+    "slide": 143,
+    "family": "strategy",
+    "role": "cards",
+    "shape": "row",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "Phased objectives: three (or more) cards — one per year / horizon — each with a short chevron-bulleted list of goals.",
+    "capacity": {
+      "items": 3,
+      "min": 2,
+      "max": 4
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8813"
+  },
+  {
+    "slug": "strategy/grid-03",
+    "slide": 144,
+    "family": "strategy",
+    "role": "table",
+    "shape": "table",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A phased plan laid out on a timeline: several phases across a dotted axis, with a row of dimensions (content, messaging …) filled in per phase.",
+    "capacity": {
+      "items": 4,
+      "min": 2,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "phases",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8820"
+  },
+  {
+    "slug": "strategy/data-03",
+    "slide": 145,
+    "family": "strategy",
+    "role": "table",
+    "shape": "table",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A brand / strategy framework table: labelled rows that each span one wide cell or split into several columns (pillars), closing on a dense strip of topic markers.",
+    "capacity": {
+      "items": 6,
+      "min": 3,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8856"
+  },
+  {
+    "slug": "strategy/grid-04",
+    "slide": 146,
+    "family": "strategy",
+    "role": "chart",
+    "shape": "line-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A resource / cost allocation over time: a narrative + legend on the left, a multi-line trend chart with phase dividers on the right.",
+    "capacity": {
+      "items": 3,
+      "min": 1,
+      "max": 4
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "legend",
+      "body",
+      "series",
+      "yTicks",
+      "xTicks",
+      "phases",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8899"
+  },
+  {
+    "slug": "strategy/grid-05",
+    "slide": 147,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "concentric-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A Golden-Circle / why-how-what model: three nested rings on the left, each expanded into a labelled paragraph block on the right.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "rings",
+      "blocks",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8959"
+  },
+  {
+    "slug": "strategy/grid-06",
+    "slide": 148,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "sliders-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A brand-attribute / positioning scale: a stack of bipolar sliders (e.g. youthful ↔ mature) each marked with where the brand sits, explained by a left text column.",
+    "capacity": {
+      "items": 8,
+      "min": 3,
+      "max": 10
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8972"
+  },
+  {
+    "slug": "strategy/grid-07",
+    "slide": 149,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "onion-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A layered onion model: nested circles sharing a base, each layer labelled with a title + line, explained by a right text column.",
+    "capacity": {
+      "items": 4,
+      "min": 3,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "layers",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8986"
+  },
+  {
+    "slug": "strategy/grid-08",
+    "slide": 150,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "concentric-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A stakeholder-proximity model: concentric rings radiating out from the centre (you) through team, community and beyond, explained by a left text column.",
+    "capacity": {
+      "items": 4,
+      "min": 2,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "center",
+      "rings",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:8997"
+  },
+  {
+    "slug": "strategy/grid-09",
+    "slide": 151,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "venn-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A three-lens Venn: three factors (e.g. opportunity, experience, expectations) overlapping on a central proposition, explained by a right text column.",
+    "capacity": {
+      "items": 3,
+      "min": 3,
+      "max": 3
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "circles",
+      "center",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:9009"
+  },
+  {
+    "slug": "strategy/grid-10",
+    "slide": 152,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "cycle-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A cyclical methodology: named stages placed on a dashed ring to show a repeating process, explained by a left text column.",
+    "capacity": {
+      "items": 4,
+      "min": 3,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "nodes",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:9022"
+  },
+  {
+    "slug": "strategy/grid-11",
+    "slide": 153,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "pyramid-split",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A hierarchy / strategy pyramid: a stack of tiers from foundation to apex, explained by a title + body paragraph on the right.",
+    "capacity": {
+      "items": 6,
+      "min": 3,
+      "max": 7
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "tiers",
+      "body",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:9033"
+  },
+  {
+    "slug": "strategy/grid-12",
+    "slide": 154,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "projection",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A growth projection: a curve rising from a starting point to a set of future outcomes, anchored to a labelled month timeline.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "name",
+      "bullets",
+      "months",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:9064"
+  },
+  {
+    "slug": "strategy/grid-13",
+    "slide": 155,
+    "family": "strategy",
+    "role": "diagram",
+    "shape": "staircase",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A roadmap of escalating targets: filled milestone cards stepping up-and-right across a date timeline, with light placeholders for the space still ahead.",
+    "capacity": {
+      "items": 7,
+      "min": 3,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "cards",
+      "ticks",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "109:9079"
+  },
+  {
+    "slug": "planning/cover",
+    "slide": 156,
+    "family": "planning",
+    "role": "timeline",
+    "shape": "timeline",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A roadmap opener: a horizontal week/milestone timeline with a highlighted 'today' marker and a short note beneath it.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 7
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "items",
+      "bullets",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2633"
+  },
+  {
+    "slug": "planning/data-01",
+    "slide": 157,
+    "family": "planning",
+    "role": "timeline",
+    "shape": "timeline",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A phased roadmap on a single axis: kickoff and successive phases, each with a month and a short note.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 6
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "phases",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2643"
+  },
+  {
+    "slug": "planning/grid-02",
+    "slide": 158,
+    "family": "planning",
+    "role": "diagram",
+    "shape": "staircase",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A roadmap of escalating milestones stepping up-and-right across a date timeline, with light placeholders for the ground still ahead.",
+    "capacity": {
+      "items": 7,
+      "min": 3,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "cards",
+      "ticks",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2653"
+  },
+  {
+    "slug": "planning/grid-03",
+    "slide": 159,
+    "family": "planning",
+    "role": "cards",
+    "shape": "row",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A phased plan shown as a row of cards, with the current phase highlighted.",
+    "capacity": {
+      "items": 4,
+      "min": 3,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2704"
+  },
+  {
+    "slug": "planning/grid-04",
+    "slide": 160,
+    "family": "planning",
+    "role": "diagram",
+    "shape": "arches",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A phased journey drawn as a run of arches, each phase numbered with a short description below.",
+    "capacity": {
+      "items": 4,
+      "min": 3,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "phases",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2712"
+  },
+  {
+    "slug": "planning/grid-05",
+    "slide": 161,
+    "family": "planning",
+    "role": "chart",
+    "shape": "gantt",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A one-line schedule: consecutive phase pills sized by duration across a few months, with a Today marker.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 7
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "months",
+      "pills",
+      "today",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2720"
+  },
+  {
+    "slug": "planning/grid-06",
+    "slide": 162,
+    "family": "planning",
+    "role": "diagram",
+    "shape": "sprints",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A sprint plan: sprints grouped by week, each week carrying a phase, with iteration markers, explained by a left text column.",
+    "capacity": {
+      "items": 6,
+      "min": 2,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "chips",
+      "body",
+      "groups",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2734"
+  },
+  {
+    "slug": "planning/grid-07",
+    "slide": 163,
+    "family": "planning",
+    "role": "timeline",
+    "shape": "milestones",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A milestone timeline with photos: key moments placed above and below a central axis, each with an image, title and note.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 6
+    },
+    "slots": {
+      "images": 5,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "above",
+      "below",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2782"
+  },
+  {
+    "slug": "planning/grid-08",
+    "slide": 164,
+    "family": "planning",
+    "role": "timeline",
+    "shape": "milestones",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A milestone timeline that spotlights one moment: the highlighted card stays full-strength while the others are muted.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 6
+    },
+    "slots": {
+      "images": 5,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "above",
+      "below",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2804"
+  },
+  {
+    "slug": "planning/grid-09",
+    "slide": 165,
+    "family": "planning",
+    "role": "timeline",
+    "shape": "milestones",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A dense milestone timeline: ten photo moments stacked above and below the axis for a packed retrospective or roadmap.",
+    "capacity": {
+      "items": 10,
+      "min": 6,
+      "max": 10
+    },
+    "slots": {
+      "images": 10,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "above",
+      "below",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2826"
+  },
+  {
+    "slug": "planning/grid-10",
+    "slide": 166,
+    "family": "planning",
+    "role": "timeline",
+    "shape": "milestones",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A dense milestone timeline that spotlights one moment among ten, the rest muted.",
+    "capacity": {
+      "items": 10,
+      "min": 6,
+      "max": 10
+    },
+    "slots": {
+      "images": 10,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "above",
+      "below",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2862"
+  },
+  {
+    "slug": "planning/grid-11",
+    "slide": 167,
+    "family": "planning",
+    "role": "chart",
+    "shape": "gantt",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A short-range Gantt: a handful of workstreams shown as bars across a few months.",
+    "capacity": {
+      "items": 4,
+      "min": 2,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "columns",
+      "rows",
+      "phases",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:2898"
+  },
+  {
+    "slug": "planning/grid-12",
+    "slide": 168,
+    "family": "planning",
+    "role": "chart",
+    "shape": "gantt",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "An annual Gantt: workstreams shown as bars across all twelve months, grouped by quarter.",
+    "capacity": {
+      "items": 8,
+      "min": 3,
+      "max": 12
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "columns",
+      "groups",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:3040"
+  },
+  {
+    "slug": "planning/grid-13",
+    "slide": 169,
+    "family": "planning",
+    "role": "table",
+    "shape": "table",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A weekly output / deliverables table: columns per week, each cell a short bulleted list, under a dark banner.",
+    "capacity": {
+      "items": 6,
+      "min": 3,
+      "max": 8
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "header",
+      "columns",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:3416"
+  },
+  {
+    "slug": "planning/data-02",
+    "slide": 170,
+    "family": "planning",
+    "role": "table",
+    "shape": "matrix",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A content / channel plan matrix: KPI rows against channel columns, each cell a short bulleted list.",
+    "capacity": {
+      "items": 6,
+      "min": 3,
+      "max": 7
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "columns",
+      "rows",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:3450"
+  },
+  {
+    "slug": "planning/grid-14",
+    "slide": 171,
+    "family": "planning",
+    "role": "diagram",
+    "shape": "calendar",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A year-at-a-glance calendar: four quarter columns, each holding three month cards with a headline.",
+    "capacity": {
+      "items": 12,
+      "min": 4,
+      "max": 12
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 1,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "body",
+      "quarters",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:3494"
+  },
+  {
+    "slug": "planning/grid-15",
+    "slide": 172,
+    "family": "planning",
+    "role": "diagram",
+    "shape": "orgchart",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "An organisation chart: departments flanking a central core team of named people and working groups.",
+    "capacity": {
+      "items": 8,
+      "min": 4,
+      "max": 10
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "left",
+      "leftHead",
+      "core",
+      "right",
+      "rightHead",
+      "notes",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:3518"
+  },
+  {
+    "slug": "planning/grid-16",
+    "slide": 173,
+    "family": "planning",
+    "role": "team",
+    "shape": "roster",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A leadership roster: a few featured leaders with larger portraits beside a grid of the wider team.",
+    "capacity": {
+      "items": 15,
+      "min": 6,
+      "max": 15
+    },
+    "slots": {
+      "images": 15,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "leaders",
+      "team",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:3585"
+  },
+  {
+    "slug": "planning/data-03",
+    "slide": 174,
+    "family": "planning",
+    "role": "team",
+    "shape": "row",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A row of four profile cards — a portrait over a name, title and short note.",
+    "capacity": {
+      "items": 4,
+      "min": 3,
+      "max": 4
+    },
+    "slots": {
+      "images": 4,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:3609"
+  },
+  {
+    "slug": "planning/data-04",
+    "slide": 175,
+    "family": "planning",
+    "role": "team",
+    "shape": "row",
+    "count": null,
+    "theme": "light",
+    "media": [
+      "photo"
+    ],
+    "use": "A row of five profile cards — a portrait over a name, title and short note.",
+    "capacity": {
+      "items": 5,
+      "min": 4,
+      "max": 5
+    },
+    "slots": {
+      "images": 5,
+      "titles": 0,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:3616"
+  },
+  {
+    "slug": "planning/data-05",
+    "slide": 176,
+    "family": "planning",
+    "role": "cards",
+    "shape": "row",
+    "count": null,
+    "theme": "light",
+    "media": [],
+    "use": "A propositions / options wall: a caption+title head over up to five parallel bulleted cards, one highlighted as chosen.",
+    "capacity": {
+      "items": 5,
+      "min": 3,
+      "max": 5
+    },
+    "slots": {
+      "images": 0,
+      "titles": 1,
+      "body": 0,
+      "stats": 0,
+      "icons": 0
+    },
+    "fields": [
+      "caption",
+      "title",
+      "subtitle",
+      "cards",
+      "meta",
+      "footer"
+    ],
+    "figmaNode": "105:3624"
+  }
+]

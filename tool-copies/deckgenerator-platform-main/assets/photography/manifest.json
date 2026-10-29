@@ -1,0 +1,6298 @@
+{
+  "version": 1,
+  "generated": "2026-07-23T22:38:44.590Z",
+  "photos": [
+    {
+      "id": "nagarro-20200717-084726-nagarro-295",
+      "file": "20200717-084726_Nagarro_295.jpg",
+      "hash": "ea46c5ba34e9deb5",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Four colleagues stand talking in an office kitchen beside an espresso machine — one in a lilac checked shirt, one seen from behind in a branded navy polo, two others leaning on the counter with drinks. Warm downlights, glass partitions and planting behind them.",
+      "tags": [
+        "kitchen",
+        "coffee",
+        "informal-conversation",
+        "indoor",
+        "standing",
+        "social"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-informal",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-085451-nagarro-4227",
+      "file": "20200717-085451_Nagarro_4227.jpg",
+      "hash": "3950c147bd9775f2",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "Tight shot from behind of a woman in a navy Nagarro polo, the scribble logo and 'Thinking Breakthroughs' tagline filling the frame across her back; two colleagues stand blurred either side in a bright indoor space. The garment branding is large and legible, so the photo already carries text of its own.",
+      "tags": [
+        "brand-apparel",
+        "tagline",
+        "back-view",
+        "shallow-depth-of-field",
+        "indoor",
+        "candid"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-close"
+      },
+      "tone": "brand-forward-informal",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.47,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-085631-nagarro-327",
+      "file": "20200717-085631_Nagarro_327.jpg",
+      "hash": "f2afc7db73575bcf",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Three colleagues play a card game at a long wooden canteen table, one laughing mid-hand, while two more sit talking on a bench behind them. Birch-forest printed glass wall, a whiteboard scrawled with the week's motto, plants and branded mugs.",
+      "tags": [
+        "canteen",
+        "card-game",
+        "break",
+        "laughing",
+        "indoor",
+        "social",
+        "birch-print"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "group"
+      },
+      "tone": "playful-social",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-090532-nagarro-4256",
+      "file": "20200717-090532_Nagarro_4256.jpg",
+      "hash": "44e01a457d3434e8",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "Shot from behind a seated man whose navy t-shirt carries the large mint looped brand mark across the back, filling the centre of the frame; two colleagues sit blurred opposite him at a wooden table with a glass cake dome. Very shallow depth of field.",
+      "tags": [
+        "brand-apparel",
+        "back-view",
+        "shallow-depth-of-field",
+        "table",
+        "indoor",
+        "logo"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-close"
+      },
+      "tone": "brand-forward-informal",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-20200717-090948-nagarro-402",
+      "file": "20200717-090948_Nagarro_402.jpg",
+      "hash": "af6f561cf728d137",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "Two colleagues sit talking on a long grey lounge bench, one seen from behind, the other turned toward her with an arm along the backrest. Backlit birch-forest glass panel above them, a slatted timber wall hung with moss strips, small tables with plants.",
+      "tags": [
+        "lounge",
+        "seated-conversation",
+        "indoor",
+        "interior-design",
+        "relaxed",
+        "two-people"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "relaxed-informal",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.42,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-20200717-091142-nagarro-415",
+      "file": "20200717-091142_Nagarro_415.jpg",
+      "hash": "e429d579052dd5cf",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A woman in a branded navy polo sits on a lounge bench listening to a colleague in the right foreground, shot over his shoulder. A laptop with a brand sticker and a white mug sit on a small side table, a tall palm to the left.",
+      "tags": [
+        "lounge",
+        "one-to-one",
+        "listening",
+        "laptop",
+        "indoor",
+        "informal-meeting"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "attentive-informal",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.38,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-091246-nagarro-424",
+      "file": "20200717-091246_Nagarro_424.jpg",
+      "hash": "cd4340c5e144db17",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Two colleagues sit side by side on a grey bench looking at a laptop propped on a small wooden side table between them, both smiling at the screen. Birch-forest printed glass panel above, herringbone timber floor, plain wall to the left.",
+      "tags": [
+        "lounge",
+        "laptop",
+        "pair-working",
+        "indoor",
+        "informal-meeting",
+        "smiling"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "relaxed-collaborative",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.35,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-20200717-091614-nagarro-444",
+      "file": "20200717-091614_Nagarro_444.jpg",
+      "hash": "5f208703f9ed3bb1",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Two men study a laptop screen together at close range, one leaning in from behind while the other reaches to the trackpad mid-explanation. Bright open-plan office behind them with glass partitions, plants and a copper pendant lamp.",
+      "tags": [
+        "laptop",
+        "screen-sharing",
+        "explaining",
+        "focused",
+        "indoor",
+        "pair-working"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "focused-technical",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-091737-nagarro-464",
+      "file": "20200717-091737_Nagarro_464.jpg",
+      "hash": "758376e106a286ea",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Two men in branded navy shirts stand either side of a white counter unit looking at an open laptop, both smiling; one wears headphones slung around his neck. Concrete-clad pillar between them, glass-walled meeting rooms behind.",
+      "tags": [
+        "standing-meeting",
+        "laptop",
+        "counter",
+        "indoor",
+        "smiling",
+        "pair-working"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "upbeat-collaborative",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-091738-nagarro-467",
+      "file": "20200717-091738_Nagarro_467.jpg",
+      "hash": "a1a17ec7e728d1a4",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Two colleagues at a white standing counter with a laptop whose lid carries the Nagarro loop mark; a smiling young man in a navy Nagarro polo watches as a man in a Nagarro tee with headphones round his neck points at the screen, glass meeting rooms and a café softly out of focus behind.",
+      "tags": [
+        "colleagues",
+        "collaboration",
+        "laptop",
+        "nagarro-brand",
+        "indoor",
+        "office",
+        "candid",
+        "pointing"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "engaged-collaborative",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.4,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20200717-092339-nagarro-499",
+      "file": "20200717-092339_Nagarro_499.jpg",
+      "hash": "4f54909dd1ca7296",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A woman in a navy Nagarro polo leans on a white table and smiles at a colleague seen from behind in the soft foreground, who holds a reusable coffee cup; a laptop and a bright office window fill the right of the frame.",
+      "tags": [
+        "colleagues",
+        "conversation",
+        "coffee",
+        "nagarro-polo",
+        "indoor",
+        "office",
+        "candid",
+        "smiling"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-conversational",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.35
+      }
+    },
+    {
+      "id": "nagarro-20200717-093647-nagarro-551",
+      "file": "20200717-093647_Nagarro_551.jpg",
+      "hash": "069e2c196ff5cc85",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A woman in a navy Nagarro polo presents a blue \"Cost avoidance\" slide on a wall-mounted screen in a meeting room; two men sit with their backs to the camera, one in a polo printed \"Thinking Breakthroughs\", a laptop and pastries on the dark table before them.",
+      "tags": [
+        "meeting",
+        "presentation",
+        "screen",
+        "cost-avoidance",
+        "boardroom",
+        "indoor",
+        "candid",
+        "thinking-breakthroughs"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-medium"
+      },
+      "tone": "focused-corporate",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.24,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-094144-nagarro",
+      "file": "20200717-094144_Nagarro_.jpg",
+      "hash": "2d44f0d6c7b4f751",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A workshop in a meeting room: two people in Nagarro polos stand presenting, a whiteboard beside them covered in a TODO / In Progress / Done kanban of sticky notes, a \"We invested 500+ hours to discuss 100+ use cases\" slide on the screen, and four colleagues seated round a dark table.",
+      "tags": [
+        "workshop",
+        "meeting",
+        "whiteboard",
+        "kanban",
+        "sticky-notes",
+        "presentation",
+        "indoor",
+        "agile"
+      ],
+      "people": {
+        "count": 6,
+        "framing": "wide-environment"
+      },
+      "tone": "collaborative-workshop",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-094324-nagarro-610",
+      "file": "20200717-094324_Nagarro_610.jpg",
+      "hash": "3e24e33391b5cb6a",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "The same workshop viewed through a dark glass partition from the corridor, mullions crossing the frame; two presenters stand by a sticky-note whiteboard with the \"500+ hours\" slide glowing on the screen, colleagues seated around the table, reflections layering the glass.",
+      "tags": [
+        "workshop",
+        "meeting",
+        "through-glass",
+        "reflections",
+        "whiteboard",
+        "presentation",
+        "indoor",
+        "observed"
+      ],
+      "people": {
+        "count": 6,
+        "framing": "wide-environment"
+      },
+      "tone": "candid-documentary",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-100402-nagarro-684",
+      "file": "20200717-100402_Nagarro_684.jpg",
+      "hash": "253ec32058f5fd1b",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A large group of colleagues in navy Nagarro tops pose in a courtyard before a glass office facade, holding teal cards that spell n-a-g-a-r-r-o while two kneeling in front point at a third holding the mint loop mark, planters of purple flowers behind them.",
+      "tags": [
+        "group",
+        "team",
+        "wordmark",
+        "letter-cards",
+        "nagarro",
+        "loop-mark",
+        "outdoor",
+        "courtyard"
+      ],
+      "people": {
+        "count": 12,
+        "framing": "group"
+      },
+      "tone": "playful-collective",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20200717-100418-nagarro-700",
+      "file": "20200717-100418_Nagarro_700.jpg",
+      "hash": "72662c8acb2916b7",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "The same courtyard group shot moments later, colleagues in navy Nagarro tops spelling n-a-g-a-r-r-o with teal letter cards before the glass facade, two kneeling to point at a woman holding the mint loop mark, purple flowers and a young tree beside them.",
+      "tags": [
+        "group",
+        "team",
+        "wordmark",
+        "letter-cards",
+        "nagarro",
+        "loop-mark",
+        "outdoor",
+        "courtyard"
+      ],
+      "people": {
+        "count": 12,
+        "framing": "group"
+      },
+      "tone": "playful-collective",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20200717-100942-nagarro-742",
+      "file": "20200717-100942_Nagarro_742.jpg",
+      "hash": "6c84d339394271de",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Seven colleagues stand in a paved courtyard in front of a tall glass office facade, each holding a turquoise card spelling out 'nagarro', with an eighth kneeling at the front holding the looped brand mark. Overcast daylight, grass planter and purple flowers behind them.",
+      "tags": [
+        "group",
+        "team",
+        "brand-letters",
+        "outdoor",
+        "courtyard",
+        "glass-building",
+        "playful"
+      ],
+      "people": {
+        "count": 8,
+        "framing": "group"
+      },
+      "tone": "playful-corporate",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-20200717-101120-nagarro-764",
+      "file": "20200717-101120_Nagarro_764.jpg",
+      "hash": "867e6fe893a527a8",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A smaller courtyard group of eight in navy Nagarro tops spelling n-a-g-a-r-r-o with teal letter cards before the glass facade, one man kneeling at the front holding the mint loop mark, a young tree and purple planting behind.",
+      "tags": [
+        "group",
+        "team",
+        "wordmark",
+        "letter-cards",
+        "nagarro",
+        "loop-mark",
+        "outdoor",
+        "courtyard"
+      ],
+      "people": {
+        "count": 8,
+        "framing": "group"
+      },
+      "tone": "upbeat-collective",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.44
+      }
+    },
+    {
+      "id": "nagarro-20200717-101621-nagarro-802-edit",
+      "file": "20200717-101621_Nagarro_802_edit.jpg",
+      "hash": "f51571f9636c4586",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Seven colleagues in navy Nagarro polos stand along a courtyard planter holding teal cards that spell n-a-g-a-r-r-o, while a blonde woman in front holds the mint loop mark toward the camera; a glass office facade, a young tree and purple flowers frame the scene.",
+      "tags": [
+        "group",
+        "team",
+        "wordmark",
+        "letter-cards",
+        "nagarro",
+        "loop-mark",
+        "outdoor",
+        "courtyard"
+      ],
+      "people": {
+        "count": 8,
+        "framing": "group"
+      },
+      "tone": "playful-collective",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20200717-102331-nagarro",
+      "file": "20200717-102331_Nagarro_.jpg",
+      "hash": "a521f1ebf5f4960a",
+      "w": 6192,
+      "h": 4128,
+      "orientation": "landscape",
+      "description": "The same courtyard team caught mid-jump, seven colleagues leaping with arms raised holding the teal n-a-g-a-r-r-o letter cards while a blonde woman kneels at the front presenting the mint loop mark, the glass facade and purple planting behind them.",
+      "tags": [
+        "group",
+        "team",
+        "jumping",
+        "energetic",
+        "wordmark",
+        "letter-cards",
+        "nagarro",
+        "outdoor"
+      ],
+      "people": {
+        "count": 8,
+        "framing": "group"
+      },
+      "tone": "energetic-celebratory",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-102949-nagarro-921-edit",
+      "file": "20200717-102949_Nagarro_921_edit.jpg",
+      "hash": "120c84aac0c0404d",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A row of nine colleagues in navy Nagarro tops pose in the courtyard holding brightly coloured cards spelling W-E-L-C-O-M-E with an exclamation mark, one on the left holding the mint loop mark, glass facade and green planter behind.",
+      "tags": [
+        "group",
+        "team",
+        "welcome",
+        "letter-cards",
+        "onboarding",
+        "colourful",
+        "outdoor",
+        "courtyard"
+      ],
+      "people": {
+        "count": 9,
+        "framing": "group"
+      },
+      "tone": "welcoming-collective",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-103143-nagarro-933",
+      "file": "20200717-103143_Nagarro_933.jpg",
+      "hash": "f4d1bfa9342d741a",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Nine colleagues in navy Nagarro tops line up across the courtyard each holding a mint caring-values icon card — antenna, lightning, figure, swirl, waves, scribble and heart — with the loop mark at the left end, glass facade and purple flowers behind.",
+      "tags": [
+        "group",
+        "team",
+        "caring-values",
+        "icon-cards",
+        "values",
+        "nagarro",
+        "outdoor",
+        "courtyard"
+      ],
+      "people": {
+        "count": 9,
+        "framing": "group"
+      },
+      "tone": "values-collective",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-103729-nagarro-949",
+      "file": "20200717-103729_Nagarro_949.jpg",
+      "hash": "ff9124f30750e7c2",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A bearded man in a navy Nagarro polo crouches in a playful athletic stance in the courtyard, grinning and holding up a mint caring-values icon card printed with a swirl; the glass office facade and a strip of lawn fill the background.",
+      "tags": [
+        "portrait",
+        "candid",
+        "playful",
+        "caring-values",
+        "icon-card",
+        "nagarro-polo",
+        "outdoor",
+        "single-person"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "playful-confident",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.35,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-103815-nagarro-958",
+      "file": "20200717-103815_Nagarro_958.jpg",
+      "hash": "6a6107afe3ad535b",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A smiling man in a navy Nagarro tee flexes one arm and holds a mint caring-values card printed with a heart beside his face, standing before a glass office facade and a band of green lawn; a tight, upright single portrait.",
+      "tags": [
+        "portrait",
+        "candid",
+        "caring-values",
+        "heart-icon",
+        "nagarro-tee",
+        "smiling",
+        "outdoor",
+        "single-person"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "warm-confident",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.58
+      }
+    },
+    {
+      "id": "nagarro-20200717-103818-nagarro-966",
+      "file": "20200717-103818_Nagarro_966.jpg",
+      "hash": "3356d946321d933e",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A man in a navy Nagarro t-shirt leans in and mock-bites the corner of a large mint-green card printed with the caring heart-loop icon, grinning down at it. Shot outdoors against a glass office facade with a strip of bright grass behind him.",
+      "tags": [
+        "playful",
+        "caring-icon",
+        "brand-icon",
+        "single-person",
+        "outdoor",
+        "mint-green"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "playful-warm",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.44,
+        "y": 0.6
+      }
+    },
+    {
+      "id": "nagarro-20200717-103911-nagarro-4291",
+      "file": "20200717-103911_Nagarro_4291.jpg",
+      "hash": "a997336b2ddf75c8",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "A blonde woman in a navy Nagarro polo and a man in a navy Nagarro tee stand close together holding the large mint loop mark between them, both laughing at the camera, a soft green lawn and glass facade blurred behind.",
+      "tags": [
+        "colleagues",
+        "pair",
+        "loop-mark",
+        "nagarro-brand",
+        "smiling",
+        "outdoor",
+        "candid",
+        "portrait"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "warm-friendly",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-103923-nagarro-984",
+      "file": "20200717-103923_Nagarro_984.jpg",
+      "hash": "8177ed79e597e3e4",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A close candid in the courtyard: a laughing blonde woman in a navy Nagarro polo forms a heart shape with her hands together with a colleague off-frame holding a green \"caring\" card, while a young man in a navy polo looks on from behind amid purple flowers.",
+      "tags": [
+        "colleagues",
+        "candid",
+        "caring",
+        "heart-hands",
+        "nagarro-polo",
+        "outdoor",
+        "warm",
+        "close"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-close"
+      },
+      "tone": "warm-caring",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20200717-103939-nagarro-1001",
+      "file": "20200717-103939_Nagarro_1001.jpg",
+      "hash": "522ac79cebec3685",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Five colleagues in navy Nagarro polos and tees cluster in the courtyard forming heart shapes with their hands and laughing, a bearded man at the centre framing his face with a heart while a blonde woman and a dark-haired man join in; glass office facade and green planter behind.",
+      "tags": [
+        "group",
+        "team",
+        "heart-hands",
+        "caring",
+        "candid",
+        "laughing",
+        "outdoor",
+        "courtyard"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "group"
+      },
+      "tone": "warm-collective",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-103941-nagarro-1004",
+      "file": "20200717-103941_Nagarro_1004.jpg",
+      "hash": "a5811b38a72c7b64",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "An over-the-shoulder candid of the same courtyard group making heart shapes with their hands, one colleague in the foreground holding a phone to photograph a grinning bearded man at the centre who returns the gesture; navy Nagarro tops and glass facade throughout.",
+      "tags": [
+        "group",
+        "team",
+        "heart-hands",
+        "candid",
+        "behind-the-scenes",
+        "phone",
+        "outdoor",
+        "courtyard"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "group"
+      },
+      "tone": "playful-candid",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-103955-nagarro-1019",
+      "file": "20200717-103955_Nagarro_1019.jpg",
+      "hash": "f802c7c8a03dfa3d",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A close courtyard candid: a bearded man in a navy Nagarro polo frames his eyes with a heart shape made by his hands, grinning, while a blonde colleague behind him laughs and holds a teal \"caring\" card; glass facade and lawn softly blurred behind.",
+      "tags": [
+        "candid",
+        "heart-hands",
+        "caring",
+        "pair",
+        "nagarro-polo",
+        "smiling",
+        "outdoor",
+        "close"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "warm-playful",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.4,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-104013-nagarro-1026",
+      "file": "20200717-104013_Nagarro_1026.jpg",
+      "hash": "1bab2a7b50ab8155",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Three colleagues pose to camera in the courtyard — a bearded man on the left and a dark-haired man on the right each make a heart shape with their hands, while a blonde woman between them holds a teal \"caring\" card; all in navy Nagarro polos before the glass facade and planter.",
+      "tags": [
+        "group",
+        "team",
+        "caring",
+        "heart-hands",
+        "posed",
+        "caring-values",
+        "outdoor",
+        "courtyard"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "group"
+      },
+      "tone": "warm-collective",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-104027-nagarro-4306",
+      "file": "20200717-104027_Nagarro_4306.jpg",
+      "hash": "0b19fe8b9d8323cb",
+      "w": 1367,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A single posed portrait: a smiling woman with long auburn hair in a navy Nagarro polo, one hand on her hip, holds a mint caring-values icon card printed with the antenna/broadcast symbol; a soft green lawn and blurred glass facade fill the background.",
+      "tags": [
+        "portrait",
+        "single-person",
+        "caring-values",
+        "icon-card",
+        "antenna",
+        "nagarro-polo",
+        "smiling",
+        "outdoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "warm-confident",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-104101-nagarro-4314",
+      "file": "20200717-104101_Nagarro_4314.jpg",
+      "hash": "c28a7389a7b896de",
+      "w": 1367,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A single posed portrait: a smiling woman with long dark hair in a navy Nagarro polo holds a mint caring-values icon card printed with a lightning-bolt symbol beside her; a green lawn and blurred glass facade behind.",
+      "tags": [
+        "portrait",
+        "single-person",
+        "caring-values",
+        "icon-card",
+        "lightning",
+        "nagarro-polo",
+        "smiling",
+        "outdoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "warm-confident",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-104133-nagarro-4328",
+      "file": "20200717-104133_Nagarro_4328.jpg",
+      "hash": "bbe842d40712e79a",
+      "w": 1367,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A single candid portrait: a smiling young man with a top-knot in a navy Nagarro polo points at himself with one hand while holding a mint caring-values icon card printed with the agile/figure symbol; a strip of lawn and blurred glass facade behind.",
+      "tags": [
+        "portrait",
+        "single-person",
+        "caring-values",
+        "icon-card",
+        "playful",
+        "pointing",
+        "nagarro-polo",
+        "outdoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "playful-confident",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-104209-nagarro-4345",
+      "file": "20200717-104209_Nagarro_4345.jpg",
+      "hash": "45d8a6bf454c0915",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "A single posed portrait: a smiling woman with long red hair in a navy \"nagarro\" tee holds a mint caring-values icon card printed with the three-loop waves symbol; a green lawn and blurred glass facade fill the frame.",
+      "tags": [
+        "portrait",
+        "single-person",
+        "caring-values",
+        "icon-card",
+        "waves",
+        "nagarro-tee",
+        "smiling",
+        "outdoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "warm-confident",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-104245-nagarro-4361",
+      "file": "20200717-104245_Nagarro_4361.jpg",
+      "hash": "07835d9ff1764f09",
+      "w": 1367,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A single posed portrait in the courtyard: a smiling man with short dark hair in a navy Nagarro polo raises a mint caring-values icon card overhead with one arm, the card printed with the interlocking-loops belonging symbol; a lawn strip and blurred glass office facade behind.",
+      "tags": [
+        "portrait",
+        "single-person",
+        "caring-values",
+        "icon-card",
+        "belonging",
+        "nagarro-polo",
+        "smiling",
+        "outdoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "warm-confident",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.4,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-104420-nagarro-1106-edit",
+      "file": "20200717-104420_Nagarro_1106_edit.jpg",
+      "hash": "7156714d02d9e153",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "An overhead still-life of the mint-green Nagarro loop mark — the physical interlocking double-loop cut-out prop — laid flat on a bed of dark grey slate chippings; no people, high-contrast brand graphic against stone texture.",
+      "tags": [
+        "brand-mark",
+        "loop",
+        "logo",
+        "still-life",
+        "prop",
+        "mint-green",
+        "slate",
+        "no-people"
+      ],
+      "people": {
+        "count": 0,
+        "framing": "none"
+      },
+      "tone": "graphic-brand",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-104823-nagarro-1150",
+      "file": "20200717-104823_Nagarro_1150.jpg",
+      "hash": "cfd40eaaaed37a2f",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A close candid of a smiling man in a white cycling helmet and navy Nagarro tee riding through the plaza, city and office glass motion-blurred behind him with a second cyclist and seated colleagues just visible; warm summer light.",
+      "tags": [
+        "candid",
+        "single-person",
+        "cycling",
+        "helmet",
+        "commute",
+        "motion-blur",
+        "nagarro-tee",
+        "outdoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "energetic-candid",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-105018-nagarro-1181-edit",
+      "file": "20200717-105018_Nagarro_1181_edit.jpg",
+      "hash": "3e9ce617adadc6e1",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Three colleagues in navy Nagarro tops sweep long teal rhythmic-gymnastics ribbons through the air as they walk across the office forecourt in front of the revolving-door entrance; blurred passers-by and a curved glass facade fill the wide frame.",
+      "tags": [
+        "group",
+        "team",
+        "ribbons",
+        "playful",
+        "movement",
+        "forecourt",
+        "wide",
+        "outdoor"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "wide-environment"
+      },
+      "tone": "playful-energetic",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-105055-nagarro-1195-edit",
+      "file": "20200717-105055_Nagarro_1195_edit.jpg",
+      "hash": "54caf48102c8753f",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A wider frame of the same teal-ribbon activity: three colleagues in navy Nagarro tops stride and twirl their ribbons across the sunlit marble forecourt, the tall curved glass facade and revolving door behind them; a grinning blonde woman leads in the centre.",
+      "tags": [
+        "group",
+        "team",
+        "ribbons",
+        "playful",
+        "movement",
+        "forecourt",
+        "wide",
+        "outdoor"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "wide-environment"
+      },
+      "tone": "playful-energetic",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-105206-nagarro-1205",
+      "file": "20200717-105206_Nagarro_1205.jpg",
+      "hash": "e7c53dc064258dd8",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A single colleague seen from behind cycles across the marble plaza toward the office entrance, wearing a white helmet and a navy Nagarro loop-mark tee; the tall curved glass facade and revolving door dominate the upright frame.",
+      "tags": [
+        "single-person",
+        "cycling",
+        "helmet",
+        "from-behind",
+        "architecture",
+        "plaza",
+        "wide",
+        "outdoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "wide-environment"
+      },
+      "tone": "calm-architectural",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.4,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-20200717-105432-nagarro-1234",
+      "file": "20200717-105432_Nagarro_1234.jpg",
+      "hash": "9580ea2b54729b98",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A single colleague on a bike in the plaza glances back over his shoulder and gives a thumbs-up, wearing a white helmet and navy Nagarro loop-mark tee; the curved glass \"EURO PLAZA\" facade and revolving door fill the upright background.",
+      "tags": [
+        "single-person",
+        "cycling",
+        "helmet",
+        "thumbs-up",
+        "playful",
+        "plaza",
+        "wide",
+        "outdoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "wide-environment"
+      },
+      "tone": "upbeat-candid",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-105609-nagarro-1241",
+      "file": "20200717-105609_Nagarro_1241.jpg",
+      "hash": "4ab6c36a2e41c546",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Two colleagues fist-bump in greeting on the sunlit plaza — one straddling a bike in a white helmet and navy tee, the other on foot with a backpack in a navy Nagarro polo; curved glass facade, revolving door and planting behind them.",
+      "tags": [
+        "pair",
+        "team",
+        "cycling",
+        "fist-bump",
+        "greeting",
+        "plaza",
+        "wide",
+        "outdoor"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "wide-environment"
+      },
+      "tone": "warm-candid",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-105635-nagarro-1247",
+      "file": "20200717-105635_Nagarro_1247.jpg",
+      "hash": "d83bd6a7ff989443",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "Two colleagues greet with a clasped-hand shake on the sunlit plaza — one straddling a bike in a white helmet and navy caring-values tee, the other on foot with a shoulder bag in a navy Nagarro polo; the curved glass \"EURO PLAZA\" facade and revolving door fill the upright frame behind them.",
+      "tags": [
+        "pair",
+        "team",
+        "cycling",
+        "greeting",
+        "handshake",
+        "plaza",
+        "wide",
+        "outdoor"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "wide-environment"
+      },
+      "tone": "warm-candid",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-105836-nagarro-1277",
+      "file": "20200717-105836_Nagarro_1277.jpg",
+      "hash": "3e267ec97db69c0f",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Seven colleagues in navy Nagarro tops dance and cheer in a loose line across the sunlit forecourt, arms flung up mid-celebration; a low grassed planter, a small tree and the curved glass facade fill the wide frame behind them.",
+      "tags": [
+        "group",
+        "team",
+        "celebration",
+        "dancing",
+        "playful",
+        "forecourt",
+        "wide",
+        "outdoor"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "playful-energetic",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-105920-nagarro-1320-edit",
+      "file": "20200717-105920_Nagarro_1320_edit.jpg",
+      "hash": "5a0a3d2919564405",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A playful piggyback on the plaza: a grinning blonde woman draped over a bearded colleague's back as he bends forward, the pair together holding the mint-green Nagarro loop-mark cut-out prop low in front of them; grassed planter, purple flowers and glass facade behind.",
+      "tags": [
+        "pair",
+        "playful",
+        "piggyback",
+        "loop-mark",
+        "prop",
+        "fun",
+        "plaza",
+        "outdoor"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "playful-fun",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-105924-nagarro-1327",
+      "file": "20200717-105924_Nagarro_1327.jpg",
+      "hash": "7582be6907b02032",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "The same piggyback pose from lower down: a bearded colleague carries a laughing blonde woman on his back as she raises the mint-green Nagarro loop-mark cut-out prop triumphantly overhead; grassed planter, purple flowers and the glass office facade fill the upright frame.",
+      "tags": [
+        "pair",
+        "playful",
+        "piggyback",
+        "loop-mark",
+        "prop",
+        "fun",
+        "plaza",
+        "outdoor"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "playful-fun",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-110417-nagarro-1346-edit",
+      "file": "20200717-110417_Nagarro_1346_edit.jpg",
+      "hash": "28fe92921f8469ee",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Two colleagues in navy Nagarro tops swirl long teal rhythmic-gymnastics ribbons through the air as they stand on the sunlit courtyard, a grassed planter with a small tree and the curved glass facade behind them; the ribbons trace loose curves across the wide frame.",
+      "tags": [
+        "pair",
+        "team",
+        "ribbons",
+        "playful",
+        "movement",
+        "courtyard",
+        "wide",
+        "outdoor"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "wide-environment"
+      },
+      "tone": "playful-energetic",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-111729-nagarro-1394",
+      "file": "20200717-111729_Nagarro_1394.jpg",
+      "hash": "a1148259adc3e504",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A candid of a woman in a bold floral-print dress seated at her desk in a black office chair, holding up a green apple and glancing toward the camera with a slight smile; a potted palm, cubicle divider and a Nagarro-stickered laptop frame the scene.",
+      "tags": [
+        "single-person",
+        "candid",
+        "office",
+        "desk",
+        "apple",
+        "seated",
+        "workplace",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-relaxed",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-111823-nagarro-1427",
+      "file": "20200717-111823_Nagarro_1427.jpg",
+      "hash": "acd39a715ec89428",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "The same woman in the floral dress works at a Nagarro-stickered laptop at her desk, looking down at the screen in concentration; a potted palm, glass partition and office floor behind her, a green apple resting on the desk in the foreground.",
+      "tags": [
+        "single-person",
+        "candid",
+        "office",
+        "desk",
+        "laptop",
+        "focused",
+        "workplace",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "focused-calm",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-111927-nagarro-1440",
+      "file": "20200717-111927_Nagarro_1440.jpg",
+      "hash": "401b6882560f42c9",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A candid of a bearded man in a navy Nagarro tee working at a Nagarro-stickered laptop at a white desk, looking down at the screen; a potted palm, glass partition and an open office behind him, a white mug on the desk in front.",
+      "tags": [
+        "single-person",
+        "candid",
+        "office",
+        "desk",
+        "laptop",
+        "focused",
+        "nagarro-tee",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "focused-calm",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-111957-nagarro-1448",
+      "file": "20200717-111957_Nagarro_1448.jpg",
+      "hash": "9199f0bf37e31954",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Over-the-shoulder view of a man in a navy Nagarro tee — the mint loop mark large on his back — working at a laptop in a bright open-plan office, an external monitor and an empty desk chair beside him; a mint phone case, a sheet of paper and a Nagarro-branded pen rest on the white desk.",
+      "tags": [
+        "single-person",
+        "candid",
+        "office",
+        "desk",
+        "laptop",
+        "loop-mark",
+        "over-the-shoulder",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "focused-calm",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-112030-nagarro-4400",
+      "file": "20200717-112030_Nagarro_4400.jpg",
+      "hash": "7dd95058e11aa609",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "A playful two-person gag by the office windows: one woman in a bold floral dress winces as she takes a call on a mint-cased phone, while a colleague in a navy Nagarro polo grins at camera and holds up a round red 'no mobile phones' prohibition sign beside her.",
+      "tags": [
+        "pair",
+        "playful",
+        "phone",
+        "humour",
+        "no-phone-sign",
+        "portrait",
+        "office",
+        "indoor"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "playful-humorous",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-112031-nagarro-1457",
+      "file": "20200717-112031_Nagarro_1457.jpg",
+      "hash": "0e39f468ef0b97f5",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A colleague in a navy Nagarro polo perches on a desk and looks on smiling as a seated man in a loop-mark tee works at his laptop; the bright open-plan office with empty desks and a monitor fills the background, a mint phone case and Nagarro pen on the white desk.",
+      "tags": [
+        "pair",
+        "team",
+        "collaboration",
+        "desk",
+        "laptop",
+        "office",
+        "candid",
+        "indoor"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-collaborative",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-112113-nagarro-4403",
+      "file": "20200717-112113_Nagarro_4403.jpg",
+      "hash": "0cbdbebf6982a52c",
+      "w": 1367,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A tight vertical candid of a woman in a colourful floral dress taking a call on a mint-cased phone at her desk, brow furrowed in concentration as she looks toward a monitor; a leafy palm behind her and a blurred grey architectural model in the foreground.",
+      "tags": [
+        "single-person",
+        "portrait",
+        "phone",
+        "candid",
+        "focused",
+        "office",
+        "vertical",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "focused-candid",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-112115-nagarro-1473",
+      "file": "20200717-112115_Nagarro_1473.jpg",
+      "hash": "ffceb671b3bbe449",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A standing woman in a navy Nagarro polo, mug in hand, leans in beside a seated man in a loop-mark tee as he points at his laptop; a bright office with glass partitions, palms and a pinboard behind them, a Nagarro-stickered laptop on the white desk.",
+      "tags": [
+        "pair",
+        "team",
+        "collaboration",
+        "desk",
+        "laptop",
+        "coffee",
+        "office",
+        "indoor"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-collaborative",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-112125-nagarro-1481",
+      "file": "20200717-112125_Nagarro_1481.jpg",
+      "hash": "c09d7fa7dc4d5df7",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Two colleagues sit shoulder to shoulder at a white desk looking at a Nagarro-stickered laptop — a woman with a coffee mug and a bearded man in a loop-mark tee reaching for the trackpad; a bright open-plan office with plants and glass partitions behind them.",
+      "tags": [
+        "pair",
+        "team",
+        "collaboration",
+        "desk",
+        "laptop",
+        "coffee",
+        "office",
+        "indoor"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-collaborative",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-112339-nagarro-1515",
+      "file": "20200717-112339_Nagarro_1515.jpg",
+      "hash": "127dd3d89a990b7f",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Two colleagues share a celebratory high-five in a bright office corridor — a man in a loop-mark tee seen from behind and a laughing woman in a navy Nagarro polo — potted palms and a pinboard lining the walls, a green emergency-exit sign overhead.",
+      "tags": [
+        "pair",
+        "team",
+        "celebration",
+        "high-five",
+        "corridor",
+        "playful",
+        "office",
+        "indoor"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "playful-energetic",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-112801-nagarro-1539",
+      "file": "20200717-112801_Nagarro_1539.jpg",
+      "hash": "a9990aff3d3256db",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "A bearded man in glasses and a navy Nagarro polo works at a loop-mark-stickered laptop at a white desk, face lit and composed in concentration; a blurred palm and open office fall away behind him in shallow focus.",
+      "tags": [
+        "single-person",
+        "candid",
+        "office",
+        "desk",
+        "laptop",
+        "focused",
+        "glasses",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "focused-calm",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-113114-nagarro-1560",
+      "file": "20200717-113114_Nagarro_1560.jpg",
+      "hash": "678eb7479ae2c3b1",
+      "w": 1365,
+      "h": 2048,
+      "orientation": "portrait",
+      "description": "A grinning man in glasses and a navy Nagarro polo balances on a wooden balance-board over a roller in a bright glass-walled office corridor, arms out for balance, dark frosted graphics on the partitions and a green exit sign glowing down the hall.",
+      "tags": [
+        "single-person",
+        "playful",
+        "balance-board",
+        "corridor",
+        "full-length",
+        "humour",
+        "office",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "wide-environment"
+      },
+      "tone": "playful-energetic",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-113230-nagarro-4419",
+      "file": "20200717-113230_Nagarro_4419.jpg",
+      "hash": "15df387b4ee568ba",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "A tight product detail of hands typing on a silver laptop that carries the teal Nagarro loop-mark sticker on its lid, the wearer's navy-shirted torso and watch softly out of focus behind, everything set on a clean white desk under bright daylight.",
+      "tags": [
+        "detail",
+        "laptop",
+        "loop-mark",
+        "hands",
+        "typing",
+        "brand",
+        "desk",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "clean-corporate",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.6,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-114211-nagarro-1660",
+      "file": "20200717-114211_Nagarro_1660.jpg",
+      "hash": "addfb096b26d488e",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Four colleagues in navy Nagarro tees laugh around a desk holding photo-booth props to their faces — a paper moustache-on-a-stick, a black top hat, a red '#IT' heart and a '#proudtobeNagarrian' speech-bubble sign — a leafy palm and pinboard behind them in the bright open office.",
+      "tags": [
+        "group",
+        "playful",
+        "photo-booth",
+        "props",
+        "team",
+        "fun",
+        "office",
+        "indoor"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "group"
+      },
+      "tone": "playful-joyful",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20200717-115246-nagarro-4433-edit",
+      "file": "20200717-115246_Nagarro_4433_edit.jpg",
+      "hash": "c221fb2186f59d29",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "Three smiling colleagues in navy Nagarro polos stand shoulder to shoulder and hold a large teal loop-mark cut-out prop out toward the camera, the brand mark sharp in the foreground while their faces soften behind it in a bright white office interior with a palm at the edge.",
+      "tags": [
+        "group",
+        "brand",
+        "loop-mark",
+        "prop",
+        "team",
+        "office",
+        "candid",
+        "indoor"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "group"
+      },
+      "tone": "warm-brand",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-115810-nagarro-4441",
+      "file": "20200717-115810_Nagarro_4441.jpg",
+      "hash": "720f65d8c3dd9734",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "Six colleagues crowd together for a group selfie taken on a mint loop-mark phone held out by a woman in a bright floral top, the others in navy Nagarro polos and casual tees grinning over her shoulders in a doorway of a glass meeting room labelled 'STARBURST'.",
+      "tags": [
+        "group",
+        "selfie",
+        "team",
+        "playful",
+        "phone",
+        "meeting-room",
+        "office",
+        "indoor"
+      ],
+      "people": {
+        "count": 6,
+        "framing": "group"
+      },
+      "tone": "playful-social",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20200717-120000-nagarro-4462",
+      "file": "20200717-120000_Nagarro_4462.jpg",
+      "hash": "f8eb3d754b69e0b2",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "A young man with tousled brown hair and a light stubble, wearing over-ear headphones and a heathered blue tee, concentrates on a Nagarro laptop beside an external monitor at a white desk, a dark 'MARS' glass meeting-room wall behind him and warm daylight on his face.",
+      "tags": [
+        "single-person",
+        "portrait",
+        "headphones",
+        "focused",
+        "laptop",
+        "candid",
+        "office",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "focused-calm",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.56,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20200717-120518-nagarro-4470-edit",
+      "file": "20200717-120518_Nagarro_4470_edit.jpg",
+      "hash": "0bd83f90b315b1c3",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "The teal Nagarro loop-mark rendered as a glossy free-standing sculpture, sitting on a white counter with a wood-panelled front against a large clean white office wall, generous bright negative space to the left and a softly lit corridor receding behind it.",
+      "tags": [
+        "no-people",
+        "brand",
+        "loop-mark",
+        "sculpture",
+        "object",
+        "minimal",
+        "clean",
+        "indoor"
+      ],
+      "people": {
+        "count": 0,
+        "framing": "none"
+      },
+      "tone": "clean-brand",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.6,
+        "y": 0.6
+      }
+    },
+    {
+      "id": "nagarro-20200717-120641-nagarro-4476-edit",
+      "file": "20200717-120641_Nagarro_4476_edit.jpg",
+      "hash": "33a63348c1323c02",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "The same teal loop-mark sculpture on a white-and-wood cabinet, shot wider so an open office recedes behind it — a pale pillar, dark glass partitions, two green exit signs and a palm frond at the right edge — under mixed warm and cool office light.",
+      "tags": [
+        "no-people",
+        "brand",
+        "loop-mark",
+        "sculpture",
+        "object",
+        "office",
+        "environment",
+        "indoor"
+      ],
+      "people": {
+        "count": 0,
+        "framing": "none"
+      },
+      "tone": "clean-brand",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.4,
+        "y": 0.6
+      }
+    },
+    {
+      "id": "nagarro-20200717-120952-nagarro-4496-edit",
+      "file": "20200717-120952_Nagarro_4496_edit.jpg",
+      "hash": "9710aae56b50a2d2",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "The teal Nagarro loop-mark sculpture sits sharp on a dark tabletop while a bright open office softly blurs behind it — tall greenery-filled windows, storage cabinets and a glass meeting-room door etched 'SUPERNOVA' at the right under cool daylight.",
+      "tags": [
+        "no-people",
+        "brand",
+        "loop-mark",
+        "sculpture",
+        "object",
+        "office",
+        "environment",
+        "indoor"
+      ],
+      "people": {
+        "count": 0,
+        "framing": "none"
+      },
+      "tone": "clean-brand",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.4,
+        "y": 0.6
+      }
+    },
+    {
+      "id": "nagarro-20200717-121147-nagarro-4503-edit",
+      "file": "20200717-121147_Nagarro_4503_edit.jpg",
+      "hash": "cd32221cfee62d16",
+      "w": 2048,
+      "h": 1367,
+      "orientation": "landscape",
+      "description": "The teal loop-mark sculpture centred and crisp on a dark surface, a softly out-of-focus office behind it with window light, green foliage bokeh and glass partitions, the mark's looping ribbon form standing clear against the muted background.",
+      "tags": [
+        "no-people",
+        "brand",
+        "loop-mark",
+        "sculpture",
+        "object",
+        "office",
+        "minimal",
+        "indoor"
+      ],
+      "people": {
+        "count": 0,
+        "framing": "none"
+      },
+      "tone": "clean-brand",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-20200717-121815-nagarro-1697-edit",
+      "file": "20200717-121815_Nagarro_1697_edit.jpg",
+      "hash": "d0fa9d701c844960",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "The teal loop-mark sculpture stands low and centred on a dark boardroom table against a large clean pale wall, dark meeting chairs flanking the lower corners, with a wide sweep of bright empty negative space filling the upper half of the frame.",
+      "tags": [
+        "no-people",
+        "brand",
+        "loop-mark",
+        "sculpture",
+        "object",
+        "boardroom",
+        "clean",
+        "indoor"
+      ],
+      "people": {
+        "count": 0,
+        "framing": "none"
+      },
+      "tone": "clean-brand",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.65
+      }
+    },
+    {
+      "id": "nagarro-20220608-085134-nagarro-imagefotos-full-6582",
+      "file": "20220608-085134_Nagarro_Imagefotos_Full_6582.jpg",
+      "hash": "3c89c8449799da08",
+      "w": 4704,
+      "h": 3130,
+      "orientation": "landscape",
+      "description": "A bearded man in glasses and a branded navy t-shirt throws his head back laughing, arms folded, perched against an office kitchen counter; a colleague in a navy blazer sits out of focus in the right foreground. Microwave, timber splashback and a lit candle behind him.",
+      "tags": [
+        "kitchen",
+        "laughing",
+        "informal-conversation",
+        "indoor",
+        "candid",
+        "warm-light"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "warm-humorous",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.42,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20220608-085327-nagarro-imagefotos-full-6591",
+      "file": "20220608-085327_Nagarro_Imagefotos_Full_6591.jpg",
+      "hash": "d6f4c51509411b38",
+      "w": 6048,
+      "h": 4024,
+      "orientation": "landscape",
+      "description": "An older man in a navy blazer stands with arms folded studying a phone held by a younger colleague in a striped shirt, both looking down at the screen. Behind them a lounge area with copper pendant lamps, a moss-and-timber wall and daylight windows.",
+      "tags": [
+        "phone",
+        "two-people",
+        "business-attire",
+        "indoor",
+        "discussion",
+        "lounge"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "considered-professional",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-090007-nagarro-imagefotos-full-78534",
+      "file": "20220608-090007_Nagarro_Imagefotos_Full_78534.jpg",
+      "hash": "d6377235b3ddac35",
+      "w": 5020,
+      "h": 3351,
+      "orientation": "landscape",
+      "description": "The same bearded man in glasses and a branded navy t-shirt, now mid-sentence with hands raised, talking across the office kitchen counter to a blurred colleague in the right foreground. Near-identical setup to the laughing frame from the same moment.",
+      "tags": [
+        "kitchen",
+        "explaining",
+        "gesturing",
+        "indoor",
+        "candid",
+        "conversation"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "animated-informal",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.35,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-090244-nagarro-imagefotos-full-78547",
+      "file": "20220608-090244_Nagarro_Imagefotos_Full_78547.jpg",
+      "hash": "121a0a718b4ff54a",
+      "w": 5408,
+      "h": 3610,
+      "orientation": "landscape",
+      "description": "Close portrait of a man in a navy blazer and patterned-collar shirt listening intently, shot past the shoulder of a colleague in teal who is out of focus in the left foreground. Plain pale wall behind him, warm wooden bench below.",
+      "tags": [
+        "portrait",
+        "listening",
+        "business-attire",
+        "indoor",
+        "close-up",
+        "plain-background"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "attentive-professional",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.6,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20220608-090859-nagarro-imagefotos-full-6609",
+      "file": "20220608-090859_Nagarro_Imagefotos_Full_6609.jpg",
+      "hash": "32a71132bd364824",
+      "w": 4024,
+      "h": 6048,
+      "orientation": "portrait",
+      "description": "Seven colleagues in matching navy branded hoodies stand posed for a team portrait in a paved courtyard, the glass office facade filling the frame behind them and a berry-laden shrub to the left.",
+      "tags": [
+        "team-portrait",
+        "group",
+        "branded-hoodies",
+        "outdoor",
+        "courtyard",
+        "posed"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "friendly-corporate",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.62
+      }
+    },
+    {
+      "id": "nagarro-20220608-091016-nagarro-imagefotos-full-6635",
+      "file": "20220608-091016_Nagarro_Imagefotos_Full_6635.jpg",
+      "hash": "fd348028ad10cb74",
+      "w": 3371,
+      "h": 5067,
+      "orientation": "portrait",
+      "description": "The same seven colleagues in navy hoodies packed into a tighter two-row team shot, the back row with arms across each other's shoulders and the front row holding a large mint cut-out of the looped brand mark.",
+      "tags": [
+        "team-portrait",
+        "group",
+        "brand-mark",
+        "branded-hoodies",
+        "outdoor",
+        "posed"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "friendly-corporate",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.52
+      }
+    },
+    {
+      "id": "nagarro-20220608-091154-nagarro-imagefotos-full-6665-2",
+      "file": "20220608-091154_Nagarro_Imagefotos_Full_6665-2.jpg",
+      "hash": "93454911db2c7d4d",
+      "w": 5212,
+      "h": 3468,
+      "orientation": "landscape",
+      "description": "Three colleagues in navy hoodies cluster together grinning while one holds a large mint brand loop aloft to the right of frame, the sculpted shape reading clearly against the glass office facade behind.",
+      "tags": [
+        "brand-mark",
+        "small-group",
+        "outdoor",
+        "playful",
+        "branded-hoodies",
+        "glass-facade"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "group"
+      },
+      "tone": "playful-brand",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.42,
+        "y": 0.6
+      }
+    },
+    {
+      "id": "nagarro-20220608-091445-nagarro-imagefotos-full-6721",
+      "file": "20220608-091445_Nagarro_Imagefotos_Full_6721.jpg",
+      "hash": "0ec2031e86a39f8d",
+      "w": 3191,
+      "h": 4796,
+      "orientation": "portrait",
+      "description": "Seven colleagues in navy hoodies stand in a loose ring reaching both arms skyward toward a mint brand loop suspended above their fingertips, all looking up. Glass facade and grass planter behind, paving below.",
+      "tags": [
+        "team",
+        "reaching",
+        "brand-mark",
+        "outdoor",
+        "dynamic",
+        "branded-hoodies"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "aspirational-playful",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-091505-nagarro-imagefotos-full-6745",
+      "file": "20220608-091505_Nagarro_Imagefotos_Full_6745.jpg",
+      "hash": "e3f39c89aa685edb",
+      "w": 3446,
+      "h": 5179,
+      "orientation": "portrait",
+      "description": "Seven colleagues in navy hoodies stretch their arms up toward the illuminated mint brand mark mounted high on the glass facade above them, all heads tilted back. Courtyard paving below, planting and greenery at the edges.",
+      "tags": [
+        "team",
+        "reaching",
+        "brand-signage",
+        "outdoor",
+        "glass-facade",
+        "aspirational"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "aspirational-playful",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-092515-nagarro-imagefotos-full-6900",
+      "file": "20220608-092515_Nagarro_Imagefotos_Full_6900.jpg",
+      "hash": "0791f2680c9d5083",
+      "w": 3898,
+      "h": 5859,
+      "orientation": "portrait",
+      "description": "Four colleagues in navy hoodies caught mid-jump with both arms flung overhead and feet clear of the ground, grinning at the camera. Behind them a white-panelled office block, a grass planter and purple flowers.",
+      "tags": [
+        "jumping",
+        "celebration",
+        "outdoor",
+        "team",
+        "energetic",
+        "branded-hoodies"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "group"
+      },
+      "tone": "exuberant-playful",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-092805-nagarro-imagefotos-full-6919",
+      "file": "20220608-092805_Nagarro_Imagefotos_Full_6919.jpg",
+      "hash": "967d7c40d6f64e99",
+      "w": 5136,
+      "h": 3417,
+      "orientation": "landscape",
+      "description": "Two women in navy hoodies meet in a high five at the top of the frame, one seen from behind, while a bald man in glasses crouches beneath them looking up at their hands. Shot from low angle against a white office facade.",
+      "tags": [
+        "high-five",
+        "low-angle",
+        "outdoor",
+        "celebration",
+        "three-people",
+        "dynamic"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "group"
+      },
+      "tone": "celebratory-energetic",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.35
+      }
+    },
+    {
+      "id": "nagarro-20220608-093022-nagarro-imagefotos-full-6929",
+      "file": "20220608-093022_Nagarro_Imagefotos_Full_6929.jpg",
+      "hash": "1e2670cba3ce1ac1",
+      "w": 6048,
+      "h": 4024,
+      "orientation": "landscape",
+      "description": "Four colleagues in navy branded hoodies stand in a row giving the camera a thumbs-up, all smiling, arms extended toward the lens. Courtyard bench, grass planter and the office entrance behind them.",
+      "tags": [
+        "thumbs-up",
+        "team",
+        "outdoor",
+        "posed",
+        "smiling",
+        "branded-hoodies"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "group"
+      },
+      "tone": "upbeat-friendly",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-20220608-093159-nagarro-imagefotos-full-6940",
+      "file": "20220608-093159_Nagarro_Imagefotos_Full_6940.jpg",
+      "hash": "75c4a832fc10ef32",
+      "w": 6048,
+      "h": 4024,
+      "orientation": "landscape",
+      "description": "A woman and a man in navy branded hoodies stand shoulder to shoulder forming a heart shape with their joined hands, both smiling straight at the camera. Office facade, louvred panels and a young tree behind them.",
+      "tags": [
+        "heart-gesture",
+        "two-people",
+        "outdoor",
+        "warm",
+        "posed",
+        "branded-hoodies"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-caring",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-095023-nagarro-imagefotos-full-78598",
+      "file": "20220608-095023_Nagarro_Imagefotos_Full_78598.jpg",
+      "hash": "16636defbf9ac269",
+      "w": 4016,
+      "h": 4016,
+      "orientation": "square",
+      "description": "Worm's-eye view looking straight up at seven colleagues standing in a ring, every pair of hands gripping a large mint brand loop held above the camera, faces peering down into the lens. Bright overcast sky and the office tower behind them. Square crop.",
+      "tags": [
+        "worms-eye",
+        "brand-mark",
+        "circle",
+        "team",
+        "outdoor",
+        "unusual-angle"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "unified-dynamic",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.48,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-095040-nagarro-imagefotos-full-78600",
+      "file": "20220608-095040_Nagarro_Imagefotos_Full_78600.jpg",
+      "hash": "8d0ec132d124a15a",
+      "w": 4016,
+      "h": 6016,
+      "orientation": "portrait",
+      "description": "The same worm's-eye ring of seven colleagues gripping the mint brand loop overhead, framed as a tall portrait so the office tower and bright sky fill more of the frame behind their shoulders.",
+      "tags": [
+        "worms-eye",
+        "brand-mark",
+        "circle",
+        "team",
+        "outdoor",
+        "unusual-angle"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "unified-dynamic",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20220608-095101-nagarro-imagefotos-full-6992",
+      "file": "20220608-095101_Nagarro_Imagefotos_Full_6992.jpg",
+      "hash": "e437f47fa26f2e94",
+      "w": 4647,
+      "h": 3092,
+      "orientation": "landscape",
+      "description": "Seven colleagues in navy hoodies arranged in two rows, each making a heart shape with their hands in front of them; the front three crouch on the paving while the back four stand. Grass planter, office facade and a tree to the right.",
+      "tags": [
+        "heart-gesture",
+        "team",
+        "outdoor",
+        "posed",
+        "two-rows",
+        "branded-hoodies"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "warm-caring",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-095104-nagarro-imagefotos-full-78608",
+      "file": "20220608-095104_Nagarro_Imagefotos_Full_78608.jpg",
+      "hash": "095d9e359eeeb315",
+      "w": 4016,
+      "h": 6016,
+      "orientation": "portrait",
+      "description": "Another frame of the worm's-eye ring: seven colleagues in navy hoodies lean in over the camera, every hand gripping the mint brand loop held flat above the lens, laughing down into it. The office tower recedes behind them.",
+      "tags": [
+        "worms-eye",
+        "brand-mark",
+        "circle",
+        "team",
+        "outdoor",
+        "laughing"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "unified-playful",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-095408-nagarro-imagefotos-full-78647",
+      "file": "20220608-095408_Nagarro_Imagefotos_Full_78647.jpg",
+      "hash": "b631d73608d8fe35",
+      "w": 5216,
+      "h": 3482,
+      "orientation": "landscape",
+      "description": "Shot from above: six colleagues crouch in a loose circle on grey granite paving, each reaching a fist into the centre where they meet around a small mint brand loop, all looking up at the camera.",
+      "tags": [
+        "overhead",
+        "circle",
+        "team",
+        "brand-mark",
+        "outdoor",
+        "crouching"
+      ],
+      "people": {
+        "count": 6,
+        "framing": "group"
+      },
+      "tone": "unified-friendly",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-100023-nagarro-imagefotos-full",
+      "file": "20220608-100023_Nagarro_Imagefotos_Full_.jpg",
+      "hash": "63df7334d3b35928",
+      "w": 4992,
+      "h": 3321,
+      "orientation": "landscape",
+      "description": "Overhead shot of six colleagues standing on patterned granite paving, arms stretched inward to hold a mint brand loop between them while their free arms wave up at the camera. Strong diagonal paving lines frame the group.",
+      "tags": [
+        "overhead",
+        "team",
+        "brand-mark",
+        "waving",
+        "outdoor",
+        "paving-pattern"
+      ],
+      "people": {
+        "count": 6,
+        "framing": "group"
+      },
+      "tone": "upbeat-unified",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.48,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-103032-nagarro-imagefotos-full-7156",
+      "file": "20220608-103032_Nagarro_Imagefotos_Full_7156.jpg",
+      "hash": "64e455bd5eb1e7f7",
+      "w": 6048,
+      "h": 4024,
+      "orientation": "landscape",
+      "description": "A man in a navy blazer sets up a phone in a drone controller mount while a woman in a cream blazer leans in smiling; a white quadcopter sits on the dark table in front of them. Shot against a large plain white wall with daylight from a window on the right.",
+      "tags": [
+        "drone",
+        "technology",
+        "demonstration",
+        "business-attire",
+        "indoor",
+        "white-wall"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "professional-innovative",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-103259-nagarro-imagefotos-full-7176",
+      "file": "20220608-103259_Nagarro_Imagefotos_Full_7176.jpg",
+      "hash": "1740668546df63a0",
+      "w": 6048,
+      "h": 4024,
+      "orientation": "landscape",
+      "description": "A white quadcopter drone hovers indoors with its rotors blurred in motion and landing lights glowing red, shot sharp against a heavily defocused office interior of tall windows and summer greenery. No people in frame.",
+      "tags": [
+        "drone",
+        "technology",
+        "object",
+        "no-people",
+        "indoor",
+        "bokeh"
+      ],
+      "people": {
+        "count": 0,
+        "framing": "none"
+      },
+      "tone": "technical-clean",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-103305-nagarro-imagefotos-full-7185",
+      "file": "20220608-103305_Nagarro_Imagefotos_Full_7185.jpg",
+      "hash": "e56ebadd3eeb7eb6",
+      "w": 4647,
+      "h": 3092,
+      "orientation": "landscape",
+      "description": "Close study of the white quadcopter in flight, rotors smeared into translucent arcs, gimbal camera hanging beneath, isolated against a soft out-of-focus pale ceiling and window wall. No people; large calm areas either side of the drone.",
+      "tags": [
+        "drone",
+        "technology",
+        "object",
+        "no-people",
+        "indoor",
+        "minimal"
+      ],
+      "people": {
+        "count": 0,
+        "framing": "none"
+      },
+      "tone": "technical-clean",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.48,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-103343-nagarro-imagefotos-full-7200",
+      "file": "20220608-103343_Nagarro_Imagefotos_Full_7200.jpg",
+      "hash": "f9b33cb5aee8505c",
+      "w": 4024,
+      "h": 4740,
+      "orientation": "portrait",
+      "description": "Low angle looking up at the drone hovering just below a plain white office ceiling, with two colleagues far below and out of focus, one working the controller. The upper third of the frame is empty white ceiling.",
+      "tags": [
+        "drone",
+        "low-angle",
+        "technology",
+        "indoor",
+        "demonstration",
+        "negative-space"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "wide-environment"
+      },
+      "tone": "technical-clean",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.35
+      }
+    },
+    {
+      "id": "nagarro-20220608-103554-nagarro-imagefotos-full-78656",
+      "file": "20220608-103554_Nagarro_Imagefotos_Full_78656.jpg",
+      "hash": "ff0b7fb85de55b9b",
+      "w": 6016,
+      "h": 4016,
+      "orientation": "landscape",
+      "description": "A woman in a sage green t-shirt smiles as she works a drone controller with both hands while a colleague in black watches over her shoulder; the drone itself edges into frame at the right. Tall windows and summer foliage behind them.",
+      "tags": [
+        "drone",
+        "controller",
+        "learning",
+        "two-people",
+        "indoor",
+        "windows"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "focused-friendly",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.48,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-103633-nagarro-imagefotos-full-7254",
+      "file": "20220608-103633_Nagarro_Imagefotos_Full_7254.jpg",
+      "hash": "bc2ad2cf1cce4f15",
+      "w": 6048,
+      "h": 4024,
+      "orientation": "landscape",
+      "description": "A woman in a white blouse and a bearded colleague in a floral shirt look toward the camera while he holds the drone controller; the drone hovers in the upper left against a plain white slatted ceiling that leaves the top right of the frame empty.",
+      "tags": [
+        "drone",
+        "technology",
+        "two-people",
+        "indoor",
+        "demonstration",
+        "negative-space"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "confident-technical",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-20220608-103635-nagarro-imagefotos-full-7258",
+      "file": "20220608-103635_Nagarro_Imagefotos_Full_7258.jpg",
+      "hash": "cb038a0d9ae275b6",
+      "w": 5583,
+      "h": 3715,
+      "orientation": "landscape",
+      "description": "A woman in a white blouse and a bearded colleague holding the controller both look up at the drone hovering above them, the whole upper half of the frame taken by a plain white slatted office ceiling.",
+      "tags": [
+        "drone",
+        "looking-up",
+        "technology",
+        "indoor",
+        "two-people",
+        "negative-space"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "curious-technical",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.62
+      }
+    },
+    {
+      "id": "nagarro-20220608-104001-nagarro-imagefotos-full-78674",
+      "file": "20220608-104001_Nagarro_Imagefotos_Full_78674.jpg",
+      "hash": "085f9c4a6c58301e",
+      "w": 5412,
+      "h": 3613,
+      "orientation": "landscape",
+      "description": "A man in a navy blazer holds out the drone controller mid-explanation while a woman in a white blouse laughs at him; the drone itself sits on the dark table to their right against bright office windows.",
+      "tags": [
+        "drone",
+        "handover",
+        "laughing",
+        "business-attire",
+        "indoor",
+        "two-people"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-professional",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-104037-nagarro-imagefotos-full-78682",
+      "file": "20220608-104037_Nagarro_Imagefotos_Full_78682.jpg",
+      "hash": "e052aceb63a0ef5c",
+      "w": 6016,
+      "h": 4016,
+      "orientation": "landscape",
+      "description": "The same pair a moment later: he studies the controller in profile while she looks past it, smiling broadly. Floor-to-ceiling windows behind them and the drone parked at the right edge of the table.",
+      "tags": [
+        "drone",
+        "controller",
+        "smiling",
+        "business-attire",
+        "indoor",
+        "windows"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-professional",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.48
+      }
+    },
+    {
+      "id": "nagarro-20220608-104211-nagarro-imagefotos-full-78691",
+      "file": "20220608-104211_Nagarro_Imagefotos_Full_78691.jpg",
+      "hash": "3ca8e4ce5494eb74",
+      "w": 5862,
+      "h": 3913,
+      "orientation": "landscape",
+      "description": "The drone hangs sharp in the upper half of the frame with two colleagues grinning up at it from far below, thrown well out of focus. Plain white ceiling above and defocused green foliage through the windows.",
+      "tags": [
+        "drone",
+        "technology",
+        "indoor",
+        "shallow-depth-of-field",
+        "looking-up",
+        "negative-space"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "wide-environment"
+      },
+      "tone": "technical-clean",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.32
+      }
+    },
+    {
+      "id": "nagarro-20220608-104218-nagarro-imagefotos-full-7299",
+      "file": "20220608-104218_Nagarro_Imagefotos_Full_7299.jpg",
+      "hash": "3c964d0f30c1935a",
+      "w": 4829,
+      "h": 3213,
+      "orientation": "landscape",
+      "description": "A woman in a bright mint blazer talks to a bearded colleague wearing a mixed-reality headset on his forehead, shot over his white-shirted shoulder. Open-plan office behind with plants, lockers and a green-flecked carpet.",
+      "tags": [
+        "mixed-reality",
+        "headset",
+        "conversation",
+        "indoor",
+        "technology",
+        "two-people"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "engaged-technical",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.3,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-104229-nagarro-imagefotos-full-7309",
+      "file": "20220608-104229_Nagarro_Imagefotos_Full_7309.jpg",
+      "hash": "d6604c5dccf5b65d",
+      "w": 3476,
+      "h": 5224,
+      "orientation": "portrait",
+      "description": "Tall framing of the same exchange: the woman in the mint blazer smiles up at her colleague in the mixed-reality headset, the office corridor with plants and patterned carpet stretching away behind her.",
+      "tags": [
+        "mixed-reality",
+        "headset",
+        "conversation",
+        "indoor",
+        "corridor",
+        "two-people"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "engaged-technical",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.38,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20220608-104434-nagarro-imagefotos-full-7311",
+      "file": "20220608-104434_Nagarro_Imagefotos_Full_7311.jpg",
+      "hash": "9ab8c0f27464cb2a",
+      "w": 5598,
+      "h": 3725,
+      "orientation": "landscape",
+      "description": "A bearded man in a white shirt lifts a mixed-reality headset off his eyes, squinting and mid-sentence, watched by a colleague seen from behind in the right foreground. Large empty white wall fills the centre of the frame.",
+      "tags": [
+        "mixed-reality",
+        "headset",
+        "reaction",
+        "indoor",
+        "white-wall",
+        "technology"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "candid-technical",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.38,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20220608-104439-nagarro-imagefotos-full-7315",
+      "file": "20220608-104439_Nagarro_Imagefotos_Full_7315.jpg",
+      "hash": "7d36aa2ebb1a1113",
+      "w": 5970,
+      "h": 3972,
+      "orientation": "landscape",
+      "description": "The same man settling the mixed-reality headset onto his eyes with both hands, talking as he does it, the colleague in mint out of focus at the right edge. Plain white wall and ceiling behind leave the left third empty.",
+      "tags": [
+        "mixed-reality",
+        "headset",
+        "putting-on",
+        "indoor",
+        "white-wall",
+        "technology"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "candid-technical",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.35,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20220608-104455-nagarro-imagefotos-full-7329",
+      "file": "20220608-104455_Nagarro_Imagefotos_Full_7329.jpg",
+      "hash": "4719e60ea29022af",
+      "w": 5908,
+      "h": 3931,
+      "orientation": "landscape",
+      "description": "A woman in a mint-green blazer smiles at a bearded colleague wearing a mixed-reality headset pushed up on his forehead, shot over his shoulder in a bright meeting room. Plain pale wall behind her, a flipchart just in frame to the left.",
+      "tags": [
+        "mixed-reality",
+        "headset",
+        "technology",
+        "meeting-room",
+        "indoor",
+        "conversation"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "professional-innovative",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.3,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20220608-104547-nagarro-imagefotos-full-78714",
+      "file": "20220608-104547_Nagarro_Imagefotos_Full_78714.jpg",
+      "hash": "52f303e21d9acb3d",
+      "w": 6016,
+      "h": 4016,
+      "orientation": "landscape",
+      "description": "The drone fills the lower right of the frame in sharp focus, its status lights lit green, while the two colleagues flying it stand softly blurred behind against bright windows and summer foliage.",
+      "tags": [
+        "drone",
+        "technology",
+        "shallow-depth-of-field",
+        "indoor",
+        "flying",
+        "bokeh"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "wide-environment"
+      },
+      "tone": "technical-clean",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.6,
+        "y": 0.6
+      }
+    },
+    {
+      "id": "nagarro-20220608-104600-nagarro-imagefotos-full-7352",
+      "file": "20220608-104600_Nagarro_Imagefotos_Full_7352.jpg",
+      "hash": "4a2e8cb64e77ab47",
+      "w": 4964,
+      "h": 3303,
+      "orientation": "landscape",
+      "description": "A bearded man in a white shirt wears a mixed-reality headset and taps a virtual control on his own forearm, alone in a bright empty meeting room. The right half of the frame is plain white wall.",
+      "tags": [
+        "mixed-reality",
+        "headset",
+        "gesture",
+        "single-person",
+        "white-wall",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "focused-technical",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.32,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20220608-104606-nagarro-imagefotos-full-78735",
+      "file": "20220608-104606_Nagarro_Imagefotos_Full_78735.jpg",
+      "hash": "cf451bd437872b64",
+      "w": 5776,
+      "h": 3856,
+      "orientation": "landscape",
+      "description": "Near-identical framing to the other in-flight close-up: the drone sharp at right with green status lights, the woman on the controller and her colleague blurred behind. Distinguished by his pointing hand mid-instruction.",
+      "tags": [
+        "drone",
+        "technology",
+        "shallow-depth-of-field",
+        "indoor",
+        "instruction",
+        "bokeh"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "wide-environment"
+      },
+      "tone": "technical-clean",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.62,
+        "y": 0.6
+      }
+    },
+    {
+      "id": "nagarro-20220608-104821-nagarro-imagefotos-full-78739",
+      "file": "20220608-104821_Nagarro_Imagefotos_Full_78739.jpg",
+      "hash": "f8be1fa3f13eddac",
+      "w": 4499,
+      "h": 3003,
+      "orientation": "landscape",
+      "description": "Two men stand side by side pointing into the same empty air, one in a black t-shirt explaining, the other in a white shirt wearing a mixed-reality headset and mirroring the gesture. Bright windows and greenery behind.",
+      "tags": [
+        "mixed-reality",
+        "headset",
+        "pointing",
+        "pair-working",
+        "indoor",
+        "explaining"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "collaborative-technical",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20220608-104834-nagarro-imagefotos-full-78742",
+      "file": "20220608-104834_Nagarro_Imagefotos_Full_78742.jpg",
+      "hash": "5db970e0b4e3b2ad",
+      "w": 6016,
+      "h": 4016,
+      "orientation": "landscape",
+      "description": "A bearded man in a white shirt wearing a mixed-reality headset reaches out to press something invisible, shot against a dark concrete-clad wall with large reversed lettering on the glass beside him.",
+      "tags": [
+        "mixed-reality",
+        "headset",
+        "reaching",
+        "single-person",
+        "indoor",
+        "dark-background"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "focused-technical",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.33,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20220608-105212-nagarro-imagefotos-full-7397",
+      "file": "20220608-105212_Nagarro_Imagefotos_Full_7397.jpg",
+      "hash": "5c5eeefd31b1477c",
+      "w": 6048,
+      "h": 4024,
+      "orientation": "landscape",
+      "description": "Close portrait of a young man in a patterned shirt wearing a mixed-reality headset, smiling faintly as he raises a tattooed fist toward something only he can see. Office and foliage dissolve into bokeh behind him.",
+      "tags": [
+        "mixed-reality",
+        "headset",
+        "portrait",
+        "single-person",
+        "bokeh",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "confident-technical",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.3,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-105223-nagarro-imagefotos-full-7407",
+      "file": "20220608-105223_Nagarro_Imagefotos_Full_7407.jpg",
+      "hash": "a6343dcdea7e63dc",
+      "w": 6048,
+      "h": 4024,
+      "orientation": "landscape",
+      "description": "The same young man in the mixed-reality headset a beat later, now pointing precisely at a virtual target with his index finger, head tilted to follow it. Softly blurred office interior behind.",
+      "tags": [
+        "mixed-reality",
+        "headset",
+        "pointing",
+        "single-person",
+        "bokeh",
+        "indoor"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "confident-technical",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.3,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-20220608-110612-nagarro-imagefotos-full-7440",
+      "file": "20220608-110612_Nagarro_Imagefotos_Full_7440.jpg",
+      "hash": "2b65470ed4476136",
+      "w": 5387,
+      "h": 3584,
+      "orientation": "landscape",
+      "description": "Two colleagues work either side of a glass partition covered in handwritten sticky notes — 'work from anywhere', 'non-hierarchical', 'thinking breakthroughs' — she pressing one into place, he adding another from the far side.",
+      "tags": [
+        "workshop",
+        "sticky-notes",
+        "glass-wall",
+        "values",
+        "indoor",
+        "collaboration"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "energetic-collaborative",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.35,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-110833-nagarro-imagefotos-full-7470",
+      "file": "20220608-110833_Nagarro_Imagefotos_Full_7470.jpg",
+      "hash": "7709df6523b38fd0",
+      "w": 6048,
+      "h": 4024,
+      "orientation": "landscape",
+      "description": "A woman reaches past a colleague to press a magenta note onto a glass partition already carrying handwritten values — 'thinking breakthroughs', 'work from anywhere', 'non-hierarchical', 'cloud'. A canteen with timber tables shows through the glass beyond.",
+      "tags": [
+        "workshop",
+        "sticky-notes",
+        "glass-wall",
+        "values",
+        "indoor",
+        "collaboration"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "energetic-collaborative",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-20220608-110907-nagarro-imagefotos-full-7486",
+      "file": "20220608-110907_Nagarro_Imagefotos_Full_7486.jpg",
+      "hash": "ee82e32f3ee00919",
+      "w": 3848,
+      "h": 5783,
+      "orientation": "portrait",
+      "description": "Tall frame of a smiling man in a checked shirt pressing a turquoise note onto a glass wall already dense with pink, yellow and blue stickies, a colleague watching softly out of focus behind him.",
+      "tags": [
+        "workshop",
+        "sticky-notes",
+        "glass-wall",
+        "smiling",
+        "indoor",
+        "collaboration"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "energetic-collaborative",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.62,
+        "y": 0.35
+      }
+    },
+    {
+      "id": "nagarro-20220608-110928-nagarro-imagefotos-full-7500",
+      "file": "20220608-110928_Nagarro_Imagefotos_Full_7500.jpg",
+      "hash": "1fca0ef83925214b",
+      "w": 5281,
+      "h": 3514,
+      "orientation": "landscape",
+      "description": "Two colleagues work the same sticky-note wall from opposite sides of the glass, both reaching in at once, her hand and his crossing near the centre. Shot through the pane so their reflections overlay the notes.",
+      "tags": [
+        "workshop",
+        "sticky-notes",
+        "glass-wall",
+        "reflection",
+        "indoor",
+        "two-people"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "energetic-collaborative",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-110936-nagarro-imagefotos-full-7503",
+      "file": "20220608-110936_Nagarro_Imagefotos_Full_7503.jpg",
+      "hash": "4181a0696a6a630f",
+      "w": 5487,
+      "h": 3651,
+      "orientation": "landscape",
+      "description": "A woman in glasses writes directly onto the glass with a marker while a colleague looks on from the right, the pane between them scattered with magenta, yellow and turquoise notes and the office reflected across it.",
+      "tags": [
+        "workshop",
+        "writing",
+        "glass-wall",
+        "sticky-notes",
+        "indoor",
+        "focused"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "focused-collaborative",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-111533-nagarro-imagefotos-full-78811",
+      "file": "20220608-111533_Nagarro_Imagefotos_Full_78811.jpg",
+      "hash": "ed40c09dc81022b5",
+      "w": 4016,
+      "h": 6016,
+      "orientation": "portrait",
+      "description": "Shot from the far side of the glass: a man in a checked shirt smiles as he places a turquoise note, his face read through the pane between the reversed handwritten words 'consulting', 'non-hierarchical' and 'thinking breakthroughs'.",
+      "tags": [
+        "workshop",
+        "sticky-notes",
+        "glass-wall",
+        "through-glass",
+        "indoor",
+        "single-person"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "engaged-collaborative",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20220608-111621-nagarro-imagefotos-full-7526",
+      "file": "20220608-111621_Nagarro_Imagefotos_Full_7526.jpg",
+      "hash": "b6af0b4ff250e135",
+      "w": 5705,
+      "h": 3796,
+      "orientation": "landscape",
+      "description": "A colleague in a green knit sweater, seen from behind, stops by the desk of a woman in a branded navy polo who looks up from her monitor mid-conversation. Floor-to-ceiling windows behind them look onto the facade of the opposite office block.",
+      "tags": [
+        "desk",
+        "workplace-conversation",
+        "monitor",
+        "windows",
+        "indoor",
+        "daylight"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "everyday-professional",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.62,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-20220608-111843-nagarro-imagefotos-full-7539",
+      "file": "20220608-111843_Nagarro_Imagefotos_Full_7539.jpg",
+      "hash": "87cff7cb1c177ea7",
+      "w": 5411,
+      "h": 3600,
+      "orientation": "landscape",
+      "description": "A woman in a mint knit sweater and patterned scarf looks up from her laptop, smiling warmly at a colleague perched on the desk edge in the left foreground. Tall windows behind show the facade of the neighbouring block.",
+      "tags": [
+        "desk",
+        "laptop",
+        "workplace-conversation",
+        "warm",
+        "indoor",
+        "windows"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-professional",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-20220608-132335-nagarro-imagefotos-full-8275",
+      "file": "20220608-132335_Nagarro_Imagefotos_Full_8275.jpg",
+      "hash": "434f41a61d7b0c18",
+      "w": 6048,
+      "h": 4024,
+      "orientation": "landscape",
+      "description": "Close portrait of a blonde woman in a cream blouse listening with a small warm smile, shot across a laptop lid and past the out-of-focus head of the colleague she is talking to. Pale shelving softly blurred behind her.",
+      "tags": [
+        "portrait",
+        "listening",
+        "one-to-one",
+        "indoor",
+        "soft-background",
+        "warm"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "attentive-warm",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.6,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-az1a4132",
+      "file": "AZ1A4132.jpg",
+      "hash": "9190dace2d4fd119",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "A man in a navy Nagarro tee carries a mint-green steel road bike on his shoulder along an office corridor, turning to grin at the camera. Grey pillar and plain cream wall behind him, indoor daylight.",
+      "tags": [
+        "single-person",
+        "bicycle",
+        "indoor",
+        "corridor",
+        "carrying",
+        "smiling-to-camera",
+        "cycling-culture"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "playful-personable",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.52,
+        "y": 0.28
+      }
+    },
+    {
+      "id": "nagarro-az1a4159",
+      "file": "AZ1A4159.jpg",
+      "hash": "0e0f68616556e116",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Seen from behind, a man in a navy tee with the mint loop mark wheels a pale-teal road bike straight through an open-plan office; colleagues work at white sit-stand desks on both sides of a white pillar.",
+      "tags": [
+        "team-group",
+        "indoor",
+        "open-plan-office",
+        "bicycle",
+        "walking-through",
+        "brand-apparel",
+        "desks",
+        "back-to-camera"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "wide-environment"
+      },
+      "tone": "unconventional-everyday",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.36,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-az1a4163",
+      "file": "AZ1A4163.jpg",
+      "hash": "8ab95cbb7a83775f",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "A blonde woman in a navy Nagarro tee stands hands-in-pockets beside a desk, laughing at a seated colleague whose out-of-focus head fills the lower right. Bright white office, venetian-blind windows behind her, Lenovo monitor and headset on the desk.",
+      "tags": [
+        "single-person",
+        "indoor",
+        "office",
+        "standing",
+        "laughing",
+        "informal-conversation",
+        "daylight"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-approachable",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.42,
+        "y": 0.32
+      }
+    },
+    {
+      "id": "nagarro-az1a4172-edit",
+      "file": "AZ1A4172-Edit.jpg",
+      "hash": "59f2aceb9699d4d7",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Shot from inside a lobby looking out: a man in sunglasses and a navy Nagarro tee wheels his pale-teal road bike in through the open glass door, grinning, a stone civic facade and an e-scooter on the street behind him.",
+      "tags": [
+        "single-person",
+        "arriving",
+        "bicycle",
+        "entrance",
+        "glass-door",
+        "street",
+        "sunglasses",
+        "brand-apparel"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "energetic-arrival",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.6,
+        "y": 0.14
+      }
+    },
+    {
+      "id": "nagarro-az1a4179",
+      "file": "AZ1A4179.jpg",
+      "hash": "ef35b16fc8264555",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "In a marble-lined street doorway, a colleague in a navy Nagarro polo holds the glass door open and laughs at a blond man wheeling a mint-green road bike in from the pavement, seen from behind.",
+      "tags": [
+        "two-people",
+        "doorway",
+        "arriving",
+        "bicycle",
+        "laughing",
+        "street",
+        "branded-apparel",
+        "glass"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "welcoming-arrival",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.52,
+        "y": 0.25
+      }
+    },
+    {
+      "id": "nagarro-az1a4197",
+      "file": "AZ1A4197.jpg",
+      "hash": "56fde50cfbe12c01",
+      "w": 2400,
+      "h": 3600,
+      "orientation": "portrait",
+      "description": "Portrait-format street shot: a man in sunglasses lifts his teal road bike over the threshold of a marble office entrance, grinning back over his shoulder, while a colleague in a Nagarro polo holds the glass door open for him.",
+      "tags": [
+        "two-people",
+        "portrait-orientation",
+        "street",
+        "entrance",
+        "bicycle",
+        "arriving",
+        "sunglasses",
+        "branded-apparel"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "welcoming-arrival",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.44,
+        "y": 0.19
+      }
+    },
+    {
+      "id": "nagarro-az1a4212",
+      "file": "AZ1A4212.jpg",
+      "hash": "d651e89aacabc9c6",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Low front-on shot of a man in sunglasses and a navy Nagarro tee riding a mint-green road bike straight down a granite city street towards the camera. A parked TIER e-scooter in the left foreground, no-parking signs and pale sky beyond.",
+      "tags": [
+        "single-person",
+        "bicycle",
+        "outdoor",
+        "street",
+        "riding",
+        "city",
+        "commuting",
+        "low-angle"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "energetic-urban",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.54,
+        "y": 0.32
+      }
+    },
+    {
+      "id": "nagarro-az1a4212-edit",
+      "file": "AZ1A4212_edit.jpg",
+      "hash": "b9c6a363b1467e45",
+      "w": 910,
+      "h": 825,
+      "orientation": "landscape",
+      "description": "A man in sunglasses and a navy Nagarro tee rides a pale-teal road bike straight toward the camera down an empty city street, a heavy stone facade close on the left and a receding row of pale buildings, road signs and parked cars on the right.",
+      "tags": [
+        "single-person",
+        "cycling",
+        "city-street",
+        "sunglasses",
+        "brand-apparel",
+        "summer",
+        "urban",
+        "head-on"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "wide-environment"
+      },
+      "tone": "confident-urban",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.35,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-az1a4217",
+      "file": "AZ1A4217.jpg",
+      "hash": "3c760e3f1da1cef4",
+      "w": 2400,
+      "h": 3600,
+      "orientation": "portrait",
+      "description": "Portrait-format shot of a man in sunglasses and a navy Nagarro tee straddling a mint-green road bike on a city pavement, leaning on the drop bars. Granite building facade and barred windows behind; an e-scooter parked further down the street.",
+      "tags": [
+        "single-person",
+        "bicycle",
+        "outdoor",
+        "street",
+        "portrait-orientation",
+        "city",
+        "commuting"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "confident-casual",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.46,
+        "y": 0.16
+      }
+    },
+    {
+      "id": "nagarro-az1a4231",
+      "file": "AZ1A4231.jpg",
+      "hash": "a22a4cbe1d628258",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Workshop in a bright meeting room: a grey-haired man in a Nagarro polo presents to seated colleagues, hands open mid-sentence, coloured sticky notes spelling a word on the wall behind him and a second presenter holding cards further back.",
+      "tags": [
+        "team-workshop",
+        "indoor",
+        "meeting-room",
+        "presenting",
+        "sticky-notes",
+        "laptops",
+        "collaboration",
+        "daylight"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "wide-environment"
+      },
+      "tone": "energetic-facilitation",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.17,
+        "y": 0.33
+      }
+    },
+    {
+      "id": "nagarro-az1a4241",
+      "file": "AZ1A4241.jpg",
+      "hash": "986298e385b701d7",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Workshop moment at a whiteboard: a grey-haired man in a Nagarro polo laughs mid-sentence on the left while a woman in a striped polo smiles on the right, coloured sticky notes between them spelling CARING with value words below.",
+      "tags": [
+        "workshop",
+        "indoor",
+        "whiteboard",
+        "sticky-notes",
+        "caring-values",
+        "laughing",
+        "presenting",
+        "branded-apparel"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-medium"
+      },
+      "tone": "playful-workshop",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.21,
+        "y": 0.28
+      }
+    },
+    {
+      "id": "nagarro-az1a4253",
+      "file": "AZ1A4253.jpg",
+      "hash": "bb46f00a6d5973b2",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "A woman in a branded navy polo gestures mid-sentence with a lime sticky note in her hand, laughing, during a workshop; a colleague stands blurred behind her holding a pink card. A scatter of coloured sticky notes across the pale wall beside them.",
+      "tags": [
+        "workshop",
+        "sticky-notes",
+        "facilitation",
+        "indoor",
+        "gesturing",
+        "collaboration"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "energetic-collaborative",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.72,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-az1a4257",
+      "file": "AZ1A4257.jpg",
+      "hash": "309d8584a47d2e7f",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Meeting-room conversation shot past a blurred shoulder in the foreground: a woman in a Nagarro polo talks with open hands and a wide smile, a colleague in an olive polo laughing beside her, whiteboard and glass partition behind.",
+      "tags": [
+        "team-meeting",
+        "indoor",
+        "conversation",
+        "shallow-focus",
+        "laughing",
+        "glass-partition",
+        "whiteboard",
+        "branded-apparel"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-engaged",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.57,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-az1a4259",
+      "file": "AZ1A4259.jpg",
+      "hash": "918a4c8ddcabd81c",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Around a birch meeting table, a smiling woman in glasses and a navy Nagarro polo turns toward a blonde colleague blurred in the foreground while a man in an olive polo laughs beside a whiteboard; a phone and a branded mug sit on the table.",
+      "tags": [
+        "team-meeting",
+        "indoor",
+        "meeting-room",
+        "whiteboard",
+        "shallow-focus",
+        "diverse-team",
+        "brand-apparel",
+        "daylight"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "candid-medium"
+      },
+      "tone": "attentive-friendly",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.59,
+        "y": 0.33
+      }
+    },
+    {
+      "id": "nagarro-az1a4264",
+      "file": "AZ1A4264.jpg",
+      "hash": "3038e7e50bb97f4c",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Shallow-focus detail: a hand rests on a white mug with the mint Nagarro loop mark, sharp in the foreground of a pale wood meeting table, while two colleagues talk on out of focus behind it.",
+      "tags": [
+        "detail-shot",
+        "shallow-focus",
+        "mug",
+        "branded-object",
+        "indoor",
+        "meeting-room",
+        "hands"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-close"
+      },
+      "tone": "quiet-observational",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.52,
+        "y": 0.8
+      }
+    },
+    {
+      "id": "nagarro-az1a4274",
+      "file": "AZ1A4274.jpg",
+      "hash": "6140b27a0451b223",
+      "w": 3524,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "A man in an olive polo sits at a meeting table laughing broadly, holding up a red sticky note reading RESPONSIBLE and a yellow one reading Agile; a colleague's shoulder is blurred in the foreground, whiteboard notes behind.",
+      "tags": [
+        "workshop",
+        "indoor",
+        "sticky-notes",
+        "caring-values",
+        "laughing",
+        "shallow-focus",
+        "meeting-table",
+        "branded-mug"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "warm-humorous",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.35
+      }
+    },
+    {
+      "id": "nagarro-az1a4276",
+      "file": "AZ1A4276.jpg",
+      "hash": "6c51425b686dd922",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "A man in an olive polo laughs at the camera in a meeting room, holding up three handwritten sticky notes reading INTELLIGENT, Agile and RESPONSIBLE. Closed laptop, mug and a pad on the pale wood table in front of him.",
+      "tags": [
+        "single-person",
+        "sticky-notes",
+        "indoor",
+        "meeting-room",
+        "values",
+        "laughing",
+        "legible-text-in-frame"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "warm-humorous",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.42,
+        "y": 0.25
+      }
+    },
+    {
+      "id": "nagarro-az1a4279",
+      "file": "AZ1A4279.jpg",
+      "hash": "3940da8ea951b3f3",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Two colleagues clown for the camera against a white wall, each with a sticky note stuck to their face — one over the mouth, one over the eyes — while the word CARING is spelled out in coloured notes on the wall between them.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "playful",
+        "sticky-notes",
+        "caring-values",
+        "white-wall",
+        "humour",
+        "posed-to-camera"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "group"
+      },
+      "tone": "playful-irreverent",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.2,
+        "y": 0.28
+      }
+    },
+    {
+      "id": "nagarro-az1a4280",
+      "file": "AZ1A4280.jpg",
+      "hash": "2608dd83d045bec0",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Two colleagues in navy Nagarro polos clown for the camera against a plain light-grey workshop wall, each with a handwritten sticky note stuck to their face — a blue one reading INTELLIGENT, a yellow one reading Global — with more pastel notes on the wall behind them.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "workshop",
+        "sticky-notes",
+        "humour",
+        "brand-values",
+        "plain-background",
+        "brand-apparel"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "playful-irreverent",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.47,
+        "y": 0.32
+      }
+    },
+    {
+      "id": "nagarro-az1a4285",
+      "file": "AZ1A4285.jpg",
+      "hash": "4041cd5bdf8cc21d",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Meeting-room conversation along a birch table: a blonde woman in a black blazer gestures mid-sentence behind an open laptop while two colleagues in navy Nagarro polos listen and smile, white branded mugs and a pink sticky note on the table.",
+      "tags": [
+        "team-meeting",
+        "indoor",
+        "meeting-room",
+        "laptop",
+        "branded-mug",
+        "conversation",
+        "diverse-team",
+        "daylight"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "candid-medium"
+      },
+      "tone": "engaged-collaborative",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.22,
+        "y": 0.33
+      }
+    },
+    {
+      "id": "nagarro-az1a4296",
+      "file": "AZ1A4296.jpg",
+      "hash": "1bf4bf2f3d300bf6",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Over-the-shoulder meeting shot dominated by the back of a navy polo carrying the teal Thinking Breakthroughs scribble; a grey-haired man laughs in focus at the right, a woman listens across the birch table at the left.",
+      "tags": [
+        "team-meeting",
+        "indoor",
+        "back-to-camera",
+        "brand-apparel",
+        "thinking-breakthroughs",
+        "shallow-focus",
+        "conversation",
+        "birch-table"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-close"
+      },
+      "tone": "relaxed-conversational",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.9,
+        "y": 0.24
+      }
+    },
+    {
+      "id": "nagarro-az1a4299",
+      "file": "AZ1A4299.jpg",
+      "hash": "7fb3650dfbe51b88",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Five colleagues sit along a long birch meeting table strewn with coloured sticky notes, laptops and branded mugs; a grey-haired man gestures mid-point while the others listen, tall shuttered windows behind.",
+      "tags": [
+        "team-meeting",
+        "indoor",
+        "workshop",
+        "sticky-notes",
+        "laptops",
+        "long-table",
+        "daylight",
+        "discussion"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "wide-environment"
+      },
+      "tone": "focused-collaborative",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.13,
+        "y": 0.35
+      }
+    },
+    {
+      "id": "nagarro-az1a4306",
+      "file": "AZ1A4306.jpg",
+      "hash": "e6f67e04c9110dd6",
+      "w": 2400,
+      "h": 3600,
+      "orientation": "portrait",
+      "description": "Portrait-format close shot of a man in sunglasses and a navy Nagarro tee sitting on his mint road bike outside a café, holding a small branded mug and looking off to the left. Terrace furniture blurred behind him.",
+      "tags": [
+        "single-person",
+        "portrait-orientation",
+        "outdoor",
+        "cafe",
+        "coffee",
+        "bicycle",
+        "seated",
+        "branded-apparel"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "relaxed-confident",
+      "brightness": "mid",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.47,
+        "y": 0.13
+      }
+    },
+    {
+      "id": "nagarro-az1a4312",
+      "file": "AZ1A4312.jpg",
+      "hash": "5277e5b8fd0e1d3e",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Five colleagues in branded navy take a coffee break on a wooden bench under a street tree, mugs in hand, mid-laugh; a mint road bike leans in at the right of frame.",
+      "tags": [
+        "team-group",
+        "outdoor",
+        "coffee-break",
+        "bench",
+        "tree",
+        "laughing",
+        "bicycle",
+        "diverse-team"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "group"
+      },
+      "tone": "easy-collegial",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.4,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-az1a4324",
+      "file": "AZ1A4324.jpg",
+      "hash": "ba165ddddc874af2",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Five colleagues take a coffee break on a city pavement terrace, three seated and laughing together, two more beside a mint-green bike at the right. Branded mugs, a cherry tree overhead and shopfronts behind.",
+      "tags": [
+        "team-group",
+        "coffee-break",
+        "outdoor",
+        "terrace",
+        "five-people",
+        "laughing",
+        "bicycle",
+        "city"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "group"
+      },
+      "tone": "relaxed-social",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.35
+      }
+    },
+    {
+      "id": "nagarro-az1a4351",
+      "file": "AZ1A4351.jpg",
+      "hash": "7a11a835d2f96127",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Shot from behind through overhanging green leaves, a woman with a long ponytail wears a navy Nagarro polo whose back carries the mint scribble mark and the line Thinking Breakthroughs; blurred colleagues, bikes and coffee cups fill the sunlit terrace around her.",
+      "tags": [
+        "from-behind",
+        "outdoor",
+        "terrace",
+        "brand-apparel",
+        "thinking-breakthroughs",
+        "scribble-mark",
+        "bicycle",
+        "foliage-framing"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "candid-close"
+      },
+      "tone": "casual-summer",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.58,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-az1a4354",
+      "file": "AZ1A4354.jpg",
+      "hash": "2b32f4f762166851",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Close detail with no faces: a hand holds a teal Nagarro mug over a jeans-clad knee on a wooden bench, an apple and a clementine resting beside it, a colleague's Thinking Breakthroughs tee filling the soft-focus right of frame.",
+      "tags": [
+        "detail-shot",
+        "no-faces",
+        "outdoor",
+        "coffee-break",
+        "branded-mug",
+        "fruit",
+        "bench",
+        "shallow-focus"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-close"
+      },
+      "tone": "quiet-informal",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.47,
+        "y": 0.56
+      }
+    },
+    {
+      "id": "nagarro-az1a4357",
+      "file": "AZ1A4357.jpg",
+      "hash": "eb462a37f87f3ec9",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "A bald man in glasses and a navy Nagarro tee sits talking under a young street tree, sunlit foliage behind him; a colleague's arm and the handlebars of a teal bike are blurred across the foreground.",
+      "tags": [
+        "portrait-like",
+        "outdoor",
+        "conversation",
+        "street-tree",
+        "shallow-focus",
+        "brand-apparel",
+        "bicycle",
+        "summer"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "warm-approachable",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.57,
+        "y": 0.26
+      }
+    },
+    {
+      "id": "nagarro-az1a4368",
+      "file": "AZ1A4368.jpg",
+      "hash": "069caea331152404",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Outdoor break beside a planted terrace: a woman laughs on a bench while a man leans in from his bike at the left and a colleague in a white hijab and a Thinking Breakthroughs tee stands with her back to camera at the right.",
+      "tags": [
+        "team-group",
+        "outdoor",
+        "terrace",
+        "bench",
+        "laughing",
+        "bicycle",
+        "four-people",
+        "greenery"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "group"
+      },
+      "tone": "easy-collegial",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.39,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-az1a4376",
+      "file": "AZ1A4376.jpg",
+      "hash": "f0f6f184cc53ca1b",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Sunlit park lawn below an old stone fortress wall: colleagues sit on the grass tossing apples to each other, a woman in a white hijab laughing as she catches one, a mint bike parked at the left.",
+      "tags": [
+        "team-group",
+        "outdoor",
+        "park",
+        "grass",
+        "fortress-wall",
+        "playful",
+        "apples",
+        "summer"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "wide-environment"
+      },
+      "tone": "sunny-informal",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.61,
+        "y": 0.58
+      }
+    },
+    {
+      "id": "nagarro-az1a4387",
+      "file": "AZ1A4387.jpg",
+      "hash": "bf3bdbd265531672",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Four colleagues take a break on a sunlit park lawn below a rough stone fortress wall: one stands holding a teal road bike, the others sit on the grass with apples, clementines and mint-green mugs, all laughing together.",
+      "tags": [
+        "team-group",
+        "outdoor",
+        "park",
+        "fortress-wall",
+        "bicycle",
+        "coffee-break",
+        "fruit",
+        "summer"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "wide-environment"
+      },
+      "tone": "sunny-informal",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.42,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-az1a4405-edit",
+      "file": "AZ1A4405_edit.jpg",
+      "hash": "f47b49977c6b486d",
+      "w": 1544,
+      "h": 1030,
+      "orientation": "landscape",
+      "description": "Two women in Nagarro tees sit cross-legged on a sunlit lawn facing each other, one laughing as she swings a mint-green gymnastics ribbon into a wide loop, the other holding apples; a rough stone fortress wall fills the background.",
+      "tags": [
+        "two-people",
+        "outdoor",
+        "park",
+        "ribbon",
+        "brand-color",
+        "laughing",
+        "fortress-wall",
+        "summer"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "group"
+      },
+      "tone": "playful-sunny",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.65,
+        "y": 0.53
+      }
+    },
+    {
+      "id": "nagarro-az1a4429",
+      "file": "AZ1A4429.jpg",
+      "hash": "c7aacfaa107f7fee",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Wide park scene on a sunlit lawn: a woman throws a long blue ribbon overhead with both arms out, two colleagues sit on the grass at the left with fruit, another watches from a bike at the right. Large trees fill the background.",
+      "tags": [
+        "park",
+        "outdoor",
+        "wide-shot",
+        "playful",
+        "ribbon",
+        "lawn",
+        "summer",
+        "five-people"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "wide-environment"
+      },
+      "tone": "joyful-outdoors",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.57,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-az1a4429-edit",
+      "file": "AZ1A4429_edit.jpg",
+      "hash": "3807350349028ca4",
+      "w": 1613,
+      "h": 1075,
+      "orientation": "landscape",
+      "description": "On a sunlit park lawn a blonde woman in a Nagarro tee spins a teal gymnastics ribbon overhead with her arms flung wide, while four seated and standing colleagues — one with a teal road bike — watch from the foreground under a big summer tree.",
+      "tags": [
+        "team-group",
+        "outdoor",
+        "park",
+        "ribbon",
+        "play-at-work",
+        "bicycle",
+        "summer",
+        "loop-mark"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "wide-environment"
+      },
+      "tone": "joyful-summer",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.56,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-az1a4461-edit",
+      "file": "AZ1A4461_edit.jpg",
+      "hash": "31d4bbbe19813117",
+      "w": 1613,
+      "h": 1075,
+      "orientation": "landscape",
+      "description": "Wide shot from behind of a woman in a Thinking Breakthroughs tee running across a sunlit lawn trailing a long mint-green gymnastics ribbon in a wide S-curve, an old stone fortress wall filling the background.",
+      "tags": [
+        "single-person",
+        "outdoor",
+        "ribbon",
+        "movement",
+        "running",
+        "fortress-wall",
+        "brand-color",
+        "back-to-camera"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "wide-environment"
+      },
+      "tone": "free-expressive",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.57,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-az1a4483-edit",
+      "file": "AZ1A4483_edit.jpg",
+      "hash": "cf91cd46a25d126d",
+      "w": 1613,
+      "h": 1075,
+      "orientation": "landscape",
+      "description": "A smiling woman in a white hijab and Nagarro tee sweeps a long mint-green gymnastics ribbon in a wide loop around herself, standing on a bright rooftop lawn with the city skyline soft behind her.",
+      "tags": [
+        "single-person",
+        "outdoor",
+        "ribbon",
+        "movement",
+        "playful",
+        "rooftop",
+        "brand-color",
+        "smiling-to-camera"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "joyful-expressive",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.44,
+        "y": 0.38
+      }
+    },
+    {
+      "id": "nagarro-az1a4500-edit",
+      "file": "AZ1A4500_edit.jpg",
+      "hash": "030a0e953d7101bb",
+      "w": 1613,
+      "h": 1075,
+      "orientation": "landscape",
+      "description": "A smiling woman in a white hijab and a navy Nagarro tee swings a mint-green ribbon in a loose loop across the frame, standing on bright grass in front of a rough stone fortress wall.",
+      "tags": [
+        "single-person",
+        "outdoor",
+        "ribbon",
+        "stone-wall",
+        "grass",
+        "brand-apparel",
+        "mint-green",
+        "movement"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "wide-environment"
+      },
+      "tone": "playful-freedom",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.72,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-az1a4508-edit",
+      "file": "AZ1A4508_edit.jpg",
+      "hash": "3aa941eb13eccb08",
+      "w": 1373,
+      "h": 916,
+      "orientation": "landscape",
+      "description": "A man in a navy tee with the mint loop mark, back to camera, swings a mint-green ribbon out to the side while a blonde colleague laughs at him across a sunlit lawn, a red-roofed brick building soft behind.",
+      "tags": [
+        "two-people",
+        "outdoor",
+        "ribbon",
+        "movement",
+        "laughing",
+        "brand-color",
+        "back-to-camera",
+        "summer"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "lighthearted-play",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.33,
+        "y": 0.3
+      }
+    },
+    {
+      "id": "nagarro-az1a4522-edit",
+      "file": "AZ1A4522_edit.jpg",
+      "hash": "3fd110f3a5c4dd65",
+      "w": 1613,
+      "h": 1075,
+      "orientation": "landscape",
+      "description": "A woman in a white hijab and a man in glasses, both in navy Nagarro tees, swing teal gymnastics ribbons into wide spirals on a sunlit lawn in front of a long rough stone fortress wall.",
+      "tags": [
+        "two-people",
+        "outdoor",
+        "ribbon",
+        "stone-wall",
+        "grass",
+        "play-at-work",
+        "movement",
+        "brand-apparel"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "wide-environment"
+      },
+      "tone": "joyful-freedom",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.4,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-az1a4532-edit",
+      "file": "AZ1A4532_edit.jpg",
+      "hash": "72d33234fe5a558d",
+      "w": 1613,
+      "h": 1075,
+      "orientation": "landscape",
+      "description": "Wider frame of the same ribbon session: a woman in a white hijab and a man in glasses trail teal ribbons at either side of the lawn while a third colleague, seen from behind in a Thinking Breakthroughs polo, watches from the centre against the stone fortress wall.",
+      "tags": [
+        "team-group",
+        "outdoor",
+        "ribbon",
+        "stone-wall",
+        "grass",
+        "from-behind",
+        "play-at-work",
+        "summer"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "wide-environment"
+      },
+      "tone": "playful-energetic",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.38,
+        "y": 0.35
+      }
+    },
+    {
+      "id": "nagarro-az1a4536",
+      "file": "AZ1A4536.jpg",
+      "hash": "71339787ff672f8d",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Overhead shot of a man in a navy Nagarro tee lying on his back in the grass, hands raised to frame his own face in a triangle, eyes closed. Dappled sunlight across clover and lawn fills the whole frame.",
+      "tags": [
+        "single-person",
+        "overhead",
+        "grass",
+        "outdoor",
+        "playful",
+        "lying-down",
+        "dappled-light"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "whimsical-relaxed",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.47,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-az1a4537",
+      "file": "AZ1A4537.jpg",
+      "hash": "0ae95c57a30f9992",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Overhead shot of a man in a navy Nagarro tee lying on his back in sunlit grass and clover, glasses on, fingertips touching above his face; the frame is inverted so he reads upside down.",
+      "tags": [
+        "single-person",
+        "outdoor",
+        "lying-in-grass",
+        "overhead-angle",
+        "inverted-framing",
+        "playful",
+        "brand-apparel",
+        "summer"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "whimsical-relaxed",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.51,
+        "y": 0.63
+      }
+    },
+    {
+      "id": "nagarro-az1a4541",
+      "file": "AZ1A4541.jpg",
+      "hash": "0d2626ebc4f54ffe",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Overhead shot of two colleagues in navy Nagarro polos lying head-to-head in clover-flecked grass, each framing their face with joined hands; the man on the right reads upside down relative to the woman on the left.",
+      "tags": [
+        "two-people",
+        "outdoor",
+        "lying-in-grass",
+        "overhead-angle",
+        "playful",
+        "hand-frame",
+        "brand-apparel",
+        "summer"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "group"
+      },
+      "tone": "whimsical-relaxed",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-az1a4543",
+      "file": "AZ1A4543.jpg",
+      "hash": "befb66fe03a156af",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Photographed from directly above, a woman in a navy Nagarro polo with a mint loop badge lies smiling on sunlit grass and frames her face with both hands joined into a heart, her long dark hair fanned out across the lawn.",
+      "tags": [
+        "single-person",
+        "outdoor",
+        "grass",
+        "overhead",
+        "heart-hands",
+        "loop-mark",
+        "caring",
+        "brand-apparel"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-close"
+      },
+      "tone": "warm-playful",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.46,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-az1a4551",
+      "file": "AZ1A4551.jpg",
+      "hash": "80ae286781256b56",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "A smiling woman in a navy Nagarro polo with a mint loop badge looks straight into the camera in a sunlit park while she and a colleague standing behind her join hands to form a heart in front of her shoulder.",
+      "tags": [
+        "two-people",
+        "outdoor",
+        "park",
+        "heart-hands",
+        "eye-contact",
+        "loop-mark",
+        "caring",
+        "brand-apparel"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-close"
+      },
+      "tone": "warm-caring",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.32,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-az1a4553",
+      "file": "AZ1A4553.jpg",
+      "hash": "09ee568e18cdd5d9",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Two colleagues in navy Nagarro shirts stand one behind the other on a sunlit park lawn, each contributing a hand to a heart shape between them, both smiling straight at the camera.",
+      "tags": [
+        "two-people",
+        "outdoor",
+        "park",
+        "heart-gesture",
+        "posed-to-camera",
+        "smiling",
+        "grass",
+        "employer-brand"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "group"
+      },
+      "tone": "warm-welcoming",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-az1a4554",
+      "file": "AZ1A4554.jpg",
+      "hash": "be7a390afbe47ebb",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Two pairs of hands meet in the foreground to form a heart that frames the mint loop mark and nagarro wordmark on a colleague's navy tee; his face is cropped above the frame and a sunlit park stands blurred behind him.",
+      "tags": [
+        "heart-hands",
+        "outdoor",
+        "park",
+        "logo-detail",
+        "loop-mark",
+        "brand-apparel",
+        "shallow-focus",
+        "cropped-face"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-close"
+      },
+      "tone": "warm-caring",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.52,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-az1a4562",
+      "file": "AZ1A4562.jpg",
+      "hash": "2dd3de3c9ff1a607",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Three colleagues in navy Nagarro shirts smile straight into the camera in a sunlit park while two of them join hands to form a heart in front of the third's chest, right over the mint-green loop mark on his tee.",
+      "tags": [
+        "team-group",
+        "outdoor",
+        "park",
+        "heart-hands",
+        "eye-contact",
+        "loop-mark",
+        "diverse-team",
+        "caring"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "group"
+      },
+      "tone": "warm-caring",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.47,
+        "y": 0.32
+      }
+    },
+    {
+      "id": "nagarro-az1a4571",
+      "file": "AZ1A4571.jpg",
+      "hash": "0fd6ca0dd287f29a",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Three colleagues stand close together in a sunlit park, the man in the centre with both arms flung up while the two women either side form a heart shape with their hands over his chest. All laughing straight at camera.",
+      "tags": [
+        "three-people",
+        "park",
+        "outdoor",
+        "heart-gesture",
+        "laughing",
+        "posed-to-camera",
+        "summer"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "group"
+      },
+      "tone": "exuberant-warm",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.47,
+        "y": 0.3
+      }
+    },
+    {
+      "id": "nagarro-az1a4574",
+      "file": "AZ1A4574.jpg",
+      "hash": "a736d057ac784c43",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Two men sit at a small white round table with branded cups, both turned to the camera and smiling broadly; a potted snake plant between them, ficus leaves at the left edge and a ribbed acoustic panel behind.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "posed-to-camera",
+        "coffee",
+        "branded-cups",
+        "plants",
+        "breakout-area",
+        "smiling"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "group"
+      },
+      "tone": "friendly-approachable",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.28
+      }
+    },
+    {
+      "id": "nagarro-az1a4583",
+      "file": "AZ1A4583.jpg",
+      "hash": "1e93e4546237f14a",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Two men talk over coffee at a small white table in a quiet office corner — one in an olive polo gesturing mid-explanation, the other in a navy Nagarro polo listening with a branded mug — a ribbed acoustic panel and a plant behind them.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "one-to-one",
+        "coffee",
+        "branded-mug",
+        "conversation",
+        "acoustic-panel",
+        "office-corner"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "focused-collegial",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-az1a4587",
+      "file": "AZ1A4587.jpg",
+      "hash": "2e59b9f5240dea56",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Across a white table, a grey-haired man in a Nagarro polo listens and smiles at a colleague whose shoulder and gesturing hands fill the out-of-focus left foreground; branded mug on the table, a fortune wheel on a stand behind.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "one-to-one",
+        "conversation",
+        "coffee",
+        "branded-mug",
+        "shallow-focus",
+        "office"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "attentive-mentoring",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.62,
+        "y": 0.28
+      }
+    },
+    {
+      "id": "nagarro-az1a4591",
+      "file": "AZ1A4591.jpg",
+      "hash": "aff7aff12460f769",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Two men laughing at a small white table in a breakout corner, each holding up a printed sheet with the blue-teal Nagarro wordmark and loop; white mugs and a potted snake plant on the table, a ficus at the left edge.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "breakout-area",
+        "logo-sheet",
+        "legacy-wordmark",
+        "laughing",
+        "coffee",
+        "plants"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "group"
+      },
+      "tone": "lighthearted-brand",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-az1a4598",
+      "file": "AZ1A4598.jpg",
+      "hash": "7edd4896d6ddd024",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Seen through a glass partition that catches soft reflections of the room behind, a woman in glasses and a navy Nagarro polo sits in a round black tub chair and types on a laptop in her lap, smiling at the screen against a ribbed wood acoustic wall.",
+      "tags": [
+        "single-person",
+        "indoor",
+        "laptop",
+        "breakout-booth",
+        "glass-reflection",
+        "acoustic-panel",
+        "brand-apparel",
+        "focused-work"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "quiet-content",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.62,
+        "y": 0.35
+      }
+    },
+    {
+      "id": "nagarro-az1a4600",
+      "file": "AZ1A4600.jpg",
+      "hash": "0ec694536244d09b",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "A mint-blue mug carrying the Nagarro loop mark sits sharp in the foreground on a glass table while a woman in a navy polo works on a black laptop from a round black tub chair, thrown out of focus behind it.",
+      "tags": [
+        "single-person",
+        "indoor",
+        "branded-mug",
+        "laptop",
+        "shallow-focus",
+        "breakout-booth",
+        "loop-mark",
+        "product-detail"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "quiet-focused",
+      "brightness": "mid",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.3,
+        "y": 0.83
+      }
+    },
+    {
+      "id": "nagarro-az1a4601",
+      "file": "AZ1A4601.jpg",
+      "hash": "65bbcc25cef979f3",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Shot through a glass meeting-room wall, a smiling woman in a navy Nagarro polo sits opposite a colleague seen from behind, a laptop showing a terminal window and a mint mug on the small glass table between them, bright window blinds behind.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "meeting-room",
+        "glass-reflection",
+        "laptop",
+        "terminal",
+        "one-to-one",
+        "backlit"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "relaxed-technical",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.33,
+        "y": 0.3
+      }
+    },
+    {
+      "id": "nagarro-az1a4603",
+      "file": "AZ1A4603.jpg",
+      "hash": "394d68ff1659e447",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Shot through a glass partition: a woman in a navy Nagarro polo sits in a black tub chair with a ThinkPad on her lap, smiling at someone off-frame. A colleague at a desk is layered over her in the reflection, mug and phone on the glass side table.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "glass-partition",
+        "reflection",
+        "laptop",
+        "seated",
+        "informal-workspace"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "candid-professional",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.21,
+        "y": 0.22
+      }
+    },
+    {
+      "id": "nagarro-az1a4610",
+      "file": "AZ1A4610.jpg",
+      "hash": "ea9939755cbde44d",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Seen through a glass partition, two women in navy Nagarro polos sit facing each other in black tub chairs in a small breakout booth, laughing over a laptop and a teal mug on a glass side table, the open-plan office visible beyond.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "breakout-booth",
+        "glass-partition",
+        "laptop",
+        "one-to-one",
+        "open-plan-office",
+        "laughing"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "wide-environment"
+      },
+      "tone": "relaxed-collegial",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "nagarro-az1a4611",
+      "file": "AZ1A4611.jpg",
+      "hash": "cf2ea521620962d6",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Seen through a glass partition streaked with reflections of the open-plan floor behind: two women sit facing each other over a small glass table with a ThinkPad and a blue mug, mid-conversation.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "glass-partition",
+        "reflection",
+        "informal-meeting",
+        "laptop",
+        "seated",
+        "open-plan"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "candid-documentary",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.2,
+        "y": 0.28
+      }
+    },
+    {
+      "id": "nagarro-az1a4638",
+      "file": "AZ1A4638.jpg",
+      "hash": "65b9dee45ab64890",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "A man in a navy Nagarro polo leans over a Gottlieb pinball table smiling at the playfield while a colleague in a Thinking Breakthroughs tee, seen from behind at the left edge, works the near flipper in a dim games room.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "games-room",
+        "pinball",
+        "play-at-work",
+        "thinking-breakthroughs",
+        "brand-apparel",
+        "low-light"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "absorbed-fun",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.44,
+        "y": 0.35
+      }
+    },
+    {
+      "id": "nagarro-az1a4642",
+      "file": "AZ1A4642.jpg",
+      "hash": "c633879b33ee4c9c",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "A woman in a navy Nagarro polo pulls a wide-eyed, open-mouthed look of disbelief across the Gottlieb pinball table at a colleague standing with his back to the camera in the foreground, both hands still on the flipper buttons.",
+      "tags": [
+        "two-people",
+        "indoor",
+        "games-room",
+        "pinball",
+        "surprise",
+        "expressive",
+        "play-at-work",
+        "brand-apparel"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "exuberant-surprised",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.48,
+        "y": 0.32
+      }
+    },
+    {
+      "id": "nagarro-az1a4651-edit",
+      "file": "AZ1A4651_edit.jpg",
+      "hash": "cc2069a21e561d08",
+      "w": 1075,
+      "h": 1613,
+      "orientation": "portrait",
+      "description": "In a wood-lined phone booth a bald man in glasses and a black Nagarro tee holds a phone to his ear, looks straight into the camera with a wry half-smile and tosses a teal ball into the air with his free hand.",
+      "tags": [
+        "single-person",
+        "indoor",
+        "phone-booth",
+        "eye-contact",
+        "wry-humour",
+        "teal-prop",
+        "brand-apparel",
+        "portrait-orientation"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "wry-confident",
+      "brightness": "mid",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-az1a4661-edit",
+      "file": "AZ1A4661_edit.jpg",
+      "hash": "b1e2d6af22fafdf2",
+      "w": 2000,
+      "h": 3000,
+      "orientation": "portrait",
+      "description": "Portrait-format low-key shot in a phone booth: a man in a black Nagarro tee perches on a stool with a phone to his ear, tossing a teal ball up out of frame with his free hand, warm slatted wood wall filling the left half.",
+      "tags": [
+        "single-person",
+        "portrait-orientation",
+        "indoor",
+        "phone-booth",
+        "phone-call",
+        "juggling",
+        "low-key",
+        "moody"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "focused-playful",
+      "brightness": "dark",
+      "busyness": "clean",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.68,
+        "y": 0.38
+      }
+    },
+    {
+      "id": "nagarro-az1a4672",
+      "file": "AZ1A4672.jpg",
+      "hash": "b4b498bded31cfd7",
+      "w": 3600,
+      "h": 2400,
+      "orientation": "landscape",
+      "description": "Four colleagues in a bright white office throw green, red and blue juggling balls to each other across their desks, hands open mid-catch; monitors, laptops and a window with venetian blinds fill the room.",
+      "tags": [
+        "team-group",
+        "indoor",
+        "open-plan-office",
+        "juggling",
+        "play-at-work",
+        "desks",
+        "monitors",
+        "daylight"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "wide-environment"
+      },
+      "tone": "energetic-playful",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.41,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-dsc0463",
+      "file": "DSC0463.jpg",
+      "hash": "3c03844f4cc67e24",
+      "w": 2000,
+      "h": 1400,
+      "orientation": "landscape",
+      "description": "Over the shoulder of a man in a navy suit and glasses, seen from behind, who holds a smartphone showing the dark title slide of a Nagarro investor deck reading \"Thinking Breakthroughs\" with a mint scribble; a bright glass office lobby sits softly out of focus behind.",
+      "tags": [
+        "product-mockup",
+        "smartphone",
+        "investor-deck",
+        "thinking-breakthroughs",
+        "over-the-shoulder",
+        "indoor",
+        "brand-collateral",
+        "shallow-focus"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "polished-corporate",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.68,
+        "y": 0.78
+      }
+    },
+    {
+      "id": "nagarro-dsc0466",
+      "file": "DSC0466.jpg",
+      "hash": "1e7af33f6869d22b",
+      "w": 2000,
+      "h": 1333,
+      "orientation": "landscape",
+      "description": "Close on the hands of a man in a navy suit holding a smartphone flat above a dark table; the screen shows a mint-green Nagarro mission slide reading \"Making distance irrelevant between intelligent people.\" His face is out of frame.",
+      "tags": [
+        "product-mockup",
+        "smartphone",
+        "mission-statement",
+        "mint-green",
+        "hands",
+        "indoor",
+        "brand-collateral",
+        "cropped-face"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "polished-corporate",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.58,
+        "y": 0.47
+      }
+    },
+    {
+      "id": "nagarro-dsc0469",
+      "file": "DSC0469.jpg",
+      "hash": "1467c57df24e40f1",
+      "w": 2000,
+      "h": 1333,
+      "orientation": "landscape",
+      "description": "A man in a navy suit and glasses, seen from behind over his shoulder, holds a smartphone showing the mint-green Nagarro mission slide \"Making distance irrelevant between intelligent people\"; empty boardroom chairs stand blurred against bright windows beyond.",
+      "tags": [
+        "product-mockup",
+        "smartphone",
+        "mission-statement",
+        "mint-green",
+        "over-the-shoulder",
+        "boardroom",
+        "indoor",
+        "shallow-focus"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "candid-medium"
+      },
+      "tone": "polished-corporate",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.7,
+        "y": 0.75
+      }
+    },
+    {
+      "id": "nagarro-dsc06781",
+      "file": "DSC06781.jpg",
+      "hash": "6eef1624337ba571",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Four colleagues ride office chairs down the aisle of an open-plan floor, arms thrown up and feet off the ground, all laughing at the camera. Rows of desks and partitions either side, patterned carpet tiles receding to the back of the room.",
+      "tags": [
+        "playful",
+        "open-plan-office",
+        "office-chairs",
+        "celebration",
+        "indoor",
+        "team"
+      ],
+      "people": {
+        "count": 4,
+        "framing": "group"
+      },
+      "tone": "playful-celebratory",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-dsc06817",
+      "file": "DSC06817.jpg",
+      "hash": "67546d7f8759d7f1",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Nine colleagues pose on a green mat in front of a glass office facade, standing and kneeling, each holding a teal card printed with one of the Nagarro caring-values icons — antenna, lightning, figure, spiral, waves, orbit and a hand-drawn heart — surrounded by white planters of pink flowers.",
+      "tags": [
+        "group",
+        "team",
+        "caring-values",
+        "icon-cards",
+        "outdoor",
+        "office-facade",
+        "posed",
+        "brand-apparel"
+      ],
+      "people": {
+        "count": 9,
+        "framing": "group"
+      },
+      "tone": "warm-collective",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-dsc06824",
+      "file": "DSC06824.jpg",
+      "hash": "03699dd0af5dbd8d",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Two women stand posed on a planted terrace, one in a black blazer holding a teal card hand-lettered \"caring\" and the other in a white blouse holding a teal card with the caring loop-heart icon, a hanging egg chair and palms softly blurred behind them.",
+      "tags": [
+        "two-people",
+        "caring-values",
+        "hand-lettered",
+        "loop-heart",
+        "outdoor",
+        "terrace",
+        "posed",
+        "smiling"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "group"
+      },
+      "tone": "warm-caring",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-dsc06830-edit",
+      "file": "DSC06830_edit.jpg",
+      "hash": "708b51fcfd57efd0",
+      "w": 2048,
+      "h": 1365,
+      "orientation": "landscape",
+      "description": "Seven colleagues stand in a bright office lobby each holding up a teal card printed with a single letter, together spelling n-a-g-a-r-r-o, dressed in a mix of blazers and jeans against a white sculptural wall and glass meeting rooms.",
+      "tags": [
+        "group",
+        "team",
+        "wordmark",
+        "letter-cards",
+        "nagarro",
+        "indoor",
+        "lobby",
+        "posed"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "upbeat-collective",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-h7a4835",
+      "file": "_H7A4835.jpg",
+      "hash": "b2a5fb4da3b2237c",
+      "w": 5760,
+      "h": 3840,
+      "orientation": "landscape",
+      "description": "Seven colleagues in navy tees stand spaced across a tropical courtyard, each holding a mint rounded-square board carrying one of the caring-values line icons; turquoise balloons are scattered across the paving in the foreground.",
+      "tags": [
+        "caring-values",
+        "icons",
+        "team",
+        "outdoor",
+        "tropical",
+        "balloons"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "celebratory-brand",
+      "brightness": "mid",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-h7a4864",
+      "file": "_H7A4864.jpg",
+      "hash": "dad52679b5945d8c",
+      "w": 5319,
+      "h": 3546,
+      "orientation": "landscape",
+      "description": "The same seven colleagues in a relaxed standing row under a curtain of hanging ferns, each navy tee printed with a different mint caring-values icon so the full icon set reads across the group.",
+      "tags": [
+        "caring-values",
+        "team-portrait",
+        "outdoor",
+        "tropical",
+        "ferns",
+        "posed"
+      ],
+      "people": {
+        "count": 7,
+        "framing": "group"
+      },
+      "tone": "friendly-brand",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-h7a4879",
+      "file": "_H7A4879.jpg",
+      "hash": "60ff16bbdff568f4",
+      "w": 4780,
+      "h": 3187,
+      "orientation": "landscape",
+      "description": "Nine colleagues cluster for a playful group portrait beneath hanging ferns, two kneeling at the front holding a large mint cut-out of the looped brand mark between them while the rest lean in around it.",
+      "tags": [
+        "team-portrait",
+        "brand-mark",
+        "outdoor",
+        "tropical",
+        "playful",
+        "kneeling"
+      ],
+      "people": {
+        "count": 9,
+        "framing": "group"
+      },
+      "tone": "warm-playful",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-h7a48791",
+      "file": "_H7A48791.jpg",
+      "hash": "117a007e4964ca7b",
+      "w": 5760,
+      "h": 3840,
+      "orientation": "landscape",
+      "description": "A wider frame of the same nine-person group portrait with the mint brand mark held low at the centre, pulling in more of the fern canopy above and the courtyard paving below. Near-duplicate of the tighter version.",
+      "tags": [
+        "team-portrait",
+        "brand-mark",
+        "outdoor",
+        "tropical",
+        "wide",
+        "playful"
+      ],
+      "people": {
+        "count": 9,
+        "framing": "group"
+      },
+      "tone": "warm-playful",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.52
+      }
+    },
+    {
+      "id": "nagarro-h7a4960",
+      "file": "_H7A4960.jpg",
+      "hash": "4dcab6a001f6ef03",
+      "w": 5613,
+      "h": 3742,
+      "orientation": "landscape",
+      "description": "Five colleagues gather around a laptop on a wooden table in an open courtyard, two standing behind — one holding a branded mug — while three lean in from the seats, all watching the screen. Ferns and palms fill the background.",
+      "tags": [
+        "laptop",
+        "team-working",
+        "outdoor",
+        "tropical",
+        "collaboration",
+        "branded-mug"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "group"
+      },
+      "tone": "engaged-collaborative",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "nagarro-h7a4975",
+      "file": "_H7A4975.jpg",
+      "hash": "d56977ffac61b424",
+      "w": 5300,
+      "h": 3533,
+      "orientation": "landscape",
+      "description": "Five colleagues around the same courtyard table, one leaning in from the left to reach the trackpad mid-explanation while a man in a tee reading 'caring' stands watching with hands on hips. Dense palm planting behind.",
+      "tags": [
+        "laptop",
+        "explaining",
+        "outdoor",
+        "tropical",
+        "team-working",
+        "caring"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "group"
+      },
+      "tone": "engaged-collaborative",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-h7a5006",
+      "file": "_H7A5006.jpg",
+      "hash": "780c75c09defb5f7",
+      "w": 5455,
+      "h": 3637,
+      "orientation": "landscape",
+      "description": "Five colleagues perch and lean around a courtyard table watching a tablet one of them holds, another laughing and a fourth resting her chin on her hand; one holds a branded mug. Palms and ferns throughout the background.",
+      "tags": [
+        "tablet",
+        "informal-meeting",
+        "outdoor",
+        "tropical",
+        "laughing",
+        "team"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "group"
+      },
+      "tone": "relaxed-social",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.52,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "nagarro-h7a5018",
+      "file": "_H7A5018.jpg",
+      "hash": "dbea364555f5d64b",
+      "w": 5760,
+      "h": 3840,
+      "orientation": "landscape",
+      "description": "Two young women in navy branded tees sit on a pool edge looking together at a phone one of them holds, heads tilted toward the screen. Background is soft turquoise water and a bright white wall thrown well out of focus.",
+      "tags": [
+        "phone",
+        "two-people",
+        "outdoor",
+        "poolside",
+        "quiet",
+        "soft-background"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "calm-focused",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    {
+      "id": "nagarro-h7a5022",
+      "file": "_H7A5022.jpg",
+      "hash": "a7a929fc21d0999b",
+      "w": 5760,
+      "h": 3840,
+      "orientation": "landscape",
+      "description": "Two young women in navy loop-mark tees sit on the concrete coping of a turquoise swimming pool, heads together over a tablet, one holding a stylus. Shot through blurred foliage on the right; a vine-covered white wall fills the background.",
+      "tags": [
+        "poolside",
+        "tablet",
+        "outdoor",
+        "seated",
+        "two-people",
+        "informal-review",
+        "shallow-depth"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "candid-medium"
+      },
+      "tone": "quiet-collaborative",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.43,
+        "y": 0.38
+      }
+    },
+    {
+      "id": "nagarro-h7a5046",
+      "file": "_H7A5046.jpg",
+      "hash": "1338bfc3c1870452",
+      "w": 5386,
+      "h": 3591,
+      "orientation": "landscape",
+      "description": "Two women in navy loop-mark tees stand smiling at camera holding a large mint-green cut-out of the Nagarro loop between them, framed by a big bird's-nest fern on the left and a dark timber door behind.",
+      "tags": [
+        "loop-mark",
+        "brand-prop",
+        "outdoor",
+        "standing",
+        "two-people",
+        "smiling-to-camera",
+        "tropical-planting"
+      ],
+      "people": {
+        "count": 2,
+        "framing": "group"
+      },
+      "tone": "friendly-brand",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.33
+      }
+    },
+    {
+      "id": "nagarro-h7a5069",
+      "file": "_H7A5069.jpg",
+      "hash": "e29ac42b7fa35f10",
+      "w": 3840,
+      "h": 5760,
+      "orientation": "portrait",
+      "description": "A young woman in a navy branded t-shirt smiles straight to camera holding a large mint cut-out of the looped brand mark across her waist. Shot outdoors against an ivy-covered wall and a big bright fern, warm natural light.",
+      "tags": [
+        "portrait",
+        "brand-mark",
+        "outdoor",
+        "foliage",
+        "smiling",
+        "single-person"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "friendly-brand-portrait",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.53,
+        "y": 0.32
+      }
+    },
+    {
+      "id": "nagarro-h7a5073",
+      "file": "_H7A5073.jpg",
+      "hash": "cf23f88434bdb3de",
+      "w": 5760,
+      "h": 3840,
+      "orientation": "landscape",
+      "description": "A single woman in a navy loop-mark tee stands smiling straight at camera, holding the mint-green loop cut-out out to her side at arm's length. Fern fronds at the left edge, dark timber door behind her.",
+      "tags": [
+        "single-person",
+        "loop-mark",
+        "brand-prop",
+        "outdoor",
+        "standing",
+        "smiling-to-camera"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "confident-friendly",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.31,
+        "y": 0.3
+      }
+    },
+    {
+      "id": "nagarro-h7a5274",
+      "file": "_H7A5274.jpg",
+      "hash": "e58e14742e8a1712",
+      "w": 5524,
+      "h": 3683,
+      "orientation": "landscape",
+      "description": "Three women in navy tees and a black Nagarro polo stand shoulder to shoulder in a white gallery-like interior, each with a hand on the mint loop cut-out held in front of them. A large turquoise and orange abstract canvas hangs behind.",
+      "tags": [
+        "loop-mark",
+        "brand-prop",
+        "indoor",
+        "standing",
+        "three-people",
+        "gallery-wall",
+        "posed"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "group"
+      },
+      "tone": "composed-brand",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.53,
+        "y": 0.25
+      }
+    },
+    {
+      "id": "nagarro-h7a5287",
+      "file": "_H7A5287.jpg",
+      "hash": "ccebadf1ec758057",
+      "w": 3354,
+      "h": 5031,
+      "orientation": "portrait",
+      "description": "Portrait-format shot of a woman in glasses and a black Nagarro polo holding the mint loop cut-out at chest height, standing against a white wall beside a turquoise and orange abstract painting. Large clean white areas right and below her.",
+      "tags": [
+        "single-person",
+        "loop-mark",
+        "portrait-orientation",
+        "indoor",
+        "standing",
+        "gallery-wall",
+        "white-space"
+      ],
+      "people": {
+        "count": 1,
+        "framing": "portrait"
+      },
+      "tone": "warm-professional",
+      "brightness": "bright",
+      "busyness": "clean",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.27
+      }
+    },
+    {
+      "id": "nagarro-h7a5413",
+      "file": "_H7A5413.jpg",
+      "hash": "7bc128c43f299a21",
+      "w": 5760,
+      "h": 3840,
+      "orientation": "landscape",
+      "description": "Three colleagues sit along one side of a marble meeting table with an open laptop and a phone, chins resting on hands, all looking off-camera at something being presented. Teal-tinted glass partition behind; a fourth person's forearm is cropped at the left edge.",
+      "tags": [
+        "meeting",
+        "indoor",
+        "seated",
+        "three-people",
+        "laptop",
+        "listening",
+        "glass-partition",
+        "caring-tee"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-medium"
+      },
+      "tone": "attentive-informal",
+      "brightness": "mid",
+      "busyness": "moderate",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.4
+      }
+    },
+    {
+      "id": "nagarro-h7a5471",
+      "file": "_H7A5471.jpg",
+      "hash": "b5c8ae4fdb0df714",
+      "w": 5760,
+      "h": 3840,
+      "orientation": "landscape",
+      "description": "Three women share a silver laptop on a beige sofa, two leaning in over the screen, in a bright white room with a large mint loop mark mounted on the wall behind them. Caring-values icons on their navy tees.",
+      "tags": [
+        "sofa",
+        "laptop",
+        "indoor",
+        "seated",
+        "three-people",
+        "loop-mark-wall",
+        "caring-icons",
+        "collaborative"
+      ],
+      "people": {
+        "count": 3,
+        "framing": "candid-medium"
+      },
+      "tone": "relaxed-collaborative",
+      "brightness": "bright",
+      "busyness": "moderate",
+      "text_safe": true,
+      "focal_point": {
+        "x": 0.48,
+        "y": 0.33
+      }
+    },
+    {
+      "id": "nagarro-h7a5481",
+      "file": "_H7A5481.jpg",
+      "hash": "9abbf91f07abeffc",
+      "w": 5576,
+      "h": 3717,
+      "orientation": "landscape",
+      "description": "Five colleagues arranged across a small white room — one on a purple beanbag with a laptop, two on a beige sofa, two men standing by a desk — under dark wood bookshelves and a mint loop mark on the wall. Shot from slightly above.",
+      "tags": [
+        "team-group",
+        "indoor",
+        "bookshelves",
+        "loop-mark-wall",
+        "five-people",
+        "caring-tee",
+        "high-angle",
+        "mixed-seating"
+      ],
+      "people": {
+        "count": 5,
+        "framing": "wide-environment"
+      },
+      "tone": "unified-informal",
+      "brightness": "bright",
+      "busyness": "busy",
+      "text_safe": false,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    }
+  ]
+}

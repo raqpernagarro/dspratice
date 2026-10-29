@@ -1,0 +1,222 @@
+/* =============================================================================
+   Nagarro Presentation — Design Tokens
+   The single source of truth for color, type, and spacing. Values mirror the
+   Figma design system variables and the brand standards (see Design.md).
+   ========================================================================== */
+
+/* ---- Brand typeface: Equip & Equip Extended ------------------------------ */
+@font-face {
+  font-family: "Equip";
+  src: url("../fonts/web/Equip-Light.woff2") format("woff2"),
+       url("../fonts/web/Equip-Light.woff") format("woff");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Equip";
+  src: url("../fonts/web/Equip-Regular.woff2") format("woff2"),
+       url("../fonts/web/Equip-Regular.woff") format("woff");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Equip";
+  src: url("../fonts/web/Equip-Medium.woff2") format("woff2"),
+       url("../fonts/web/Equip-Medium.woff") format("woff");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Equip";
+  src: url("../fonts/web/Equip-Bold.woff2") format("woff2"),
+       url("../fonts/web/Equip-Bold.woff") format("woff");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: "Equip Extended";
+  src: url("../fonts/web/EquipExtended-Light.woff2") format("woff2"),
+       url("../fonts/web/EquipExtended-Light.woff") format("woff");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Equip Extended";
+  src: url("../fonts/web/EquipExtended-Regular.woff2") format("woff2"),
+       url("../fonts/web/EquipExtended-Regular.woff") format("woff");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Equip Extended";
+  src: url("../fonts/web/EquipExtended-Medium.woff2") format("woff2"),
+       url("../fonts/web/EquipExtended-Medium.woff") format("woff");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Equip Extended";
+  src: url("../fonts/web/EquipExtended-Bold.woff2") format("woff2"),
+       url("../fonts/web/EquipExtended-Bold.woff") format("woff");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* ---- Tokens -------------------------------------------------------------- */
+:root {
+  /* Neutrals (Figma: Colors/Neutral/*) */
+  --color-black: #010716;
+  --color-white: #ffffff;
+
+  /* Navy scale — secondary/muted text & hairlines (Figma: Colors/Navy/500).
+     The token is theme-aware: a darker step on light surfaces, lighter on dark. */
+  --navy-500-on-light: #8893a5;
+  --navy-500-on-dark:  #c4c9d2;
+
+  /* Brand primaries (Nagarro) — confirmed from official brand SVGs in assets/.
+     Mint green is the signature accent; petrol black is the brand's true dark. */
+  --mint-green:   #47d7ac;
+  --petrol-black: #06041f;
+  --accent-dark:  #205463;   /* deep petrol-teal — used for emphasised body copy (e.g. note-05) */
+
+  /* "Caring values" expressive palette — one color per Nagarro value.
+     Source: assets/caring-icons/*. Use for value-themed accents only. */
+  --value-global:          #13294b; /* petrol blue */
+  --value-caring:          #2d807b; /* teal       */
+  --value-client-centric:  #2e008b; /* indigo     */
+  --value-intelligent:     #6240a8; /* purple     */
+  --value-non-hierarchical:#f8485e; /* coral red  */
+  --value-agile:           #f99068; /* peach      */
+  --value-responsible:     #06041f; /* petrol black */
+  /* Peach is the one value colour that fails as TEXT: #f99068 is 2.28:1 on
+     white, so portfolio/grid-21's award numerals were unreadable. Same hue,
+     darkened to clear 3:1. The fill token above is untouched — it is correct
+     behind white text and that is what it is for. */
+  --value-agile-ink:       #e0631f; /* peach, darkened for use as text */
+
+  /* ===== v2 token system (rebuilt from the new "Master Slides" Figma file) =====
+     Brand identity is unchanged (mint/black/white + Equip fonts); the type ramp,
+     muted-text model, spacing scale and corner radius were refreshed. Values below
+     come from the Figma variables (get_variable_defs on the core group). */
+
+  /* Foreground / muted / borders — now opacity steps of black, not a navy grey. */
+  --fg-100: #010716;          /* Figma fg/100  — primary text            */
+  /* Alpha raised from 80 (50%) to 94 (58%). At 50% this measured 3.79:1 on
+     white — below the 4.5:1 floor — and it carries the footer, the caption and
+     every piece of secondary text in all 229 templates, so it was the single
+     most widespread contrast failure in the product. 58% clears the floor at
+     4.8:1 while staying visibly secondary against --fg-100. */
+  --fg-50:  #01071694;        /* Figma fg/50   — muted / secondary text  */
+  /* fg/25 and fg/5 were used by 20-odd templates but never DECLARED here — only
+     in the dark theme. Every `var(--fg-25, rgba(1,7,22,.25))` therefore took its
+     literal fallback on light slides, and 22 modules rendered their page
+     numbers, index numerals and eyebrows at 1.8:1. Declared at 45%, which is
+     3.2:1 on white: still clearly secondary, and readable. */
+  --fg-25:  rgba(1, 7, 22, .45);  /* Figma fg/25 — de-emphasised numerals   */
+  --fg-5:   rgba(1, 7, 22, .05);  /* Figma fg/5  — subtle surface tint      */
+  --border-default: #010716bf;/* Figma border/default — hairlines (75%)  */
+  --bg-primary: #ffffff;      /* Figma bg/primary                        */
+  --accent-primary: #47d7ac;  /* Figma accent/primary (mint)             */
+
+  /* The rest of the Figma Theme ramp. Templates built after the tokens above
+     wrote these steps as raw rgba(1,7,22,…) — fine on white, but a raw value
+     cannot flip, so 54 templates kept black-at-60% text on a dark slide.
+     deck.css redeclares every one of these for the dark theme. */
+  --fg-75: rgba(1, 7, 22, .75);   /* Figma fg/75 */
+  --fg-60: rgba(1, 7, 22, .6);    /* Figma fg/60 — secondary body copy */
+  --fg-30: rgba(1, 7, 22, .3);    /* Figma fg/30 */
+  --fg-20: rgba(1, 7, 22, .2);    /* Figma fg/20 */
+  --fg-10: rgba(1, 7, 22, .1);    /* Figma fg/10 */
+  --fg-muted: #8893a5;            /* Figma fg/muted */
+  --bg-secondary:  rgba(255, 255, 255, .05); /* Figma bg/secondary */
+  --bg-overlay-50: rgba(255, 255, 255, .5);  /* Figma bg/overlay-50 */
+  --bg-overlay-25: rgba(255, 255, 255, .25); /* Figma bg/overlay-25 */
+  --bg-overlay-10: rgba(255, 255, 255, .1);  /* Figma bg/overlay-10 */
+  --accent-surface: #d1f5ea;      /* Figma accent/surface — mint tint */
+  /* Petrol-black used as a FILL (dark bars, bubbles, timeline blocks, chart
+     marks). Petrol on the dark theme's #010716 is ~1:1, so those fills vanished;
+     deck.css lifts this to Figma fg/20 in dark. Text in petrol still uses
+     --petrol-black directly. */
+  --fill-petrol: #06041f;
+  /* Neutral FILLS, kept separate from the text ramp: our text tokens --fg-50 /
+     --fg-25 are raised for contrast (58% / 45%), but a tile must keep Figma's
+     exact 50% / 25%. In dark, every neutral fill becomes the same alpha of
+     WHITE, as in Figma Theme/Dark; deck.css redeclares them. */
+  --fill-50: rgba(1, 7, 22, .5);
+  --fill-25: rgba(1, 7, 22, .25);
+  --fill-grey: #c4c9d2;   /* navy-300 tiles, bars, bubbles  → white 25% in dark */
+  --fill-mid:  #8893a5;   /* navy-500 tiles, bars, bubbles  → white 45% in dark */
+
+  /* Text that sits ON a filled surface — an active phase card, a stacked-bar
+     segment, a numbered badge, a mint panel. Those surfaces are painted from
+     --fg-100 or the --fin-* ramp, so they INVERT with the theme: dark in the
+     light theme, light in the dark one. Templates used to hardcode #fff there,
+     which is right in one theme and white-on-white in the other — the single
+     cause of every remaining dark-mode contrast failure across eleven modules.
+     Always the opposite of --fg-100, so it is legible in both.
+
+     Declared as a LITERAL, not as var(--bg-primary): a var() inside a custom
+     property's value is substituted where that property is DECLARED, so an
+     alias written here would resolve against :root's white and inherit it
+     unchanged into the dark theme. deck.css redeclares it per theme. */
+  --fg-on-solid: #ffffff;
+
+  /* Hairlines. Templates drew these as literal black alphas — rgba(1,7,22,.08)
+     through .32 — which is invisible on a dark slide: card outlines, table
+     rules and dashed connectors simply vanished, so a phase grid rendered as
+     four floating labels with one white box among them. Three steps, each
+     flipping to white in the dark theme (see deck.css), replace the ad-hoc
+     alphas: faint for table zebra rules, default for card and cell outlines,
+     strong for dashed emphasis. */
+  --hairline-faint:  rgba(1, 7, 22, .10);
+  --hairline:        rgba(1, 7, 22, .18);
+  --hairline-strong: rgba(1, 7, 22, .32);
+
+  /* Type families */
+  --font-display: "Equip Extended", "Hanken Grotesk", system-ui, sans-serif;
+  --font-body:    "Equip", "Hanken Grotesk", system-ui, sans-serif;
+
+  /* Type ramp (px) — Figma Heading/* (Equip Extended Medium, −2 tracking) and
+     Base/Text* (Equip Medium). line-height paired with each size. */
+  --fs-h1: 100px; --lh-h1: 108px;   /* Heading1 — cover hero      */
+  --fs-h2: 60px;  --lh-h2: 68px;    /* Heading2 — section title   */
+  --fs-h3: 48px;  --lh-h3: 56px;    /* Heading3 — slide heading   */
+  --fs-h5: 28px;  --lh-h5: 36px;    /* Heading5 — card title      */
+  --fs-text-xl: 20px; --lh-text-xl: 28px; /* Base/TextXL — lead body */
+  --fs-text-md: 16px; --lh-text-md: 24px; /* Base/TextMD — body/footer */
+  --ls-heading: -0.02em;  /* Heading/* tracking = -2% of size (e.g. -1.2px @ 60px) */
+  --ls-text: 0px;         /* Base/Text* tracking */
+
+  /* Weights (headings + body are Medium in the new system) */
+  --w-light: 300;
+  --w-regular: 400;
+  --w-medium: 500;
+  --w-bold: 700;
+
+  /* Spacing scale (Figma spacing/*) */
+  --space-2: 2px;   --space-6: 6px;   --space-8: 8px;   --space-16: 16px;
+  --space-20: 20px; --space-24: 24px; --space-32: 32px; --space-40: 40px;
+  --space-48: 48px;
+
+  /* Layout */
+  --radius: 15px;             /* Figma radius/15 — cards & image placeholders */
+  --stroke-thin: 0.5px;       /* Figma Stroke/thin */
+  --gap-2xxl: 24px;           /* Figma Gap/2xxl */
+  --frame-w: 1920px;
+  --frame-h: 1080px;
+  --margin-x: 40px;           /* new outer margin (was 84px in v1) */
+
+  /* ---- Back-compat aliases (kept so shared primitives.css / engine don't break) ---- */
+  --fs-3: 16px;   --lh-4: 24px;
+  --fs-8: 48px;   --lh-8: 56px;
+  --fs-9: 60px;   --lh-10: 68px;
+  --fs-12: 100px; --lh-12: 108px;
+  --fs-body: 16px;
+  --ls-1: -2px;   --ls-3: 0px;   --ls-body: 0px;
+  --pad-4xl: 28px;
+
+  /* Surround (letterbox area behind slides) */
+  --surround: #05070d;
+}
+
+/* --- Legacy aliases -----------------------------------------------------
+   The v2 ramp above replaced the old type scale. These two are still read by
+   css/deck.css (the deck chrome the product reuses), so they are kept rather
+   than leaving those rules to fall back to `normal` and shift the chrome. */
+:root {
+  --ls-3: 0px;
+  --ls-body: -0.48px;
+}

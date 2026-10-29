@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nagarro Presentations</title>
+
+  <!--
+    The front door.
+
+    Opening the server root used to land on the deck-authoring dashboard —
+    the older, internal tool — which is not what someone using the product is
+    looking for. The product owns "/" now; that tool has moved to
+    Deprecated/old-deck-app/ and is no longer served. Browsing the brand
+    library is covered by the product's own Templates page, which renders
+    every master template live.
+
+    A redirect rather than a copy of the product's home: one implementation,
+    and it keeps working if the product's entry point ever moves.
+  -->
+  <meta http-equiv="refresh" content="0; url=product/ui/index.html" />
+  <link rel="canonical" href="product/ui/index.html" />
+  <script>location.replace("product/ui/index.html");</script>
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: var(--petrol-black, #06041f);
+      color: #fff;
+      font-family: var(--font-body, system-ui), sans-serif;
+    }
+    a { color: var(--mint-green, #47d7ac); }
+  </style>
+</head>
+<body>
+  <!-- Only ever seen if both the redirect and the script are blocked. -->
+  <p>Opening the presentation studio… <a href="product/ui/index.html">Continue</a></p>
+</body>
+</html>

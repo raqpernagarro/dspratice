@@ -1,0 +1,496 @@
+[
+  {
+    "id": "corpus-chrome",
+    "title": "Predictive Maintenance and Reliability Engineering for Rolling Stock",
+    "slides": [
+      {
+        "id": "corpus-0-main-cover-01",
+        "order": 0,
+        "templateReference": {
+          "templateName": "main/cover-01",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "themeOverride": "dark",
+        "content": {
+          "title": "Predictive Maintenance and Reliability Engineering for Rolling Stock",
+          "subtitle": "A twelve-month programme",
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Predictive Maintenance and Reliability Engineering for Rolling Stock",
+            "page": "1"
+          },
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Predictive Maintenance and Reliability Engineering for Rolling Stock",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      },
+      {
+        "id": "corpus-1-finance-line-markers",
+        "order": 1,
+        "templateReference": {
+          "templateName": "finance/line-markers",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "content": {
+          "caption": "Financials",
+          "title": "GAAP Operating Profitability",
+          "statement": "We achieved GAAP operating profitability from operations of $620 million.",
+          "series": [
+            {
+              "values": [
+                210,
+                347,
+                483,
+                620
+              ],
+              "color": "#c4c9d2",
+              "width": 1.5
+            },
+            {
+              "values": [
+                210,
+                300,
+                400,
+                620
+              ],
+              "color": "#010716",
+              "width": 2.5,
+              "markers": [
+                {
+                  "label": "$210M"
+                },
+                {
+                  "label": "$300M"
+                },
+                {
+                  "label": "$400M"
+                },
+                {
+                  "label": "$620M"
+                }
+              ]
+            }
+          ],
+          "yTicks": [
+            {
+              "value": 175,
+              "label": "$175M"
+            },
+            {
+              "value": 350,
+              "label": "$350M"
+            },
+            {
+              "value": 525,
+              "label": "$525M"
+            },
+            {
+              "value": 700,
+              "label": "$700M"
+            }
+          ],
+          "xLabels": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Predictive Maintenance and Reliability Engineering for Rolling Stock",
+            "page": "2"
+          },
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Predictive Maintenance and Reliability Engineering for Rolling Stock",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      },
+      {
+        "id": "corpus-2-core-content-twocol",
+        "order": 2,
+        "templateReference": {
+          "templateName": "core/content-twocol",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "content": {
+          "caption": "Reliability",
+          "title": "Where reliability stands",
+          "subtitle": "Availability",
+          "intro": "Utilisation is measured monthly and reported against the agreed target. Utilisation is measured monthly and reported against the agreed target. Utilisation is measured monthly and reported against the agreed target. Utilisation is",
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Predictive Maintenance and Reliability Engineering for Rolling Stock",
+            "page": "3"
+          },
+          "body": [
+            "Single point of contact: a service manager acts as liaison officer for the full contract duration — intake, fulfillment, escalation, reporting. Every unfilled request is tracked with root-cause analysis and corrective reporting. Escalation runs two levels, with committed severity-linked response times, consistent with the wider governance model."
+          ],
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Predictive Maintenance and Reliability Engineering for Rolling Stock",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      },
+      {
+        "id": "corpus-3-portfolio-text-16",
+        "order": 3,
+        "templateReference": {
+          "templateName": "portfolio/text-16",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "themeOverride": "dark",
+        "content": {
+          "word": "Approve",
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Predictive Maintenance and Reliability Engineering for Rolling Stock",
+            "page": "4"
+          },
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Predictive Maintenance and Reliability Engineering for Rolling Stock",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      }
+    ]
+  },
+  {
+    "id": "corpus-overlong",
+    "title": "Overlong",
+    "slides": [
+      {
+        "id": "corpus-0-main-cover-01",
+        "order": 0,
+        "templateReference": {
+          "templateName": "main/cover-01",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "themeOverride": "dark",
+        "content": {
+          "title": "Overlong",
+          "subtitle": "Fields past their budget",
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Overlong",
+            "page": "1"
+          },
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Overlong",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      },
+      {
+        "id": "corpus-1-planning-grid-02",
+        "order": 1,
+        "templateReference": {
+          "templateName": "planning/grid-02",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "content": {
+          "caption": "01 · GOVERNANCE",
+          "title": "Operated as a service",
+          "subtitle": "Single point of contact: a service manager acts as liaison officer for the full contract duration — intake, fulfillment, escalation, reporting. Every unfilled request is tracked with root-cause analysis and corrective reporting. Escalation runs two levels, with committed severity-linked response times, consistent with the wider governance model.",
+          "cards": [
+            "Throughput",
+            "Coverage",
+            "Readiness",
+            "Response time",
+            "Capacity",
+            "Compliance",
+            "Retention"
+          ],
+          "ticks": [
+            "Today",
+            "June 2022",
+            "December 2022",
+            "June 2023",
+            "December 2023",
+            "June 2024",
+            "December 2024",
+            "Tomorrow"
+          ],
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Overlong",
+            "page": "2"
+          },
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Overlong",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      },
+      {
+        "id": "corpus-2-core-cards-row-5",
+        "order": 2,
+        "templateReference": {
+          "templateName": "core/cards-row-5",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "content": {
+          "caption": "Current state",
+          "title": "Single point of contact: a service manager acts as liaison officer for the full contract duration — intake, fulfillment, escalation, reporting. Every unfilled request is tracked with root-cause analysis and corrective reporting. Escalation ",
+          "subtitle": "Reliability",
+          "intro": "Availability is measured monthly and reported against the agreed target. Availability is measured monthly and reported agai",
+          "cards": [
+            {
+              "title": "Utilisation",
+              "body": "Throughput is measured monthly and reported against the agreed target. Throughput is measured monthly and reported against"
+            },
+            {
+              "title": "Coverage",
+              "body": "Readiness is measured monthly and reported against the agreed target. Readiness is measured monthly and reported against th"
+            },
+            {
+              "title": "Response time",
+              "body": "Capacity is measured monthly and reported against the agreed target. Capacity is measured monthly and reported against the"
+            },
+            {
+              "title": "Compliance",
+              "body": "Retention is measured monthly and reported against the agreed target. Retention is measured monthly and reported against th"
+            },
+            {
+              "title": "Reliability",
+              "body": "Availability is measured monthly and reported against the agreed target. Availability is measured monthly and reported agai"
+            }
+          ],
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Overlong",
+            "page": "3"
+          },
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Overlong",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      },
+      {
+        "id": "corpus-3-core-closing-single",
+        "order": 3,
+        "templateReference": {
+          "templateName": "core/closing-single",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "themeOverride": "dark",
+        "content": {
+          "title": "Thank you!",
+          "contactLabel": "Contact",
+          "email": "email@yourcompany.com",
+          "website": "yourcompany.com",
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Overlong",
+            "page": "4"
+          },
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Overlong",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      }
+    ]
+  },
+  {
+    "id": "corpus-content",
+    "title": "Content",
+    "slides": [
+      {
+        "id": "corpus-0-main-cover-01",
+        "order": 0,
+        "templateReference": {
+          "templateName": "main/cover-01",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "themeOverride": "dark",
+        "content": {
+          "title": "Content",
+          "subtitle": "What a layout can lose",
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Content",
+            "page": "1"
+          },
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Content",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      },
+      {
+        "id": "corpus-1-core-content-list-3",
+        "order": 1,
+        "templateReference": {
+          "templateName": "core/content-list-3",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "content": {
+          "caption": "Utilisation",
+          "title": "Decisions requested",
+          "subtitle": "Throughput",
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Content",
+            "page": "2"
+          },
+          "items": [
+            "Approve the hybrid operating model, group-wide from October",
+            "Release the capital and recurrent funding, with a stage gate at month six",
+            "Authorise immediate recruitment to fourteen posts",
+            "Receive a monthly dashboard from the operations director",
+            "Next checkpoint in February, reporting against phase one targets"
+          ],
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Content",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      },
+      {
+        "id": "corpus-2-main-quote-01",
+        "order": 2,
+        "templateReference": {
+          "templateName": "main/quote-01",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "themeOverride": "dark",
+        "content": {
+          "quote": "We cancel on the morning because a bed went to an emergency overnight. That is not a clinical failure — it is a design failure.",
+          "name": "A. Whitlock, Clinical Director",
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Content",
+            "page": "3"
+          },
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Content",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      },
+      {
+        "id": "corpus-3-core-closing-single",
+        "order": 3,
+        "templateReference": {
+          "templateName": "core/closing-single",
+          "templateVersion": 1,
+          "templatePackId": "main-template"
+        },
+        "themeOverride": "dark",
+        "content": {
+          "title": "Thank you!",
+          "contactLabel": "Contact",
+          "email": "email@yourcompany.com",
+          "website": "yourcompany.com",
+          "meta": {
+            "studio": "Product Studio",
+            "name": "Content",
+            "page": "4"
+          },
+          "footer": {
+            "col1": "Digital Design Strategy",
+            "col2": "Content",
+            "col3": "August 2026",
+            "copyright": "© 2026"
+          }
+        },
+        "manualOverrides": {},
+        "styleOverrides": {},
+        "sourceSlideRef": null,
+        "lastEditedBy": null,
+        "lastEditedAt": null
+      }
+    ]
+  }
+]

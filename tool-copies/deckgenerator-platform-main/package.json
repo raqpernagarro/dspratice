@@ -1,0 +1,33 @@
+{
+  "name": "nagarro-presentation-studio",
+  "version": "1.4.0",
+  "private": true,
+  "type": "module",
+  "description": "Nagarro Presentation Studio \u2014 build on-brand decks with AI, export to editable PowerPoint and PDF.",
+  "scripts": {
+    "start": "node product/application/server.js",
+    "setup": "npm install && npx playwright install chromium",
+    "update": "git pull --ff-only && npm install --omit=dev --no-audit --no-fund",
+    "auth:create-user": "node product/infrastructure/identity/create-user.js",
+    "photos:manifest": "node tools/build-slide-manifest.mjs",
+    "photos:caption": "node tools/caption-photos.mjs",
+    "templates:index": "node tools/generate-template-index.mjs",
+    "templates:validate": "node tools/validate-templates.mjs",
+    "templates:check": "npm run templates:index && npm run templates:validate",
+    "test": "node --test test/*.test.js",
+    "audit:dark": "node tools/audit-dark-mode.mjs && node tools/audit-dark-mode.mjs --theme=light && node tools/audit-dark-vanish.mjs"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "express": "^4.22.2",
+    "jszip": "^3.10.1",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.4.299",
+    "playwright": "^1.48.0",
+    "pptxgenjs": "^3.12.0",
+    "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.30.1"
+  }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Templates — Nagarro Presentations</title>
+
+  <!--
+    Templates Gallery — dense, application-style library.
+
+    Every preview is a genuine buildStage() render of the template's own
+    example content — the same technique Home/Library's thumbnails use
+    (approved decision F) — never a screenshot, a cache, or a separate
+    preview system. Category is the Service's computed grouping (decision B).
+
+    Layout contract: the app fills the viewport; the rail, page title, search
+    and filter dropdowns are fixed — ONLY the template grid scrolls.
+    Search/filter toggle `hidden` on existing cards; the grid is built
+    exactly once per page load.
+  -->
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/primitives.css" />
+  <link rel="stylesheet" href="/css/deck.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <link rel="stylesheet" href="app.css" />
+  <script>
+    // Applied before first paint so a stored choice never flashes the wrong
+    // theme. Absent attribute = auto (app.css follows the OS).
+    try { var t = localStorage.getItem("nps:theme");
+          if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body class="dashboard product tpl-body">
+  <main class="page page--library">
+    <header class="lib-head">
+      <div class="lib-head__row">
+        <h1 class="lib-head__title">Templates</h1>
+        <p class="lib-head__count" id="lib-count" aria-live="polite"></p>
+      </div>
+
+      <div class="lib-toolbar lib-toolbar--dense">
+        <div class="lib-search" role="search">
+          <input type="search" id="search-input" placeholder="Search templates"
+                 aria-label="Search templates" autocomplete="off" />
+        </div>
+        <!-- Category and family are dropdowns, not chip rails: 15 + 13 chips
+             scrolled sideways hid most of the options. Each menu lists every
+             option with its live count. -->
+        <div class="lib-filterbar">
+          <div class="lib-select" id="category-filter"></div>
+          <div class="lib-select" id="family-filter"></div>
+        </div>
+        <span class="lib-toolbar__spacer"></span>
+        <!-- Slide theme for every preview (thumbnails + fullscreen). Light shows
+             each template in its own theme; Dark renders them all dark. -->
+        <div class="lib-slidetheme" role="group" aria-label="Slide previews">
+          <span class="lib-slidetheme__label" aria-hidden="true">Slides</span>
+          <div class="theme-switch lib-slidetheme__switch">
+            <button type="button" class="theme-switch__btn lib-slidetheme__btn" data-slide-theme="light" aria-pressed="true">Light</button>
+            <button type="button" class="theme-switch__btn lib-slidetheme__btn" data-slide-theme="dark" aria-pressed="false">Dark</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="list-banner" hidden></div>
+
+    <div class="lib-scroll" id="lib-scroll" tabindex="-1">
+      <div class="tpl-grid" id="tpl-grid"></div>
+      <div class="lib-empty" id="lib-empty" hidden>
+        <p id="lib-empty-text">No templates match your search.</p>
+        <button type="button" class="btn btn--ghost" id="clear-filters">Clear filters</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Fullscreen preview overlay — Escape / ← → / click-outside; never a
+       separate page. -->
+  <div class="tpl-lightbox" id="preview-dialog" hidden>
+    <div class="tpl-lightbox__inner" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+      <header class="tpl-lightbox__bar">
+        <div class="tpl-lightbox__id">
+          <h2 id="preview-title"></h2>
+          <span class="tpl-category" id="preview-category"></span>
+        </div>
+        <div class="tpl-lightbox__act">
+          <!-- Same slide-theme setting as the toolbar switch (one state, two
+               controls); T toggles it from the keyboard while previewing. -->
+          <div class="lib-slidetheme lib-slidetheme--preview" role="group" aria-label="Slide theme">
+            <div class="theme-switch lib-slidetheme__switch">
+              <button type="button" class="theme-switch__btn lib-slidetheme__btn" data-slide-theme="light" aria-pressed="true" title="Light slide (T)">Light</button>
+              <button type="button" class="theme-switch__btn lib-slidetheme__btn" data-slide-theme="dark" aria-pressed="false" title="Dark slide (T)">Dark</button>
+            </div>
+          </div>
+          <!-- The one creation path that needs no Claude CLI. README has
+               promised "or start from a template" since the beginning and the
+               gallery was browse-only, so a template-first user had no way in
+               at all. createPresentation already existed with no UI caller. -->
+          <button type="button" class="btn btn--primary" id="preview-use">Start a deck from this</button>
+          <button type="button" class="tpl-lightbox__close" id="preview-close" aria-label="Close preview">&times;</button>
+        </div>
+      </header>
+
+      <div class="tpl-lightbox__body">
+        <button type="button" class="tpl-lightbox__nav tpl-lightbox__nav--prev" id="preview-prev"
+                aria-label="Previous template">&#8592;</button>
+        <div class="tpl-lightbox__stage" id="preview-stage"></div>
+        <button type="button" class="tpl-lightbox__nav tpl-lightbox__nav--next" id="preview-next"
+                aria-label="Next template">&#8594;</button>
+      </div>
+      <p class="tpl-lightbox__hint" id="preview-position"></p>
+    </div>
+  </div>
+
+  <script type="module" src="templates.js"></script>
+</body>
+</html>

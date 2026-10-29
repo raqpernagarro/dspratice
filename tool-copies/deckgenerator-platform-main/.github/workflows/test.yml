@@ -1,0 +1,85 @@
+# Runs the test suite on every push and pull request.
+#
+# The suite exists because several bugs shipped past a green local run that
+# nobody re-ran: an export alias that blanked the editor canvas, a prompt that
+# silently outgrew its cap, a viewer hardcoded to one port. Tests nobody runs
+# are worth very little, so this runs them.
+#
+# Playwright is a real dependency (the page smoke tests and the export runtime
+# both drive a browser), so Chromium is installed here too.
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      # The smoke tests open real pages; without a browser they cannot run at
+      # all, and skipping them here would defeat the point of having them.
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Test
+        run: npm test
+
+      # Cheap, deterministic, and catches the failure mode that keeps coming
+      # back: the composition prompt outgrowing its budget as the template
+      # library grows. Reported even when the suite passes.
+      - name: Template coverage
+        run: node tools/audit-template-coverage.mjs
+
+      # The corpus is regenerated rather than trusted: a fixture that has
+      # drifted from the templates it names would be checked happily and mean
+      # nothing.
+      - name: Build the corpus
+        run: |
+          node tools/build-corpus.mjs
+          git diff --exit-code test/fixtures/corpus.json
+
+      # Data-level sweep of the corpus. No browser, no server.
+      - name: Deck content
+        run: node tools/audit-decks.mjs --data test/fixtures/corpus.json --ci
+
+      # The rest need the product running: they render each slide through the
+      # exporter's own capture page, so a finding here is a finding in the
+      # .pptx. Started in the background and given a moment to bind the port.
+      - name: Start the studio
+        run: |
+          npm start &
+          for i in $(seq 1 60); do
+            curl -sf http://localhost:4600/product/export-runtime/capture.html >/dev/null && exit 0
+            sleep 1
+          done
+          echo "The studio did not start within 60s." >&2
+          exit 1
+
+      # Both themes must stay above the contrast floor on all 229 templates.
+      # These pass outright today, so they fail hard rather than on a baseline.
+      - name: Contrast, dark
+        run: node tools/audit-dark-mode.mjs
+      - name: Contrast, light
+        run: node tools/audit-dark-mode.mjs --theme=light
+
+      # Layout of every slide of every deck: escaping the frame, clipped text,
+      # text stacked on other text, holes. Baselined, because there are 26 known
+      # findings today and a check that is always red is a check someone turns
+      # off — which is how the product accumulated 190 of them unseen. Only NEW
+      # findings fail.
+      - name: Slide layout
+        run: node tools/audit-slide-layout.mjs --data test/fixtures/corpus.json --ci

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Export Jobs — Nagarro Presentations</title>
+
+  <!--
+    Export Jobs — Milestone M10 (WP9), UI Layer.
+
+    Backend is entirely WP9's own prior (backend-only) pass —
+    GET /api/exports already exists, filterable by presentationId/format,
+    paginated, workspace-scoped, with `size`/`stale` derived server-side.
+    This file is the UI Layer only.
+
+    Secondary screen, deliberately NOT in the primary nav — the app-shell
+    rail lists only its own destinations; Export Jobs, like Presentation
+    Detail before it, is reachable only by a direct link. The Workspace's
+    own "View all exports" entry (lib/workspace.js) renders its own
+    in-page modal instead of navigating here — this file's actual entry
+    point is the Editor's top-bar "Export" button (editor.js), which
+    requests the export then lands here, scoped to that presentation via
+    ?presentationId=, to watch progress and download (Product Layer Spec
+    §7 / UX Spec §04).
+
+    No search box, no sort control, no cancellation control — none of the
+    three are specified for this screen (UX Spec §13: "Search: not defined"
+    for Export Jobs; sort "exists only on Library at launch"; cancellation
+    isn't named among this screen's interactions at all, unlike Detail's
+    own panel, which keeps it).
+  -->
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/primitives.css" />
+  <link rel="stylesheet" href="/css/deck.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <link rel="stylesheet" href="app.css" />
+  <script>
+    // Applied before first paint so a stored choice never flashes the wrong
+    // theme. Absent attribute = auto (app.css follows the OS).
+    try { var t = localStorage.getItem("nps:theme");
+          if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body class="dashboard product">
+  <main class="page">
+    <header class="page-head">
+      <h1>Export Jobs</h1>
+      <p>See export activity across your workspace.</p>
+    </header>
+
+    <div class="lib-toolbar" id="jobs-toolbar">
+      <div class="lib-toolbar__row">
+        <label class="lib-sort">
+          <span>Presentation</span>
+          <select id="presentation-filter" aria-label="Filter by presentation">
+            <option value="">All presentations</option>
+          </select>
+        </label>
+        <div class="lib-filters" id="format-filter-group" role="group" aria-label="Filter by format">
+          <button type="button" class="chip" id="chip-format-all" aria-pressed="true">All formats</button>
+          <button type="button" class="chip" id="chip-format-pdf" aria-pressed="false">PDF</button>
+          <button type="button" class="chip" id="chip-format-pptx" aria-pressed="false">PPTX</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="list-banner" hidden></div>
+
+    <p class="lib-count" id="jobs-count" aria-live="polite"></p>
+
+    <div class="export-jobs-list" id="jobs-list"></div>
+
+    <div class="lib-more" id="jobs-more" hidden>
+      <button type="button" class="btn btn--ghost" id="load-more">Load more</button>
+    </div>
+  </main>
+
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+
+  <script type="module" src="export-jobs.js"></script>
+</body>
+</html>

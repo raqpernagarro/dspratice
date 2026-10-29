@@ -1,0 +1,27 @@
+{
+  "tool": "slide-layout",
+  "note": "Known findings. Re-record with --record-baseline after fixing some.",
+  "findings": [
+    "blank-region|AI Native  Technology Due Diligence for CXOs copy|2|strategy/grid# · div.v#f-st-tcell draws #px of nothing",
+    "blank-region|Breaking Up Atlas|10|planning/grid# · div.v#f-pl-scell draws #px of nothing",
+    "blank-region|Breaking Up Atlas|7|strategy/grid# · div.v#f-st-tcell draws #px of nothing",
+    "blank-region|H1 FY26 Half-Year Financial Review|12|strategy/grid# · div.v#f-st-tcell draws #px of nothing",
+    "blank-region|Lufthansa|6|planning/grid# · div.v#f-pl-scell draws #px of nothing",
+    "blank-region|Meridian Logistics Group — H1 2026 Board Review|2|strategy/grid# · div.v#f-st-tcell draws #px of nothing",
+    "blank-region|Meridian Platform Roadmap: September 2026 – February 2028|3|planning/cover · div.bcell draws #px of nothing",
+    "blank-region|Meridian Platform Roadmap: September 2026 – February 2028|7|strategy/grid# · div.v#f-st-tcell draws #px of nothing",
+    "blank-region|Meridian Platform Roadmap: September 2026 – February 2028|8|finance/data-table · div.fill draws #px of nothing",
+    "blank-region|Product Roadmap: September 2026 – February 2028|5|strategy/grid# · div.v#f-st-tcell draws #px of nothing",
+    "blank-region|Product Studio|5|planning/grid# · div.v#f-pl-scell draws #px of nothing",
+    "blank-region|Proof, Not Promises|3|planning/data# · div.v#f-pl-mc draws #px of nothing",
+    "blank-region|deck|5|planning/grid# · div.v#f-pl-scell draws #px of nothing",
+    "overflow|Crew Scheduling, Rebuilt|2|core/cards-row# · div.v#f-heading clipped #px down — “Current state\n      Where crew scheduling stan…”",
+    "overflow|From Reactive to Predictive: Rolling Stock Reliability 2026–2029|5|core/cards-row# · div.v#f-heading clipped #px down — “How it works\n      Predictive maintenance on o…”",
+    "overflow|Lufthansa|14|core/cards-grid# · div.v#f-heading clipped #px down — “Commercial alignment\n      Transparent, RfP-co…”",
+    "overflow|Lufthansa|5|core/toc-grid# · div.v#f-tocg-contents clipped #px down — “#\n      Governance & operating model\n    \n   …”",
+    "overflow|Lufthansa|6|planning/grid# · div.v#f-pl-headL clipped #px down — “# · GOVERNANCE AND OPERATING MODEL\n      DAS …”",
+    "overflow|Product Roadmap: September 2026 – February 2028|9|finance/stacked-bars · div.seg clipped #px down — “#…”",
+    "overflow|Proof, Not Promises|2|core/cards-row# · div.v#f-heading clipped #px down — “Credentials\n      Certified to the standards o…”",
+    "text-collision|Customer Data Platform: Build or Buy|2|strategy/grid# · text “#k” sits #% on top of “#k”"
+  ]
+}

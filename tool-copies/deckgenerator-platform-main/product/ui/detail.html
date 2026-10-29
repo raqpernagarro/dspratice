@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opening presentation…</title>
+
+  <!--
+    Presentation Detail is now the Presentation Workspace, which lives on the
+    Create surface at index.html?id=<uuid> — the rail stays put, and opening a
+    presentation no longer loads a document.
+
+    This page remains as a PERMALINK FORWARDER rather than being deleted.
+    Seven places already link here (Library cards, the editor's Back/Done, the
+    presenter's Exit, export-jobs rows, duplicate, plus any bookmark a user
+    already saved), and forwarding from one place keeps every one of them
+    working without editing them or breaking saved URLs.
+
+    `location.replace` is deliberate: the forwarder must not become a history
+    entry, or Back from the workspace would bounce through it.
+  -->
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="app.css" />
+  <script>
+    (function () {
+      var id = new URLSearchParams(location.search).get("id");
+      location.replace(id ? "index.html?id=" + encodeURIComponent(id) : "index.html");
+    })();
+  </script>
+  <script>
+    // Applied before first paint so a stored choice never flashes the wrong
+    // theme. Absent attribute = auto (app.css follows the OS).
+    try { var t = localStorage.getItem("nps:theme");
+          if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body class="dashboard product">
+  <noscript><p class="hint">Open <a href="index.html">Product Studio</a>.</p></noscript>
+</body>
+</html>
