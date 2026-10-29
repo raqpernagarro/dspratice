@@ -1,4 +1,4 @@
-# Nagarro Design Workspace (`unified-ds-tool`)
+# Nagarro Design Workspace: tool guide (`unified-ds-tool`)
 
 An internal tool for the Nagarro design systems practice: one place where sellers, managers and designers start any design-systems job, in the Nagarro Design look (dark, Equip type, the brand's glass 3D). The sidebar has five places:
 
@@ -12,7 +12,7 @@ The practice's own tools (the DS Configurator, the DSN site, Presentation Studio
 
 It is for Nagarro designers, consultants, delivery leads and sellers. `/` opens Home.
 
-**The client demo is a guided showcase we present in meetings, not a client portal.** It tells one story on a fictional company's design system: the challenge, an example system, one inconsistency, why it matters, the proposed fix, the review in code and Figma, AI using the system, and what an engagement could leave behind. Presenter notes open in a separate window; the shared tab never shows them. See [docs/client-demo.md](docs/client-demo.md).
+**The client demo is a guided showcase we present in meetings, not a client portal.** It tells one story on a fictional company's design system: the challenge, an example system, one inconsistency, why it matters, the proposed fix, the review in code and Figma, AI using the system, and what an engagement could leave behind. Presenter notes open in a separate window; the shared tab never shows them. See [docs/client-demo.md](client-demo.md).
 
 A separate **client-safe demo build** packages the client demo on the fictional Demo Brand, the scorecard and a landing page, with nothing internal in it. It is not deployed.
 
@@ -99,7 +99,7 @@ The same list is in the app at **Settings › About this tool**, so task pages d
 
 **Captured once, refreshed without tokens**
 - The Figma seed documents were read once through the Figma MCP, text only, on 22 Oct 2026: the offer deck, the Case Studies index and the FigJam strategy board. Client frames and the client footer were excluded.
-- Refresh uses the knowledge plugin, figma-cli or REST. See [docs/figma-reading.md](docs/figma-reading.md).
+- Refresh uses the knowledge plugin, figma-cli or REST. See [docs/figma-reading.md](figma-reading.md).
 
 **Simulated in the client demo** (labelled where an action could look live)
 - Scans of a client's repository and Figma file (they read a fictional sample system), pull requests and checks, the Figma review and apply, the files AI tools read, release checks and agent suggestions, the rule-based screen builder.
@@ -113,18 +113,18 @@ The same list is in the app at **Settings › About this tool**, so task pages d
 
 | Topic | Document |
 |---|---|
-| Trying the workspace (for Nuno and Rui) | [docs/try-it.md](docs/try-it.md) |
-| The journeys on Home and how to add one | [docs/journeys.md](docs/journeys.md) |
-| Sources, approval, scope, refresh, limits | [docs/knowledge-library.md](docs/knowledge-library.md) |
-| Reading Figma: plugin, REST, figma-cli, MCP, token costs | [docs/figma-reading.md](docs/figma-reading.md) |
-| Answering a real client request, end to end | [docs/opportunity-workflow.md](docs/opportunity-workflow.md) |
-| Decks on the Nagarro Master Slides engine | [docs/presentations.md](docs/presentations.md) |
-| Presenting the client demo: Prepare a client meeting, the story, playlists, notes window, reset | [docs/client-demo.md](docs/client-demo.md) |
-| Voice, terms and button verbs | [docs/writing.md](docs/writing.md) |
-| The client-safe demo build and its deploy checklist | [docs/demo-build.md](docs/demo-build.md) |
-| Getting the workspace to colleagues (GitHub, keys, what is never committed) | [docs/distribution.md](docs/distribution.md) |
-| Adding a source, a tool, a demo or a template mapping | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| Licences: Equip, Carolina's engine, the library sources, figma-cli | [LICENSES.md](LICENSES.md) |
+| Trying the workspace (for Nuno and Rui) | [docs/try-it.md](try-it.md) |
+| The journeys on Home and how to add one | [docs/journeys.md](journeys.md) |
+| Sources, approval, scope, refresh, limits | [docs/knowledge-library.md](knowledge-library.md) |
+| Reading Figma: plugin, REST, figma-cli, MCP, token costs | [docs/figma-reading.md](figma-reading.md) |
+| Answering a real client request, end to end | [docs/opportunity-workflow.md](opportunity-workflow.md) |
+| Decks on the Nagarro Master Slides engine | [docs/presentations.md](presentations.md) |
+| Presenting the client demo: Prepare a client meeting, the story, playlists, notes window, reset | [docs/client-demo.md](client-demo.md) |
+| Voice, terms and button verbs | [docs/writing.md](writing.md) |
+| The client-safe demo build and its deploy checklist | [docs/demo-build.md](demo-build.md) |
+| Getting the workspace to colleagues (GitHub, keys, what is never committed) | [docs/distribution.md](distribution.md) |
+| Adding a source, a tool, a demo or a template mapping | [CONTRIBUTING.md](../CONTRIBUTING.md) |
+| Licences: Equip, Carolina's engine, the library sources, figma-cli | [LICENSES.md](../LICENSES.md) |
 
 ## How it is built
 
@@ -140,7 +140,7 @@ The same list is in the app at **Settings › About this tool**, so task pages d
 - **Internal-only seeds**, including the knowledge library, sample opportunities and the client deny-list, are registered from `src/internal/register.ts`. The demo build swaps that module for an empty one, so none of it ships.
 - **Carolina's engine** is vendored unmodified in `public/vendor/nagarro-master-slides/`, with a version file and SHA-256 hashes. It renders only inside `slides.html`, an isolated frame, so its CSS never touches the shell.
 - **Look.** The shell is dark (design.nagarro.com): components use role tokens (`--n-surface`, `--n-fill`, `--n-band`, `--n-strong`, `--n-line`) in `src/styles/base.css`, never the ink/white primitives; client systems in `DemoScope` and the slides keep their own theme. The brand's 3D renders are `--n-art-*` tokens over `public/brand/3d/`.
-- **Brand tokens.** The shell's `--n-*` tokens alias the engine's tokens (`--fg-100`, `--accent-primary`, …) from `brand-tokens.css`. The shell uses the licensed Equip fonts (`public/fonts/equip`; see [LICENSES.md](LICENSES.md)).
+- **Brand tokens.** The shell's `--n-*` tokens alias the engine's tokens (`--fg-100`, `--accent-primary`, …) from `brand-tokens.css`. The shell uses the licensed Equip fonts (`public/fonts/equip`; see [LICENSES.md](../LICENSES.md)).
 
 ```
 src/
@@ -163,5 +163,5 @@ e2e/            Playwright specs for Edge
 
 - Health, readiness, accessibility, eval and usage figures in the samples are illustrative, not measured client results. The demo labels them "sample".
 - The template composer quotes the best-matching passage from an approved or draft source. It is a first draft, not an answer: a person must check that each quote answers the question before anything is published.
-- Seed approvals follow recorded verdicts only: the offer deck, the case studies index and the big idea line. Everything else starts as a draft with its owner. See [docs/knowledge-library.md](docs/knowledge-library.md).
+- Seed approvals follow recorded verdicts only: the offer deck, the case studies index and the big idea line. Everything else starts as a draft with its owner. See [docs/knowledge-library.md](knowledge-library.md).
 - The three source projects (`../demo tools/*`) and the font folders were only read. `node scripts/check-sources.mjs` verifies they are unchanged.
